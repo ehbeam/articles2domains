@@ -1,0 +1,2793 @@
+
+ properties manuscript? 
+ 
+ 
+ 8809320 
+ 1600 
+ Neuron 
+ Neuron 
+ 0896-6273 
+ 1097-4199 
+ 
+ 
+ 18817740 
+ 2742320 
+ NIHMS74833 
+ 10.1016/j.neuron.2008.09.006 
+ 
+ 
+ Article 
+ 
+ 
+ 
+ Neural mechanisms of emotion regulation: Evidence for two independent prefrontal-subcortical pathways 
+ 
+ 
+ 
+ 
+ Wager 
+ Tor D. 
+ 
+ 1 
+ 
+ 
+ 
+ Davidson 
+ Matthew L. 
+ 
+ 1 
+ 
+ 
+ 
+ Hughes 
+ Brent L. 
+ 
+ 1 
+ 
+ 
+ 
+ Lindquist 
+ Martin A. 
+ 
+ 2 
+ 
+ 
+ 
+ Ochsner 
+ Kevin N. 
+ 
+ 1 
+ 
+ 
+ 1 Department of Psychology, Columbia University 
+ 2 Department of Statistics, Columbia University 
+ 
+ Please address correspondence to: Tor D. Wager, Department of Psychology, Columbia University, 1190 Amsterdam Ave., New York, NY 10027, Email:  tor@psych.columbia.edu  Telephone: (212) 854-5318 
+ 
+ Author contributions: Design, T.W. and K.O.; data collection, B.H.; data analysis, T.W., B.H., M.D., and M.L.; writing, T.W., K.O., and B.H. Matlab code implementing mediation analyses is freely available at  http://www.columbia.edu/cu/psychology/tor/ . 
+ 
+ 
+ 
+ 6 
+ 11 
+ 2008 
+ 
+ 
+ 25 
+ 9 
+ 2008 
+ 
+ 
+ 25 
+ 9 
+ 2009 
+ 
+ 59 
+ 6 
+ 1037 
+ 1050 
+ 
+ 
+ This file is available for text mining. It may also be used consistent with the principles of fair use under the copyright law. 
+ 
+ 
+ 
+ 
+ Although prefrontal cortex has been implicated in the cognitive regulation of emotion, the cortical-subcortical interactions that mediate this ability remain poorly understood. To address this issue, we identified a right ventrolateral prefrontal region (vlPFC) whose activity correlated with reduced negative emotional experience during cognitive reappraisal of aversive images. We then applied a novel pathway-mapping analysis on subcortical regions to locate mediators of the association between vlPFC activity and reappraisal success (i.e. reductions in reported emotion). Results identified two separable pathways that together explained ~50% of the reported variance in self-reported emotion: 1) a path through nucleus accumbens that predicted  greater  reappraisal success, and 2) a path through ventral amygdala that predicted  reduced  reappraisal success (i.e., more negative emotion). These results provide direct evidence that vlPFC is involved in both the generation and regulation of emotion through different subcortical pathways, suggesting a general role for this region in appraisal processes. 
+ 
+ 
+ 
+ If our emotions are woven into the fabric of human life, then our ability to regulate them keeps us from coming unraveled. In the best of circumstances, successful regulation leaves us feeling frayed around the edges. In the worst of circumstances, regulatory failures take a severe toll and contribute to the genesis and symptomatology of many psychiatric disorders ( Davidson et al., 2000 ;  Phillips et al., 2003 ). 
+ In the past few years, brain-based models of emotion regulation have been developed that can be extended to clinical contexts. These models have established the prefrontal cortex as a key player in the cognitive regulation of emotion ( Davidson, 2002 ;  Ochsner and Gross, 2005 ). Numerous fMRI studies have observed increases in activity in the ventrolateral, dorsolateral, and dorsomedial prefrontal cortices (vlPFC, dlPFC, and dmPFC) when participants are instructed to deploy cognitive strategies that reduce negative emotional experience ( Ochsner and Gross, 2005 ). Perhaps the most well studied such strategy is reappraisal, which involves reinterpreting the meaning of affective stimuli in ways that alter their emotional impact. 
+ It is typically assumed that the beneficial effects of reappraisal are accomplished via interactions between PFC regions and subcortical networks related to emotional responding ( Beauregard et al., 2001 ;  Eippert et al., 2007 ;  Goldin et al., 2007 ;  Kalisch et al., 2006 ;  Kim and Hamann, 2007 ;  Ochsner et al., 2004 ;  Phan et al., 2005 ;  Urry et al., 2006 ;  van Reekum et al., 2007 ). According to this  mediation hypothesis  ( Figure 1A ), PFC activity reduces negative emotion by influencing subcortical systems implicated in affective appraisal and learning processes, which in turn impact reported emotional experience. 
+ Alternatively, the  direct pathway hypothesis  ( Figure 1A ) suggests that successful reappraisal is directly related to cortical activity and minimally impacts evolutionarily older subcortical systems. This hypothesis suggests that reappraisal—as a form of cognitive reinterpretation—primarily impacts cortical systems involved in either cognitive appraisals ( Barrett et al., 2007 ;  Ochsner and Barrett, 2001 ;  Scherer, 2001 ) or in assessing changes in one’s subjective emotional state ( McRae et al., 2008 ). Discriminating between the  mediation  and  direct  hypotheses is critical because it concerns how deeply reappraisal penetrates the emotional appraisal process. 
+ The results of some prior studies are consistent with the mediation hypothesis, but none have tested the complete mediation pathway and instead have examined only separate portions of it. For example, prefrontal correlates of reappraisal success ( Ochsner et al., 2002 ;  Ochsner et al., 2004 ;  Ohira et al., 2006 ;  Phan et al., 2005 ;  Urry et al., 2006 ), prefrontal sub-cortical correlations (reviewed in ( Ochsner and Gross, 2005 ,  2008 )) and subcortical activity-experience correlations ( Ochsner et al., 2004 ;  Phan et al., 2005 ) have all been reported. In part because these results come from separate analyses, the PFC and subcortical regions involved differ from study to study, and no coherent mediation model has emerged. What is needed is a direct, formal test of whether subcortical regions of interest (ROIs) mediate the relationship between key PFC regions and reappraisal success. 
+ In this paper, we tested alternative models of how PFC activity is related to reappraisal success. This relationship could be mediated by activity in subcortical regions of interest, or it could be direct, without mediation through subcortical pathways. Testing these alternative models entailed identifying candidate PFC regions using a conventional statistical parametric mapping analysis of correlates of reappraisal success, and then testing for mediation of the PFC-reappraisal success relationship in subcortical regions. 
+ If the relationship between PFC activity and reported emotional experience is subcortically mediated, we hypothesized that systems involved in negative or positive affect – or both – could be mediators ( Figure 1B ). On one hand, we predicted that the PFC could influence activity in regions associated with negative affect, such as the amygdala and insula ( Etkin and Wager, 2007 ;  Wager et al., in press ). The amygdala is the affect-related region most commonly modulated during reappraisal ( Ochsner and Gross, 2005 ,  2008 ); it has been implicated in detecting, attending to, and encoding into memory, affectively arousing and especially threatening stimuli ( Holland and Gallagher, 1999 ;  Phelps, 2006 ;  Whalen, 1998 ) and it is hyper-active across a range of anxiety disorders ( Etkin and Wager, 2007 ). 
+ On the other hand, we predicted that PFC could also influence activity in regions associated with positive affect, such as the nucleus accumbens (NAC) and nearby ventral striatum (VS). These regions have been consistently implicated in reward learning ( McClure et al., 2003 ;  Schultz, 2004 ), reward expectancies ( Breiter et al., 2001 ;  Cromwell and Schultz, 2003 ), and pain-diminishing placebo effects ( Scott et al., 2007 ;  Wager et al., 2007 ), as well as approach motivation more generally ( Tindell et al., 2006 ;  Wager et al., 2007 ). Striatal activity has been reported in reappraisal studies, although its functional role has not been clarified ( McRae et al., in press ;  Ochsner et al., 2002 ;  Ochsner et al., 2004 ;  van Reekum et al., 2007 ). 
+ Importantly, the PFC could be associated with activity in both kinds of cortical-subcortical pathways simultaneously. Because most studies have investigated brain-behavior relationships one brain region at a time, their results cannot be used to develop models in which two or more brain pathways make independent contributions to emotion regulation or any other behavior. Thus, in addition to providing direct tests of whether subcortical regions mediate the PFC-reappraisal success relationship, we developed an analysis strategy to parse the contributions of multiple brain pathways to a psychological measure of interest—in this case, reappraisal success. 
+ To this end, we developed a novel procedure for locating multiple brain mediators, which we term mediation effect parametric mapping (MEPM). The approach is built on standard approaches from structural equation modeling and can be used to test specific hypotheses about brain pathway-behavior relationships. The use of mediation analysis to test relationships among variables has a long history ( Baron and Kenny, 1986 ;  Hyman, 1955 ;  MacCorquodale and Meehl, 1948 ). What is new, however, is a) the construction of statistical parametric maps of mediation tests, which permits mapping of multiple brain regions that satisfy the formal criteria for mediators, and b) application of clustering methods to examine how multiple mediating regions are organized into networks. These developments allowed us to test whether multiple PFC-subcortical pathways make independent contributions to reappraisal success. 
+ 
+ Results 
+ We performed a series of analyses designed to identify prefrontal-subcortical pathways linked to reappraisal success. We defined reappraisal success as the decrease in reported emotion when applying a cognitive reappraisal strategy to aversive images (ReappNeg trials) vs. experiencing the natural emotional response to aversive images (LookNeg trials). Thus reappraisal success scores were the [LookNeg – ReappNeg] values for each participant. We chose emotion self-reports as an outcome because they are stable and reliable, they predict numerous mental and physical health outcomes ( Gross and Munoz, 1995 ;  Moskowitz, 2003 ;  Tugade et al., 2004 ), and no other measure provides a direct correlate of emotional experience. We applied MEPM and multivariate clustering methods to relate reappraisal success with reappraisal-related increases in brain activity—[ReappNeg – LookNeg] contrast values for each participant, which we refer to as reappraisal-related activation. 
+ Analyses of emotion reports showed that versive images evoked substantially stronger negative emotion reports (mean = 3.60 points, SE = 0.10) than neutral images (mean = 1.33, SE = 0.03; paired t-test t(35) = 22.3, p < .0001). Reappraisal of negative images resulted in robust reductions in emotion reports (ReappNeg mean = 2.65, SE = 0.10), an average reduction of 0.95 points, paired t(35) = 8.83, p < .0001; see  Supplementary Figure 2  and  Methods  for additional details). We refer to this reduction in reported emotion as  reappraisal success  in subsequent analyses. 
+ fMRI analysis proceeded in a sequential series of steps. (1) First, we identified regions showing significant reappraisal-related activation. (2) Then, we used standard statistical parametric mapping to locate voxels from Step 1 in which reappraisal-related activation predicted reappraisal success. From among the resulting regions, we focused specifically on the right vlPFC as a predictor in subsequent analyses. (3) The next step was to conduct mediation analysis in subcortical ROIs. We defined ROIs in the amygdala and NAC/VS and tested whether voxels in each region mediated the vlPFC-reappraisal success relationship. (4) To locate additional regions, we used MEPM to generate a whole-brain map of mediators (4a), and then used cluster analysis to group these mediators into coherent networks and tested their independence from one another (4b). (5) Finally, we considered whether other candidate PFC regions showed similar relationships with reappraisal success mediated by NAC and amygdala. 
+ 
+ 1. Reappraisal-related activations 
+ Results from the [ReappNeg – LookNeg] contrast are shown in  Fig. 2A  (orange/yellow) and  Supplementary Table 1 , controlling the expected false discovery rate (FDR) in whole brain search at  q  < .05 ( Genovese et al., 2002 ). Consistent with previous work, we observed increases in a number of PFC regions. Dorsal and ventral PFC were active bilaterally, including the inferior frontal junction (IFJ), inferior frontal gyrus (IFG), middle frontal gyrus (Brodmann’s Area [BA] 8/9), and anterior PFC (BA 10). Medial PFC regions included anterior cingulate (BA 24) and dorsomedial PFC (DMPFC) in and anterior to pre-SMA (BA 9). Posterior cortical regions included the inferior parietal lobule (IPL), angular gyrus, and middle and inferior temporal gyri extending into anterior temporal cortex (aTC). Activations appeared to be more reliable on the left, though we did not perform detailed analysis of laterality effects. Decreases during reappraisal (blue in  Fig. 2A ) were found in the parietal operculum, around SII, and in the parahippocampal cortex. 
+ 
+ 
+ 2. Identification of potential predictor regions: Correlates of reappraisal success 
+ Voxel-wise regression analyses identified 8 regions in which reappraisal-related activation was significantly predicted by reappraisal analysis, shown in  Figure 2B  and reported in detail in  Table 1  (p < .005 and k = 3 contiguous voxels; see  Methods  for details). Only voxels identified in Step 1 above were subjected to analysis. Reappraisal-success related regions included bilateral vlPFC (see also  Figure 2C ) and temporal regions, pre-SMA and DMPFC, left inferior parietal lobule, and right caudate. The cluster in right vlPFC, identified by its position on the inferior frontal gyrus on the mean normalized anatomical image for our participants, was used as the predictor region of interest in subsequent mediation analyses. Analysis steps 3 and 4a use this region as a frontal predictor region in MEPM analyses. Analysis steps 4b and 5 explore the relationships between right vlPFC and other cortical regions correlated with reappraisal success. 
+ We chose vlPFC as focus region for three reasons. First, vlPFC – and especially right vlPFC – is well-known as a region critical for cognitive control in general, and response inhibition or the selection of information in particular ( Aron and Poldrack, 2005 ;  Badre and Wagner, 2005 ;  Nee et al., 2007 ;  Phillips et al., 2003 ). Second, studies of reappraisal and other cognitive means of regulating affective responses ( Cunningham and Zelazo, 2007 ;  Lieberman et al., 2007 ) have consistently activated right vlPFC. Third, activation measures in vlPFC have been shown to be abnormal in emotional disorders ( Drevets et al., 1992 ;  Lawrence et al., 2004 ). This choice was necessary to search for mediators, but we did not expect it to be the only important PFC region. As we describe below, subsequent analyses searched for additional PFC regions whose relationship with emotion was mediated by subcortical ROIs. 
+ We also conducted a whole-brain exploratory search for correlations with reappraisal success to locate regions that may have been missed in our more constrained masked analysis (q < .05 FDR-corrected, p < .0005). The results largely confirmed those in our constrained search, including bilateral vlPFC and pre-SMA, but also identified additional regions shown in  Supplementary Figure 3 , including the dorsal thalamus, caudate body, and caudate head extending into the NAC/VS, parahippocampal cortex, cingulate isthmus (which bridges the posterior cingulate and medial temporal cortices), and area around periaqueductal gray (PAG). Whole brain mediation and network analyses (Section 4a) identified some of these regions as significant mediators, and we explored their relationship to the key ROIs in our study in Section 4b below. 
+ 
+ 
+ 3. Testing the amygdala and NAC/VS as mediators using  a priori  ROIs 
+ With the right vlPFC region identified as the predictor, and reappraisal success as the outcome ( Figure 1 ), the next step in the MEPM analysis was to search, voxel-by-voxel, for mediators of the rvlPFC-reappraisal success relationship within two subcortical ROIs that were of  a priori  interest: the amygdala and NAC/VS. 
+ For a variable to be considered a significant mediator, we required that it reach statistical significance in each of three tests (at p < .005 and 3 contiguous voxels in each), which were conducted as part of the same path model. First, the predictor variable (rvlPFC) must be related to the mediator (voxel in amygdala or NAC/VS), which we refer to in the text and all Figures/Tables as path  a . Secondly, the mediator must be directly related to the outcome (reappraisal success), controlling for vlPFC (path  b ). Finally, the mediation effect must be significant (effect  a*b ), which amounts to a statistical test on the product of the  a  and  b  path coefficients, or equivalently, a test that the predictor-outcome relationship (vlPFC-reappraisal success) is significantly reduced by including the mediator in the path model. The threshold of p < .005 and 3 contiguous voxels controlled the family-wise error rate at p < .05 corrected in each region (see  Methods ). 
+ According to standard conventions for mediation analysis, we refer to the overall predictor-outcome relationship as effect  c , and the direct effect controlling for the mediator as  c’ . Thus, the  a*b  effect tests the significance of  c – c’ . In statistical reports and figures,  a  refers to the vlPFC-mediator relation,  b  refers to the direct mediator-reappraisal success relation (controlling for vlPFC), and  a*b  refers to the mediation effect. 
+ For the amygdala analysis, we manually identified amygdala ROIs in gray matter on the average T1 image from our sample after warping to Montreal Neurologic Institute (MNI) space (left: [−24 0 −23], 5958 mm 3 ; right: xyz = [21 0 −22], 4354 mm 3  ( Figure 3A ; see  Methods ). MEPM analysis identified a portion of ventral left amygdala that negatively mediated the vlPFC-reappraisal success relation (xyz = [−24 0 −32], 319 mm 3 ). This portion of the left amygdala was positively associated with vlPFC, but predicted  reduced  reappraisal success:  a amy  = .57, Z = 4.02,  b amy  = −.24, Z = −5.01, and  ab amy  = −0.14, Z = −3.30, all p < .001. This finding suggests that the vlPFC plays a role in  generating  negative affective responses through the amygdala, perhaps due to PFC-related appraisal processes that support the generation of negative responses to emotional pictures.  Supplementary Figure 4  shows path diagrams and scatterplots for path analyses in both amygdala and NAC/VS. In this and other Figures showing ROI analyses, the region contiguous with the significant cluster is shown at p < .005 (dark blue), p < .01 (light blue), and p < .05 (purple; all 2-tailed), including the extent beyond the ROI boundary. 
+ For the NAC/VS analysis, we manually identified ROIs in NAC/VS gray matter adjacent to the posterior ventral caudate head (left: xyz = [−10 14 −9], 2765 mm 3 ; right: xyz = [7 14 −9], 2818 mm 3  ( Figure 3A ). MEPM analysis identified a left NAC/VS region that  positively  mediated the vlPFC-reappraisal success relation (xyz = [−10 14 −14], 106 mm 3 ). The left NAC/VS was positively associated with both vlPFC and reappraisal success:  a NAC/VS  = .42, Z = 2.86,  b NAC/VS  =.29, Z = 3.20, and  ab NAC/VS  = 0.12, Z = 3.04, all p < .002.  Supplementary Figure 4  shows the significant region and contiguous voxels at p < .005 (yellow), p < .01 (orange), and p < .05 (pink; all 2-tailed). 
+ We then tested whether each region was a significant mediator of rvlPFC-reappraisal success correlations while controlling for effects attributable to the other region. We averaged over voxels in each region and included both amygdala and NAC/VS in the same path model. This analysis tests whether the results, shown in  Figure 3 , indicated that each subcortical pathway makes an independent contribution to reappraisal success. rvlPFC was positively associated with both amygdala ( a amy  = .42, SE = .15, p < .01) and NAC/VS ( a NAC/VS  = .57, SE = .17, p < .001). Consistent with the individual mediation analyses, the two subcortical regions had opposite associations with reappraisal success: increasing amygdala activity was associated with reduced success ( b amy  = −.19, SE = .06, p < .001), whereas increasing NAC/VS activity was associated with increased success ( b NAC/VS  = .18, SE = .09, p < .05). Finally, both regions were significant mediators ( ab amy  = −0.11, Z = −2.83, p = .01;  ab NAC/VS  = 0.07, Z = 2.31, p = .002), indicating that each explains a part of the rvlPFC-reappraisal success covariance while controlling for effects attributable to the other mediator. 
+ Because each pathway had an opposite effect on reappraisal success, this suggests that the rvlPFC-reappraisal success correlation is partially masked by their opposing effects. The correlation between vlPFC and reappraisal success was only moderately significant (r = .43, p = .018) without controlling for any additional regions, and was much stronger (r = 0.66, p < .0001) when controlling for amygdala activity. 
+ These results demonstrate the advantage of the mediation approach over a simple bivariate (i.e., two-variable, no mediators or confounding variables) correlation approach. To more fully illustrate this advantage, we tested bivariate correlations with reappraisal success in the amygdala and NAC/VS. The left panel of  Figure 4A  shows the results in the amygdala ROIs (again including contiguous significant voxels extending outside the ROI), demonstrating significant negative correlations with reappraisal success (peak r = −.54, p < .005 one-tailed;  Figure 4D ). However, a small subset of voxels show significant effects in the amygdala ROIs (1 voxel at p < .005, 3 at p < .01, and 5 at p < .05, one-tailed).  Figure 4B  shows direct amygdala-reappraisal success associations, controlling for right vlPFC. Much stronger effects are apparent (32 voxels in the amygdala at p < .005, 44 at p < .01, and 78 at p < .05, Two-tailed;  Figure 4F ). The NAC/VS showed strong positive correlations with reappraisal success ( Figure 4E , p < .0004, whole-brain FDR corrected q < .05), which were somewhat reduced but still strongly significant after controlling for vlPFC ( Figure 4F ). Overall, the results confirm our prior expectations that amygdala and NAC/VS activation would show negative and positive brain-behavior correlations, respectively, and they demonstrate the value of the path modeling approach. 
+ 
+ 
+ 4. Identifying mediating networks localized with MEPM analysis 
+ One important issue with the preceding results is that activity in other emotion-related regions might also play a mediating role in the vlPFC-reappraisal success relationship. In order to examine how the amygdala and NAC/VS fit into distributed networks that might underlie reappraisal success, we performed a whole-brain search for mediators of the rvlPFC-reappraisal success relationship. Then, significant regions from this mediation effect map were subjected to component analysis and clustering into interconnected networks. Finally, the average contrast values within each network were entered into a path model as mediating variables, with one mediator per network. This analysis tested, whether multiple distributed networks make independent contributions to reappraisal success. 
+ Results of the whole-brain search for mediators are shown in  Figure 5A  on medial and limbic surfaces (left and center panels, respectively) and on sagittal and coronal slices (right panel). These included several regions with positive indirect effects, including NAC/VS and neighboring subgenual cingulate and ventral striatum, pre-SMA, precuneus, superior frontal gyrus, dorsal caudate, and the cingulate isthmus. Regions showing negative indirect effects included bilateral amygdala, ventral anterior insula, rostral dorsal anterior cingulate (rdACC), and two regions in the subthalamic zone (near the ventral thalamus and hypothalamus). Stereotaxic coordinates and statistics for all mediators are shown in  Table 2 . 
+ Cluster analysis combined with nonparametric inference (( Etkin and Wager, 2007 ); see  Supplementary Materials  for details) revealed evidence of two clusters, one consisting of the positive mediators (yellow in  Fig. 5B ), including NAC/VS, and the other of the negative ones (blue in  Fig. 5B ), including amygdala. These networks are shown in the context of the path model in  Fig. 5B . Regions in each network are shown on brain surfaces, with solid black lines connecting pairs of regions that are significantly correlated (q < .05 FDR-corrected) and whose correlation is not mediated by any single other region. Thus, grouping the set of positive mediators and the set of negative ones seemed to provide a sensible first-order grouping of the results, and further sub-division was not warranted by the data. 
+ To assess the overall organization of these regions and their relationship with vlPFC activity and reappraisal success, we next averaged over voxels from all the regions within in each network to obtain average [ReappNeg – LookNeg] contrast values for each network. We included the average scores from each network in the mediation model. This step was employed to avoid multi-colinearity problems that make many multivariable SEM models inestimable or unstable and difficult to interpret. Path coefficients and standard errors are shown in  Figure 5B . As before, both the positive and negative mediating networks were positively correlated with rvlPFC, but their direct effects on reappraisal success had opposite signs: the amygdala/insula/rdACC network (blue) was associated with reduced success, and the NAC/VS/cingulate isthmus/pre-SMA/precuneus network was associated with increased success. Scatterplots and estimates of the probability distribution of the indirect effects ( a*b,  see  Methods ) are shown for each network in  Fig. 5C . 
+ 
+ 
+ 5. Search for additional prefrontal predictor regions with MEPM analysis 
+ In our previous analyses, we chose right vlPFC as a frontal predictor or ‘seed’ region based on prior anatomical and functional evidence. A natural question, however, is whether other frontal regions are similarly related to emotional experience through the cortical-subcortical pathways we describe. The MEPM analysis framework also provides a facility for searching for these mediated regions (i.e., regions that satisfy all requirements for mediated regions), given a chosen outcome and mediating pathway. We searched for frontal regions mediated by each of left NAC/VS and left amygdala (averaging over voxels in each region) controlling for the other (see  Methods  for details). The results of each analysis are shown in  Figure 6 , and coordinates and statistics for each significant region are listed in  Supplementary Table 1 . The regions include the frontal regions that are part of the network shown in  Figure 5 , including pre-SMA and SFS, as well as bilateral vlPFC and several other regions on the medial wall: medial frontal pole (MFP) and ventromedial PFC, including subgenual cingulate (SGACC) and medial orbitofrontal cortices (OFC). Notably, the rostral medial PFC was also strongly, positively correlated with reappraisal success in the bivariate correlation analysis ( Supplementary Figure 2 ), providing additional support for the involvement of the medial frontal cortex in successful downregulation of negative emotion. Thus, as expected, the right vlPFC is part of a set of frontal regions whose activation during reappraisal predicts drops in reported experience, to the degree that they co-activate with NAC/VS. 
+ 
+ 
+ 
+ Discussion 
+ Previous studies of reappraisal of negative emotional stimuli have found activations in a number of prefrontal cortical areas, reductions of amygdala activity, and changes in reported emotion ( Ochsner and Gross, 2005 ,  2008 ). However, the full path model ( Figure 1 ) linking these effects has not been tested. Furthermore, reappraisal success and related outcomes have typically been regressed against brain activity one region (or voxel) at a time, precluding the development of models in which multiple pathways make independent contributions. We addressed these issues by developing and applying Mediation Effect Parametric Mapping (MEPM), the voxel-by-voxel analysis of formal mediation effects in a path-modeling framework. Specifically, we addressed a) whether the prefrontal-emotional response relationship was direct or instead mediated via subcortical brain systems involved in emotional appraisal, and b) whether multiple subcortical pathways might make separable contributions to successful reappraisal. 
+ Our findings both replicated prior work and provided information that brain regions implicated in reappraisal are organized into at least two independent cortical-subcortical networks. Replicated findings include: a) reappraisal-related increases in multiple frontal, parietal, and temporal regions (reviewed in ( Ochsner and Gross, 2005 )), b) decreases in the amygdala correlated with self-reported negative affect, and c) correlations of prefrontal activation with reappraisal success. 
+ Of the eight brain regions both activated and correlated with reappraisal success, the right vlPFC was of particular interest, because of its association in previous studies with reappraisal and other cognitive forms of emotion regulation ( Cunningham and Zelazo, 2007 ;  Kim and Hamann, 2007 ;  Lieberman et al., 2007 ;  Ochsner et al., 2004 ), selection and inhibition of information in general ( Aron and Poldrack, 2005 ;  Nee et al., 2007 ) and its dysfunction in clinical populations ( Phillips et al., 2003 ). Mediation analyses showed that reappraisal-induced activation in this region was positively associated with activity in both amygdala and NAC/VS, and that both of these regions independently mediated the relationship between vlPFC and reported reappraisal success. Successful regulation was related to both increases in the NAC/VS pathway and decreases in the amygdala pathway. 
+ 
+ Implications of dual routes for reappraisal effects on emotion 
+ The finding that two independent networks mediated the impact of prefrontal cortex on emotional experience suggests that reappraisal success can be understood in terms of how PFC controls the nature and relative balance of negative and positive appraisals of a given stimulus. This interpretation is supported by our findings that PFC activity is associated with at least two subcortical pathways, one including NAC/VS and the other including the amygdala. Though NAC/VS and amygdala activity are not expected to be pure markers of positive and negative emotion ( Cromwell and Schultz, 2003 ;  Jensen et al., 2003 ;  Levita et al., 2002 ;  Paton et al., 2006 ), recent meta-analyses suggest that activity in NAC/VS and amygdala are biased toward positive and negative affective experience, respectively ( Etkin and Wager, 2007 ;  Wager et al., in press ). Thus, a plausible interpretation of our mediation results is that two processes are engaged by vlPFC: A negative appraisal process that leads to the generation of negative emotional responses to the stimuli and involves the amygdala, and a positive appraisal process that leads to effective positive reappraisal, and involves the NAC/VS. Successful reappraisal therefore involves both dampening activity in the PFC-amygdala pathway, and increasing activity in the PFC-NAC/VS pathway. 
+ The idea that the NAC/VS is involved in cognitive emotion change is, to our knowledge, a new development in understanding emotion regulation. Although striatal activity has been implicated in cognitive reappraisal of negative emotion, a functional role for this region has not previously been identified ( McRae et al., in press ;  Ochsner et al., 2002 ;  Ochsner et al., 2004 ;  van Reekum et al., 2007 ). 
+ Also novel is that PFC activity can be related to negative appraisal processes and amygdala increases. This diverges from some findings in other studies of emotion regulation, which have reported negative ventromedial PFC-amygdala connectivity ( Johnstone et al., 2007 ;  Urry et al., 2006 ). These differences may relate to differences in the regulatory strategies employed. For example, one kind of reappraisal accentuates positive potential interpretations, as when one imagines that a sick person might soon be well. Another type of reappraisal might blunt the negativity of a stimulus, as when one imagines that an image of a mutilated body was taken on a movie set rather than at the scene of an accident. Finally, a third type might involve dissociation or distancing from the contents of a stimulus. Here, it is noteworthy that our reappraisal training focused largely on generating  positive  reappraisals. By contrast, prior reappraisal instructions have either given equal emphasis to positive-generation and negative-blunting appraisals ( Johnstone et al., 2007 ;  Ochsner et al., 2002 ;  Ochsner et al., 2004 ;  Phan et al., 2005 ;  Urry et al., 2006 ) or have emphasized distancing and detachment ( Eippert et al., 2007 ;  Kalisch et al., 2005 ). Linking specific cognitive strategies to separable mediators of regulatory effects and their effects on measures of emotional responding (see  Supplementary Materials  for extended discussion) will be important for future research. 
+ 
+ 
+ Implications for the role of prefrontal cortex in emotional appraisal 
+ The finding of both negative and positive appraisal-related pathways also has implications for the role that PFC plays in the generation and regulation of emotion. It is commonly assumed that frontal activation during reappraisal reflects ‘cool’ emotion-dampening processes ( Metcalfe and Mischel, 1999 ). An alternative view is that PFC is involved in the appraisal process itself, with the type of appraisal (positive or negative) determined by the specific cognitions involved ( Lazarus, 1991 ). Consider that bilateral vlPFC is activated by both positive and negative emotion-induction tasks (often in tandem with subcortical activation ( Kober et al., in press )), that it shows heightened activity in major depression ( Drevets et al., 1992 ) that decreases with successful treatment ( Brody et al., 1999 ;  Brody et al., 2001 ;  Goldapple et al., 2004 ), and that its activity increases when both decreasing and increasing negative emotion via reappraisal ( Eippert et al., 2007 ;  Kim and Hamann, 2007 ;  Ochsner et al., 2004 ). This all supports an appraisal-process view of the vlPFC. The present findings of positive associations between vlPFC and both amygdala and NAC/VS activity, with opposite effects on reappraisal success, suggests that the information-processing performed by the vlPFC (perhaps related to the selection among elements of the scene and/or different possible affective interpretations) both generated negative emotion and mitigated it during reappraisal (for additional discussion, see  Supplementary Material ). 
+ This prefrontal ‘appraisal-process’ hypothesis helps explain why correlations between PFC and reappraisal success may not have been more commonly reported. If the PFC is associated with both positive and negative appraisals, the two opposing effects can effectively cancel each other out, resulting in weak overall PFC-reappraisal connections. This is known in the path analysis literature as a suppression effect ( MacKinnon et al., 2000 ). Our findings are consistent with the view that a negative appraisal-related PFC-amygdala pathway suppresses an otherwise strong positive PFC-reappraisal success relationship. The ‘appraisal-process’ hypothesis also helps understand why few studies have reported correlations between the magnitudes of self-reported emotion and amygdala activity ( Abercrombie et al., 1998 ;  Ochsner et al., 2004 ;  Phan et al., 2005 ;  Schaefer et al., 2002 ). Here we showed that a strong negative relationship between amygdala and reported emotion was masked by a positive influence on both amygdala and reported emotion from vlPFC, through another pathway (the NAC/VS pathway). This positive influence from PFC effectively obscured the negative amygdala-emotion experience relationship, which was significant but could not be detected until the influence of PFC was removed. 
+ 
+ 
+ Implications of network analyses for understanding cognition-emotion interactions 
+ It has been increasingly recognized that higher-order cognitive processes like appraisal arise from information processing within large-scale distributed networks ( Cole and Schneider, 2007 ;  Kober et al., in press ;  Schmitz and Johnson, 2007 ). The present paper supported this view in two ways. Our whole-brain MEPM revealed that the amygdala and NAC/VS were parts of two larger networks ( Figure 5B ) that appear to operate in a partially independent manner to support cognitive reappraisal. The first network involved the amygdala and other regions associated with negative emotion, including the lateral OFC, anterior insula, and rostral dorsal ACC (see the  Supplementary Material  for an extended discussion). The second network involved the NAC/VS and regions implicated in action selection and memory, including the pre-SMA, precuneus, and subgenual and retrosplenial cingulate cortices. The positive association of vlPFC with activity in these two networks is consistent with the idea that that reappraisal success involves both limiting negative appraisals and generating positive appraisal by retrieving appropriate information from memory. 
+ The notion that psychological processes typically map onto distributed systems also suggests that the vlPFC may be part of a larger distributed cortical network involved in cognitive construal. Here, we found evidence supporting that hypothesis. We conducted additional MEPM analyses that specified the amygdala and NAC/VS as mediators and searched for other frontal predictor regions whose impact on reappraisal success was mediated by these subcortical regions. This analysis identified other frontal regions that show the same relationship with subcortical pathways as right vlPFC ( Figure 6 ), including left vlPFC, superior frontal sulcus, and regions of medial PFC associated with amygdala reductions in other studies ( Johnstone et al., 2007 ;  Urry et al., 2006 ). Though it was necessary for the MEPM analysis to specify a single seed region—the right vlPFC—these additional analyses provide evidence for distributed prefrontal control networks. 
+ 
+ 
+ Alternative models for PFC-subcortical-reappraisal interactions 
+ Although this study advances our knowledge of the regions mediating PFC-emotion relationships, it is limited in ways that may fruitfully be addressed in future studies. A chief limitation is that we estimated the mediation effect on the basis of naturally occurring variance over subjects. This is suboptimal since we do not have experimental control over this variability; but under the standard assumptions that all our subjects have the same functional anatomy and that inter-subject differences do not affect the coupling between dependent variables, we can interpret our mediation effects in terms of the functional pathways tested here. 
+ However, because we did not experimentally manipulate the brain, alternative path models may also be consistent with the data—particularly those that involve different patterns of causal relationships. For example, amygdala activity related to negative emotional appraisals could perhaps signal the need for regulatory control and trigger activation of the PFC, which in turn activates the negative emotion-reducing NAC/VS pathway. We think this unlikely, however, because the largest projections are from PFC to amygdala rather than vice versa ( Pitkanen, 2000 ), and there is direct evidence that PFC plays an important role in modulating amygdala responses ( Davis, 1992 ;  Milad and Quirk, 2002 ), whereas we know of no direct evidence that supports the idea that the amygdala regulates the PFC. 
+ Another alternative involves common influences of un-modeled variables on the variables in the mediation model, which can cause variables to be correlated even without a direct functional anatomical link between the two regions. For example, endogenous variation in diffuse neuromodulatory systems such as dopamine, opioids, etc. could affect both PFC and NAC/VS activity in a similar way, causing activity measures in these regions to be correlated. Future work may serve to address these issues directly by combining the path modeling methods we present here with direct experimental manipulation of the PFC and/or amygdala through brain stimulation, which would allow a stronger basis for drawing causal inferences. 
+ Future studies could also expand on the work we present here by investigating how pathway strength is moderated by other variables, such as clinical diagnosis, personality, genetic differences ( Munafo et al., 2008 ), and sex ( McRae et al., in press ). We found that the pathways we report were not moderated by sex (data not shown), but a complete test requires studies designed specifically to target this issue. Likewise, future work could focus on manipulating other aspects of reappraisal, such as the use of different strategies (e.g., cognitive reappraisal vs. distraction or self-distancing) and the regulation of different kinds of responses (e.g., to aversive vs. appetitive stimuli), which have begun to be addressed in other papers ( Eippert et al., 2007 ;  Goldin et al., 2007 ;  Johnstone et al., 2007 ;  Kim and Hamann, 2007 ;  Ochsner et al., 2004 ;  van Reekum et al., 2007 ). 
+ 
+ 
+ 
+ Conclusions 
+ In sum, this study shows evidence for a distributed set of lateral frontal, medial frontal, and orbitofrontal regions that together orchestrate reappraisal of the meaning of emotional events. Our results suggest that there are at least two separable pathways linking prefrontal cortical activity with reductions in negative emotion during reappraisal: one through the NAC/VS, which may generate positive appraisals, and one through amygdala, which may generate or enhance negative appraisals. These results suggest that it may be important to consider each of these functional pathways when examining the role of frontal-subcortical systems in emotion. 
+ 
+ 
+ Methods 
+ 
+ Participants 
+ Thirty healthy right-handed participants ( M  age = 22.3 years, 18 female) were recruited in compliance with the human subjects regulations of Columbia University and paid US$20/hour. Handedness was assessed with the Edinburgh Handedness Inventory, and eligibility was assessed with a general health questionnaire and fMRI safety screening form. 
+ 
+ 
+ Materials and procedures 
+ 
+ Stimuli and task conditions 
+ 48 aversive images were selected from the International Affective Picture Set (IAPS; Lang, Greenwald, Bradley, & Hamm, 1993; mean normative valence = 2.24, mean normative arousal = 6.28). The images were a subset of those used in  Ochsner, et al. (2004) . 24 neutral images were also selected from the set (valence = 5.27, arousal = 3.51). An additional set of 18 aversive images and 7 neutral images were used during a training session. These images were presented during fMRI scanning (~12° visual angle), and participants viewed each image only once. 
+ Images were grouped into three conditions. In the LookNeu condition, participants viewed neutral images. In the LookNeg condition, participants viewed aversive images. In both conditions, participants were asked to view the image, understand its content, and allow themselves to experience/feel any emotional response it might elicit. In the ReappNeg condition, participants viewed aversive images, and were asked to  reappraise  the emotional value of those images so that the emotional impact was less negative. More specifically, they were instructed to generate a positive interpretation of the scene depicted in each picture that reduced the emotional impact, as in previous published work from our laboratory ( Ochsner et al. 2002 ,  2004 ). A comprehensive pre-scanning training procedure was used to assure that participants understood the cue-task associations and the reappraisal strategy (see  Supplementary Materials ). The assignment of negative images to conditions was randomized and counterbalanced across subjects. 
+ Before presentation of each image, participants viewed a cue that signaled both the image type (aversive or neutral) and the instruction type (Look or Reappraise). Cues were white shapes—a circle, a square, and a triangle (~0.5° visual angle; see  Supplementary Figure 1 )—presented on a black background. The assignment of shape to condition was counterbalanced across participants. 
+ 
+ 
+ fMRI task design 
+ Previous studies of reappraisal have not separated brain activity related to anticipation and instruction processing, stimulus viewing, and picture rating, and a goal of our task design was to provide the ability to estimate separately brain activation magnitude related to each of these three phases of the image viewing and rating process. To accomplish this, a partial trial design was employed ( Ollinger et al., 2001 ;  Stern et al., 2007 ). Within each task condition, LookNeu, LookNeg, and ReappNeg, three different trial types were used: full trials, anticipation-only trials, and stimulus-only trials (see  Supplementary Figure 1 ). 
+ On full trials, a 2 s condition cue was followed by a 4 s anticipatory interval during which a fixation cross was presented on the screen. The image was subsequently presented for 8-s. Following image presentation, a fixation cross was presented during a 4 or 7 s jittered inter-stimulus interval (ISI; uniform distribution of 4 and 7 s intervals). Following the ISI period, the words “how negative do you feel?” appeared on-screen for 2.1 s, and participants were asked to rate negative affect on a five-point scale by pressing a button with one of five fingers on a button-response unit (1 = “not at all negative,” indicated by a thumb button press, up to 5 = “extremely negative,” indicated by a fifth-finger button press). Following the rating, a 4 or 7 s jittered ISI concluded the trial. 
+ The anticipation-only trials consisted of cue, anticipatory, and rating intervals. The stimulus-only trials were identical to the full trials, except that the 4 s anticipation interval was omitted. This design allowed us to construct predictors for Cue-, Anticipation-, and Image-related brain activity related to each task condition in the General Linear Model (GLM) that were uncorrelated enough to provide efficient estimates of activation in each phase of the trial for each emotion condition (see  Supplementary Material ). Negative emotion ratings did not differ between full and stimulus-only trials (see  Supplementary Material ). 
+ 
+ 
+ 
+ Data acquisition and analysis 
+ For space reasons, fMRI acquisition and analysis procedures are described only briefly here. Details on all procedures are provided in the  Supplementary Materials . 
+ Whole-brain fMRI data were acquired on a 1.5T GE Signa Twin Speed Excite HD scanner (GE Medical Systems). Functional and anatomical images were acquired with a T2*-sensitive EPI BOLD sequence with a TR of 2000 ms, TE of 40 ms, flip angle of 60°, field of view of 22 cm, 24 slices and 3.44 × 3.44 × 4.5 mm voxels. Stimulus presentation and data acquisition were controlled using E-Prime software (PST Inc.). An LCD projector displayed stimuli on a back-projection screen mounted in the scanner suite. Responses were made with the right hand via a 5-finger button response unit with a molded hand brace (Avotec Inc. and Resonance Technologies). 
+ Functional images were subjected to standard preprocessing using FSL (FMRIB Centre, University of Oxford) and SPM2 (Wellcome Department of Cognitive Neurology, UCL) software, and first-level (within-participant) statistical analysis using SPM2. Briefly, separate regressors in the general linear model were specified for fMRI responses to the cue, anticipation, stimulus viewing, and rating response periods. Values for the [ReappNeg image viewing – LookNeg image viewing] contrast were subjected to second-level robust random effects analysis (Wager, Keller, Lacey, & Jonides, 2005) to localize regions activated during reappraisal and regions in which activity correlated with reappraisal success. 
+ The Mediation Effect Parametric Map (MEPM) analysis is based on a standard 3-variable path model ( Baron and Kenny, 1986 ) with a bootstrap test for the statistical significance of the product  a*b  ( Efron and Tibshirani, 1993 ;  Shrout and Bolger, 2002 ), as diagrammed in  Figure 1 . MEPM analysis was conducted on [ReappNeg – LookNeg] contrast values. For ROI analyses in amygdala and NAC, the primary chosen threshold of p < .005 controlled the false positive rate below p < .05 corrected in each ROI. 
+ The same threshold was used for exploratory whole-brain mediation analyses, which located multiple candidate mediators of the VLPFC -reappraisal success relationship. After locating multiple regions that were positive and negative mediators of the VLPFC-reappraisal success relationship, we sought to identify functional networks of interconnected regions. We adopted a procedure of PCA-based dimension reduction followed by clustering of regions into functional networks used in several previous papers ( Kober et al., in press ;  Wager et al., 2007 ). This procedure used a nonparametric permutation test to assess whether there is significant grouping of regions into clusters (networks), and to identify brain regions that belong to each network. The null hypothesis of no inter-region clustering was rejected, and a two-cluster solution provided the best fit, suggesting that there may be at least two independent functional networks related to reappraisal success. To test whether these networks were independent mediators of reappraisal success, we calculated average fMRI contrast values across voxels belonging to each network for each participant, and entered average values for each of the two networks as mediators in our path models. 
+ In a final analysis, we used the MEPM approach to localize frontal regions whose relationship with reappraisal success was mediated by subcortical activity. We performed voxel-wise searches for frontal regions whose [ReappNeg – LookNeg] contrast values were mediated (significant  a*b  effect) by average contrast values over voxels in each of the amygdala and NAC/VS. 
+ 
+ 
+ 
+ Supplementary Material 
+ 
+ 01 
+ 
+ 
+ 
+ 
+ 
+ 
+ This is a PDF file of an unedited manuscript that has been accepted for publication. As a service to our customers we are providing this early version of the manuscript. The manuscript will undergo copyediting, typesetting, and review of the resulting proof before it is published in its final citable form. Please note that during the production process errors may be discovered which could affect the content, and all legal disclaimers that apply to the journal pertain. 
+ 
+ 
+ 
+ We would like to thank Niall Bolger for helpful discussion on path analysis, and the authors of SPM software for making it freely available. This paper was made possible with the support of NIH Grant MH076137 (K.O.), NIH Grant MH076136 (T.W.), and NSF 0631637 (T.W.) 
+ 
+ 
+ References 
+ 
+ 
+ 
+ 
+ Abercrombie 
+ HC 
+ 
+ 
+ Schaefer 
+ SM 
+ 
+ 
+ Larson 
+ CL 
+ 
+ 
+ Oakes 
+ TR 
+ 
+ 
+ Lindgren 
+ KA 
+ 
+ 
+ Holden 
+ JE 
+ 
+ 
+ Perlman 
+ SB 
+ 
+ 
+ Turski 
+ PA 
+ 
+ 
+ Krahn 
+ DD 
+ 
+ 
+ Benca 
+ RM 
+ 
+ 
+ Davidson 
+ RJ 
+ 
+ 
+ Metabolic rate in the right amygdala predicts negative affect in depressed patients 
+ Neuroreport 
+ 1998 
+ 9 
+ 3301 
+ 3307 
+ 9831467 
+ 
+ 
+ 
+ 
+ 
+ 
+ Aron 
+ AR 
+ 
+ 
+ Poldrack 
+ RA 
+ 
+ 
+ The cognitive neuroscience of response inhibition: relevance for genetic research in attention-deficit/hyperactivity disorder 
+ Biol Psychiatry 
+ 2005 
+ 57 
+ 1285 
+ 1292 
+ 15950000 
+ 
+ 
+ 
+ 
+ 
+ 
+ Badre 
+ D 
+ 
+ 
+ Wagner 
+ AD 
+ 
+ 
+ Frontal lobe mechanisms that resolve proactive interference 
+ Cereb Cortex 
+ 2005 
+ 15 
+ 2003 
+ 2012 
+ 15788702 
+ 
+ 
+ 
+ 
+ 
+ 
+ Baron 
+ RM 
+ 
+ 
+ Kenny 
+ DA 
+ 
+ 
+ The moderator-mediator variable distinction in social psychological research: conceptual, strategic, and statistical considerations 
+ J Pers Soc Psychol 
+ 1986 
+ 51 
+ 1173 
+ 1182 
+ 3806354 
+ 
+ 
+ 
+ 
+ 
+ 
+ Barrett 
+ LF 
+ 
+ 
+ Mesquita 
+ B 
+ 
+ 
+ Ochsner 
+ KN 
+ 
+ 
+ Gross 
+ JJ 
+ 
+ 
+ The Experience of Emotion 
+ Annu. Rev. Psychol 
+ 2007 
+ 58 
+ 7.1 
+ 7.31 
+ 
+ 
+ 
+ 
+ 
+ 
+ Beauregard 
+ M 
+ 
+ 
+ Levesque 
+ J 
+ 
+ 
+ Bourgouin 
+ P 
+ 
+ 
+ Neural correlates of conscious self-regulation of emotion 
+ J Neurosci 
+ 2001 
+ 21 
+ RC165 
+ 11549754 
+ 
+ 
+ 
+ 
+ 
+ 
+ Breiter 
+ HC 
+ 
+ 
+ Aharon 
+ I 
+ 
+ 
+ Kahneman 
+ D 
+ 
+ 
+ Dale 
+ A 
+ 
+ 
+ Shizgal 
+ P 
+ 
+ 
+ Functional Imaging of Neural Responses to Expectancy and Experience of Monetary Gains and Losses 
+ Neuron 
+ 2001 
+ 30 
+ 619 
+ 639 
+ 11395019 
+ 
+ 
+ 
+ 
+ 
+ 
+ Brody 
+ AL 
+ 
+ 
+ Saxena 
+ S 
+ 
+ 
+ Silverman 
+ DHS 
+ 
+ 
+ Alborzian 
+ S 
+ 
+ 
+ Fairbanks 
+ LA 
+ 
+ 
+ Phelps 
+ ME 
+ 
+ 
+ Huang 
+ SC 
+ 
+ 
+ Wu 
+ HM 
+ 
+ 
+ Maidment 
+ K 
+ 
+ 
+ Baxter 
+ LR 
+ 
+ 
+ Brain metabolic changes in major depressive disorder from pre-to post-treatment with paroxetine 
+ Psychiatry Research: Neuroimaging 
+ 1999 
+ 91 
+ 127 
+ 139 
+ 
+ 
+ 
+ 
+ 
+ 
+ Brody 
+ AL 
+ 
+ 
+ Saxena 
+ S 
+ 
+ 
+ Stoessel 
+ P 
+ 
+ 
+ Gillies 
+ LA 
+ 
+ 
+ Fairbanks 
+ LA 
+ 
+ 
+ Alborzian 
+ S 
+ 
+ 
+ Phelps 
+ ME 
+ 
+ 
+ Huang 
+ SC 
+ 
+ 
+ Wu 
+ HM 
+ 
+ 
+ Ho 
+ ML 
+ 
+ 
+ Regional Brain Metabolic Changes in Patients With Major Depression Treated With Either Paroxetine or Interpersonal Therapy Preliminary Findings 
+ (Am Med Assoc) 
+ 2001 
+ 631 
+ 640 
+ 
+ 
+ 
+ 
+ 
+ 
+ Cole 
+ MW 
+ 
+ 
+ Schneider 
+ W 
+ 
+ 
+ The cognitive control network: Integrated cortical regions with dissociable functions 
+ Neuroimage 
+ 2007 
+ 37 
+ 343 
+ 360 
+ 17553704 
+ 
+ 
+ 
+ 
+ 
+ 
+ Cromwell 
+ HC 
+ 
+ 
+ Schultz 
+ W 
+ 
+ 
+ Effects of Expectations for Different Reward Magnitudes on Neuronal Activity in Primate Striatum 
+ Journal of Neurophysiology 
+ 2003 
+ 89 
+ 2823 
+ 2838 
+ 12611937 
+ 
+ 
+ 
+ 
+ 
+ 
+ Cunningham 
+ WA 
+ 
+ 
+ Zelazo 
+ PD 
+ 
+ 
+ Attitudes and evaluations: a social cognitive neuroscience perspective 
+ Trends Cogn Sci 
+ 2007 
+ 11 
+ 97 
+ 104 
+ 17276131 
+ 
+ 
+ 
+ 
+ 
+ 
+ Davidson 
+ RJ 
+ 
+ 
+ Anxiety and affective style: role of prefrontal cortex and amygdala 
+ Biological Psychiatry 
+ 2002 
+ 51 
+ 68 
+ 80 
+ 11801232 
+ 
+ 
+ 
+ 
+ 
+ 
+ Davidson 
+ RJ 
+ 
+ 
+ Putnam 
+ KM 
+ 
+ 
+ Larson 
+ CL 
+ 
+ 
+ Dysfunction in the Neural Circuitry of Emotion Regulation-A Possible Prelude to Violence 
+ 2000 
+ 591 
+ 594 
+ 
+ 
+ 
+ 
+ 
+ 
+ Davis 
+ M 
+ 
+ 
+ The Role of the Amygdala in Fear and Anxiety 
+ Annual Reviews in Neuroscience 
+ 1992 
+ 15 
+ 353 
+ 375 
+ 
+ 
+ 
+ 
+ 
+ 
+ Drevets 
+ WC 
+ 
+ 
+ Videen 
+ TO 
+ 
+ 
+ Price 
+ JL 
+ 
+ 
+ Preskorn 
+ SH 
+ 
+ 
+ Carmichael 
+ ST 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ A functional anatomical study of unipolar depression 
+ Journal of Neuroscience 
+ 1992 
+ 12 
+ 3628 
+ 1527602 
+ 
+ 
+ 
+ 
+ 
+ 
+ Efron 
+ B 
+ 
+ 
+ Tibshirani 
+ R 
+ 
+ 
+ An Introduction to the Bootstrap 
+ 1993 
+ (Chapman & Hall/CRC) 
+ 
+ 
+ 
+ 
+ 
+ 
+ Eippert 
+ F 
+ 
+ 
+ Veit 
+ R 
+ 
+ 
+ Weiskopf 
+ N 
+ 
+ 
+ Erb 
+ M 
+ 
+ 
+ Birbaumer 
+ N 
+ 
+ 
+ Anders 
+ S 
+ 
+ 
+ Regulation of emotional responses elicited by threat-related stimuli 
+ Hum Brain Mapp 
+ 2007 
+ 28 
+ 409 
+ 423 
+ 17133391 
+ 
+ 
+ 
+ 
+ 
+ 
+ Etkin 
+ A 
+ 
+ 
+ Wager 
+ TD 
+ 
+ 
+ Functional neuroimaging of anxiety: a meta-analysis of emotional processing in PTSD, social anxiety disorder, and specific phobia 
+ Am J Psychiatry 
+ 2007 
+ 164 
+ 1476 
+ 1488 
+ 17898336 
+ 
+ 
+ 
+ 
+ 
+ 
+ Genovese 
+ CR 
+ 
+ 
+ Lazar 
+ NA 
+ 
+ 
+ Nichols 
+ T 
+ 
+ 
+ Thresholding of statistical maps in functional neuroimaging using the false discovery rate 
+ Neuroimage 
+ 2002 
+ 15 
+ 870 
+ 878 
+ 11906227 
+ 
+ 
+ 
+ 
+ 
+ 
+ Goldapple 
+ K 
+ 
+ 
+ Segal 
+ Z 
+ 
+ 
+ Garson 
+ C 
+ 
+ 
+ Lau 
+ M 
+ 
+ 
+ Bieling 
+ P 
+ 
+ 
+ Kennedy 
+ S 
+ 
+ 
+ Mayberg 
+ H 
+ 
+ 
+ Modulation of Cortical-Limbic Pathways in Major Depression: Treatment-Specific Effects of Cognitive Behavior Therapy 
+ Archives of General Psychiatry 
+ 2004 
+ 61 
+ 34 
+ 14706942 
+ 
+ 
+ 
+ 
+ 
+ 
+ Goldin 
+ PR 
+ 
+ 
+ McRae 
+ K 
+ 
+ 
+ Ramel 
+ W 
+ 
+ 
+ Gross 
+ JJ 
+ 
+ 
+ The Neural Bases of Emotion Regulation: Reappraisal and Suppression of Negative Emotion 
+ Biol Psychiatry 
+ 2007 
+ 
+ 
+ 
+ 
+ 
+ 
+ Gross 
+ JJ 
+ 
+ 
+ Munoz 
+ RF 
+ 
+ 
+ Emotion Regulation and Mental Health 
+ Clinical Psychology: Science and Practice 
+ 1995 
+ 2 
+ 151 
+ 164 
+ 
+ 
+ 
+ 
+ 
+ 
+ Holland 
+ PC 
+ 
+ 
+ Gallagher 
+ M 
+ 
+ 
+ Amygdala circuitry in attentional and representational processes 
+ Trends in Cognitive Sciences 
+ 1999 
+ 3 
+ 65 
+ 73 
+ [Record as supplied by publisher] 
+ 10234229 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hyman 
+ HH 
+ 
+ 
+ Survey Design and Analysis: Principles, Cases, and Procedures 
+ 1955 
+ (Free Press) 
+ 
+ 
+ 
+ 
+ 
+ 
+ Jensen 
+ J 
+ 
+ 
+ McIntosh 
+ AR 
+ 
+ 
+ Crawley 
+ AP 
+ 
+ 
+ Mikulis 
+ DJ 
+ 
+ 
+ Remington 
+ G 
+ 
+ 
+ Kapur 
+ S 
+ 
+ 
+ Direct Activation of the Ventral Striatum in Anticipation of Aversive Stimuli 
+ Neuron 
+ 2003 
+ 40 
+ 1251 
+ 1257 
+ 14687557 
+ 
+ 
+ 
+ 
+ 
+ 
+ Johnstone 
+ T 
+ 
+ 
+ van Reekum 
+ CM 
+ 
+ 
+ Urry 
+ HL 
+ 
+ 
+ Kalin 
+ NH 
+ 
+ 
+ Davidson 
+ RJ 
+ 
+ 
+ Failure to regulate: counterproductive recruitment of top-down prefrontal-subcortical circuitry in major depression 
+ J Neurosci 
+ 2007 
+ 27 
+ 8877 
+ 8884 
+ 17699669 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kalisch 
+ R 
+ 
+ 
+ Wiech 
+ K 
+ 
+ 
+ Critchley 
+ HD 
+ 
+ 
+ Seymour 
+ B 
+ 
+ 
+ O'Doherty 
+ JP 
+ 
+ 
+ Oakley 
+ DA 
+ 
+ 
+ Allen 
+ P 
+ 
+ 
+ Dolan 
+ RJ 
+ 
+ 
+ Anxiety Reduction through Detachment: Subjective, Physiological, and Neural Effects 
+ Journal of Cognitive Neuroscience 
+ 2005 
+ 17 
+ 874 
+ 883 
+ 15969906 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kalisch 
+ R 
+ 
+ 
+ Wiech 
+ K 
+ 
+ 
+ Herrmann 
+ K 
+ 
+ 
+ Dolan 
+ RJ 
+ 
+ 
+ Neural correlates of self-distraction from anxiety and a process model of cognitive emotion regulation 
+ J Cogn Neurosci 
+ 2006 
+ 18 
+ 1266 
+ 1276 
+ 16859413 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kim 
+ SH 
+ 
+ 
+ Hamann 
+ S 
+ 
+ 
+ Neural correlates of positive and negative emotion regulation 
+ J Cogn Neurosci 
+ 2007 
+ 19 
+ 776 
+ 798 
+ 17488204 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kober 
+ H 
+ 
+ 
+ Barrett 
+ LF 
+ 
+ 
+ Joseph 
+ J 
+ 
+ 
+ Bliss-Moreau 
+ E 
+ 
+ 
+ Lindquist 
+ K 
+ 
+ 
+ Duncan 
+ S 
+ 
+ 
+ Mize 
+ J 
+ 
+ 
+ Wager 
+ TD 
+ 
+ 
+ Networks of Emotion: Functional parcelation and pathway analysis from meta-analytic data 
+ (in press) 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lawrence 
+ NS 
+ 
+ 
+ Williams 
+ AM 
+ 
+ 
+ Surguladze 
+ S 
+ 
+ 
+ Giampietro 
+ V 
+ 
+ 
+ Brammer 
+ MJ 
+ 
+ 
+ Andrew 
+ C 
+ 
+ 
+ Frangou 
+ S 
+ 
+ 
+ Ecker 
+ C 
+ 
+ 
+ Phillips 
+ ML 
+ 
+ 
+ Subcortical and ventral prefrontal cortical neural responses to facial expressions distinguish patients with bipolar disorder and major depression 
+ Biological Psychiatry 
+ 2004 
+ 55 
+ 578 
+ 587 
+ 15013826 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lazarus 
+ RS 
+ 
+ 
+ Cognition and motivation in emotion 
+ Am Psychol 
+ 1991 
+ 46 
+ 352 
+ 367 
+ 2048794 
+ 
+ 
+ 
+ 
+ 
+ 
+ Levita 
+ L 
+ 
+ 
+ Dalley 
+ JW 
+ 
+ 
+ Robbins 
+ TW 
+ 
+ 
+ Nucleus accumbens dopamine and learned fear revisited: a review and some new findings 
+ Behavioural Brain Research 
+ 2002 
+ 137 
+ 115 
+ 127 
+ 12445718 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lieberman 
+ MD 
+ 
+ 
+ Eisenberger 
+ NI 
+ 
+ 
+ Crockett 
+ MJ 
+ 
+ 
+ Tom 
+ SM 
+ 
+ 
+ Pfeifer 
+ JH 
+ 
+ 
+ Way 
+ BM 
+ 
+ 
+ Putting feelings into words: affect labeling disrupts amygdala activity in response to affective stimuli 
+ Psychol Sci 
+ 2007 
+ 18 
+ 421 
+ 428 
+ 17576282 
+ 
+ 
+ 
+ 
+ 
+ 
+ MacCorquodale 
+ K 
+ 
+ 
+ Meehl 
+ PE 
+ 
+ 
+ On a distinction between hypothetical constructs and intervening variables 
+ Psychological Review 
+ 1948 
+ 55 
+ 307 
+ 321 
+ 
+ 
+ 
+ 
+ 
+ 
+ MacKinnon 
+ DP 
+ 
+ 
+ Krull 
+ JL 
+ 
+ 
+ Lockwood 
+ CM 
+ 
+ 
+ Equivalence of the mediation, confounding and suppression effect 
+ Prev Sci 
+ 2000 
+ 1 
+ 173 
+ 181 
+ 11523746 
+ 
+ 
+ 
+ 
+ 
+ 
+ McClure 
+ SM 
+ 
+ 
+ Berns 
+ GS 
+ 
+ 
+ Montague 
+ PR 
+ 
+ 
+ Temporal Prediction Errors in a Passive Learning Task Activate Human Striatum 
+ Neuron 
+ 2003 
+ 38 
+ 339 
+ 346 
+ 12718866 
+ 
+ 
+ 
+ 
+ 
+ 
+ McRae 
+ K 
+ 
+ 
+ Ochsner 
+ KN 
+ 
+ 
+ Mauss 
+ IB 
+ 
+ 
+ Gabrieli 
+ JDE 
+ 
+ 
+ Gross 
+ JJ 
+ 
+ 
+ Gender difference in emotion regulation: An fMRI study of cognitive reappraisal 
+ Group Processes and Intergroup Relations 
+ (in press) 
+ 
+ 
+ 
+ 
+ 
+ 
+ McRae 
+ K 
+ 
+ 
+ Reiman 
+ EM 
+ 
+ 
+ Fort 
+ CL 
+ 
+ 
+ Chen 
+ K 
+ 
+ 
+ Lane 
+ RD 
+ 
+ 
+ Association between trait emotional awareness and dorsal anterior cingulate activity during emotion is arousal-dependent 
+ Neuroimage 
+ 2008 
+ 41 
+ 648 
+ 655 
+ 18406175 
+ 
+ 
+ 
+ 
+ 
+ 
+ Metcalfe 
+ J 
+ 
+ 
+ Mischel 
+ W 
+ 
+ 
+ A hot/cool-system analysis of delay of gratification: dynamics of willpower 
+ Psychol Rev 
+ 1999 
+ 106 
+ 3 
+ 19 
+ 10197361 
+ 
+ 
+ 
+ 
+ 
+ 
+ Milad 
+ MR 
+ 
+ 
+ Quirk 
+ GJ 
+ 
+ 
+ Neurons in medial prefrontal cortex signal memory for fear extinction 
+ Nature 
+ 2002 
+ 420 
+ 70 
+ 74 
+ 12422216 
+ 
+ 
+ 
+ 
+ 
+ 
+ Moskowitz 
+ JT 
+ 
+ 
+ Positive Affect Predicts Lower Risk of AIDS Mortality 
+ (Am Psychosomatic Soc) 
+ 2003 
+ 620 
+ 626 
+ 
+ 
+ 
+ 
+ 
+ 
+ Munafo 
+ MR 
+ 
+ 
+ Brown 
+ SM 
+ 
+ 
+ Hariri 
+ AR 
+ 
+ 
+ Serotonin transporter (5-HTTLPR) genotype and amygdala activation: a meta-analysis 
+ Biol Psychiatry 
+ 2008 
+ 63 
+ 852 
+ 857 
+ 17949693 
+ 
+ 
+ 
+ 
+ 
+ 
+ Nee 
+ DE 
+ 
+ 
+ Wager 
+ TD 
+ 
+ 
+ Jonides 
+ J 
+ 
+ 
+ A meta-analysis of neuroimaging studies of interference resolution 
+ Cogn Affect Behav Neurosci 
+ 2007 
+ 7 
+ 1 
+ 17 
+ 17598730 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ochsner 
+ KN 
+ 
+ 
+ Barrett 
+ LF 
+ 
+ 
+ 
+ 
+ Mayne 
+ TJ 
+ 
+ 
+ Bonanno 
+ GA 
+ 
+ 
+ A multiprocess perspective on the neuroscience of emotion 
+ Emotions: Currrent issues and future directions 
+ 2001 
+ New York, NY 
+ The Guilford Press 
+ 38 
+ 81 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ochsner 
+ KN 
+ 
+ 
+ Bunge 
+ SA 
+ 
+ 
+ Gross 
+ JJ 
+ 
+ 
+ Gabrieli 
+ JD 
+ 
+ 
+ Rethinking feelings: an FMRI study of the cognitive regulation of emotion 
+ J Cogn Neurosci 
+ 2002 
+ 14 
+ 1215 
+ 1229 
+ 12495527 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ochsner 
+ KN 
+ 
+ 
+ Gross 
+ JJ 
+ 
+ 
+ The cognitive control of emotion 
+ Trends in Cognitive Sciences 
+ 2005 
+ 9 
+ 242 
+ 249 
+ 15866151 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ochsner 
+ KN 
+ 
+ 
+ Gross 
+ JJ 
+ 
+ 
+ Cognitive emotion regulation: Insights from social cognitive and affective neuroscience 
+ Currents Directions in Psychological Science 
+ 2008 
+ 17 
+ 153 
+ 158 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ochsner 
+ KN 
+ 
+ 
+ Ray 
+ RD 
+ 
+ 
+ Cooper 
+ JC 
+ 
+ 
+ Robertson 
+ ER 
+ 
+ 
+ Chopra 
+ S 
+ 
+ 
+ Gabrieli 
+ JD 
+ 
+ 
+ Gross 
+ JJ 
+ 
+ 
+ For better or for worse: neural systems supporting the cognitive down- and up-regulation of negative emotion 
+ Neuroimage 
+ 2004 
+ 23 
+ 483 
+ 499 
+ 15488398 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ohira 
+ H 
+ 
+ 
+ Nomura 
+ M 
+ 
+ 
+ Ichikawa 
+ N 
+ 
+ 
+ Isowa 
+ T 
+ 
+ 
+ Iidaka 
+ T 
+ 
+ 
+ Sato 
+ A 
+ 
+ 
+ Fukuyama 
+ S 
+ 
+ 
+ Nakajima 
+ T 
+ 
+ 
+ Yamada 
+ J 
+ 
+ 
+ Association of neural and physiological responses during voluntary emotion suppression 
+ Neuroimage 
+ 2006 
+ 29 
+ 721 
+ 733 
+ 16249100 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ollinger 
+ JM 
+ 
+ 
+ Corbetta 
+ M 
+ 
+ 
+ Shulman 
+ GL 
+ 
+ 
+ Separating processes within a trial in event-related functional MRI 
+ Neuroimage 
+ 2001 
+ 13 
+ 218 
+ 229 
+ 11133324 
+ 
+ 
+ 
+ 
+ 
+ 
+ Paton 
+ JJ 
+ 
+ 
+ Belova 
+ MA 
+ 
+ 
+ Morrison 
+ SE 
+ 
+ 
+ Salzman 
+ CD 
+ 
+ 
+ The primate amygdala represents the positive and negative value of visual stimuli during learning 
+ Nature 
+ 2006 
+ 439 
+ 865 
+ 870 
+ 16482160 
+ 
+ 
+ 
+ 
+ 
+ 
+ Phan 
+ KL 
+ 
+ 
+ Fitzgerald 
+ DA 
+ 
+ 
+ Nathan 
+ PJ 
+ 
+ 
+ Moore 
+ GJ 
+ 
+ 
+ Uhde 
+ TW 
+ 
+ 
+ Tancer 
+ ME 
+ 
+ 
+ Neural substrates for voluntary suppression of negative affect: a functional magnetic resonance imaging study 
+ Biol Psychiatry 
+ 2005 
+ 57 
+ 210 
+ 219 
+ 15691521 
+ 
+ 
+ 
+ 
+ 
+ 
+ Phelps 
+ EA 
+ 
+ 
+ Emotion and cognition: insights from studies of the human amygdala 
+ Annu Rev Psychol 
+ 2006 
+ 57 
+ 27 
+ 53 
+ 16318588 
+ 
+ 
+ 
+ 
+ 
+ 
+ Phillips 
+ ML 
+ 
+ 
+ Drevets 
+ WC 
+ 
+ 
+ Rauch 
+ SL 
+ 
+ 
+ Lane 
+ R 
+ 
+ 
+ Neurobiology of emotion perception II: Implications for major psychiatric disorders 
+ Biol Psychiatry 
+ 2003 
+ 54 
+ 515 
+ 528 
+ 12946880 
+ 
+ 
+ 
+ 
+ 
+ 
+ Pitkanen 
+ A 
+ 
+ 
+ 
+ 
+ Aggleton 
+ JP 
+ 
+ 
+ Connectivity of the rat amygdaloid complex 
+ The amygdala : a functional analysis 
+ 2000 
+ New York 
+ Oxford University Press 
+ 690 
+ pp. xiv 
+ 
+ 
+ 
+ 
+ 
+ 
+ Schaefer 
+ SM 
+ 
+ 
+ Jackson 
+ DC 
+ 
+ 
+ Davidson 
+ RJ 
+ 
+ 
+ Aguirre 
+ GK 
+ 
+ 
+ Kimberg 
+ DY 
+ 
+ 
+ Thompson-Schill 
+ SL 
+ 
+ 
+ Modulation of amygdalar activity by the conscious regulation of negative emotion 
+ J Cogn Neurosci 
+ 2002 
+ 14 
+ 913 
+ 921 
+ 12191458 
+ 
+ 
+ 
+ 
+ 
+ 
+ Scherer 
+ KR 
+ 
+ 
+ Appraisal considered as a process of multilevel sequential checking 
+ Appraisal processes in emotion: Theory, methods, research 
+ 2001 
+ 92 
+ 120 
+ 
+ 
+ 
+ 
+ 
+ 
+ Schmitz 
+ TW 
+ 
+ 
+ Johnson 
+ SC 
+ 
+ 
+ Relevance to self: A brief review and framework of neural systems underlying appraisal 
+ Neurosci Biobehav Rev 
+ 2007 
+ 31 
+ 585 
+ 596 
+ 17418416 
+ 
+ 
+ 
+ 
+ 
+ 
+ Schultz 
+ W 
+ 
+ 
+ Neural coding of basic reward terms of animal learning theory, game theory, microeconomics and behavioural ecology 
+ Curr Opin Neurobiol 
+ 2004 
+ 14 
+ 139 
+ 147 
+ 15082317 
+ 
+ 
+ 
+ 
+ 
+ 
+ Scott 
+ DJ 
+ 
+ 
+ Stohler 
+ CS 
+ 
+ 
+ Egnatuk 
+ CM 
+ 
+ 
+ Wang 
+ H 
+ 
+ 
+ Koeppe 
+ RA 
+ 
+ 
+ Zubieta 
+ JK 
+ 
+ 
+ Individual differences in reward responding explain placebo-induced expectations and effects 
+ Neuron 
+ 2007 
+ 55 
+ 325 
+ 336 
+ 17640532 
+ 
+ 
+ 
+ 
+ 
+ 
+ Shrout 
+ PE 
+ 
+ 
+ Bolger 
+ N 
+ 
+ 
+ Mediation in experimental and nonexperimental studies: new procedures and recommendations 
+ Psychol Methods 
+ 2002 
+ 7 
+ 422 
+ 445 
+ 12530702 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stern 
+ ER 
+ 
+ 
+ Wager 
+ TD 
+ 
+ 
+ Egner 
+ T 
+ 
+ 
+ Hirsch 
+ J 
+ 
+ 
+ Mangels 
+ JA 
+ 
+ 
+ Preparatory neural activity predicts performance on a conflict task 
+ Brain Res 
+ 2007 
+ 1176 
+ 92 
+ 102 
+ 17889835 
+ 
+ 
+ 
+ 
+ 
+ 
+ Tindell 
+ AJ 
+ 
+ 
+ Smith 
+ KS 
+ 
+ 
+ Pecina 
+ S 
+ 
+ 
+ Berridge 
+ KC 
+ 
+ 
+ Aldridge 
+ JW 
+ 
+ 
+ Ventral pallidum firing codes hedonic reward: when a bad taste turns good 
+ J Neurophysiol 
+ 2006 
+ 96 
+ 2399 
+ 2409 
+ 16885520 
+ 
+ 
+ 
+ 
+ 
+ 
+ Tugade 
+ MM 
+ 
+ 
+ Fredrickson 
+ BL 
+ 
+ 
+ Feldman Barrett 
+ L 
+ 
+ 
+ Psychological Resilience and Positive Emotional Granularity: Examining the Benefits of Positive Emotions on Coping and Health 
+ Journal of Personality 
+ 2004 
+ 72 
+ 1161 
+ 1190 
+ 15509280 
+ 
+ 
+ 
+ 
+ 
+ 
+ Urry 
+ HL 
+ 
+ 
+ van Reekum 
+ CM 
+ 
+ 
+ Johnstone 
+ T 
+ 
+ 
+ Kalin 
+ NH 
+ 
+ 
+ Thurow 
+ ME 
+ 
+ 
+ Schaefer 
+ HS 
+ 
+ 
+ Jackson 
+ CA 
+ 
+ 
+ Frye 
+ CJ 
+ 
+ 
+ Greischar 
+ LL 
+ 
+ 
+ Alexander 
+ AL 
+ 
+ 
+ Davidson 
+ RJ 
+ 
+ 
+ Amygdala and ventromedial prefrontal cortex are inversely coupled during regulation of negative affect and predict the diurnal pattern of cortisol secretion among older adults 
+ J Neurosci 
+ 2006 
+ 26 
+ 4415 
+ 4425 
+ 16624961 
+ 
+ 
+ 
+ 
+ 
+ 
+ van Reekum 
+ CM 
+ 
+ 
+ Johnstone 
+ T 
+ 
+ 
+ Urry 
+ HL 
+ 
+ 
+ Thurow 
+ ME 
+ 
+ 
+ Schaefer 
+ HS 
+ 
+ 
+ Alexander 
+ AL 
+ 
+ 
+ Davidson 
+ RJ 
+ 
+ 
+ Gaze fixations predict brain activation during the voluntary regulation of picture-induced negative affect 
+ Neuroimage 
+ 2007 
+ 36 
+ 1041 
+ 1055 
+ 17493834 
+ 
+ 
+ 
+ 
+ 
+ 
+ Wager 
+ TD 
+ 
+ 
+ Barrett 
+ LF 
+ 
+ 
+ Bliss-Moreau 
+ E 
+ 
+ 
+ Lindquist 
+ K 
+ 
+ 
+ Duncan 
+ S 
+ 
+ 
+ Kober 
+ H 
+ 
+ 
+ Joseph 
+ J 
+ 
+ 
+ Davidson 
+ M 
+ 
+ 
+ Mize 
+ J 
+ 
+ 
+ 
+ 
+ Lewis 
+ M 
+ 
+ 
+ The Neuroimaging of Emotion 
+ Handbook of Emotion 
+ (in press) 
+ 
+ 
+ 
+ 
+ 
+ 
+ Wager 
+ TD 
+ 
+ 
+ Scott 
+ DJ 
+ 
+ 
+ Zubieta 
+ JK 
+ 
+ 
+ Placebo effects on human mu-opioid activity during pain 
+ Proceedings of the National Academy of Sciences 
+ 2007 
+ 104 
+ 11056 
+ 11061 
+ 
+ 
+ 
+ 
+ 
+ 
+ Whalen 
+ PJ 
+ 
+ 
+ Fear, vigilance, and ambiguity: Initial neuroimaging studies of the human amygdala 
+ Current Directions in Psychological Science 
+ 1998 
+ 7 
+ 177 
+ 188 
+ 
+ 
+ 
+ 
+ Figures and Tables 
+ 
+ Figure 1 
+ 
+ Mediation model and hypotheses 
+ We selected right ventrolateral prefrontal cortex (vlPFC) as a predictor region, and performed analyses to search in subcortical regions of interest and throughout the brain for mediators of the relationship between reappraisal-induced vlPFC activity and reappraisal success. A) Path diagram with standard notation for path coefficients. B) Main hypotheses for mediation search analyses. 
+ 
+ 
+ 
+ 
+ Figure 2 
+ 
+ Results for the [ReappNeg – LookNeg] contrast 
+ This contrast was the main comparison of interest for the mediation analyses. A) Significant reappraisal-induced activation. Positive effects are in hot colors (yellow-red), and negative effects are in cool colors (blue-purple). B) Significant correlations between reappraisal-induced activation and reappraisal success, limited to a search area comprised of activated regions in (A). Positive correlations are shown in red/yellow, and negative correlations are shown in blue. Positive correlations indicate a greater relative increase in activity for participants who report more successful reappraisal, and negative correlations indicate a greater relative decrease in activity for participants who report more successful reappraisal. Thresholds are shown in the color key on the figure. C) Correlation scatterplots for the average activity in left and right ventrolateral prefrontal cortex (vlPFC). L, left; R, right. 
+ 
+ 
+ 
+ 
+ Figure 3 
+ 
+ Mediation analysis results within regions of interest (ROIs) 
+ A) ROIs in the nucleus accumbens (NAC, top) and amygdala (AMY, bottom). B) Path diagram showing the relationships between regions in the path model. The predictor region in ventrolateral prefrontal cortex (VLPFC) is shown at left, which predicts activity in each of the NAC (top) and amygdala (bottom) regions shown. These are the  a  paths for each mediating region. The lines are labeled with path coefficients, and standard errors are shown in parentheses. The mediator regions’ (NAC and amgdala) connection to reappraisal success (the outcome) are the  b  paths for each mediator. They are calculated controlling for VLPFC activity and for other mediators, as is standard in mediation models. ***, p < .001; ** p < .01; *, p < .05, two tailed. The direct path is the  c’  path, and this is calculated controlling for both mediators. C) Partial regression scatterplots for the relationships between left (L) NAC and reappraisal success (left panel) and L amygdala and reappraisal success (center panel), controlling for VLPFC and the other mediator. The right panel shows an example of a bootstrapped mediation effect (path  ab ) for the left NAC. The range on the x-axis spanned by the lighter gray portion of the histogram is the 95% confidence interval for the effect. 
+ 
+ 
+ 
+ 
+ Figure 4 
+ 
+ Detail of effects in the amygdala (left) and nucleus accumbens (NAC)/ventral straitum (right) 
+ A) Coronal slice (y = −5) showing reappraisal-induced activation in and contiguous with the amygdala region of interest correlated with reappraisal success. Blue: Negative correlations, showing a greater relative decrease in amygdala activity (LookNeg - ReappNeg) with more successful reappraisal. Red/yellow: positive correlations. B) Significant voxels in and contiguous with the amygdala showing a  b  effect in the mediation (the same relationship as in (A), but controlling for VLPFC activity). Results are two-tailed. C) The anatomical boundaries of amygdalar subregions. BL, basolateral complex; Ce, central nucleus; CM, cortomedian group; EC, entorhinal cortex; HY, hypothalamus; MN, mamillary nucleus. The strongest results appear to be in the entorhinal cortex bordering the basolateral and centromedian nuclear groups. D) Robust regression scatterplot showing relationship between reported reappraisal success (x-axis) and reappraisal-induced activation (relative to the mean) for the peak voxel in panel A. More successful reappraisal was associated with relative reduction in amygdala activity, min r = −.54, t = −2.82, Z = 2.61, p = .0043 one-tailed. E) Voxels in and contiguous with the NAC/ventral striatum region of interest correlated with reappraisal success, as in panel A. The display threshold is set at a false discovery rate of q < .05 for the whole brain. F) Significant voxels in and contiguous with the NAC/ventral striatum showing a  b  effect in the mediation. G) The anatomical boundaries of NAC and surrounding regions. Cau, caudate; CC, corpus callosum; LV, lateral ventrical; SCA, subcallosal area; SCC, subgenual cingulate cortex. H) Robust regression scatterplot showing relationship between reported reappraisal success (x-axis) and reappraisal-induced activation (relative to the mean). More successful reappraisal was associated with relative increases in NAC/ventral striatum activity, mean r = .76, t = 5.50, p = 7 × 10 −6 , two-tailed. 
+ 
+ 
+ 
+ 
+ Figure 5 
+ 
+ Mediation results in whole-brain search 
+ A) Significant regions (p < .005 two-tailed and 3 contiguous voxels in each of paths  a ,  b , and  a*b ) mediating the right vlPFC-reappraisal success relationship throughout the brain. Positive mediators are shown in yellow, and negative mediators are shown in dark blue. The extent around significant effects is shown at p < .01 (orange/light blue) and p < .05 (pink/purple). B) Network clustering of the mediating regions showed the strongest evidence for two functional networks, a group of positive mediators (yellow) and negative mediators (blue). Lines show significant connectivity between regions that could not be explained by any other single mediating region. The path diagram shows the mediation model including activity in each of the two networks (averaged across voxels for each participant) as independent predictors. ***, p < .001; ** p < .01; *, p < .05, two tailed. C) Partial regression scatterplots for the  b  effect for each network, and histograms showing the bootstrap distribution for each mediation ( a*b ) effect. 
+ 
+ 
+ 
+ 
+ Figure 6 
+ 
+ Frontal regions mediated by nucleus accumbens/ventral striatum (NAC)/VS and amygdala 
+ A) Diagram of the mediation model, in which both left NAC/VS and left amygdala regions were included as mediators of reappraisal success. The analysis searched over brain voxels for areas showing a significant mediation ( a*b ) effect. B) Regions mediated by amygdala. C) Regions mediated by NAC/VS. Yellow/dark blue: positive/negative effects at p < .001, 3 contiguous voxels; orange/light blue: positive/negative effects at p < .005, 10 contiguous voxels. BA, Brodmann’s Area; DMPFC, dorsomedial prefrontal cortex; FROP, frontal operculum; MFP, medial frontal pole; MOFC, medial orbitofrontal cortex; SGACC, subgenual anterior cingulate; SFS, superior frontal sulcus; Pre-SMA, pre-supplementary motor area; VLPFC, ventrolateral prefrontal cortex; VMPFC, ventromedial prefrontal cortex. 
+ 
+ 
+ 
+ 
+ Table 1 
+ 
+ Correlations between reappraisal activation [Rea - Neu] and reappraisal success [Neu - Rea] in reported experience 
+ 
+ 
+ 
+ 
+ 
+ Coordinates 
+ Cluster size 
+ 
+ Max statistics 
+ 
+ Significant voxels 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Name 
+ x 
+ y 
+ z 
+ Vox 
+ Vol 
+ r 
+ t 
+ Z 
+ p 
+ P<.005 
+ P<.01 
+ P<.05 
+ 
+ 
+ 
+ 
+ MTG (L) 
+ −62 
+ −3 
+ −22 
+ 22 
+ 1170 
+ 0.60 
+ 3.56 
+ 3.22 
+ 0.0014 
+ 4 
+ 6 
+ 22 
+ 
+ 
+ PHCP (R) 
+ 21 
+ −48 
+ −14 
+ 30 
+ 1595 
+ 0.69 
+ 4.47 
+ 3.85 
+ 0.0001 
+ 11 
+ 15 
+ 30 
+ 
+ 
+ VLPFC (L) 
+ −52 
+ 31 
+ −9 
+ 87 
+ 4626 
+ 0.62 
+ 3.78 
+ 3.39 
+ 0.0008 
+ 19 
+ 35 
+ 87 
+ 
+ 
+ MTG (L) 
+ −65 
+ −21 
+ −14 
+ 16 
+ 851 
+ 0.62 
+ 3.54 
+ 3.21 
+ 0.0014 
+ 3 
+ 5 
+ 16 
+ 
+ 
+ VLPFC (R) 
+ 52 
+ 31 
+ −9 
+ 15 
+ 798 
+ 0.68 
+ 4.22 
+ 3.69 
+ 0.0002 
+ 4 
+ 5 
+ 15 
+ 
+ 
+ CAU (R) 
+ 24 
+ −34 
+ 9 
+ 9 
+ 479 
+ 0.63 
+ 3.85 
+ 3.44 
+ 0.0006 
+ 3 
+ 4 
+ 9 
+ 
+ 
+ PreSMA/DMPFC 
+ −14 
+ 31 
+ 45 
+ 456 
+ 24247 
+ 0.82 
+ 6.02 
+ 4.81 
+ <.0001 
+ 113 
+ 197 
+ 456 
+ 
+ 
+ IPL (L) 
+ −48 
+ −69 
+ 36 
+ 143 
+ 7604 
+ 0.59 
+ 3.42 
+ 3.13 
+ 0.0019 
+ 10 
+ 32 
+ 143 
+ 
+ 
+ 
+ 
+ 
+ Note. Results are reported for search only within regions that showed significant reappraisal in the group at q < .05 corrected (FDR). Significant regions within this reduced search space were thresholded at p < .005, 3 contiguous voxels. The extent of each region is listed at p < .01 and p < .05, uncorrected. 
+ 
+ 
+ 
+ 
+ Table 2 
+ 
+ Mediators of the right ventrolateral prefrontal cortex (vlPFC) relationship with reappraisal success in whole-brain search 
+ 
+ 
+ 
+ 
+ 
+ Coordinates 
+ Correlation 
+ a path 
+ b path 
+ ab path 
+ Conjunction (Num. Vox) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Name 
+ x 
+ y 
+ z 
+ r 
+ p 
+ Z 
+ p 
+ Z 
+ p 
+ Z 
+ p 
+ P<.005 
+ P<.01 
+ P<.05 
+ 
+ 
+ 
+ 
+ 
+ 
+ Positive mediators 
+ 
+ 
+ 
+ 
+ ITG (R) 
+ 58 
+ −38 
+ −22 
+ 0.48 
+ 0.009 
+ 4.22 
+ <.001 
+ 3.22 
+ 0.001 
+ 3.15 
+ 0.002 
+ 5 
+ 7 
+ 41 
+ 
+ 
+ NAC/SGACC 
+ 3 
+ 21 
+ −9 
+ 0.49 
+ 0.007 
+ 3.60 
+ <.001 
+ 3.25 
+ 0.001 
+ 3.34 
+ 0.001 
+ 4 
+ 9 
+ 85 
+ 
+ 
+ Isth Cing 
+ −3 
+ −41 
+ 4 
+ 0.48 
+ 0.009 
+ 4.02 
+ <.001 
+ 3.05 
+ 0.002 
+ 3.50 
+ 0.001 
+ 2 
+ 4 
+ 34 
+ 
+ 
+ Cau (R) 
+ 21 
+ 7 
+ 22 
+ 0.44 
+ 0.020 
+ 4.23 
+ <.001 
+ 2.89 
+ 0.004 
+ 3.13 
+ 0.002 
+ 1 
+ 2 
+ 6 
+ 
+ 
+ DMPFC (R) 
+ 24 
+ 41 
+ 40 
+ 0.52 
+ 0.004 
+ 4.53 
+ <.001 
+ 2.92 
+ 0.004 
+ 3.41 
+ 0.001 
+ 1 
+ 8 
+ 32 
+ 
+ 
+ PreSMA/SFG 
+ −14 
+ 7 
+ 63 
+ 0.52 
+ 0.004 
+ 4.92 
+ <.001 
+ 3.79 
+ <.001 
+ 3.79 
+ <.001 
+ 9 
+ 16 
+ 159 
+ 
+ 
+ SFG (R) 
+ 24 
+ 21 
+ 58 
+ 0.44 
+ 0.020 
+ 3.81 
+ <.001 
+ 3.21 
+ 0.001 
+ 2.98 
+ 0.003 
+ 1 
+ 7 
+ 51 
+ 
+ 
+ Precuneus 
+ −3 
+ −52 
+ 68 
+ 0.50 
+ 0.005 
+ 4.50 
+ <.001 
+ 3.09 
+ 0.002 
+ 3.14 
+ 0.002 
+ 1 
+ 4 
+ 27 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Negative mediators 
+ 
+ 
+ 
+ 
+ AMY (L) 
+ −28 
+ −3 
+ −32 
+ −0.58 
+ 0.001 
+ 4.77 
+ <.001 
+ −5.69 
+ <.001 
+ −3.92 
+ <.001 
+ 6 
+ 7 
+ 42 
+ 
+ 
+ AMY (R) 
+ 14 
+ −7 
+ −22 
+ −0.56 
+ 0.002 
+ 5.72 
+ <.001 
+ −4.31 
+ <.001 
+ −2.95 
+ 0.003 
+ 1 
+ 20 
+ 104 
+ 
+ 
+ LOFC (R) 
+ 48 
+ 24 
+ −18 
+ −0.47 
+ 0.010 
+ 5.20 
+ <.001 
+ −3.13 
+ 0.002 
+ −3.02 
+ 0.003 
+ 1 
+ 1 
+ 17 
+ 
+ 
+ VAINS (L) 
+ −38 
+ 10 
+ −14 
+ −0.44 
+ 0.020 
+ 3.33 
+ 0.001 
+ −3.30 
+ 0.001 
+ −3.47 
+ 0.001 
+ 1 
+ 5 
+ 29 
+ 
+ 
+ Subthalamus 
+ −3 
+ −10 
+ −4 
+ −0.29 
+ 0.130 
+ 2.97 
+ 0.003 
+ −3.00 
+ 0.003 
+ −2.93 
+ 0.003 
+ 1 
+ 1 
+ 3 
+ 
+ 
+ RACC 
+ −7 
+ 17 
+ 22 
+ −0.37 
+ 0.050 
+ 3.28 
+ 0.001 
+ −3.46 
+ 0.001 
+ −3.29 
+ 0.001 
+ 2 
+ 4 
+ 18 
+ 
+ 
+ 
+ 
+ 
+ Note. These results complement focused searches within a priori subcortical ROIs. For this exploratory analysis, we considered voxels to be significant mediators if statistical significance reached p < .005 in each of the three following effects: a path) Correlation between vlPFC and voxel activity; b path) Correlation between voxel and reported emotional experience, controlling for vlPFC; and a*b path) Significant indirect effect, whose magnitude is the product of (a) and (b). All statistics were assessed with bootstrapping (1,000 samples) at each voxel. These regions were subjected to subsequent multivariate clustering analysis for grouping into networks. Correlation refers to correlation with reported experience. 
+ 
+ 
+ 
+ 
+ 

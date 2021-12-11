@@ -1,0 +1,2285 @@
+
+ properties manuscript? 
+ 
+ 
+ 9419065 
+ 21028 
+ Hum Brain Mapp 
+ Hum Brain Mapp 
+ 
+ Human brain mapping 
+ 
+ 1065-9471 
+ 1097-0193 
+ 
+ 
+ 28504361 
+ 5553075 
+ 10.1002/hbm.23651 
+ NIHMS874933 
+ 
+ 
+ Article 
+ 
+ 
+ 
+ Alterations of resting-state fMRI measurements in individuals with cervical dystonia 
+ 
+ 
+ 
+ 
+ Li 
+ Zhihao 
+ 
+ a 
+ b 
+ # 
+ * 
+ 
+ 
+ 
+ Prudente 
+ Cecília N. 
+ 
+ c 
+ d 
+ # 
+ 
+ 
+ 
+ Stilla 
+ Randall 
+ 
+ d 
+ 
+ 
+ 
+ Sathian 
+ K. 
+ 
+ e 
+ f 
+ 
+ 
+ 
+ Jinnah 
+ H. A. 
+ 
+ g 
+ 
+ 
+ 
+ Hu 
+ Xiaoping 
+ 
+ h 
+ b 
+ * 
+ 
+ 
+ 
+ a Institute of Affective and Social Neuroscience, Shenzhen Key Laboratory of Affective and Social Cognitive Science, Shenzhen University, Shenzhen, Guangdong, People’s Republic of China 
+ 
+ b Department of Biomedical Engineering, Emory University and Georgia Institute of Technology. Atlanta, Georgia, USA 
+ 
+ c Department of Rehabilitation Medicine, University of Minnesota. Minneapolis, Minnesota, USA 
+ 
+ d Department of Neurology, Emory University. Atlanta, Georgia, USA 
+ 
+ e Departments of Neurology, Rehabilitation Medicine and Psychology, Emory University. Atlanta, Georgia, USA 
+ 
+ f Rehabilitation R&D Center for Visual & Neurocognitive Rehabilitation, Atlanta VAMC. Decatur, Georgia, USA 
+ 
+ g Departments of Neurology, Human Genetics and Pediatrics, Emory University. Atlanta, Georgia, USA 
+ 
+ h Department of Bioengineering, University of California at Riverside. Riverside, California, USA 
+ 
+ * Editorial correspondence should be addressed to: Zhihao Li, PhD., Institute of Affective and Social Neuroscience, School of Psychology and Sociology, Shenzhen University, Science and Technology Building 536; 3688 Nanhai Ave, Shenzhen 518060, Guangdong, P. R. China, Tel: +86-755-2642-1385,  zhihao_li@szu.edu.cn . Xiaoping Hu, PhD., Department of Bioengineering, University of California at Riverside, Materials Science and Engineering Building 203; 900 University Ave, Riverside 92521, California, U.S.A., Tel.: +1-951-827-2925, Fax: +1-951-827-6416,  xhu@engr.ucr.edu 
+ 
+ # 
+ These authors contributed equally to this manuscript 
+ 
+ 
+ 
+ 20 
+ 5 
+ 2017 
+ 
+ 
+ 15 
+ 5 
+ 2017 
+ 
+ 
+ 8 
+ 2017 
+ 
+ 
+ 01 
+ 8 
+ 2018 
+ 
+ 38 
+ 8 
+ 4098 
+ 4108 
+ 
+ 
+ This file is available for text mining. It may also be used consistent with the principles of fair use under the copyright law. 
+ 
+ 
+ 
+ Cervical dystonia (CD) is a neurological disorder with typical symptoms of involuntary and abnormal movements and postures of the head. CD-associated alterations of functional brain networks have not been well characterized. Previous studies of CD using resting-state functional MRI (rfMRI) are limited in 2 aspects: (i) the analyses were not directly focused on the functional brain network related to head movement and (ii) rfMRI measurements other than functional connectivity (FC) were not investigated. The present study examined alterations of FC in CD by capitalizing on newly identified brain regions supporting isometric head rotation ( Prudente et al., 2015 ). In addition to FC, which only reflects inter-regional signal synchronization, local or intra-regional alterations were also examined using rfMRI measurements of the fractional amplitude of low frequency fluctuations (fALFF) and regional homogeneity (ReHo). Finally, with alterations of different rfMRI measures identified, a support vector machine (SVM) learning algorithm was implemented for group classification. The results revealed both inter-(FC) and intra-regional (ReHo) alterations extensively distributed in both cortical and subcortical structures; and common alterations of these measures were identified bilaterally in the postcentral gyrus as well as in the basal ganglia and thalamus. Of the rfMRI features examined, 7 of them (4 FC and 3 ReHo measures) survived the SVM procedure of recursive feature elimination and together provided the highest group classification accuracy of 90.6%. The present findings extend previous studies of rfMRI in CD and offer insight into the underlying pathophysiology of the disorder in relation to network dysfunction and somatosensory disturbances. 
+ 
+ 
+ cervical dystonia 
+ resting-state fMRI 
+ functional connectivity 
+ fractional amplitude of low frequency fluctuation 
+ regional homogeneity 
+ support vector machine 
+ 
+ 
+ 
+ 
+ Introduction 
+ Cervical dystonia (CD) is a neurological movement disorder characterized by involuntary contraction of neck muscles, which in turn leads to abnormal head movements and postures ( Dauer, et al., 1998 ;  Jinnah, et al., 2013 ). These abnormalities frequently interfere with daily activities; and the stigmatizing movement often leads to avoidance of social interaction. Most cases of CD are idiopathic and the underlying neural mechanisms remain uncertain. 
+ Together with other types of focal dystonia, the movement disorder in CD has been traditionally ascribed to pathological deficits in basal ganglia ( Berardelli, et al., 1998 ;  Breakefield, et al., 2008 ;  Hallett, 2006 ). However, more recent studies at the systems level have revealed that many other brain regions are also involved, including cortical regions of sensorimotor, temporal, parietal, and occipital areas as well as subcortical regions of thalamus, brainstem, and cerebellum ( Neychev, et al., 2011 ;  Prell, et al., 2013 ;  Quartarone and Hallett, 2013 ). Dystonia may also arise from abnormal communications among these brain regions ( Battistella, et al., 2015 ;  Delnooz, et al., 2013 ;  Delnooz, et al., 2015 ). Indeed, recent reviews have pointed out that “dystonia is a network disorder” ( Neychev, et al., 2011 ;  Prudente, et al., 2014 ), thus more investigations that involve whole brain network analysis are needed for deeper understanding of the associated neurobiological underpinnings. 
+ Although resting-state functional magnetic resonance imaging (rfMRI) has been demonstrated to be a powerful tool in the examination of network deficits associated with a variety of neurological disorders ( Greicius, 2008 ), application of rfMRI in CD is still very limited with only 2 publications ( Delnooz, et al., 2013 ;  Delnooz, et al., 2015 ) to our knowledge. In the earlier study, Delnooz and colleagues adopted an exploratory approach of independent component analysis (ICA) in examination of 10 commonly identified resting-state functional networks ( Smith, et al., 2009 ). Comparing dystonic patients to controls, they observed reduced functional connectivity (FC) in the sensorimotor and primary visual networks as well as increased FC in the executive network ( Delnooz, et al., 2013 ); but significant alterations associated with important subcortical areas were not noted. To further explore involvement of the basal ganglia, they took a more focused approach of functional parcellation in a second study, and this focused analysis revealed alterations of striatal and pallidal FC ( Delnooz, et al., 2015 ). These 2 studies provided complementary information with network deficits shown both cortically and subcortically, but these abnormalities emerged in separate analyses. Since cortical and subcortical regions work synergistically in the control of head movement ( Peterson, 2004 ) and it remains unclear how the integrated network of head movement is disrupted in CD, additional insights of the pathogenicity require an simultaneous examination in both cortical and subcortical levels. 
+ While previous difficulties with simultaneous detection of cortical and subcortical abnormalities could be due to compromised signal-to-noise ratios in subcortical regions ( Delnooz, et al., 2015 ), the “independence” assumption of ICA may have also limited the examination of connectivity changes in an integrated functional network. In other words, different nodes previously identified in the sensorimotor, visual, executive, and subcortical areas probably work synergistically rather than independently for head movement control; thus, assuming their mutual independence, as is the case with ICA, may reduce analysis sensitivity. We therefore took advantage of our recent fMRI study, which clarified the motor cortical localization for the control of neck movements in healthy individuals ( Prudente, et al., 2015 ). In this study, an isometric task was used, involving neck muscle contractions but without actual head movements. Considering that this task delineated patterns of brain activity associated with neck muscle control in healthy individuals, the present study sought to examine CD-associated alterations in an integrated functional network by seeding FC analyses of rfMRI data in these specific cortical motor regions. 
+ For deficits of functional network in CD, local or regional abnormalities have not been well characterized either. If brain networks are represented by graphs with both nodes and edges, previous FC studies of CD have only focused on edges (inter-regional signal correlations), ignoring potential alterations of nodes (regional features). For rfMRI data, two distinct regional features are voxel-wise measures of signal power ( Zang, et al., 2007 ;  Zou, et al., 2008 ) and local coherence ( Zang, et al., 2004 ). Termed “fractional amplitude of low frequency fluctuations” (fALFF) and “regional homogeneity” (ReHo), respectively, these measures provide complementary information about network integrity and both have been found to be useful in characterizing regional alterations in patients with different pathological conditions ( Day, et al., 2013 ;  Haag, et al., 2015 ;  Hou, et al., 2014 ;  Xu, et al., 2015 ;  Yang, et al., 2013 ). More specifically, fALFF is thought to reflect the strength of spontaneous neural activation ( Zou, et al., 2008 ) while ReHo represents the local synchronicity of neural activations in the same functional cluster ( Zang, et al., 2004 ). Therefore, besides inter-regional FC, the present study also sought to examine CD-associated regional alterations of spontaneous brain activity as quantified by fALFF and ReHo. 
+ With both regional and inter-regional features examined in the present study, we hypothesized that (i) CD is associated with alterations of FC at both cortical and subcortical levels in a specific functional network of head movement control; (ii) besides FC, regional alterations of fALFF and ReHo are also characteristic of CD; and (iii) the presence of CD can be predicted by network alterations identified in (i) and (ii) with the prediction accuracy being higher using both regional and inter-regional features than using features of either aspect alone. 
+ 
+ 
+ Methods 
+ 
+ Participants 
+ Thirty-two participants (controls: N=16, 10F6M, age=57.1±12.7; CD: N=16, 9F7M, age=56.7±11.4) were included in the present rfMRI study. During recruitment, potential participants were excluded if they had significant orthopedic problems of the cervical spine, head tremor or other abnormal movements when lying supine, significant neck pain, untreated psychiatric problems, or contraindications for MRI. All procedures were approved by the Emory University Institutional Review Board and all participants gave informed consent for participation. 
+ Participants with CD (clinical characteristics shown in  Table 1 ) were recruited by an experienced neurologist at the Movement Disorders Clinic at Emory University. These individuals had also participated in a task-state fMRI study of isometric head rotation ( Prudente, et al., 2016 ). Inclusion criteria consisted of a diagnosis of isolated CD with predominantly rotational abnormality (torticollis) and absence of any apparent dystonia of the hands or other body parts. Because pure torticollis is rare, we permitted cases who also had some laterocollis, anterocollis or retrocollis; but these other problems were mild according to standard clinical scales of dystonia severity ( Table 1 ). Individuals with phasic CD were not excluded, but we excluded people with fixed neck deformities, and those with head tremor or unable to keep the head straight and still when lying down. The severity of dystonia was assessed with the Toronto Western Spasmodic Torticollis Rating Scale (TWSTRS) and Global Dystonia Rating Scale (GDRS) ( Comella, et al., 2003 ). Many participants with CD reported at least partial benefits from a sensory trick, but these tricks were highly specific and requiring frequent and active touching the lower face or neck. Participants being treated with botulinum toxin were not excluded because the vast majority of CD individuals receive this treatment. For those being treated with botulinum toxin, scanning was conducted within approximately seven days before the next scheduled treatment for minimizing any treatment effects. 
+ Participants of the control group were a sub-sample of our aforementioned task-state fMRI study of isometric head movement in healthy individuals ( Prudente, et al., 2015 ). In that study, 17 healthy participants were included but 1 was excluded in the present study due to incomplete rfMRI data. These control participants were age-matched to the CD group, were neurologically normal, and had the ability to perform head movements in all directions. 
+ 
+ 
+ Data acquisition 
+ Resting-state fMRI data were acquired with a 3T Siemens Trio scanner (Siemens Medical Solutions, Malvern, PA) using a T2*-weighted single-shot gradient-echo EPI sequence and the following imaging parameters: TR = 2000 ms, TE = 30 ms, Flip Angle = 90°, FOV = 220 cm, volumes = 240, number of axial slices = 30, slice thickness = 4 mm, gap = 0 mm, and matrix = 64 × 64. During this fMRI scan, participants were instructed to perform no specific task except keeping their eyes focused on a central fixation cross. Additionally, high resolution (1 mm 3  isotropic) T1-weighted structural images were acquired (MPRAGE sequence) for anatomical reference and stereotaxic normalization. 
+ Although dystonic movements are usually absent or minimal in the supine position for most individuals with CD ( Delnooz, et al., 2015 ), specific care was taken for head movement control in this study. First, all participants were firmly foam-padded around the head and ears with additional restraining straps tightly placed across the forehead and chin. Second, the rfMRI acquisition sequence was enabled with the manufacture’s inbuilt technique of “Prospective Acquisition Correction” (ep2d_PACE), which adjusts imaging slice position and orientation based on real-time estimations of head movement ( Thesen, et al., 2000 ). Third, absence of dystonic head motion was confirmed by surface electromyography (EMG) of the sternocleidomastoid muscle, which is involved in the control of head rotation ( Prudente, et al., 2015 ). EMG recordings used MR compatible equipment from BrainVision (Brain Products GmbH, Munich, Germany) with electrodes placed bilaterally on the muscle belly and sampled at 5000Hz. However, due to limited accessibility and available EMG channels, electrical activity of other neck muscles potentially affected by CD was not monitored. Procedures and safety guidelines for EMG recordings during fMRI followed a previous protocol ( Noth, et al., 2012 ). 
+ 
+ 
+ Imaging data analysis 
+ AFNI ( http://afni.nimh.nih.gov ) was used for the rfMRI data analysis with regular preprocessing steps of despiking, slice timing correction, volume registration, noise reduction, band-pass filtering (0.009Hz < f < 0.08 Hz), spatial smoothing with a Gaussian kernel (final FWHM = 5 mm), and spatial normalization. The procedure of noise reduction adopted the “ANATICOR” approach ( Jo, et al., 2010 ) implemented in AFNI. Besides nuisance signal regression for time series of the 6 parameters of head motion and cerebrospinal fluid, this approach also regressed out spatially varied white matter signal for removal of local artifacts in EPI data. 
+ For FC analysis, the traditional approach of seed-based correlation was used. Specifically, we defined a compound seed that consisted of 4 activation foci reported in our previous task-state fMRI study of isometric head movement ( Prudente, et al., 2015 ). These 4 activation foci (Talairach coordinates: x = 21/−15/30/−54, y = −22/−22/−13/−1, z = 52/49/46/31, LPI orientation) were in the precentral gyrus with 2 in each hemisphere; and in each hemisphere, one was medial and the other lateral to the hand area. This roughly symmetric definition was based on the preceding study of isometric head movement ( Prudente, et al., 2015 ), which found bilateral activations for head rotation to either side, and fits with the fact that head movement control is mediated by synergistic muscles on opposite sides of the body. At each of these 4 foci, a sphere (r = 5 mm) was drawn as the seeding region, centered on the specified Talairach coordinates ( Fig. 1 ). The seed signal was derived by averaging the time series of all the voxels within these 4 spheres; and this seed signal was then correlated with each voxel in the entire brain. Subsequently, voxel-wise correlation coefficients were Fisher’s Z transformed (z = 0.5ln[(1+r)/(1-r)]) and compared between groups with an independent sample t-test (AFNI’s 3dttest++). 
+ The measurements of fALFF (AFNI’s 3dRSFC) and ReHo (AFNI’s 3dReHo) were also derived in a voxel-wise fashion across the whole brain ( Taylor and Saad, 2013 ). Specifically, fALFF measures the signal amplitude ratio between the low-frequency band (0.009Hz < f < 0.08Hz) and the full frequency band ( Zou, et al., 2008 ); and ReHo measures the Kendall’s coefficient of concordance, reflecting the time series similarity across 27 voxels in a 3 × 3 × 3 neighborhood ( Zang, et al., 2004 ). With fALFF and ReHo values calculated for each participant, these values were also compared between groups with independent sample t-tests. 
+ In addition to the 3 aspects of head movement control mentioned above in data acquisition, another step was taken in group comparisons for minimizing the effect of head motion on observed group differences. Specifically, the individual measure of “maximum pairwise displacement” of head position, calculated as the Euclidean distance between different motion parameter sets at different time points (AFNI’s 3dvolreg and 1d_tool.py), was included as a covariate in the statistical model. Here, the “pairwise” refers to all possible pairs of temporal points “ij”, where i and j can independently take values from 1 through 240 (240 volume measurements). 
+ To control for false-positives caused by multiple comparisons, a Monte Carlo simulation was conducted (AFNI’s 3dClusterSim, whole brain mask excluding ventricles) for cluster size estimation. At the voxel-wise threshold of p<0.005 and using a long-tailed spatial correlation function ( Cox, et al., 2016 ), the cluster size threshold was determined to be 646 mm 3  (p<0.05, corrected). 
+ When significant group differences identified in voxel-wise group comparisons, corresponding rfMRI measures (Fisher’s z-scores, fALFF values, or ReHo values) were extracted from those regions of interest (ROIs) defined by the group contrast; and these imaging features were subsequently fed into a supervised machine learning algorithm of support vector machine (SVM) for group classification. In high-dimensional feature space, the SVM constructs an optimal hyperplane that separates different classes of the training samples so that a new testing sample can be subsequently classified according to its position relative to this hyperplane ( Cortes and Vapnik, 1995 ). In the present study, the SVM analysis was performed using the LIBSVM software package ( http://www.csie.ntu.edu.tw/~cjlin/libsvm ) with the procedure graphically shown in  Figure 2 . Specifically, the classification accuracy was derived from a procedure of “leave-one-out cross validation” (LOOCV;  Fig. 2 , left panel). This procedure iteratively leaves one subject out as the testing sample and uses the remaining subjects for ROI definition and classifier training. The final classification accuracy was calculated as the ratio of correctly classified cases over the entire sample. In each iteration of the LOOCV, the ROIs were defined by a voxel-wise group comparison using a sample of N-1 with the testing subject excluded; thus a total of 32 contrast maps were used. Though largely similar, these 32 group contrast maps were not exactly the same due to the specific subject left out. To establish ROI correspondences across different LOOCV iterations, clusters identified in each iteration were labeled the same as the closest cluster shown in the full sample (N=32) group comparison. For the SVM classifier training, the RBF (radius basis function) kernel was used with c=−5:2:15 and g=3:−2:−15. Optimal c and g values were determined in each training procedure with a 5-fold cross-validation in the training dataset. 
+ To identify rfMRI features for the best group classification, another procedure of “recursive feature elimination” (RFE;  Fig. 2 , right panel) was carried out. This procedure recursively eliminates the least useful feature until further elimination degrades accuracy. In each round of RFE, the aforementioned procedure of LOOCV was performed to get the classification accuracy for that particular feature set. The RFE procedure identified the most important imaging features that led to the best group classification. To compare classification accuracies between connectivity (edges) and regional (nodes) features, the same SVM procedures (LOOCV and RFE) were also applied to these 2 feature sets separately. Finally, for the imaging feature set that eventually survived RFE, the statistical significance of its classification accuracy was estimated by a non-parametric permutation test, in which different participants and group labels were randomly associated with each other and then fed into the LOOCV-SVM classifier. By repeating this procedure of random permutation 10,000 times, the significance of the original accuracy was calculated as the probability of its chance occurrence in these 10,000 surrogate classifications. 
+ 
+ 
+ 
+ Results 
+ 
+ Head motion 
+ The measurement of “maximum pairwise displacement” of head position was estimated to be 0.59 mm (SD = 0.25 mm) for the control group and 0.78 mm (SD = 0.26 mm) for the CD group. Though this magnitude of head motion is quite acceptable in most fMRI studies and the between-group comparison showed a non-significant group difference (t 30 =1.7, p=0.10), participants in the CD group did move slightly more than the controls during scanning. Therefore, as mentioned above, this measurement of “maximum pairwise displacement” was included as a covariate in the voxel-wise group comparisons to control for potential confounds due to this factor. 
+ 
+ 
+ Functional connectivity 
+ Derived from the isometric head movement task ( Prudente, et al., 2015 ), the compound seed in the precentral gyrus exhibited FC with a wide distribution of brain regions that are presumably involved in head movement control. As shown in  Figure 3 , FC with the compound seed extended from the precentral gyrus into the postcentral, parietal, occipital, and subcortical regions. Comparing the FC map between groups, greater FC was observed bilaterally in the postcentral gyrus in the control group; in contrast, the CD group showed a higher FC in the left superior frontal gyrus, left insula, right middle frontal cortex, and dorsal cingulate gyrus, as well as subcortically in the cerebellum, basal ganglia (putamen and globus pallidus) and thalamus. 
+ 
+ 
+ fALFF and ReHo 
+ Both regional measures of fALFF and ReHo were generally higher in the control than in the CD group. However, using the long-tailed autocorrelation function implemented in the cluster size estimation ( Cox, et al., 2016 ) for more stringent control of the inflated false-positive rate than is usual ( Eklund, et al., 2016 ), no significant cluster of between-group difference was noted for fALFF (but see Discussion and  Supplementary Material ). For ReHo ( Fig. 4 ), significant group differences were identified in the postcentral gyrus bilaterally, in the basal ganglia (putamen and globus pallidus) and thalamus bilaterally, and in the left lingual gyrus and left posterior cingulate cortex. Significantly higher values of fALFF or ReHo in the CD group compared to controls were not observed in the present analyses. 
+ 
+ 
+ SVM classification 
+ Using all the imaging features of FC and ReHo (listed in  Table 2 ) shown to be significantly different between groups, the analysis of SVM classification with LOOCV and RFE achieved a classification accuracy of 90.6% (3 errors in 32 cases). Of the 10,000 permutation tests run with randomized feature-label association, none reached this level of accuracy, thus the statistical significance was p < 10 −4 . In supporting this classifier, 4 FC features and 3 ReHo features (highlighted in  Table 2 ) survived the RFE procedure. These features included (i) FC of the compound motor cortex seed with the left basal ganglia and thalamus, left superior frontal gyrus, left postcentral gyrus and right postcentral gyrus; and (ii) ReHo in the left postcentral gyrus, right postcentral gyrus, and left basal ganglia and thalamus ( Fig. 5 ). In addition, simultaneously considering both sets of connectivity (edges) and regional (nodes) features was more advantageous than considering either set alone. The highest (after all iterations of RFE) classification accuracy was 81.3% (6 errors in 32 cases) either when solely using FC or when solely using ReHo. 
+ 
+ 
+ 
+ Discussion 
+ The present study examined alterations of rfMRI measurements associated with CD. Extending previous rfMRI studies that focused only on inter-regional measures of FC ( Delnooz, et al., 2013 ;  Delnooz, et al., 2015 ), new insights gained include (i) alterations of both inter- and intra-regional measures; (ii) coexisting cortical and subcortical alterations more directly associated with head movement control; (iii) converging alterations of FC and ReHo in the bilateral postcentral gyrus, thalamus and basal ganglia; and (iv) potential rfMRI features to be considered for group classification. 
+ Supporting the notion that CD is a network disorder ( Battistella, et al., 2015 ;  Lehericy, et al., 2013 ;  Neychev, et al., 2011 ;  Prudente, et al., 2014 ), the observed functional alterations of intra- and inter-regional measurements are consistent with previous studies reporting a wide distribution of structural ( Prell, et al., 2013 ;  Ramdhani, et al., 2014 ) and functional ( de Vries, et al., 2008 ;  Prudente, et al., 2016 ) alterations in the basal ganglia, thalamus, cerebellum, sensorimotor cortex, and other cortical regions. Particularly, a previous review ( Neychev, et al., 2011 ) has pointed out that dystonia may result from combined dysfunction of multiple nodes or from aberrant communications among them; but which of these possibilities best applies to dystonia remains unclear. In the specific case of CD, the present study provides evidence indicating that the pathophysiology involves both nodes and edges of a distributed neural network, suggesting that a joint consideration of both network aspects may be more relevant than merely considering either aspect alone. 
+ With regard to aberrant inter-regional communication in CD, the present FC results confirm, complement, and extend recent rfMRI findings in CD ( Delnooz, et al., 2013 ;  Delnooz, et al., 2015 ). Under the independence assumption of ICA, reduced within-network FC in both the sensorimotor and visual networks was reported previously ( Delnooz, et al., 2013 ). Here, in the functional network more directly associated with head movement control, we show that the sensory areas (bilateral postcentral gyrus) are significantly less connected to the cortical seeds of motor regions. Reduced visual cortical connectivity (inferior temporo-occipital cortex,  Fig. 3 , Z=−14, −6, 2) was also observed in the present data but this reduction did not survive the statistical correction for multiple comparisons. Increased FC was also noted previously in the executive network ( Delnooz, et al., 2013 ). Consistently, we observed increased FC from the head movement seed to the bilateral superior/middle frontal gyrus and to the dorsal cingulate cortex. In subcortical regions, Delnooz and colleagues reported increased FC between the anterior putamen and the sensorimotor cortex ( Delnooz, et al., 2015 ). A similar alteration was revealed in the present data as well by the increased FC in bilateral basal ganglia. The implications of all these data suggest defective planning, disturbed spatial cognition, and compensatory executive control of accurate movements ( Delnooz, et al., 2013 ); and these synergistic mechanisms are more directly manifested with the present FC data in one integrated functional network of head movement. 
+ Besides FC, regional dysfunctions in CD have not received much attention in previous rfMRI studies. However, one aspect of dystonic pathophysiology concerning local or regional neural functioning is the compromise of inhibition, and particularly, of surround inhibition ( Moore, et al., 2012 ;  Quartarone and Hallett, 2013 ). Namely, accurate sensorimotor functions require a precision of neural representation with surrounding non-specific activities suppressed. A recent rfMRI study in healthy individuals has shown that higher local signal amplitude and synchronicity in the somatosensory cortex, measured with fALFF and ReHo respectively, are related to better tactile discrimination abilities ( Haag, et al., 2015 ). Based on this report, the present observation of decreased ReHo in the postcentral gyrus may also reflect impaired surround inhibition in individuals with CD suggesting impaired ability of proper control of agonist and antagonist muscles involved in head movements. In fact, besides ReHo, decreased fALFF was also noted bilaterally in the postcentral gyrus for the present CD group, although these group differences on fALFF were not significant after applying a more stringent correction ( Cox, et al., 2016 ) for improving false positive control ( Eklund, et al., 2016 ). However, if we were to use a relatively liberal threshold of p<0.01/voxel and 581 mm 3  cluster (corrected p<0.05 based on Gaussian modeling of noise spatial autocorrelation), group differences on fALFF would appear in the bilateral postcentral gyrus, as well as in the left precuneus and lingual gyrus. Since converging rfMRI measures of FC, ReHo, and fALFF all indicate CD-associated alterations in bilateral postcentral gyrus, and potentially better reliability with converging measures are not considered in any statistical model of false positive control, the results of fALFF with this relatively liberal threshold are shown in the  supplementary material (Supplementary Fig. 1)  for the sake of completeness, and merit further investigation. Additional support for the view that fALFF may be associated with surround inhibition is provided by a previous report that increased synaptic inhibition is associated with increased regional cerebral blood flow ( Kelly and McCulloch, 1983 ), which in turn could be linked with increased amplitude of the BOLD signal. 
+ Related to rfMRI measurements of regional excitability, decreased activations in the somatosensory and associated subcortical and cerebellar regions have been linked to impaired fine movement control in individuals with hand dystonia ( Moore, et al., 2012 ). Alterations of signal fluctuation amplitude in the thalamus and orbitofrontal cortex were also reported in persons with blepharospasm ( Yang, et al., 2013 ). These local defects suggest that abnormal spontaneous activity in the somatosensory cortex and associated regions play an important role in focal dystonia and deserve further investigation. Particularly, these regions could be considered as potential targets for intervention studies using deep brain stimulation ( Coubes, et al., 2000 ;  Jinnah, et al., 2013 ) and/or transcranial current stimulation ( Kanai, et al., 2010 ) to modulate the excitability of different brain regions. 
+ Jointly considering all the rfMRI measurements examined in this study, it can be noted that the postcentral gyrus exhibited bilateral alterations of all three parameters measured. The significance of postcentral gyrus alterations (FC and ReHo) in CD is further endorsed by the present results of SVM-based feature elimination. These findings comport well with previous reports that dystonia is not only a motor disorder, but also involves sensory symptoms ( Tinazzi, et al., 2009 ). Rozanski and colleagues also showed that the ventral globus pallidus internus, a location at which deep brain stimulation is effective for alleviating dystonia symptoms, is significantly connected to the primary somatosensory cortex ( Rozanski, et al., 2014 ). Together with prior observations that (i) deficient sensorimotor integration is characteristic of individuals with dystonia ( Abbruzzese and Berardelli, 2003 ), (ii) somatosensory alterations extend beyond the representation of the dystonic limb ( Meunier, et al., 2001 ), (iii) sensory inputs may modulate dystonic symptoms (sensory trick) ( Naumann, et al., 2000 ), and (iv) abnormalities of sensory processing are observed in unaffected relatives of individuals with dystonia ( Walsh, et al., 2007 ), the present results support the view point that somatosensory dysfunction represents a primary trait of dystonia ( Meunier, et al., 2001 ;  Walsh, et al., 2007 ). 
+ Despite the insights discussed above, the present study, like most other neuroimaging studies of cross-sectional comparisons, is limited in terms of discriminating causes from effects. Namely, though interpretations of the neuroimaging observations tend to be biased towards causation, the actual causal effects were not directly examined thus all causal mechanisms discussed should be considered speculative. However, being relatively free from explicit task and symptomatic movement, resting-state fMRI may be less likely to reflect adaptive/compensatory processes associated with actual task execution and the ensuing somatosensory feedback. This is because that dystonic movements typically emerge or worsen with voluntary motor activity; if a compensation mechanism exits, this mechanism should be more active in the task state than in resting state. Additionally, reduced FC in somatosensory cortex has been previously reported in writer’s cramp ( Mohammadi, et al., 2012 ) and this FC reduction also extended into the inferior parietal cortex (BA40), similarly to the present observation. With similar alterations of FC noted in both hand and cervical dystonia, these imaging findings are more likely to reflect a shared etiology rather than a shared consequence caused by abnormal sensory feedbacks, body postures, and/or motor programs. Nevertheless, additional confirmation of causal rfMRI features will need to rely on future studies comparing symptomatic vs. non-symptomatic populations at risk ( Lehericy, et al., 2013 ). 
+ 
+ 
+ Supplementary Material 
+ 
+ Supp Fig S1 
+ 
+ 
+ 
+ Supplementary Material 
+ 
+ 
+ 
+ 
+ 
+ No co-authors have any conflict of interest to declare. This work was supported by the Emory University Research Council (UL1 RR025008), the Natural Science Foundation of China and SZU (No. 31671169/31530031 and No.201564/000099), a grant to the Dystonia Coalition from the Office of Rare Diseases Research at the National Center for Clinical and Translational Science (U54 TR0001456), and the National Institute of Neurological Disorders and Stroke (U54 NS067501). Support to KS from the Veterans Administration is gratefully acknowledged. 
+ 
+ 
+ Abbreviations 
+ 
+ 
+ CD 
+ 
+ cervical dystonia 
+ 
+ 
+ 
+ EMG 
+ 
+ electromyography 
+ 
+ 
+ 
+ fALFF 
+ 
+ fractional amplitude of low frequency fluctuation 
+ 
+ 
+ 
+ FC 
+ 
+ functional connectivity 
+ 
+ 
+ 
+ ICA 
+ 
+ independent component analysis 
+ 
+ 
+ 
+ ReHo 
+ 
+ regional homogeneity 
+ 
+ 
+ 
+ RFE 
+ 
+ recursive feature elimination 
+ 
+ 
+ 
+ rfMRI 
+ 
+ resting-state functional MRI 
+ 
+ 
+ 
+ ROI 
+ 
+ region of interest 
+ 
+ 
+ 
+ SD 
+ 
+ standard deviation 
+ 
+ 
+ 
+ SVM 
+ 
+ support vector machine 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Abbruzzese 
+ G 
+ 
+ 
+ Berardelli 
+ A 
+ 
+ 
+ 2003 
+ Sensorimotor integration in movement disorders 
+ Movement disorders : official journal of the Movement Disorder Society 
+ 18 
+ 231 
+ 40 
+ 12621626 
+ 
+ 
+ 
+ 
+ 
+ 
+ Battistella 
+ G 
+ 
+ 
+ Termsarasab 
+ P 
+ 
+ 
+ Ramdhani 
+ RA 
+ 
+ 
+ Fuertinger 
+ S 
+ 
+ 
+ Simonyan 
+ K 
+ 
+ 
+ 2015 
+ Isolated Focal Dystonia as a Disorder of Large-Scale Functional Networks 
+ Cerebral cortex 
+ 
+ 
+ 
+ 
+ 
+ 
+ Berardelli 
+ A 
+ 
+ 
+ Rothwell 
+ JC 
+ 
+ 
+ Hallett 
+ M 
+ 
+ 
+ Thompson 
+ PD 
+ 
+ 
+ Manfredi 
+ M 
+ 
+ 
+ Marsden 
+ CD 
+ 
+ 
+ 1998 
+ The pathophysiology of primary dystonia 
+ Brain : a journal of neurology 
+ 121 
+ 1195 
+ 1212 
+ 9679773 
+ 
+ 
+ 
+ 
+ 
+ 
+ Breakefield 
+ XO 
+ 
+ 
+ Blood 
+ AJ 
+ 
+ 
+ Li 
+ YQ 
+ 
+ 
+ Hallett 
+ M 
+ 
+ 
+ Hanson 
+ PI 
+ 
+ 
+ Standaert 
+ DG 
+ 
+ 
+ 2008 
+ The pathophysiological basis of dystonias 
+ Nat Rev Neurosci 
+ 9 
+ 222 
+ 234 
+ 18285800 
+ 
+ 
+ 
+ 
+ 
+ 
+ Comella 
+ CL 
+ 
+ 
+ Leurgans 
+ S 
+ 
+ 
+ Wuu 
+ J 
+ 
+ 
+ Stebbins 
+ GT 
+ 
+ 
+ Chmura 
+ T 
+ 
+ 
+ Dystonia Study G 
+ 2003 
+ Rating scales for dystonia: a multicenter assessment 
+ Movement disorders : official journal of the Movement Disorder Society 
+ 18 
+ 303 
+ 12 
+ 12621634 
+ 
+ 
+ 
+ 
+ 
+ 
+ Cortes 
+ C 
+ 
+ 
+ Vapnik 
+ V 
+ 
+ 
+ 1995 
+ Support-Vector Networks 
+ Mach Learn 
+ 20 
+ 273 
+ 297 
+ 
+ 
+ 
+ 
+ 
+ 
+ Coubes 
+ P 
+ 
+ 
+ Roubertie 
+ A 
+ 
+ 
+ Vayssiere 
+ N 
+ 
+ 
+ Hemm 
+ S 
+ 
+ 
+ Echenne 
+ B 
+ 
+ 
+ 2000 
+ Treatment of DYT1-generalised dystonia by stimulation of the internal globus pallidus 
+ Lancet 
+ 355 
+ 2220 
+ 2221 
+ 10881900 
+ 
+ 
+ 
+ 
+ 
+ 
+ Cox 
+ RW 
+ 
+ 
+ Reynolds 
+ RC 
+ 
+ 
+ Taylor 
+ PA 
+ 
+ 
+ 2016 
+ AFNI and Clustering: False Positive Rates Redux 
+ bioRxiv:065862 
+ 
+ 
+ 
+ 
+ 
+ 
+ Dauer 
+ WT 
+ 
+ 
+ Burke 
+ RE 
+ 
+ 
+ Greene 
+ P 
+ 
+ 
+ Fahn 
+ S 
+ 
+ 
+ 1998 
+ Current concepts on the clinical features, aetiology and management of idiopathic cervical dystonia 
+ Brain : a journal of neurology 
+ 121 
+  Pt 4 
+ 547 
+ 60 
+ 9577384 
+ 
+ 
+ 
+ 
+ 
+ 
+ Day 
+ GS 
+ 
+ 
+ Farb 
+ NA 
+ 
+ 
+ Tang-Wai 
+ DF 
+ 
+ 
+ Masellis 
+ M 
+ 
+ 
+ Black 
+ SE 
+ 
+ 
+ Freedman 
+ M 
+ 
+ 
+ Pollock 
+ BG 
+ 
+ 
+ Chow 
+ TW 
+ 
+ 
+ 2013 
+ Salience network resting-state activity: prediction of frontotemporal dementia progression 
+ JAMA neurology 
+ 70 
+ 1249 
+ 53 
+ 23959214 
+ 
+ 
+ 
+ 
+ 
+ 
+ de Vries 
+ PM 
+ 
+ 
+ Johnson 
+ KA 
+ 
+ 
+ de Jong 
+ BM 
+ 
+ 
+ Gieteling 
+ EW 
+ 
+ 
+ Bohning 
+ DE 
+ 
+ 
+ George 
+ MS 
+ 
+ 
+ Leenders 
+ KL 
+ 
+ 
+ 2008 
+ Changed patterns of cerebral activation related to clinically normal hand movement in cervical dystonia 
+ Clinical neurology and neurosurgery 
+ 110 
+ 120 
+ 8 
+ 18006221 
+ 
+ 
+ 
+ 
+ 
+ 
+ Delnooz 
+ CCS 
+ 
+ 
+ Pasman 
+ JW 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ van de Warrenburg 
+ BPC 
+ 
+ 
+ 2013 
+ Task-Free Functional MRI in Cervical Dystonia Reveals Multi-Network Changes That Partially Normalize with Botulinum Toxin 
+ Plos One 
+ 8 
+ 
+ 
+ 
+ 
+ 
+ 
+ Delnooz 
+ CCS 
+ 
+ 
+ Pasman 
+ JW 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ van de Warrenburg 
+ BPC 
+ 
+ 
+ 2015 
+ Altered striatal and pallidal connectivity in cervical dystonia 
+ Brain Struct Funct 
+ 220 
+ 513 
+ 523 
+ 24259114 
+ 
+ 
+ 
+ 
+ 
+ 
+ Eklund 
+ A 
+ 
+ 
+ Nichols 
+ TE 
+ 
+ 
+ Knutsson 
+ H 
+ 
+ 
+ 2016 
+ Cluster failure: Why fMRI inferences for spatial extent have inflated false-positive rates 
+ Proc Natl Acad Sci U S A 
+ 113 
+ 7900 
+ 5 
+ 27357684 
+ 
+ 
+ 
+ 
+ 
+ 
+ Greicius 
+ M 
+ 
+ 
+ 2008 
+ Resting-state functional connectivity in neuropsychiatric disorders 
+ Curr Opin Neurol 
+ 21 
+ 424 
+ 430 
+ 18607202 
+ 
+ 
+ 
+ 
+ 
+ 
+ Haag 
+ LM 
+ 
+ 
+ Heba 
+ S 
+ 
+ 
+ Lenz 
+ M 
+ 
+ 
+ Glaubitz 
+ B 
+ 
+ 
+ Hoffken 
+ O 
+ 
+ 
+ Kalisch 
+ T 
+ 
+ 
+ Puts 
+ NA 
+ 
+ 
+ Edden 
+ RA 
+ 
+ 
+ Tegenthoff 
+ M 
+ 
+ 
+ Dinse 
+ H 
+ 
+ 
+ Schmidt-Wilcke 
+ T 
+ 
+ 
+ 2015 
+ Resting BOLD fluctuations in the primary somatosensory cortex correlate with tactile acuity 
+ Cortex; a journal devoted to the study of the nervous system and behavior 
+ 64 
+ 20 
+ 8 
+ 25461704 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hallett 
+ M 
+ 
+ 
+ 2006 
+ Pathophysiology of dystonia 
+ J Neural Transm-Supp 
+ 485 
+ 488 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hou 
+ Y 
+ 
+ 
+ Wu 
+ X 
+ 
+ 
+ Hallett 
+ M 
+ 
+ 
+ Chan 
+ P 
+ 
+ 
+ Wu 
+ T 
+ 
+ 
+ 2014 
+ Frequency-dependent neural activity in Parkinson’s disease 
+ Human brain mapping 
+ 35 
+ 5815 
+ 33 
+ 25045127 
+ 
+ 
+ 
+ 
+ 
+ 
+ Jinnah 
+ HA 
+ 
+ 
+ Berardelli 
+ A 
+ 
+ 
+ Comella 
+ C 
+ 
+ 
+ Defazio 
+ G 
+ 
+ 
+ Delong 
+ MR 
+ 
+ 
+ Factor 
+ S 
+ 
+ 
+ Galpern 
+ WR 
+ 
+ 
+ Hallett 
+ M 
+ 
+ 
+ Ludlow 
+ CL 
+ 
+ 
+ Perlmutter 
+ JS 
+ 
+ 
+ Rosen 
+ AR 
+ 
+ 
+ Dystonia Coalition I 
+ 2013 
+ The focal dystonias: current views and challenges for future research 
+ Movement disorders : official journal of the Movement Disorder Society 
+ 28 
+ 926 
+ 43 
+ 23893450 
+ 
+ 
+ 
+ 
+ 
+ 
+ Jo 
+ HJ 
+ 
+ 
+ Saad 
+ ZS 
+ 
+ 
+ Simmons 
+ WK 
+ 
+ 
+ Milbury 
+ LA 
+ 
+ 
+ Cox 
+ RW 
+ 
+ 
+ 2010 
+ Mapping sources of correlation in resting state FMRI, with artifact detection and removal 
+ NeuroImage 
+ 52 
+ 571 
+ 82 
+ 20420926 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kanai 
+ R 
+ 
+ 
+ Paulus 
+ W 
+ 
+ 
+ Walsh 
+ V 
+ 
+ 
+ 2010 
+ Transcranial alternating current stimulation (tACS) modulates cortical excitability as assessed by TMS-induced phosphene thresholds 
+ Clin Neurophysiol 
+ 121 
+ 1551 
+ 1554 
+ 20382069 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kelly 
+ PA 
+ 
+ 
+ McCulloch 
+ J 
+ 
+ 
+ 1983 
+ The effects of the GABAergic agonist muscimol upon the relationship between local cerebral blood flow and glucose utilization 
+ Brain research 
+ 258 
+ 338 
+ 42 
+ 6824918 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lehericy 
+ S 
+ 
+ 
+ Tijssen 
+ MA 
+ 
+ 
+ Vidailhet 
+ M 
+ 
+ 
+ Kaji 
+ R 
+ 
+ 
+ Meunier 
+ S 
+ 
+ 
+ 2013 
+ The anatomical basis of dystonia: current view using neuroimaging 
+ Movement disorders : official journal of the Movement Disorder Society 
+ 28 
+ 944 
+ 57 
+ 23893451 
+ 
+ 
+ 
+ 
+ 
+ 
+ Meunier 
+ S 
+ 
+ 
+ Garnero 
+ L 
+ 
+ 
+ Ducorps 
+ A 
+ 
+ 
+ Mazieres 
+ L 
+ 
+ 
+ Lehericy 
+ S 
+ 
+ 
+ du Montcel 
+ ST 
+ 
+ 
+ Renault 
+ B 
+ 
+ 
+ Vidailhet 
+ M 
+ 
+ 
+ 2001 
+ Human brain mapping in dystonia reveals both endophenotypic traits and adaptive reorganization 
+ Ann Neurol 
+ 50 
+ 521 
+ 7 
+ 11601503 
+ 
+ 
+ 
+ 
+ 
+ 
+ Mohammadi 
+ B 
+ 
+ 
+ Kollewe 
+ K 
+ 
+ 
+ Samii 
+ A 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ Dengler 
+ R 
+ 
+ 
+ Munte 
+ TF 
+ 
+ 
+ 2012 
+ Changes in resting-state brain networks in writer’s cramp 
+ Human brain mapping 
+ 33 
+ 840 
+ 8 
+ 21484954 
+ 
+ 
+ 
+ 
+ 
+ 
+ Moore 
+ RD 
+ 
+ 
+ Gallea 
+ C 
+ 
+ 
+ Horovitz 
+ SG 
+ 
+ 
+ Hallett 
+ M 
+ 
+ 
+ 2012 
+ Individuated finger control in focal hand dystonia: an fMRI study 
+ NeuroImage 
+ 61 
+ 823 
+ 31 
+ 22484405 
+ 
+ 
+ 
+ 
+ 
+ 
+ Naumann 
+ M 
+ 
+ 
+ Magyar-Lehmann 
+ S 
+ 
+ 
+ Reiners 
+ K 
+ 
+ 
+ Erbguth 
+ F 
+ 
+ 
+ Leenders 
+ KL 
+ 
+ 
+ 2000 
+ Sensory tricks in cervical dystonia: perceptual dysbalance of parietal cortex modulates frontal motor programming 
+ Ann Neurol 
+ 47 
+ 322 
+ 8 
+ 10716251 
+ 
+ 
+ 
+ 
+ 
+ 
+ Neychev 
+ VK 
+ 
+ 
+ Gross 
+ RE 
+ 
+ 
+ Lehericy 
+ S 
+ 
+ 
+ Hess 
+ EJ 
+ 
+ 
+ Jinnah 
+ HA 
+ 
+ 
+ 2011 
+ The functional neuroanatomy of dystonia 
+ Neurobiol Dis 
+ 42 
+ 185 
+ 201 
+ 21303695 
+ 
+ 
+ 
+ 
+ 
+ 
+ Noth 
+ U 
+ 
+ 
+ Laufs 
+ H 
+ 
+ 
+ Stoermer 
+ R 
+ 
+ 
+ Deichmann 
+ R 
+ 
+ 
+ 2012 
+ Simultaneous electroencephalography-functional MRI at 3 T: an analysis of safety risks imposed by performing anatomical reference scans with the EEG equipment in place 
+ J Magn Reson Imaging 
+ 35 
+ 561 
+ 71 
+ 22002900 
+ 
+ 
+ 
+ 
+ 
+ 
+ Peterson 
+ BW 
+ 
+ 
+ 2004 
+ Current approaches and future directions to understanding control of head movement 
+ Prog Brain Res 
+ 143 
+ 369 
+ 381 
+ 14653180 
+ 
+ 
+ 
+ 
+ 
+ 
+ Prell 
+ T 
+ 
+ 
+ Peschel 
+ T 
+ 
+ 
+ Kohler 
+ B 
+ 
+ 
+ Bokemeyer 
+ MH 
+ 
+ 
+ Dengler 
+ R 
+ 
+ 
+ Gunther 
+ A 
+ 
+ 
+ Grosskreutz 
+ J 
+ 
+ 
+ 2013 
+ Structural brain abnormalities in cervical dystonia 
+ Bmc Neurosci 
+ 14 
+ 23360491 
+ 
+ 
+ 
+ 
+ 
+ 
+ Prudente 
+ CN 
+ 
+ 
+ Hess 
+ EJ 
+ 
+ 
+ Jinnah 
+ HA 
+ 
+ 
+ 2014 
+ Neuroscience Forefront Review Dystonia as a Network Disorder: What Is the Role of the Cerebellum? 
+ Neuroscience 
+ 260 
+ 23 
+ 35 
+ 24333801 
+ 
+ 
+ 
+ 
+ 
+ 
+ Prudente 
+ CN 
+ 
+ 
+ Stilla 
+ R 
+ 
+ 
+ Buetefisch 
+ CM 
+ 
+ 
+ Singh 
+ S 
+ 
+ 
+ Hess 
+ EJ 
+ 
+ 
+ Hu 
+ X 
+ 
+ 
+ Sathian 
+ K 
+ 
+ 
+ Jinnah 
+ HA 
+ 
+ 
+ 2015 
+ Neural Substrates for Head Movements in Humans: A Functional Magnetic Resonance Imaging Study 
+ The Journal of neuroscience : the official journal of the Society for Neuroscience 
+ 35 
+ 9163 
+ 72 
+ 26085638 
+ 
+ 
+ 
+ 
+ 
+ 
+ Prudente 
+ CN 
+ 
+ 
+ Stilla 
+ R 
+ 
+ 
+ Singh 
+ S 
+ 
+ 
+ Buetefisch 
+ C 
+ 
+ 
+ Evatt 
+ M 
+ 
+ 
+ Factor 
+ SA 
+ 
+ 
+ Freeman 
+ A 
+ 
+ 
+ Hu 
+ XP 
+ 
+ 
+ Hess 
+ EJ 
+ 
+ 
+ Sathian 
+ K 
+ 
+ 
+ Jinnah 
+ HA 
+ 
+ 
+ 2016 
+ A Functional Magnetic Resonance Imaging Study of Head Movements in Cervical Dystonia 
+ Front Neurol 
+ 7 
+ 201 
+ 27895619 
+ 
+ 
+ 
+ 
+ 
+ 
+ Quartarone 
+ A 
+ 
+ 
+ Hallett 
+ M 
+ 
+ 
+ 2013 
+ Emerging concepts in the physiological basis of dystonia 
+ Movement Disord 
+ 28 
+ 958 
+ 967 
+ 23893452 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ramdhani 
+ RA 
+ 
+ 
+ Kumar 
+ V 
+ 
+ 
+ Velickovic 
+ M 
+ 
+ 
+ Frucht 
+ SJ 
+ 
+ 
+ Tagliati 
+ M 
+ 
+ 
+ Simonyan 
+ K 
+ 
+ 
+ 2014 
+ What’s special about task in dystonia? A voxel-based morphometry and diffusion weighted imaging study 
+ Movement disorders : official journal of the Movement Disorder Society 
+ 29 
+ 1141 
+ 50 
+ 24925463 
+ 
+ 
+ 
+ 
+ 
+ 
+ Rozanski 
+ VE 
+ 
+ 
+ Vollmar 
+ C 
+ 
+ 
+ Cunha 
+ JP 
+ 
+ 
+ Tafula 
+ SM 
+ 
+ 
+ Ahmadi 
+ SA 
+ 
+ 
+ Patzig 
+ M 
+ 
+ 
+ Mehrkens 
+ JH 
+ 
+ 
+ Botzel 
+ K 
+ 
+ 
+ 2014 
+ Connectivity patterns of pallidal DBS electrodes in focal dystonia: a diffusion tensor tractography study 
+ NeuroImage 
+ 84 
+ 435 
+ 42 
+ 24045076 
+ 
+ 
+ 
+ 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Fox 
+ PT 
+ 
+ 
+ Miller 
+ KL 
+ 
+ 
+ Glahn 
+ DC 
+ 
+ 
+ Fox 
+ PM 
+ 
+ 
+ Mackay 
+ CE 
+ 
+ 
+ Filippini 
+ N 
+ 
+ 
+ Watkins 
+ KE 
+ 
+ 
+ Toro 
+ R 
+ 
+ 
+ Laird 
+ AR 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ 2009 
+ Correspondence of the brain’s functional architecture during activation and rest 
+ P Natl Acad Sci USA 
+ 106 
+ 13040 
+ 13045 
+ 
+ 
+ 
+ 
+ 
+ 
+ Taylor 
+ PA 
+ 
+ 
+ Saad 
+ ZS 
+ 
+ 
+ 2013 
+ FATCAT: (an efficient) Functional and Tractographic Connectivity Analysis Toolbox 
+ Brain connectivity 
+ 3 
+ 523 
+ 35 
+ 23980912 
+ 
+ 
+ 
+ 
+ 
+ 
+ Thesen 
+ S 
+ 
+ 
+ Heid 
+ O 
+ 
+ 
+ Mueller 
+ E 
+ 
+ 
+ Schad 
+ LR 
+ 
+ 
+ 2000 
+ Prospective acquisition correction for head motion with image-based tracking for real-time fMRI 
+ Magnetic resonance in medicine 
+ 44 
+ 457 
+ 65 
+ 10975899 
+ 
+ 
+ 
+ 
+ 
+ 
+ Tinazzi 
+ M 
+ 
+ 
+ Fiorio 
+ M 
+ 
+ 
+ Fiaschi 
+ A 
+ 
+ 
+ Rothwell 
+ JC 
+ 
+ 
+ Bhatia 
+ KP 
+ 
+ 
+ 2009 
+ Sensory functions in dystonia: insights from behavioral studies 
+ Movement disorders : official journal of the Movement Disorder Society 
+ 24 
+ 1427 
+ 36 
+ 19306289 
+ 
+ 
+ 
+ 
+ 
+ 
+ Walsh 
+ R 
+ 
+ 
+ O’Dwyer 
+ JP 
+ 
+ 
+ Sheikh 
+ IH 
+ 
+ 
+ O’Riordan 
+ S 
+ 
+ 
+ Lynch 
+ T 
+ 
+ 
+ Hutchinson 
+ M 
+ 
+ 
+ 2007 
+ Sporadic adult onset dystonia: sensory abnormalities as an endophenotype in unaffected relatives 
+ Journal of neurology, neurosurgery, and psychiatry 
+ 78 
+ 980 
+ 3 
+ 
+ 
+ 
+ 
+ 
+ 
+ Xu 
+ Y 
+ 
+ 
+ Zhuo 
+ C 
+ 
+ 
+ Qin 
+ W 
+ 
+ 
+ Zhu 
+ J 
+ 
+ 
+ Yu 
+ C 
+ 
+ 
+ 2015 
+ Altered Spontaneous Brain Activity in Schizophrenia: A Meta-Analysis and a Large-Sample Study 
+ BioMed research international 
+ 2015 
+ 204628 
+ 26180786 
+ 
+ 
+ 
+ 
+ 
+ 
+ Yang 
+ J 
+ 
+ 
+ Luo 
+ C 
+ 
+ 
+ Song 
+ W 
+ 
+ 
+ Chen 
+ Q 
+ 
+ 
+ Chen 
+ K 
+ 
+ 
+ Chen 
+ X 
+ 
+ 
+ Huang 
+ X 
+ 
+ 
+ Gong 
+ Q 
+ 
+ 
+ Shang 
+ H 
+ 
+ 
+ 2013 
+ Altered regional spontaneous neuronal activity in blepharospasm: a resting state fMRI study 
+ Journal of neurology 
+ 260 
+ 2754 
+ 60 
+ 23900755 
+ 
+ 
+ 
+ 
+ 
+ 
+ Zang 
+ Y 
+ 
+ 
+ Jiang 
+ T 
+ 
+ 
+ Lu 
+ Y 
+ 
+ 
+ He 
+ Y 
+ 
+ 
+ Tian 
+ L 
+ 
+ 
+ 2004 
+ Regional homogeneity approach to fMRI data analysis 
+ NeuroImage 
+ 22 
+ 394 
+ 400 
+ 15110032 
+ 
+ 
+ 
+ 
+ 
+ 
+ Zang 
+ YF 
+ 
+ 
+ He 
+ Y 
+ 
+ 
+ Zhu 
+ CZ 
+ 
+ 
+ Cao 
+ QJ 
+ 
+ 
+ Sui 
+ MQ 
+ 
+ 
+ Liang 
+ M 
+ 
+ 
+ Tian 
+ LX 
+ 
+ 
+ Jiang 
+ TZ 
+ 
+ 
+ Wang 
+ YF 
+ 
+ 
+ 2007 
+ Altered baseline brain activity in children with ADHD revealed by resting-state functional MRI 
+ Brain & development 
+ 29 
+ 83 
+ 91 
+ 16919409 
+ 
+ 
+ 
+ 
+ 
+ 
+ Zou 
+ QH 
+ 
+ 
+ Zhu 
+ CZ 
+ 
+ 
+ Yang 
+ Y 
+ 
+ 
+ Zuo 
+ XN 
+ 
+ 
+ Long 
+ XY 
+ 
+ 
+ Cao 
+ QJ 
+ 
+ 
+ Wang 
+ YF 
+ 
+ 
+ Zang 
+ YF 
+ 
+ 
+ 2008 
+ An improved approach to detection of amplitude of low-frequency fluctuation (ALFF) for resting-state fMRI: fractional ALFF 
+ Journal of neuroscience methods 
+ 172 
+ 137 
+ 41 
+ 18501969 
+ 
+ 
+ 
+ 
+ 
+ 
+ Figure 1 
+ 
+ The four spherical seed regions in the left medial (green, −15 −22 49), left lateral (yellow, −54 −1 31), right medial (red, 21 −22 52), and right lateral (blue, 30 −13 46) precentral gyrus. A compound seed consisting of these 4 regions was used for the connectivity analysis. Coordinates are represented in Talairach space. 
+ 
+ 
+ 
+ 
+ Figure 2 
+ 
+ Procedures of the “Leave-One-Out Cross Validation” (LOOCV, left) and “Recursive Feature Elimination” (RFE, right) involved in the support vector machine (SVM) classification. 
+ 
+ 
+ 
+ 
+ Figure 3 
+ 
+ Comparison of functional connectivity (FC) between the control (CON) and cervical dystonia (CD) group at different axial levels (Z indices). Significant (p<0.005/voxel and 646 mm 3  cluster; corrected p<0.05) group differences are shown in the bottom row with higher FC values in the control/CD group depicted in red/blue. 
+ 
+ 
+ 
+ 
+ Figure 4 
+ 
+ Comparison of regional homogeneity (ReHo) between the control (CON) and cervical dystonia (CD) group at different axial levels (Z indices). Significant (p<0.005/voxel and 646 mm 3  cluster; corrected p<0.05) group differences are shown in the bottom row with higher ReHo values in the control group depicted in red. Significantly higher ReHo values were not observed in the CD group. 
+ 
+ 
+ 
+ 
+ Figure 5 
+ 
+ Brain regions that survived the SVM-RFE analysis. Labels of different regions are in the same color as the region being labeled. FC: functional connectivity; ReHo: regional homogeneity; OP: overlapping regions between FC and ReHo; L: left; R: right; BG/TH: basal ganglia and thalamus; SFG: superior frontal gyrus; PCG: postcentral gyrus. 
+ 
+ 
+ 
+ 
+ Table 1 
+ 
+ Characteristics of the participants with cervical dystonia. 
+ 
+ 
+ 
+ 
+ ID 
+ Disease years 
+ Direction of torticollis 
+ Other symptoms 
+ Severity of cervical dystonia * 
+ Severity of torticollis ** 
+ Global Dystonia Rating Scale (neck) *** 
+ Time since botulinum toxin (months) 
+ 
+ 
+ 
+ 
+ 1 
+ 5 
+ right 
+ right laterocollis 
+ 18 
+ 4 
+ 4 
+ not applicable 
+ 
+ 
+ 2 
+ 13 
+ left 
+ retrocollis 
+ 20 
+ 3 
+ 7 
+ 2.5 
+ 
+ 
+ 3 
+ 3 
+ left 
+ anterocollis 
+ 12 
+ 2 
+ 4 
+ 3.4 
+ 
+ 
+ 4 
+ 15 
+ right 
+ left laterocollis 
+ 18 
+ 1 
+ 4 
+ 4.4 
+ 
+ 
+ 5 
+ 2 
+ left 
+ none 
+ 18 
+ 3 
+ 5 
+ 3.2 
+ 
+ 
+ 6 
+ 13 
+ right 
+ none 
+ 18 
+ 2 
+ 4 
+ 3.3 
+ 
+ 
+ 7 
+ 5 
+ right 
+ right laterocollis 
+ 18 
+ 1 
+ 4 
+ 3.0 
+ 
+ 
+ 8 
+ 9 
+ left 
+ right laterocollis, right shift 
+ 17 
+ 1 
+ 5 
+ 3.2 
+ 
+ 
+ 9 
+ 21 
+ right 
+ anterocollis 
+ 7 
+ 2 
+ 3 
+ 2.9 
+ 
+ 
+ 10 
+ 10 
+ left 
+ posterior shift 
+ 16 
+ 1 
+ 5 
+ 2.7 
+ 
+ 
+ 11 
+ 2 
+ left 
+ Right laterocollis 
+ 11 
+ 2 
+ 3 
+ 3.3 
+ 
+ 
+ 12 
+ 13 
+ right 
+ anterocollis 
+ 13 
+ 2 
+ 6 
+ 11.0 
+ 
+ 
+ 13 
+ 24 
+ right 
+ retrocollis 
+ 15 
+ 3 
+ 6 
+ 2.8 
+ 
+ 
+ 14 
+ 26 
+ right 
+ right laterocollis, anterocollis 
+ 23 
+ 3 
+ 8 
+ 4.7 
+ 
+ 
+ 15 
+ 7 
+ right 
+ left laterocollis, anterocollis 
+ 18 
+ 3 
+ 7 
+ 26.0 
+ 
+ 
+ 16 
+ 8 
+ right 
+ none 
+ 16 
+ 4 
+ 8 
+ 3.0 
+ 
+ 
+ 
+ 
+ 
+ * 
+ Severity of cervical dystonia was determined using the Motor Disability scale of the Toronto Western Spasmodic Torticollis Rating Scale. 
+ 
+ 
+ ** 
+ Severity of torticollis was determined from item #1 in the Toronto Western Spasmodic Torticollis Rating Scale. 
+ 
+ 
+ *** 
+ The Global Dystonia Rating Scale is a scale from 0 to 10 for each body part. The scores presented here refer only to the neck region. 
+ 
+ 
+ 
+ 
+ Table 2 
+ 
+ Brain regions with significant group differences on FC, or ReHo 
+ 
+ 
+ 
+ 
+ Measurements 
+ Brain Regions 
+ X 
+ Y 
+ Z 
+ Volume (mm 3 ) 
+ 
+ 
+ 
+ 
+ FC 
+ *  Left Basal Ganglia and Thalamus 
+ 13.2 
+ 12.4 
+ 11.5 
+ 3424 
+ 
+ 
+ 
+ Dorsal Cingulate (BA 32) 
+ 2.7 
+ −24.2 
+ 35.4 
+ 2882 
+ 
+ 
+ 
+ Right Basal Ganglia and Thalamus 
+ −13.8 
+ 12.4 
+ 14.0 
+ 2877 
+ 
+ 
+ 
+ *  Left Superior Frontal Gyrus (BA 9/10) 
+ 30.7 
+ −46.4 
+ 27.2 
+ 1759 
+ 
+ 
+ 
+ Left Cerebellar Culmen 
+ 30.1 
+ 50.5 
+ −27.3 
+ 1387 
+ 
+ 
+ 
+ *  Left Postcentral Gyrus (BA 1/2/40) 
+ 40.2 
+ 31.5 
+ 55.9 
+ 1284 
+ 
+ 
+ 
+ *  Right Postcentral Gyrus (BA 3/40) 
+ −36.6 
+ 36.7 
+ 47.4 
+ 1010 
+ 
+ 
+ 
+ Left Insula (BA 13) 
+ 34.6 
+ −12.3 
+ 11.6 
+ 881 
+ 
+ 
+ 
+ Right Cerebellar Culmen 
+ −22.1 
+ 63.8 
+ −25.1 
+ 661 
+ 
+ 
+ 
+ Right Middle Frontal Gyrus (BA 10) 
+ −28.1 
+ −48.4 
+ 22.1 
+ 660 
+ 
+ 
+ 
+ 
+ 
+ 
+ ReHo 
+ *  Left Postcentral Gyrus (BA 3/40) 
+ 38.8 
+ 30.1 
+ 50.8 
+ 2493 
+ 
+ 
+ 
+ *  Right Postcentral Gyrus (BA 3/40) 
+ −39.1 
+ 34.5 
+ 48.5 
+ 2255 
+ 
+ 
+ 
+ *  Left Basal Ganglia and Thalamus 
+ 21.4 
+ 11.9 
+ 9.9 
+ 1382 
+ 
+ 
+ 
+ Left Lingual Gyrus (BA 18/19) 
+ 21.8 
+ 74.8 
+ −8.4 
+ 1139 
+ 
+ 
+ 
+ Left Posterior Cingulate (BA 31) 
+ 16.0 
+ 59.0 
+ 18.9 
+ 1033 
+ 
+ 
+ 
+ Right Basal Ganglia and Thalamus 
+ −13.2 
+ 9.7 
+ 9.5 
+ 651 
+ 
+ 
+ 
+ 
+ 
+ * 
+ The 7 regions that survived “SVM-RFE” with the maximum classification accuracy of 90.6%. 
+ 
+ 
+ Regions with a higher value in control and CD groups are shown in bold and italics, respectively. 
+ 
+ 
+ Coordinates are in the Talairach space (RAI orientation). 
+ 
+ 
+ 
+ 

@@ -1,0 +1,2155 @@
+
+ properties manuscript? 
+ 
+ 
+ 9215515 
+ 20498 
+ Neuroimage 
+ Neuroimage 
+ 
+ NeuroImage 
+ 
+ 1053-8119 
+ 1095-9572 
+ 
+ 
+ 25613438 
+ 4981638 
+ 10.1016/j.neuroimage.2015.01.034 
+ NIHMS773664 
+ 
+ 
+ Article 
+ 
+ 
+ 
+ Functional resting-state connectivity of the human motor network: Differences between right- and left-handers 
+ 
+ 
+ 
+ 
+ Pool 
+ Eva-Maria 
+ 
+ a 
+ b 
+ 
+ 
+ 
+ Rehme 
+ Anne K. 
+ 
+ a 
+ b 
+ 
+ 
+ 
+ Eickhoff 
+ Simon B. 
+ 
+ b 
+ c 
+ 
+ 
+ 
+ Fink 
+ Gereon R. 
+ 
+ a 
+ b 
+ 
+ 
+ 
+ Grefkes 
+ Christian 
+ 
+ * 
+ a 
+ b 
+ 
+ 
+ a  Institute of Neuroscience and Medicine (INM-1, INM-3), Jülich Research Centre, 52428 Jülich, Germany 
+ b  Department of Neurology, University of Cologne, 50931 Cologne, Germany 
+ c  Institute of Clinical Neuroscience and Medical Psychology, Heinrich Heine University, 40225 Düsseldorf, Germany 
+ 
+ *  Corresponding author at: Department of Neurology, University Hospital Cologne, Kerpener Straße 62, 50937 Cologne, Germany. Fax: +49 221 478 7005.  christian.grefkes@uk-koeln.de  (C. Grefkes). 
+ 
+ 
+ 2 
+ 4 
+ 2016 
+ 
+ 
+ 19 
+ 1 
+ 2015 
+ 
+ 
+ 1 
+ 4 
+ 2015 
+ 
+ 
+ 12 
+ 8 
+ 2016 
+ 
+ 109 
+ 298 
+ 306 
+ 
+ 
+ This file is available for text mining. It may also be used consistent with the principles of fair use under the copyright law. 
+ 
+ 
+ 
+ Handedness is associated with differences in activation levels in various motor tasks performed with the dominant or non-dominant hand. Here we tested whether handedness is reflected in the functional architecture of the motor system even in the absence of an overt motor task. Using resting-state functional magnetic resonance imaging we investigated 18 right- and 18 left-handers. Whole-brain functional connectivity maps of the primary motor cortex (M1), supplementary motor area (SMA), dorsolateral premotor cortex (PMd), pre-SMA, inferior frontal junction and motor putamen were compared between right- and left-handers. We further used a multivariate linear support vector machine (SVM) classifier to reveal the specificity of brain regions for classifying handedness based on individual resting-state maps. Using left M1 as seed region, functional connectivity analysis revealed stronger interhemispheric functional connectivity between left M1 and right PMd in right-handers as compared to left-handers. This connectivity cluster contributed to the individual classification of right- and left-handers with 86.2% accuracy. Consistently, also seeding from right PMd yielded a similar handedness-dependent effect in left M1, albeit with lower classification accuracy (78.1%). Control analyses of the other resting-state networks including the speech and the visual network revealed no significant differences in functional connectivity related to handedness. In conclusion, our data revealed an intrinsically higher functional connectivity in right-handers. These results may help to explain that hand preference is more lateralized in right-handers than in left-handers. Furthermore, enhanced functional connectivity between left M1 and right PMd may serve as an individual marker of handedness. 
+ 
+ 
+ Handedness 
+ Dorsolateral premotor cortex 
+ Inferior frontal gyrus 
+ Support vector machine 
+ Motor asymmetry 
+ 
+ 
+ 
+ 
+ Introduction 
+ Handedness, i.e., the preference to use one hand over the other, is associated with differences in activation levels in various motor tasks performed with the dominant or non-dominant hand ( Hammond, 2002 ). One of the earliest observation of lateralized brain function was reported by Pierre-Paul Broca who on the basis of aphasia and left hemisphere damage concluded that the left hemisphere is responsible for language-related behavior in right-handed patients ( Broca, 1863 ). Since then, several studies have confirmed that hemispheric asymmetries of both structural and functional cortical organization are related to handedness ( Amunts et al., 1996 ;  Hammond, 2002 ). Using magnetic resonance morphometry, Amunts et al. demonstrated that the depth of the central sulcus is related to handedness. In right-handers, the left central sulcus was deeper than the right, and vice versa in left-handers. Analysis of macrostructural asymmetry was complemented by converging results of an analysis of microstructure (i.e., tissue compartment containing dendrites, axons, and synapses) in Brodmann's area 4. Based on their findings Amunts et al. suggested that hand preference is associated with increased structural connectivity and an increased intrasulcal surface of the precentral gyrus in the dominant hemisphere ( Amunts et al., 1996 ). Using functional magnetic resonance imaging (fMRI), Jäncke and colleagues investigated right-handers performing a sequence task (touching of all four fingers with the thumb) at two different frequencies (1.0 Hz and 3.0 Hz) ( Jäncke et al., 1998 ). In right-handers they observed stronger right hemispheric activation when performing the task with the left hand compared to activity in the left hemisphere when performing the same task with the right hand ( Jäncke et al., 1998 ). Solodkin and colleagues further revealed differences in the fMRI activation patterns between simple and complex digit movements in right- and left-handers: while simple movements did not show differences with respect to handedness, neural activations underlying complex movements were more extended in left-handers compared to right-handers ( Solodkin et al., 2001 ). Liu and colleagues found greater interhemispheric asymmetry in functional resting-state-connectivity of attention-related areas in right-handers compared to left-handers ( Liu et al., 2009 ). We recently showed that effective connectivity, i.e., the causal influence that one area exerts over another area, between motor areas was differentially modulated in right- and left-handers depending on whether movements were performed with the dominant or non-dominant hand ( Pool et al., 2014 ). More precisely, effective connectivity analysis revealed that in right-handed subjects movements of the dominant hand were associated with significantly stronger coupling of contralateral (left, i.e., dominant) supplementary motor area (SMA) with ipsilateral SMA, ipsilateral ventral premotor cortex (PMv), contralateral motor putamen and contralateral primary motor cortex (M1) (compared to equivalent connections in left-handers). Individual hand dominance as assessed using the Edinburgh-Handedness-Inventory (EHI) for daily activities (e.g., writing, striking a match, holding a broom;  Oldfield, 1971 ) also correlated with coupling parameters of these connections. In contrast, we did not observe differences between right- and left-handers when testing for the effect of movement speed on effective connectivity. Based on these observations we concluded that handedness is associated with differences in effective connectivity within the human motor network with a prominent role of left SMA in right-handers. The fact that left-handers featured less asymmetry in effective connectivity strongly suggested differential hemispheric mechanisms underlying hand motor control in left- and right-handers ( Pool et al., 2014 ). 
+ However, differences in task performance (either in absolute performance measures or in hidden parameters like attention and effort) are inherent putative confounds for all task-based fMRI studies ( Lowe et al., 1998 ;  Yan et al., 2012 ). For example, performing a standard motor task might be less demanding when using the dominant hand compared to the non-dominant hand, which may also affect neural activation levels, e.g., in frontoparietal areas. Therefore, resting-state fMRI seems an attractive approach to overcome putative confounds as it allows investigating networks independent from performance. 
+ We, therefore, used resting-state fMRI in 18 right-handed and 18 left-handed healthy volunteers to investigate handedness-dependent effects on resting-state functional connectivity. Given the evidence suggesting a role of M1 in handedness ( Amunts et al., 1996 ;  Ziemann and Hallett, 2001 ), we hypothesized that also resting-state connectivity of M1 might differ between right- and left-handers. In addition, as also connectivity of higher motor areas could show differential connectivity profiles dependent on handedness, we included seed regions in SMA, dorsolateral premotor cortex (PMd), pre-SMA, inferior frontal junction and motor putamen into the analyses. To test whether effects were specifically related to the motor system, we also investigated resting-state functional connectivity maps of the visual system and the language system using the primary visual cortex (V1) and the pars triangularis of the inferior frontal gyrus (IFG) as seed regions. 
+ Consistent with previous studies revealing a hemispheric asymmetry related to handedness during motor performance ( Haaland et al., 2004 ;  Jäncke et al., 1998 ;  Solodkin et al., 2001 ) and structural investigations reporting handedness-related macroscopic and microscopic asymmetries ( Amunts et al., 1996 ), we hypothesized that differences within the human motor network between right- and left-handers can already be detected in absence of an overt motor task. However, mass-univariate group comparisons are not able to reveal how strong a feature really contributes to the distinction between right- and left-handers at an individual subject level. In other words, finding a group difference for a specific brain regions does not tell us whether this brain region can also predict an unseen subject that is not part of the test sample. We, therefore, in addition used a multivariate linear support vector machine (SVM) classifier algorithm ( Chang and Lin, 2011 ) to test whether resting-state functional connectivity between brain regions can predict handedness of individual subjects. 
+ 
+ 
+ Material and methods 
+ 
+ Subjects 
+ The study was approved by the local ethics committee and performed in accordance with the Declaration of Helsinki. Thirty-six subjects [18 right-handers (10 males; 22–33 years old; mean age 26.1 ± 3.0 SD) and 18 left-handers (7 males; 19–30 years old; mean age 24.3 ± 2.6 SD)] with no history of neurological or psychiatric disease gave informed consent. Activation data of frequency-dependent modulation were previously published for this cohort of subjects ( Pool et al., 2013 ,  2014 ). 
+ To ensure that there were no significant differences in head movement parameters between right- and left-handed subjects we compared framewise displacement (FD) and root-mean-square (RMS) of the realignment parameters of the resting-state data in a two-sample  t -test. Both tests showed no significant differences between groups (FD:  P  = 0.302; RMS:  P  = 0.259) ( Power et al., 2012 ;  Van Dijk et al., 2012 ). 
+ 
+ 
+ Handedness measurements 
+ Handedness was assessed by asking the subjects to complete the Edinburgh-Handedness-Inventory (EHI) ( Oldfield, 1971 ). The EHI is a test to assess hand dominance in daily activities (e.g., writing, striking a match, holding a broom). The laterality quotient (LQ) of hand dominance ranges from −100 to 100: A LQ > 25 indicates right-handedness, a LQ < −25 left-handedness ( Pujol et al., 1999 ). The median LQ value of the right-handers was  88  (range: 53 to 100) and the median LQ of the left-handers was − 71  (range: −30 to −100). We computed Mood's median test for non-parametric group comparisons, showing no significant difference between the median degree of handedness of right- and left-handers ( P  = 0.176). 
+ 
+ 
+ Data acquisition 
+ All subjects underwent resting-state functional magnetic resonance imaging (rs-fMRI). MR images were acquired on a Siemens Trio 3.0 T scanner (Siemens Medical Solutions, Erlangen, Germany). The resting-state paradigm was measured using a gradient echo planar imaging (EPI) sequence with the following parameters: TR = 2000 ms, TE = 30 ms, FOV = 220 mm, 32 slices, 3.4 × 3.4 × 3.4 mm 3  voxel size, 1 mm gap, flip angle = 90°, rs-fMRI: 184 volumes (three dummy images). The slices covered the whole brain extending from the vertex to lower parts of the cerebellum. 
+ For the resting-state assessment, subjects were instructed to remain motionless and to fixate on a red cross on a black screen for about 6 min. We choose a scanning time around 6 min because longer scanning times do not improve the signal-to-noise of the data, but promote fatigue of the subjects ( Van Dijk et al., 2010 ). 
+ 
+ 
+ Image preprocessing 
+ The resting-state fMRI data were conjointly preprocessed using Statistical Parametric Mapping (SPM8,  http://www.fil.ion.ucl.ac.uk/spm ). After realignment of the EPI volumes and co-registration, all volumes were spatially normalized to the standard template of the Montreal Neurological Institute employing the unified segmentation approach ( Ashburner and Friston, 2005 ). Finally, data were smoothed using an isotropic Gaussian kernel of 8 mm full-width-at-half-maximum. 
+ 
+ 
+ Data analyses 
+ 
+ fMRI resting-state data 
+ Variance that could be explained by known confounds was removed from each voxel of the fMRI time-series. Confound regressors included the mean-centered global gray matter, white matter and cerebrospinal fluid signal intensities and their squared values, the six head motion parameters, their squared values as well as their first-order derivatives ( Satterthwaite et al., 2013 ). In the following step, data were band-pass filtered preserving frequencies between 0.01 Hz and 0.08 Hz. We used a low-pass cutoff of 0.08 Hz as this threshold has been demonstrated to be more robust against spurious correlations induced by, e.g., head movements compared to a 0.1 Hz threshold ( Power et al., 2012 ;  Van Dijk et al., 2012 ). 
+ Coordinates from an activation likelihood estimation (ALE) meta-analysis ( Hardwick et al., 2012 ) of peak activations in left and right M1 on the rostral wall of the central sulcus at the “hand knob” formation ( Yousry et al., 1997 ) were used as seed regions for the resting-state analysis (see  Table 1 ). Besides M1, we included other cortical and subcortical motor areas as seed regions that are known to be involved in motor control. To this end, we extracted coordinates from ALE meta-analyses of peak activations in left and right SMA ( Rehme et al., 2012 ), left and right PMd ( Witt et al., 2008 ), left and right pre-SMA ( Keuken et al., 2014 ), pars opercularis of the left and right IFG ( Swick et al., 2011 ), and left and right motor putamen ( Hardwick et al., 2012 ) ( Table 1 ). The time course of the respective seed regions was subsequently extracted for each subject as the first eigenvariate of all gray-matter voxels located within a sphere of 8 mm-diameter centered at the seed voxel coordinate ( zu Eulenburg et al., 2012 ). Linear Pearson's correlation coefficients were computed between the seed coordinate and the time course of every other voxel in the brain for each subject ( zu Eulenburg et al., 2012 ). Only positive correlations were used to reconstruct the respective resting-state maps. Correlation coefficients of the resting-state functional connectivity maps were then converted to Fisher's Z-scores to yield approximately normally distributed data using the following equation:  z = 1 2 × ln ( 1 + r ) ( 1 − r ) = atanh ( r ) . 
+ 
+ 
+ Control analyses 
+ To test whether differences in functional connectivity between right- and left-handers were specific for the resting-state motor networks, additional analyses were performed for non-motor resting-state networks with seeds in the (i) inferior frontal gyrus (IFG, pars triangularis; BA 44, “speech network”), and the (ii) occipital poles/calcarine sulcus (V1; BA17, “primary visual network”). The seed coordinates for the speech network were defined from ALE meta-analyses of peak activations associated with several core aspects of language including overt and covert speech, semantics, phonology and syntax ( Clos et al., 2013 ). The seed coordinates for the visual network were defined from group activation maxima based on a visually cued sensorimotor task described by  Pool et al. (2014)  ( Table 1 ). 
+ 
+ 
+ Statistics 
+ For each seed region (left/right M1, left/right SMA, left/right PMd, left/right pre-SMA, left/right pars opercularis of the IFG, left/right motor putamen, left/right pars triangularis of the IFG, and left/right V1), the individual maps were entered into flexible factorial general linear models (GLMs) with the factor GROUP (levels: right-handers, left-handers). We used GENDER as a covariate for the different resting-state maps to correct for differences between groups. In addition, we computed regression analyses for significant GLM effects between resting-state maps and the EHI score to investigate whether there was a correlation between the degree of handedness and functional connectivity ( P  < 0.05, FWE-corrected at the cluster level). 
+ Differential contrasts were masked with the respective resting-state maps ( P  < 0.001, uncorrected) in order to ensure that only those voxels were considered for which significant resting-state connectivity was found in either right- or left-handers. 
+ 
+ 
+ 
+ SVM classification 
+ We next tested whether regions showing significant group differences in resting-state functional connectivity between right- and left-handers also allow classifying handedness at the level of individual maps by using a linear support-vector machine (SVM) ( Chang and Lin, 2011 ) implemented in MatLab. Therefore, the same resting-state maps that were used in the GLM were entered into the multivariate SVM analyses. Accordingly, classification was based on the z-transformed correlation coefficients. As a linear parameter, voxel-wise connectivity was scaled to range between 0 and 1. Feature selection was repeated for each training sample. Then, model optimization was embedded in a leave-one-subject-out cross-validation scheme. For training, every subject was left out once and classified based on the model optimized for the rest of the sample constituting the training data set. Voxels were selected for each training set according to a significant  t -test ( P  < 0.001), and the left-out subject was classified based on the features selected in the respective training sample. Thus, classification of data was independent from the selection criteria applied in the training step to prevent any feature selection bias ( Kriegeskorte et al., 2009 ). Afterwards, the classification model was optimized based on different soft margin constants of the linear separation boundary (i.e., C-parameters ranging from small (C = 0.0001) to large (C = 30). For this optimization, we used another leave-one-subject-out cross-validation procedure by successively omitting and classifying one subject of the training data (please see  Rehme et al., 2014 , for a more detailed description). We then computed the posterior balanced accuracy of classifications across all outer loops and reported 95% confidence intervals (CIs) ( Brodersen et al., 2010 ). Chi-squared tests for equal distributions of correct and incorrect classifications were used to test for significance. 
+ To test whether regions showing significant group differences in functional connectivity were specifically related to handedness in individual subjects, we computed a second SVM analysis. Here, individual resting-state maps were masked by the significant group difference in the GLM analysis ( P  < 0.05, cluster-level FWE corrected) and entered into the SVM analysis as described above with a fixed number of voxels. We again report the posterior balanced accuracy with CIs and significance levels. 
+ Finally, we computed the SVM weight image showing areas of regional functional connectivity that contribute to the classification of the two groups. 
+ 
+ 
+ Mass-univariate SVM analysis 
+ To compare multivariate SVM classification with univariate classification, we also tested the classification accuracy of individual voxels within the motor network for the discrimination between right- and left-handers ( Rehme et al., 2014 ). We performed the same leave-one-subject-out cross-validation procedure with a training sample and one independent test sample according to the multivariate SVM training procedure described above. The mean of the average connectivity in each group of the training data set was used as a separation boundary to classify the respective left-out subject for each voxel. Finally, the classification accuracy for each voxel was averaged across all cross-validation loops. Similar to the presentation of SVM weights, we mapped the single voxel accuracy onto a brain template to show voxels that discriminate right- and left-handers with higher accuracy cut-off. 
+ 
+ 
+ 
+ Results 
+ 
+ M1 resting-state connectivity 
+ The approach of using the left M1 as a seed region revealed a bihemispheric motor network comprising M1 and premotor areas as well as parts of the somatosensory and superior parietal cortex ( P  < 0.05, FWE-corrected at the cluster level;  Fig. 1A ). When computing group contrasts to test for differences related to handedness, we found stronger functional connectivity between left M1 and right PMd [maximum ( x, y, z ): 34 −8 54] in right-handers as compared to left-handers ( P  < 0.05, FWE-corrected at the cluster level;  Fig. 1B ). The reverse contrast showed no significant differences between the two groups. Computing functional connectivity of the right M1 seed region yielded a similar yet mirror-reversed map as observed for the left M1 seed region ( P  < 0.05, FWE-corrected at the cluster level;  Fig. 1A ). However, when computing group contrasts with right M1 as seed region we found no significant difference between right- and left-handers ( P  > 0.05, uncorrected on the cluster level). 
+ 
+ 
+ Multivariate SVM classification 
+ The SVM classifying right- and left-handers based on resting-state functional connectivity of left M1 yielded a posterior classification accuracy of 86.2% ( P  < 0.001, CI = 69.8–92.5%; right-handers: 83.3% and left-handers: 88.9%). Consistent with the mass-univariate analysis, the SVM weight image reveals that higher resting-state functional connectivity between left M1 and right PMd contributes to the classification of right-handers as compared to left-handers at the level of individual subjects ( Fig. 2 ). Here, red colored voxels indicate that in these voxels right-handers had higher connectivity values compared to left-handers, while blue colored voxels denote the opposite, i.e., left-handers had higher connectivity than right-handers. However, as none of the voxels showed higher connectivity in left-handers compared to right-handers, the reconstructed weights are only represented by red voxels. When testing for right M1 as seed region, the SVM results showed performance at chance level (classification accuracy = 50%,  P  = 0.499). 
+ 
+ 
+ Mass-univariate SVM classification 
+ When testing the classification accuracy of individual voxels based on resting-state functional connectivity of left M1 for the discrimination between right- and left-handers, the mean of the average voxel connectivity in each group in each training sample was used as a boundary to classify the respective left-out subject in a cross-validation approach. This mass-univariate classification analysis revealed that 14 voxels provided classification accuracies of >86.2% ( Supplementary Fig. 1 ). This means that only 0.02% of the voxels were equal to or better than the classification accuracy of the multivariate SVM classifier of 82.6%. Thus, multivariate classification allows a better prediction of handedness as compared to univariate classification. 
+ 
+ 
+ Resting-state connectivity of motor control regions 
+ Using the right PMd as seed region revealed a bihemispheric network comprising premotor regions, M1 as well as parts of the somato-sensory and superior parietal cortex, and postcentral gyrus ( P  < 0.05, FWE-corrected at the cluster level;  Fig. 3A ). When testing for differences related to handedness, we found stronger functional connectivity between right PMd and left M1 [maximum (x, y, z): −38 −26 64] in right-handers as compared to left-handers ( P  < 0.05, FWE-corrected at the cluster level;  Fig. 3B ). 
+ The SVM classifying right- and left-handers based on resting-state functional connectivity of right PMd yielded a posterior classification accuracy of 78.1% ( P  < 0.001, CI = 61.2–87.1%; right-handers: 72.2% and left-handers: 83.3%). The SVM weight image revealed that resting-state functional connectivity between right PMd and left M1 contributed to the classification of right-handers as compared to left-handers at the level of individual subjects ( Fig. 4 ). Hence, a similar region as found for the mass-univariate analyses separated right- from left-handers. 
+ When seeding from left PMd or other regions that are involved in motor control including pre-SMA, SMA, pars opercularis of the IFG and motor putamen, the differential contrasts revealed no significant difference between right- and left-handers for any of these motor control areas ( P  > 0.05, uncorrected). 
+ Likewise, the SVM approach could not discriminate between right-and left-handers based on resting-state functional connectivity of these motor control networks (classification accuracy <50%, i.e., chance level;  P  > 0.9). 
+ 
+ 
+ Control analyses 
+ Seeding from the left pars triangularis of the IFG revealed positive coupling with a bihemispheric speech network comprising IFG (areas 44 and 45), bilateral inferior and superior parietal cortex, and postcentral gyrus ( P  < 0.05, FWE-corrected at the cluster level;  Fig. 5 ). A similar yet mirror reversed pattern was observed when seeding from right IFG (pars triangularis). However, there was no significant difference between right- and left-handers for any IFG seed region within the speech network ( P  > 0.05, uncorrected). 
+ For the visual network, we found significant coupling of both the left- and right-hemispheric V1 seed region with a bihemispheric visual network comprising V1 and secondary visual areas ( P  < 0.05, FWE-corrected at the cluster level;  Fig. 5 ). Again, differential contrasts with V1 as a seed region did not show a significant difference between right- and left-handers ( P  > 0.05, uncorrected). 
+ Likewise, the SVM approach could not discriminate between right-and left-handers based on resting-state functional connectivity of the language or visual network (feature selection threshold:  P  < 0.001 uncorrected; classification accuracy for both the language network and the visual network <50 %, i.e., chance level;  P  > 0.9). 
+ 
+ 
+ 
+ Discussion 
+ We found that right-handedness was associated with stronger inter-hemispheric functional connectivity between left M1 as seed region and contralateral PMd as compared to left-handedness. Corresponding to this, functional connectivity between right PMd as seed region and contralateral M1 was also stronger in right-handers as compared to left-handers. In addition to these mass-univariate analyses, the SVM analysis showed that interhemispheric functional connectivity between left M1 and right PMd allows making individual classifications as to whether subjects are left- or right-handed with an accuracy of 86.2%. The equivalent SVM analysis with right PMd as seed region revealed the same voxels to contribute to the classification of handedness, albeit with a slightly lower classification accuracy (78.1%). 
+ In contrast, neither the resting-state maps of the other motor control regions nor those of the visual network and language network could differentiate between left- and right-handers. Also the multivariate SVM—which in principle can detect spatial patterns of connectivity associated with handedness even in the absence of differences in the univariate GLM analysis—did not find a separation of left- and right-handers based on the connectivity of the control networks. This finding underpins the high specificity of the M1-PMd connection for distinguishing handedness based on intrinsic resting-state fluctuations. 
+ 
+ Handedness and brain activity 
+ A number of previous studies found differences in brain activity between right- and left-handers in different motor tasks ( Dassonville et al., 1997 ;  Kim et al., 1993 ;  Solodkin et al., 2001 ;  Volkmann et al., 1998 ). For example, Kim and colleagues revealed larger ipsilateral activation volumes in M1 in right-handers as compared to left-handers when performing a repetitive finger–thumb opposition task ( Kim et al., 1993 ). Dassonville and colleagues observed a stronger lateralization of neural activity within the motor cortex according to increasing degrees of handedness for both right- and left-handers ( Dassonville et al., 1997 ). Solodkin and colleagues mapped brain activation patterns in right- and left-handers during single and sequential finger movements and found larger volumes of activation and less hemispheric lateralization in left-handers ( Solodkin et al., 2001 ). These findings are in line with behavioral data revealing that hand preference in left-handers is often expressed to a lesser degree than in right-handers ( Borod et al., 1984 ). Handedness-related asymmetries have also been demonstrated in cortical excitability using transcranial magnetic stimulation (TMS) paradigms ( Brouwer et al., 2001 ;  Ziemann and Hallett, 2001 ). For example,  Ziemann and Hallett (2001)  showed a smaller increase of the excitability of the motor cortex contralateral to the inactive hand during right than during left hand movements. This finding indicates that the left motor cortex exerts more inhibitory control upon the contralateral motor cortex (controlling the left hand) than vice versa ( Ziemann and Hallett, 2001 ). Data suggest that the neural mechanisms underlying handedness might rest in hemispheric-specific differences of network dynamics that govern unimanual movements. 
+ 
+ 
+ Handedness-dependent effects on connectivity 
+ The new finding of the present study is that we found a strong association between handedness and resting-state functional connectivity of M1 with right PMd. Both M1 and PMd are considered to represent key motor structures for movement preparation and execution ( Hoshi and Tanji, 2004 ;  Schluter et al., 1998 ). Several tract-tracing studies provide evidence that the preparatory activity in PMd neurons facilitates the initiation of arm movements according to predetermined motor parameters ( Churchland and Shenoy, 2007 ;  Churchland et al., 2006 ;  Hoshi and Tanji, 2007 ). PMd projects to the superior part of the parietal cortex, where sensorimotor integration occurs, and the motor cortex, where the movement is executed. Using double pulse TMS, Liuzzi and colleagues revealed that during movement preparation with the right hand, the right PMd exerted a more pronounced late facilitatory influence on the left M1 in right-handers ( Liuzzi et al., 2009 ). This result is in line with the findings of the present study showing a stronger intrinsic connectivity between right PMd and left M1 even in the absence of movement preparation for the right (dominant) hand of right-handers compared to the right (non-dominant) hand of left-handers. As we did not find a similar effect for functional connectivity between left PMd and right M1—neither in the mass-univariate group analysis nor in the multivariate SVM analysis—data strongly suggest that interhemispheric interactions between right PMd and left M1 are more lateralized in right-handers. Consistent with this suggestion, structural connectivity has also been shown to be more lateralized in right-handers compared to left-handers: Using diffusion tensor imaging and graph theoretical measures to investigate handedness-related differences in white-matter properties, Li and colleagues observed that right-handed subjects had significantly more asymmetries in small-world properties of white matter tracts than left-handed subjects ( Li et al., 2014 ). Other studies confirm lateralization differences in functional connectivity dependent on handedness. For example, Saenger and colleagues found that in right-handers functional connectivity of the default mode network (DMN) shows more hemispheric asymmetries compared to left-handers ( Saenger et al., 2012 ). Furthermore, Liu and colleagues found stronger hemispheric asymmetry in right-handers in attention related areas ( Liu et al., 2009 ). Interestingly, during childhood development, asymmetries in resting-state functional connectivity of the motor system towards the left hemisphere reflect better motor performance in right-handed children at the age of 10 years. Taken together, these findings suggest that an enhanced lateralization of motor network properties is a consistent feature of right-handed subjects. Findings are compatible with developmental studies showing that right hand preference can be already observed before birth; for example, ultrasound studies revealed that about 90% of the fetuses suck the thumb of their right hand ( Hepper et al., 2005 ), suggesting a strong genetic influence for handedness. 
+ Nevertheless, over and above genetic/developmental properties use-dependent effects are likely to impact on asymmetries of the motor system ( Haaland et al., 2000 ;  Karni et al., 1995 ;  Kloppel et al., 2007 ). This needs to be kept in mind particularly when studying left-handers: left-handers are likely to have learned to live in a world in which many tools and procedures are made for right-handers ( Porac, 1996 ). Consistently, left-handers were demonstrated to be more flexible in using both hands in activities of daily living ( Bryden et al., 2011 ;  Vaid et al., 1989 ). In line with this, Landau and D'Esposito showed that subjects trained to use both hands feature less hemispheric asymmetry of the motor system ( Landau and D'Esposito, 2006 ). Thus, a reduced hemispheric lateralization of functional connectivity in left-handers relative to right-handers as shown by our results might also result from a stronger use of the non-dominant right hand for everyday life tasks (in left-handers). 
+ 
+ 
+ Handedness-dependent effects on resting-state connectivity within the Broca speech network 
+ Our data did not reveal an effect of handedness on functional connectivity of the IFG (Broca speech network, BA 44, pars triangularis). It is well established that the left hemisphere is dominant for speech–language functions in over 90% of right-handers ( Szaflarski et al., 2006 ). In contrast, language dominance in left-handers is less lateralized ( Goodglass and Quadfasel, 1954 ;  Ratcliff et al., 1980 ;  Satz, 1979 ;  Steinmetz et al., 1991 ). In healthy subjects, Knecht and colleagues revealed that the incidence of right-hemisphere language dominance increased linearly with the degree of left-handedness. This suggests that handedness and language dominance are determined by multiple factors, e.g., complex genetic or non-genetic factors in the formation of the phenotype ( Knecht et al., 2000 ). However, it must be noted that not only right-handers but also a large fraction of left-handers have a left-hemispheric dominance for language. For example, Pujol and colleagues investigated 100 healthy right- and left-handers using fMRI and a word generation task within the scanner ( Pujol et al., 1999 ). The authors observed that 70% of the left-handers have left cerebral language dominance while 30% show a right dominant or bilateral pattern ( Pujol et al., 1999 ). Assuming similar proportions for the sample of the present study, it is not surprising that functional connectivity of the IFG (pars triangularis) was insufficient for separating subjects based on handedness. Conversely, it underlines the robustness of handedness-dependent effects on M1 resting-state functional connectivity. Likewise, no effects were observed with respect to the V1 resting-state network. 
+ 
+ 
+ Conclusion 
+ In conclusion, the present study revealed that right-handedness is associated with stronger interhemispheric resting-state functional connectivity between primary and premotor cortex. The stronger lateralization of the motor system in right-handers might help to explain the behavioral effect that right-handedness is usually more lateralized than left-handedness with left-handers tending to be more flexible in the use of both their right and left hand. Based on these findings, a larger sample would allow us to investigate more heterogeneous subjects, and might further our understanding of handedness and motor skill manifestations like ambidexterity. Unfortunately, the number of left-handed subject (as assessed by the EHI or other measures of handedness) in these database archives is very small (e.g., NKI Rockland-Sample has only 18 out of 304 subjects with an EHI < −25). This bias probably results from the fact that most fMRI studies exclusively include right-handed subjects. Therefore, a more systematic inclusion of left-handed subjects in such databases in the future would help to investigate neural correlates of hand dominance with higher statistical power.  
+ 
+ 
+ 
+ Supplementary Material 
+ 
+ Supp. Fig 1 
+ 
+ 
+ 
+ 
+ 
+ Acknowledgments 
+ We thank our volunteers and are grateful to Dr. Marc Tittgemeyer from the Max Planck Institute Research and the MR staff for support. SBE was supported by the Deutsche Forschungsgemeinschaft (DFG, EI 816/4-1, EI 816/6-1 and LA 3071/3-1), the National Institute of Mental Health (R01-MH074457) and the European EFT program (Human Brain Project). GRF gratefully acknowledges additional support from the Marga and Walter Boll Stiftung. CG was supported by a grant from the Deutsche Forschungsgemeinschaft (GR 3285/2-1). CG and GRF receive funding from the University of Cologne Emerging Groups Initiative (CONNECT group) implemented into the Institutional Strategy of the University of Cologne and the German Excellence Initiative. 
+ 
+ 
+ 
+ Supplementary data to this article can be found online at  http://dx.doi.org/10.1016/j.neuroimage.2015.01.034 . 
+ 
+ 
+ Declaration of conflict of interests 
+ The authors declare that they have no competing interests. 
+ 
+ 
+ 
+ References 
+ 
+ 
+ 
+ 
+ Amunts 
+ K 
+ 
+ 
+ Schlaug 
+ G 
+ 
+ 
+ Schleicher 
+ A 
+ 
+ 
+ Steinmetz 
+ H 
+ 
+ 
+ Dabringhaus 
+ A 
+ 
+ 
+ Roland 
+ PE 
+ 
+ 
+ Zilles 
+ K 
+ 
+ 
+ Asymmetry in the human motor cortex and handedness. 
+ Neuroimage 
+ 1996 
+ 4 
+ 216 
+ 222 
+ 9345512 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ashburner 
+ J 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ Unified segmentation. 
+ Neuroimage 
+ 2005 
+ 26 
+ 839 
+ 851 
+ 15955494 
+ 
+ 
+ 
+ 
+ 
+ 
+ Borod 
+ JC 
+ 
+ 
+ Caron 
+ HS 
+ 
+ 
+ Koff 
+ E 
+ 
+ 
+ Left-handers and right-handers compared on performance and preference measures of lateral dominance. 
+ Br. J. Psychol 
+ 1984 
+ 75 
+ Pt 2 
+ 177 
+ 186 
+ 6733391 
+ 
+ 
+ 
+ 
+ 
+ 
+ Broca 
+ P 
+ 
+ 
+ Localisation des fonctions cérébrales. Siège de la faculté du langage articulé (3 avril). 
+ Bull. Soc. Anthropol. Paris 
+ 1863 
+ 4 
+ 200 
+ 202 
+ 
+ 
+ 
+ 
+ 
+ 
+ Brodersen 
+ KH 
+ 
+ 
+ Ong 
+ CS 
+ 
+ 
+ Stephan 
+ KE 
+ 
+ 
+ Buhmann 
+ JM 
+ 
+ 
+ The balanced accuracy and its posterior distribution. 
+ Proceedings of the 20th International Conference on Pattern Recognition 
+ 2010 
+ 3121 
+ 3124 
+ 
+ 
+ 
+ 
+ 
+ 
+ Brouwer 
+ B 
+ 
+ 
+ Sale 
+ MV 
+ 
+ 
+ Nordstrom 
+ MA 
+ 
+ 
+ Asymmetry of motor cortex excitability during a simple motor task: relationships with handedness and manual performance. 
+ Exp. Brain Res 
+ 2001 
+ 138 
+ 467 
+ 476 
+ 11465745 
+ 
+ 
+ 
+ 
+ 
+ 
+ Bryden 
+ PJ 
+ 
+ 
+ Mayer 
+ M 
+ 
+ 
+ Roy 
+ EA 
+ 
+ 
+ Influences of task complexity, object location, and object type on hand selection in reaching in left and right-handed children and adults. 
+ Dev. Psychobiol 
+ 2011 
+ 53 
+ 47 
+ 58 
+ 20812232 
+ 
+ 
+ 
+ 
+ 
+ 
+ Chang 
+ CC 
+ 
+ 
+ Lin 
+ CJ 
+ 
+ 
+ LIBSVM: a library for support vector machines. 
+ ACM Trans. Intell. Syst. Technol 
+ 2011 
+ 27 
+ 1 
+ 39 
+ 
+ 
+ 
+ 
+ 
+ 
+ Churchland 
+ MM 
+ 
+ 
+ Shenoy 
+ KV 
+ 
+ 
+ Delay of movement caused by disruption of cortical preparatory activity. 
+ J. Neurophysiol 
+ 2007 
+ 97 
+ 348 
+ 359 
+ 17005608 
+ 
+ 
+ 
+ 
+ 
+ 
+ Churchland 
+ MM 
+ 
+ 
+ Yu 
+ BM 
+ 
+ 
+ Ryu 
+ SI 
+ 
+ 
+ Santhanam 
+ G 
+ 
+ 
+ Shenoy 
+ KV 
+ 
+ 
+ Neural variability in premotor cortex provides a signature of motor preparation. 
+ J. Neurosci 
+ 2006 
+ 26 
+ 3697 
+ 3712 
+ 16597724 
+ 
+ 
+ 
+ 
+ 
+ 
+ Clos 
+ M 
+ 
+ 
+ Amunts 
+ K 
+ 
+ 
+ Laird 
+ AR 
+ 
+ 
+ Fox 
+ PT 
+ 
+ 
+ Eickhoff 
+ SB 
+ 
+ 
+ Tackling the multifunctional nature of Broca's region meta-analytically: co-activation-based parcellation of area 44. 
+ Neuroimage 
+ 2013 
+ 83 
+ 174 
+ 188 
+ 23791915 
+ 
+ 
+ 
+ 
+ 
+ 
+ Dassonville 
+ P 
+ 
+ 
+ Zhu 
+ XH 
+ 
+ 
+ Uurbil 
+ K 
+ 
+ 
+ Kim 
+ SG 
+ 
+ 
+ Ashe 
+ J 
+ 
+ 
+ Functional activation in motor cortex reflects the direction and the degree of handedness. 
+ Proc. Natl. Acad. Sci. U. S. A 
+ 1997 
+ 94 
+ 14015 
+ 14018 
+ 9391144 
+ 
+ 
+ 
+ 
+ 
+ 
+ Goodglass 
+ H 
+ 
+ 
+ Quadfasel 
+ FA 
+ 
+ 
+ Language laterality in left-handed aphasics. 
+ Brain 
+ 1954 
+ 77 
+ 521 
+ 548 
+ 13230290 
+ 
+ 
+ 
+ 
+ 
+ 
+ Haaland 
+ KY 
+ 
+ 
+ Harrington 
+ DL 
+ 
+ 
+ Knight 
+ RT 
+ 
+ 
+ Neural representations of skilled movement. 
+ Brain 
+ 2000 
+ 123 
+ Pt 11 
+ 2306 
+ 2313 
+ 11050030 
+ 
+ 
+ 
+ 
+ 
+ 
+ Haaland 
+ KY 
+ 
+ 
+ Elsinger 
+ CL 
+ 
+ 
+ Mayer 
+ AR 
+ 
+ 
+ Durgerian 
+ S 
+ 
+ 
+ Rao 
+ SM 
+ 
+ 
+ Motor sequence complexity and performing hand produce differential patterns of hemispheric lateralization. 
+ J. Cogn. Neurosci 
+ 2004 
+ 16 
+ 621 
+ 636 
+ 15165352 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hammond 
+ G 
+ 
+ 
+ Correlates of human handedness in primary motor cortex: a review and hypothesis. 
+ Neurosci. Biobehav. Rev 
+ 2002 
+ 26 
+ 285 
+ 292 
+ 12034131 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hardwick 
+ RM 
+ 
+ 
+ Rottschy 
+ C 
+ 
+ 
+ Miall 
+ RC 
+ 
+ 
+ Eickhoff 
+ SB 
+ 
+ 
+ A quantitative meta-analysis and review of motor learning in the human brain. 
+ Neuroimage 
+ 2012 
+ 67C 
+ 283 
+ 297 
+ 23194819 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hepper 
+ PG 
+ 
+ 
+ Wells 
+ DL 
+ 
+ 
+ Lynch 
+ C 
+ 
+ 
+ Prenatal thumb sucking is related to postnatal handedness. 
+ Neuropsychologia 
+ 2005 
+ 43 
+ 313 
+ 315 
+ 15707608 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hoshi 
+ E 
+ 
+ 
+ Tanji 
+ J 
+ 
+ 
+ Differential roles of neuronal activity in the supplementary and presupplementary motor areas: from information retrieval to motor planning and execution. 
+ J. Neurophysiol 
+ 2004 
+ 92 
+ 3482 
+ 3499 
+ 15269227 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hoshi 
+ E 
+ 
+ 
+ Tanji 
+ J 
+ 
+ 
+ Distinctions between dorsal and ventral premotor areas: anatomical connectivity and functional properties. 
+ Curr. Opin. Neurobiol 
+ 2007 
+ 17 
+ 234 
+ 242 
+ 17317152 
+ 
+ 
+ 
+ 
+ 
+ 
+ Jäncke 
+ L 
+ 
+ 
+ Peters 
+ M 
+ 
+ 
+ Schlaug 
+ G 
+ 
+ 
+ Posse 
+ S 
+ 
+ 
+ Steinmetz 
+ H 
+ 
+ 
+ Muller-Gartner 
+ H 
+ 
+ 
+ Differential magnetic resonance signal change in human sensorimotor cortex to finger movements of different rate of the dominant and subdominant hand. 
+ Brain Res. Cogn. Brain Res 
+ 1998 
+ 6 
+ 279 
+ 284 
+ 9593941 
+ 
+ 
+ 
+ 
+ 
+ 
+ Karni 
+ A 
+ 
+ 
+ Meyer 
+ G 
+ 
+ 
+ Jezzard 
+ P 
+ 
+ 
+ Adams 
+ MM 
+ 
+ 
+ Turner 
+ R 
+ 
+ 
+ Ungerleider 
+ LG 
+ 
+ 
+ Functional MRI evidence for adult motor cortex plasticity during motor skill learning. 
+ Nature 
+ 1995 
+ 377 
+ 155 
+ 158 
+ 7675082 
+ 
+ 
+ 
+ 
+ 
+ 
+ Keuken 
+ MC 
+ 
+ 
+ Muller-Axt 
+ C 
+ 
+ 
+ Langner 
+ R 
+ 
+ 
+ Eickhoff 
+ SB 
+ 
+ 
+ Forstmann 
+ BU 
+ 
+ 
+ Neumann 
+ J 
+ 
+ 
+ Brain networks of perceptual decision-making: an fMRI ALE meta-analysis. 
+ Front. Hum. Neurosci 
+ 2014 
+ 8 
+ 445 
+ 24994979 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kim 
+ SG 
+ 
+ 
+ Ashe 
+ J 
+ 
+ 
+ Hendrich 
+ K 
+ 
+ 
+ Ellermann 
+ JM 
+ 
+ 
+ Merkle 
+ H 
+ 
+ 
+ Ugurbil 
+ K 
+ 
+ 
+ Georgopoulos 
+ AP 
+ 
+ 
+ Functional magnetic resonance imaging of motor cortex: hemispheric asymmetry and handedness. 
+ Science 
+ 1993 
+ 261 
+ 615 
+ 617 
+ 8342027 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kloppel 
+ S 
+ 
+ 
+ van Eimeren 
+ T 
+ 
+ 
+ Glauche 
+ V 
+ 
+ 
+ Vongerichten 
+ A 
+ 
+ 
+ Munchau 
+ A 
+ 
+ 
+ Frackowiak 
+ RS 
+ 
+ 
+ Buchel 
+ C 
+ 
+ 
+ Weiller 
+ C 
+ 
+ 
+ Siebner 
+ HR 
+ 
+ 
+ The effect of handedness on cortical motor activation during simple bilateral movements. 
+ Neuroimage 
+ 2007 
+ 34 
+ 274 
+ 280 
+ 17056278 
+ 
+ 
+ 
+ 
+ 
+ 
+ Knecht 
+ S 
+ 
+ 
+ Drager 
+ B 
+ 
+ 
+ Deppe 
+ M 
+ 
+ 
+ Bobe 
+ L 
+ 
+ 
+ Lohmann 
+ H 
+ 
+ 
+ Floel 
+ A 
+ 
+ 
+ Ringelstein 
+ EB 
+ 
+ 
+ Henningsen 
+ H 
+ 
+ 
+ Handedness and hemispheric language dominance in healthy humans. 
+ Brain 
+ 2000 
+ 123 
+ Pt 12 
+ 2512 
+ 2518 
+ 11099452 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kriegeskorte 
+ N 
+ 
+ 
+ Simmons 
+ WK 
+ 
+ 
+ Bellgowan 
+ PS 
+ 
+ 
+ Baker 
+ CI 
+ 
+ 
+ Circular analysis in systems neuroscience: the dangers of double dipping. 
+ Nat. Neurosci 
+ 2009 
+ 12 
+ 535 
+ 540 
+ 19396166 
+ 
+ 
+ 
+ 
+ 
+ 
+ Landau 
+ SM 
+ 
+ 
+ D'Esposito 
+ M 
+ 
+ 
+ Sequence learning in pianists and nonpianists: an fMRI study of motor expertise. 
+ Cogn. Affect. Behav. Neurosci 
+ 2006 
+ 6 
+ 246 
+ 259 
+ 17243360 
+ 
+ 
+ 
+ 
+ 
+ 
+ Li 
+ M 
+ 
+ 
+ Chen 
+ H 
+ 
+ 
+ Wang 
+ J 
+ 
+ 
+ Liu 
+ F 
+ 
+ 
+ Long 
+ Z 
+ 
+ 
+ Wang 
+ Y 
+ 
+ 
+ Iturria-Medina 
+ Y 
+ 
+ 
+ Zhang 
+ J 
+ 
+ 
+ Yu 
+ C 
+ 
+ 
+ Chen 
+ H 
+ 
+ 
+ Handedness- and hemisphere-related differences in small-world brain networks: a diffusion tensor imaging tractography study. 
+ Brain Connect 
+ 2014 
+ 4 
+ 145 
+ 156 
+ 24564422 
+ 
+ 
+ 
+ 
+ 
+ 
+ Liu 
+ H 
+ 
+ 
+ Stufflebeam 
+ SM 
+ 
+ 
+ Sepulcre 
+ J 
+ 
+ 
+ Hedden 
+ T 
+ 
+ 
+ Buckner 
+ RL 
+ 
+ 
+ Evidence from intrinsic activity that asymmetry of the human brain is controlled by multiple factors. 
+ Proc. Natl. Acad. Sci. U. S. A 
+ 2009 
+ 106 
+ 20499 
+ 20503 
+ 19918055 
+ 
+ 
+ 
+ 
+ 
+ 
+ Liuzzi 
+ G 
+ 
+ 
+ Horniss 
+ V 
+ 
+ 
+ Hoppe 
+ J 
+ 
+ 
+ Heise 
+ K 
+ 
+ 
+ Zimerman 
+ M 
+ 
+ 
+ Gerloff 
+ C 
+ 
+ 
+ Hummel 
+ FC 
+ 
+ 
+ Distinct temporospatial interhemispheric interactions in the human primary and premotor cortex during movement preparation. 
+ Cereb. Cortex 
+ 2009 
+ 20 
+ 1323 
+ 1331 
+ 19906807 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lowe 
+ MJ 
+ 
+ 
+ Mock 
+ BJ 
+ 
+ 
+ Sorenson 
+ JA 
+ 
+ 
+ Functional connectivity in single and multislice echoplanar imaging using resting-state fluctuations. 
+ Neuroimage 
+ 1998 
+ 7 
+ 119 
+ 132 
+ 9558644 
+ 
+ 
+ 
+ 
+ 
+ 
+ Oldfield 
+ RC 
+ 
+ 
+ The assessment and analysis of handedness: the Edinburgh inventory. 
+ Neuropsychologia 
+ 1971 
+ 9 
+ 97 
+ 113 
+ 5146491 
+ 
+ 
+ 
+ 
+ 
+ 
+ Pool 
+ EM 
+ 
+ 
+ Rehme 
+ AK 
+ 
+ 
+ Fink 
+ GR 
+ 
+ 
+ Eickhoff 
+ SB 
+ 
+ 
+ Grefkes 
+ C 
+ 
+ 
+ Network dynamics engaged in the modulation of motor behavior in healthy subjects. 
+ Neuroimage 
+ 2013 
+ 82C 
+ 68 
+ 76 
+ 23747288 
+ 
+ 
+ 
+ 
+ 
+ 
+ Pool 
+ EM 
+ 
+ 
+ Rehme 
+ AK 
+ 
+ 
+ Fink 
+ GR 
+ 
+ 
+ Eickhoff 
+ SB 
+ 
+ 
+ Grefkes 
+ C 
+ 
+ 
+ Handedness and effective connectivity of the motor system. 
+ Neuroimage 
+ 2014 
+ 99 
+ 451 
+ 460 
+ 24862079 
+ 
+ 
+ 
+ 
+ 
+ 
+ Porac 
+ C 
+ 
+ 
+ Attempts to switch the writing hand: relationships to age and side of hand preference. 
+ Laterality 
+ 1996 
+ 1 
+ 35 
+ 44 
+ 15513027 
+ 
+ 
+ 
+ 
+ 
+ 
+ Power 
+ JD 
+ 
+ 
+ Barnes 
+ KA 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Schlaggar 
+ BL 
+ 
+ 
+ Petersen 
+ SE 
+ 
+ 
+ Spurious but systematic correlations in functional connectivity MRI networks arise from subject motion. 
+ Neuroimage 
+ 2012 
+ 59 
+ 2142 
+ 2154 
+ 22019881 
+ 
+ 
+ 
+ 
+ 
+ 
+ Pujol 
+ J 
+ 
+ 
+ Deus 
+ J 
+ 
+ 
+ Losilla 
+ JM 
+ 
+ 
+ Capdevila 
+ A 
+ 
+ 
+ Cerebral lateralization of language in normal left-handed people studied by functional MRI. 
+ Neurology 
+ 1999 
+ 52 
+ 1038 
+ 1043 
+ 10102425 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ratcliff 
+ G 
+ 
+ 
+ Dila 
+ C 
+ 
+ 
+ Taylor 
+ L 
+ 
+ 
+ Milner 
+ B 
+ 
+ 
+ The morphological asymmetry of the hemispheres and cerebral dominance for speech: a possible relationship. 
+ Brain Lang 
+ 1980 
+ 11 
+ 87 
+ 98 
+ 7427727 
+ 
+ 
+ 
+ 
+ 
+ 
+ Rehme 
+ AK 
+ 
+ 
+ Eickhoff 
+ SB 
+ 
+ 
+ Rottschy 
+ C 
+ 
+ 
+ Fink 
+ GR 
+ 
+ 
+ Grefkes 
+ C 
+ 
+ 
+ Activation likelihood estimation meta-analysis of motor-related neural activity after stroke. 
+ Neuroimage 
+ 2012 
+ 59 
+ 2771 
+ 2782 
+ 22023742 
+ 
+ 
+ 
+ 
+ 
+ 
+ Rehme 
+ AK 
+ 
+ 
+ Volz 
+ LJ 
+ 
+ 
+ Feis 
+ DL 
+ 
+ 
+ Bomilcar-Focke 
+ I 
+ 
+ 
+ Liebig 
+ T 
+ 
+ 
+ Eickhoff 
+ SB 
+ 
+ 
+ Fink 
+ GR 
+ 
+ 
+ Grefkes 
+ C 
+ 
+ 
+ Identifying neuroimaging markers of motor disability in acute stroke by machine learning techniques. 
+ Cereb. Cortex 
+ 2014 
+ 
+ http://dx.doi.org/10.1093/cercor/bhu100 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Saenger 
+ VM 
+ 
+ 
+ Barrios 
+ FA 
+ 
+ 
+ Martinez-Gudino 
+ ML 
+ 
+ 
+ Alcauter 
+ S 
+ 
+ 
+ Hemispheric asymmetries of functional connectivity and grey matter volume in the default mode network. 
+ Neuropsychologia 
+ 2012 
+ 50 
+ 1308 
+ 1315 
+ 22387608 
+ 
+ 
+ 
+ 
+ 
+ 
+ Satterthwaite 
+ TD 
+ 
+ 
+ Elliott 
+ MA 
+ 
+ 
+ Gerraty 
+ RT 
+ 
+ 
+ Ruparel 
+ K 
+ 
+ 
+ Loughead 
+ J 
+ 
+ 
+ Calkins 
+ ME 
+ 
+ 
+ Eickhoff 
+ SB 
+ 
+ 
+ Hakonarson 
+ H 
+ 
+ 
+ Gur 
+ RC 
+ 
+ 
+ Gur 
+ RE 
+ 
+ 
+ Wolf 
+ DH 
+ 
+ 
+ An improved framework for confound regression and filtering for control of motion artifact in the preprocessing of resting-state functional connectivity data. 
+ Neuroimage 
+ 2013 
+ 64 
+ 240 
+ 256 
+ 22926292 
+ 
+ 
+ 
+ 
+ 
+ 
+ Satz 
+ P 
+ 
+ 
+ A test of some models of hemispheric speech organization in the left- and right-handed. 
+ Science 
+ 1979 
+ 203 
+ 1131 
+ 1133 
+ 424744 
+ 
+ 
+ 
+ 
+ 
+ 
+ Schluter 
+ ND 
+ 
+ 
+ Rushworth 
+ MF 
+ 
+ 
+ Passingham 
+ RE 
+ 
+ 
+ Mills 
+ KR 
+ 
+ 
+ Temporary interference in human lateral premotor cortex suggests dominance for the selection of movements. 
+ A study using transcranial magnetic stimulation. 
+ Brain 
+ 1998 
+ 121 
+ Pt 5 
+ 785 
+ 799 
+ 
+ 
+ 
+ 
+ 
+ 
+ Solodkin 
+ A 
+ 
+ 
+ Hlustik 
+ P 
+ 
+ 
+ Noll 
+ DC 
+ 
+ 
+ Small 
+ SL 
+ 
+ 
+ Lateralization of motor circuits and handedness during finger movements. 
+ Eur. J. Neurol 
+ 2001 
+ 8 
+ 425 
+ 434 
+ 11554905 
+ 
+ 
+ 
+ 
+ 
+ 
+ Steinmetz 
+ H 
+ 
+ 
+ Volkmann 
+ J 
+ 
+ 
+ Jancke 
+ L 
+ 
+ 
+ Freund 
+ HJ 
+ 
+ 
+ Anatomical left-right asymmetry of language-related temporal cortex is different in left- and right-handers. 
+ Ann. Neurol 
+ 1991 
+ 29 
+ 315 
+ 319 
+ 2042947 
+ 
+ 
+ 
+ 
+ 
+ 
+ Swick 
+ D 
+ 
+ 
+ Ashley 
+ V 
+ 
+ 
+ Turken 
+ U 
+ 
+ 
+ Are the neural correlates of stopping and not going identical? Quantitative meta-analysis of two response inhibition tasks. 
+ Neuroimage 
+ 2011 
+ 56 
+ 1655 
+ 1665 
+ 21376819 
+ 
+ 
+ 
+ 
+ 
+ 
+ Szaflarski 
+ JP 
+ 
+ 
+ Holland 
+ SK 
+ 
+ 
+ Schmithorst 
+ VJ 
+ 
+ 
+ Byars 
+ AW 
+ 
+ 
+ fMRI study of language lateralization in children and adults. 
+ Hum. Brain Mapp 
+ 2006 
+ 27 
+ 202 
+ 212 
+ 16035047 
+ 
+ 
+ 
+ 
+ 
+ 
+ Vaid 
+ J 
+ 
+ 
+ Bellugi 
+ U 
+ 
+ 
+ Poizner 
+ H 
+ 
+ 
+ Hand dominance for signing: clues to brain lateralization of language. 
+ Neuropsychologia 
+ 1989 
+ 27 
+ 949 
+ 960 
+ 2771033 
+ 
+ 
+ 
+ 
+ 
+ 
+ Van Dijk 
+ KR 
+ 
+ 
+ Hedden 
+ T 
+ 
+ 
+ Venkataraman 
+ A 
+ 
+ 
+ Evans 
+ KC 
+ 
+ 
+ Lazar 
+ SW 
+ 
+ 
+ Buckner 
+ RL 
+ 
+ 
+ Intrinsic functional connectivity as a tool for human connectomics: theory, properties, and optimization. 
+ J. Neurophysiol 
+ 2010 
+ 103 
+ 297 
+ 321 
+ 19889849 
+ 
+ 
+ 
+ 
+ 
+ 
+ Van Dijk 
+ KR 
+ 
+ 
+ Sabuncu 
+ MR 
+ 
+ 
+ Buckner 
+ RL 
+ 
+ 
+ The influence of head motion on intrinsic functional connectivity MRI. 
+ Neuroimage 
+ 2012 
+ 59 
+ 431 
+ 438 
+ 21810475 
+ 
+ 
+ 
+ 
+ 
+ 
+ Volkmann 
+ J 
+ 
+ 
+ Schnitzler 
+ A 
+ 
+ 
+ Witte 
+ OW 
+ 
+ 
+ Freund 
+ H 
+ 
+ 
+ Handedness and asymmetry of hand representation in human motor cortex. 
+ J. Neurophysiol 
+ 1998 
+ 79 
+ 2149 
+ 2154 
+ 9535974 
+ 
+ 
+ 
+ 
+ 
+ 
+ Witt 
+ ST 
+ 
+ 
+ Laird 
+ AR 
+ 
+ 
+ Meyerand 
+ ME 
+ 
+ 
+ Functional neuroimaging correlates of finger-tapping task variations: an ALE meta-analysis. 
+ Neuroimage 
+ 2008 
+ 42 
+ 343 
+ 356 
+ 18511305 
+ 
+ 
+ 
+ 
+ 
+ 
+ Yan 
+ LR 
+ 
+ 
+ Wu 
+ YB 
+ 
+ 
+ Hu 
+ DW 
+ 
+ 
+ Qin 
+ SZ 
+ 
+ 
+ Xu 
+ GZ 
+ 
+ 
+ Zeng 
+ XH 
+ 
+ 
+ Song 
+ H 
+ 
+ 
+ Network asymmetry of motor areas revealed by resting-state functional magnetic resonance imaging. 
+ Behav. Brain Res 
+ 2012 
+ 227 
+ 125 
+ 133 
+ 22108343 
+ 
+ 
+ 
+ 
+ 
+ 
+ Yousry 
+ TA 
+ 
+ 
+ Schmid 
+ UD 
+ 
+ 
+ Alkadhi 
+ H 
+ 
+ 
+ Schmidt 
+ D 
+ 
+ 
+ Peraud 
+ A 
+ 
+ 
+ Buettner 
+ A 
+ 
+ 
+ Winkler 
+ P 
+ 
+ 
+ Localization of the motor hand area to a knob on the precentral gyrus. A new landmark. 
+ Brain 
+ 1997 
+ 120 
+ Pt 1 
+ 141 
+ 157 
+ 9055804 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ziemann 
+ U 
+ 
+ 
+ Hallett 
+ M 
+ 
+ 
+ Hemispheric asymmetry of ipsilateral motor cortex activation during unimanual motor tasks: further evidence for motor dominance. 
+ Clin. Neurophysiol 
+ 2001 
+ 112 
+ 107 
+ 113 
+ 11137667 
+ 
+ 
+ 
+ 
+ 
+ 
+ zu Eulenburg 
+ P 
+ 
+ 
+ Caspers 
+ S 
+ 
+ 
+ Roski 
+ C 
+ 
+ 
+ Eickhoff 
+ SB 
+ 
+ 
+ Meta-analytical definition and functional connectivity of the human vestibular cortex. 
+ Neuroimage 
+ 2012 
+ 60 
+ 162 
+ 169 
+ 22209784 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fig. 1 
+ 
+ A . Whole brain group analyses of the motor network (n = 36,  P  < 0.05, FWE-corrected on the cluster level, cluster finding threshold  P  < 0.001 l; color bar represents t-values).  B . Differential contrasts (n = 36,  P  < 0.05, FWE-corrected on the cluster level, cluster finding threshold  P  < 0.001; color bar represents t-values); x = seed region. 
+ 
+ 
+ 
+ 
+ Fig. 2 
+ 
+ Multivariate SVM classification. Resting-state functional connectivity of left M1 provided 86.2% mean accuracy for the classification of handedness. Red: Areas of voxelwise resting-state functional connectivity which contribute to the classification of right-handers; Blue: Areas of voxelwise resting-state functional connectivity which contribute to the classification of left-handers (here: none); x = seed region. Color coding refers to SVM weights. 
+ 
+ 
+ 
+ 
+ Fig. 3 
+ 
+ A . Whole brain group analyses of the right-hemispheric premotor network (n = 36,  P  < 0.05, FWE-corrected on the cluster level, cluster finding threshold  P  < 0.001; color bar represents t-values).  B . Differential contrasts (n = 36,  P  < 0.05, FWE-corrected on the cluster level, cluster finding threshold  P  < 0.001; color bar represents t-values); x = seed region. 
+ 
+ 
+ 
+ 
+ Fig. 4 
+ 
+ Multivariate SVM classification. Resting-state functional connectivity of right PMd provided 78.1% mean accuracy for the classification of handedness. Red: Areas of voxelwise resting-state functional connectivity which contribute to the classification of right-handers; Blue: Areas of voxelwise resting-state functional connectivity which contribute to the classification of left-handers (here: none); x = seed region. Color coding refers to SVM weights. 
+ 
+ 
+ 
+ 
+ Fig. 5 
+ 
+ Control analyses of the Broca speech network and the visual network (n = 36,  P  < 0.05, FWE-corrected on the cluster level, cluster finding threshold  P  < 0.001; color bar represents t-values); x = seed region. 
+ 
+ 
+ 
+ 
+ Table 1 
+ 
+ Seed regions. 
+ 
+ 
+ 
+ 
+ Seed region 
+ 
+ x 
+ 
+ 
+ y 
+ 
+ 
+ z 
+ 
+ 
+ 
+ 
+ 
+ Left M1 
+ –38 
+ –24 
+ 62 
+ 
+ 
+ Right M1 
+ 34 
+ –22 
+ 62 
+ 
+ 
+ Left SMA 
+ –8 
+ 0 
+ 54 
+ 
+ 
+ Right SMA 
+ 8 
+ 0 
+ 54 
+ 
+ 
+ Left PMd 
+ –16 
+ –20 
+ 48 
+ 
+ 
+ Right PMd 
+ 34 
+ –8 
+ 52 
+ 
+ 
+ Left pre-SMA 
+ –8 
+ 18 
+ 46 
+ 
+ 
+ Right pre-SMA 
+ –8 
+ 12 
+ 58 
+ 
+ 
+ Left Put 
+ –26 
+ 4 
+ 4 
+ 
+ 
+ Right Put 
+ 26 
+ 0 
+ 2 
+ 
+ 
+ Left IFG (pars opercularis) 
+ –48 
+ 12 
+ 22 
+ 
+ 
+ Right IFG (pars opercularis) 
+ 46 
+ 12 
+ 30 
+ 
+ 
+ Left IFG (pars triangularis) 
+ –58 
+ 25 
+ 8 
+ 
+ 
+ Right IFG (pars triangularis) 
+ 48 
+ 26 
+ 6 
+ 
+ 
+ Left V1 
+ –18 
+ –102 
+ 2 
+ 
+ 
+ Right V1 
+ 12 
+ –102 
+ 0 
+ 
+ 
+ 
+ 
+ M1 = primary motor cortex, SMA = supplementary motor area, PMd = dorsolateral premotor cortex, Put = motor putamen, IFG = inferior frontal gyrus, V1 = primary visual cortex. 
+ 
+ 
+ 

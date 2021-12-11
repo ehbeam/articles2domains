@@ -1,0 +1,3042 @@
+
+ properties manuscript? 
+ 
+ 
+ 9419065 
+ 21028 
+ Hum Brain Mapp 
+ Human brain mapping 
+ 1065-9471 
+ 1097-0193 
+ 
+ 
+ 19603407 
+ 2872058 
+ 10.1002/hbm.20854 
+ NIHMS142188 
+ 
+ 
+ Article 
+ 
+ 
+ 
+ Meta-analytic connectivity modeling: Delineating the functional connectivity of the human amygdala 
+ 
+ 
+ 
+ 
+ Robinson 
+ Jennifer L. 
+ 
+ 1 
+ 2 
+ 3 
+ 
+ 
+ 
+ Laird 
+ Angela R. 
+ 
+ 3 
+ 
+ 
+ 
+ Glahn 
+ David C. 
+ 
+ 3 
+ 4 
+ 
+ 
+ 
+ Lovallo 
+ William R. 
+ 
+ 5 
+ 
+ 
+ 
+ Fox 
+ Peter T. 
+ 
+ 3 
+ 
+ 
+ 1 Neuroscience Institute, Scott & White Memorial Hospital, Temple, Texas, USA 
+ 2 Departments of Neurosurgery and Psychiatry and Behavioral Sciences, Texas A&M Health Science Center, College of Medicine, Temple, Texas, USA 
+ 3 Research Imaging Center, University of Texas Health Science Center at San Antonio, San Antonio, Texas, USA 
+ 4 Department of Psychiatry, Yale University & Olin Neuropsychiatric Research Center, Institute of Living, Hartford, Connecticut, USA 
+ 5 Behavioral Sciences Laboratories, Veterans Affairs Medical Center, Oklahoma City, Oklahoma, USA 
+ 
+ Correspondence should be addressed to: Jennifer L. Robinson, Ph.D., Scott & White Memorial Hospital, Texas A&M Health Science Center College of Medicine, Neuroscience Institute, 2401 S. 31 st  Street, Temple, Texas 76508, Phone: (254) 724-5053, Fax: (254) 724-6332  jrobinson@swmail.sw.org 
+ 
+ 
+ 30 
+ 4 
+ 2010 
+ 
+ 
+ 2 
+ 2010 
+ 
+ 
+ 1 
+ 2 
+ 2011 
+ 
+ 31 
+ 2 
+ 173 
+ 184 
+ 
+ 
+ This file is available for text mining. It may also be used consistent with the principles of fair use under the copyright law. 
+ 
+ 
+ 
+ Functional neuroimaging has evolved into an indispensable tool for non-invasively investigating brain function. A recent development of such methodology is the creation of connectivity models for brain regions and related networks, efforts that have been inhibited by notable limitations. We present a new method for ascertaining functional connectivity of specific brain structures using meta-analytic connectivity modeling (MACM), along with validation of our method using a non-human primate database. Drawing from decades of neuroimaging research and spanning multiple behavioral domains, the method overcomes many weaknesses of conventional connectivity analyses and provides a simple, automated alternative to developing accurate and robust models of anatomically-defined human functional connectivity. Applying MACM to the amygdala, a small structure of the brain with a complex network of connections, we found high coherence with anatomical studies in non-human primates as well as human-based theoretical models of emotive-cognitive integration, providing evidence for this novel method’s utility. 
+ 
+ 
+ meta-analysis 
+ BrainMap 
+ fMRI 
+ PET 
+ CoCoMac 
+ 
+ 
+ 
+ 
+ Meta-analytic connectivity modeling: Delineating the functional connectivity of the human amygdala 
+ Functional brain imaging methods, including positron emission tomography (PET) and functional magnetic resonance imaging (fMRI), have been propelling neuroscience research for more than 25 years. A more recent, but highly productive, application of these methods is the use of inter-regional temporal covariances to develop connectivity models of brain regions and related networks. The popularity of connectivity modeling is not surprising given the necessity of such information in our understanding of any given neural system. However, no methodological approach to date has taken full advantage of the resources and tools that have been developed and are readily available as the result of decades of neuroimaging research. 
+ Three types of connectivity are readily accepted in the field: structural, functional, and effective. Structural connectivity refers to the organization of axonal fibers within the brain, and has largely been derived from anatomical non-human primate data and human-based diffusion tensor imaging (DTI). Functional connectivity, on the other hand, is aimed at identifying co-activated regions of the brain, and relies heavily on inter-region coherence, or correlation. These models account for both direct and indirect neural influence, a significant advantage over models of structural connectivity, which cannot account for the dynamic nature of the brain. Effective connectivity models focus on identifying the flow of information from one brain region to another within a given network, deeming models of functional connectivity, which specify brain regions to be included in such models, critically important for their development. Therefore, accurate and robust models of functional connectivity become a necessary precursor if we are to begin developing empirically driven and realistic representations of how information is processed in the human brain. 
+ Multimodal neuroimaging methods have been the most powerful attempt at delineating functional connectivity of the human brain. Diffusion-weighted MRI data, a non-invasive procedure that provides information about anatomical connectivity, has been used in conjunction with fMRI data in attempts to discern the relationship between a given brain structure and other brain regions that have an anatomical relationship and exhibit concomitant activity during a specified task ( Cohen, et al. 2008 ). This method is hindered by the limits of diffusion-weighted imaging (e.g., biased toward highly myelinated structures and confounded by crossing fibers) and relies on the performance of a specific task, making generalizability difficult. Resting state fMRI has been used in efforts to overcome task-specificity, though these data have been difficult to replicate, likely because of the nature of the acquisition (e.g., low signal-to-noise ratio [SNR]). Alternatively, focal, electrical stimulation of the brain (e.g., transcranial magnetic stimulation [TMS] or deep brain stimulation [DBS]) in combination with neuroimaging techniques represents a powerful method in which researchers can examine inter-regional connectivity in a task-independent manner. Studies employing such methodology have yielded convincing results, showing high concordance with non-human primate data in simple networks such as motor system connectivity ( Fox, et al. 1997 ) and frontal eye field connectivity ( Paus, et al. 1997 ). However, the same characteristics that make these techniques useful (i.e., each imaging techniques uniqueness) also limit its applicability. For example, deep brain stimulation in humans is extremely invasive, and is generally limited to individuals undergoing the operation for symptom remission of a neurological or psychiatric condition. TMS allows for noninvasive, discrete, focal changes, though its application is limited to cortical regions. Thus, examining subcortical structures (e.g., amygdalae) and their related networks (e.g., the limbic system) is not currently possible. 
+ Coactivation patterns are becoming an increasingly popular venue for functional connectivity, a strategy pioneered by  Friston (1994)  and refined to include the numerous benefits of meta-analysis by  Koski and Paus (2000) . The latter created a database spanning three years of PET imaging research, and searched the frontal cortex for areas showing parallel increases in blood flow with the anterior cingulate. The approach was novel, although the time commitment and lack of automaticity coupled with the exponentially increasing number of neuroimaging studies in both PET and fMRI limited the possibility of this method becoming a routine approach toward dissociating functional connectivity. 
+ The conceptual framework has since been refined because of resources that have become available over the years (e.g., large neuroimaging databases) which provide immensely rich and immediately-available datasets (e.g., sets of coordinates) acquired from various behavioral and cognitive domains spanning decades of neuroimaging research. As an example of one such resource’s versatility,  Toro, Fox, and Paus (2008)  used the BrainMap ( Laird, et al. 2005b ) database to examine whole-brain functional connectivity of the human brain using a meta-analytic approach and confirmed the presence of important functional networks, including the fronto-parietal attention network ( Fox, et al. 2005 ), the resting state network ( Greicius, et al. 2003 ), and the motor network ( Paus, et al. 1998 ). While whole-system meta-analyses have been shown to be an elegant approach to establishing highly likely connectivity patterns, efforts to examine the connectivity of a specific brain region have been less elegant. Existing models have been severely limited by task-specificity ( Stein, et al. 2007 ), methodological approaches employed, acquisition limitations, non-anatomically driven regions of interest (ROIs) (e.g., regularly shaped ROIs that are cuboidal or spherical), and single hemisphere analyses. To date, no method exists to examine task-independent coactivation patterns of any given anatomically-defined ROI. 
+ Here, we present a novel methodology, meta-analytic connectivity modeling (MACM), which can be used to examine the functional connectivity of a specific brain region by identifying patterns of coactivation across thousands of subjects, an improvement which has implications for generalizability, robustness, and power ( Fox, et al. 1998 ). Though computationally different, the methodological ideas presented by  Toro, Fox, and Paus (2008)  are conceptually similar. We used a probability atlas to define the amygdala in each hemisphere of the human brain, seeded the ROIs within the BrainMap database, and queried all archived neuroimaging papers to determine which had reported activation within the ROIs. Coordinates of activation from these papers were then downloaded, and meta-analytic statistics were computed to determine regions of the brain that were co-activated. The use of meta-analytic techniques, in combination with the advancement of carefully coded databases such as BrainMap ( Fox and Lancaster 2002 ;  Laird, et al. 2005b ), has been an exciting addition to the neuroscience community that holds great promise for discovering accurate models of functional connectivity. We present a simple, easily adaptable method for structure-specific functional connectivity modeling and provide proof of concept using one of the most complex and dynamic structures of the human brain: the amygdala. We also provide validation of our method using the largest searchable non-human primate literature database, CoCoMac ( Stephan, et al. 2001 ) in combination with recently developed connectivity and visualization tools ( Kotter 2004 ). 
+ 
+ Functional Connectivity of the Amygdala 
+ The limbic system is evolutionarily advantageous as it is responsible for emotional processing and the evaluation of threatening or dangerous elements in the environment ( Amaral and Price 1984 ;  LeDoux 2007 ). The critical brain structure driving these processes is the amygdala, which has been under scientific scrutiny for decades. A PubMed search on ‘amygdala’ yields 20760 papers. This is not surprising given the amygdala’s diversity of involvement in a wide range of cognitive and behavioral tasks including fear conditioning ( Adolphs, et al. 2005 ), memory formation ( Packard and Cahill 2001 ;  Phelps 2004 ) and learning ( Phelps, et al. 2004 ), social processing( Anderson and Phelps 2000 ;  Hariri, et al. 2002 ), and affective processing including recognition and regulation of emotions ( Goldin, et al. 2008 ;  Ochsner, et al. 2004 ). In addition to the role it plays in healthy behavioral processes, aberrant amygdalar function is implicated in a host of psychiatric disorders ( Abercrombie, et al. 1998 ;  Davidson, et al. 1999 ), as well as in populations that are genetically at risk for such illnesses ( Glahn, et al. 2007 ;  Hariri, et al. 2005 ). Improving our understanding of amygdala function and how this region interacts with other brain regions has the potential to significantly advance our understanding of healthy and aberrant cognitive and affective processing. 
+ Amygdalae do not work in isolation, but rather are thought to serve as a node within multiple neural networks ( Papez 1995 ;  Pessoa 2008 ). While anatomical connectivity of the amygdala has been largely elucidated with the assistance of non-human primate studies ( Amaral and Price 1984 ;  Barbas 1990 ;  Ghashghaei and Barbas 2002 ), delineating the  functional  connectivity of the amygdala in humans has been a challenge plagued by limitations that, until recently, have been impossible to overcome. With the advent of noninvasive neuroimaging techniques, such as fMRI, a surge of research was directed toward this aim ( Cohen, et al. 2008 ;  Lawrie, et al. 2003 ;  Roy, et al. 2009 ;  Stein, et al. 2007 ). Despite the technological advances, generalizability remains constrained due to the methodologies (e.g., resting-state fMRI which has low SNR, task-specific fMRI which is not generalizable, or DTI which is biased to heavily myelinated regions and fails where fibers cross) being employed. Thus, empirical evidence is lacking as to how the amygdalae are functionally connected to the rest of the brain, allowing for their versatility and necessity in healthy neural functioning. 
+ 
+ 
+ 
+ Methods 
+ MACM was employed to assess amygdala functional connectivity. Below, we describe methods for ROI selection as well as employing MACM using the amygdala as an example. 
+ 
+ ROI Selection 
+ Bilateral amygdala ROIs were defined using the Harvard-Oxford Structural Probability Atlas (thresholded at 70% probability;  Figure 1 ) distributed with FSL neuroimaging analysis software ( http://www.fmrib.ox.ac.uk/fsl/fslview/atlas-descriptions.html#ho )( Smith, et al. 2004 ). Using anatomically driven (i.e., irregular) ROIs represents an improvement over current connectivity (and other neuroimaging) studies which typically use regular (i.e., spherical or cuboidal) ROIs ( Stein, et al. 2007 ), ROIs derived from functional activations within a given study ( Gianaros, et al. 2008 ;  Mohanty, et al. 2007 ), or use less developed (i.e., based on a single brain) automatic labeling systems ( Tzourio-Mazoyer, et al. 2002 ;  Williams, et al. 2006 ). Using probabilistic, anatomically defined regions eliminates differences in placement of the geometrically or functionally driven ROIs, and allows for consistency across studies. This issue becomes critically important with brain structures that are large and heterogeneous in nature (e.g., cingulate cortex). Utilizing a probability atlas in which partitions of such structures are better defined (e.g., anterior versus posterior cingulate) will undoubtedly improve future research. An additional benefit that is more pertinent to the current study is the assurance that the ROI captures and confines the brain structure of interest, and can easily be described to the neuroimaging community. In the case of the amygdala, the mean probability for the left (M±SD: 84.85%±6.76%) and right amygdala (87.11%±7.46%) was over 80%, and the centroid for each was over 90% (left: 94% at Talairach coordinates [x,y,z] −21.5, −6.0, −14.6; right: 98% at Talairach coordinates 23.0, −4.9, −14.9). The total volume for the left amygdala was 469 voxels, and for the right 644 voxels. Centroid, average threshold, and volume statistics were gathered using Mango’s ROI and histogram capabilities ( http://ric.uthscsa.edu/mango ). 
+ 
+ 
+ BrainMap Meta-Analysis Methods 
+ The left and right amygdala ROIs were input into the BrainMap database separately, to search for all studies that reported activation within each ROI boundary. Whole-brain coordinates of activations from the isolated contrasts were then downloaded (left amygdala = 124 papers, 170 contrasts, 2077 locations; right amygdala = 116 papers, 156 contrasts, 1765 locations). The total number of subjects in all studies reporting activation in the left amygdala was 1873, and for the right amygdala 2140. Papers were drawn from multiple behavioral domains including cognition, emotion, action, and perception ( Figure 2B ), with emotion representing the majority of studies followed by cognition for both the left and right amygdala. Within the emotion domain, a variety of affective states were represented ( Figure 2C ). 
+ Activation likelihood estimation (ALE) meta-analyses ( Laird, et al. 2005a ;  Turkeltaub, et al. 2002 ) were performed on the sets of coordinates identified as coactivated during left and right amygdala activation, to identify regions of convergence. ALE capitalizes on the nature of voxel-wise studies that are commonly reported in a standard stereotaxic space ( x, y, z ) by pooling 3D coordinates from like studies, and providing the probability of an event occurring at each brain voxel. Resultant ALE maps from the present study were thresholded conservatively (p < 0.001, corrected for multiple comparisons and false discovery rate). The method of seeding an anatomically driven ROI and performing ALE meta-analysis will be referred to as meta-analytic connectivity modeling (MACM). 
+ 
+ 
+ Non-human Primate Connectivity Analysis 
+ We used the CoCoMac-Paxinos3D Viewer ( http://134.95.56.239/WWW/paxinos3D/index.html ) to query the CoCoMac( Stephan, et al. 2001 ) database for any afferent or efferent connections to the non-human primate amygdala. The CoCoMac-Paxinos3D Viewer uses manually drawn cortical, striatal, thalamic, and amygdaloid structures from the “Rhesus Monkey Brain in Stereotactic Coordinates” by Paxinos and colleagues( Paxinos, et al. 2000 ). The program allows an individual to select a brain structure from any of the 151 slices of the monkey brain. We chose every amygdaloid structure in the atlas at the present time, which included the following: amygdalohippocampal area (magnocellular and posteriomedial parts), anterior amygdaloid area, amygdaloid intramedullary gray area, amygdalopiriform transition area, the central amygdaloid nucleus (lateral and medial divisions), the medial amygdaloid nucleus, the paralaminar amygdaloid nucleus, the ventral amygdaloid nucleus, the basolateral amygdaloid nucleus, and the basomedial amygdaloid nucleus. 
+ 
+ 
+ 
+ Results 
+ We found strong support for functional connectivity of both left and right amygdala to regions of the left posterior cingulate (BA23), anterior cingulate (BA32), inferior (BA47) and medial frontal (BA9) gyri, and thalamus ( Table 1 ). Amygdalae showed convergence in bilateral culmen, insula, parahippocampal gyri (i.e., each amygdala ROI is functionally connected to the contralateral amygdala), and right middle temporal gyrus (BA37). While significant overlap was observed for the two ROIs ( Figures 3 ,  4 ), some hemisphere-specific effects emerged from the cluster analysis. Specifically, the left amygdala was functionally connected to a unique region of the anterior cingulate (BA32), right occipital gyri (BA19), left fusiform gyrus (BA 19/37), and left middle temporal gyrus (BA 21/39), while results for the right amygdala demonstrated unique functional connectivity patterns to the right inferior frontal gyrus (BA9), precuneus (BA31), thalamus, and right caudate ( Table 1 ;  Figure 3 ). 
+ 
+ Non-human Primate Results 
+ Analysis of the non-human primate literature revealed efferent connections from the amygdala to the entorhinal cortex, the mediodorsal thalamic nucleus, temporal area TE (occipital part), and cortex regions 6, 11, 13, 24, 25, 32, 35, and 46 ( Table 2 ; visually presented in  Figure 5 ). Strong connections were anatomically supported in cortex regions 24 and 25. Afferent connections were less prevalent with the only evidence emerging from projections originating in temporal area TF projecting to the central medial amygdaloid nucleus ( Figure 5 ; Panel F). 
+ Compared to the human-based MACM results, there was high concordance among many key regions of the limbic system ( Table 3 ; please see  Table 4  for abbreviations used in non-human primate literature). Evidence of connectivity with the prefrontal and orbitofrontal cortices, anterior cingulate, insula, and thalamus are highly consistent in the non-human primate anatomical connectivity literature as well as the human limbic system literature. Some notable differences emerged, particularly with regard to the posterior cingulate, the parahippocampus, the culmen, and the caudate nucleus. These regions were found to be functionally connected in our MACM model, despite evidence against, or no data supporting, their existence in the non-human primate literature. Some, but not all of these structures, were also found to be functionally connected to the amygdala in the resting state ( Roy, et al. 2009 ). This highlights the utility of MACM and the robustness of the method in capturing the dynamic interactions between a particular region and other brain areas that may not be anatomically supported, but are heavily involved through indirect neural influences. 
+ 
+ 
+ 
+ Discussion 
+ Amygdala functional connectivity was mapped in the human using a novel method (MACM) that capitalizes on the statistical advantages of meta-analysis, and the brain mapping database development initiatives that have occurred. We provide evidence of validity for our method using the most prominent non-human primate database, CoCoMac ( Stephan, et al. 2001 ). Our data provide support for the use of MACM for modeling functional connectivity, as it identifies brain regions that are likely to be indirectly connected to our region of interest, the amygdala. Thus, reliance on an entirely structural model could lead to the absence of crucial brain regions (i.e., posterior cingulate) within a neural network model, making it imperative for the discovery of accurate and robust models of functional connectivity. 
+ The consistency of MACM results with the non-human primate literature is a testament to the robustness of the method. Non-human primate studies have played a key role in establishing a foundation with which to build models of human neural connectivity, making it essential to validate our results with those obtained from these hallmark studies. Anatomical connectivity studies examining the afferent projections from the primate amygdala indicated direct connections to the orbitofrontal cortex, anterior cingulate gyrus, subcallosal gyrus, temporal pole, superior temporal gyrus, inferotemporal gyrus, and the insula ( Aggleton, et al. 1980 ). Subcortical findings included pathways to the hypothalamus and thalamus, all of which have been amply replicated ( Amaral and Price 1984 ;  Barbas 1990 ;  Ghashghaei and Barbas 2002 ;  Young, et al. 1994 ), with some regions, such as the anterior cingulate, accumulating indisputable evidence for connectivity both anatomically and functionally ( Amaral and Price 1984 ;  Stephan, et al. 2000 ). We performed an extensive search using all twelve amygdala regions listed throughout the 151 slices of the CoCoMac-Paxinos3D Viewer, which contains an atlas based on the meticulous efforts to put the rhesus monkey brain in stereotaxic space by Paxinos and colleagues ( Paxinos, et al. 2000 ). We found high concordance, with strong anatomical connections being noted to the anterior cingulate from the basolateral amygdaloid nucleus, and weaker connections to regions of the primate cortex that are thought to have similar functionality as their analogous regions in the human. The significant overlap between the non-human primate literature and the findings of functional connectivity in the human amygdalae provide support for the validation of MACM methodology. 
+ However, the foundation that non-human primate research has provided for the development of human connectivity models is inadequate when examining complex cognitive systems. Human models have included structures that are not as well-supported in the non-human primate literature but appear consistently in studies examining limbic system function, indicating either a direct or indirect relationship with one or both amygdalae.  Stein and colleagues (2007)  used the posterior cingulate as a potential node in their model of effective connectivity of the human amygdala based largely on support from activation studies in humans ( Mayberg, et al. 1999 ;  Meyer-Lindenberg, et al. 2005 ) and using structural equation modeling, concluded that the inclusion of this structure improved the proposed model fit substantially. Our data also support the notion that this is a critically relevant region that should be included in models of amygdala connectivity, as it likely represents an indirect yet functional pathway, though we did not rely on task-dependent data. Further connectivity modeling utilizing MACM may not only lend support for the inclusion of other brain regions not typically implied by anatomical models, but also how these additional structures interact in an indirect fashion with the target ROI. 
+ A recent delineation of the functional connectivity of the amygdala using resting state fMRI also showed consistent results across many brain regions including the right caudate, bilateral insula, left inferior frontal gyrus, and left precuneus for the right amygdala and the left middle temporal gyrus, bilateral insula, left superior frontal gyrus, right cingulated gyrus, and the right hippocampus for the left amygdala ( Roy, et al. 2009 ). However, MACM identified several regions that the resting state analysis did not identify for both left and right amygdalae. The right amygdala was determined to be functionally connected to the posterior cingulate (BA23) and bilateral parahippocampus as well as bilateral culmen using MACM and the left amygdala was functionally connected to the left anterior and posterior cingulate in addition to bilateral parahippocampus and bilateral culmen. While resting state methods are common and represent a reasonable approach to functional connectivity during the non-task state, they are difficult to interpret with certainty based on low signal-to-noise ratios, poor replicability, and competing network activity (i.e., default mode network). More importantly, using MACM to identify functional connectivity provides additional information regarding connectivity that was not otherwise reported, and in a much less costly and time-consuming fashion. 
+ The versatility of MACM allows for the testing of developing theoretical models. Recent acknowledgement of the neural interconnectedness of emotionally- and cognitively-based processes has led to the development of theoretical models of which the amygdala plays a central role, and which, to date, have not been empirically tested ( Pessoa 2008 ;  Phelps 2006 ). Using MACM, we found support for the theoretical model in which the ‘emotional brain’ incorporates key structures involved in cognitive processes that have long been thought to be influenced by the limbic system. Based on the behavioral domains from which the papers were drawn in this meta-analysis, it is clear that the amygdala plays a vital role in both emotion and cognition ( Damasio 1994 ), providing strong support for  Pessoa’s (2008)  argument of an integrative emotional-cognitive brain. MACM is an approach that is multi-disciplinary as it crosses the boundaries of all behavioral domains, while still maintaining the flexibility to be limited to a specific domain. Thus, the method is a strong indicator of functional connectivity for any given ROI. 
+ MACM also provides a starting point for the development of additional models using structural equation modeling (SEM) and path analysis that will allow investigators to draw distinct conclusions about the interactions between brain structures, and in doing so, develop more accurate models of effective connectivity ( Protzner and McIntosh 2006 ), which has eluded the neuroimaging community to date. Our research did not apply an  a priori  model, nor did we apply restraints on any potential paths, but rather we allowed the data to drive the model, increasing the robustness of the analysis. This represents a significant improvement in methodology that will allow for SEM in which connectivity models can be assessed between populations of interest (e.g., depressed patients versus healthy controls) where deficits are prominent in portions of any given neural circuitry (e.g., affective). Such an analysis may be instrumentally useful in combination with other neuroimaging techniques such as diffusion tensor imaging, in which neural fiber tracts can be quantified accurately with new techniques that are being implemented ( Behrens, et al. 2003 ;  McNab, et al. 2009 ;  Ramnani, et al. 2004 ), and fMRI or PET, in which blood-oxygen-level-dependent (BOLD) signal or oxygen metabolism can be deduced during a resting (basal) state or during a task requiring cognitive and/or affective processing. 
+ Here, we used one of the smallest and most complex structures as proof of concept for MACM and to identify the potential caveats of utilizing this method. While research has suggested potential relationships between the human amygdala and various brain structures, this is the first paper empirically supporting functional connectivity in the human utilizing decades worth of neuroimaging data. We have demonstrated great coherence among our results and the non-human primate literature, as well as the human functional neuroimaging literature, and have provided avenues for further investigation including subsequent structural equation modeling that will allow the neuroimaging community to develop refined models of effective and functional connectivity among any human brain structure. We emphasize the utility of MACM methods for identifying brain regions which are functionally connected, but may be part of an indirect network or lack the robustness necessary to show up in typical connectivity methods based on resting state data, or limited to the average-sized functional neuroimaging study. Our method relies entirely on an objective, statistically-driven, task-independent approach, that utilizes  human  data collected across multiple behavioral domains. MACM is less complex, and easier to implement than previous whole-brain meta-analysis based connectivity methods ( Toro, et al. 2008 ). It does not require that computations continually be recalculated, and instantly uses the most up-to-date data that is available in the BrainMap database. Ultimately, MACM could provide nodes to a network that would otherwise go overlooked when using traditional methods of connectivity because ROIs are defined subjectively or based on author-specific operational definitions, or because of methodological issues such as task-specificity or power. MACM overcomes these issues by providing a framework for identifying models of functional connectivity that are non-task specific for any region of the human brain that capitalizes on the diversity and quantity of the neuroimaging community’s work as a whole. 
+ Although novel, unique, and solid as an emerging technique for developing models of functional connectivity, we identified a couple of issues that should be addressed with future studies. Re-running the meta-analysis using an amygdala probability threshold of 40% (rather an 70%) yielded results that were very similar both in the resultant maps, and also in the number of manuscripts represented. This may be due to the Gaussian smoothing applied as part of the ALE analysis, or could reflect the tightness of amygdala activation clusters. We speculate that the latter is the case, but future meta-analytic connectivity modeling in other structures ranging in size and complexity will help elucidate this issue, and may lead to refining the existing methodology presented in this paper. Additionally, meta-analytic techniques lose task-specific information. In the future, studies should be conducted in which a global (i.e., all domains) analysis is conducted as well as MACM models within each behavioral domain (e.g., only emotion) to try and recapture some of this information. As the database continues to grow, behavioral domains will naturally become more complete, and further refinement to models may be necessary. 
+ 
+ 
+ 
+ Acknowledgements 
+ This work was supported by the Human Brain Project of the National Institute of Mental Health [R01-MH074457-01A1 to P.T.F.]. 
+ 
+ 
+ References 
+ 
+ 
+ 
+ 
+ Abercrombie 
+ HC 
+ 
+ 
+ Schaefer 
+ SM 
+ 
+ 
+ Larson 
+ CL 
+ 
+ 
+ Oakes 
+ TR 
+ 
+ 
+ Lindgren 
+ KA 
+ 
+ 
+ Holden 
+ JE 
+ 
+ 
+ Perlman 
+ SB 
+ 
+ 
+ Turski 
+ PA 
+ 
+ 
+ Krahn 
+ DD 
+ 
+ 
+ Benca 
+ RM 
+ 
+ 
+ 
+ Metabolic rate in the right amygdala predicts negative affect in depressed patients 
+ Neuroreport 
+ 1998 
+ 9 
+ 14 
+ 3301 
+ 3307 
+ 9831467 
+ 
+ 
+ 
+ 
+ 
+ 
+ Adolphs 
+ R 
+ 
+ 
+ Gosselin 
+ F 
+ 
+ 
+ Buchanan 
+ TW 
+ 
+ 
+ Tranel 
+ D 
+ 
+ 
+ Schyns 
+ P 
+ 
+ 
+ Damasio 
+ AR 
+ 
+ 
+ A mechanism for impaired fear recognition after amygdala damage 
+ Nature 
+ 2005 
+ 433 
+ 7021 
+ 68 
+ 72 
+ 15635411 
+ 
+ 
+ 
+ 
+ 
+ 
+ Aggleton 
+ JP 
+ 
+ 
+ Burton 
+ MJ 
+ 
+ 
+ Passingham 
+ RE 
+ 
+ 
+ Cortical and subcortical afferents to the amygdala of the rhesus monkey (macaca mulatta) 
+ Brain Research 
+ 1980 
+ 190 
+ 347 
+ 368 
+ 6768425 
+ 
+ 
+ 
+ 
+ 
+ 
+ Amaral 
+ DG 
+ 
+ 
+ Price 
+ JL 
+ 
+ 
+ Amygdalo-cortical projections in the monkey (Macaca fascicularis) 
+ The Journal of Comparative Neurology 
+ 1984 
+ 230 
+ 4 
+ 465 
+ 496 
+ 6520247 
+ 
+ 
+ 
+ 
+ 
+ 
+ Anderson 
+ AK 
+ 
+ 
+ Phelps 
+ EA 
+ 
+ 
+ Expression without Recognition: Contributions of the Human Amygdala to Emotional Communication 
+ Psychological Science 
+ 2000 
+ 11 
+ 106 
+ 111 
+ (2 %R doi:10.1111/1467-9280.00224) 
+ 11273416 
+ 
+ 
+ 
+ 
+ 
+ 
+ Barbas 
+ H 
+ 
+ 
+ De Olmos 
+ J 
+ 
+ 
+ Projections from the amygdala to basoventral and mediodorsal prefrontal regions in the rhesus monkey 
+ The Journal of Comparative Neurology 
+ 1990 
+ 300 
+ 4 
+ 549 
+ 571 
+ 2273093 
+ 
+ 
+ 
+ 
+ 
+ 
+ Behrens 
+ TE 
+ 
+ 
+ Woolrich 
+ MW 
+ 
+ 
+ Jenkinson 
+ M 
+ 
+ 
+ Johansen-Berg 
+ H 
+ 
+ 
+ Nunes 
+ RG 
+ 
+ 
+ Clare 
+ S 
+ 
+ 
+ Matthews 
+ PM 
+ 
+ 
+ Brady 
+ JM 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Characterization and propagation of uncertainty in diffusion-weighted MR imaging 
+ Magnetic Resonance in Medicine 
+ 2003 
+ 50 
+ 5 
+ 1077 
+ 1088 
+ 14587019 
+ 
+ 
+ 
+ 
+ 
+ 
+ Cohen 
+ MX 
+ 
+ 
+ Elger 
+ CE 
+ 
+ 
+ Weber 
+ B 
+ 
+ 
+ Amygdala tractography predicts functional connectivity and learning during feedback-guided decision-making 
+ NeuroImage 
+ 2008 
+ 39 
+ 3 
+ 1396 
+ 17997112 
+ 
+ 
+ 
+ 
+ 
+ 
+ Damasio 
+ AR 
+ 
+ 
+ Descartes' error: Emotion, reason, and the human brain 
+ 1994 
+ New York, NY 
+ G.P. Putnam's Sons 
+ 
+ 
+ 
+ 
+ 
+ 
+ Davidson 
+ RJ 
+ 
+ 
+ Abercrombie 
+ H 
+ 
+ 
+ Nitschke 
+ JB 
+ 
+ 
+ Putnam 
+ K 
+ 
+ 
+ Regional brain function, emotion and disorders of emotion 
+ Current Opinion in Psychiatry 
+ 1999 
+ 9 
+ 2 
+ 228 
+ 234 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fox 
+ MD 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Vincent 
+ JL 
+ 
+ 
+ Corbetta 
+ M 
+ 
+ 
+ Van Essen 
+ DC 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ The human brain is intrinsically organized into dynamic, anticorrelated functional networks 
+ Proc. Natl. Acad. Sci. USA 
+ 2005 
+ 102 
+ 9673 
+ 9678 
+ 15976020 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fox 
+ P 
+ 
+ 
+ Ingham 
+ R 
+ 
+ 
+ George 
+ M 
+ 
+ 
+ Mayberg 
+ H 
+ 
+ 
+ Ingham 
+ J 
+ 
+ 
+ Roby 
+ J 
+ 
+ 
+ Martin 
+ C 
+ 
+ 
+ Jerabek 
+ P 
+ 
+ 
+ Imaging human intra-cerebral connectivity by PET during TMS 
+ Neuroreport 
+ 1997 
+ 8 
+ 12 
+ 2787 
+ 2791 
+ 9295118 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fox 
+ PT 
+ 
+ 
+ Lancaster 
+ JL 
+ 
+ 
+ Opinion: Mapping context and content: the BrainMap model 
+ Nature Reviews Neuroscience 
+ 2002 
+ 3 
+ 4 
+ 319 
+ 321 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fox 
+ PT 
+ 
+ 
+ Parsons 
+ LM 
+ 
+ 
+ Lancaster 
+ JL 
+ 
+ 
+ Beyond the single study: function/location metanalysis in cognitive neuroimaging 
+ Current Opinion in Neurobiology 
+ 1998 
+ 8 
+ 2 
+ 178 
+ 187 
+ 9635200 
+ 
+ 
+ 
+ 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ Functional and effective connectivity in neuroimaging: A synthesis 
+ Human Brain Mapping 
+ 1994 
+ 2 
+ 56 
+ 78 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ghashghaei 
+ HT 
+ 
+ 
+ Barbas 
+ H 
+ 
+ 
+ Pathways for emotion: interactions of prefrontal and anterior temporal pathways in the amygdala of the rhesus monkey 
+ Neuroscience 
+ 2002 
+ 115 
+ 4 
+ 1261 
+ 12453496 
+ 
+ 
+ 
+ 
+ 
+ 
+ Gianaros 
+ PJ 
+ 
+ 
+ Sheu 
+ LK 
+ 
+ 
+ Matthews 
+ KA 
+ 
+ 
+ Jennings 
+ JR 
+ 
+ 
+ Manuck 
+ SB 
+ 
+ 
+ Hariri 
+ AR 
+ 
+ 
+ Individual Differences in Stressor-Evoked Blood Pressure Reactivity Vary with Activation, Volume, and Functional Connectivity of the Amygdala 
+ Journal of Neuroscience 
+ 2008 
+ 28 
+ 4 
+ 990 
+ 999 
+ 18216206 
+ 
+ 
+ 
+ 
+ 
+ 
+ Glahn 
+ DC 
+ 
+ 
+ Lovallo 
+ WR 
+ 
+ 
+ Fox 
+ PT 
+ 
+ 
+ Reduced amygdala activation in young adults at high risk of alcoholism: studies from the Oklahoma family health patterns project 
+ Biological Psychiatry 
+ 2007 
+ 61 
+ 11 
+ 1306 
+ 1309 
+ 17306772 
+ 
+ 
+ 
+ 
+ 
+ 
+ Goldin 
+ PR 
+ 
+ 
+ McRae 
+ K 
+ 
+ 
+ Ramel 
+ W 
+ 
+ 
+ Gross 
+ JJ 
+ 
+ 
+ The Neural Bases of Emotion Regulation: Reappraisal and Suppression of Negative Emotion 
+ Biological Psychiatry 
+ 2008 
+ 63 
+ 6 
+ 577 
+ 17888411 
+ 
+ 
+ 
+ 
+ 
+ 
+ Greicius 
+ MD 
+ 
+ 
+ Krasnow 
+ B 
+ 
+ 
+ Reiss 
+ AL 
+ 
+ 
+ Menon 
+ V 
+ 
+ 
+ Functional connectivity in the resting brain: A network analysis of the default mode hypothesis 
+ Proceedings of the National Academy of Sciences 
+ 2003 
+ 100 
+ 1 
+ 253 
+ 258 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hariri 
+ AR 
+ 
+ 
+ Drabant 
+ EM 
+ 
+ 
+ Munoz 
+ KE 
+ 
+ 
+ Kolachana 
+ BS 
+ 
+ 
+ Mattay 
+ VS 
+ 
+ 
+ Egan 
+ MF 
+ 
+ 
+ Weinberger 
+ DR 
+ 
+ 
+ A susceptibility gene for affective disorders and the response of the human amygdala 
+ Archives of General Psychiatry 
+ 2005 
+ 62 
+ 2 
+ 146 
+ 152 
+ 15699291 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hariri 
+ AR 
+ 
+ 
+ Tessitore 
+ A 
+ 
+ 
+ Mattay 
+ VS 
+ 
+ 
+ Fera 
+ F 
+ 
+ 
+ Weinberger 
+ DR 
+ 
+ 
+ Clinical Brain Disorders Branch IRPNIoMHNIoHBMUSAhinng 
+ The amygdala response to emotional stimuli: a comparison of faces and scenes 
+ Neuroimage 
+ 2002 
+ 17 
+ 1 
+ 317 
+ 323 
+ 12482086 
+ 
+ 
+ 
+ 
+ 
+ 
+ Koski 
+ L 
+ 
+ 
+ Paus 
+ T 
+ 
+ 
+ Functional connectivity of the anterior cingulate cortex within the human frontal lobe: a brain-mapping meta-analysis 
+ Exp Brain Res 
+ 2000 
+ 133 
+ 1 
+ 55 
+ 65 
+ 10933210 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kotter 
+ R 
+ 
+ 
+ Online retrieval, processing, and visualization of primate connectivity data from the CoCoMac database 
+ Neuroinformatics 
+ 2004 
+ 2 
+ 2 
+ 127 
+ 144 
+ 15319511 
+ 
+ 
+ 
+ 
+ 
+ 
+ Laird 
+ AR 
+ 
+ 
+ Fox 
+ PM 
+ 
+ 
+ Price 
+ CJ 
+ 
+ 
+ Glahn 
+ DC 
+ 
+ 
+ Uecker 
+ AM 
+ 
+ 
+ Lancaster 
+ JL 
+ 
+ 
+ Turkeltaub 
+ PE 
+ 
+ 
+ Kochunov 
+ P 
+ 
+ 
+ Fox 
+ PT 
+ 
+ 
+ ALE meta-analysis: Controlling the false discovery rate and performing statistical contrasts 
+ Human Brain Mapping 
+ 2005a 
+ 25 
+ 1 
+ 155 
+ 164 
+ 15846811 
+ 
+ 
+ 
+ 
+ 
+ 
+ Laird 
+ AR 
+ 
+ 
+ Lancaster 
+ JL 
+ 
+ 
+ Fox 
+ PT 
+ 
+ 
+ BrainMap: the social evolution of a human brain mapping database 
+ Neuroinformatics 
+ 2005b 
+ 3 
+ 1 
+ 65 
+ 78 
+ 15897617 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lawrie 
+ SM 
+ 
+ 
+ Whalley 
+ HC 
+ 
+ 
+ Job 
+ DE 
+ 
+ 
+ Johnstone 
+ EC 
+ 
+ 
+ Structural and functional abnormalities of the amygdala in schizophrenia 
+ Annals of the New York Academy of Sciences 
+ 2003 
+ 985 
+ 445 
+ 460 
+ 12724176 
+ 
+ 
+ 
+ 
+ 
+ 
+ LeDoux 
+ J 
+ 
+ 
+ The amygdala 
+ Current Biology 
+ 2007 
+ 17 
+ 20 
+ R868 
+ 17956742 
+ 
+ 
+ 
+ 
+ 
+ 
+ Mayberg 
+ HS 
+ 
+ 
+ Liotti 
+ M 
+ 
+ 
+ Brannan 
+ SK 
+ 
+ 
+ McGinnis 
+ S 
+ 
+ 
+ Mahurin 
+ RK 
+ 
+ 
+ Jerabek 
+ PA 
+ 
+ 
+ Silva 
+ JA 
+ 
+ 
+ Tekell 
+ JL 
+ 
+ 
+ Martin 
+ CC 
+ 
+ 
+ Lancaster 
+ JL 
+ 
+ 
+ 
+ Reciprocal limbic-cortical function and negative mood: Converging PET findings in depression and normal sadness 
+ American Journal of Psychiatry 
+ 1999 
+ 156 
+ 5 
+ 675 
+ 682 
+ 10327898 
+ 
+ 
+ 
+ 
+ 
+ 
+ McNab 
+ JA 
+ 
+ 
+ Jbabdi 
+ Sd 
+ 
+ 
+ Deoni 
+ SCL 
+ 
+ 
+ Douaud 
+ G 
+ 
+ 
+ Behrens 
+ TEJ 
+ 
+ 
+ Miller 
+ KL 
+ 
+ 
+ High resolution diffusion-weighted imaging in fixed human brain using diffusion-weighted steady state free precession 
+ NeuroImage 
+ 2009 
+ 46 
+ 3 
+ 775 
+ 785 
+ 19344686 
+ 
+ 
+ 
+ 
+ 
+ 
+ Meyer-Lindenberg 
+ A 
+ 
+ 
+ Hariri 
+ AR 
+ 
+ 
+ Munoz 
+ KE 
+ 
+ 
+ Mervis 
+ CB 
+ 
+ 
+ Mattay 
+ VS 
+ 
+ 
+ Morris 
+ CA 
+ 
+ 
+ Berman 
+ KF 
+ 
+ 
+ Neural correlates of genetically abnormal social cognition in Williams syndrome 
+ Nat Neurosci 
+ 2005 
+ 8 
+ 8 
+ 991 
+ 16007084 
+ 
+ 
+ 
+ 
+ 
+ 
+ Mohanty 
+ A 
+ 
+ 
+ Engels 
+ AS 
+ 
+ 
+ Herrington 
+ JD 
+ 
+ 
+ Heller 
+ W 
+ 
+ 
+ Ringo Ho 
+ M-H 
+ 
+ 
+ Banich 
+ MT 
+ 
+ 
+ Webb AG 
+ AG 
+ 
+ 
+ Warren 
+ SL 
+ 
+ 
+ Miller 
+ GA 
+ 
+ 
+ Differential engagement of anterior cingulate cortex subdivisions for cognitive and emotional function 
+ Psychophysiology 
+ 2007 
+ 44 
+ 3 
+ 343 
+ 351 
+ 17433093 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ochsner 
+ KN 
+ 
+ 
+ Ray 
+ RD 
+ 
+ 
+ Cooper 
+ JC 
+ 
+ 
+ Robertson 
+ ER 
+ 
+ 
+ Chopra 
+ S 
+ 
+ 
+ Gabrieli 
+ JDE 
+ 
+ 
+ Gross 
+ JJ 
+ 
+ 
+ For better or for worse: neural systems supporting the cognitive down- and up-regulation of negative emotion 
+ NeuroImage 
+ 2004 
+ 23 
+ 2 
+ 483 
+ 15488398 
+ 
+ 
+ 
+ 
+ 
+ 
+ Packard 
+ MG 
+ 
+ 
+ Cahill 
+ L 
+ 
+ 
+ Affective modulation of multiple memory systems 
+ Current Opinion in Neurobiology 
+ 2001 
+ 11 
+ 6 
+ 752 
+ 11741029 
+ 
+ 
+ 
+ 
+ 
+ 
+ Papez 
+ JW 
+ 
+ 
+ A proposed mechanism of emotion 
+ Journal of Neuropsychiatry & Clinical Neurosciences 
+ 1995 
+ 7 
+ 1 
+ 103 
+ 112 
+ 7711480 
+ 
+ 
+ 
+ 
+ 
+ 
+ Paus 
+ T 
+ 
+ 
+ Jech 
+ R 
+ 
+ 
+ Thompson 
+ CJ 
+ 
+ 
+ Comeau 
+ R 
+ 
+ 
+ Peters 
+ T 
+ 
+ 
+ Evans 
+ AC 
+ 
+ 
+ Transcranial Magnetic Stimulation during Positron Emission Tomography: A New Method for Studying Connectivity of the Human Cerebral Cortex 
+ Journal of Neuroscience 
+ 1997 
+ 17 
+ 9 
+ 3178 
+ 3184 
+ 9096152 
+ 
+ 
+ 
+ 
+ 
+ 
+ Paus 
+ T 
+ 
+ 
+ Jech 
+ R 
+ 
+ 
+ Thompson 
+ CJ 
+ 
+ 
+ Comeau 
+ R 
+ 
+ 
+ Peters 
+ T 
+ 
+ 
+ Evans 
+ AC 
+ 
+ 
+ Dose-Dependent Reduction of Cerebral Blood Flow During Rapid-Rate Transcranial Magnetic Stimulation of the Human Sensorimotor Cortex 
+ J Neurophysiol 
+ 1998 
+ 79 
+ 2 
+ 1102 
+ 1107 
+ 9463466 
+ 
+ 
+ 
+ 
+ 
+ 
+ Paxinos 
+ G 
+ 
+ 
+ Huang 
+ X 
+ 
+ 
+ Toga 
+ AW 
+ 
+ 
+ 
+ 
+ Paxinos 
+ G 
+ 
+ 
+ The Rhesus Monkey Brain in Stereotaxic Coordinates 
+ 2000 
+ London, UK 
+ Academic Press 
+ 
+ 
+ 
+ 
+ 
+ 
+ Pessoa 
+ L 
+ 
+ 
+ On the relationship between emotion and cognition 
+ Nat Rev Neurosci 
+ 2008 
+ 9 
+ 2 
+ 148 
+ 18209732 
+ 
+ 
+ 
+ 
+ 
+ 
+ Phelps 
+ EA 
+ 
+ 
+ Human emotion and memory: interactions of the amygdala and hippocampal complex 
+ Current Opinion in Neurobiology 
+ 2004 
+ 14 
+ 2 
+ 198 
+ 15082325 
+ 
+ 
+ 
+ 
+ 
+ 
+ Phelps 
+ EA 
+ 
+ 
+ Emotion and Cognition: Insights from Studies of the Human Amygdala 
+ Annual Review of Psychology 
+ 2006 
+ 57 
+ 27 
+ 53 
+ (1 %R doi:10.1146/annurev.psych.56.091103.070234) 
+ 
+ 
+ 
+ 
+ 
+ 
+ Phelps 
+ EA 
+ 
+ 
+ Delgado 
+ MR 
+ 
+ 
+ Nearing 
+ KI 
+ 
+ 
+ LeDoux 
+ JE 
+ 
+ 
+ Extinction Learning in Humans: Role of the Amygdala and vmPFC 
+ Neuron 
+ 2004 
+ 43 
+ 6 
+ 897 
+ 15363399 
+ 
+ 
+ 
+ 
+ 
+ 
+ Protzner 
+ AB 
+ 
+ 
+ McIntosh 
+ AR 
+ 
+ 
+ Testing effective connectivity changes with structural equation modeling: What does a bad model tell us? 
+ Human Brain Mapping 
+ 2006 
+ 27 
+ 12 
+ 935 
+ 947 
+ 16929548 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ramnani 
+ N 
+ 
+ 
+ Behrens 
+ TEJ 
+ 
+ 
+ Penny 
+ W 
+ 
+ 
+ Matthews 
+ PM 
+ 
+ 
+ New approaches for exploring anatomical and functional connectivity in the human brain 
+ Biological Psychiatry 
+ 2004 
+ 56 
+ 9 
+ 613 
+ 619 
+ 15522243 
+ 
+ 
+ 
+ 
+ 
+ 
+ Roy 
+ AK 
+ 
+ 
+ Shehzad 
+ Z 
+ 
+ 
+ Margulies 
+ DS 
+ 
+ 
+ Kelly 
+ AMC 
+ 
+ 
+ Uddin 
+ LQ 
+ 
+ 
+ Gotimer 
+ K 
+ 
+ 
+ Biswal 
+ BB 
+ 
+ 
+ Castellanos 
+ FX 
+ 
+ 
+ Milham 
+ MP 
+ 
+ 
+ Functional connectivity of the human amygdala using resting state fMRI 
+ NeuroImage 
+ 2009 
+ 45 
+ 2 
+ 614 
+ 626 
+ 19110061 
+ 
+ 
+ 
+ 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Jenkinson 
+ M 
+ 
+ 
+ Woolrich 
+ MW 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ Behrens 
+ TE 
+ 
+ 
+ Johansen-Berg 
+ H 
+ 
+ 
+ Bannister 
+ PR 
+ 
+ 
+ De Luca 
+ M 
+ 
+ 
+ Drobnjak 
+ I 
+ 
+ 
+ Flitney 
+ DE 
+ 
+ 
+ 
+ Advances in functional and structural MR image analysis and implementation as FSL 
+ Neuroimage 
+ 2004 
+ 23 
+ Suppl 1 
+ S208 
+ S219 
+ 15501092 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stein 
+ JL 
+ 
+ 
+ Wiedholz 
+ LM 
+ 
+ 
+ Bassett 
+ DS 
+ 
+ 
+ Weinberger 
+ DR 
+ 
+ 
+ Zink 
+ CF 
+ 
+ 
+ Mattay 
+ VS 
+ 
+ 
+ Meyer-Lindenberg 
+ A 
+ 
+ 
+ A validated network of effective amygdala connectivity 
+ NeuroImage 
+ 2007 
+ 36 
+ 3 
+ 736 
+ 17475514 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stephan 
+ KE 
+ 
+ 
+ Hilgetag 
+ CC 
+ 
+ 
+ Burns 
+ GAPC 
+ 
+ 
+ O'Neill 
+ MA 
+ 
+ 
+ Young 
+ MP 
+ 
+ 
+ Kotter 
+ R 
+ 
+ 
+ Computational analysis of functional connectivity between areas of primate cerebral cortex 
+ Philosophical Transactions of the Royal Society B: Biological Sciences 
+ 2000 
+ 355 
+ 1393 
+ 111 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stephan 
+ KE 
+ 
+ 
+ Kamper 
+ L 
+ 
+ 
+ Bozkurt 
+ A 
+ 
+ 
+ Burns 
+ GA 
+ 
+ 
+ Young 
+ MP 
+ 
+ 
+ Kotter 
+ R 
+ 
+ 
+ Advanced database methodology for the Collation of Connectivity data on the Macaque brain (CoCoMac) 
+ Philos Trans R Soc Lond B Biol Sci 
+ 2001 
+ 356 
+ 1412 
+ 1159 
+ 1186 
+ 11545697 
+ 
+ 
+ 
+ 
+ 
+ 
+ Toro 
+ R 
+ 
+ 
+ Fox 
+ PT 
+ 
+ 
+ Paus 
+ T 
+ 
+ 
+ Functional Coactivation Map of the Human Brain 
+ Cereb. Cortex 
+ 2008 
+ 18 
+ 11 
+ 2553 
+ 2559 
+ 18296434 
+ 
+ 
+ 
+ 
+ 
+ 
+ Turkeltaub 
+ PE 
+ 
+ 
+ Eden 
+ GF 
+ 
+ 
+ Jones 
+ KM 
+ 
+ 
+ Zeffiro 
+ TA 
+ 
+ 
+ Meta-Analysis of the Functional Neuroanatomy of Single-Word Reading: Method and Validation 
+ NeuroImage 
+ 2002 
+ 16 
+ 3, Part 1 
+ 765 
+ 12169260 
+ 
+ 
+ 
+ 
+ 
+ 
+ Tzourio-Mazoyer 
+ N 
+ 
+ 
+ Landeau 
+ B 
+ 
+ 
+ Papathanassiou 
+ D 
+ 
+ 
+ Crivello 
+ F 
+ 
+ 
+ Etard 
+ O 
+ 
+ 
+ Delcroix 
+ N 
+ 
+ 
+ Mazoyer 
+ B 
+ 
+ 
+ Joliot 
+ M 
+ 
+ 
+ Automated Anatomical Labeling of Activations in SPM Using a Macroscopic Anatomical Parcellation of the MNI MRI Single-Subject Brain 
+ NeuroImage 
+ 2002 
+ 15 
+ 1 
+ 273 
+ 11771995 
+ 
+ 
+ 
+ 
+ 
+ 
+ Williams 
+ LM 
+ 
+ 
+ Liddell 
+ BJ 
+ 
+ 
+ Kemp 
+ AH 
+ 
+ 
+ Bryant 
+ RA 
+ 
+ 
+ Meares 
+ RA 
+ 
+ 
+ Peduto 
+ AS 
+ 
+ 
+ Gordon 
+ E 
+ 
+ 
+ Amygdala-prefrontal dissociation of subliminal and supraliminal fear 
+ Human Brain Mapping 
+ 2006 
+ 27 
+ 8 
+ 652 
+ 661 
+ 16281289 
+ 
+ 
+ 
+ 
+ 
+ 
+ Young 
+ MP 
+ 
+ 
+ Scannell 
+ JW 
+ 
+ 
+ Burns 
+ GA 
+ 
+ 
+ Blakemore 
+ C 
+ 
+ 
+ Analysis of connectivity: Neural systems in the cerebral cortex 
+ Rev Neurosci 
+ 1994 
+ 5 
+ 3 
+ 227 
+ 250 
+ 7889215 
+ 
+ 
+ 
+ 
+ Figures and Tables 
+ 
+ Figure 1 
+ 
+ Anatomical 3D-renderings of the amygdala ROIs used for the meta-analysis. The right amygdala is represented in red and the left amygdala is represented in blue. Figure created using Mango ( http://ric.uthscsa.edu/mango ). 
+ 
+ 
+ 
+ 
+ Figure 2 
+ 
+ Papers reporting activation within the left and right amygdala ROIs were drawn from the BrainMap Database for subsequent meta-analysis. The graphs below demonstrate the number of papers coded in each behavioral domain in the entire BrainMap database (a), as well as the behavioral domain breakdown of the papers included in the amygdala-specific meta-analysis (b). From the emotion domain, which contained the highest percentage of papers, a variety of affective states were represented (c). 
+ 
+ 
+ 
+ 
+ Figure 3 
+ 
+ Coactivation patterns obtained from meta-analysis with the left (blue) and right (red) amygdala. Regions of the brain that coactivated with both left and right amygdala are indicated in purple. Maps thresholded at p < 0.001. Figure created using Mango ( http://ric.uthscsa.edu/mango ). 
+ 
+ 
+ 
+ 
+ Figure 4 
+ 
+ 3D renderings of coactivation patterns for the left (top panel) and right (bottom panel) amygdala.  AC  = anterior cingulate;  BA  = Brodmann area;  MFG  = medial frontal gyrus;  PC  = posterior cingulate cortex;  P.HIPP  = parahippocampal gyrus;  SFG  = superior frontal gyrus;  THAL  = thalamus. 
+ 
+ 
+ 
+ 
+ Figure 5 
+ 
+ Images were constructed using the CoCoMac-Paxinos3D Viewer. Panel A shows all 151 slices of the atlas in stereotaxic space. Within each of the panels B–F, the brain region is displayed in this space (left side of each panel) in addition to a magnified image of the connectivity results. Please see  Table 4  for a list of all abbreviations. B = Anterior amygdaloid area, C = Amygdalopiriform transition area, D = Basolateral amygdaloid nucleus, E = Basomedial amygdaloid nucleus, F = Central medial amygdaloid nucleus, medial division. Blue arrows indicate evidence for no anatomical connectivity, gray represents anatomical connectivity of unknown density, yellow is weak anatomical connectivity, and red indicates strong anatomical connections. 
+ 
+ 
+ 
+ 
+ Table 1 
+ 
+ 
+ 
+ Clusters Shared for Both Left and Right Amygdala Connectivity Analyses 
+ 
+ 
+ 
+ 
+ Left Amygdala Connectivity Clusters 
+ Right Amygdala Connectivity Clusters 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lobe 
+ Region 
+ BA 
+ ALE 
+ 
+ x 
+ 
+ 
+ y 
+ 
+ 
+ z 
+ 
+ ALE 
+ 
+ x 
+ 
+ 
+ y 
+ 
+ 
+ z 
+ 
+ 
+ 
+ 
+ 
+ Anterior 
+ Left Culmen 
+ 
+ 0.052 
+ −36 
+ −42 
+ −18 
+ 0.035 
+ −32 
+ −34 
+ −20 
+ 
+ 
+ Anterior 
+ Right Culmen 
+ 
+ 0.033 
+ 36 
+ −46 
+ −18 
+ 0.031 
+ 36 
+ −40 
+ −20 
+ 
+ 
+ Frontal 
+ Left Inferior Frontal Gyrus 
+ 47 
+ 0.038 
+ −44 
+ 26 
+ 0 
+ 0.029 
+ −44 
+ 26 
+ 0 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 0.027 
+ −34 
+ 26 
+ −12 
+ 
+ 
+ Frontal 
+ Left Medial Frontal Gyrus 
+ 9 
+ 0.034 
+ −6 
+ 16 
+ 44 
+ 0.025 
+ −6 
+ 48 
+ 22 
+ 
+ 
+ Limbic 
+ Left Anterior Cingulate 
+ 32 
+ 0.047 
+ −2 
+ 32 
+ −6 
+ 0.028 
+ 0 
+ 46 
+ 4 
+ 
+ 
+ 
+ 
+ 24 
+ 
+ 
+ 
+ 
+ 0.041 
+ −2 
+ 32 
+ 0 
+ 
+ 
+ Limbic 
+ Left Parahippocampal Gyrus 
+ Amygdala 
+ 0.314 
+ −22 
+ −6 
+ −14 
+ 0.144 
+ −22 
+ −6 
+ −14 
+ 
+ 
+ Limbic 
+ Right Parahippocampal Gyrus 
+ Amygdala 
+ 0.137 
+ 22 
+ −4 
+ −14 
+ 0.255 
+ 22 
+ −6 
+ −14 
+ 
+ 
+ Limbic 
+ Left Posterior Cingulate 
+ 23 
+ 0.036 
+ −2 
+ −52 
+ 22 
+ 0.038 
+ −4 
+ −54 
+ 20 
+ 
+ 
+ Sub-lobar 
+ Left Thalamus 
+ 
+ 0.037 
+ −6 
+ −12 
+ 8 
+ 0.035 
+ −8 
+ −14 
+ 4 
+ 
+ 
+ Sub-lobar 
+ Left Insula 
+ 13 
+ 0.042 
+ −34 
+ 16 
+ 10 
+ 0.038 
+ −32 
+ 14 
+ 4 
+ 
+ 
+ Sub-lobar 
+ Right Insula 
+ 13 
+ 0.036 
+ 38 
+ 20 
+ 2 
+ 0.039 
+ 36 
+ 16 
+ 0 
+ 
+ 
+ Temporal 
+ Right Middle Temporal Gyrus 
+ 37 
+ 0.032 
+ 44 
+ −68 
+ 16 
+ 0.027 
+ 46 
+ −62 
+ −2 
+ 
+ 
+ 
+ 
+ 
+ 0.036 
+ 52 
+ −62 
+ 6 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hemisphere Specific Clusters 
+ 
+ 
+ 
+ 
+ Frontal 
+ Left Superior Frontal Gyrus 
+ 9 
+ 0.037 
+ −4 
+ 52 
+ 22 
+ 
+ 
+ 
+ 
+ 
+ 
+ Limbic 
+ Right Anterior Cingulate 
+ 32 
+ 0.031 
+ 2 
+ 46 
+ 2 
+ 
+ 
+ 
+ 
+ 
+ 
+ Occipital 
+ Left Fusiform Gyrus 
+ 19 
+ 0.043 
+ −40 
+ −66 
+ −14 
+ 
+ 
+ 
+ 
+ 
+ 
+ Occipital 
+ Right Inferior Occipital Gyrus 
+ 19 
+ 0.034 
+ 40 
+ −74 
+ −8 
+ 
+ 
+ 
+ 
+ 
+ 
+ Occipital 
+ Right Middle Occipital Gyrus 
+ 19 
+ 0.027 
+ 34 
+ −78 
+ 12 
+ 
+ 
+ 
+ 
+ 
+ 
+ Temporal 
+ Left Fusiform Gyrus 
+ 37 
+ 0.040 
+ −42 
+ −58 
+ −14 
+ 
+ 
+ 
+ 
+ 
+ 
+ Temporal 
+ Left Middle Temporal Gyrus 
+ 21 
+ 0.028 
+ −56 
+ −56 
+ 4 
+ 
+ 
+ 
+ 
+ 
+ 
+ Temporal 
+ Left Middle Temporal Gyrus 
+ 39 
+ 0.037 
+ −44 
+ −66 
+ 18 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Frontal 
+ Right Inferior Frontal Gyrus 
+ 9 
+ 
+ 
+ 
+ 
+ 0.030 
+ 44 
+ 8 
+ 30 
+ 
+ 
+ Parietal 
+ Left Precuneus 
+ 31 
+ 
+ 
+ 
+ 
+ 0.038 
+ −2 
+ −46 
+ 30 
+ 
+ 
+ Sub-lobar 
+ Left Thalamus 
+ 
+ 
+ 
+ 
+ 
+ 0.029 
+ 0 
+ −4 
+ 10 
+ 
+ 
+ Sub-lobar 
+ Right Caudate 
+ 
+ 
+ 
+ 
+ 
+ 0.028 
+ 8 
+ 4 
+ 10 
+ 
+ 
+ 
+ 
+ 
+ Local maxima of clusters for the left and right amygdala meta-analysis ( p  < 0.001). Coordinates are reported in Talairach space. 
+ 
+ 
+ 
+ 
+ Table 2 
+ 
+ 
+ 
+ 
+ Anterior Amygdaloid Area 
+ Amygdalopiriform Transition Area 
+ Basolateral Amygdaloid Nucleus 
+ Basomedial Amygdaloid Nucleus 
+ Central Medial Amygdaloid Nucleus 
+ Net Result 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Region 
+ 
+ 
+ Afferent Connections 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Pul 
+ - 
+ - 
+ 0 
+ 0 
+ - 
+ No 
+ 
+ 
+ Re 
+ - 
+ - 
+ 0 
+ 0 
+ - 
+ No 
+ 
+ 
+ TF 
+ - 
+ - 
+ - 
+ - 
+ - 
+ 
+ Yes; 
+ 
+ Unknown 
+ 
+ 
+ 
+ 23 
+ 0 
+ - 
+ 0 
+ 0 
+ - 
+ No 
+ 
+ 
+ 24 
+ 0 
+ - 
+ 0 
+ 0 
+ - 
+ No 
+ 
+ 
+ 32 
+ 0 
+ - 
+ - 
+ 0 
+ - 
+ No 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Region 
+ 
+ 
+ Efferent Connections 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ AD 
+ - 
+ - 
+ 0 
+ 0 
+ - 
+ No 
+ 
+ 
+ AL 
+ - 
+ - 
+ 0 
+ 0 
+ - 
+ No 
+ 
+ 
+ AM 
+ - 
+ - 
+ 0 
+ 0 
+ - 
+ No 
+ 
+ 
+ AV 
+ - 
+ - 
+ 0 
+ 0 
+ - 
+ No 
+ 
+ 
+ B 
+ - 
+ - 
+ 0 
+ 0 
+ - 
+ No 
+ 
+ 
+ CM 
+ - 
+ - 
+ 0 
+ - 
+ - 
+ No 
+ 
+ 
+ EC 
+ - 
+ - 
+ 1 
+ - 
+ - 
+ 
+ Weak 
+ 
+ 
+ 
+ MD 
+ - 
+ - 
+ - 
+ X 
+ 0 
+ 
+ Yes; 
+ 
+ Unknown 
+ 
+ 
+ 
+ Pall 
+ - 
+ - 
+ 0 
+ 0 
+ - 
+ No 
+ 
+ 
+ PC 
+ - 
+ - 
+ 0 
+ - 
+ - 
+ No 
+ 
+ 
+ Pul 
+ - 
+ - 
+ 0 
+ 0 
+ - 
+ No 
+ 
+ 
+ R 
+ - 
+ - 
+ 0 
+ 0 
+ - 
+ No 
+ 
+ 
+ SG 
+ - 
+ - 
+ 0 
+ 0 
+ - 
+ No 
+ 
+ 
+ TEO 
+ - 
+ - 
+ 1 
+ - 
+ - 
+ 
+ Weak 
+ 
+ 
+ 
+ TF 
+ - 
+ - 
+ - 
+ - 
+ - 
+ No 
+ 
+ 
+ TH 
+ - 
+ - 
+ 0 
+ - 
+ - 
+ No 
+ 
+ 
+ VP 
+ - 
+ X 
+ 0 
+ 0 
+ - 
+ No 
+ 
+ 
+ 1 
+ - 
+ - 
+ 0 
+ - 
+ 0 
+ No 
+ 
+ 
+ 2 
+ - 
+ X 
+ 0 
+ - 
+ 0 
+ No 
+ 
+ 
+ 4 
+ - 
+ - 
+ 0 
+ - 
+ - 
+ No 
+ 
+ 
+ 6 
+ - 
+ - 
+ X 
+ 0 
+ - 
+ 
+ Yes; 
+ 
+ Unknown 
+ 
+ 
+ 
+ 8A 
+ - 
+ - 
+ 0 
+ 0 
+ - 
+ No 
+ 
+ 
+ 10 
+ - 
+ - 
+ 0 
+ 0 
+ 0 
+ No 
+ 
+ 
+ 11 
+ - 
+ 0 
+ 1 
+ X 
+ 0 
+ 
+ Weak/Un 
+ 
+ known 
+ 
+ 
+ 
+ 11m 
+ - 
+ 0 
+ - 
+ - 
+ 0 
+ No 
+ 
+ 
+ 13 
+ - 
+ - 
+ 1 
+ X 
+ 0 
+ 
+ Weak/Un 
+ 
+ known 
+ 
+ 
+ 
+ 13a 
+ - 
+ - 
+ 0 
+ - 
+ - 
+ No 
+ 
+ 
+ 23 
+ - 
+ - 
+ 0 
+ - 
+ - 
+ No 
+ 
+ 
+ 24 
+ - 
+ - 
+ 3 
+ - 
+ - 
+ 
+ Strong 
+ 
+ 
+ 
+ 24b 
+ - 
+ - 
+ - 
+ - 
+ - 
+ No 
+ 
+ 
+ 25 
+ - 
+ X 
+ 3 
+ X 
+ - 
+ 
+ Strong 
+ 
+ 
+ 
+ 32 
+ - 
+ X 
+ X 
+ X 
+ - 
+ 
+ Yes; 
+ 
+ Unknown 
+ 
+ 
+ 
+ 35 
+ - 
+ X 
+ 0 
+ X 
+ - 
+ 
+ Yes; 
+ 
+ Unknown 
+ 
+ 
+ 
+ 45 
+ - 
+ 0 
+ 0 
+ 0 
+ - 
+ No 
+ 
+ 
+ 46 
+ - 
+ 0 
+ X 
+ 0 
+ - 
+ 
+ Yes; 
+ 
+ Unknown 
+ 
+ 
+ 
+ 
+ 
+ 
+ Results of the CoCoMac-Paxinos3D Viewer connectivity queries. Twelve amydaloid regions were included in the analysis, but only those that had results are presented. A full list of all abbreviations can be found in  Table 4 . 0 = Evidence for no direct anatomical connectivity, 1 = Weak anatomical connectivity, 3 = Strong anatomical connectivity, - = No data presented for this region in the query, X = Connection of unknown density. All connectivity definitions are described fully in CocoMac. 
+ 
+ 
+ 
+ 
+ Table 3 
+ 
+ 
+ 
+ Connection with the Amygdala 
+ Human (MACM) 
+ Non-human Primate 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Prefrontal Cortex (BA9/46) 
+ ✓ 
+ ✓ 
+ 
+ 
+ Medial/Superior Frontal Gyrus (BA6) 
+ ✓ 
+ ✓ 
+ 
+ 
+ Orbitofrontal Cortex (BA11) 
+ ✓ 
+ ✓ 
+ 
+ 
+ Anterior Cingulate 
+ - 
+ - 
+ 
+ 
+  Subgenual (BA25) 
+ ✓ 
+ ✓ 
+ 
+ 
+  Supragenual (BA32) 
+ ✓ 
+ ✓ 
+ 
+ 
+  Dorsal Cingulate (BA24) 
+ ✓ 
+ ✓ 
+ 
+ 
+ Posterior Cingulate (BA23) 
+ ✓ 
+ Absent 
+ 
+ 
+ Middle Temporal Gyrus (BA21/37/39) 
+ ✓ 
+ ✓ 
+ 
+ 
+ Entorhinal Cortex 
+ ✓ 
+ ✓ 
+ 
+ 
+ Parahippocampal Gyrus 
+ ✓ 
+ No data 
+ 
+ 
+ Insula (BA13) 
+ ✓ 
+ ✓ 
+ 
+ 
+ Thalamus 
+ ✓ 
+ ✓ 
+ 
+ 
+ Caudate 
+ ✓ 
+ No data 
+ 
+ 
+ Culmen 
+ ✓ 
+ No data 
+ 
+ 
+ 
+ 
+ 
+ Comparison between human-based MACM results and the non-human primate literature as queried with the CoCoMac database. 
+ 
+ 
+ 
+ 
+ Table 4 
+ 
+ 
+ 
+ Abbreviation 
+ Structure 
+ Abbreviation 
+ Structure 
+ 
+ 
+ 
+ 
+ 1 
+ Area 1 of cortex (somatosensory) 
+ AD 
+ Anterodorsal thalamic nucleus 
+ 
+ 
+ 2 
+ Area 2 of cortex (somatosensory) 
+ Al 
+ Alar nucleus 
+ 
+ 
+ 4 
+ Area 4 of cortex (primary motor) 
+ AM 
+ Anteromedial thalamic nucleus 
+ 
+ 
+ 6 
+ Area 6 of cortex 
+ AV 
+ Anteroventral thalamic nucleus 
+ 
+ 
+ 10 
+ Area 10 of cortex 
+ B 
+ Basal nucleus (Meynert) 
+ 
+ 
+ 11 
+ Area 11 of cortex 
+ CM 
+ Central medial thalamic nucleus 
+ 
+ 
+ 13 
+ Area 13 of cortex 
+ EC 
+ Entorhinal cortex 
+ 
+ 
+ 23 
+ Area 23 of cortex 
+ MD 
+ Mediodorsal thalamic nucleus 
+ 
+ 
+ 24 
+ Area 24 of cortex 
+ Pall 
+ Parainsular cortex, lateral division 
+ 
+ 
+ 25 
+ Area 25 of cortex 
+ PC 
+ Paracentral thalamic nucleus 
+ 
+ 
+ 32 
+ Area 32 of cortex 
+ Pul 
+ Pulvinar nuclei 
+ 
+ 
+ 35 
+ Area 35 of cortex 
+ R 
+ Red nucleus 
+ 
+ 
+ 45 
+ Area 45 of cortex 
+ Re 
+ Reuniens thalamic nucleus 
+ 
+ 
+ 46 
+ Area 46 of cortex 
+ SG 
+ Suprageniculate thalamic nucleus 
+ 
+ 
+ 11m 
+ Area 11 of cortex, medial part 
+ TEO 
+ Temporal area TE, occipital part 
+ 
+ 
+ 13a 
+ Area 13a of cortex 
+ TF 
+ Temporal area TF 
+ 
+ 
+ 24b 
+ Area 24b of cortex 
+ TH 
+ Temporal area TH 
+ 
+ 
+ 8A 
+ Area 8A of cortex 
+ VP 
+ Ventral pallidum 
+ 
+ 
+ 
+ 
+ 
+ List of abbreviations used in the non-human primate connectivity query. 
+ 
+ 
+ 
+ 
+ 

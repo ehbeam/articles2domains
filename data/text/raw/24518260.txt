@@ -1,0 +1,1901 @@
+
+ properties manuscript? 
+ 
+ 
+ 9215515 
+ 20498 
+ Neuroimage 
+ Neuroimage 
+ 
+ NeuroImage 
+ 
+ 1053-8119 
+ 1095-9572 
+ 
+ 
+ 24518260 
+ 4008646 
+ 10.1016/j.neuroimage.2014.01.057 
+ NIHMS569036 
+ 
+ 
+ Article 
+ 
+ 
+ 
+ Multivariate analysis of correlation between electrophysiological and hemodynamic responses during cognitive processing 
+ 
+ 
+ 
+ 
+ Kujala 
+ Jan 
+ 
+ 1 
+ 2 
+ 
+ 
+ 
+ Sudre 
+ Gustavo 
+ 
+ 3 
+ 
+ 
+ 
+ Vartiainen 
+ Johanna 
+ 
+ 1 
+ 2 
+ 
+ 
+ 
+ Liljeström 
+ Mia 
+ 
+ 1 
+ 2 
+ 
+ 
+ 
+ Mitchell 
+ Tom 
+ 
+ 4 
+ 
+ 
+ 
+ Salmelin 
+ Riitta 
+ 
+ 1 
+ 2 
+ 
+ 
+ 1 Brain Research Unit, O.V. Lounasmaa Laboratory, Aalto University, FI-00076 Aalto, Finland 
+ 2 MEG Core and Advanced Magnetic Imaging Centre, Aalto NeuroImaging, Aalto University, FI-00076 Aalto, Finland 
+ 3 Center for the Neural Basis of Cognition, Carnegie Mellon University, Pittsburgh, PA 15213, USA 
+ 4 Machine Learning Department, School of Computer Science, Carnegie Mellon University, Pittsburgh, PA 15213, USA 
+ 
+ Corresponding Author: Jan Kujala Brain Research Unit, O.V. Lounasmaa Laboratory, Aalto University P.O. Box 15100 FI-00076 AALTO, Finland tel. + 358 (0) 50 34 42 587  jan.kujala@aalto.fi 
+ 
+ 
+ 11 
+ 4 
+ 2014 
+ 
+ 
+ 08 
+ 2 
+ 2014 
+ 
+ 
+ 15 
+ 5 
+ 2014 
+ 
+ 
+ 15 
+ 5 
+ 2015 
+ 
+ 92 
+ 207 
+ 216 
+ 
+ 
+ This file is available for text mining. It may also be used consistent with the principles of fair use under the copyright law. 
+ 
+ 
+ 
+ Animal and human studies have frequently shown that in primary sensory and motor regions the BOLD signal correlates positively with high-frequency and negatively with low-frequency neuronal activity. However, recent evidence suggests that this relationship may also vary across cortical areas. Detailed knowledge of the possible spectral diversity between electrophysiological and hemodynamic responses across the human cortex would be essential for neural-level interpretation of fMRI data and for informative multimodal combination of electromagnetic and hemodynamic imaging data, especially in cognitive tasks. We applied multivariate partial least squares correlation analysis to MEG–fMRI data recorded in a reading paradigm to determine the correlation patterns between the data types, at once, across the cortex. Our results revealed heterogeneous patterns of high-frequency correlation between MEG and fMRI responses, with marked dissociation between lower and higher order cortical regions. The low-frequency range showed substantial variance, with negative and positive correlations manifesting at different frequencies across cortical regions. These findings demonstrate the complexity of the neurophysiological counterparts of hemodynamic fluctuations in cognitive processing. 
+ 
+ 
+ Magnetoencephalography 
+ functional magnetic resonance imaging 
+ blood-oxygen-level dependent 
+ correlation 
+ multivariate analysis 
+ 
+ 
+ 
+ 
+ 1. Introduction 
+ In most functional magnetic resonance imaging (fMRI) studies, brain activity is determined based on the blood-oxygen-level dependent (BOLD;  Ogawa et al., 1992 ) signal, a measure sensitive to hemodynamics. Over the last 15 years several investigations have addressed the relationship between hemodynamic and electrophysiological measures of neuronal activity ( Logothetis et al., 2001 ;  Mukamel et al., 2005 ;  Ojemann et al., 2010 ). In their seminal work,  Logothetis et al. (2001)  demonstrated that in monkey primary visual cortex, the BOLD signal was most highly correlated with high-frequency local field potential (LFP), whereas spiking activity offered a lower explanatory value. Subsequent investigations into systems-level aspects of the relationship between hemodynamic and electrophysiological activity have focused on the correlation between the BOLD signal and neural activity in specific frequency bands. Evidence has accumulated for a positive correlation of BOLD signal with neural activity in the gamma band (ca 40–130 Hz) ( Mukamel et al., 2005 ;  Nir et al., 2007 ) and for a negative correlation of BOLD with lower-frequency neural activity ( Laufs et al., 2003 ;  Mukamel et al., 2005 ). 
+ In humans, the relationship between hemodynamic and electrophysiological signals can be addressed by collecting intracranial electric and fMRI data from the same subjects in separate measurement sessions ( Lachaux et al., 2007 ;  Conner et al., 2011 ). Such recordings are sensitive and spatially specific but necessarily restricted to a limited number of brain regions and subjects. Alternatively, magnetoencephalography (MEG) ( Schulz et al., 2004 ;  Liljeström et al., 2009 ) or scalp electroencephalography (EEG) ( Laufs et al., 2003 ;  de Munck et al., 2007 ) provide full head coverage, on a virtually unlimited population of subjects. One benefit of scalp EEG measurements is that they can be performed simultaneously with fMRI. However, by studying the relationship of fMRI with neural signals through separate fMRI and MEG measurements (with the same subjects undergoing identical experiments) it is possible to obtain estimates of correspondence between neural activity and hemodynamics that have both good spatial coverage (compared to typical intracranial electric measurements) and spatial specificity (compared to scalp EEG). MEG-fMRI comparisons have shown, for example, that increases and decreases in oscillatory power may be associated with spatially distinct BOLD effects ( Stevenson et al., 2012 ), and also that in some instances gamma-band activity and BOLD signal may be decoupled ( Muthukumaraswamy and Singh, 2009 ). 
+ So far, most studies investigating the correlation patterns between electrophysiological and hemodynamic responses have focused on a fairly limited set of hypotheses, using primary sensory cortices as the model systems. Yet, recent intracranial investigations have indicated regional differences in the electrophysiology-hemodynamics relationship ( Conner et al., 2011 ), with distinct mechanistic origins ( Sloan et al., 2010 ). Notably, the variability, while relatively small across lobes, is manifest when the relationship between electrophysiological and hemodynamic signals is evaluated at the gyral level ( Conner et al., 2011 ). Therefore, it seems critical to allow spatial and spectral heterogeneity in the analysis. We used MEG and fMRI in an unconstrained relational framework to explore the possible spatiospectral heterogeneity of the relationship between electrophysiological and hemodynamic activity during cognitive processing. Specifically, we analyzed the relationship between neuronal and hemodynamic responses voxel-by-voxel, throughout the cortex, using a dataset where the same subjects had been presented the same, multi-condition reading paradigm in both MEG and fMRI ( Vartiainen et al., 2011 ). Multivariate partial least squares correlation analysis (PLSC;  McIntosh et al., 1996 ;  Krishnan et al., 2011 ) was applied to discover consistent correlation patterns between frequency-decomposed neural (MEG) and hemodynamic (fMRI) signals simultaneously across the entire cortex, in a fully data-driven manner, without limiting the analysis to  a priori  defined frequency ranges. In the PLSC analysis, the within-condition MEG-fMRI correlation patterns were combined into a set of orthogonal representations across conditions, allowing the study of both condition-invariant and condition-dependent aspects of the relationship between electrophysiological hemodynamic responses. We hypothesized that our analysis would reveal a well-defined spatial and functional distribution of correlation patterns, with distinct low- and high-frequency features in different brain regions. 
+ 
+ 
+ 2. Materials and methods 
+ The following sections describe the key elements of the experimental design, MEG and fMRI data collection, and the regular activation analysis; a more detailed description of these aspects can be found in  Vartiainen et al. (2011) , where the focus was on the relationship between activation patterns obtained with measures most often used in imaging studies, i.e., MEG evoked responses and BOLD fMRI. EEG data, collected in both the MEG and fMRI sessions, were used to ascertain similar task dependence of neurophysiological responses in both environments ( Vartiainen et al., 2011 ). 
+ In the present study, we investigated the relationship between hemodynamic and electrophysiological signals across the cortex from these MEG and fMRI data sets, using PLSC analysis on estimates of oscillatory MEG activity and BOLD fMRI activity, matched at the voxel-level. This approach allowed an unbiased data-driven determination of the cortex-wide correlation between electrophysiological and hemodynamic responses and a spatially specific evaluation of the possible spectral variability of the electrophysiology-hemodynamics relationship. 
+ 
+ 2.1 Subjects 
+ fMRI and MEG data were recorded from 15 healthy, right-handed, native Finnish-speaking subjects (7 females, 8 males; age 20–49 years, mean 27 years). In agreement with the prior approval of the Helsinki and Uusimaa Ethics Committee, informed consent was obtained from all subjects. 
+ 
+ 
+ 2.2 Experimental design and behavioral data analysis 
+ The experiment consisted of a silent reading task with five stimulus categories: Finnish words, pseudowords, consonant strings, symbol strings, and words embedded in high-frequency visual noise (noisy words). An identical paradigm was used in MEG and fMRI, and the MEG and fMRI data were collected in a pseudo-randomized order across the subjects. Each category consisted of 112 stimuli (length 7–8 letters/symbols). The stimuli were presented one at a time, for 300 ms, in a block design, with seven stimuli of the same category in each block. After each stimulus, 1200 ms of gray background was shown. In addition to 16 stimulus blocks of each condition type, 16 rest blocks were included. The subjects were instructed to report when a stimulus appeared twice in a row (1 target block of each condition type per subject and imaging modality, not included in the analysis). Collection of the behavioral data from these target blocks was successful in 8 subjects in the MEG experiment and 11 subjects in the fMRI experiment. Overall, the subjects were able to perform the task with high accuracy, as measured by the percentage of true positives across the target blocks in both imaging modalities (words 100%, pseudowords 89%, consonant strings 84%, symbol strings 89%, noisy words 47 %). The average task performance over the 5 conditions was remarkably similar in the MEG and fMRI sessions (Wilcoxon rank sum test across subjects, p=0.64). 
+ 
+ 
+ 2.3 fMRI data collection 
+ The MRI data were collected using a 3 Tesla Signa EXCITE scanner (GE Healthcare) at the Advanced Magnetic Imaging Centre, Aalto University. The fMRI data were acquired using a single-shot GRE-EPI sequence with in-plane resolution 3.4 × 3.4 mm 2  (TR 2.4 s, TE 32 ms, flip angle 75°, acquisition matrix size 64 × 64, FOV 22 cm, slice thickness 3 mm). For anatomical data, a T1-weighted 3D SPGR sequence was used, with 0.9 × 0.9 × 1.0 mm 3  resolution. 
+ 
+ 
+ 2.4 MEG data collection 
+ The MEG data were recorded in a magnetically shielded room using a 306-channel whole-head device (Elekta Oy, Helsinki, Finland) at the MEG Core, Aalto University. The signals were bandpass filtered to 0.03–200 Hz and sampled at 600 Hz. The data were preprocessed using the temporal extension of the Signal Space Separation method ( Taulu and Simola, 2006 ). 
+ 
+ 
+ 2.5 fMRI data analysis 
+ The fMRI data preprocessing and analysis of the BOLD signal were conducted using BrainVoyager QX software (Brain Innovation). The preprocessing steps consisted of head movement and slice scan time correction, high-pass filtering at a 0.01 Hz cutoff frequency and linear trend removal. Serial correlations were compensated for by using a first-order autoregressive model. The fMRI data were coregistered with the anatomical MR data and spatially smoothed with an 8-mm full-width-at-half-maximum Gaussian kernel. A general linear model (GLM) was constructed by convolving the regressors for the five stimulus types with a two-gamma canonical hemodynamic response function. For the present analysis, percent effects of the stimulus conditions on the hemodynamic signal were computed by subtracting the GLM constant term (reflecting the signal level during rest) from the beta value of each condition and then dividing the result with the constant term. 
+ 
+ 
+ 2.6 MEG data analysis 
+ Estimates of cortical-level neural activity were obtained from the MEG signals by using event-related Dynamic Imaging of Coherent Sources (erDICS;  Laaksonen et al., 2008 ), a beamforming technique ( Van Veen et al., 1997 ;  Gross et al., 2001 ) that allows the evaluation of oscillatory power and coherence in the brain as a function of time. In erDICS, a time-dependent cross-spectral density matrix (CSD) that represents the sensor-level data is calculated via a product of the trial-level time-frequency representations, computed using Morlet wavelets ( Tallon-Baudry et al., 1997 ). Here, Morlet wavelets of width 7 were used to calculate the time-dependent CSD in the range from 200 ms before stimulus onset to 800 ms post stimulus at 30-ms intervals and spanning frequencies from 2 to 96 Hz at 2-Hz intervals (excluding frequency bins close to the line noise, i.e., bins at 48, 50 and 52 Hz). Cortical estimates of oscillatory power levels were then calculated separately for each condition at each frequency bin, averaged over the time interval of 50–800 ms where salient stimulus-evoked neural responses were observed; the reference level per frequency bin was estimated as the power in the −200 to 0 ms baseline interval, averaged across all stimuli. The integration of activity over the relevant post-stimulus interval ensured stable estimates of frequency-decomposed activity. Analogously to the values extracted from fMRI, the percent signal change in each experimental condition was computed by subtracting the common baseline power level from the power level in that condition and dividing the difference by the baseline power level. 
+ For reference, the cortical distribution of evoked neural activity (reported in full in  Vartiainen et al., 2011 ) was visualized as noise-normalized L2-minimum-norm estimates (MNE Suite software package by M. Hämäläinen, Martinos Center for Biomedical Imaging, Massachusetts General Hospital); the noise covariance matrix was estimated from the 200-ms prestimulus baseline periods of unaveraged data. For each subject and condition, t-scores were calculated at each post-stimulus time-point in individually determined cortical surface grids with 8-mm spacing by subtracting the mean of the baseline window from the post-stimulus values, and by dividing the obtained values with the standard deviation of the baseline period. The t-scores were then transformed to a common coordinate system using a surface-based transformation ( Fischl et al., 1999 ). Group-level evaluation was conducted by averaging the t-scores across subjects in 50% overlapping 50-ms long time-windows that covered the time range from 50 to 800 ms. For each condition and voxel, the largest absolute average t-score across the time-windows was taken, and t-scores of more than 3.291 (corresponding to p < 0.001) were considered to represent significant neural activity. 
+ 
+ 
+ 2.7 MEG-fMRI correlation analysis 
+ The PLSC analysis between the frequency-decomposed MEG estimates and BOLD fMRI estimates was evaluated separately in each voxel of a grid that covered the cortical gray matter. An equivalent spatial sampling across subjects was achieved by first forming a grid with 6-mm sampling on the gray matter surface of the template brain. A grid point was included in the analysis when an MEG sensor was located within a 7 cm radius; this restriction excluded areas (e.g., deep cortical structures) where MEG has limited sensitivity. The grid generated in the template brain, consisting of 7596 points, was then transformed, via a surface-based transformation ( Fischl et al., 1999 ), to each individual's anatomy. For each grid point, the fMRI voxel closest to the transformed point was determined, and the beta values in these voxels were considered to represent corresponding functional data across subjects. For the MEG data, the estimates were calculated directly at the individual-level grid points. The procedure yielded percent signal change estimates for each condition in the 7596 equivalent voxels across subjects, with a single value for the BOLD data and 45 MEG values (from 45 different frequency bins). Thus, the approach enabled the evaluation of electrophysiology-hemodynamics relationship and its possible variability at the voxel-level. This spatial specificity further facilitated the examination of possible detailed spectral differences across brain regions. The procedure used for co-registering the MEG and fMRI data is described in more detail in the  Supplementary Data . 
+ PLSC ( McIntosh et al., 1996 ;  Krishnan et al., 2011 ) was applied to determine the correspondence between the MEG and fMRI signals, separately in each voxel. In the PLSC analysis (illustrated in  Fig. 1a ), condition-invariant and condition-dependent aspects of the relationship between electrophysiological hemodynamic responses were studied by computing within-condition cross-correlation matrices, which were further combined to calculate orthonormal representations across conditions using singular value decomposition (SVD). Both the magnitudes and spectral shapes of these representations were then evaluated. The multiple experimental conditions were key to this analysis design. Cross-correlations between the MEG and fMRI signal-change estimates were first calculated separately within-condition, across subjects, for each voxel i.e.:
+ (1) R C = Y C T X C , 
+where  Y C  is the voxel's normalized fMRI activity (15×1) and  X C  the voxel's normalized MEG activity (15×45) in a single condition  C  across the 15 subjects. These cross-correlation matrices  R C  (1×45) were then stacked across the 5 conditions into a combined correlation matrix  R  (5×45), and singular value decomposition was used to determine orthogonal correlation patterns across the conditions. The decomposition,
+ (2) R = U Δ V T , 
+yielded, for each voxel, 5 orthogonal MEG-fMRI correlation spectra (45×1, rows of  V ) and 5 singular values (diagonal elements Δ) that were used to assess the overall magnitude and significance of the correlation. In this study, we focus only on the first singular value, which explained the majority of the correlation between the data types, and the corresponding MEG-fMRI correlation spectra. 
+ In order to determine whether the magnitude of the MEG-fMRI correlation was significant, indicating a consistent relationship between the electrophysiological and hemodynamic responses, the order of the 75 (5 conditions × 15 subjects) fMRI values were randomly permuted 10000 times (the permutation procedure is shown in  Fig. 1b ) and the largest singular value for each permutation was computed, separately for each voxel. The significance level was then determined by testing how many of the 10000 singular values from the permuted data were larger than the original singular value. Voxels with p<0.05 (false discovery rate, FDR, corrected) were considered to represent significant correlation between the data types. In voxels that showed a significant correlation, spatially unconstrained hierarchical clustering was used to determine the grouping of similar correlation patterns across voxels. In this clustering, correlation was calculated between all voxel combinations for the MEG-fMRI correlation spectra. Voxels that showed a correlation of higher than 0.95 were linked together, resulting in a spatiospectral clustering of electrophysiology-hemodynamics coupling patterns across voxels, and, thus, a representation of the most systematic components of the MEG-fMRI correlation. 
+ The permutation-based significance testing described above allowed only the evaluation of the possible consistency of the relationship between the MEG and fMRI responses at each location. In order to evaluate the frequency specificity of the estimated spectral shapes of correlation, we applied bootstrapping analysis (Efron, 1979). This procedure was applied to evaluate the uncertainty resulting from the specific data sampling in our study and, thus, to determine whether the observed correlation patterns displayed any frequency specificity across regions. As the PLSC analysis applied in this study is based on the cross-subject MEG and fMRI estimates of electrophysiological and hemodynamic activity in multiple experimental conditions, an applicable sampling test is to evaluate the stability of the correlation spectra against varying combinations of subjects and conditions. In the bootstrapping analysis we first determined, randomly, how large a percentage of the data was to be left out (up to 20% of the original data). We then selected, also randomly, a matching set of MEG-fMRI data pairs across subjects and conditions. Notably, as the covariances are computed first within-condition, it is possible to have a different number of subjects for each condition. The re-sampling of the data was repeated 1000 times, and the PLSC analysis was conducted on the re-sampled datasets identically to the main PLSC evaluation. Thus, for each re-sampling, the within-condition covariances were computed as:
+ (3) R C b = Y C b T X C b , 
+where  Y C b  is the normalized re-sampled fMRI (N×1) and  X C b  the normalized re-sampled MEG activity (N×45) in a single condition, with N≤15. Critically, while the subject numbers may be different, the dimensions of the cross-correlation  R C b  for the re-sampled data remain the same across all conditions. Thus, the stacking of these matrices and the SVD computations can be performed identically to the main PLSC analysis. 
+ From the obtained distribution of 1000 correlation spectra per voxel we calculated the 95% upper and lower confidence limits per frequency bin and voxel. Subsequently, both the correlation spectra and their 95% confidence limits were averaged across the voxels belonging to one component (determined based on the hierarchical clustering described above) and compared to the mean correlation pattern and 95% confidence limits across all voxels that showed significant MEG-fMRI correlation. When the confidence limits of a specific component and of the mean of all significant voxels were non-overlapping, the component was considered to show a spectrally specific pattern of MEG-fMRI correlation. The possible differences in the correlation patterns between the identified components were evaluated with independent samples t-tests, across all cluster combinations. The t-tests were computed between the correlation spectra of the voxels in the different clusters, separately for each frequency bin. Correlation differences between two components were considered significant at p<0.05 (Bonferroni corrected across frequency bins and cluster combinations). 
+ 
+ 
+ 
+ 3. Results 
+ 
+ 3.1 Partial least squares correlation between rhythmic neural activity and BOLD-fMRI 
+ The BOLD fMRI ( Fig. 2a ) and MEG evoked responses ( Fig. 2b ) revealed typical activation patterns in a reading task, with stimulus-driven modulation of activity in the posterior visual areas, inferior occipitotemporal cortex, and posterior and middle temporal, inferior parietal and frontal cortex (see  Vartiainen et al., 2011  for a detailed description and discussion). The PLSC voxel-wise, cross-condition correlation between the frequency-decomposed MEG and BOLD fMRI signals revealed significant coupling between the data types in an extensive cortical network ( Figure 2c ;  Table 1 ). MEG-fMRI correlation reached significance in 228 voxels that were located in the bilateral occipital, parietal and posterior temporal cortex, inferior precentral gyrus, and left frontal cortex; a higher proportion of these voxels was located in the left than right hemisphere (143 vs. 85 voxels). Similarly, of the 750 voxels showing consistent group-level hemodynamic activity ( Fig. 2a ), 510 were located in the left and 240 in the right hemisphere. For the MEG evoked responses ( Fig. 2b ), of the 441 voxels showing consistent group-level evoked activity, 254 were located in the left and 187 in the right hemisphere. Although the occipital, parietal and temporal regions forming the MEG-fMRI correlation network were largely similar to those identified in the separate fMRI ( Fig. 2a ) and MEG ( Fig. 2b ) activation analyses, the network of significant MEG-fMRI correlations contained only a small number of exactly the same voxels as the fMRI (6 shared voxels) and MEG (35 shared voxels) activity distributions. 
+ 
+ 
+ 3.2 Spatiospectral heterogeneity of the relationship between hemodynamic and electrophysiological responses 
+ In order to determine the spatiospectral division of correlation between electrophysiological and hemodynamic responses, spatially unconstrained hierarchical clustering was applied to the PLSC correlation spectra of the 228 significant voxels. Based on earlier work, the visual cortex would be expected to display a positive correlation in the higher (gamma) frequencies and a negative correlation in the lower frequencies ( Niessing et al., 2005 ;  Scheeringa et al., 2011 ). Indeed, as illustrated in  Figure 3a , such a pattern was observed in the present study in the left primary visual cortex (Brodmann area 18, Talairach coordinates −2 −100 0; two clustered voxels). 
+ However, the hierarchical clustering revealed even more robust (at least 5 contiguous voxels) MEG-fMRI correlation patterns in other brain areas. Clustering of the correlation spectra related to the first PLSC singular value revealed 8 components that spanned 10 different cortical regions, including brain areas typically involved in higher-order cognitive processing ( Figure 3b ,  Table 2 ); for the other singular values and corresponding correlation spectra, no clusters with comparable spatial consistency were detected. The most obvious characteristic of the identified 8 MEG-fMRI correlation clusters was the prominent role of high-frequency activity: a positive correlation in the range 30–100 Hz was detected in all brain regions (the left middle and superior temporal gyrus, inferior parietal lobule and inferior, middle and superior frontal gyrus; the right superior parietal lobule, precuneus, and lingual gyrus) except the left precentral gyrus (component 8) which exhibited a negative correlation at frequencies > 30 Hz. 
+ While a positive correlation in this so-called gamma band was a remarkably systematic phenomenon, its detailed pattern was not uniform across brain areas ( Fig. 3b ): the positive correlation was either relatively homogeneous throughout the high-frequency range or it showed a clear distinction between low (ca 30–50 Hz) and high (ca 60–90 Hz) gamma bands. In the precuneus and middle temporal and lingual gyri (components 1, 6 and 7), the correlation in the high gamma range differed most markedly from the average correlation across voxels, whereas in the middle frontal gyrus (component 5) emphasis was on the low gamma range. In the inferior frontal and superior temporal gyrus (component 3), the correlation differed from the average pattern in the entire gamma range. 
+ When the MEG-fMRI correlation spectra were compared, pair-wise, among all the 8 identified components ( Fig. 4 ), the correlation in the low gamma range, in particular, differed significantly between several brain areas (components). Significant differences were also observed specifically in the high-gamma range between, e.g., the frontal gyrus (both superior and middle) and the lingual gyrus (components 4/5 vs. 7). To evaluate the possibly different neural underpinnings of the distinct correlation patterns across regions, we focused on the primary visual cortex ( Fig. 5a ) and the precentral gyrus ( Fig. 5b ) that showed markedly different correlation patterns. While the fMRI activity showed clearly distinct modulation across the regions and conditions, in MEG both the percent signal change and the absolute power were more similar across the five conditions and two regions in the 6 examined frequency bands. 
+ In the lower-frequency (< 30 Hz) range, the patterns of correlation between electrophysiological and hemodynamic responses were also heterogeneous, with components differing significantly from the average correlation pattern at various frequencies ( Fig. 3b ). Marked differences were observed, e.g., in the middle temporal gyrus (component 1), where a stronger negative correlation was observed at 2–4 and at ~8 Hz, and in the superior temporal and inferior frontal gyrus (component 3), where a stronger positive correlation was observed at 6–8 and 14–18 Hz compared to the average pattern. A stronger positive correlation compared with the average pattern was detected also in the lingual gyrus (at 22–30 Hz; component 7), inferior parietal lobule (at 20–22 Hz; component 2), precuneus (at ~16 Hz; component 6), and precentral gyrus (at 12–14 Hz; component 8); in the precuneus, a stronger negative correlation was also detected (at ~8 Hz). In pair-wise comparisons among the 8 identified components ( Fig. 4 ), the correlation spectra differed significantly between most brain region pairs at around 2–8 Hz and 16–30 Hz. 
+ 
+ 
+ 
+ 4. Discussion 
+ We applied partial least squares correlation analysis on MEG and fMRI data recorded from the same subjects in a reading task to address the relationship between electrophysiological and hemodynamic markers of neural activity in higher-order cortical regions. The selected unconstrained PLSC approach allowed the evaluation of the consistency of the relationship between electrophysiological and hemodynamic responses at the voxel-level, across the cortex. The spatial specificity of the analysis allowed a detailed examination of possible spectral differences in the observed MEG-fMRI correlations across brain regions. In general, the observed correlation patterns were fairly similar across regions with strong positive correlations at high frequencies and weaker correlations at low frequencies. In some regions, the positive gamma-frequency correlation was accompanied by a negative correlation in the lower frequencies, in agreement with earlier reports ( Niessing et al., 2005 ;  Scheeringa et al., 2011 ). However, a more detailed analysis revealed significant differences in the correlation patterns between the electrophysiological and hemodynamic responses across brain regions at multiple frequency bands, akin to previous observations in intracranial recordings ( Conner et al., 2011 ). The present findings highlight the importance of considering the complexity of the neural origins of hemodynamic fluctuations when seeking to integrate the views of brain processing provided by electrophysiological and BOLD fMRI measures ( Logothetis, 2008 ;  Ekstrom, 2010 ;  Lauritzen et al., 2012 ;  Whitman et al., 2013 ). 
+ 
+ 4.1 High-frequency neural activity is not a unitary phenomenon in the correlation between electrophysiological and hemodynamic responses 
+ Our findings largely agree with the previously reported positive correlation between high-frequency neural activity and hemodynamic responses ( Logothetis et al., 2001 ;  Nir et al., 2007 ). However, across regions, these correlations showed notable variance in their specific spectral distributions. Previously, positive correlations between BOLD and neural activity have most often been attributed to activity in the so-called gamma band. The exact frequencies, however, have varied considerably: effects have been reported, for example, at 20–60 Hz ( Goense and Logothetis, 2008 ), 60–80 Hz ( Scheeringa et al., 2011 ), and 40–100 Hz ( Nir et al., 2008 ). In other instances, it has been shown that the BOLD signal may be explained best by neural activity in a more extended frequency range (50–250 Hz;  Ojemann et al., 2010 ). While these phenomena occur at overlapping frequencies, they may reflect fundamentally different kinds of neural activities ( Kayser and Ermentrout, 2010 ). The patterns that are limited to specific, narrower frequency bands can appropriately be called oscillatory. However, modulations that span the range from the low-gamma frequencies up to at least 200 Hz ( He et al., 2010 ) are more likely to reflect arrhythmic neural activity ( Kayser and Ermentrout, 2010 ;  Scheeringa et al., 2011 ). 
+ We detected both types of phenomena. These two classes of correlation patterns between electrophysiological and hemodynamic responses patterns were divided spatially and functionally roughly into two categories. The brain regions that showed positive MEG-fMRI correlation in somewhat narrower gamma bands (the left middle temporal gyrus, right precuneus, and right lingual gyrus; components 1, 6 and 7 in  Fig. 3 ) were located in more posterior regions of the brain than the regions that displayed more broad-band effects (the left superior temporal gyrus, left inferior and middle frontal gyrus; components 3, 5 and 8). In the more posterior regions showing the band-specificity, the higher (ca 60–90 Hz) gamma-band displayed a particularly prominent correlation with the BOLD signal, whereas in the more anterior regions the correlation between the BOLD signal and neural activity occurred over a wide gamma range without a clear distinction between the sub-gamma bands. Indeed, the correlation spectra between these two types of regions typically differed significantly at around 30–60 Hz. Moreover, in several temporal and frontal regions the correlation spectra at 30–60 Hz differed significantly from the average correlation pattern across all voxels where significant MEG-fMRI correlation was detected, whereas in the more posterior regions a similar effect was observed in the high gamma range. 
+ This dissociation between regions may originate from the more posterior and lower-order cortical areas exhibiting true oscillatory activity in specific bands, whereas in the more frontal, higher-order regions the hemodynamic responses could be generated by arrhythmic high-frequency neural activity. Furthermore, a negative broad-band correlation between the high-frequency neural activity and the BOLD signal appeared in the precentral gyrus, resulting in a notable distinction of the correlation patterns between two nearby areas, the precentral gyrus (BA 6) and the inferior frontal gyrus (BA 45). One possible reason is the different cytoarchitecture of the two regions ( Amunts et al., 1999 ) that may be expressed also in the their electrophysiological and hemodynamic activity relationship. It is also possible that the central role of the precentral gyrus as a vascular source could crucially affect the profile of BOLD activity in the region ( Webb et al., 2013 ) and, thus, play a role in its distinct MEG-fMRI correlation pattern compared to the neighboring inferior frontal gyrus. 
+ Notably, markedly different MEG- fMRI correlation patterns in the high-gamma range may be accompanied by rather similar MEG activity profiles (cf.  Fig. 5 ). Different correlation patterns in the high-gamma range may thus not necessarily indicate distinct neural activities in the different brain regions, but could possibly be linked to regional differences in the generation of the BOLD signal, (cf.  Fig. 5  for distinct condition dependence of the fMRI patterns in the two brain areas). Different vasculature and neurovascular coupling could be one explanatory factor for the observed distinct BOLD and correlation patterns across the regions, despite rather similar neural activity profiles. It should also be noted that while we detected a negative gamma-band correlation between the MEG and fMRI data sets in the precentral gyrus, previous studies have reported a positive correlation in that general region ( Conner et al., 2011 ). Future studies should address whether this distinction might reflect the specific experimental manipulations or that, in our data, the correlation pattern was determined in the most inferior part of the precentral gyrus (vs. the entire precentral gyrus by Conner et al). 
+ 
+ 
+ 4.2 Heterogeneous coupling of low-frequency neural activity to hemodynamics 
+ Several investigations into the relationship between electrophysiological and hemodynamic responses have reported negative correlations between BOLD and low-frequency (< 30 Hz) neural activity ( Laufs et al., 2003 ;  Mukamel et al., 2005 ). In the present study, most of the detected correlation patterns had a substantial low-frequency component. However, the observed patterns were not dominated by either negative or positive correlations, but both types of correlations, significantly different from zero, manifested at various frequencies across brain regions. Notably, while we did detect a fairly broad-band low-frequency negative correlation in the left middle temporal gyrus, and a slightly narrower overall negative correlation in the left middle frontal gyrus, in many regions the observed negative correlations were limited to very low-frequency bands (< 5 Hz); in the inferior parietal lobule, precuneus and middle frontal gyrus, the negative correlations at < 15 Hz were also accompanied by more salient positive correlations in the beta-band (15–30 Hz). Moreover, in several regions, the correlation patterns differed significantly also from the average correlation spectra across all voxels at varying frequencies (e.g., 2–4, 6–8, 12–14, 14–18, 20–22, and 22–30 Hz). In fact, the lower-frequency correlation patterns appeared to be fairly unique to each region. As an important exception, an identical pattern was evident in the left inferior frontal and superior temporal gyrus (component 3 in  Fig. 3 ); this finding suggests a tight functional and physiological link between the two areas, in line with their known anatomical connection ( Friederici, 2009 ). Akin to the findings for high-frequency neural activity, marked differences in the correlation between electrophysiological and hemodynamic responses between close-by brain regions were detected also at the lower frequencies: for example, the left middle (Brodmann area, BA, 9) and superior frontal gyri (BA 6) showed a rather similar correlation pattern, except that the middle frontal gyrus exhibited a strong positive correlation at around 20 Hz (components 4 and 5). 
+ These findings may seem partly at odds with the currently predominant view of the relationship between electrophysiological and hemodynamic activity. Reports of positive correlations between low-frequency neural activity and the BOLD signal are scarce, limited to observations, e.g., of 4–8 Hz activity in the parahippocampal gyrus ( Ekstrom et al., 2009 ) and the postcentral and superior temporal gyri ( Conner et al., 2011 ). There are, however, two key reasons why our findings are, in fact, complementary to rather than in disagreement with previous studies. First, the vast majority of studies that have reported negative correlation between spatially matched BOLD and low-frequency neural signals have been conducted in the primary sensory or motor regions using relatively simple experimental paradigms ( Mukamel et al., 2005 ;  Niessing et al., 2005 ). In the present study, however, correlations between electrophysiological and hemodynamic responses were investigated across the cortex via PLSC analysis of 5 cognitive conditions, and the most systematic components of correlation were detected in higher-order cortical areas. These higher-level regions showed quite heterogeneous patterns, with both negative and positive correlations in several distinct low-frequency bands. Negative correlation between neural and hemodynamic signals has also been reported in studies that have applied regression analyses between a single sensor-level-based EEG measure and BOLD responses across the brain (e.g.,  Laufs et al., 2003 ). Those types of studies have addressed, e.g., the manner in which modulation of the posteriorly recorded alpha rhythm may be correlated with the BOLD signal across brain regions. In contrast, we focused on spatially matched MEG and fMRI activity measures to examine the voxel-wise spectral relationship between electrophysiological and hemodynamic signals. By applying spatial matching across the modalities, both the present fully noninvasive MEG-fMRI study and that of Conner and colleagues, combining fMRI with intracranial electric recordings, detected a positive correlation between the neural and BOLD signals below 10 Hz in the superior temporal gyrus. 
+ 
+ 
+ 4.3 Sensitivity and specificity of group-level PLSC analysis 
+ Significant correlation between electrophysiological and hemodynamic responses was observed in a wide range of cortical areas that are commonly detected in activation studies related to reading. Furthermore, in the primary visual cortex the hemodynamic signals were negatively correlated with low and positively correlated with high frequency neural activity; this finding agrees remarkably well with previous studies ( Zumer et al., 2010 ;  Scheeringa et al., 2011 ), demonstrating the accuracy of a group-level PLSC compared to individual-level correlation analysis. Notably, the present analysis was performed at the group-level in spatially matched voxels, without seeking to identify functionally exactly corresponding regions across subjects. Together with inter-subject spectral variability of neural responses, this resulted in slightly smaller correlation values than are sometimes observed in cases where intermodal correlations are estimated within subjects (i.e., analysis of trial-to-trial co-variation of electrophysiological and hemodynamic responses). 
+ The areas showing significant correlation did not fully match the areas in which activation levels, as measured with either fMRI or MEG, were most strongly modulated. This indicates that the sensitivity of the PLSC approach does not depend merely on the signal-to-noise ratio of the data. Correlation estimates are generally, and likely in this study as well, more robust when there is salient variation in activity levels across subjects. However, such variability tends to reduce the significance of standard, t-statistics-based group-level activation estimates. It is also worth noting that the PLSC framework could be unsuccessful in determining the relationship between electrophysiological and hemodynamic activity in functional areas where the spectral patterns differ considerably across subjects. Indeed, some of this apparent disparity between the activation and correlation patterns results from differences in the significance levels that were reached with the different measures. For instance, in the supramarginal gyrus, where MEG-fMRI correlation was not evident but both MEG and fMRI activation measures exceeded the selected significance thresholds, a more lenient (p<0.05) threshold for the PLSC analysis sufficed to reveal MEG-fMRI correlation as well. 
+ The observed difference between the most activated and most correlated brain regions also yields insights into the distinct pictures of reading that have been obtained with MEG and fMRI. For example, the fMRI data revealed the typical functional difference between words and consonant strings in left inferior frontal cortex, whereas the MEG evoked responses did not ( Vartiainen et al., 2011 ). However, we detected significant correlation in that region showing that the BOLD response was correlated with a broad-band neural response in the gamma range. This observation suggests that the BOLD activity in the left inferior frontal cortex is linked to modulation of high-frequency neural activity, possibly over a relatively long time period. This type of modulation would not be readily picked up in typical MEG analysis where the focus is on specific time windows and the signals are dominated by the relatively high-amplitude low-frequency oscillations. 
+ The present analysis was built on multiple, language-related task conditions. The heterogeneous coupling between electrophysiological and hemodynamic activity we observed thus included, not surprisingly, several key areas of language processing. The spatiospectral MEG–fMRI correlation patterns in those areas differed considerably from that of the visual cortex, especially in the lower frequency range. The good match of the coupling pattern in the visual cortex detected here with those reported in previous studies ( Zumer et al., 2010 ;  Scheeringa et al., 2011 ) increases confidence that the coupling patterns observed in the higher-order regions also reflect specific linkage properties between neuronal and hemodynamic activity. However, whether or not (or to what degree) the correlation patterns would display spatiospectral invariance across different cognitive tasks, remains to be determined by future studies. Furthermore, as the stability of MEG estimates of neural activity at individual frequency bins required averaging over the entire response time interval, the present analysis does not allow linking the BOLD fMRI signals with specific phases of the MEG responses. The observed MEG-fMRI correlation may reflect different temporal and spectral properties of the neural response in different brain regions ( Supplementary data, Fig. S2 ). 
+ Finally, we do not propose that the observed patterns would reflect the full profile of neural activity; our findings merely demonstrate that these patterns of neural activity, as detected with MEG, correlate with the hemodynamic signal, as detected with BOLD fMRI. There may be brain areas where one imaging modality is sensitive to activity patterns that are not detectable with the other technique. For example, non-synchronous neural activity can lead to significant BOLD modulations without detectable signals in MEG. Conversely, there may be other, transient neural patterns that are picked up by MEG but not reflected in the hemodynamic signal. In addition, MEG's high sensitivity to the tangential component of neural current flow and low sensitivity to the radial component may influence the observed correlation spectra. Moreover, it should be noted that each MEG source localization technique yields slightly different estimates of neural activity which could have some effect on the observed MEG-fMRI correlation patterns. 
+ 
+ 
+ 
+ 5. Conclusions 
+ Our holistic PLSC analysis of the relationship between BOLD fMRI and frequency-decomposed MEG activity measures during cognitive processing revealed heterogeneous spectral patterns of correlation across the cortex, akin to previous results from intracranial recordings ( Conner et al., 2011 ). Our findings further showed that brain regions involved in different levels of cortical processing may also display distinct patterns Moreover, our results suggest that, while high-frequency neural activity is a major component in the MEG-fMRI coupling, in distinct functional regions this activity may be attributed to either oscillatory components or more widely spread, possibly arrhythmic, high-frequency neural activity. Similarly, various low-frequency oscillations contribute in a distinct manner to the generation of the hemodynamic signal. These findings demonstrate the complexity of the neurophysiological correlates of hemodynamic fluctuations in cognitive processing. 
+ 
+ 
+ Supplementary Material 
+ 
+ 01 
+ 
+ 
+ 
+ 
+ 
+ Acknowledgements 
+ We thank the Academy of Finland (National Centres of Excellence Programme 2006–2011, LASTU Programme 2012–2016, personal grants to JK and RS), Sigrid Jusélius Foundation, Instrumentarium Science Foundation, Finnish Cultural Foundation, Swedish Cultural Foundation in Finland, Finnish Funding Agency for Technology and Innovation (SalWe Strategic Center for Science, Technology and Innovation in Health and Well-being), and the U.S. National Institute of Child Health and Human Development (NICHD grant supporting TM, GS) for financial support. GS was supported by a graduate fellowship from the multi-modal neural training program and a presidential fellowship in the Life Sciences from the Richard King Mellon Foundation. 
+ 
+ 
+ 
+ This is a PDF file of an unedited manuscript that has been accepted for publication. As a service to our customers we are providing this early version of the manuscript. The manuscript will undergo copyediting, typesetting, and review of the resulting proof before it is published in its final citable form. Please note that during the production process errors may be discovered which could affect the content, and all legal disclaimers that apply to the journal pertain. 
+ 
+ 
+ 
+ 7. References 
+ 
+ 
+ 
+ 
+ Amunts 
+ K 
+ 
+ 
+ Schleicher 
+ A 
+ 
+ 
+ Burgel 
+ U 
+ 
+ 
+ Mohlberg 
+ H 
+ 
+ 
+ Uylings 
+ HB 
+ 
+ 
+ Zilles 
+ K 
+ 
+ 
+ Broca's region revisited: cytoarchitecture and intersubject variability 
+ J Comp Neurol 
+ 1999 
+ 412 
+ 319 
+ 341 
+ 10441759 
+ 
+ 
+ 
+ 
+ 
+ 
+ Conner 
+ CR 
+ 
+ 
+ Ellmore 
+ TM 
+ 
+ 
+ Pieters 
+ TA 
+ 
+ 
+ Disano 
+ MA 
+ 
+ 
+ Tandon 
+ N 
+ 
+ 
+ Variability of the Relationship between Electrophysiology and BOLD-fMRI across Cortical Regions in Humans 
+ J Neurosci 
+ 2011 
+ 31 
+ 12855 
+ 12865 
+ 21900564 
+ 
+ 
+ 
+ 
+ 
+ 
+ de Munck 
+ JC 
+ 
+ 
+ Goncalves 
+ SI 
+ 
+ 
+ Huijboom 
+ L 
+ 
+ 
+ Kuijer 
+ JP 
+ 
+ 
+ Pouwels 
+ PJ 
+ 
+ 
+ Heethaar 
+ RM 
+ 
+ 
+ Lopes da Silva 
+ FH 
+ 
+ 
+ The hemodynamic response of the alpha rhythm: an EEG/fMRI study 
+ Neuroimage 
+ 2007 
+ 35 
+ 1142 
+ 1151 
+ 17336548 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ekstrom 
+ A 
+ 
+ 
+ How and when the fMRI BOLD signal relates to underlying neural activity: the danger in dissociation 
+ Brain Res Rev 
+ 2010 
+ 62 
+ 233 
+ 244 
+ 20026191 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ekstrom 
+ A 
+ 
+ 
+ Suthana 
+ N 
+ 
+ 
+ Millett 
+ D 
+ 
+ 
+ Fried 
+ I 
+ 
+ 
+ Bookheimer 
+ S 
+ 
+ 
+ Correlation between BOLD fMRI and theta-band local field potentials in the human hippocampal area 
+ J Neurophysiol 
+ 2009 
+ 101 
+ 2668 
+ 2678 
+ 19244353 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fischl 
+ B 
+ 
+ 
+ Sereno 
+ MI 
+ 
+ 
+ Tootell 
+ RB 
+ 
+ 
+ Dale 
+ AM 
+ 
+ 
+ High-resolution intersubject averaging and a coordinate system for the cortical surface 
+ Hum Brain Mapp 
+ 1999 
+ 8 
+ 272 
+ 284 
+ 10619420 
+ 
+ 
+ 
+ 
+ 
+ 
+ Friederici 
+ AD 
+ 
+ 
+ Pathways to language: fiber tracts in the human brain 
+ Trends Cogn Sci 
+ 2009 
+ 13 
+ 175 
+ 181 
+ 19223226 
+ 
+ 
+ 
+ 
+ 
+ 
+ Goense 
+ JB 
+ 
+ 
+ Logothetis 
+ NK 
+ 
+ 
+ Neurophysiology of the BOLD fMRI signal in awake monkeys 
+ Curr Biol 
+ 2008 
+ 18 
+ 631 
+ 640 
+ 18439825 
+ 
+ 
+ 
+ 
+ 
+ 
+ Gross 
+ J 
+ 
+ 
+ Kujala 
+ J 
+ 
+ 
+ Hämäläinen 
+ M 
+ 
+ 
+ Timmermann 
+ L 
+ 
+ 
+ Schnitzler 
+ A 
+ 
+ 
+ Salmelin 
+ R 
+ 
+ 
+ Dynamic imaging of coherent sources: Studying neural interactions in the human brain 
+ Proc Natl Acad Sci USA 
+ 2001 
+ 98 
+ 694 
+ 699 
+ 11209067 
+ 
+ 
+ 
+ 
+ 
+ 
+ He 
+ BJ 
+ 
+ 
+ Zempel 
+ JM 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ The temporal structures and functional significance of scale-free brain activity 
+ Neuron 
+ 2010 
+ 66 
+ 353 
+ 369 
+ 20471349 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kayser 
+ C 
+ 
+ 
+ Ermentrout 
+ B 
+ 
+ 
+ Complex times for earthquakes, stocks, and the brain's activity 
+ Neuron 
+ 2010 
+ 66 
+ 329 
+ 331 
+ 20471345 
+ 
+ 
+ 
+ 
+ 
+ 
+ Krishnan 
+ A 
+ 
+ 
+ Williams 
+ LJ 
+ 
+ 
+ McIntosh 
+ AR 
+ 
+ 
+ Abdi 
+ H 
+ 
+ 
+ Partial Least Squares (PLS) methods for neuroimaging: A tutorial and review 
+ Neuroimage 
+ 2011 
+ 56 
+ 455 
+ 475 
+ 20656037 
+ 
+ 
+ 
+ 
+ 
+ 
+ Laaksonen 
+ H 
+ 
+ 
+ Kujala 
+ J 
+ 
+ 
+ Salmelin 
+ R 
+ 
+ 
+ A method for spatiotemporal mapping of event-related modulation of cortical rhythmic activity 
+ Neuroimage 
+ 2008 
+ 42 
+ 207 
+ 217 
+ 18538584 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lachaux 
+ JP 
+ 
+ 
+ Fonlupt 
+ P 
+ 
+ 
+ Kahane 
+ P 
+ 
+ 
+ Minotti 
+ L 
+ 
+ 
+ Hoffmann 
+ D 
+ 
+ 
+ Bertrand 
+ O 
+ 
+ 
+ Baciu 
+ M 
+ 
+ 
+ Relationship between task-related gamma oscillations and BOLD signal: new insights from combined fMRI and intracranial EEG 
+ Hum Brain Mapp 
+ 2007 
+ 28 
+ 1368 
+ 1375 
+ 17274021 
+ 
+ 
+ 
+ 
+ 
+ 
+ Laufs 
+ H 
+ 
+ 
+ Kleinschmidt 
+ A 
+ 
+ 
+ Beyerle 
+ A 
+ 
+ 
+ Eger 
+ E 
+ 
+ 
+ Salek-Haddadi 
+ A 
+ 
+ 
+ Preibisch 
+ C 
+ 
+ 
+ Krakow 
+ K 
+ 
+ 
+ EEG-correlated fMRI of human alpha activity 
+ Neuroimage 
+ 2003 
+ 19 
+ 1463 
+ 1476 
+ 12948703 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lauritzen 
+ M 
+ 
+ 
+ Mathiesen 
+ C 
+ 
+ 
+ Schaefer 
+ K 
+ 
+ 
+ Thomsen 
+ KJ 
+ 
+ 
+ Neuronal inhibition and excitation, and the dichotomic control of brain hemodynamic and oxygen responses 
+ Neuroimage 
+ 2012 
+ 62 
+ 1040 
+ 1050 
+ 22261372 
+ 
+ 
+ 
+ 
+ 
+ 
+ Liljeström 
+ M 
+ 
+ 
+ Hultén 
+ A 
+ 
+ 
+ Parkkonen 
+ L 
+ 
+ 
+ Salmelin 
+ R 
+ 
+ 
+ Comparing MEG and fMRI views to naming actions and objects 
+ Hum Brain Mapp 
+ 2009 
+ 30 
+ 1845 
+ 1856 
+ 19378277 
+ 
+ 
+ 
+ 
+ 
+ 
+ Logothetis 
+ NK 
+ 
+ 
+ What we can do and what we cannot do with fMRI 
+ Nature 
+ 2008 
+ 453 
+ 869 
+ 878 
+ 18548064 
+ 
+ 
+ 
+ 
+ 
+ 
+ Logothetis 
+ NK 
+ 
+ 
+ Pauls 
+ J 
+ 
+ 
+ Augath 
+ M 
+ 
+ 
+ Trinath 
+ T 
+ 
+ 
+ Oeltermann 
+ A 
+ 
+ 
+ Neurophysiological investigation of the basis of the fMRI signal 
+ Nature 
+ 2001 
+ 412 
+ 150 
+ 157 
+ 11449264 
+ 
+ 
+ 
+ 
+ 
+ 
+ McIntosh 
+ AR 
+ 
+ 
+ Bookstein 
+ FL 
+ 
+ 
+ Haxby 
+ JV 
+ 
+ 
+ Grady 
+ CL 
+ 
+ 
+ Spatial pattern analysis of functional brain images using partial least squares 
+ Neuroimage 
+ 1996 
+ 3 
+ 143 
+ 157 
+ 9345485 
+ 
+ 
+ 
+ 
+ 
+ 
+ Mukamel 
+ R 
+ 
+ 
+ Gelbard 
+ H 
+ 
+ 
+ Arieli 
+ A 
+ 
+ 
+ Hasson 
+ U 
+ 
+ 
+ Fried 
+ I 
+ 
+ 
+ Malach 
+ R 
+ 
+ 
+ Coupling between neuronal firing, field potentials, and FMRI in human auditory cortex 
+ Science 
+ 2005 
+ 309 
+ 951 
+ 954 
+ 16081741 
+ 
+ 
+ 
+ 
+ 
+ 
+ Muthukumaraswamy 
+ SD 
+ 
+ 
+ Singh 
+ KD 
+ 
+ 
+ Functional decoupling of BOLD and gamma-band amplitudes in human primary visual cortex 
+ Hum Brain Mapp 
+ 2009 
+ 30 
+ 2000 
+ 2007 
+ 18729078 
+ 
+ 
+ 
+ 
+ 
+ 
+ Niessing 
+ J 
+ 
+ 
+ Ebisch 
+ B 
+ 
+ 
+ Schmidt 
+ KE 
+ 
+ 
+ Niessing 
+ M 
+ 
+ 
+ Singer 
+ W 
+ 
+ 
+ Galuske 
+ RA 
+ 
+ 
+ Hemodynamic signals correlate tightly with synchronized gamma oscillations 
+ Science 
+ 2005 
+ 309 
+ 948 
+ 951 
+ 16081740 
+ 
+ 
+ 
+ 
+ 
+ 
+ Nir 
+ Y 
+ 
+ 
+ Fisch 
+ L 
+ 
+ 
+ Mukamel 
+ R 
+ 
+ 
+ Gelbard-Sagiv 
+ H 
+ 
+ 
+ Arieli 
+ A 
+ 
+ 
+ Fried 
+ I 
+ 
+ 
+ Malach 
+ R 
+ 
+ 
+ Coupling between Neuronal Firing Rate, Gamma LFP, and BOLD fMRI Is Related to Interneuronal Correlations 
+ Current Biology 
+ 2007 
+ 17 
+ 1275 
+ 1285 
+ 17686438 
+ 
+ 
+ 
+ 
+ 
+ 
+ Nir 
+ Y 
+ 
+ 
+ Mukamel 
+ R 
+ 
+ 
+ Dinstein 
+ I 
+ 
+ 
+ Privman 
+ E 
+ 
+ 
+ Harel 
+ M 
+ 
+ 
+ Fisch 
+ L 
+ 
+ 
+ Gelbard-Sagiv 
+ H 
+ 
+ 
+ Kipervasser 
+ S 
+ 
+ 
+ Andelman 
+ F 
+ 
+ 
+ Neufeld 
+ MY 
+ 
+ 
+ Kramer 
+ U 
+ 
+ 
+ Arieli 
+ A 
+ 
+ 
+ Fried 
+ I 
+ 
+ 
+ Malach 
+ R 
+ 
+ 
+ Interhemispheric correlations of slow spontaneous neuronal fluctuations revealed in human sensory cortex 
+ Nat Neurosci 
+ 2008 
+ 11 
+ 1100 
+ 1108 
+ 19160509 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ogawa 
+ S 
+ 
+ 
+ Tank 
+ DW 
+ 
+ 
+ Menon 
+ R 
+ 
+ 
+ Ellermann 
+ JM 
+ 
+ 
+ Kim 
+ SG 
+ 
+ 
+ Merkle 
+ H 
+ 
+ 
+ Ugurbil 
+ K 
+ 
+ 
+ Intrinsic signal changes accompanying sensory stimulation: functional brain mapping with magnetic resonance imaging 
+ Proc Natl Acad Sci USA 
+ 1992 
+ 89 
+ 5951 
+ 5955 
+ 1631079 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ojemann 
+ GA 
+ 
+ 
+ Corina 
+ DP 
+ 
+ 
+ Corrigan 
+ N 
+ 
+ 
+ Schoenfield-McNeill 
+ J 
+ 
+ 
+ Poliakov 
+ A 
+ 
+ 
+ Zamora 
+ L 
+ 
+ 
+ Zanos 
+ S 
+ 
+ 
+ Neuronal correlates of functional magnetic resonance imaging in human temporal cortex 
+ Brain 
+ 2010 
+ 133 
+ 46 
+ 59 
+ 19773355 
+ 
+ 
+ 
+ 
+ 
+ 
+ Scheeringa 
+ R 
+ 
+ 
+ Fries 
+ P 
+ 
+ 
+ Petersson 
+ KM 
+ 
+ 
+ Oostenveld 
+ R 
+ 
+ 
+ Grothe 
+ I 
+ 
+ 
+ Norris 
+ DG 
+ 
+ 
+ Hagoort 
+ P 
+ 
+ 
+ Bastiaansen 
+ MC 
+ 
+ 
+ Neuronal dynamics underlying high- and low-frequency EEG oscillations contribute independently to the human BOLD signal 
+ Neuron 
+ 2011 
+ 69 
+ 572 
+ 583 
+ 21315266 
+ 
+ 
+ 
+ 
+ 
+ 
+ Schulz 
+ M 
+ 
+ 
+ Chau 
+ W 
+ 
+ 
+ Graham 
+ SJ 
+ 
+ 
+ McIntosh 
+ AR 
+ 
+ 
+ Ross 
+ B 
+ 
+ 
+ Ishii 
+ R 
+ 
+ 
+ Pantev 
+ C 
+ 
+ 
+ An integrative MEG-fMRI study of the primary somatosensory cortex using cross-modal correspondence analysis 
+ Neuroimage 
+ 2004 
+ 22 
+ 120 
+ 133 
+ 15110002 
+ 
+ 
+ 
+ 
+ 
+ 
+ Sloan 
+ HL 
+ 
+ 
+ Austin 
+ VC 
+ 
+ 
+ Blamire 
+ AM 
+ 
+ 
+ Schnupp 
+ JW 
+ 
+ 
+ Lowe 
+ AS 
+ 
+ 
+ Allers 
+ KA 
+ 
+ 
+ Matthews 
+ PM 
+ 
+ 
+ Sibson 
+ NR 
+ 
+ 
+ Regional differences in neurovascular coupling in rat brain as determined by fMRI and electrophysiology 
+ Neuroimage 
+ 2010 
+ 53 
+ 399 
+ 411 
+ 20633665 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stevenson 
+ CM 
+ 
+ 
+ Wang 
+ F 
+ 
+ 
+ Brookes 
+ MJ 
+ 
+ 
+ Zumer 
+ JM 
+ 
+ 
+ Francis 
+ ST 
+ 
+ 
+ Morris 
+ PG 
+ 
+ 
+ Paired pulse depression in the somatosensory cortex: associations between MEG and BOLD fMRI 
+ Neuroimage 
+ 2012 
+ 59 
+ 2722 
+ 2732 
+ 22036680 
+ 
+ 
+ 
+ 
+ 
+ 
+ Tallon-Baudry 
+ C 
+ 
+ 
+ Bertrand 
+ O 
+ 
+ 
+ Delpuech 
+ C 
+ 
+ 
+ Permier 
+ J 
+ 
+ 
+ Oscillatory gamma-band (30–70 Hz) activity induced by a visual search task in humans 
+ J Neurosci 
+ 1997 
+ 17 
+ 722 
+ 734 
+ 8987794 
+ 
+ 
+ 
+ 
+ 
+ 
+ Taulu 
+ S 
+ 
+ 
+ Simola 
+ J 
+ 
+ 
+ Spatiotemporal signal space separation method for rejecting nearby interference in MEG measurements 
+ Phys Med Biol 
+ 2006 
+ 51 
+ 1759 
+ 1768 
+ 16552102 
+ 
+ 
+ 
+ 
+ 
+ 
+ Van Veen 
+ BD 
+ 
+ 
+ van Drongelen 
+ W 
+ 
+ 
+ Yuchtman 
+ M 
+ 
+ 
+ Suzuki 
+ A 
+ 
+ 
+ Localization of brain electrical activity via linearly constrained minimum variance spatial filtering 
+ IEEE Trans Biomed Eng 
+ 1997 
+ 44 
+ 867 
+ 880 
+ 9282479 
+ 
+ 
+ 
+ 
+ 
+ 
+ Vartiainen 
+ J 
+ 
+ 
+ Liljeström 
+ M 
+ 
+ 
+ Koskinen 
+ M 
+ 
+ 
+ Renvall 
+ H 
+ 
+ 
+ Salmelin 
+ R 
+ 
+ 
+ Functional magnetic resonance imaging blood oxygenation level-dependent signal and magnetoencephalography evoked responses yield different neural functionality in reading 
+ J Neurosci 
+ 2011 
+ 31 
+ 1048 
+ 1058 
+ 21248130 
+ 
+ 
+ 
+ 
+ 
+ 
+ Webb 
+ JT 
+ 
+ 
+ Ferguson 
+ MA 
+ 
+ 
+ Nielsen 
+ JA 
+ 
+ 
+ Anderson 
+ JS 
+ 
+ 
+ BOLD Granger Causality Reflects Vascular Anatomy 
+ PLoS One 
+ 2013 
+ 8 
+ e84279 
+ 24349569 
+ 
+ 
+ 
+ 
+ 
+ 
+ Whitman 
+ JC 
+ 
+ 
+ Ward 
+ LM 
+ 
+ 
+ Woodward 
+ TS 
+ 
+ 
+ Patterns of Cortical Oscillations Organize Neural Activity into Whole-Brain Functional Networks Evident in the fMRI BOLD Signal 
+ Front Hum Neurosci 
+ 2013 
+ 7 
+ 80 
+ 23504590 
+ 
+ 
+ 
+ 
+ 
+ 
+ Zumer 
+ JM 
+ 
+ 
+ Brookes 
+ MJ 
+ 
+ 
+ Stevenson 
+ CM 
+ 
+ 
+ Francis 
+ ST 
+ 
+ 
+ Morris 
+ PG 
+ 
+ 
+ Relating BOLD fMRI and neural oscillations through convolution and optimal linear weighting 
+ Neuroimage 
+ 2010 
+ 49 
+ 1479 
+ 1489 
+ 19778617 
+ 
+ 
+ 
+ 
+ 
+ 
+ Figure 1 
+ 
+ PLSC analysis scheme for evaluation of the MEG-fMRI correlation. a) The analysis is done separately for each voxel. The within-condition cross-correlations are computed by multiplying the normalized MEG spectra (15 subjects × 45 frequency bins) with the transposed fMRI beta-values (15×1) across subjects. The within-condition cross-correlations (1×45) are then stacked into a combined cross-correlation matrix (5×45), from which the orthogonal set of correlation patterns and corresponding singular values are obtained via SVD. b) In the permutation testing, the procedure is otherwise the same, except that the fMRI beta values across all conditions and subjects (5×15=75 data points) are permuted and re-divided into 5 shuffled condition categories. This procedure shuffles simultaneously both the condition- and subject-specific relationship between the MEG and fMRI data sets. 
+ 
+ 
+ 
+ 
+ Figure 2 
+ 
+ Correspondence between neural and hemodynamic activation measures. a) BOLD fMRI results. Cortical areas in which at least three of the five experimental conditions elicited significant (p<0.01, false discovery rate, FDR, corrected) modulation of hemodynamic signal compared to rest. b) MEG results. Cortical areas in which evoked responses in at least three of the five conditions indicated significant (p<0.001) neural activation compared to the prestimulus baseline. c) Cortical areas where the frequency-decomposed MEG estimates and the BOLD fMRI signals were significantly (p<0.05, FDR) correlated across participants and experimental conditions. 
+ 
+ 
+ 
+ 
+ Figure 3 
+ 
+ Spatiospectral heterogeneity of the relationship between electrophysiological and hemodynamic responses. a) Medial view of a region in the left primary visual cortex showing significant MEG-fMRI correlation, and the mean correlation pattern (logarithmic scale) with 95% confidence limits for the two voxels that clustered together in the region. b) Components of significant MEG-fMRI correlation patterns that were detected for clusters of at least five voxels. Cortical areas and the mean spectral pattern (logarithmic scale) with 95% confidence limits of the correlation for each component (red line) (1, Middle Temporal Gyrus, MTG; 2, Inferior Parietal Lobule, IPL; 3, Superior Temporal Gyrus, STG, and Inferior Frontal Gyrus, IFG; 4, Superior Frontal Gyrus, SFG, and Superior Parietal Lobule, SPL; 5, Middle Frontal Gyrus, MFG; 6, Precuneus, PREC; 7, Lingual Gyrus, LG; 8, Precentral Gyrus, PRCG). The black line represents the average correlation pattern across all voxels that showed significant MEG-fMRI correlation, with the grey sidebands indicating the 95% confidence limits. Most of these components map to a single contiguous cluster of voxels within a single cortical area, with the exception of components 3 and 4 which map to multiple contiguous cortical regions. The Talairach coordinates of the components are given in  Table 2 . 
+ 
+ 
+ 
+ 
+ Figure 4 
+ 
+ Differences in MEG-fMRI correlation spectra between components. Pair-wise comparisons among all the 8 identified PLSC components (cf.  Fig. 3 ), as a function of frequency. Each row of the figure shows a pair-wise comparison between two components (first component in the first column, C 1 :1…7; second component in the second column, C 2 : C 1 +1 … 8). The black sections denote the frequencies at which the correlation spectra between the two tested components differed significantly (p<0.05, Bonferroni corrected); at these frequencies, the distribution of MEG-fMRI correlation values across the voxels belonging to one region (C 1 ) was distinct from the distribution of correlation values in the other region (C 2 ). The anatomical labels and Talairach coordinates of each component are given in  Table 2 . 
+ 
+ 
+ 
+ 
+ Figure 5 
+ 
+ Power spectra and signal modulations in the primary visual cortex (V1) and the left precentral gyrus (PRCG). fMRI percent signal change (mean ± SEM) on top, followed by MEG percent signal change (mean ± SEM; middle) and absolute MEG spectral power (arbitrary units, mean ± SEM; bottom). The MEG spectral power is displayed in 6 different frequency bands (delta/theta, δ/τ, 2–6 Hz; alpha, α, 8–12 Hz; low-beta, Lβ, 14–24 Hz; high-beta, Hβ, 26–34 Hz; low-gamma, Lγ, 36–46 Hz; high-gamma, Hγ, 54–96 Hz). Data shown in a) V1 and b) PRCG for all experimental conditions. 
+ 
+ 
+ 
+ 
+ Table 1 
+ 
+ Areas of significant MEG-fMRI correlation. 
+ Cortical areas in which the PLSC between task effects of MEG and fMRI activation measures reached significance. Anatomical label, Talairach coordinates and Brodmann area (BA) assignment for each region. 
+ 
+ 
+ 
+ 
+ Label 
+ X 
+ Y 
+ Z 
+ BA 
+ 
+ 
+ 
+ 
+ 
+ LEFT HEMISPHERE 
+ 
+ 
+ 
+ Middle Occipital Gyrus 
+ −39 
+ −89 
+ 1 
+ 18 
+ 
+ 
+ Middle Occipital Gyrus 
+ −32 
+ −75 
+ 18 
+ 19 
+ 
+ 
+ Supramarginal Gyrus 
+ −48 
+ −50 
+ 20 
+ 40 
+ 
+ 
+ Precentral Gyrus 
+ −52 
+ −4 
+ 14 
+ 4 
+ 
+ 
+ Inferior Frontal Gyrus 
+ −48 
+ 25 
+ 20 
+ 45 
+ 
+ 
+ Superior Frontal Gyrus 
+ −35 
+ 26 
+ 47 
+ 8 
+ 
+ 
+ Postcentral Gyrus 
+ −34 
+ −32 
+ 57 
+ 3 
+ 
+ 
+ Inferior Parietal Lobule 
+ −37 
+ −45 
+ 55 
+ 40 
+ 
+ 
+ Cuneus 
+ −2 
+ −98 
+ 0 
+ 18 
+ 
+ 
+ Cuneus 
+ 0 
+ −77 
+ 35 
+ 19 
+ 
+ 
+ Posterior Cingulate 
+ −6 
+ −56 
+ 19 
+ 23 
+ 
+ 
+ Precuneus 
+ −4 
+ −38 
+ 44 
+ 7 
+ 
+ 
+ Paracentral Lobule 
+ −7 
+ −35 
+ 70 
+ 4 
+ 
+ 
+ Superior Frontal Gyrus 
+ −8 
+ 37 
+ 44 
+ 8 
+ 
+ 
+ Medial Frontal Gyrus 
+ −13 
+ 53 
+ −6 
+ 10 
+ 
+ 
+ Fusiform Gyrus 
+ −34 
+ −56 
+ −13 
+ 37 
+ 
+ 
+ 
+ RIGHT HEMISPHERE 
+ 
+ 
+ 
+ Superior Temporal Gyrus 
+ 59 
+ −36 
+ 9 
+ 22 
+ 
+ 
+ Postcentral Gyrus 
+ 50 
+ −18 
+ 17 
+ 43 
+ 
+ 
+ Inferior Frontal Gyrus 
+ 50 
+ 5 
+ 12 
+ 44 
+ 
+ 
+ Inferior Frontal Gyrus 
+ 57 
+ 29 
+ 3 
+ 45 
+ 
+ 
+ Middle Frontal Gyrus 
+ 39 
+ 3 
+ 55 
+ 6 
+ 
+ 
+ Inferior Parietal Lobule 
+ 51 
+ −33 
+ 43 
+ 40 
+ 
+ 
+ Superior Parietal Lobule 
+ 27 
+ −52 
+ 48 
+ 7 
+ 
+ 
+ Angular Gyrus 
+ 47 
+ −70 
+ 33 
+ 39 
+ 
+ 
+ Fusiform Gyrus 
+ 51 
+ −20 
+ −23 
+ 20 
+ 
+ 
+ Fusiform Gyrus 
+ 42 
+ −44 
+ −15 
+ 37 
+ 
+ 
+ Medial Frontal Gyrus 
+ 5 
+ −14 
+ 71 
+ 6 
+ 
+ 
+ Precuneus 
+ 16 
+ −77 
+ 40 
+ 7 
+ 
+ 
+ Posterior Cingulate 
+ 17 
+ −66 
+ 15 
+ 31 
+ 
+ 
+ Lingual Gyrus 
+ 14 
+ −60 
+ 4 
+ 19 
+ 
+ 
+ Lingual Gyrus 
+ 12 
+ −90 
+ −1 
+ 17 
+ 
+ 
+ 
+ 
+ 
+ Table 2 
+ 
+ Most systematic components of MEG-fMRI correlation. 
+ Hierarchical clustering of voxels showing significant PLSC between MEG and fMRI. Anatomical labels, Talairach coordinates and Brodmann areas (BA) of brain regions for the most systematic components (5 or more clustered voxels per component). 
+ 
+ 
+ 
+ 
+ Component and label 
+ L/R 
+ X 
+ Y 
+ Z 
+ BA 
+ 
+ 
+ 
+ 
+ 
+ Component 1 
+ 
+ 
+ 
+ Middle Temporal Gyrus (MTG) 
+ L 
+ −42 
+ −73 
+ 24 
+ 39 
+ 
+ 
+ 
+ Component 2 
+ 
+ 
+ 
+ Inferior Parietal Lobule (IPL) 
+ L 
+ −34 
+ −47 
+ 55 
+ 40 
+ 
+ 
+ 
+ Component 3 
+ 
+ 
+ 
+ Superior Temporal Gyrus (STG) 
+ L 
+ −50 
+ −48 
+ 15 
+ 22 
+ 
+ 
+ Inferior Frontal Gyrus (IFG) 
+ L 
+ −56 
+ 25 
+ 14 
+ 45 
+ 
+ 
+ 
+ Component 4 
+ 
+ 
+ 
+ Superior Frontal Gyrus (SFG) 
+ L 
+ −31 
+ 17 
+ 55 
+ 6 
+ 
+ 
+ Superior Parietal Lobule (SPL) 
+ R 
+ 27 
+ −52 
+ 48 
+ 7 
+ 
+ 
+ 
+ Component 5 
+ 
+ 
+ 
+ Middle Frontal Gyrus (MFG) 
+ L 
+ −40 
+ 28 
+ 36 
+ 9 
+ 
+ 
+ 
+ Component 6 
+ 
+ 
+ 
+ Precuneus (PREC) 
+ R 
+ 27 
+ −78 
+ 33 
+ 19 
+ 
+ 
+ 
+ Component 7 
+ 
+ 
+ 
+ Lingual Gyrus (LG) 
+ R 
+ 12 
+ −53 
+ 2 
+ 19 
+ 
+ 
+ 
+ Component 8 
+ 
+ 
+ 
+ Precentral Gyrus (PRCG) 
+ L 
+ −52 
+ −2 
+ 11 
+ 6 
+ 
+ 
+ 
+ 
+ 

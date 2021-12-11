@@ -1,0 +1,4560 @@
+
+ properties manuscript? 
+ 
+ 
+ 9419065 
+ 21028 
+ Hum Brain Mapp 
+ Hum Brain Mapp 
+ 
+ Human brain mapping 
+ 
+ 1065-9471 
+ 1097-0193 
+ 
+ 
+ 26991474 
+ 4905808 
+ 10.1002/hbm.23179 
+ NIHMS764790 
+ 
+ 
+ Article 
+ 
+ 
+ 
+ Resting-State Functional Connectivity of the Human Habenula in Healthy Individuals: Associations with Subclinical Depression 
+ 
+ 
+ 
+ 
+ Ely 
+ Benjamin A. 
+ 
+ 1 
+ * 
+ 
+ 
+ 
+ Xu 
+ Junqian 
+ 
+ 1 
+ 2 
+ 3 
+ 
+ 
+ 
+ Goodman 
+ Wayne K. 
+ 
+ 1 
+ 4 
+ 
+ 
+ 
+ Lapidus 
+ Kyle A. 
+ 
+ 5 
+ 
+ 
+ 
+ Gabbay 
+ Vilma 
+ 
+ 1 
+ 4 
+ 6 
+ 
+ 
+ 
+ Stern 
+ Emily R. 
+ 
+ 1 
+ 4 
+ 
+ 
+ 1 Icahn School of Medicine at Mount Sinai, Dept. of Neuroscience, New York, NY, USA 
+ 2 Icahn School of Medicine at Mount Sinai, Translational and Molecular Imaging Institute, New York, NY, USA 
+ 3 Icahn School of Medicine at Mount Sinai, Dept. of Radiology, New York, NY, USA 
+ 4 Icahn School of Medicine at Mount Sinai, Dept. of Psychiatry, New York, NY, USA 
+ 5 Stony Brook University, Dept. of Psychiatry, Stony Brook, NY, USA 
+ 6 Nathan S. Kline Institute for Psychiatric Research, Orangeburg, NY, USA 
+ 
+ * Corresponding Author Information:  1470 Madison Avenue, Box 1230, New York, NY 10029 USA,  benjamin.ely@mssm.edu , (T) 212-824-8993, (F) 646-537-9583 
+ 
+ Institution : 
+ All research was conducted at Icahn School of Medicine at Mount Sinai in New York, NY, USA. Data were provided by the WU-Minn Human Connectome Project Consortium, collected at Washington University in St. Louis, MO, USA. 
+ 
+ 
+ 
+ 7 
+ 3 
+ 2016 
+ 
+ 
+ 16 
+ 3 
+ 2016 
+ 
+ 
+ 7 
+ 2016 
+ 
+ 
+ 01 
+ 7 
+ 2017 
+ 
+ 37 
+ 7 
+ 2369 
+ 2384 
+ 
+ 
+ This file is available for text mining. It may also be used consistent with the principles of fair use under the copyright law. 
+ 
+ 
+ 
+ 
+ Introduction 
+ The habenula (Hb) is postulated to play a critical role in reward and aversion processing across species, including humans, and has been increasingly implicated in depression. However, technical constraints have limited  in vivo  investigation of the human Hb, and its function remains poorly characterized. We sought to overcome these challenges by examining the whole-brain resting-state functional connectivity of the Hb and its possible relationship to depressive symptomatology using the high-resolution WU-Minn Human Connectome Project (HCP) dataset. 
+ 
+ 
+ Methods 
+ Anatomical and resting-state functional MRI data from 50 healthy subjects with low or high subclinical depression scores (n=25 each) were analyzed. Using novel semi-automated segmentation and optimization techniques, we generated individual-specific Hb seeds and calculated whole-brain functional connectivity for the entire cohort and the contrast of high vs. low subclinical depression groups. 
+ 
+ 
+ Results 
+ In the entire cohort, the Hb exhibited significant connectivity with key brainstem structures (i.e., ventral tegmental area, substantia nigra, pons) as well as the anterior and posterior cingulate cortices, precuneus, thalamus, and sensorimotor cortex. Multiple regions showed differential Hb connectivity based on subclinical depression scores, including the amygdala, insula, and prefrontal, mid-cingulate, and entorhinal cortices. 
+ 
+ 
+ Conclusions 
+ Hb connectivity findings converged on areas associated with salience processing, sensorimotor systems, and the default mode network. We also detected substantial Hb-brainstem connectivity, consistent with prior histological and animal research. High and low subclinical depression groups exhibited differences in Hb connectivity with multiple regions previously linked to depression, suggesting the relationship between these structures as a potential target for future research and treatment. 
+ 
+ 
+ 
+ resting state fMRI 
+ habenula 
+ ventral tegmental area (VTA) 
+ substantia nigra 
+ seed optimization 
+ high resolution 
+ whole brain 
+ functional connectivity 
+ depression 
+ midbrain 
+ 
+ 
+ 
+ 
+ Introduction 
+ The habenula (Hb) is a small epithalamic structure located between the dorsomedial thalamus and the third ventricle in the vicinity of the posterior commissure. The Hb is highly conserved across vertebrates, receiving inputs from the basal ganglia and limbic system and projecting primarily to inhibitory interneurons throughout the midbrain ( Hikosaka, et al., 2008 ;  Meye, et al., 2013 ). Converging preclinical evidence indicates that the Hb is a key region within the reward circuitry involved in regulating midbrain monoamine systems, particularly the dopaminergic ventral tegmental area (VTA) ( Geisler and Trimble, 2008 ;  Hikosaka, 2010 ;  Hikosaka, et al., 2008 ). Lateral Hb neurons respond to reward prediction errors (i.e., failure of expected rewards to materialize), punishments, and pain, as well as cues predicting these aversive outcomes ( Hikosaka, 2010 ;  Matsumoto and Hikosaka, 2009 ). Moreover, aversion-related increases in lateral Hb activity immediately precede VTA inhibition in primates ( Matsumoto and Hikosaka, 2007 ). These observations suggest a critical function of the Hb in reward and aversion processing. 
+ As deficits in reward processing are prevalent across psychiatric conditions, particularly in major depressive disorder (MDD) ( Goya-Maldonado, et al., 2014 ;  Hall, et al., 2014 ), the function of the Hb in humans is of great clinical relevance. Data from a range of animal models support the link between the Hb and psychopathology: increased neuronal activity in the Hb is associated with depressive phenotypes ( Hikosaka, 2010 ;  Li, et al., 2011 ;  Li, et al., 2013 ), whereas inhibition of the Hb is associated with improvements in these phenotypes ( Winter, et al., 2011 ). Furthermore, lesions to the Hb or associated white matter tracts cause hyperactive behavior, impulsivity, and increased dopamine release in animals ( Lecourtier and Kelly, 2005 ;  Lee and Huang, 1988 ;  Nishikawa, et al., 1986 ). In humans, there are reports of increased Hb blood flow in remitted MDD patients, but not controls, following acute tryptophan depletion to induce transient depressive symptoms ( Roiser, et al., 2009 ), replicating findings from an earlier positron emission tomography (PET) study showing that remitted MDD patients who were more sensitive to acute tryptophan depletion exhibited greater functional coupling between the Hb and raphe nuclei ( Morris, et al., 1999 ). A recent PET study further found that patients with treatment-resistant MDD exhibited reduced Hb glucose metabolism following administration of ketamine, which exerts rapid antidepressant effects ( Carlson, et al., 2013 ). Additionally, recent case reports from two treatment-resistant MDD patients describe symptom improvements following deep brain stimulation targeting the Hb ( Kiening and Sartorius, 2013 ;  Sartorius, et al., 2010 ). These findings provide strong evidence corroborating the proposed link between the Hb and MDD. However, further understanding this link will depend on elucidating the functional relationships of the Hb with other regions also implicated in MDD, such as the anterior cingulate cortex (ACC), insula, and VTA ( Hamilton, et al., 2012 ;  Rive, et al., 2013 ), as well as identifying normative patterns of Hb connectivity in healthy subjects. 
+ To date, only a handful of studies have examined the functional role of the human Hb  in vivo . A major impediment has been the small size of the structure, which is reported as approximately 32mm 3  per hemisphere postmortem ( Ranft, et al., 2010 );  in vivo  estimates put the figure closer to 18.5 mm 3  per hemisphere ( Savitz, et al., 2011a ;  Savitz, et al., 2011b ), but this may be an underestimation due to the difficulty of resolving the lateral and anterior boundaries of the Hb ( Lawson, et al., 2013 ; see also  Kim, et al., 2016 ). Until recently, 3T fMRI with whole-brain coverage and reasonable repetition times could only be reliably achieved with resolution ≥27mm 3  (i.e., 3mm isotropic voxels) ( Cheng, 2011 ), making conventional fMRI voxel sizes on par with the entire volume of the Hb. Despite this limitation, several groups have attempted to study the Hb at conventional fMRI resolutions, reporting fairly consistent findings of Hb activation in response to aversive outcomes in healthy subjects ( Garrison, et al., 2013 ;  Ide and Li, 2011 ;  Li, et al., 2008 ;  Noonan, et al., 2011 ;  Schiffer, et al., 2012 ;  Ullsperger and von Cramon, 2003 ). The only previously published study of Hb resting-state functional connectivity, also at conventional fMRI resolution, reported widespread but relatively nonspecific Hb connectivity across the brain, including the dopaminergic midbrain, in a small cohort of healthy pediatric subjects ( Erpelding, et al., 2014 ). However, the low spatial resolution, large tissue volumes attributed to the Hb, and substantial spatial smoothing used in these studies make signal contamination from the surrounding thalamic and ventricular areas a significant concern ( Cheng, 2011 ;  Turner and Geyer, 2014 ). 
+ Recently, three groups have employed a high-resolution fMRI approach to examine task-related Hb activity with ≤2mm isotropic voxel sizes. Consistent with the animal literature, they have reported decreased Hb activity during the experience of rewarding stimuli (e.g., juice) but increased Hb activity during reward prediction errors and exposure to noxious stimuli (e.g., electric shocks) ( Hennigan, et al., 2015 ;  Lawson, et al., 2014 ;  Salas, et al., 2010 ). However, in order to obtain high spatial resolution while maintaining reasonable temporal resolution, these studies were only able to achieve partial brain coverage. As a result, the functional relationship of the Hb with the entire brain remains an open question. 
+ The present study therefore sought to examine the whole-brain resting-state functional connectivity of the Hb and its relationship to depressive symptomatology in a group of 50 healthy young adult subjects from the WU-Minn Human Connectome Project (HCP) ( Van Essen, et al., 2013 ), comprised of those with the 25 highest and 25 lowest subclinical depression scores from the HCP 500 Subjects Release ( Barch, et al., 2013 ;  HCP Reference Manual, 2014 ). The HCP employs multiband acceleration to achieve whole-brain coverage with 2mm isotropic voxel resolution and subsecond temporal resolution ( Smith, et al., 2013 ;  Ugurbil, et al., 2013 ). We have further used a novel, objective Hb segmentation technique ( Kim, et al., 2016 ) and implemented an individualized seed region-of-interest (ROI) optimization approach for high resolution fMRI analyses, avoiding reliance on functional classifiers or heuristic landmarks to define the seed ROI. Based on the preclinical and clinical literature, we hypothesized that, across the entire cohort, the Hb would exhibit functional connectivity with regions involved in reward and aversion processing, including the VTA, nucleus accumbens, insula, ACC, and medial prefrontal cortex ( Hamilton, et al., 2012 ;  Rive, et al., 2013 ). We further predicted that subjects with high subclinical depression scores would show altered patterns of Hb connectivity compared to those with low scores. To our knowledge, this is the first study to investigate the whole-brain functional connectivity of the human Hb at high resolution, as well as the first to examine its relationship with depressive symptomatology. 
+ 
+ 
+ Materials and Methods 
+ 
+ Subjects 
+ We selected fifty medically and psychiatrically healthy young adults from the WU-Minn Human Connectome Project Consortium’s 500 Subjects Release ( HCP Reference Manual, 2014 ). Selection was limited to subjects with complete resting-state fMRI and anatomical MRI datasets, and was based on scores from the NIH Toolbox Negative Affect Survey Sadness Subscale ( Gershon, et al., 2013 ), which served as our subclinical depression metric. The scale includes 27 questions regarding mood and perception of self, the world, and the future ( Pilkonis, et al., 2013 ). The high subclinical depression group was comprised of the 25 subjects with the highest scores on this scale. As expected in a healthy cohort, a larger number of subjects reported minimal levels of depression; the low subclinical depression group therefore included 25 low-scoring subjects selected to match the high subclinical depression group in age, sex, education, and fMRI movement parameters [i.e., translation, rotation, and root mean squared (RMS) motion]. No identifying information (e.g., names, dates of birth) was obtained; consequently, this project was exempt from Mount Sinai Institutional Review Board (IRB) review. The WU-Minn Human Connectome Project Consortium has obtained full informed consent from all participants and IRB approval for its data acquisition and distribution protocols, compliant with the Code of Ethics of the World Medical Association, and has implemented extensive procedures to protect subjects’ privacy ( Van Essen, et al., 2013 ). 
+ 
+ 
+ Data Collection and Preprocessing 
+ Data acquisition for the HCP has been described in detail elsewhere ( Ugurbil, et al., 2013 ). Briefly, anatomical and resting-state functional MRI data were collected at Washington University in St. Louis on two consecutive days using a 3T Connectom Skyra (Siemens, Erlangen, Germany) with a 32-channel head coil, which has been shown to significantly improve sensitivity to subcortical resting-state networks with similar signal-to-noise (SNR) ratios relative to 12-channel coil designs ( Anteraper, et al., 2013 ). Acquisition included two T1w MPRAGE and two T2w SPACE anatomical sequences (0.7mm isotropic resolution) ( Glasser, et al., 2013 ), as well as four 15-minute resting-state fMRI runs (2.0mm isotropic resolution, TR=720ms, paired RL/LR phase encoding), for a total of one hour of resting-state data ( Smith, et al., 2013 ). 
+ Anatomical and functional MRI data were preprocessed by the HCP prior to distribution via version 3.1 ( HCP Reference Manual, 2014 ) of the minimal preprocessing pipelines described in a previous publication ( Glasser, et al., 2013 ). These procedures included spatial distortion correction, motion correction, spatial registration, and normalization to MNI coordinates. The HCP further performed highpass filtering (cutoff=2000s) and denoising of resting-state functional runs through the FMRIB Software Library (FSL) ICA-FIX algorithm ( Griffanti, et al., 2014 ;  Smith, et al., 2004 ). This algorithm was trained on the HCP’s pilot resting-state data specifically for use in the public data release, and was found to correctly classify and remove structured noise components with over 99% accuracy in the HCP’s resting-state datasets ( Salimi-Khorshidi, et al., 2014 ); on average, 229 components were identified and the unique variance from an average of 205 “bad” components was removed per 15-minute run ( Smith, et al., 2013 ). Although SNR is generally lower in subcortical than cortical gray matter for HCP data ( Van Essen, et al., 2013 ), these preprocessing procedures substantially improve the subcortical temporal SNR of the BOLD signal ( Smith, et al., 2013 ). After obtaining the preprocessed HCP data, we implemented several additional procedures. Motion outlier volumes (i.e., composite rigid-body displacement >2mm or change in global signal z-value >9) were identified using the ArtRepair toolbox ( Mazaika, et al., 2009 ) for use as confound regressors during functional connectivity analyses. Gaussian spatial smoothing kernels were also applied to the functional data (FWHM=5mm) using FSL; importantly, however, unsmoothed timeseries data from all seed ROIs (see below) were used for functional connectivity calculations in order to minimize potential signal contamination from adjacent structures. 
+ 
+ 
+ Habenula Segmentation 
+ Individual-specific Hb ROIs were created for each subject in MNI space using an objective semi-automated segmentation algorithm developed by our group ( Kim, et al., 2016 ). Our segmentation approach exploits the differential T1w, T2w, and T1w/T2w (i.e., “myelin map” or “myelin sensitive image” ( Glasser and Van Essen, 2011 )) contrast of the Hb with the surrounding thalamus. After manually identifying the approximate center of each subject’s Hb, ROI boundaries were automatically defined based on the subject’s T1w, T2w, and myelin map intensity histograms and refined using a geometrically constrained region growing algorithm with partial volume estimation (myelin map threshold α=0.9; see  Kim, et al., 2016 ), followed by visual inspection.  Figure 1  demonstrates the results from two representative subjects. For each subject, segmentation yielded left and right Hb ROIs at anatomical resolution (i.e., 0.7mm isotropic), as well as estimated left and right Hb volumes. The ROIs were comprised of a central region containing 100% Hb tissue (white in  Figure 1 ), surrounded by a border of voxels each weighted to reflect the fraction of Hb tissue it contained (red in  Figure 1 ). 
+ 
+ 
+ Interpolation to Functional Resolution 
+ Because of the small size of the Hb, on the order of a few fMRI voxels even in the high resolution HCP fMRI dataset, small changes in the number or placement of voxels in the seed ROI can have a substantial effect on connectivity results. We therefore devised the following iterative procedure aimed at giving the most accurate possible representation of each subject’s Hb in the functional space: 
+ 
+ 
+ (1) 
+ Each anatomical Hb ROI was thresholded to include only voxels weighted as containing 50–100% Hb tissue, yielding a binary anatomical-resolution Hb mask. 
+ 
+ 
+ (2) 
+ The mask created in Step 1 was downsampled using nearest neighbor interpolation (FSL FLIRT) from 0.7mm isotropic to 2mm isotropic resolution (i.e., the resolution of the fMRI data) and binarized without thresholding to yield a functional-resolution Hb mask. 
+ 
+ 
+ (3) 
+ The volume of the functional-resolution Hb mask created in Step 2 was compared to the target volume range, which was the segmented anatomical Hb volume ± 4mm 3 . This range was set to obtain the closest possible approximation of the target volume (i.e., within half the volume of one voxel) given the 8mm 3  volume of the fMRI voxels. 
+ 
+ 
+ (4a) 
+ If the functional-resolution ROI fell within the target range in Step 3, it was accepted for use as a seed in the subsequent connectivity analysis. 
+ 
+ 
+ (4b) 
+ If the functional-resolution ROI was larger than the target range in Step 3, it was rejected and Step 1 was repeated with the lower threshold adjusted upward by 5% (e.g., 55–100% Hb tissue), yielding a slightly smaller Hb mask. Steps 2–4 were then repeated. This process was iterated until the functional-resolution ROI was accepted (Step 4a). 
+ 
+ 
+ (4c) 
+ If the functional-resolution ROI was smaller than the target range in Step 3, it was rejected and Step 1 was repeated with the lower threshold adjusted downward by 5% (e.g., 45–100% Hb tissue), yielding a slightly larger Hb mask. Steps 2–4 were then repeated. This process was iterated until the functional-resolution ROI was accepted (Step 4a). 
+ 
+ 
+ 
+ 
+ Control Seeds 
+ In addition to the individual-specific Hb seeds generated using the above-described procedures, two bilateral thalamic control seeds were also produced. To generate these thalamic seeds, we first created a pair of mean Hb masks by averaging the 50 individual-specific Hb ROI pairs (approximate MNI centroid: ±4, −24, 2). We then shifted the coordinates of these mean Hb masks by 6mm (i.e., three functional voxels) in the anterior direction to yield a pair of seeds in the vicinity of the dorsomedial thalamic nuclei (MNI centroid: ±4, −18, 2), and in the lateral direction to yield a pair of seeds in the vicinity of the centromedian thalamic nuclei (MNI centroid: ±10, −24, 2). These shifts corresponded to the minimum translation needed to ensure no overlap between the Hb and thalamic seeds, and are consistent with several prior studies ( Hennigan, et al., 2015 ;  Lawson, et al., 2014 ). Identification of specific thalamic nuclei was based on the MNI-standardized Morel Atlas of the Thalamus and the Woolsey Brain Atlas ( Jakab, et al., 2012 ;  Krauth, et al., 2010 ;  Woolsey, et al., 2008 ). Our thalamic control seeds, as well as the mean Hb mask used to determine their coordinates, are displayed in Figure 5. 
+ In addition to our primary focus on control seeds in the thalamus, we sought to determine whether differences between low and high subclinical depression groups might mirror previous functional connectivity findings in clinically diagnosed MDD. To that end, we created two seeds centered around regions of the lateral parietal and medial prefrontal cortices that consistently show abnormal connectivity in MDD ( Kaiser, et al., 2015 ); methods and results for this analysis are described in the  Supplementary Materials . 
+ 
+ 
+ Functional Connectivity Analyses 
+ Functional connectivity analyses were conducted using the Conn15a tool ( Whitfield-Gabrieli and Nieto-Castanon, 2012 ) and SPM12 software ( Friston, et al., 1994 ). For each resting-state session included in the connectivity model, six rigid-body motion parameters, the first derivatives of each of these motion parameters, and a binary array of motion outlier volumes were input as confound regressors. Additionally, “CompCor” denoising was employed to identify and remove three principal noise components associated with cerebrospinal fluid (CSF) and white matter, respectively, without inducing the spurious negative correlations seen in global signal regression ( Behzadi, et al., 2007 ;  Murphy, et al., 2009 ). The concatenated one-hour fMRI timeseries was further bandpass filtered (0.01–0.1Hz) to isolate low-frequency resting-state BOLD signal fluctuations. All seeds included in the functional connectivity analysis were masked at the subject level to exclude non-gray matter voxels. To improve power to detect connectivity given the small size of the Hb, left and right seeds were combined to create a single bilateral Hb seed per subject; the paired left and right thalamic seeds were also combined to yield two bilateral control seeds. Results from an exploratory contrast of left vs. right Hb functional connectivity are presented in  Table S1 . 
+ Connectivity maps were created for each subject using a multivariate approach that included the mean timeseries of the Hb and the two thalamic control seeds (all unsmoothed) in a single model to determine the unique correlation of each seed region, controlling for the other two regions, with the smoothed timeseries of every voxel in the brain. The resultant correlation coefficient maps were then  z -transformed for group-level analyses and masked to include only gray matter voxels. For the entire cohort, whole-brain connectivity of the Hb and thalamic seeds was assessed using one-sample  t -tests, controlling for low vs. high subclinical depression group status. Comparisons between low and high subclinical depression groups used two-sample  t -tests. A secondary analysis directly contrasting Hb connectivity with the summed connectivity of the two thalamic seeds, controlling for group status, also used a two-sample  t -test. Statistical tests were controlled for whole-brain multiple comparisons using nonparametric Threshold-Free Cluster Enhancement (TFCE) as implemented in FSL ( Smith and Nichols, 2009 ); results are reported at the corrected  p TFCE  <0.05 level with a minimum cluster size of ten contiguous voxels after 10,000 permutations. Due to the exploratory nature of the group comparisons, the low vs. high subclinical depression group contrast results are reported at a significance threshold of  p <0.001 (uncorrected), k≥10. For each reported cluster, effect sizes (Cohen’s  d ) and corresponding 95% confidence intervals were calculated using SPSS based on the number of subjects (i.e., 50 for the entire sample, 25 each for the subclinical depression groups) and the mean and standard deviation of the z-transformed correlation coefficients ( Nolan and Heinzen, 2011 ). 
+ 
+ 
+ 
+ Results 
+ 
+ Subjects 
+ Subject demographics are shown in  Table I . The low and high subclinical depression groups did not differ significantly in age, sex, handedness, or years of education ( p >0.2 for all). Head motion within the scanner was minimal and did not differ significantly between low and high subclinical depression groups (mean translation <1mm, rotation <1°, absolute RMS motion <1.0, and relative RMS motion <0.1;  p >0.1 for all). 
+ 
+ 
+ Habenula Resting-State Functional Connectivity in the Entire Sample 
+ As shown in  Figure 2 , strong positive connectivity was observed between the bilateral Hb seed and adjacent regions of the thalamus, particularly the central (medial and lateral), centromedian, dorsomedial, geniculate (medial and lateral), parafascicular, pulvinar, and ventrolateral nuclei. As hypothesized, the Hb also exhibited significant positive connectivity with the dorsal ACC and VTA. Additional regions showing significant positive connectivity with the Hb included the posterior cingulate cortex (PCC), mid-cingulate cortex, dorsal medial frontal cortex, precuneus, medial somatosensory and motor cortices, supplementary motor area (SMA), and brainstem in the region of the dorsal medial pons and pontine/medullary junction. Regions displaying significant negative connectivity with the Hb included the cuneus, supramarginal gyrus, and lingual gyrus. A complete list of whole-brain Hb functional connectivity findings can be found in  Table II . As the relationship between the Hb and midbrain was of particular interest,  Figure 3  provides further detail on the connectivity with this region; overlays outlining the approximate boundaries of the VTA, substantia nigra, and red nuclei were derived from available MNI-standardized atlases ( Jakab, et al., 2012 ;  Krauth, et al., 2010 ;  Murty, et al., 2014 ). Results from an exploratory contrast of left vs. right Hb seeds are presented in  Table S1 . 
+ 
+ 
+ Differential Habenula Functional Connectivity in Low vs. High Subclinical Depression Groups 
+ Functional connectivity differences between low and high subclinical depression groups did not survive multiple comparison correction at the  p TFCE  <0.05 level. However, at an uncorrected threshold of  p <0.001, k≥10, several Hb connectivity differences were detected between the groups. Subjects with low relative to high subclinical depression scores demonstrated stronger connectivity between the Hb and the retrosplenial cortex, mid-cingulate cortex, and frontal pole, as well as the right amygdala, inferior anterior insula, and entorhinal cortex. In the high relative to the low subclinical depression group, stronger functional connectivity was observed between the Hb and the left dorsomedial prefrontal cortex (dmPFC), left frontal operculum, left inferior lateral parietal cortex, and bilateral middle temporal gyrus. Group contrast results are shown in  Table III  and  Figure 4 . 
+ 
+ 
+ Differential Functional Connectivity of the Habenula and Thalamus 
+ Comparisons between the Hb seeds and the thalamic control seeds revealed both overlapping and distinct functional connectivity patterns ( Figure 5 ,  Table S3 ). Connectivity patterns for the Hb, dorsomedial thalamic nuclei, and centromedian thalamic nuclei seeds overlapped substantially within the thalamus, sensorimotor cortex, and SMA extending into a small portion of the mid-cingulate cortex. Additionally, the Hb and dorsomedial thalamic nuclei seeds exhibited overlapping connectivity with small portions of the VTA and inferior pons. The Hb showed unique patterns of connectivity with regions of the ACC, PCC, precuneus, parahippocampal gyrus, and substantia nigra. Direct contrasts between the Hb and thalamus seeds ( Figure S1 ,  Table S3 ) revealed greater Hb connectivity with the precuneus and lateral frontal and parietal cortices compared with thalamus. Analysis of extracted z-transformed partial correlation coefficients indicated that this finding was primarily driven by weakly negative connectivity with the two thalamic control seeds and weakly positive connectivity with Hb in these areas. Similarly, we found reduced connectivity between the Hb and a region of the sensorimotor cortex and SMA compared to thalamus, an effect that was also due to both weakly negative connectivity with the Hb and moderately positive connectivity with the thalamus. 
+ 
+ 
+ 
+ Discussion 
+ 
+ Habenula Resting-State Functional Connectivity in the Entire Sample 
+ We hypothesized that the Hb would exhibit resting-state functional connectivity with areas of the brain involved in reward and aversion processing. Our finding of Hb connectivity with the VTA supports this premise and adds to the growing body of evidence that the human Hb functionally interacts with the midbrain dopaminergic reward system ( Benarroch, 2015 ). Moreover, a subpeak within this cluster extended into a region of the dorsal medial pons in the vicinity of the dorsal raphe nuclei, the primary serotonergic target of Hb innervation reported in preclinical literature ( Benarroch, 2015 ;  Geisler and Trimble, 2008 ). We also identified substantial Hb connectivity with other brainstem regions; although the identification of specific brainstem nuclei in fMRI can be challenging, connectivity with the Hb appears to extend into the vicinity of the noradrenergic locus coeruleus, which is known to receive reciprocal innervation from both the medial and lateral Hb ( Chandley and Ordway, 2012 ;  Gottesfeld, 1983 ), and the pontine/ medullary junction, an area that is thought to be important for inhibitory motor gating ( Hikosaka, 2010 ;  Holstege, 2009 ). Our detection of significant Hb-thalamic functional connectivity likewise accords with past research ( Ikemoto, et al., 2015 ;  Morley, 1986 ), including task-related coactivation of these regions in a high resolution fMRI study ( Lawson, et al., 2014 ). In addition to confirming connectivity between the Hb and brainstem structures, we have also identified novel patterns of connectivity between the Hb and cortex. The Hb was significantly functionally connected to the ACC, an area critical to reward and salience processing ( Haber and Knutson, 2010 ;  Menon, 2011 ;  Seeley, et al., 2007 ), as well as somatosensory and motor regions associated with interoception and sensorimotor planning ( Hardwick, et al., 2013 ;  Rizzolatti and Luppino, 2001 ). In addition, areas previously linked to the “default mode network” ( Fox, et al., 2015 ;  Qin and Northoff, 2011 ), including PCC, retrosplenial cortex, pregenual ACC, and parahippocampal gyrus, were found to exhibit positive functional connectivity with the Hb. 
+ Our finding of positive resting-state Hb connectivity with the VTA is interesting in light of the purportedly antagonistic roles of these structures ( Matsumoto and Hikosaka, 2007 ), but accords with past reports of positive Hb-VTA resting-state functional connectivity in a pediatric cohort ( Erpelding, et al., 2014 ) and of task-related coactivation of these regions ( Hennigan, et al., 2015 ). Such results may stem in part from feedback circuits triggering increased Hb activity in response to dopaminergic VTA signaling ( Geisler and Trimble, 2008 ;  Shen, et al., 2012 ). Additionally, although aversive stimuli decrease the firing rates of primate VTA neurons, subsequent rebounding can result in a net increase in firing rates of similar magnitude but greater duration ( Fiorillo, et al., 2013a ), which may affect BOLD signals. Intriguingly, however, the Hb showed connectivity primarily with the caudal medial VTA near the mesopontine junction but not in the rostral and lateral VTA ( Figure 3 ). This pattern is interesting in light of previous reports of functional heterogeneity in the VTA, which contains a subset of dopaminergic neurons involved in conditioned place aversion that receive direct excitatory Hb innervation ( Benarroch, 2015 ;  Lammel, et al., 2012 ;  Sanchez-Catalan, et al., 2014 ; but see  Fiorillo, et al., 2013b ). Furthermore, projections from the lateral Hb primarily target GABAergic interneurons, particularly in the caudal tail of the VTA (tVTA, also known as the mesopontine rostromedial tegmental nucleus) ( Brinschwitz, et al., 2010 ;  Erpelding, et al., 2014 ). The tVTA inhibits reward-responsive VTA neurons and closely mirrors lateral Hb activity patterns in primates ( Barrot, et al., 2012 ;  Bourdy, et al., 2014 ;  Hong, et al., 2011 ). While the tVTA has only recently been described in the animal literature ( Barrot and Thome, 2011 ), and to our knowledge has yet to be identified or characterized in humans, the highly conserved nature of subcortical reward circuitry makes a homologous structure highly plausible. Though speculative, our results are therefore consistent with the presence of such a tVTA cluster functionally aligned with the Hb. 
+ Additionally, we observed Hb connectivity clustered around sensorimotor areas, particularly in somatosensory cortex, primary motor cortex, SMA, thalamus, and substantia nigra. These regions are associated with motor planning and rehearsal ( Hardwick, et al., 2013 ;  Rizzolatti and Luppino, 2001 ), processes that are critical to successfully avoiding negative outcomes. Accordingly, the lateral Hb is densely innervated by neurons of the globus pallidus internus, which convey sensorimotor information from the basal ganglia as part of a thalamocortical motor loop ( Geisler and Trimble, 2008 ;  Hong and Hikosaka, 2008 ). Indeed, in addition to its role in mediating reward, movement suppression as part of an “emotional motor system” has been proposed as a primary function that is common to all Hb circuits ( Hikosaka, 2010 ;  Holstege, 2009 ). Consistent with this view, electrical stimulation of the lateral Hb in rats strongly suppresses substantia nigra dopaminergic activity critical to initiating voluntary movements through reciprocal basal ganglia projections ( Alexander, et al., 1986 ;  Christoph, et al., 1986 ). Interestingly, connectivity was also detected between the left Hb and the ipsilateral brainstem in the vicinity of the caudal pontine/rostral medullary junction; this region has been specifically proposed as a hub of Hb influence over descending motor pathways ( Hikosaka, 2010 ;  Holstege, 2009 ). Moreover, all cortical sensorimotor areas for which we detected Hb connectivity have been previously found to exhibit resting-state functional connectivity with the substantia nigra ( Murty, et al., 2014 ), in line with its proposed role as a relay between the Hb and cortical sensorimortor circuitry ( Ikemoto, et al., 2015 ). 
+ We also identified functional connectivity between the Hb and dorsal ACC, a key region for reward and emotion processing that has been consistently implicated in MDD ( Nejad, et al., 2013 ;  Rive, et al., 2013 ). Interestingly, task-based fMRI studies indicate that the dorsal ACC is involved in processing many types of information relevant to the reward system, including negative affect, errors, pain, and losses ( Polli, et al., 2005 ;  Shackman, et al., 2011 ), but also rewarding stimuli and cognitive salience more generally ( Gasquoine, 2013 ;  Vincent, et al., 2008 ). Indeed, convergent evidence from fMRI studies employing both task-based and resting-state approaches has identified a “salience network” including the dorsal ACC, anterior insula, mid-cingulate, anterior SMA, and portions of the medial thalamus and VTA ( Menon, 2011 ;  Seeley, et al., 2007 ) – all of which except the insula were significantly connected to the Hb in our study. The salience network, which features extensive projections to subcortical regions underlying reward and motivation, is involved in evaluating the motivational importance of stimuli and directing attention accordingly ( Menon, 2011 ). Our findings of Hb connectivity with salience network regions may indicate that the Hb also plays a role in this critical circuit. 
+ Finally, several regions for which we detected significant positive connectivity with the Hb are also associated with the default mode network, particularly the PCC, retrosplenial cortex, pregenual ACC, and parahippocampal gyrus ( Andrews-Hanna, et al., 2014 ). The default mode network has been associated with internally focused mental activities, including self-processing, future planning, and the encoding and retrieval of autobiographical memories ( Andrews-Hanna, et al., 2014 ;  Fox, et al., 2015 ;  Maddock, et al., 2001 ;  Qin and Northoff, 2011 ). Evidence suggests a potentially antagonist relationship between internally and externally focused attention, as greater default mode activity is associated with reduced vigilance and engagement with external tasks ( Hayden, et al., 2009 ;  Mason, et al., 2007 ;  Weissman, et al., 2006 ). However, an alternative interpretation of default mode activity proposes that it supports learning by monitoring performance and engaging in corrective actions ( Heilbronner and Platt, 2013 ). Taking both of these theories into account, it is possible that connectivity between Hb and default mode regions reflects the integration of self-monitoring processes, subserved by the default mode network, with information about aversive stimuli, processed by the Hb, in order to facilitate learning and avoid undesirable outcomes. 
+ 
+ 
+ Differential Habenula Functional Connectivity in Low vs. High Subclinical Depression Groups 
+ Our group comparison revealed several areas where Hb connectivity differed between subjects with low vs. high subclinical depression scores ( Figure 4 ). The high subclinical depression group showed greater functional connectivity between the Hb and the dmPFC, anterior middle temporal gyrus, temporal pole, and inferior lateral parietal cortex, regions also implicated in default mode network-based mentalizing and self-processing ( Andrews-Hanna, et al., 2014 ). By contrast, subjects with low subclinical depression scores exhibited greater Hb functional connectivity with salience network regions including the anterior insula, amygdala, and mid-cingulate cortex. While there was little overlap among the regions that emerged from the group comparisons and those found in the analysis of the entire cohort, both analyses did yield effects in multiple areas linked with both the default mode and salience networks. Although conclusions must remain speculative due to the lack of multiple comparison correction, our findings are interesting in light of prior research showing that subjects with MDD have stronger connectivity between the default mode network and areas of the medial prefrontal cortex and middle temporal gyrus ( Kaiser, et al., 2015 ) that we found to be more strongly connected to the Hb in the high subclinical depression group. Moreover, greater default mode network but reduced anterior insula connectivity is associated with high levels of rumination in MDD ( Hamilton, et al., 2011 ). Our data extend these prior findings, indicating that stronger Hb connectivity with default mode network regions and weaker connectivity with salience network areas is associated with depressed mood. 
+ 
+ 
+ Differential Functional Connectivity of the Habenula and Thalamus 
+ As detailed above, a major concern for Hb imaging is signal contamination from nearby regions of the dorsomedial thalamus and third ventricle. We mitigated ventricular signal contamination in our analyses by regressing out principal noise components associated with CSF, in addition to the ICA-FIX denoising performed by the HCP. The potential for thalamic signal contamination was of greater concern due to the difficulty of delineating the anterior and lateral boundaries of the Hb with the thalamus ( Kim, et al., 2016 ;  Lawson, et al., 2013 ). Building on an approach previously described in the high-resolution task-based Hb literature ( Hennigan, et al., 2015 ;  Lawson, et al., 2014 ), we controlled for potential thalamic contamination by including two bilateral seeds placed within the thalamus directly adjacent to the Hb in our functional connectivity model. Our results therefore reflect the unique connectivity of the Hb, statistically controlling for the connectivity of the two adjacent thalamic seeds. 
+ There were several similarities in the connectivity patterns for the Hb and thalamic seeds ( Figure 5 ;  Table S3 ), particularly with the thalamus, medial sensorimotor cortex, and SMA. Although the extent of overlap within the thalamus may be exaggerated somewhat by spatial smoothing, thalamic functional connectivity with the Hb is also physiologically plausible, as the lateral Hb and many thalamic nuclei receive similar inputs from the basal ganglia via the globus palidus internus ( Ikemoto, et al., 2015 ), while the medial Hb indirectly regulates dorsomedial thalamic activity via the GABAergic interpeduncular nucleus ( Morley, 1986 ). Both thalamic seeds also exhibited substantial connectivity with the sensorimotor cortex and SMA, most of which was concentrated in motor areas anterior to the regions exhibiting connectivity with the Hb. This finding is consistent with the well-established role of the thalamus in linking ascending sensory and descending motor pathways, with the dorsomedial and centromedian nuclei functioning in part as relays to the motor system, along with functions related to cognition and memory ( Mitchell and Chakraborty, 2013 ;  Van der Werf, et al., 2002 ;  Woolsey, et al., 2008 ). As the Hb exerts considerable influence over motor pathways in response to aversive signals ( Hikosaka, 2010 ), it is not surprising to find some commonality in the connectivity of these structures with the sensorimotor system. Similarly, we observed some overlap in connectivity of the Hb and dorsomedial thalamus with the VTA and pons, a finding that is consistent with the known anatomy of the dorsomedial thalamus, which receives projections from throughout the brainstem, particularly the VTA ( Mitchell and Chakraborty, 2013 ). Moreover, both the dorsomedial thalamus and VTA receive reward-related inputs from the ventral pallidum ( Leung and Balleine, 2015 ), which is also a major afferent of the lateral Hb ( Geisler and Trimble, 2008 ). As our analytic model controlled for the connectivity of the thalamic seeds, our findings therefore indicate that the Hb and adjacent thalamic nuclei independently exhibit connectivity with several important sensorimotor and reward regions, in line with previous work in animals. 
+ Compared to the thalamic seeds, the Hb exhibited more extensive connectivity with the brainstem, particularly the monoamine nuclei that are the primary targets of Hb influence ( Hikosaka, 2010 ). These included the substantia nigra and areas in the vicinity of the dorsal raphe nuclei and locus coeruleus; moreover, relative to the dorsomedial thalamic nuclei, Hb connectivity with the VTA was both stronger and more widespread. The Hb also exhibited distinct connectivity with the dorsal ACC and only marginal overlap with the mid-cingulate within the salience network, compared to the thalamic control seeds. Within the default mode network, only the Hb exhibited connectivity with the precuneus, PCC, and parahippocampal gyrus, and Hb connectivity with the pregenual ACC did not overlap with thalamic connectivity in that region. These findings support the idea that the Hb plays a unique role in regulating midbrain circuitry and potentially integrating information from higher-level systems about the personal relevance and motivational value of stimuli. Although our analysis directly contrasting Hb and thalamic seeds ( Figure S1 ) also identified greater Hb connectivity with regions of the “frontoparietal control network” ( Vincent, et al., 2008 ) relative to the thalamus, this finding was driven by weak connectivity in opposite directions for the Hb and thalamic seeds, an effect that is difficult to interpret. 
+ 
+ 
+ Limitations 
+ Several caveats pertaining to our study should be noted. Consistent with previous high-resolution fMRI studies of the Hb ( Hennigan, et al., 2015 ;  Lawson, et al., 2014 ;  Salas, et al., 2010 ), we have not attempted to parcellate subjects’ Hb seeds into medial and lateral portions. Although important functional and anatomical distinctions exist between the medial and lateral Hb ( Geisler and Trimble, 2008 ), the low  in vivo  anatomical MRI contrast between these areas and the functional resolution of our dataset made it very difficult to confidently distinguish signals from these regions. Another consideration is our interpolation approach for generating functional Hb seeds following high-resolution anatomical segmentation (see  Materials and Methods ); while theoretically motivated to maintain information about the location and volume of the Hb in functional space, future work will be needed to objectively compare its effectiveness in optimizing functional contrast-to-noise ratio with alternative methods. Finally, caution is warranted in generalizing our findings of group differences in Hb connectivity, based on healthy subjects with low or high subclinical depression scores, to clinical populations with MDD or other psychiatric disorders, particularly given the lack of multiple comparison correction for these results. We note, however, that several similar studies have emerged examining possible clinical implications of the HCP dataset ( Baroni and Castellanos, 2015 ;  Pagliaccio, et al., 2015 ), including a recent resting-state functional connectivity analysis describing the impact of subclinical depressive symptoms on large-scale cortical networks ( Petrican, et al., 2015 ). Such work reflects the growing recognition that psychiatric symptomatology occurs on a continuum and can be found to varying degrees in the general population, with individuals who meet diagnostic criteria representing the upper tail of this distribution ( NIMH Strategic Plan, 2008 ;  Morris and Cuthbert, 2012 ). Furthermore, our supplementary analysis of cortical seeds revealed differences in functional connectivity within the default mode and frontoparietal control networks between high and low subclinical depression groups that were consistent with prior findings from studies comparing clinical MDD patients with healthy controls ( Table S2 ). Nevertheless, further research in clinically depressed cohorts will be needed to ascertain the relevance of the present findings for the study of MDD. 
+ 
+ 
+ 
+ Conclusion 
+ In summary, this study provides the first high-resolution whole-brain characterization of the resting-state functional connectivity of the human Hb, with results confirming functional links between the Hb, VTA, and other brainstem structures previously described in the animal and task-based fMRI literature. Our findings of Hb connectivity with the cortical sensorimotor system also support its putative role in motor avoidance. Moreover, our study identified previously unknown relationships between the Hb and both the salience and default mode networks, with alterations in these relationship associated with depressive symptomatology. These results suggest the potential importance of the Hb in evaluating and attending to personally relevant reward- and aversion-related information, and add further weight to the hypothesized role of the Hb in MDD. Our findings also highlight the benefits of new high-resolution imaging techniques developed by the HCP, revealing long-range Hb-cortical interactions that would not have been feasible to detect without recent developments in imaging technology. 
+ 
+ 
+ Supplementary Material 
+ 
+ Supp Fig S1 
+ 
+ Figure S1: Contrast maps showing regions where bilateral habenula connectivity was significantly ( p TFCE <0.05, k≥10) stronger (red-yellow) and weaker (blue-green) than the summed connectivity of the two bilateral thalamic control seeds. SMA: Supplementary Motor Area. 
+ 
+ 
+ 
+ 
+ Supp Info 
+ 
+ 
+ 
+ 
+ 
+ We would like to thank Thomas Naidich and Joo-won Kim for their assistance with this research. Data were provided by the WU-Minn Human Connectome Project Consortium (Principal Investigators: David Van Essen and Kamil Ugurbil; 1U54MH091657) funded by the 16 NIH Institutes and Centers that support the NIH Blueprint for Neuroscience Research; and by the McDonnell Center for Systems Neuroscience at Washington University. This work was supported by the Iris and Junming Le Foundation, and in part through the resources and expertise provided by the Brain Imaging Center and the Department of Scientific Computing at the Icahn School of Medicine at Mount Sinai. 
+ 
+ 
+ 
+ Conflicts of Interest : 
+ The authors declare no competing financial or other interests. 
+ 
+ 
+ 
+ References 
+ 
+ 
+ 
+ 
+ Alexander 
+ GE 
+ 
+ 
+ DeLong 
+ MR 
+ 
+ 
+ Strick 
+ PL 
+ 
+ 
+ Parallel organization of functionally segregated circuits linking basal ganglia and cortex 
+ Annu Rev Neurosci 
+ 1986 
+ 9 
+ 357 
+ 381 
+ 3085570 
+ 
+ 
+ 
+ 
+ 
+ 
+ Andrews-Hanna 
+ JR 
+ 
+ 
+ Smallwood 
+ J 
+ 
+ 
+ Spreng 
+ RN 
+ 
+ 
+ The default network and self-generated thought: component processes, dynamic control, and clinical relevance 
+ Ann NY Acad Sci 
+ 2014 
+ 1316 
+ 29 
+ 52 
+ 24502540 
+ 
+ 
+ 
+ 
+ 
+ 
+ Anteraper 
+ SA 
+ 
+ 
+ Whitfield-Gabrieli 
+ S 
+ 
+ 
+ Keil 
+ B 
+ 
+ 
+ Shannon 
+ S 
+ 
+ 
+ Gabrieli 
+ JD 
+ 
+ 
+ Triantafyllou 
+ C 
+ 
+ 
+ Exploring functional connectivity networks with multichannel brain array coils 
+ Brain Connect 
+ 2013 
+ 3 
+ 302 
+ 315 
+ 23510203 
+ 
+ 
+ 
+ 
+ 
+ 
+ Barch 
+ DM 
+ 
+ 
+ Burgess 
+ GC 
+ 
+ 
+ Harms 
+ MP 
+ 
+ 
+ Petersen 
+ SE 
+ 
+ 
+ Schlaggar 
+ BL 
+ 
+ 
+ Corbetta 
+ M 
+ 
+ 
+ Glasser 
+ MF 
+ 
+ 
+ Curtiss 
+ S 
+ 
+ 
+ Dixit 
+ S 
+ 
+ 
+ Feldt 
+ C 
+ 
+ 
+ Nolan 
+ D 
+ 
+ 
+ Bryant 
+ E 
+ 
+ 
+ Hartley 
+ T 
+ 
+ 
+ Footer 
+ O 
+ 
+ 
+ Bjork 
+ JM 
+ 
+ 
+ Poldrack 
+ R 
+ 
+ 
+ Smith 
+ S 
+ 
+ 
+ Johansen-Berg 
+ H 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Van Essen 
+ DC, 
+ 
+ 
+ WU-Minn Human Connectome Project Consortium 
+ Function in the human connectome: task-fMRI and individual differences in behavior 
+ NeuroImage 
+ 2013 
+ 80 
+ 169 
+ 189 
+ 23684877 
+ 
+ 
+ 
+ 
+ 
+ 
+ Baroni 
+ A 
+ 
+ 
+ Castellanos 
+ FX 
+ 
+ 
+ Neuroanatomic and cognitive abnormalities in attention-deficit/hyperactivity disorder in the era of ‘high definition’ neuroimaging 
+ Curr Opin Neurobiol 
+ 2015 
+ 30 
+ 1 
+ 8 
+ 25212469 
+ 
+ 
+ 
+ 
+ 
+ 
+ Barrot 
+ M 
+ 
+ 
+ Sesack 
+ SR 
+ 
+ 
+ Georges 
+ F 
+ 
+ 
+ Pistis 
+ M 
+ 
+ 
+ Hong 
+ S 
+ 
+ 
+ Jhou 
+ TC 
+ 
+ 
+ Braking dopamine systems: a new GABA master structure for mesolimbic and nigrostriatal functions 
+ J Neurosci 
+ 2012 
+ 32 
+ 14094 
+ 14101 
+ 23055478 
+ 
+ 
+ 
+ 
+ 
+ 
+ Barrot 
+ M 
+ 
+ 
+ Thome 
+ J 
+ 
+ 
+ Discovering a new anatomical structure in the brain: implications for neuropsychiatry and therapy 
+ World J Biol Psychiatry 
+ 2011 
+ 12 
+ Suppl 1 
+ 19 
+ 22 
+ 21905990 
+ 
+ 
+ 
+ 
+ 
+ 
+ Behzadi 
+ Y 
+ 
+ 
+ Restom 
+ K 
+ 
+ 
+ Liau 
+ J 
+ 
+ 
+ Liu 
+ TT 
+ 
+ 
+ A component based noise correction method (CompCor) for BOLD and perfusion based fMRI 
+ NeuroImage 
+ 2007 
+ 37 
+ 90 
+ 101 
+ 17560126 
+ 
+ 
+ 
+ 
+ 
+ 
+ Benarroch 
+ EE 
+ 
+ 
+ Habenula: recently recognized functions and potential clinical relevance 
+ Neurology 
+ 2015 
+ 85 
+ 992 
+ 1000 
+ 26291286 
+ 
+ 
+ 
+ 
+ 
+ 
+ Bourdy 
+ R 
+ 
+ 
+ Sanchez-Catalan 
+ MJ 
+ 
+ 
+ Kaufling 
+ J 
+ 
+ 
+ Balcita-Pedicino 
+ JJ 
+ 
+ 
+ Freund-Mercier 
+ MJ 
+ 
+ 
+ Veinante 
+ P 
+ 
+ 
+ Sesack 
+ SR 
+ 
+ 
+ Georges 
+ F 
+ 
+ 
+ Barrot 
+ M 
+ 
+ 
+ Control of the nigrostriatal dopamine neuron activity and motor function by the tail of the ventral tegmental area 
+ Neuropsychopharmacol 
+ 2014 
+ 39 
+ 2788 
+ 2798 
+ 
+ 
+ 
+ 
+ 
+ 
+ Braunlich 
+ K 
+ 
+ 
+ Gomez-Lavin 
+ J 
+ 
+ 
+ Seger 
+ CA 
+ 
+ 
+ Frontoparietal networks involved in categorization and item working memory 
+ NeuroImage 
+ 2015 
+ 107 
+ 146 
+ 162 
+ 25482265 
+ 
+ 
+ 
+ 
+ 
+ 
+ Brinschwitz 
+ K 
+ 
+ 
+ Dittgen 
+ A 
+ 
+ 
+ Madai 
+ VI 
+ 
+ 
+ Lommel 
+ R 
+ 
+ 
+ Geisler 
+ S 
+ 
+ 
+ Veh 
+ RW 
+ 
+ 
+ Glutamatergic axons from the lateral habenula mainly terminate on GABAergic neurons of the ventral midbrain 
+ Neuroscience 
+ 2010 
+ 168 
+ 463 
+ 476 
+ 20353812 
+ 
+ 
+ 
+ 
+ 
+ 
+ Carlson 
+ PJ 
+ 
+ 
+ Diazgranados 
+ N 
+ 
+ 
+ Nugent 
+ AC 
+ 
+ 
+ Ibrahim 
+ L 
+ 
+ 
+ Luckenbaugh 
+ DA 
+ 
+ 
+ Brutsche 
+ N 
+ 
+ 
+ Herscovitch 
+ P 
+ 
+ 
+ Manji 
+ HK 
+ 
+ 
+ Zarate 
+ CA 
+ Jr 
+ 
+ 
+ Drevets 
+ WC 
+ 
+ 
+ Neural correlates of rapid antidepressant response to ketamine in treatment-resistant unipolar depression: a preliminary positron emission tomography study 
+ Biol Psychiatry 
+ 2013 
+ 73 
+ 1213 
+ 1221 
+ 23540908 
+ 
+ 
+ 
+ 
+ 
+ 
+ Chandley 
+ MJ 
+ 
+ 
+ Ordway 
+ GA 
+ 
+ 
+ 
+ 
+ Dwivedi 
+ Y 
+ 
+ 
+ Noradrenergic dysfunction in depression and suicide 
+ The Neurobiological Basis of Suicide 
+ 2012 
+ Boca Raton (FL) 
+ CRC Press/Taylor & Francis 
+ 
+ 
+ 
+ 
+ 
+ 
+ Cheng 
+ K 
+ 
+ 
+ Recent progress in high-resolution functional MRI 
+ Curr Opin Neurol 
+ 2011 
+ 24 
+ 401 
+ 408 
+ 21734497 
+ 
+ 
+ 
+ 
+ 
+ 
+ Christoph 
+ GR 
+ 
+ 
+ Leonzio 
+ RJ 
+ 
+ 
+ Wilcox 
+ KS 
+ 
+ 
+ Stimulation of the lateral habenula inhibits dopamine-containing neurons in the substantia nigra and ventral tegmental area of the rat 
+ J Neurosci 
+ 1986 
+ 6 
+ 613 
+ 619 
+ 3958786 
+ 
+ 
+ 
+ 
+ 
+ 
+ Erpelding 
+ N 
+ 
+ 
+ Sava 
+ S 
+ 
+ 
+ Simons 
+ LE 
+ 
+ 
+ Lebel 
+ A 
+ 
+ 
+ Serrano 
+ P 
+ 
+ 
+ Becerra 
+ L 
+ 
+ 
+ Borsook 
+ D 
+ 
+ 
+ Habenula functional resting-state connectivity in pediatric CRPS 
+ J Neurophysiol 
+ 2014 
+ 111 
+ 239 
+ 247 
+ 24155006 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fiorillo 
+ CD 
+ 
+ 
+ Song 
+ MR 
+ 
+ 
+ Yun 
+ SR 
+ 
+ 
+ Multiphasic temporal dynamics in responses of midbrain dopamine neurons to appetitive and aversive stimuli 
+ J Neurosci 
+ 2013a 
+ 33 
+ 4710 
+ 4725 
+ 23486944 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fiorillo 
+ CD 
+ 
+ 
+ Yun 
+ SR 
+ 
+ 
+ Song 
+ MR 
+ 
+ 
+ Diversity and homogeneity in responses of midbrain dopamine neurons 
+ J Neurosci 
+ 2013b 
+ 33 
+ 4693 
+ 4709 
+ 23486943 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fox 
+ KC 
+ 
+ 
+ Spreng 
+ RN 
+ 
+ 
+ Ellamil 
+ M 
+ 
+ 
+ Andrews-Hanna 
+ JR 
+ 
+ 
+ Christoff 
+ K 
+ 
+ 
+ The wandering brain: meta-analysis of functional neuroimaging studies of mind-wandering and related spontaneous thought processes 
+ NeuroImage 
+ 2015 
+ 111 
+ 611 
+ 621 
+ 25725466 
+ 
+ 
+ 
+ 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ Holmes 
+ AP 
+ 
+ 
+ Worsley 
+ KJ 
+ 
+ 
+ Poline 
+ J-P 
+ 
+ 
+ Frith 
+ CD 
+ 
+ 
+ Frackowiak 
+ SJ 
+ 
+ 
+ Statistical parametric maps in functional imaging: a general linear approach 
+ Hum Brain Mapp 
+ 1994 
+ 2 
+ 189 
+ 210 
+ 
+ 
+ 
+ 
+ 
+ 
+ Garrison 
+ J 
+ 
+ 
+ Erdeniz 
+ B 
+ 
+ 
+ Done 
+ J 
+ 
+ 
+ Prediction error in reinforcement learning: a meta-analysis of neuroimaging studies 
+ Neurosci Biobehav Rev 
+ 2013 
+ 37 
+ 1297 
+ 1310 
+ 23567522 
+ 
+ 
+ 
+ 
+ 
+ 
+ Gasquoine 
+ PG 
+ 
+ 
+ Localization of function in anterior cingulate cortex: from psychosurgery to functional neuroimaging 
+ Neurosci Biobehav Rev 
+ 2013 
+ 37 
+ 340 
+ 348 
+ 23313645 
+ 
+ 
+ 
+ 
+ 
+ 
+ Geisler 
+ S 
+ 
+ 
+ Trimble 
+ M 
+ 
+ 
+ The lateral habenula: no longer neglected 
+ CNS Spectr 
+ 2008 
+ 13 
+ 484 
+ 489 
+ 18567972 
+ 
+ 
+ 
+ 
+ 
+ 
+ Gershon 
+ RC 
+ 
+ 
+ Wagster 
+ MV 
+ 
+ 
+ Hendrie 
+ HC 
+ 
+ 
+ Fox 
+ NA 
+ 
+ 
+ Cook 
+ KF 
+ 
+ 
+ Nowinski 
+ CJ 
+ 
+ 
+ NIH toolbox for assessment of neurological and behavioral function 
+ Neurology 
+ 2013 
+ 80 
+ S2 
+ S6 
+ 23479538 
+ 
+ 
+ 
+ 
+ 
+ 
+ Glasser 
+ MF 
+ 
+ 
+ Sotiropoulos 
+ SN 
+ 
+ 
+ Wilson 
+ JA 
+ 
+ 
+ Coalson 
+ TS 
+ 
+ 
+ Fischl 
+ B 
+ 
+ 
+ Andersson 
+ JL 
+ 
+ 
+ Xu 
+ J 
+ 
+ 
+ Jbabdi 
+ S 
+ 
+ 
+ Webster 
+ M 
+ 
+ 
+ Polimeni 
+ JR 
+ 
+ 
+ Van Essen 
+ DC 
+ 
+ 
+ Jenkinson 
+ M, 
+ 
+ 
+ WU-Minn Human Connectome Project Consortium 
+ The minimal preprocessing pipelines for the Human Connectome Project 
+ NeuroImage 
+ 2013 
+ 80 
+ 105 
+ 124 
+ 23668970 
+ 
+ 
+ 
+ 
+ 
+ 
+ Glasser 
+ MF 
+ 
+ 
+ Van Essen 
+ DC 
+ 
+ 
+ Mapping human cortical areas in vivo based on myelin content as revealed by T1- and T2-weighted MRI 
+ J Neurosci 
+ 2011 
+ 31 
+ 11597 
+ 1616 
+ 21832190 
+ 
+ 
+ 
+ 
+ 
+ 
+ Gottesfeld 
+ Z 
+ 
+ 
+ Origin and distribution of noradrenergic innervation in the habenula: a neurochemical study 
+ Brain Res 
+ 1983 
+ 275 
+ 299 
+ 304 
+ 6354358 
+ 
+ 
+ 
+ 
+ 
+ 
+ Goya-Maldonado 
+ R 
+ 
+ 
+ Weber 
+ K 
+ 
+ 
+ Trost 
+ S 
+ 
+ 
+ Diekhof 
+ E 
+ 
+ 
+ Keil 
+ M 
+ 
+ 
+ Dechent 
+ P 
+ 
+ 
+ Gruber 
+ O 
+ 
+ 
+ Dissociating pathomechanisms of depression with fMRI: bottom-up or top-down dysfunctions of the reward system 
+ Eur Arch Psychiatry Clin Neurosci 
+ 2014 
+ 265 
+ 57 
+ 66 
+ 25327829 
+ 
+ 
+ 
+ 
+ 
+ 
+ Griffanti 
+ L 
+ 
+ 
+ Salimi-Khorshidi 
+ G 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ Auerbach 
+ EJ 
+ 
+ 
+ Douaud 
+ G 
+ 
+ 
+ Sexton 
+ CE 
+ 
+ 
+ Zsoldos 
+ E 
+ 
+ 
+ Ebmeier 
+ KP 
+ 
+ 
+ Filippini 
+ N 
+ 
+ 
+ Mackay 
+ CE 
+ 
+ 
+ Moeller 
+ S 
+ 
+ 
+ Xu 
+ J 
+ 
+ 
+ Yacoub 
+ E 
+ 
+ 
+ Baselli 
+ G 
+ 
+ 
+ Ugurbil 
+ K 
+ 
+ 
+ Miller 
+ KL 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ ICA-based artefact removal and accelerated fMRI acquisition for improved resting state network imaging 
+ NeuroImage 
+ 2014 
+ 95 
+ 232 
+ 247 
+ 24657355 
+ 
+ 
+ 
+ 
+ 
+ 
+ Haber 
+ SN 
+ 
+ 
+ Knutson 
+ B 
+ 
+ 
+ The reward circuit: linking primate anatomy and human imaging 
+ Neuropsychopharmacol 
+ 2010 
+ 35 
+ 4 
+ 26 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hall 
+ GB 
+ 
+ 
+ Milne 
+ AM 
+ 
+ 
+ Macqueen 
+ GM 
+ 
+ 
+ An fMRI study of reward circuitry in patients with minimal or extensive history of major depression 
+ Eur Arch Psychiatry Clin Neurosci 
+ 2014 
+ 264 
+ 187 
+ 198 
+ 23990079 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hamilton 
+ JP 
+ 
+ 
+ Etkin 
+ A 
+ 
+ 
+ Furman 
+ DJ 
+ 
+ 
+ Lemus 
+ MG 
+ 
+ 
+ Johnson 
+ RF 
+ 
+ 
+ Gotlib 
+ IH 
+ 
+ 
+ Functional neuroimaging of major depressive disorder: a meta-analysis and new integration of base line activation and neural response data 
+ Am J Psychiatry 
+ 2012 
+ 169 
+ 693 
+ 703 
+ 22535198 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hamilton 
+ JP 
+ 
+ 
+ Furman 
+ DJ 
+ 
+ 
+ Chang 
+ C 
+ 
+ 
+ Thomason 
+ ME 
+ 
+ 
+ Dennis 
+ E 
+ 
+ 
+ Gotlib 
+ IH 
+ 
+ 
+ Default-mode and task-positive network activity in major depressive disorder: implications for adaptive and maladaptive rumination 
+ Biol Psychiatry 
+ 2011 
+ 70 
+ 327 
+ 333 
+ 21459364 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hardwick 
+ RM 
+ 
+ 
+ Rottschy 
+ C 
+ 
+ 
+ Miall 
+ RC 
+ 
+ 
+ Eickhoff 
+ SB 
+ 
+ 
+ A quantitative meta-analysis and review of motor learning in the human brain 
+ NeuroImage 
+ 2013 
+ 67 
+ 283 
+ 297 
+ 23194819 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hayden 
+ BY 
+ 
+ 
+ Smith 
+ DV 
+ 
+ 
+ Platt 
+ ML 
+ 
+ 
+ Electrophysiological correlates of default-mode processing in macaque posterior cingulate cortex 
+ Proc Natl Acad Sci USA 
+ 2009 
+ 106 
+ 5948 
+ 5953 
+ 19293382 
+ 
+ 
+ 
+ 
+ 
+ 
+ Heilbronner 
+ SR 
+ 
+ 
+ Platt 
+ ML 
+ 
+ 
+ Causal evidence of performance monitoring by neurons in posterior cingulate cortex during learning 
+ Neuron 
+ 2013 
+ 80 
+ 1384 
+ 1391 
+ 24360542 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hennigan 
+ K 
+ 
+ 
+ D’Ardenne 
+ K 
+ 
+ 
+ McClure 
+ SM 
+ 
+ 
+ Distinct midbrain and habenula pathways are involved in processing aversive events in humans 
+ J Neurosci 
+ 2015 
+ 35 
+ 198 
+ 208 
+ 25568114 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hikosaka 
+ O 
+ 
+ 
+ The habenula: from stress evasion to value-based decision-making 
+ Nat Rev Neurosci 
+ 2010 
+ 11 
+ 503 
+ 513 
+ 20559337 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hikosaka 
+ O 
+ 
+ 
+ Sesack 
+ SR 
+ 
+ 
+ Lecourtier 
+ L 
+ 
+ 
+ Shepard 
+ PD 
+ 
+ 
+ Habenula: crossroad between the basal ganglia and the limbic system 
+ J Neurosci 
+ 2008 
+ 28 
+ 11825 
+ 11829 
+ 19005047 
+ 
+ 
+ 
+ 
+ 
+ 
+ Holstege 
+ G 
+ 
+ 
+ The mesopontine rostromedial tegmental nucleus and the emotional motor system: role in basic survival behavior 
+ J Comp Neurol 
+ 2009 
+ 513 
+ 559 
+ 565 
+ 19235226 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hong 
+ S 
+ 
+ 
+ Hikosaka 
+ O 
+ 
+ 
+ The globus pallidus sends reward-related signals to the lateral habenula 
+ Neuron 
+ 2008 
+ 60 
+ 720 
+ 729 
+ 19038227 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hong 
+ S 
+ 
+ 
+ Jhou 
+ TC 
+ 
+ 
+ Smith 
+ M 
+ 
+ 
+ Saleem 
+ KS 
+ 
+ 
+ Hikosaka 
+ O 
+ 
+ 
+ Negative reward signals from the lateral habenula to dopamine neurons are mediated by rostromedial tegmental nucleus in primates 
+ J Neurosci 
+ 2011 
+ 31 
+ 11457 
+ 11471 
+ 21832176 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ide 
+ JS 
+ 
+ 
+ Li 
+ CS 
+ 
+ 
+ Error-related functional connectivity of the habenula in humans 
+ Front Hum Neurosci 
+ 2011 
+ 5 
+ 25 
+ 21441989 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ikemoto 
+ S 
+ 
+ 
+ Yang 
+ C 
+ 
+ 
+ Tan 
+ A 
+ 
+ 
+ Basal ganglia circuit loops, dopamine and motivation: a review and enquiry 
+ Behav Brain Res 
+ 2015 
+ 290 
+ 17 
+ 31 
+ 25907747 
+ 
+ 
+ 
+ 
+ 
+ 
+ Jakab 
+ A 
+ 
+ 
+ Blanc 
+ R 
+ 
+ 
+ Berenyi 
+ EL 
+ 
+ 
+ Szekely 
+ G 
+ 
+ 
+ Generation of individualized thalamus target maps by using statistical shape models and thalamocortical tractography 
+ AJNR Am J Neuroradiol 
+ 2012 
+ 33 
+ 2110 
+ 2116 
+ 22700756 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kaiser 
+ RH 
+ 
+ 
+ Andrews-Hanna 
+ JR 
+ 
+ 
+ Wager 
+ TD 
+ 
+ 
+ Pizzagalli 
+ DA 
+ 
+ 
+ Large-scale network dysfunction in major depressive disorder: a meta-analysis of resting-state functional connectivity 
+ JAMA Psychiatry 
+ 2015 
+ 72 
+ 603 
+ 611 
+ 25785575 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kiening 
+ K 
+ 
+ 
+ Sartorius 
+ A 
+ 
+ 
+ A new translational target for deep brain stimulation to treat depression 
+ EMBO Mol Med 
+ 2013 
+ 5 
+ 1151 
+ 1153 
+ 23828711 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kim 
+ JW 
+ 
+ 
+ Naidich 
+ TP 
+ 
+ 
+ Ely 
+ BA 
+ 
+ 
+ Yacoub 
+ E 
+ 
+ 
+ De Martino 
+ F 
+ 
+ 
+ Fowkes 
+ ME 
+ 
+ 
+ Goodman 
+ WK 
+ 
+ 
+ Xu 
+ J 
+ 
+ 
+ Human habenula segmentation using myelin content 
+ NeuroImage 
+ 2016 
+ 130 
+ 145 
+ 156 
+ 26826517 
+ 
+ 
+ 
+ 
+ 
+ 
+ Krauth 
+ A 
+ 
+ 
+ Blanc 
+ R 
+ 
+ 
+ Poveda 
+ A 
+ 
+ 
+ Jeanmonod 
+ D 
+ 
+ 
+ Morel 
+ A 
+ 
+ 
+ Szekely 
+ G 
+ 
+ 
+ A mean three-dimensional atlas of the human thalamus: generation from multiple histological data 
+ NeuroImage 
+ 2010 
+ 49 
+ 2053 
+ 2062 
+ 19853042 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lammel 
+ S 
+ 
+ 
+ Lim 
+ BK 
+ 
+ 
+ Ran 
+ C 
+ 
+ 
+ Huang 
+ KW 
+ 
+ 
+ Betley 
+ MJ 
+ 
+ 
+ Tye 
+ KM 
+ 
+ 
+ Deisseroth 
+ K 
+ 
+ 
+ Malenka 
+ RC 
+ 
+ 
+ Input-specific control of reward and aversion in the ventral tegmental area 
+ Nature 
+ 2012 
+ 491 
+ 212 
+ 217 
+ 23064228 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lawson 
+ RP 
+ 
+ 
+ Drevets 
+ WC 
+ 
+ 
+ Roiser 
+ JP 
+ 
+ 
+ Defining the habenula in human neuroimaging studies 
+ NeuroImage 
+ 2013 
+ 64 
+ 722 
+ 727 
+ 22986224 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lawson 
+ RP 
+ 
+ 
+ Seymour 
+ B 
+ 
+ 
+ Loh 
+ E 
+ 
+ 
+ Lutti 
+ A 
+ 
+ 
+ Dolan 
+ RJ 
+ 
+ 
+ Dayan 
+ P 
+ 
+ 
+ Weiskopf 
+ N 
+ 
+ 
+ Roiser 
+ JP 
+ 
+ 
+ The habenula encodes negative motivational value associated with primary punishment in humans 
+ Proc Natl Acad Sci U S A 
+ 2014 
+ 111 
+ 11858 
+ 11863 
+ 25071182 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lecourtier 
+ L 
+ 
+ 
+ Kelly 
+ PH 
+ 
+ 
+ Bilateral lesions of the habenula induce attentional disturbances in rats 
+ Neuropsychopharmacol 
+ 2005 
+ 30 
+ 484 
+ 496 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lee 
+ EH 
+ 
+ 
+ Huang 
+ SL 
+ 
+ 
+ Role of lateral habenula in the regulation of exploratory behavior and its relationship to stress in rats 
+ Behav Brain Res 
+ 1988 
+ 30 
+ 265 
+ 271 
+ 3178997 
+ 
+ 
+ 
+ 
+ 
+ 
+ Leech 
+ R 
+ 
+ 
+ Sharp 
+ DJ 
+ 
+ 
+ The role of the posterior cingulate cortex in cognition and disease 
+ Brain 
+ 2014 
+ 137 
+ 12 
+ 32 
+ 23869106 
+ 
+ 
+ 
+ 
+ 
+ 
+ Leung 
+ BK 
+ 
+ 
+ Balleine 
+ BW 
+ 
+ 
+ Ventral pallidal projections to mediodorsal thalamus and ventral tegmental area play distinct roles in outcome-specific Pavlovian-instrumental transfer 
+ J Neurosci 
+ 2015 
+ 35 
+ 4953 
+ 4964 
+ 25810525 
+ 
+ 
+ 
+ 
+ 
+ 
+ Li 
+ B 
+ 
+ 
+ Piriz 
+ J 
+ 
+ 
+ Mirrione 
+ M 
+ 
+ 
+ Chung 
+ C 
+ 
+ 
+ Proulx 
+ CD 
+ 
+ 
+ Schulz 
+ D 
+ 
+ 
+ Henn 
+ F 
+ 
+ 
+ Malinow 
+ R 
+ 
+ 
+ Synaptic potentiation onto habenula neurons in the learned helplessness model of depression 
+ Nature 
+ 2011 
+ 470 
+ 535 
+ 539 
+ 21350486 
+ 
+ 
+ 
+ 
+ 
+ 
+ Li 
+ CS 
+ 
+ 
+ Yan 
+ P 
+ 
+ 
+ Chao 
+ HH 
+ 
+ 
+ Sinha 
+ R 
+ 
+ 
+ Paliwal 
+ P 
+ 
+ 
+ Constable 
+ RT 
+ 
+ 
+ Zhang 
+ S 
+ 
+ 
+ Lee 
+ TW 
+ 
+ 
+ Error-specific medial cortical and subcortical activity during the stop signal task: a functional magnetic resonance imaging study 
+ Neuroscience 
+ 2008 
+ 155 
+ 1142 
+ 1151 
+ 18674592 
+ 
+ 
+ 
+ 
+ 
+ 
+ Li 
+ K 
+ 
+ 
+ Zhou 
+ T 
+ 
+ 
+ Liao 
+ L 
+ 
+ 
+ Yang 
+ Z 
+ 
+ 
+ Wong 
+ C 
+ 
+ 
+ Henn 
+ F 
+ 
+ 
+ Malinow 
+ R 
+ 
+ 
+ Yates 
+ JR 
+ 3rd 
+ 
+ 
+ Hu 
+ H 
+ 
+ 
+ βCaMKII in lateral habenula mediates core symptoms of depression 
+ Science 
+ 2013 
+ 341 
+ 1016 
+ 1020 
+ 23990563 
+ 
+ 
+ 
+ 
+ 
+ 
+ Maddock 
+ RJ 
+ 
+ 
+ Garrett 
+ AS 
+ 
+ 
+ Buonocore 
+ MH 
+ 
+ 
+ Remembering familiar people: the posterior cingulate cortex and autobiographical memory retrieval 
+ Neuroscience 
+ 2001 
+ 104 
+ 667 
+ 676 
+ 11440800 
+ 
+ 
+ 
+ 
+ 
+ 
+ Mason 
+ MF 
+ 
+ 
+ Norton 
+ MI 
+ 
+ 
+ Van Horn 
+ JD 
+ 
+ 
+ Wegner 
+ DM 
+ 
+ 
+ Grafton 
+ ST 
+ 
+ 
+ Macrae 
+ CN 
+ 
+ 
+ Wandering minds: the default network and stimulus-independent thought 
+ Science 
+ 2007 
+ 315 
+ 393 
+ 395 
+ 17234951 
+ 
+ 
+ 
+ 
+ 
+ 
+ Matsumoto 
+ M 
+ 
+ 
+ Hikosaka 
+ O 
+ 
+ 
+ Lateral habenula as a source of negative reward signals in dopamine neurons 
+ Nature 
+ 2007 
+ 447 
+ 1111 
+ 1115 
+ 17522629 
+ 
+ 
+ 
+ 
+ 
+ 
+ Matsumoto 
+ M 
+ 
+ 
+ Hikosaka 
+ O 
+ 
+ 
+ Representation of negative motivational value in the primate lateral habenula 
+ Nat Neurosci 
+ 2009 
+ 12 
+ 77 
+ 84 
+ 19043410 
+ 
+ 
+ 
+ 
+ 
+ 
+ Mazaika 
+ P 
+ 
+ 
+ Hoeft 
+ F 
+ 
+ 
+ Glover 
+ GH 
+ 
+ 
+ Reiss 
+ AL 
+ 
+ 
+ Methods and software for fMRI analysis for clinical subjects 
+ 2009 
+ Conference Preceedings, Org Hum Brain Mapp 
+ San Francisco, CA, USA 
+ 
+ 
+ 
+ 
+ 
+ 
+ Menon 
+ V 
+ 
+ 
+ Large-scale brain networks and psychopathology: a unifying triple network model 
+ Trends Cogn Sci 
+ 2011 
+ 15 
+ 483 
+ 506 
+ 21908230 
+ 
+ 
+ 
+ 
+ 
+ 
+ Meye 
+ FJ 
+ 
+ 
+ Lecca 
+ S 
+ 
+ 
+ Valentinova 
+ K 
+ 
+ 
+ Mameli 
+ M 
+ 
+ 
+ Synaptic and cellular profile of neurons in the lateral habenula 
+ Front Hum Neurosci 
+ 2013 
+ 7 
+ 860 
+ 24379770 
+ 
+ 
+ 
+ 
+ 
+ 
+ Mitchell 
+ AS 
+ 
+ 
+ Chakraborty 
+ S 
+ 
+ 
+ What does the mediodorsal thalamus do? 
+ Front Syst Neurosci 
+ 2013 
+ 7 
+ 37 
+ 23950738 
+ 
+ 
+ 
+ 
+ 
+ 
+ Morley 
+ BJ 
+ 
+ 
+ The interpeduncular nucleus 
+ Int Rev Neurobiol 
+ 1986 
+ 28 
+ 157 
+ 182 
+ 2433243 
+ 
+ 
+ 
+ 
+ 
+ 
+ Morris 
+ JS 
+ 
+ 
+ Smith 
+ KA 
+ 
+ 
+ Cowen 
+ PJ 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ Dolan 
+ RJ 
+ 
+ 
+ Covariation of activity in habenula and dorsal raphe nuclei following tryptophan depletion 
+ NeuroImage 
+ 1999 
+ 10 
+ 163 
+ 172 
+ 10417248 
+ 
+ 
+ 
+ 
+ 
+ 
+ Morris 
+ SE 
+ 
+ 
+ Cuthbert 
+ BN 
+ 
+ 
+ Research domain criteria: cognitive systems, neural circuits, and dimensions of behavior 
+ Dialogues Clin Neurosci 
+ 2012 
+ 14 
+ 29 
+ 37 
+ 22577302 
+ 
+ 
+ 
+ 
+ 
+ 
+ Murphy 
+ K 
+ 
+ 
+ Birn 
+ RM 
+ 
+ 
+ Handwerker 
+ DA 
+ 
+ 
+ Jones 
+ TB 
+ 
+ 
+ Bandettini 
+ PA 
+ 
+ 
+ The impact of global signal regression on resting state correlations: are anti-correlated networks introduced? 
+ NeuroImage 
+ 2009 
+ 44 
+ 893 
+ 905 
+ 18976716 
+ 
+ 
+ 
+ 
+ 
+ 
+ Murty 
+ VP 
+ 
+ 
+ Shermohammed 
+ M 
+ 
+ 
+ Smith 
+ DV 
+ 
+ 
+ Carter 
+ RM 
+ 
+ 
+ Huettel 
+ SA 
+ 
+ 
+ Adcock 
+ RA 
+ 
+ 
+ Resting state networks distinguish human ventral tegmental area from substantia nigra 
+ NeuroImage 
+ 2014 
+ 100 
+ 580 
+ 589 
+ 24979343 
+ 
+ 
+ 
+ 
+ National Institute of Mental Health 
+ Strategic plan 
+ 2008. 
+ 
+ 
+ 
+ 
+ 
+ 
+ Nejad 
+ AB 
+ 
+ 
+ Fossati 
+ P 
+ 
+ 
+ Lemogne 
+ C 
+ 
+ 
+ Self-referential processing, rumination, and cortical midline structures in major depression 
+ Front Hum Neurosci 
+ 2013 
+ 7 
+ 666 
+ 24124416 
+ 
+ 
+ 
+ 
+ 
+ 
+ Nishikawa 
+ T 
+ 
+ 
+ Fage 
+ D 
+ 
+ 
+ Scatton 
+ B 
+ 
+ 
+ Evidence for, and nature of, the tonic inhibitory influence of habenulointerpeduncular pathways upon cerebral dopaminergic transmission in the rat 
+ Brain Res 
+ 1986 
+ 373 
+ 324 
+ 336 
+ 2424555 
+ 
+ 
+ 
+ 
+ 
+ 
+ Nolan 
+ SA 
+ 
+ 
+ Heinzen 
+ TE 
+ 
+ 
+ Ch.9 
+ Essentials of statistics for the behavioral sciences 
+ 2011 
+ New York, NY 
+ Worth Publishers 
+ 201 
+ 230 
+ 
+ 
+ 
+ 
+ 
+ 
+ Noonan 
+ MP 
+ 
+ 
+ Mars 
+ RB 
+ 
+ 
+ Rushworth 
+ MF 
+ 
+ 
+ Distinct roles of three frontal cortical areas in reward-guided behavior 
+ J Neurosci 
+ 2011 
+ 31 
+ 14399 
+ 14412 
+ 21976525 
+ 
+ 
+ 
+ 
+ 
+ 
+ Pagliaccio 
+ D 
+ 
+ 
+ Barch 
+ DM 
+ 
+ 
+ Bogdan 
+ R 
+ 
+ 
+ Wood 
+ PK 
+ 
+ 
+ Lynskey 
+ MT 
+ 
+ 
+ Heath 
+ AC 
+ 
+ 
+ Agrawal 
+ A 
+ 
+ 
+ Shared predisposition in the association between cannabis use and subcortical brain structure 
+ JAMA Psychiatry 
+ 2015 
+ 72 
+ 994 
+ 1001 
+ 26308883 
+ 
+ 
+ 
+ 
+ 
+ 
+ Parks 
+ EL 
+ 
+ 
+ Madden 
+ DJ 
+ 
+ 
+ Brain connectivity and visual attention 
+ Brain Connect 
+ 2013 
+ 3 
+ 317 
+ 338 
+ 23597177 
+ 
+ 
+ 
+ 
+ 
+ 
+ Petrican 
+ R 
+ 
+ 
+ Saverino 
+ C 
+ 
+ 
+ Shayna Rosenbaum 
+ R 
+ 
+ 
+ Grady 
+ C 
+ 
+ 
+ Inter-individual differences in the experience of negative emotion predict variations in functional brain architecture 
+ NeuroImage 
+ 2015 
+ 123 
+ 80 
+ 88 
+ 26302674 
+ 
+ 
+ 
+ 
+ 
+ 
+ Pilkonis 
+ PA 
+ 
+ 
+ Choi 
+ SW 
+ 
+ 
+ Salsman 
+ JM 
+ 
+ 
+ Butt 
+ Z 
+ 
+ 
+ Moore 
+ TL 
+ 
+ 
+ Lawrence 
+ SM 
+ 
+ 
+ Zill 
+ N 
+ 
+ 
+ Cyranowski 
+ JM 
+ 
+ 
+ Kelly 
+ MA 
+ 
+ 
+ Knox 
+ SS 
+ 
+ 
+ Cella 
+ D 
+ 
+ 
+ Assessment of self-reported negative affect in the NIH Toolbox 
+ Psychiatry Res 
+ 2013 
+ 206 
+ 88 
+ 97 
+ 23083918 
+ 
+ 
+ 
+ 
+ 
+ 
+ Polli 
+ FE 
+ 
+ 
+ Barton 
+ JJ 
+ 
+ 
+ Cain 
+ MS 
+ 
+ 
+ Thakkar 
+ KN 
+ 
+ 
+ Rauch 
+ SL 
+ 
+ 
+ Manoach 
+ DS 
+ 
+ 
+ Rostral and dorsal anterior cingulate cortex make dissociable contributions during antisaccade error commission 
+ Proc Natl Acad Sci USA 
+ 2005 
+ 102 
+ 15700 
+ 15705 
+ 16227444 
+ 
+ 
+ 
+ 
+ 
+ 
+ Qin 
+ P 
+ 
+ 
+ Northoff 
+ G 
+ 
+ 
+ How is our self related to midline regions and the default-mode network? 
+ NeuroImage 
+ 2011 
+ 57 
+ 1221 
+ 1233 
+ 21609772 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ranft 
+ K 
+ 
+ 
+ Dobrowolny 
+ H 
+ 
+ 
+ Krell 
+ D 
+ 
+ 
+ Bielau 
+ H 
+ 
+ 
+ Bogerts 
+ B 
+ 
+ 
+ Bernstein 
+ HG 
+ 
+ 
+ Evidence for structural abnormalities of the human habenular complex in affective disorders but not in schizophrenia 
+ Psychol Med 
+ 2010 
+ 40 
+ 557 
+ 567 
+ 19671211 
+ 
+ 
+ 
+ 
+ 
+ 
+ Rive 
+ MM 
+ 
+ 
+ van Rooijen 
+ G 
+ 
+ 
+ Veltman 
+ DJ 
+ 
+ 
+ Phillips 
+ ML 
+ 
+ 
+ Schene 
+ AH 
+ 
+ 
+ Ruhe 
+ HG 
+ 
+ 
+ Neural correlates of dysfunctional emotion regulation in major depressive disorder. a systematic review of neuroimaging studies 
+ Neurosci Biobehav Rev 
+ 2013 
+ 37 
+ 2529 
+ 2553 
+ 23928089 
+ 
+ 
+ 
+ 
+ 
+ 
+ Rizzolatti 
+ G 
+ 
+ 
+ Luppino 
+ G 
+ 
+ 
+ The cortical motor system 
+ Neuron 
+ 2001 
+ 31 
+ 889 
+ 901 
+ 11580891 
+ 
+ 
+ 
+ 
+ 
+ 
+ Roiser 
+ JP 
+ 
+ 
+ Levy 
+ J 
+ 
+ 
+ Fromm 
+ SJ 
+ 
+ 
+ Nugent 
+ AC 
+ 
+ 
+ Talagala 
+ SL 
+ 
+ 
+ Hasler 
+ G 
+ 
+ 
+ Henn 
+ FA 
+ 
+ 
+ Sahakian 
+ BJ 
+ 
+ 
+ Drevets 
+ WC 
+ 
+ 
+ The effects of tryptophan depletion on neural responses to emotional words in remitted depression 
+ Biol Psychiatry 
+ 2009 
+ 66 
+ 441 
+ 450 
+ 19539268 
+ 
+ 
+ 
+ 
+ 
+ 
+ Salas 
+ R 
+ 
+ 
+ Baldwin 
+ P 
+ 
+ 
+ de Biasi 
+ M 
+ 
+ 
+ Montague 
+ PR 
+ 
+ 
+ BOLD responses to negative reward prediction errors in human habenula 
+ Front Hum Neurosci 
+ 2010 
+ 4 
+ 36 
+ 20485575 
+ 
+ 
+ 
+ 
+ 
+ 
+ Salimi-Khorshidi 
+ G 
+ 
+ 
+ Douaud 
+ G 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ Glasser 
+ MF 
+ 
+ 
+ Griffanti 
+ L 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Automatic denoising of functional MRI data: combining independent component analysis and hierarchical fusion of classifiers 
+ NeuroImage 
+ 2014 
+ 90 
+ 449 
+ 468 
+ 24389422 
+ 
+ 
+ 
+ 
+ 
+ 
+ Sanchez-Catalan 
+ MJ 
+ 
+ 
+ Kaufling 
+ J 
+ 
+ 
+ Georges 
+ F 
+ 
+ 
+ Veinante 
+ P 
+ 
+ 
+ Barrot 
+ M 
+ 
+ 
+ The antero-posterior heterogeneity of the ventral tegmental area 
+ Neuroscience 
+ 2014 
+ 282C 
+ 198 
+ 216 
+ 25241061 
+ 
+ 
+ 
+ 
+ 
+ 
+ Sartorius 
+ A 
+ 
+ 
+ Kiening 
+ KL 
+ 
+ 
+ Kirsch 
+ P 
+ 
+ 
+ von Gall 
+ CC 
+ 
+ 
+ Haberkorn 
+ U 
+ 
+ 
+ Unterberg 
+ AW 
+ 
+ 
+ Henn 
+ FA 
+ 
+ 
+ Meyer-Lindenberg 
+ A 
+ 
+ 
+ Remission of major depression under deep brain stimulation of the lateral habenula in a therapy-refractory patient 
+ Biol Psychiatry 
+ 2010 
+ 67 
+ e9 
+ e11 
+ 19846068 
+ 
+ 
+ 
+ 
+ 
+ 
+ Savitz 
+ JB 
+ 
+ 
+ Bonne 
+ O 
+ 
+ 
+ Nugent 
+ AC 
+ 
+ 
+ Vythilingam 
+ M 
+ 
+ 
+ Bogers 
+ W 
+ 
+ 
+ Charney 
+ DS 
+ 
+ 
+ Drevets 
+ WC 
+ 
+ 
+ Habenula volume in post-traumatic stress disorder measured with high-resolution MRI 
+ Biol Mood Anxiety Disord 
+ 2011a 
+ 1 
+ 7 
+ 22738208 
+ 
+ 
+ 
+ 
+ 
+ 
+ Savitz 
+ JB 
+ 
+ 
+ Nugent 
+ AC 
+ 
+ 
+ Bogers 
+ W 
+ 
+ 
+ Roiser 
+ JP 
+ 
+ 
+ Bain 
+ EE 
+ 
+ 
+ Neumeister 
+ A 
+ 
+ 
+ Zarate 
+ CA 
+ Jr 
+ 
+ 
+ Manji 
+ HK 
+ 
+ 
+ Cannon 
+ DM 
+ 
+ 
+ Marrett 
+ S 
+ 
+ 
+ Henn 
+ F 
+ 
+ 
+ Charney 
+ DS 
+ 
+ 
+ Drevets 
+ WC 
+ 
+ 
+ Habenula volume in bipolar disorder and major depressive disorder: a high-resolution magnetic resonance imaging study 
+ Biol Psychiatry 
+ 2011b 
+ 69 
+ 336 
+ 343 
+ 21094939 
+ 
+ 
+ 
+ 
+ 
+ 
+ Schiffer 
+ AM 
+ 
+ 
+ Ahlheim 
+ C 
+ 
+ 
+ Wurm 
+ MF 
+ 
+ 
+ Schubotz 
+ RI 
+ 
+ 
+ Surprised at all the entropy: hippocampal, caudate and midbrain contributions to learning from prediction errors 
+ PLoS One 
+ 2012 
+ 7 
+ e36445 
+ 22570715 
+ 
+ 
+ 
+ 
+ 
+ 
+ Seeley 
+ WW 
+ 
+ 
+ Menon 
+ V 
+ 
+ 
+ Schatzberg 
+ AF 
+ 
+ 
+ Keller 
+ J 
+ 
+ 
+ Glover 
+ GH 
+ 
+ 
+ Kenna 
+ H 
+ 
+ 
+ Reiss 
+ AL 
+ 
+ 
+ Greicius 
+ MD 
+ 
+ 
+ Dissociable intrinsic connectivity networks for salience processing and executive control 
+ J Neurosci 
+ 2007 
+ 27 
+ 2349 
+ 2356 
+ 17329432 
+ 
+ 
+ 
+ 
+ 
+ 
+ Shackman 
+ AJ 
+ 
+ 
+ Salomons 
+ TV 
+ 
+ 
+ Slagter 
+ HA 
+ 
+ 
+ Fox 
+ AS 
+ 
+ 
+ Winter 
+ JJ 
+ 
+ 
+ Davidson 
+ RJ 
+ 
+ 
+ The integration of negative affect, pain and cognitive control in the cingulate cortex 
+ Nat Rev Neurosci 
+ 2011 
+ 12 
+ 154 
+ 167 
+ 21331082 
+ 
+ 
+ 
+ 
+ 
+ 
+ Shen 
+ X 
+ 
+ 
+ Ruan 
+ X 
+ 
+ 
+ Zhao 
+ H 
+ 
+ 
+ Stimulation of midbrain dopaminergic structures modifies firing rates of rat lateral habenula neurons 
+ PLoS One 
+ 2012 
+ 7 
+ e34323 
+ 22485164 
+ 
+ 
+ 
+ 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ Andersson 
+ J 
+ 
+ 
+ Auerbach 
+ EJ 
+ 
+ 
+ Bijsterbosch 
+ J 
+ 
+ 
+ Douaud 
+ G 
+ 
+ 
+ Duff 
+ E 
+ 
+ 
+ Feinberg 
+ DA 
+ 
+ 
+ Griffanti 
+ L 
+ 
+ 
+ Harms 
+ MP 
+ 
+ 
+ Kelly 
+ M 
+ 
+ 
+ Laumann 
+ T 
+ 
+ 
+ Miller 
+ KL 
+ 
+ 
+ Moeller 
+ S 
+ 
+ 
+ Petersen 
+ S 
+ 
+ 
+ Power 
+ J 
+ 
+ 
+ Salimi-Khorshidi 
+ G 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Vu 
+ AT 
+ 
+ 
+ Woolrich 
+ MW 
+ 
+ 
+ Xu 
+ J 
+ 
+ 
+ Yacoub 
+ E 
+ 
+ 
+ Ugurbil 
+ K 
+ 
+ 
+ Van Essen 
+ DC 
+ 
+ 
+ Glasser 
+ MF, 
+ 
+ 
+ WU-Minn Human Connectome Project Consortium 
+ Resting-state fMRI in the Human Connectome Project 
+ NeuroImage 
+ 2013 
+ 80 
+ 144 
+ 168 
+ 23702415 
+ 
+ 
+ 
+ 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Jenkinson 
+ M 
+ 
+ 
+ Woolrich 
+ MW 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ Behrens 
+ TE 
+ 
+ 
+ Johansen-Berg 
+ H 
+ 
+ 
+ Bannister 
+ PR 
+ 
+ 
+ De Luca 
+ M 
+ 
+ 
+ Drobnjak 
+ I 
+ 
+ 
+ Flitney 
+ DE 
+ 
+ 
+ Niazy 
+ RK 
+ 
+ 
+ Saunders 
+ J 
+ 
+ 
+ Vickers 
+ J 
+ 
+ 
+ Zhang 
+ Y 
+ 
+ 
+ De Stefano 
+ N 
+ 
+ 
+ Brady 
+ JM 
+ 
+ 
+ Matthews 
+ PM 
+ 
+ 
+ Advances in functional and structural MR image analysis and implementation as FSL 
+ NeuroImage 
+ 2004 
+ 23 
+ Suppl 1 
+ S208 
+ s219 
+ 15501092 
+ 
+ 
+ 
+ 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Nichols 
+ TE 
+ 
+ 
+ Threshold-free cluster enhancement: addressing problems of smoothing, threshold dependence and localisation in cluster inference 
+ NeuroImage 
+ 2009 
+ 44 
+ 83 
+ 98 
+ 18501637 
+ 
+ 
+ 
+ 
+ 
+ 
+ Turner 
+ R 
+ 
+ 
+ Geyer 
+ S 
+ 
+ 
+ Comparing like with like: the power of knowing where you are 
+ Brain Connect 
+ 2014 
+ 4 
+ 547 
+ 557 
+ 24999746 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ugurbil 
+ K 
+ 
+ 
+ Xu 
+ J 
+ 
+ 
+ Auerbach 
+ EJ 
+ 
+ 
+ Moeller 
+ S 
+ 
+ 
+ Vu 
+ AT 
+ 
+ 
+ Duarte-Carvajalino 
+ JM 
+ 
+ 
+ Lenglet 
+ C 
+ 
+ 
+ Wu 
+ X 
+ 
+ 
+ Schmitter 
+ S 
+ 
+ 
+ Van de Moortele 
+ PF 
+ 
+ 
+ Strupp 
+ J 
+ 
+ 
+ Sapiro 
+ G 
+ 
+ 
+ De Martino 
+ F 
+ 
+ 
+ Wang 
+ D 
+ 
+ 
+ Harel 
+ N 
+ 
+ 
+ Garwood 
+ M 
+ 
+ 
+ Chen 
+ L 
+ 
+ 
+ Feinberg 
+ DA 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Miller 
+ KL 
+ 
+ 
+ Sotiropoulos 
+ SN 
+ 
+ 
+ Jbabdi 
+ S 
+ 
+ 
+ Andersson 
+ JL 
+ 
+ 
+ Behrens 
+ TE 
+ 
+ 
+ Glasser 
+ MF 
+ 
+ 
+ Van Essen 
+ DC 
+ 
+ 
+ Yacoub 
+ E, 
+ 
+ 
+ WU-Minn Human Connectome Project Consortium 
+ Pushing spatial and temporal resolution for functional and diffusion MRI in the Human Connectome Project 
+ NeuroImage 
+ 2013 
+ 80 
+ 80 
+ 104 
+ 23702417 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ullsperger 
+ M 
+ 
+ 
+ von Cramon 
+ DY 
+ 
+ 
+ Error monitoring using external feedback: specific roles of the habenular complex, the reward system, and the cingulate motor area revealed by functional magnetic resonance imaging 
+ J Neurosci 
+ 2003 
+ 23 
+ 4308 
+ 4314 
+ 12764119 
+ 
+ 
+ 
+ 
+ 
+ 
+ Utevsky 
+ AV 
+ 
+ 
+ Smith 
+ DV 
+ 
+ 
+ Huettel 
+ SA 
+ 
+ 
+ Precuneus is a functional core of the default-mode network 
+ J Neurosci 
+ 2014 
+ 34 
+ 932 
+ 940 
+ 24431451 
+ 
+ 
+ 
+ 
+ 
+ 
+ Van der Werf 
+ YD 
+ 
+ 
+ Witter 
+ MP 
+ 
+ 
+ Groenewegen 
+ HJ 
+ 
+ 
+ The intralaminar and midline nuclei of the thalamus. Anatomical and functional evidence for participation in processes of arousal and awareness 
+ Brain Res Brain Res Rev 
+ 2002 
+ 39 
+ 107 
+ 140 
+ 12423763 
+ 
+ 
+ 
+ 
+ 
+ 
+ Van Essen 
+ DC 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Barch 
+ DM 
+ 
+ 
+ Behrens 
+ TE 
+ 
+ 
+ Yacoub 
+ E 
+ 
+ 
+ Ugurbil 
+ K, 
+ 
+ 
+ WU-Minn Human Connectome Project Consortium 
+ The WU-Minn Human Connectome Project: an overview 
+ NeuroImage 
+ 2013 
+ 80 
+ 62 
+ 79 
+ 23684880 
+ 
+ 
+ 
+ 
+ 
+ 
+ Vincent 
+ JL 
+ 
+ 
+ Kahn 
+ I 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ Buckner 
+ RL 
+ 
+ 
+ Evidence for a frontoparietal control system revealed by intrinsic functional connectivity 
+ J Neurophysiol 
+ 2008 
+ 100 
+ 3328 
+ 3342 
+ 18799601 
+ 
+ 
+ 
+ 
+ 
+ 
+ Weissman 
+ DH 
+ 
+ 
+ Roberts 
+ KC 
+ 
+ 
+ Visscher 
+ KM 
+ 
+ 
+ Woldorff 
+ MG 
+ 
+ 
+ The neural bases of momentary lapses in attention 
+ Nat Neurosci 
+ 2006 
+ 9 
+ 971 
+ 978 
+ 16767087 
+ 
+ 
+ 
+ 
+ 
+ 
+ Whitfield-Gabrieli 
+ S 
+ 
+ 
+ Nieto-Castanon 
+ A 
+ 
+ 
+ Conn: a functional connectivity toolbox for correlated and anticorrelated brain networks 
+ Brain Connect 
+ 2012 
+ 2 
+ 125 
+ 141 
+ 22642651 
+ 
+ 
+ 
+ 
+ 
+ 
+ Winter 
+ C 
+ 
+ 
+ Vollmayr 
+ B 
+ 
+ 
+ Djodari-Irani 
+ A 
+ 
+ 
+ Klein 
+ J 
+ 
+ 
+ Sartorius 
+ A 
+ 
+ 
+ Pharmacological inhibition of the lateral habenula improves depressive-like behavior in an animal model of treatment resistant depression 
+ Behav Brain Res 
+ 2011 
+ 216 
+ 463 
+ 465 
+ 20678526 
+ 
+ 
+ 
+ 
+ 
+ 
+ Woolsey 
+ TA 
+ 
+ 
+ Hanaway 
+ J 
+ 
+ 
+ Gado 
+ MH 
+ 
+ 
+ The brain atlas: a visual guide to the human central nervous system 
+ 2008 
+ N.J. Wiley 
+ Hoboken 
+ 
+ 
+ 
+ 
+ WU-Minn Human Connectome Project Consortium 
+ 500 Subjects Data Release reference manual 
+ 2014. 
+ 
+ 
+ 
+ 
+ 
+ 
+ Figure 1 
+ 
+ Two representative results from our semi-automatic habenula segmentation approach, subsequently used to generate functional connectivity seeds, with volumes one standard deviation below ( A ) and above ( B ) the mean. Habenulae are overlaid on subjects’ MNI-standardized 0.7mm isotropic resolution myelin maps. Central voxels (white) contain 100% habenula tissue; border voxels (red) contain partly Hb and partly surrounding tissue. 
+ 
+ 
+ 
+ 
+ Figure 2 
+ 
+ Regions with significantly ( p TFCE <0.05, k≥10) positive (red-yellow) and negative (blue-green) resting-state functional connectivity with the bilateral habenula in 50 healthy subjects. ACC: Anterior Cingulate Cortex. Hb: Habenula. PCC: Posterior Cingulate Cortex. VTA: Ventral Tegmental Area. 
+ 
+ 
+ 
+ 
+ Figure 3 
+ 
+ ( Top, Bottom ) Consecutive axial views of positive bilateral habenula functional connectivity ( p TFCE  <0.05, k≥10) with the midbrain (red-yellow). Overlays (black) are derived from previously published, MNI-standardized atlases ( Jakab, et al., 2012 ;  Krauth, et al., 2010 ;  Murty, et al., 2014 ), thresholded to exclude any voxels with <25% atlas probability. Slice orientations follow neurological convention. ( Right ) Sagittal view showing the location of the axial slices (green) on an MNI template brain. RN: Red Nucleus. SN: Substantia Nigra. VTA: Ventral Tegmental Area. 
+ 
+ 
+ 
+ 
+ Figure 4 
+ 
+ ( Top ) Regions where habenula functional connectivity was greater (red-yellow) and lower (blue-green) in healthy subjects with high relative to low subclinical depression scores (n=25 each) at the uncorrected  p <0.001, k≥10 level, represented by corresponding  t  values.  (Bottom)  Bar plots showing mean z-transformed correlation coefficients of the habenula (Hb), dorsomedial thalamic nucleus (DM), and centromedian thalamic nucleus (CM) seeds with the displayed clusters for the low (blue) and high (red) subclinical depression groups. Error bars indicate 95% confidence intervals. dmPFC: Dorsomedial Prefrontal Cortex. 
+ 
+ 
+ 
+ 
+ Figure 5 
+ 
+ ( Left ) Location and shape of the dorsomedial (blue) and centromedian (green) thalamic nuclei control seeds, which are based on the group-mean of all subjects’ individual habenula seeds (red). ( Center, Right ) Functional connectivity patterns (binarized at  p TFCE <0.05, k≥10) for the habenula and thalamic control seeds. Colors are additive in overlapping areas. 
+ 
+ 
+ 
+ 
+ Table I 
+ 
+ Subject Demographics 
+ 
+ 
+ 
+ 
+ Measure 
+ All Subjects 
+ High Subclinical Depression Group 
+ Low Subclinical Depression Group 
+ 
+ 
+ 
+ 
+ Age (Years ± SD) 
+ 28.9 ± 3.0 
+ 28.4 ± 3.0 
+ 29.4 ± 2.9 
+ 
+ 
+ Sex (F/M) 
+ 30/20 
+ 13/12 
+ 17/8 
+ 
+ 
+ Handedness (R/L) 
+ 46/4 
+ 23/2 
+ 23/2 
+ 
+ 
+ Education (Years ± SD) 
+ 13.9 ± 1.9 
+ 14.0 ± 1.7 
+ 13.8 ± 2.2 
+ 
+ 
+ Subclinical Depression Scores ± SD a 
+ 49.9 ± 16.2 
+ 65.5 ± 5.0 
+ 34.2 ± 0.0 b 
+ 
+ 
+ 
+ 
+ 
+ a 
+ NIH Toolbox, Negative Affect Survey, Sadness Subscale 
+ 
+ 
+ b 
+ Floor value of the scale 
+ 
+ 
+ 
+ 
+ Table II 
+ 
+ Habenula Resting-State Functional Connectivity in the Entire Sample (N=50) 
+ 
+ 
+ 
+ 
+ Region 
+ Cluster Size (Voxels) 
+ Effect Size ( d ; 95% Confidence Interval) 
+ Peak p TFCE a 
+ Peak MNI Coordinates (mm) 
+ 
+ 
+ X 
+ Y 
+ Z 
+ 
+ 
+ 
+ 
+ 
+ Positive Functional Connectivity 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Habenulae and Thalamic Nuclei (Central, Centromedian, Dorsomedial, Geniculate, Parafascicular, Posterior, Pulvinar, Ventral Lateral) 
+ 2153 
+ 2.37 (1.84, 2.94) 
+ <0.001 
+ 4 
+ −24 
+ 2 
+ 
+ 
+ Left Parahippocampal Gyrus (BA 27) 
+ 0.001 
+ −14 
+ −38 
+ −2 
+ 
+ 
+ Ventral Tegmental Area 
+ 0.002 
+ 0 
+ −18 
+ −18 
+ 
+ 
+ Dorsal Medial Midbrain 
+ 0.004 
+ 4 
+ −30 
+ −20 
+ 
+ 
+ Left Substantia Nigra 
+ 0.007 
+ −10 
+ −12 
+ −12 
+ 
+ 
+ Retrosplenial Cortex (BA 29) 
+ 0.008 
+ 0 
+ −42 
+ 6 
+ 
+ 
+ Superior Dorsal Medial Pons 
+ 0.017 
+ −2 
+ −32 
+ −26 
+ 
+ 
+ Sensorimotor Cortex (BA 1,2,3,4,5) 
+ 1529 
+ 1.02 (0.67, 1.36) 
+ 0.001 
+ 6 
+ −38 
+ 56 
+ 
+ 
+ Mid-Cingulate Cortex (BA 24) 
+ 497 
+ 1.09 (0.73, 1.44) 
+ 0.004 
+ 0 
+ −2 
+ 46 
+ 
+ 
+ Dorsal Anterior Cingulate Cortex (BA 32) 
+ 0.010 
+ −8 
+ 16 
+ 38 
+ 
+ 
+ Medial Frontal Cortex (BA 32) 
+ 0.010 
+ −4 
+ 18 
+ 46 
+ 
+ 
+ Precuneus (BA 7) 
+ 403 
+ 0.77 (0.45, 1.08) 
+ 0.003 
+ 8 
+ −70 
+ 40 
+ 
+ 
+ Posterior Cingulate Cortex (BA 31) 
+ 0.006 
+ 8 
+ −60 
+ 32 
+ 
+ 
+ Mid-Posterior Cingulate Cortex (BA 23) 
+ 373 
+ 0.84 (0.51, 1.16) 
+ 0.003 
+ 6 
+ −30 
+ 28 
+ 
+ 
+ Mid-Cingulate Cortex (BA 23) 
+ 0.004 
+ 0 
+ −14 
+ 30 
+ 
+ 
+ Supplementary Motor Area (BA 6) 
+ 172 
+ 0.77 (0.46, 1.09) 
+ 0.018 
+ −12 
+ −10 
+ 74 
+ 
+ 
+ Pregenual Anterior Cingulate Cortex (BA 32) 
+ 86 
+ 0.71 (0.39, 1.02) 
+ 0.027 
+ 10 
+ 38 
+ 20 
+ 
+ 
+ Pontine/Medullary Junction 
+ 83 
+ 0.95 (0.61, 1.28) 
+ 0.022 
+ 2 
+ −32 
+ −38 
+ 
+ 
+ Supplementary Motor Area (BA 6) 
+ 29 
+ 0.50 (0.21, 0.80) 
+ 0.044 
+ 2 
+ −16 
+ 62 
+ 
+ 
+ Supplementary Motor Area (BA 6) 
+ 17 
+ 0.47 (0.18, 0.76) 
+ 0.047 
+ −18 
+ −4 
+ 66 
+ 
+ 
+ Cerebellum 
+ 16 
+ 0.81 (0.49, 1.12) 
+ 0.037 
+ −4 
+ −68 
+ −46 
+ 
+ 
+ Left Lateral Pons 
+ 15 
+ 0.63 (0.32, 0.93) 
+ 0.045 
+ −16 
+ −26 
+ −30 
+ 
+ 
+ Right Lateral Pons 
+ 13 
+ 0.60 (0.30, 0.90) 
+ 0.044 
+ 10 
+ −26 
+ −40 
+ 
+ 
+ Cerebellum 
+ 11 
+ 0.54 (0.24, 0.83) 
+ 0.043 
+ 18 
+ −38 
+ −24 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Negative Functional Connectivity 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Right Cuneus (BA 19) 
+ 273 
+ 0.63 (0.32, 0.93) 
+ 0.006 
+ 20 
+ −82 
+ 46 
+ 
+ 
+ Right Middle Occipital Gyrus (BA 19) 
+ 174 
+ 0.59 (0.28, 0.88) 
+ 0.010 
+ 32 
+ −80 
+ 18 
+ 
+ 
+ Supramarginal Gyrus (BA 40) 
+ 150 
+ 0.75 (0.43, 1.06) 
+ 0.016 
+ 34 
+ −48 
+ 62 
+ 
+ 
+ Right Lingual Gyrus (BA 19) 
+ 62 
+ 0.66 (0.34, 0.97) 
+ 0.023 
+ 26 
+ −76 
+ −16 
+ 
+ 
+ Left Cuneus (BA 19) 
+ 25 
+ 0.62 (0.32, 0.92) 
+ 0.028 
+ −18 
+ −86 
+ 30 
+ 
+ 
+ Right Lingual Gyrus (BA 19) 
+ 15 
+ 0.74 (0.42, 1.05) 
+ 0.041 
+ 26 
+ −54 
+ −4 
+ 
+ 
+ Right Middle Occipital Gyrus (BA 19) 
+ 10 
+ 0.49 (0.19, 0.78) 
+ 0.048 
+ 36 
+ −78 
+ 4 
+ 
+ 
+ 
+ 
+ 
+ a 
+ Reported  p  values are adjusted for familywise errors using Threshold-Free Cluster Enhancement (TFCE) 
+ 
+ 
+ 
+ 
+ Table III 
+ 
+ Habenula Connectivity in High vs. Low Subclinical Depression Groups (n=25 each) 
+ 
+ 
+ 
+ 
+ Region 
+ Cluster Size (Voxels) 
+ Effect Size ( d ; 95% Confidence Interval) 
+ Peak  t Value 
+ Peak MNI Coordinates (mm) 
+ 
+ 
+ X 
+ Y 
+ Z 
+ 
+ 
+ 
+ 
+ 
+ High > Low Subclinical Depression 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Left Middle Temporal Gyrus (BA 21) 
+ 52 
+ 1.68 (1.01, 2.30) 
+ 5.52 
+ −50 
+ −10 
+ −14 
+ 
+ 
+ Right Middle Temporal Gyrus (BA 21) 
+ 15 
+ 1.16 (0.55, 1.74) 
+ 4.61 
+ 58 
+ 8 
+ −18 
+ 
+ 
+ Left Middle Temporal Gyrus (BA 21) 
+ 13 
+ 1.18 (0.57, 1.77) 
+ 4.27 
+ −68 
+ −18 
+ −4 
+ 
+ 
+ Left Temporal Pole (BA 38) 
+ 10 
+ 1.32 (0.69, 1.91) 
+ 4.22 
+ −38 
+ 12 
+ −30 
+ 
+ 
+ Left Frontal Operculum (BA 45) 
+ 10 
+ 1.21 (0.59, 1.79) 
+ 4.13 
+ −60 
+ 18 
+ 18 
+ 
+ 
+ Dorsomedial Prefrontal Cortex (BA 9) 
+ 30 
+ 1.18 (0.56, 1.76) 
+ 3.97 
+ −10 
+ 48 
+ 36 
+ 
+ 
+ Right Middle Temporal Gyrus (BA 21) 
+ 10 
+ 1.19 (0.57, 1.77) 
+ 3.96 
+ 62 
+ −4 
+ −26 
+ 
+ 
+ Left Inferior Lateral Parietal Cortex (BA 40) 
+ 19 
+ 1.20 (0.58, 1.78) 
+ 3.77 
+ −58 
+ −56 
+ 20 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Low > High Subclinical Depression 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Mid-Cingulate Cortex (BA 24) 
+ 19 
+ 1.55 (0.90, 2.16) 
+ 4.76 
+ 6 
+ −8 
+ 32 
+ 
+ 
+ Retrosplenial Cortex (BA 29) 
+ 11 
+ 1.65 (0.98, 2.26) 
+ 4.46 
+ 0 
+ −40 
+ 6 
+ 
+ 
+ Right Amygdala 
+ 19 
+ 1.44 (0.80, 2.04) 
+ 4.43 
+ 20 
+ 2 
+ −16 
+ 
+ 
+ Right Inferior Anterior Insula (BA 13) 
+ 21 
+ 1.60 (0.94, 2.21) 
+ 4.31 
+ 32 
+ 8 
+ −12 
+ 
+ 
+ Right Frontal Pole (BA 10) 
+ 10 
+ 1.35 (0.72, 1.94) 
+ 4.14 
+ 26 
+ 58 
+ 6 
+ 
+ 
+ Right Entorhinal Cortex (BA 28) 
+ 14 
+ 1.14 (0.53, 1.72) 
+ 4.14 
+ 28 
+ 8 
+ −24 
+ 
+ 
+ 
+ 
+ 

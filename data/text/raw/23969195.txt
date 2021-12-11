@@ -1,0 +1,2868 @@
+
+ properties manuscript? 
+ 
+ 
+ 0100725 
+ 3187 
+ Cortex 
+ Cortex 
+ 
+ Cortex; a journal devoted to the study of the nervous system and behavior 
+ 
+ 0010-9452 
+ 1973-8102 
+ 
+ 
+ 23969195 
+ 3899100 
+ 10.1016/j.cortex.2013.06.011 
+ NIHMS517705 
+ 
+ 
+ Article 
+ 
+ 
+ 
+ Neural Correlates of the Relationship between Discourse Coherence and Sensory Monitoring in Schizophrenia 
+ 
+ 
+ 
+ 
+ Tagamets 
+ Malle A. 
+ 
+ a 
+ 
+ 
+ 
+ Cortes 
+ Carlos R. 
+ 
+ a 
+ 
+ 
+ 
+ Griego 
+ Jacqueline A. 
+ 
+ a 
+ 
+ 
+ 
+ Elvevåg 
+ Brita 
+ 
+ b 
+ c 
+ 
+ 
+ a Maryland Psychiatric Research Center, Department of Psychiatry, University of Maryland, Baltimore, MD, USA 
+ b Psychiatry Research Group, Department of Clinical Medicine, University of Tromsø, Norway 
+ c Norwegian Centre for Integrated Care and Telemedicine (NST), University Hospital of North Norway, Tromsø, Norway 
+ 
+ Corresponding author. Malle A. Tagamets, P.O. Box 21247, Baltimore, MD 21228 USA, +1 (410) 402-6028,  mtagamet@mprc.umaryland.edu 
+ 
+ 
+ 29 
+ 10 
+ 2013 
+ 
+ 
+ 22 
+ 7 
+ 2013 
+ 
+ 
+ 6 
+ 2014 
+ 
+ 
+ 01 
+ 6 
+ 2015 
+ 
+ 55 
+ 77 
+ 87 
+ 
+ 
+ This file is available for text mining. It may also be used consistent with the principles of fair use under the copyright law. 
+ 
+ 
+ 
+ Unusual language use is a core feature of psychosis, but the nature and significance of this are not understood. In particular, thought disorder in schizophrenia is characterized by markedly bizarre speech, but the cognitive components that contribute to this and the brain correlates of these components are unknown. 
+ A number of studies have demonstrated language abnormalities in single-word processing, but few have examined speech in schizophrenia at the discourse level. This has been at least partly due to the difficulty in quantifying content of discourse. Recently, methods in computational linguistics have been found to be useful for detecting differences in semantic coherence during discourse between different clinical groups. We build on this work by demonstrating how these methods can be combined with fMRI in order to tease apart factors that underlie free discourse and its deviations, and how they relate to brain activity. 
+ Eleven volunteers with schizophrenia and eleven controls participated in an interview during which they were asked to talk as much as they could about ‘religious belief’. These same participants underwent fMRI during a word monitoring task, during which modality of monitoring was manipulated by varying the congruence of auditory and visual stimuli. Semantic coherence scores, measured from free discourse, were examined for their relationship to brain activations during fMRI. 
+ In healthy controls, regions associated with executive function were related to coherence. In persons with schizophrenia, coherence was mainly related to auditory and visual regions, depending on the modality of monitoring, but superior/middle temporal cortex related to coherence regardless of task. These findings are consistent with existing evidence for a role of superior temporal cortex in thought disorder, and demonstrate that computational measures of semantic content capture objective measures of coherence in speech that can be usefully related to underlying neurophysiological processes. 
+ 
+ 
+ 
+ 
+ 1. Introduction 
+ Disturbances in language are among the core features of schizophrenia. The speech of people with schizophrenia is often characterized by features such as odd or unusual choice of words, inappropriate shifts of topic, unusual juxtaposition of associates or concepts, and other features that suggest poor organization of semantic content ( Bleuler, 1950 ;  Harrow et al., 1983 ;  Elvevåg and Goldberg, 1997 ). While there have been numerous studies of language and semantic function at the single word level, there have been relatively few that have examined semantic organization at the discourse level in schizophrenia. This is at least partly due to the difficulty of objectively quantifying semantic content at this level. Recent advances in computational methods augur significant progress in this area. These methods, which we refer to collectively as Computational Semantic Analysis (CSA), have been employed in a variety of applications, including grading written material ( Kintsch, 2002 ), examining phenomena in psychology ( Wolfe and Goldman, 2003 ), and extracting context-based information from large collections of texts such as PubMed ( Vanteru et al. 2008 ). More recently, CSA methods have begun to be used in clinical applications in psychiatry and neurology. These investigations have demonstrated that CSA methods can distinguish among clinical populations ( Elvevåg et al. 2007 ;  Cohen et al., 2008 ;  Roll et al. 2012 ) and detect changes in language use after treatment for depression ( Arvidsson et al. 2011 ). In the study of  Elvevåg et al. (2007)  CSA methods were shown to be sensitive to differences in language between individuals with schizophrenia and a control group, and the CSA measures correlated with clinical measures of thought disorder, as rated by the Thought, Language and Communication (TLC) scale ( Andreasen, 1986 ).  Arvidsson et al. (2011)  employed CSA methods to show that representations of self were significantly different between depressed young adults and a control group, but that this difference disappeared after treatment, and was maintained at an 18 month follow-up. However, speech is a complex process, and numerous cognitive components contribute to the expression of meaning. The cognitive components that contribute to CSA measures are not known, nor is it known whether these measures capture features that have a neurophysiological basis. 
+ Multiple lines of evidence indicate that disturbances in both the executive and the semantic systems may underlie disordered speech in schizophrenia ( Kerns and Berenbaum, 2002 ;  Giovannetti et al. 2003 ;  Barrera et al., 2004 ;  Chan et al. 2010 ;  Kuperberg 2010 ). Language abnormalities in schizophrenia have been proposed to be associated with both an increased automatic spread of semantic associations and decreased executive control operations ( Salisbury 2008 ;  Kiefer et al. 2009 ;  Kreher et al. 2009 ). One of the key executive functions of relevance in speech coherence is monitoring, a process in which speech that is being produced is compared against the intended output ( Levelt, 1989 ). Deficits in monitoring of speech have been proposed to play a significant role in aberrant speech in schizophrenia ( McGuire et al. 1998 ;  Allen et al. 2007b ). For example, it has been suggested that in people with schizophrenia, deficits in monitoring can result in either associative or phonological chaining (glossomania), a phenomenon where meanings or sounds of the most recently uttered words influence what follows (for a review see  Covington et al. 2005 ). 
+ There is considerable evidence that at least up to the articulation phase, the processes and brain regions involved in monitoring self-generated and external speech are largely shared ( Levelt, 1999 ;  Indefrey and Levelt, 2004 ). Together, these considerations suggest that a monitoring task that involves linguistic stimuli is likely to tap into processes that can influence the content of speech. The logic behind this approach is that if brain activations during monitoring are positively related to coherence scores, it provides evidence for the role of monitoring in the coherence of free speech. Furthermore, monitoring is a composite process that depends on multiple functional components, such as attention, working memory, and sensory processing, among other things. A further goal of our approach is to examine the specificity of the regions that mediate the relationship between monitoring and speech coherence. The nature of these regions provides evidence for specific mechanisms that contribute to the effectiveness of monitoring. 
+ The fMRI tasks in the current study involve monitoring linguistic representations in either the auditory or visual modality. Activations in these tasks are then examined to assess whether brain regions that mediate automatic processing, auditory monitoring, and visual monitoring are related to coherence of discourse as measured by CSA methods, in both individuals with schizophrenia and healthy controls. There are two main hypotheses in this work. The first is that brain regions related to executive functions will be the primary regions that are correlated with CSA scores in the healthy control group. This would lend support to the idea that CSA methods capture underlying processes that contribute to speech coherence. The second hypothesis is that coherence of free speech in schizophrenia is less related to these control regions, and instead reflects compensatory processes that primarily rely on sensory processing. 
+ 
+ 
+ 2. Materials and Methods 
+ The approach taken here is to employ fMRI during various tasks that make demands on different levels of automatic and controlled monitoring operations. Participants are scanned while performing three one-back matching tasks that are described in detail below and illustrated in  Figure 2 . All stimuli are common words and are presented in both auditory and visual modalities simultaneously. The controlled processes have either homographs or homophones as stimuli and require monitoring either auditory or visual/orthographic properties while simultaneously ignoring the other modality. The resulting activation patterns are then regressed against CSA scores that were obtained from spontaneous speech samples outside the scanner. 
+ The rationale for this approach is twofold. First, as reviewed above, contributions from specific operations can be identified by examining brain activity associated with specific task components. This reveals brain regions that mediate these cognitive components only if they contribute to speech coherence during free discourse. Second, continuous free speech is problematic during fMRI due to motion artifacts related to mouth and throat movements, and thus scanning during the interviews is likely to cause noise in the data. 
+ 
+ 2.1. Participants 
+ Eleven healthy volunteers (HV), 6 men and 5 women (mean age of 47, range 26-60 years) and eleven volunteers with schizophrenia (SZ), 9 men, 2 women (mean age 40, range 23-54 years; mean duration of illness 25 years, range 7-39 years) participated in the study. There was no difference between the groups in age (p = .14). All participants gave written informed consent prior to participation in this study approved by the University of Maryland School of Medicine Institutional Review Board. Inclusion criteria for the healthy participants included: (1) no past or present psychiatric disorder as determined with the Structured Clinical Interview for DSM-IV, Non-Patient Version ( SCID-NP; First et al., 1995 ); (2) no first-degree relatives with a diagnosis of a psychiatric disorder; (3) no current or past neurological condition; (4) right-handed as classified by the Raczkowski Handedness Questionnaire ( Raczkowski et al., 1974 ); and (5) no metal in the body. For the volunteers with schizophrenia, inclusion criteria 3 to 5 were the same as for the HV. In addition, they were required to meet DSM-IV for a diagnosis of schizophrenia. Every participant with schizophrenia had been on a stable dose of antipsychotics for at least 6 months and on their current antipsychotic for at least 3 months prior to testing. Ten of the eleven SZ were on stable doses of second-generation antipsychotics and one was on intramuscular haloperidol. In addition to the antipsychotics, one patient was on serotonin-specific reuptake inhibitor (SSRI), one on Valproic acid, one on Lamotrigine, and one on SSRI and Benztropine. 
+ 
+ 
+ 2.2. Clinical assessment 
+ All participants with schizophrenia were administered the Brief Psychiatric Rating Scale ( BPRS, Hedlund and Vieweg 1980 ), and scores are given in  Table 1 . Importantly, patients in our sample displayed a wide range of symptoms. Summary subscores were computed as follows: 1) Thinking disturbance: sum of Conceptual Disorganization, Hallucinatory Behavior, and Unusual Thought Content; 2) Withdrawal: sum of Emotional Withdrawal, Motor Retardation, and Blunted Affect; 3) Anxiety: sum of Somatic Concern, Anxiety, Guilt Feelings, and Depressive Mood; 4) Hostility: sum of Hostility, Suspiciousness, and Uncooperativeness; 5) Activation: sum of Tension, Mannerisms and Posturing, and Excitement; 6) Psychosis: sum of Conceptual Disorganization, Suspiciousness, Hallucinatory Behavior, and Unusual Thought Content. The Positive symptom subscore is the sum of Conceptual Disorganization, Mannerisms and Posturing, Grandiosity, Suspiciousness, Hallucinatory Behavior, Unusual Thought Content, and Inappropriate Affect. The Negative symptom subscore is the sum of Emotional Withdrawal, Motor Retardation, Blunted Affect, and Poverty of Speech. The total score is the sum of all scores. 
+ 
+ 
+ 2.3. CSA Methods 
+ Speech samples were collected as part of a larger study in which interviews include several different topics on which participants are asked to speak as much as they can. Preliminary findings from that study suggest that the question whose scores have the most sensitivity to detect differences between people with schizophrenia and healthy controls is: “Who or what do you think God is, and why do you think people believe in God?” Scores from this question were used here. The speech samples were recorded and transcribed into electronic texts. They were then checked by a second person to insure integrity of the transcriptions. The texts were filtered to include only nouns, verbs, adjectives, and adverbs (content words). Auxiliary verbs (e.g. “is”, “be”, “were”, and so on) were also removed. The rationale for this was twofold: 1) functors are highly common, so they inflate scores artificially because of their frequency, and 2) they carry little or no meaning, so they do not contribute to context. 
+ CSA methods are based on two main steps. First a high dimensional “semantic” space is constructed from a large corpus of texts. This space consists of vectors that represent the relationships between the texts and the words that are contained in the texts. The second step consists of computing a score for a text of interest. Typically this involves measuring the distance between the vector of this text and another vector that represents some other text. A higher score reflects more similarity between the texts. In the current work, we use a method related to Latent Semantic Analysis (LSA) that has recently been developed in our laboratory. Briefly, the method that is used to construct the vector space is the same as in LSA, but dimensionality reduction is achieved through a greedy algorithm rather than by singular value decomposition. In CSA applications, the word-document matrix typically consists of tens of thousands to millions of texts in one dimension and thousands of terms in the other. The key to the success of these methods is reduction of dimensionality in a manner that projects similar meanings to similar vectors. In LSA, singular value decomposition is used for this reduction. This is a mathematical method that decomposes a matrix into component parts that include a matrix of eigenvalues associated with the matrix. By choosing a desired dimension D, typically in the 300-500 range, the projection consists of a D × D matrix generated by the D largest eigenvalues. However, there is no good rule of thumb for choosing an ideal dimension, which may depend on the specific corpus, and different choices of D can result in different results [ Landauer et al., 1998 ; Kakkonen et al., 2008]. In contrast, we use a greedy algorithm that is based on set covering. For a given term, the set of documents that contain the term form the cover set for that term. This process is repeated for successive terms until all documents have been covered. The vectors for these terms form the basis for the new lower dimensional space. This results in a dimension that arises naturally from the properties of the corpus. 
+ As in LSA, scores are computed as the cosine of the angle between pairs of vectors, each of which represents the location of a text in semantic space. Here we chose two words,  myself  and  ourselves  for the comparisons. Abnormalities in self-representation have been associated with symptoms in various psychiatric disorders and have been shown to be related to treatment-related clinically relevant changes ( Bers et al., 1993 ;  Harpaz-Rotem and Blatt, 2009 ). In particular, schizophrenia has long been associated with disturbances in self or self-representation ( Bleuler, 1950 ;  Kircher et al., 2003 ;  Raballo et al, 2011 ;  Waters et al., 2012 ) and has even been proposed to be primarily a disorder of self ( Sass and Parnas, 2003 ;  Lysaker and Lysaker, 2010 ), a hypothesis that has found support in first-person accounts ( Kean, 2009 ). For example, disturbances in self-reflectivity have been associated with verbal intrusions ( Fridberg et al, 2010 ) and hallucinations ( Waters et al., 2012 ). Based on these considerations, we computed the similarity of interview answers to the belief question with the words "myself" and "ourselves". We refer to this score, computed as the mean of the cosines between the participant's transcript and each of these words, as the Personal-Thematic Coherence (PTC) score. The rationale for comparing a text to a specific phrase is that this score reflects the degree to which the speaker's conceptual knowledge of the phrase is integrated with the topic of the theme. As religious belief is a highly personal topic that is integrated with one's view of oneself [ Stein, 2008 ], we posit that this measure captures an aspect of coherence that may reflect underlying conceptual organization. 
+ In our current database, which contains interviews from 137 healthy participants and 171 participants with schizophrenia, this metric yields a between-group difference at p = .002. We have also examined test-retest reliability for this method. Eighty-seven participants have performed the interview at two different times, ranging from a few months to a year or more apart. Scores ranged from .642 to .914, and the test-retest reliability score has a value of .82 (see  Figure 1 ). Examples of the answers with the lowest and highest PTC scores for each group in the current study are given in the Appendix. 
+ 
+ 
+ 2.4. fMRI Experimental design 
+ The experimental design was implemented using E-prime software version 1.1 (Psychology Software tools, Inc., Pittsburgh, PA). A one-back task with an inter-stimulus interval (ISI) of one second was used in all task conditions. All task stimuli were monosyllabic three to five letter words that were presented simultaneously both visually and auditorily (see  Figure 2 ). Visual stimuli were presented for 500 msec in a black font on a white background and randomized as follows: Half of the stimuli were lower case and half were upper case, and fonts were varied over eight different typefaces. This was done to prevent the task from being performed on a purely visual feature basis, and instead to force orthographic and lexical representations ( Cohen et al., 2002 ;  Price and Devlin, 2003 ). Auditory stimuli were pronounced in a male voice. Participants were instructed to press a button whenever the current stimulus matched the previous one in both spelling and sound, but to ignore the font type and case. Within a run, each experimental condition was presented in three separate blocks with 16 stimuli per block, and the order of the blocks was randomized. A baseline condition consisting of a fixation cross was presented at the beginning of the run, between task blocks and at the end of the run. The fixation cross between blocks lasted 4000 msec and the fixation cross at the beginning and the end lasted 8000 msec. All conditions were repeated in two runs, with different stimuli and block orders in each run. 
+ There were thus three experimental conditions (plus a baseline fixation condition), which were as follows:
+ Words (WDS): 12-14 different words were presented in each block and 2-4 were repeated as matches for the one back task. Homophones (HMP): A different pair of homophones, e.g.  sale  and  sail , was presented in each block. Each word of the pair was presented eight times in pseudo-randomized order, with 2-4 matches in each block. Since the words sound the same, participants had to focus on the visual presentation and ignore the sounds of the spoken words. Homographs (HMG): A different pair of homographs, e.g.  bow , pronounced as either  bō  or  bou , was presented in each block. Each word of the pair was presented eight times in pseudo-randomized order, with 2-4 matches in each block. In this case, the visual presentation needs to be ignored and the matches are based on sound alone. 
+ 
+ 
+ 2.5. Behavioral data 
+ For behavioral data, hit rate (HR), false alarm rate (FAR) and hit reaction time (HRT) measures were used to evaluate behavioral performance. ANOVAs of each of these measures were performed with group as a between-subjects factor and condition as a within-subjects factor. Post-hoc within-group pairwise comparisons between conditions were performed using t-tests, as were between-group comparisons within each condition. 
+ 
+ 
+ 2.6. Image acquisition 
+ fMRI data was acquired at the University of Maryland's Anna Gudelsky Magnetic Resonance Facility under the auspices of the Department of Diagnostic Radiology. Data was acquired using a 3.0 Tesla Siemens Magnetom Trio equipped with a standard CP head coil with eighteen channels for parallel imaging. Anatomical images of participants were collected using a sagittal T1 MPRAGE sequence, slice thickness of 1.0 mm, TR of 1600 msec and TE of 3.37 msec. Whole brain Blood oxygen level-dependent (BOLD) changes were measured using a gradient-echo T2* BOLD contrast technique with TR = 2100 msec, TE = 30 msec, FOV = 220 mm 2 , 64 × 64 matrix. 32 axial slices were collected parallel to the anterior commissure-posterior commissure plane, ascending interleaved acquisition, 3 mm thick, 1 mm gap, effective voxel size = 3.4 × 3.4 × 4.0 mm. 
+ Data were preprocessed and analyzed using SPM8 (Wellcome Department of Imaging Neuroscience, London). Slice timing correction to the first slice was performed using SPM8's Fourier phase shift interpolation. Functional data from each run were realigned to the first volume. The realigned images were then normalized to the Montreal Neurological Institute SMP8 EPI template. Finally, functional images were smoothed with a 12-mm FWHM Gaussian kernel to ameliorate differences in inter-subject localization. 
+ All task and control block conditions were separately convolved with the canonical hemodynamic response function using the general linear model. A 128-second high-pass filter was applied to remove low-frequency fluctuation in the BOLD signal, and a one-lag autoregression (AR(1)) model was used to correct for serial (i.e., temporal) autocorrelation. A task minus baseline contrast was generated for each of the three tasks for each participant in a first-level analysis. 
+ For examining relationships of the BOLD response to PTC scores, a whole-brain regression analysis was performed separately for each condition at the second level. Task minus fixation baseline contrasts for each subject were entered into the regression analysis as the dependent variable for each of the three tasks, with the PTC scores as the independent variables. Analyses were thresholded at p < .001 with a cluster size of at least 10 voxels. Regions common to all three tasks were also examined by an inclusive mask over the three conditions, each thresholded at p < .03, yielding an effective threshold of p < 2.7 * 10 -5  across conditions. Between-group contrasts were generated for each of the three tasks at the second level by entering the PTC scores as regressors and comparing the results of the regressions between the groups. 
+ 
+ 
+ 
+ 3. Results 
+ 
+ 3.1. PTC Scores 
+ Both PTC scores and number of words spoken in response to the interview questions were lower in the SZ group than in the HV group (see  Table 2 ). The difference between groups was almost significant in the PTC scores (p = .059), and the difference in the number of words spoken showed a trend toward significance (p = .084). Within the schizophrenia group, there were no significant correlations between PTC scores and total BPRS score or any of the aggregate symptom factors. 
+ 
+ 
+ 3.2. Behavioral Performance in the fMRI Tasks 
+ Reaction times (RT), hit rates (HR), and false alarm rates (FAR) for each condition and each group are given in  Table 3 . In the ANOVA, there was no significant effect of group or group by task interaction for any of these measures, but there was a significant effect of task in the hit rates (F= 5.3, p= 0.008) and false alarm rates (F= 11.25, p= 7.1 × 10 -5 . 
+ Post-hoc comparisons were conducted to explore these effects. There were no significant between-group differences in any of these measures in any task, although there was a trend toward a difference in the false alarm rate (p =.068, see  Figure 3 ). Comparing the words condition to each of the other two conditions, both groups showed significant differences in the false alarm rate (see  Figure 3 ). In the HV group, words versus homophones was p = 4.5 × 10 ‐5  and words versus homographs was p =1.9 × 10 -4 . In the SZ group, words versus homophones was p = .012 and words versus homographs was p =.007. Additionally, the HV group had significant differences in hit rates between words versus homophones and words versus homographs, with p-values of .012 and .033, respectively. There were no significant differences in hit rates between the homophones and homographs conditions in either group. Overall, the behavioral results demonstrate that the homographs and homophones conditions were more difficult than the words condition in both groups, supporting the idea that these tasks required more monitoring that the words condition, in which auditory and visual stimuli were congruent. 
+ 
+ 
+ 3.3. Correlations of PTC scores with fMRI activations 
+ Correlations of PTC scores with brain activations in each of the three tasks in the HV and SZ groups are shown in  Figure 4  and  Tables 4  and  5 . All data are thresholded at p<.001 and a cluster size of 10 voxels. In the healthy control group, no regions were significantly correlated with the words or homographs conditions, although there was a location in the anterior cingulate cortex (ACC) that was just above threshold at p=.001, in BA24 (-3, -1, 34). This is near the location found in the homophones condition, shown in  Table 4 . Activation in the homophones task was also related to PTC scores in right insula and middle frontal gyrus (BA 46). 
+ The SZ group showed relationships between PTC scores and brain activations in all three conditions. Left superior/middle temporal cortex appears in all three conditions. A homologous region on the right side is present only in the homographs condition. Visual areas (cuneus and lingual gyrus) are present in both the words and homophones conditions in the SZ. A medial superior frontal gyrus area (BA 6/8) is present in both the homographs and homophones conditions. The homophones condition also has an area in left inferior frontal gyrus (BA 47). 
+ 
+ 
+ 3.4. Correlations of PTC Scores Common to all Three Conditions 
+ In order to identify regions common to all three conditions, each condition was thresholded at p < .03, and a conjunction among all three conditions was generated. Results are shown in  Figure 5  and  Table 6 . In the HV group, relationships between PTC scores and brain activations included the anterior cingulate (BA 24), right superior temporal cortex (BA 22), right precentral cortex (BA 4 and 6), left anterior superior temporal cortex (BA 38), and right middle frontal cortex (BA 46). In the SZ group, regions associated with PTC scores include bilateral middle superior/middle temporal gyrus (BA 21, 22 and 41), posterior visual areas (BA 18 and 19), medial superior frontal gyrus (BA 6/8), left middle/superior frontal cortex (BA 9), and right precentral cortex (BA 6). 
+ 
+ 
+ 3.5. Between-groups Comparisons 
+ Direct between-group analysis comparing the correlation between PTC scores and brain activations were performed in each of the three conditions. The only comparison with significant activations was in SZ minus HV in the homographs condition. Five different clusters were identified, bilateral superior frontal gyrus/supplemental motor area (0, 17, 58), right supramarginal gyrus (54, -28, 43), right parahippocampal/fusiform gyrus (36, -46, -6), right superior temporal pole - BA 38 (36, 5, -26) and right culmen / vermis (6, -58, -5). 
+ 
+ 
+ 
+ 4. Discussion 
+ The results suggest that CSA methods capture aspects of speech that can be related to specific functions as reflected by brain activity and task demands. In particular, the associations of PTC scores in all task conditions with superior temporal activity in the group with schizophrenia suggests that CSA methods capture processes associated with thought disorder, which has long been associated with both structural and functional abnormalities in superior temporal gyrus (STG). Numerous structural MRI studies indicate that volume reductions in left STG and abnormalities in left-right asymmetry in STG in schizophrenia are associated with thought disorder ( Shenton et al., 1992 ;  Vita et al., 1995 ;  Menon et al., 1995 ;  Pearlson, 1997 ;  Rajarethinam et al., 2000 ;  Subotnik et al., 2003 ;  Weinstein et al., 2007 ;  Horn et al., 2009 ). 
+ Functional abnormalities associated with STG and thought disorder have also been widely reported in schizophrenia ( Pearlson, 1997 ;  Wible et al., 2009 ). Reduced N200 and P300 have been found in auditory oddball tasks using ERP ( O'Donnell et al., 1993 ;  Shenton et al., 1993 ) and fMRI ( Wible et al., 2001 ). Most of these studies found relationships between reduced P300 in auditory oddball tasks and thought disorder scores, suggesting that auditory functional abnormalities may contribute to thought disorder. 
+ Language tasks and other paradigms have also been used to reveal deviations of temporal lobe activity and its relationship to thought disorder in schizophrenia. Using fMRI, left superior/middle temporal lobe activity has been found to be related to thought disorder scores during the listening of speech ( Weinstein et al., 2006 ;  Weinstein et al., 2007 ), in the generation of speech ( Kircher et al., 2002 ), and during a resting state (using arterial spin labeling;  Horn et al., 2009 ). 
+ Formal thought disorder has been proposed to be associated with a defective self-monitoring of inner speech ( Jones and Fernyhough 2007 ). Some studies suggest altered fronto-temporal activity ( McGuire et al. 1995 ;  McGuire et al. 1996 ;  Kumari et al. 2010 ) and connectivity ( Mechelli et al. 2007 ). More recently, it has been suggested that a network comprising the thalamus and fronto-temporal regions underlies the impaired speech monitoring in schizophrenia ( Kumari et al. 2010 ), while other studies suggest that a failure in the anterior cingulate to exert a top-down modulation of the left superior temporal gyrus contributes to the defective inner speech monitoring ( Allen et al. 2007a ;  Simons et al. 2010 ). Our results support the latter view, since both anterior cingulate and left temporal cortex activations are correlated with speech coherence in the healthy control subjects, whereas anterior cingulate correlations with speech coherence is absent in the group with schizophrenia but left superior temporal cortical activations show a robust relationship in this group. 
+ Speech is a complex activity that involves semantic retrieval, monitoring context and sounds, working memory, and attention, among other cognitive operations. The fMRI tasks used here are designed to examine the contributions of auditory and visual monitoring to coherence of free discourse, and to compare these to contributions from more automatic linguistic processes. All tasks presented here require one-back matching, but the types of stimuli are manipulated in order to tap into different processes involved with recognizing words. Hearing and seeing homophones simultaneously forces monitoring of the orthographic properties of the stimuli while ignoring how they sound. In contrast, performing this task with homographs forces monitoring in the auditory modality and discounting orthography. Performing this task with words that are neither homophones nor homographs taps into more automatic processes, since the two sensory modalities are congruent. It was expected that examining how brain activations in each of these conditions are related to coherence of discourse, as measured by CSA methods, would reveal whether the respective operations contribute to semantic coherence and help identify brain regions that mediate this relationship. Although sensory and semantic functions are generally considered to be mediated by lower level and higher level cognitive operations, respectively, theories of semantic disorganization during speech in schizophrenia suggest that faulty auditory monitoring of self-generated speech can result in apparent semantic incoherence ( Cohen et al., 1974 ;  Covington et al. 2005 ). The considerable evidence for the role of superior temporal cortex in thought disorder supports this idea, and our results also concur with such an interpretation, and moreover suggest that a combination of sensory association cortical abnormalities and lack of higher level cortical involvement at least partially underlie the observed semantic incoherence in schizophrenia. 
+ Analyses of each of the three conditions separately demonstrate that in healthy controls, brain regions associated with executive control play a role in coherent speech. This was evidenced by findings of a positive relationship between anterior cingulate activity and coherence scores in the two conditions that require effortful control, albeit in the homographs condition the significance of the relationship was just above threshold. On the other hand, in the words condition, there were no regions that predicted discourse coherence in the control group. Taken together, these results suggest that executive control processes play a more significant role in coherence of speech than do automatic processes in the healthy control group. In contrast, in the schizophrenia group, sensory association regions primarily contribute to speech coherence. Left superior temporal gyrus activations (Brodmann areas 21 and 22) were found to predict coherence in the schizophrenia group in all three conditions. The location of these activations is anterior to classic language regions, and they are thought to be involved in auditory processing of words rather than semantics. In addition, visual association area activations in the words condition were found to predict coherence. The presence of both auditory and visual regions in even the low-demand words condition suggests that fundamental association cortex deficits may contribute to semantic incoherence even in the absence of effortful monitoring. In addition to sensory association areas, both effortful tasks revealed a superior frontal region, the supplementary motor cortex, to also predict coherence. This may reflect a compensatory mechanism that relies on a more mechanistic level of control of internal and external speech. Post-scan interviews from our previous studies show that participants pronounce words internally even when stimuli are presented only visually ( Tagamets et al. 2000 ;  Fisher et al. 2011 ). This strategy is expected to be interfered with when both auditory and visual stimuli are present, and may require more effort. 
+ Differences between the homographs and homophones conditions in the schizophrenia group are primarily in sensory association areas. In the homophones condition, these are in visual association areas, which likely reflect the necessity to monitor orthographic properties of the stimuli. In the homographs condition, the auditory regions that predict coherence are more extensive than in the other two conditions and extend to the right hemisphere. This may be attributable to the need to monitor the auditory modality in this condition. Altogether, the results point to a significant role of the responsiveness of sensory association cortex to task demands in mediating the choice of words during discourse in schizophrenia. Although both auditory and visual regions are involved, the results suggest an especially significant role for auditory association regions in determining coherence of speech in schizophrenia. 
+ The conjunction analysis across all three tasks reveals regions that predict coherence of speech regardless of modality or automaticity. In the control group, these regions are associated with both executive function (frontal cortex) and semantics (anterior temporal cortex), a finding that is consistent with theories of the brain correlates of language in the healthy control population ( Martin and Chao, 2001 ;  Ferstl et al., 2008 ;  Price, 2010 ). In the group with schizophrenia, both auditory and visual association areas are related to coherence of speech as measured by CSA. In particular, superior temporal lobe activations show a robust relationship to CSA scores in this group across all conditions, a finding that is consistent with the well-documented role of this region in thought disorder. In addition, there is a notable lack of the anterior cingulate involvement, which is seen in the healthy controls. 
+ Overall, the results support the idea that CSA methods capture semantics and context in a quantitative manner, and that these measures are influenced by factors that can be quantified by brain imaging methods. Brain correlates of coherence of speech have not been examined in healthy populations. This has been at least partly due to the lack of sufficiently sensitive measures of coherence. By using CSA methods, a more sensitive and objective measure of semantic coherence can be achieved, and the current results demonstrate the role of both executive and semantic processes in semantic coherence in the speech of healthy individuals. In the schizophrenia group, these results support the role of sensory monitoring on coherence, and further suggest that sensory association cortex function plays a greater role than either classically executive or semantic regions, pointing to a fundamental deficit that ultimately leads to high-level dysfunction that manifests as reduced semantic coherence in spontaneous speech. 
+ Despite these promising results, more work needs to be done to identify the extent to which CSA methods reflect neurophysiologically identifiable components of semantic content in free speech. Group sizes in this study are relatively small. Also, only one specific aspect of cognitive function that may affect semantic coherence was examined, namely, sensory monitoring of single words. While CSA methods are objective when compared to clinical interviews for assessing thought disorder, they do not capture aspects of speech such as affect, hesitations, tone of voice, or other physical attributes that may accompany a face-to-face interview. They also do not reflect syntax, grammar, or some of the features that are sometimes associated with thought disorder, such as stilted speech, neologisms, or blocking. Despite these limitations, CSA methods capture what is arguably the most difficult aspect of language to assess objectively, namely, semantic content and context. Our results suggest that when coupled with appropriate tasks, CSA methods can be used to identify the neural correlates of how meaning is constructed and how expression of meaning is regulated. 
+ 
+ 
+ Supplementary Material 
+ 
+ 01 
+ 
+ 
+ 
+ 
+ 
+ This work was supported by NIMH grant R01 MH078049 (MAT). 
+ 
+ 
+ 
+ This is a PDF file of an unedited manuscript that has been accepted for publication. As a service to our customers we are providing this early version of the manuscript. The manuscript will undergo copyediting, typesetting, and review of the resulting proof before it is published in its final citable form. Please note that during the production process errors may be discovered which could affect the content, and all legal disclaimers that apply to the journal pertain. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Allen 
+ P 
+ 
+ 
+ Aleman 
+ A 
+ 
+ 
+ McGuire 
+ PK 
+ 
+ 
+ Inner speech models of auditory verbal hallucinations: evidence from behavioural and neuroimaging studies 
+ International Review of Psychiatry 
+ 19 
+ 4 
+ 407 
+ 415 
+ 2007a 
+ 17671873 
+ 
+ 
+ 
+ 
+ 
+ 
+ Allen 
+ P 
+ 
+ 
+ Amaro 
+ E 
+ 
+ 
+ Fu 
+ CH 
+ 
+ 
+ Williams 
+ SC 
+ 
+ 
+ Brammer 
+ MJ 
+ 
+ 
+ Johns 
+ LC 
+ 
+ 
+ McGuire 
+ PK 
+ 
+ 
+ Neural correlates of the misattribution of speech in schizophrenia 
+ British Journal of Psychiatry 
+ 190 
+ 162 
+ 169 
+ 2007b 
+ 17267934 
+ 
+ 
+ 
+ 
+ 
+ 
+ Andreasen 
+ NC 
+ 
+ 
+ Scale for the assessment of thought, language, and communication (TLC) 
+ Schizophrenia Bulletin 
+ 12 
+ 3 
+ 473 
+ 482 
+ 1986 
+ 3764363 
+ 
+ 
+ 
+ 
+ 
+ 
+ Arvidsson 
+ D 
+ 
+ 
+ Sikström 
+ S 
+ 
+ 
+ Werbart 
+ A 
+ 
+ 
+ Changes in self and object representations following psychotherapy measured by a theory-free, computational, semantic space method 
+ Psychotherapy Research 
+ 21 
+ 4 
+ 430 
+ 446 
+ 2011 
+ 21623547 
+ 
+ 
+ 
+ 
+ 
+ 
+ Barrera 
+ A 
+ 
+ 
+ McKenna 
+ PJ 
+ 
+ 
+ Berrios 
+ GE 
+ 
+ 
+ Formal thought disorder in schizophrenia: an executive or a semantic deficit? 
+ Psychological Medicine 
+ 35 
+ 121 
+ 132 
+ 2004 
+ 15842035 
+ 
+ 
+ 
+ 
+ 
+ 
+ Bers 
+ SA 
+ 
+ 
+ Blatt 
+ SH 
+ 
+ 
+ Sayward 
+ HK 
+ 
+ 
+ Johnston 
+ RS 
+ 
+ 
+ Normal and pathological aspects of self-descriptions and their change over long-term treatment 
+ Psychoanalytic Psychology 
+ 10 
+ 1 
+ 17 
+ 37 
+ 1993 
+ 
+ 
+ 
+ 
+ 
+ 
+ Bleuler 
+ E 
+ 
+ 
+ Dementia praecox or the group of schizophrenias 
+ New York 
+ International Universities Press 
+ 1950 
+ 
+ 
+ 
+ 
+ 
+ 
+ Chan 
+ RC 
+ 
+ 
+ Huang 
+ J 
+ 
+ 
+ Guo 
+ L 
+ 
+ 
+ Cao 
+ X 
+ 
+ 
+ Hong 
+ X 
+ 
+ 
+ Gao 
+ Z 
+ 
+ 
+ Executive control in schizophrenia in task involving semantic inhibition and working memory 
+ Psychiatry Research 
+ 179 
+ 3 
+ 259 
+ 266 
+ 2010 
+ 20537400 
+ 
+ 
+ 
+ 
+ 
+ 
+ Cohen 
+ BD 
+ 
+ 
+ Nachmani 
+ G 
+ 
+ 
+ Rosenberg 
+ S 
+ 
+ 
+ Referent communication disturbances in acute schizophrenia 
+ Journal of Abnormal Psychology 
+ 83 
+ 1 
+ 1 
+ 13 
+ 1974 
+ 4812428 
+ 
+ 
+ 
+ 
+ 
+ 
+ Cohen 
+ L 
+ 
+ 
+ Lehéricy 
+ S 
+ 
+ 
+ Chochon 
+ F 
+ 
+ 
+ Lemer 
+ C 
+ 
+ 
+ Rivaud 
+ S 
+ 
+ 
+ Dehaene 
+ S 
+ 
+ 
+ Language-specific tuning of visual cortex? Functional properties of the Visual Word Form Area. Brain□ 
+ A Journal of Neurology 
+ 125 
+ 5 
+ 1054 
+ 69 
+ 2002 
+ 
+ 
+ 
+ 
+ 
+ 
+ Cohen 
+ T 
+ 
+ 
+ Blatter 
+ B 
+ 
+ 
+ Patel 
+ V 
+ 
+ 
+ Simulating expert clinical comprehension: adapting latent semantic analysis to accurately extract clinical concepts from psychiatric narrative 
+ Journal of Biomedical Informatics 
+ 41 
+ 6 
+ 1070 
+ 1087 
+ 2008 
+ 18455483 
+ 
+ 
+ 
+ 
+ 
+ 
+ Covington 
+ MA 
+ 
+ 
+ He 
+ C 
+ 
+ 
+ Brown 
+ C 
+ 
+ 
+ Naci 
+ L 
+ 
+ 
+ McClain 
+ JT 
+ 
+ 
+ Fjordbak 
+ BS 
+ 
+ 
+ Semple 
+ J 
+ 
+ 
+ Brown 
+ J 
+ 
+ 
+ Schizophrenia and the structure of language: the linguist's view 
+ Schizophrenia Research 
+ 77 
+ 1 
+ 85 
+ 98 
+ 2005 
+ 16005388 
+ 
+ 
+ 
+ 
+ 
+ 
+ Elvevåg 
+ B 
+ 
+ 
+ Goldberg 
+ TE 
+ 
+ 
+ Formal thought disorder and semantic memory in schizophrenia 
+ CNS Spectrums 
+ 2 
+ 8 
+ 15 
+ 25 
+ 1997 
+ 
+ 
+ 
+ 
+ 
+ 
+ Elvevåg 
+ B 
+ 
+ 
+ Foltz 
+ PW 
+ 
+ 
+ Weinberger 
+ DR 
+ 
+ 
+ Goldberg 
+ TE 
+ 
+ 
+ Quantifying incoherence in speech: an automated methodology and novel application to schizophrenia 
+ Schizophrenia Research 
+ 93 
+ 1–3 
+ 304 
+ 316 
+ 2007 
+ 17433866 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ferstl 
+ EC 
+ 
+ 
+ Neumann 
+ J 
+ 
+ 
+ Bogler 
+ C 
+ 
+ 
+ von Cramon 
+ DY 
+ 
+ 
+ The extended language network: a meta-analysis of neuroimaging studies on text comprehension 
+ Human Brain Mapping 
+ 29 
+ 5 
+ 581 
+ 593 
+ 2008 
+ 17557297 
+ 
+ 
+ 
+ 
+ 
+ 
+ First 
+ MB 
+ 
+ 
+ Spitzer 
+ R 
+ 
+ 
+ Gibbon 
+ M 
+ 
+ 
+ Williams 
+ J 
+ 
+ 
+ Structured Clinical Interview for DSM-IV Axis I Disorders (Version 2.0 ed.) 
+ New York 
+ New York State Psychiatric Institute 
+ 1995 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fisher 
+ JE 
+ 
+ 
+ Cortes 
+ CR 
+ 
+ 
+ Griego 
+ JA 
+ 
+ 
+ Tagamets 
+ MA 
+ 
+ 
+ Repetition of letter strings leads to activation of and connectivity with word-related regions 
+ Neuroimage 
+ 59 
+ 3 
+ 2839 
+ 2849 
+ 2011 
+ 21982931 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fridberg 
+ DJ 
+ 
+ 
+ Brenner 
+ A 
+ 
+ 
+ Lysaker 
+ PH 
+ 
+ 
+ Verbal memory intrusions in schizophrenia: associations with self-reflectivity, symptomatology, and neurocognition 
+ Psychiatry Research 
+ 179 
+ 1 
+ 6 
+ 11 
+ 2010 
+ 20638729 
+ 
+ 
+ 
+ 
+ 
+ 
+ Giovannetti 
+ T 
+ 
+ 
+ Goldstein 
+ RZ 
+ 
+ 
+ Schullery 
+ M 
+ 
+ 
+ Barr 
+ WB 
+ 
+ 
+ Bilder 
+ RM 
+ 
+ 
+ Category fluency in first-episode schizophrenia 
+ Journal of the International Neuropsychological Society 
+ 9 
+ 3 
+ 384 
+ 393 
+ 2003 
+ 12666763 
+ 
+ 
+ 
+ 
+ 
+ 
+ Harpaz‐Rotem 
+ I 
+ 
+ 
+ Sidney 
+ J 
+ 
+ 
+ Blatt 
+ SJ 
+ 
+ 
+ A pathway to therapeutic change: changes in self-representation in the treatment of adolescents and young adults 
+ Psychiatry 
+ 72 
+ 1 
+ 32 
+ 49 
+ 2009 
+ 19366293 
+ 
+ 
+ 
+ 
+ 
+ 
+ Harrow 
+ M 
+ 
+ 
+ Lanin‐Kettering 
+ I 
+ 
+ 
+ Prosen 
+ M 
+ 
+ 
+ Miller 
+ JG 
+ 
+ 
+ Disordered Thinking in Schizophrenia 
+ Schizophrenia Bulletin 
+ 9 
+ 3 
+ 354 
+ 367 
+ 1983 
+ 6622993 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hedlund 
+ JL 
+ 
+ 
+ Vieweg 
+ BW 
+ 
+ 
+ The brief psychiatric rating scale (BPRS): A comprehensive review 
+ Journal of Operational Psychiatry 
+ 11 
+ 48 
+ 64 
+ 1980 
+ 
+ 
+ 
+ 
+ 
+ 
+ Horn 
+ H 
+ 
+ 
+ Federspiel 
+ A 
+ 
+ 
+ Wirth 
+ M 
+ 
+ 
+ Muller 
+ TJ 
+ 
+ 
+ Wiest 
+ R 
+ 
+ 
+ Wang 
+ JJ 
+ 
+ 
+ Strik 
+ W 
+ 
+ 
+ Structural and metabolic changes in language areas linked to formal thought disorder 
+ British Journal of Psychiatry 
+ 194 
+ 2 
+ 130 
+ 138 
+ 2009 
+ 19182174 
+ 
+ 
+ 
+ 
+ 
+ 
+ Indefrey 
+ P 
+ 
+ 
+ Levelt 
+ WJM 
+ 
+ 
+ The spatial and temporal signatures of word production components 
+ Cognition 
+ 92 
+ 1 
+ 101 
+ 144 
+ 2004 
+ 15037128 
+ 
+ 
+ 
+ 
+ 
+ 
+ Jones 
+ SR 
+ 
+ 
+ Fernyhough 
+ C 
+ 
+ 
+ Thought as action: inner speech, self-monitoring, and auditory verbal hallucinations 
+ Consciousness and Cognition 
+ 16 
+ 2 
+ 391 
+ 399 
+ 2007 
+ 16464616 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kakkonen 
+ T 
+ 
+ 
+ Myller 
+ N 
+ 
+ 
+ Sutinen 
+ E 
+ 
+ 
+ Timonen 
+ J 
+ 
+ 
+ Comparison of dimension reduction methods for automated essay grading 
+ Natural Language Engineering 
+ 1 
+ 1 
+ 16 
+ 2005 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kean 
+ C 
+ 
+ 
+ Silencing the self: schizophrenia as a self-disturbance 
+ Schizophrenia Bulletin 
+ 35 
+ 6 
+ 1034 
+ 6 
+ 2009 
+ 19478239 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kerns 
+ JG 
+ 
+ 
+ Berenbaum 
+ H 
+ 
+ 
+ Cognitive impairments associated with formal thought disorder in people with schizophrenia 
+ Journal of Abnormal Psychology 
+ 111 
+ 2 
+ 211 
+ 224 
+ 2002 
+ 12003444 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kiefer 
+ M 
+ 
+ 
+ Martens 
+ U 
+ 
+ 
+ Weisbrod 
+ M 
+ 
+ 
+ Hermle 
+ L 
+ 
+ 
+ Spitzer 
+ M 
+ 
+ 
+ Increased unconscious semantic activation in schizophrenia patients with formal thought disorder 
+ Schizophrenia Research 
+ 114 
+ 1–3 
+ 79 
+ 83 
+ 2009 
+ 19716272 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kintsch 
+ W 
+ 
+ 
+ The potential of latent semantic analysis for machine grading of clinical case summaries 
+ Journal of Biomedical Informatics 
+ 35 
+ 1 
+ 3 
+ 7 
+ 2002 
+ 12415721 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kircher 
+ TT 
+ 
+ 
+ Liddle 
+ PF 
+ 
+ 
+ Brammer 
+ MJ 
+ 
+ 
+ Williams 
+ SC 
+ 
+ 
+ Murray 
+ RM 
+ 
+ 
+ McGuire 
+ PK 
+ 
+ 
+ Reversed lateralization of temporal activation during speech production in thought disordered patients with schizophrenia 
+ Psychological Medicine 
+ 32 
+ 3 
+ 439 
+ 449 
+ 2002 
+ 11989989 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kircher 
+ TJ 
+ 
+ 
+ Leube 
+ DT 
+ 
+ 
+ Self-consciousness, self-agency, and schizophrenia 
+ Consciousness and Cognition 
+ 12 
+ 4 
+ 656 
+ 69 
+ 2003 
+ 14656508 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kreher DA 
+ DA 
+ 
+ 
+ Goff 
+ D 
+ 
+ 
+ Kuperberg 
+ GR 
+ 
+ 
+ Why all the confusion? Experimental task explains discrepant semantic priming effects in schizophrenia under "automatic" conditions: evidence from Event-Related Potentials 
+ Schizophrenia Research 
+ 111 
+ 1–3 
+ 174 
+ 181 
+ 2009 
+ 19386472 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kumari 
+ V 
+ 
+ 
+ Fannon 
+ D 
+ 
+ 
+ Ffytche 
+ DH 
+ 
+ 
+ Raveendran 
+ V 
+ 
+ 
+ Antonova 
+ E 
+ 
+ 
+ Premkumar 
+ P 
+ 
+ 
+ Cooke 
+ MA 
+ 
+ 
+ Anilkumar 
+ APP 
+ 
+ 
+ Williams 
+ SCR 
+ 
+ 
+ Andrew 
+ C 
+ 
+ 
+ Johns 
+ LC 
+ 
+ 
+ Fu 
+ CHY 
+ 
+ 
+ McGuire 
+ PK 
+ 
+ 
+ Kuipers 
+ E 
+ 
+ 
+ Functional MRI of verbal self-monitoring in schizophrenia: performance and illness-specific effects 
+ Schizophrenia Bulletin 
+ 36 
+ 4 
+ 740 
+ 755 
+ 2010 
+ 18997158 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kuperberg 
+ GR 
+ 
+ 
+ Language in schizophrenia Part 1: an Introduction 
+ Language and Linguistics Compass 
+ 4 
+ 8 
+ 576 
+ 589 
+ 2010 
+ 20936080 
+ 
+ 
+ 
+ 
+ 
+ 
+ Landauer 
+ TK 
+ 
+ 
+ Foltz 
+ PW 
+ 
+ 
+ Laham 
+ D 
+ 
+ 
+ An introduction to latent semantic analysis 
+ Discourse processes 
+ 25 
+ 2–3 
+ 259 
+ 284 
+ 1998 
+ 
+ 
+ 
+ 
+ 
+ 
+ Levelt 
+ WJM 
+ 
+ 
+ Speaking: from intention to articulation 
+ Cambridge, M.A. 
+ The MIT Press 
+ 1989 
+ 
+ 
+ 
+ 
+ 
+ 
+ Levelt Willem 
+ JM 
+ 
+ 
+ Models of word production 
+ Trends in cognitive sciences 
+ 3 
+ no.6 
+ 223 
+ 232 
+ 1999 
+ 10354575 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lysaker 
+ PH 
+ 
+ 
+ Lysaker 
+ JT 
+ 
+ 
+ Schizophrenia and alterations in self-experience: a comparison of 6 perspectives 
+ Schizophrenia Bulletin 
+ 36 
+ 2 
+ 331 
+ 40 
+ 2010 
+ 18635676 
+ 
+ 
+ 
+ 
+ 
+ 
+ Martin 
+ A 
+ 
+ 
+ Chao 
+ LL 
+ 
+ 
+ Semantic memory and the brain: structure and processes 
+ Current Opinion in Neurobiology 
+ 11 
+ 2 
+ 194 
+ 201 
+ 2001 
+ 11301239 
+ 
+ 
+ 
+ 
+ 
+ 
+ McGuire 
+ PK 
+ 
+ 
+ Silbersweig 
+ DA 
+ 
+ 
+ Wright 
+ I 
+ 
+ 
+ Murray 
+ RM 
+ 
+ 
+ David 
+ AS 
+ 
+ 
+ Frackowiak 
+ RSJ 
+ 
+ 
+ Frith 
+ CD 
+ 
+ 
+ Abnormal monitoring of inner speech: a physiological basis for auditory hallucinations 
+ Lancet 
+ 346 
+ 8975 
+ 596 
+ 600 
+ 1995 
+ 7651003 
+ 
+ 
+ 
+ 
+ 
+ 
+ McGuire 
+ PK 
+ 
+ 
+ Frith 
+ CD 
+ 
+ 
+ Silbersweig 
+ DA 
+ 
+ 
+ Functional neuroanatomy of verbal self-monitoring 
+ Brain 
+ 119 
+ 3 
+ 907 
+ 917 
+ 1996 
+ 8673501 
+ 
+ 
+ 
+ 
+ 
+ 
+ McGuire 
+ PK 
+ 
+ 
+ Quested 
+ DJ 
+ 
+ 
+ Spence 
+ SA 
+ 
+ 
+ Murray 
+ RM 
+ 
+ 
+ Frith 
+ CD 
+ 
+ 
+ Liddle 
+ PF 
+ 
+ 
+ Pathophysiology of 'positive' thought disorder in schizophrenia 
+ British Journal of Psychiatry 
+ 173 
+ 231 
+ 235 
+ 1998 
+ 9926099 
+ 
+ 
+ 
+ 
+ 
+ 
+ Mechelli 
+ A 
+ 
+ 
+ Allen 
+ P 
+ 
+ 
+ Amaro 
+ E 
+ 
+ 
+ Fu 
+ CHY 
+ 
+ 
+ Williams 
+ SCR 
+ 
+ 
+ Brammer 
+ MJ 
+ 
+ 
+ Johns 
+ LC 
+ 
+ 
+ McGuire 
+ PK 
+ 
+ 
+ Misattribution of speech and impaired connectivity in patients with auditory verbal hallucinations 
+ Human Brain Mapping 
+ 28 
+ 11 
+ 1213 
+ 1222 
+ 2007 
+ 17266108 
+ 
+ 
+ 
+ 
+ 
+ 
+ Menon 
+ RR 
+ 
+ 
+ Barta 
+ PE 
+ 
+ 
+ Aylward 
+ EH 
+ 
+ 
+ Richards 
+ SS 
+ 
+ 
+ Vaughn 
+ DD 
+ 
+ 
+ Tien 
+ AY 
+ 
+ 
+ Harris 
+ GJ 
+ 
+ 
+ Pearlson 
+ GD 
+ 
+ 
+ Posterior superior temporal gyrus in schizophrenia: grey matter changes and clinical correlates 
+ Schizophrenia Research 
+ 16 
+ 2 
+ 127 
+ 135 
+ 1995 
+ 7577766 
+ 
+ 
+ 
+ 
+ 
+ 
+ O'Donnell 
+ BF 
+ 
+ 
+ Shenton 
+ ME 
+ 
+ 
+ McCarley 
+ RW 
+ 
+ 
+ Faux 
+ SF 
+ 
+ 
+ Smith 
+ RS 
+ 
+ 
+ Salisbury 
+ DF 
+ 
+ 
+ Nestor 
+ PG 
+ 
+ 
+ Pollak 
+ SD 
+ 
+ 
+ Kikinis 
+ R 
+ 
+ 
+ Jolesz 
+ FA 
+ 
+ 
+ The auditory N2 component in schizophrenia: relationship to MRI temporal lobe gray matter and to other ERP abnormalities 
+ Biological Psychiatry 
+ 34 
+ 1–2 
+ 26 
+ 40 
+ 1993 
+ 8373937 
+ 
+ 
+ 
+ 
+ 
+ 
+ Pearlson 
+ GD 
+ 
+ 
+ Superior temporal gyrus and planum temporale in schizophrenia: a selective review 
+ Progress in Neuropsychopharmacology and Biological Psychiatry 
+ 21 
+ 8 
+ 1203 
+ 1229 
+ 1997 
+ 
+ 
+ 
+ 
+ 
+ 
+ Price 
+ CJ 
+ 
+ 
+ Devlin 
+ JT 
+ 
+ 
+ The myth of the visual word form area 
+ Neuroimage 
+ 19 
+ 473 
+ 481 
+ 2003 
+ 12880781 
+ 
+ 
+ 
+ 
+ 
+ 
+ Price 
+ CJ 
+ 
+ 
+ The anatomy of language: a review of 100 fMRI studies published in 2009 
+ Annals of the New York Academy of Sciences 
+ 1191 
+ 62 
+ 88 
+ 2010 
+ 20392276 
+ 
+ 
+ 
+ 
+ 
+ 
+ Raballo 
+ A 
+ 
+ 
+ Sæbye 
+ D 
+ 
+ 
+ Parnas 
+ J 
+ 
+ 
+ Looking at the schizophrenia spectrum through the prism of self-disorders: an empirical study 
+ Schizophrenia Bulletin 
+ 37 
+ 2 
+ 344 
+ 51 
+ 2011 
+ 19528205 
+ 
+ 
+ 
+ 
+ 
+ 
+ Raczkowski 
+ D 
+ 
+ 
+ Kalat 
+ JW 
+ 
+ 
+ Nebes 
+ R 
+ 
+ 
+ Reliability and validity of some handedness questionnaire items 
+ Neuropsychologia 
+ 12 
+ 1 
+ 43 
+ 47 
+ 1974 
+ 4821188 
+ 
+ 
+ 
+ 
+ 
+ 
+ Rajarethinam 
+ RP 
+ 
+ 
+ DeQuardo 
+ JR 
+ 
+ 
+ Nalepa 
+ R 
+ 
+ 
+ Tandon 
+ R 
+ 
+ 
+ Superior temporal gyrus in schizophrenia: a volumetric magnetic resonance imaging study 
+ Schizophrenia Research 
+ 41 
+ 2 
+ 303 
+ 312 
+ 2000 
+ 10708339 
+ 
+ 
+ 
+ 
+ 
+ 
+ Roll 
+ M 
+ 
+ 
+ Mårtensson 
+ F 
+ 
+ 
+ Sikström 
+ S 
+ 
+ 
+ Apt 
+ P 
+ 
+ 
+ Arnling-Baath 
+ R 
+ 
+ 
+ Horne 
+ M 
+ 
+ 
+ Atypical associations to abstract words in Broca's aphasia 
+ Cortex 
+ 48 
+ 8 
+ 1068 
+ 1072 
+ 2012 
+ 22172978 
+ 
+ 
+ 
+ 
+ 
+ 
+ Salisbury 
+ DF 
+ 
+ 
+ Semantic activation and verbal working memory maintenance in schizophrenic thought disorder: insights from electrophysiology and lexical ambiguity 
+ Clinical EEG and Neuroscience 
+ 39 
+ 2 
+ 103 
+ 107 
+ 2008 
+ 18450179 
+ 
+ 
+ 
+ 
+ 
+ 
+ Sass 
+ LA 
+ 
+ 
+ Parnas 
+ J 
+ 
+ 
+ Schizophrenia, consciousness, and the self 
+ Schizophrenia bulletin 
+ 29 
+ 3 
+ 427 
+ 44 
+ 2003 
+ 14609238 
+ 
+ 
+ 
+ 
+ 
+ 
+ Shenton 
+ ME 
+ 
+ 
+ Kikinis 
+ R 
+ 
+ 
+ Jolesz 
+ FA 
+ 
+ 
+ Pollak 
+ SD 
+ 
+ 
+ LeMay 
+ M 
+ 
+ 
+ Wible 
+ CG 
+ 
+ 
+ Hokama 
+ H 
+ 
+ 
+ Martin 
+ J 
+ 
+ 
+ Metcalf 
+ D 
+ 
+ 
+ Coleman 
+ M 
+ 
+ 
+ McCarley 
+ RW 
+ 
+ 
+ Abnormalities of the left temporal lobe and thought disorder in schizophrenia 
+ A quantitative magnetic resonance imaging study New England Journal of Medicine 
+ 327 
+ 9 
+ 604 
+ 612 
+ 1992 
+ 
+ 
+ 
+ 
+ 
+ 
+ Shenton 
+ ME 
+ 
+ 
+ O'Donnell 
+ BF 
+ 
+ 
+ Nestor 
+ PG 
+ 
+ 
+ Wible 
+ CG 
+ 
+ 
+ Kikinis 
+ R 
+ 
+ 
+ Faux 
+ SF 
+ 
+ 
+ Pollak 
+ SD 
+ 
+ 
+ Jolesz 
+ FA 
+ 
+ 
+ McCarley 
+ RW 
+ 
+ 
+ Temporal lobe abnormalities in a patient with schizophrenia who has word-finding difficulty: use of high-resolution magnetic resonance imaging and auditory P300 event-related potentials 
+ Harvard Review of Psychiatry 
+ 1 
+ 2 
+ 110 
+ 117 
+ 1993 
+ 9384837 
+ 
+ 
+ 
+ 
+ 
+ 
+ Simons 
+ CJ 
+ 
+ 
+ Tracy 
+ DK 
+ 
+ 
+ Sanghera 
+ KK 
+ 
+ 
+ O'Daly 
+ O 
+ 
+ 
+ Gilleen 
+ J 
+ 
+ 
+ Dominguez 
+ MD 
+ 
+ 
+ Krabbendam 
+ L 
+ 
+ 
+ Shergill 
+ SS 
+ 
+ 
+ Functional magnetic resonance imaging of inner speech in schizophrenia 
+ Biological Psychiatry 
+ 67 
+ 3 
+ 232 
+ 237 
+ 2010 
+ 19846064 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stein 
+ M 
+ 
+ 
+ ‘Divinity expresses the self…’An investigation 
+ Journal of Analytical Psychology 
+ 53 
+ 3 
+ 305 
+ 327 
+ 2008 
+ 18494670 
+ 
+ 
+ 
+ 
+ 
+ 
+ Subotnik 
+ KL 
+ 
+ 
+ Bartzokis 
+ G 
+ 
+ 
+ Green 
+ MF 
+ 
+ 
+ Nuechterlein 
+ KH 
+ 
+ 
+ Neuroanatomical correlates of formal thought disorder in schizophrenia 
+ Cognitive Neuropsychiatry 
+ 8 
+ 2 
+ 81 
+ 88 
+ 2003 
+ 16571552 
+ 
+ 
+ 
+ 
+ 
+ 
+ Tagamets 
+ MA 
+ 
+ 
+ Novick 
+ JM 
+ 
+ 
+ Chalmers 
+ ML 
+ 
+ 
+ Friedman 
+ RB 
+ 
+ 
+ A parametric approach to orthographic processing in the brain: An fMRI study 
+ Journal of Cognitive Neuroscience 
+ 12 
+ 2 
+ 281 
+ 297 
+ 2000 
+ 10771412 
+ 
+ 
+ 
+ 
+ 
+ 
+ Vanteru 
+ BC 
+ 
+ 
+ Shaik 
+ JS 
+ 
+ 
+ Yeasin 
+ M 
+ 
+ 
+ Semantically linking and browsing PubMed abstracts with gene ontology 
+ BMC Genomics 
+ 9 
+ Suppl 1 
+ 2008 
+ 
+ 
+ 
+ 
+ 
+ 
+ Vita 
+ A 
+ 
+ 
+ Dieci 
+ M 
+ 
+ 
+ Giobbio 
+ GM 
+ 
+ 
+ Caputo 
+ A 
+ 
+ 
+ Ghiringhelli 
+ L 
+ 
+ 
+ Comazzi 
+ M 
+ 
+ 
+ Garbarini 
+ M 
+ 
+ 
+ Mendini 
+ AP 
+ 
+ 
+ Morganti 
+ C 
+ 
+ 
+ Tenconi 
+ F 
+ 
+ 
+ Cesana 
+ B 
+ 
+ 
+ Invernizzi 
+ G 
+ 
+ 
+ Language and thought disorder in schizophrenia: brain morphological correlates 
+ Schizophrenia Research 
+ 15 
+ 3 
+ 243 
+ 251 
+ 1995 
+ 7632621 
+ 
+ 
+ 
+ 
+ 
+ 
+ Waters 
+ F 
+ 
+ 
+ Woodward 
+ T 
+ 
+ 
+ Allen 
+ P 
+ 
+ 
+ Aleman 
+ A 
+ 
+ 
+ Sommer 
+ I 
+ 
+ 
+ Self-recognition deficits in schizophrenia patients with auditory hallucinations: a meta-analysis of the literature 
+ Schizophrenia Bulletin 
+ 38 
+ 4 
+ 741 
+ 50 
+ 2012 
+ 21147895 
+ 
+ 
+ 
+ 
+ 
+ 
+ Weinstein 
+ S 
+ 
+ 
+ Werker 
+ JF 
+ 
+ 
+ Vouloumanos 
+ A 
+ 
+ 
+ Woodward 
+ TS 
+ 
+ 
+ Ngan 
+ ET 
+ 
+ 
+ Do you hear what I hear? Neural correlates of thought disorder during listening to speech in schizophrenia 
+ Schizophrenia Research 
+ 86 
+ 1–3 
+ 130 
+ 137 
+ 2006 
+ 16806838 
+ 
+ 
+ 
+ 
+ 
+ 
+ Weinstein 
+ S 
+ 
+ 
+ Woodward 
+ TS 
+ 
+ 
+ Ngan 
+ ET 
+ 
+ 
+ Brain activation mediates the association between structural abnormality and symptom severity in schizophrenia 
+ Neuroimage 
+ 36 
+ 1 
+ 188 
+ 193 
+ 2007 
+ 17398119 
+ 
+ 
+ 
+ 
+ 
+ 
+ Wible 
+ CG 
+ 
+ 
+ Kubicki 
+ M 
+ 
+ 
+ Yoo 
+ SS 
+ 
+ 
+ Kacher 
+ DF 
+ 
+ 
+ Salisbury 
+ DF 
+ 
+ 
+ Anderson 
+ MC 
+ 
+ 
+ Shenton 
+ ME 
+ 
+ 
+ Hirayasu 
+ Y 
+ 
+ 
+ Kikinis 
+ R 
+ 
+ 
+ Jolesz 
+ FA 
+ 
+ 
+ McCarley 
+ RW 
+ 
+ 
+ A functional magnetic resonance imaging study of auditory mismatch in schizophrenia 
+ American Journal of Psychiatry 
+ 158 
+ 6 
+ 938 
+ 943 
+ 2001 
+ 11384903 
+ 
+ 
+ 
+ 
+ 
+ 
+ Wible 
+ CG 
+ 
+ 
+ Preus 
+ AP 
+ 
+ 
+ Hashimoto 
+ R 
+ 
+ 
+ A cognitive neuroscience view of schizophrenic symptoms: Abnormal activation of a system for social perception and communication 
+ Brain Imaging and Behavior 
+ 3 
+ 1 
+ 85 
+ 110 
+ 2009 
+ 19809534 
+ 
+ 
+ 
+ 
+ 
+ 
+ Wolfe 
+ MB 
+ 
+ 
+ Goldman 
+ SR 
+ 
+ 
+ Use of latent semantic analysis for predicting psychological phenomena: two issues and proposed solutions 
+ Behavior Research Methods, Instruments, and Computers 
+ 35 
+ 1 
+ 22 
+ 31 
+ 2003 
+ 
+ 
+ 
+ 
+ 
+ 
+ Figure 1 
+ 
+ Demonstration of test-retest reliabilty of the CSA method for assessing coherence during free speech: PTC scores for two interviews performed at different times are plotted for 87 participants. The correlation coefficient between scores from the different interviews is .82. 
+ 
+ 
+ 
+ 
+ Figure 2 
+ 
+ Illustrations of the two main tasks used in the fMRI session. In all cases, visual and auditory stimuli are presented simultaneously. A. Homographs: In this task, participants need to ignore the visual display of the words and make matching choices based on the sound. Here, the third stimulus matches the second in sound. B. Homophones: In this case, the sounds must be ignored, since the words have the same pronunciation, and matching is based on the visual form of the word. In this example, the fifth stimulus matches the fourth. 
+ 
+ 
+ 
+ 
+ Figure 3 
+ 
+ False alarms in the fMRI tasks, means and 95% confidence intervals. There were no significant differences between groups in any condition, but differences between the words condition and each of the other two conditions were significant in both groups. Black: HV; Gray: SZ. *: .01 < p < .05; ** .001 < p < .01; *** p < .001 
+ 
+ 
+ 
+ 
+ Figure 4 
+ 
+ Correlations of PTC scores with individual tasks. In the control group, only activations in the homophones condition predicted coherence, and the regions that appear are generally associated with executive function. In contrast, in the group with schizophrenia, activations in all three conditions are related to coherence, primarily in visual and auditory regions. Of note, activation in the left superior/middle temporal cortex in all 3 conditions predicts coherence in the SZ. Red: homographs; Green: homophones; Blue: words; Yellow: homographs and homophones; Cyan: homophones and words; White: All 3 conditions (small area in left temporal cortex in slice 5 of the SZ group). Numbers beneath slices refer to the z-coordinate in MNI space. 
+ 
+ 
+ 
+ 
+ Figure 5 
+ 
+ Regions correlated with PTC scores in all 3 task conditions in SZ (red) and HV (green). In the healthy control group, regions that are primarily associated with executive control, such as the anterior cingulate and dorsolateral frontal areas, contribute to coherent speech. In contrast, in the group with SZ, auditory and visual association areas are the strongest predictors of coherence of speech. Numbers beneath slices refer to the z-coordinate in MNI space. 
+ 
+ 
+ 
+ 
+ Table 1 
+ 
+ BPRS scores for the participants with schizophrenia. The column marked “Min possible” is the smallest possible score for each summary score. As noted in the text, summary scores are sums of individual item scores, each of which has a minimum value of 1. The columns marked “Min” and “Max” list the actual minimum and maximum summary scores among the participants. 
+ 
+ 
+ 
+ 
+ Score 
+ Min possible 
+ Mean 
+ SD 
+ Min 
+ Max 
+ 
+ 
+ 
+ 
+ Thinking disturbance 
+ 3 
+ 6.3 
+ 4.1 
+ 3 
+ 14 
+ 
+ 
+ Withdrawal 
+ 3 
+ 4.3 
+ 2.8 
+ 3 
+ 12 
+ 
+ 
+ Anxiety 
+ 4 
+ 6.3 
+ 2.2 
+ 4 
+ 11 
+ 
+ 
+ Hostility 
+ 3 
+ 3.8 
+ 1.8 
+ 3 
+ 9 
+ 
+ 
+ Activation 
+ 3 
+ 3.5 
+ .9 
+ 3 
+ 6 
+ 
+ 
+ Psychosis 
+ 4 
+ 7.8 
+ 4.8 
+ 4 
+ 18 
+ 
+ 
+ Positive symptoms 
+ 7 
+ 11.3 
+ 4.8 
+ 7 
+ 22 
+ 
+ 
+ Negative symptoms 
+ 4 
+ 5.8 
+ 3.6 
+ 4 
+ 16 
+ 
+ 
+ Total Score 
+ 20 
+ 28.9 
+ 7.8 
+ 20 
+ 40 
+ 
+ 
+ 
+ 
+ 
+ Table 2 
+ 
+ Descriptive statistics for CSA scores, computed as the mean similarity of the answers for the ‘belief’ question to each of the words “myself” and “ourselves”, and number of words that were uttered. The between-group difference in CSA scores was .059. There was a trend level difference between the groups in the number of words enerated (p = .084). 
+ 
+ 
+ 
+ 
+ 
+ HV 
+ SZ 
+ 
+ 
+ 
+ Mean (SD) 
+ Min 
+ Max 
+ Mean (SD) 
+ Min 
+ Max 
+ 
+ 
+ 
+ 
+ 
+ CSA score 
+ 
+ .848 (.043) 
+ .775 
+ .895 
+ .817 (.030) 
+ .771 
+ .865 
+ 
+ 
+ 
+ # Words 
+ 
+ 165 (109) 
+ 34 
+ 348 
+ 113 (62) 
+ 48 
+ 264 
+ 
+ 
+ 
+ 
+ 
+ Table 3 
+ 
+ Mean reaction times, percent hits, and percent false alarms for each condition in the fMRI tasks. 
+ 
+ 
+ 
+ 
+ 
+ HV 
+ SZ 
+ 
+ 
+ Condition 
+ RT (msec) ± SD 
+ Hits(%) ± SD 
+ FA(%) ± SD 
+ RT (msec) ± SD 
+ Hits ± SD 
+ FA ± SD 
+ 
+ 
+ 
+ 
+ Words 
+ 527.0 ± 58.8 
+ 98.5 ± 5.1 
+ 0 
+ 566.9 ± 93.6 
+ 92.5 ± 14.6 
+ 1.3 ± 2.5 
+ 
+ 
+ Homophones 
+ 558.6 ± 63.6 
+ 88.1 ± 10.8 
+ 8.4 ± 4.0 
+ 570.0 ± 82.6 
+ 76.6 ± 25.6 
+ 14.5 ± 14.3 
+ 
+ 
+ Homographs 
+ 594.6 ± 51.4 
+ 82.6 ±21.0 
+ 7.6 ± 4.4 
+ 611.2 ±112.2 
+ 74.8 ± 22.3 
+ 18.1 ± 16.6 
+ 
+ 
+ 
+ 
+ 
+ Table 4 
+ 
+ Regions correlated with CSA scores in different task conditions in healthy participants. No above threshold regions were found in the words or homographs conditions in the healthy control group. k represents cluster size, x, y, and z refer to the coordinates in MNI space and T is the t-value. All p-values are less than .001. 
+ 
+ 
+ 
+ 
+ Condition 
+ Area 
+ Brodmann 
+ x 
+ y 
+ z 
+ T 
+ k 
+ 
+ 
+ 
+ 
+ Homophones 
+ Right Insula 
+ BA 13 
+ 36 
+ 17 
+ 7 
+ 10.8 
+ 32 
+ 
+ 
+ 
+ Right middle frontal gyrus 
+ BA 46 
+ 45 
+ 38 
+ 25 
+ 6.4 
+ 12 
+ 
+ 
+ 
+ Anterior cingulate 
+ BA 24 
+ −9 
+ 2 
+ 31 
+ 5.4 
+ 22 
+ 
+ 
+ 
+ 
+ 
+ Table 5 
+ 
+ Regions correlated with CSA scores in different task conditions in the schizophrenia group. k represents cluster size, x, y, and z refer to the coordinates in MNI space and T is the t-value. All p-values are less than .001. 
+ 
+ 
+ 
+ 
+ Condition 
+ Area 
+ Brodmann 
+ x 
+ y 
+ z 
+ T 
+ k 
+ 
+ 
+ 
+ 
+ Words 
+ left lingual gyrus 
+ BA 19 
+ 33 
+ −67 
+ 4 
+ 9.8 
+ 43 
+ 
+ 
+ 
+ Left middle/superior temporal gyrus 
+ BA 21/22 
+ −63 
+ −25 
+ −2 
+ 6.4 
+ 13 
+ 
+ 
+ 
+ Cuneus 
+ BA 19 
+ −3 
+ −85 
+ 28 
+ 5.5 
+ 13 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Homographs 
+ Medial superior frontal gyrus 
+ BA 6/8 
+ 0 
+ 17 
+ 55 
+ 7.1 
+ 41 
+ 
+ 
+ 
+ Left middle/superior temporal gyrus 
+ BA 21/22 
+ −54 
+ −28 
+ 4 
+ 6.6 
+ 39 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Homophones 
+ Left cuneus 
+ BA 18 
+ −3 
+ −82 
+ 25 
+ 8.7 
+ 61 
+ 
+ 
+ 
+ Right cuneus 
+ BA 18 
+ 21 
+ −79 
+ 22 
+ 7.6 
+ 13 
+ 
+ 
+ 
+ Left middle/superior temporal gyrus 
+ BA 21/22 
+ −48 
+ −31 
+ 4 
+ 6.7 
+ 14 
+ 
+ 
+ 
+ Medial superior frontal gyrus 
+ BA 6/8 
+ 0 
+ 14 
+ 58 
+ 6.6 
+ 18 
+ 
+ 
+ 
+ Left inferior frontal gyrus 
+ BA 47 
+ −18 
+ 29 
+ −11 
+ 6.0 
+ 22 
+ 
+ 
+ 
+ Right lingual gyrus 
+ BA 19 
+ 21 
+ −70 
+ 1 
+ 5.5 
+ 12 
+ 
+ 
+ 
+ 
+ 
+ Table 6 
+ 
+ Regions correlated with CSA across all conditions in HV and SZ. k represents cluster size, and x, y, and z refer to the coordinates in MNI space. All p-values are less than  p < 2.7 * 10 -5  in the conjunction analysis. 
+ 
+ 
+ 
+ 
+ Group 
+ Area 
+ Brodmann 
+ x 
+ y 
+ z 
+ k 
+ 
+ 
+ 
+ 
+ HV 
+ Anterior cingulate 
+ BA 24 
+ -9 
+ 2 
+ 31 
+ 72 
+ 
+ 
+ 
+ Right superior temporal gyrus 
+ BA 22 
+ 63 
+ -4 
+ 7 
+ 40 
+ 
+ 
+ 
+ Right precentral cortex 
+ BA 4/6 
+ 54 
+ -7 
+ 40 
+ 26 
+ 
+ 
+ 
+ Right precentral cortex 
+ BA 6 
+ 39 
+ -10 
+ 61 
+ 23 
+ 
+ 
+ 
+ Left superior temporal gyrus 
+ BA 38 
+ -33 
+ 14 
+ -29 
+ 16 
+ 
+ 
+ 
+ Right middle frontal gyrus 
+ BA 46 
+ 45 
+ 38 
+ 25 
+ 13 
+ 
+ 
+ SZ 
+ Left middle/superior temporal gyrus 
+ BA 21/22 
+ -54 
+ -28 
+ 4 
+ 102 
+ 
+ 
+ 
+ Right Lingual gyrus 
+ BA 19 
+ 6 
+ -61 
+ -2 
+ 95 
+ 
+ 
+ 
+ Left cuneus 
+ BA 18 
+ -21 
+ -70 
+ 25 
+ 30 
+ 
+ 
+ 
+ Medial superior frontal gyrus 
+ BA 6/8 
+ 0 
+ 17 
+ 55 
+ 19 
+ 
+ 
+ 
+ Right superior temporal gyrus 
+ BA 22 
+ 66 
+ -34 
+ 16 
+ 20 
+ 
+ 
+ 
+ Left middle/superior frontal gyrus 
+ BA 9 
+ -36 
+ 35 
+ 28 
+ 18 
+ 
+ 
+ 
+ Right precentral cortex 
+ BA 6 
+ 51 
+ 2 
+ 46 
+ 10 
+ 
+ 
+ 
+ Right superior temporal gyrus 
+ BA 41 
+ 48 
+ -28 
+ 13 
+ 10 
+ 
+ 
+ 
+ 
+ 

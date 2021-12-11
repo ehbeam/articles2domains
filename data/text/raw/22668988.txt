@@ -1,0 +1,2022 @@
+
+ properties manuscript? 
+ 
+ 
+ 0045503 
+ 1920 
+ Brain Res 
+ Brain Res. 
+ 
+ Brain research 
+ 
+ 0006-8993 
+ 1872-6240 
+ 
+ 
+ 22668988 
+ 3430376 
+ 10.1016/j.brainres.2012.05.050 
+ NIHMS393313 
+ 
+ 
+ Article 
+ 
+ 
+ 
+ Can the default-mode network be described with one spatial-covariance network? 
+ 
+ 
+ 
+ 
+ Habeck 
+ Christian 
+ 
+ 
+ 
+ 
+ Steffener 
+ Jason 
+ 
+ 
+ 
+ 
+ Rakitin 
+ Brian 
+ 
+ 
+ 
+ 
+ Stern 
+ Yaakov 
+ 
+ 
+ Cognitive Neuroscience Division, Taub Institute for Research on Aging and Alzheimer’s Disease, Department of Neurology, Columbia University Medical Center, NY 10032 
+ 
+ 
+ 17 
+ 7 
+ 2012 
+ 
+ 
+ 02 
+ 6 
+ 2012 
+ 
+ 
+ 15 
+ 8 
+ 2012 
+ 
+ 
+ 15 
+ 8 
+ 2013 
+ 
+ 1468 
+ 38 
+ 51 
+ 
+ 
+ This file is available for text mining. It may also be used consistent with the principles of fair use under the copyright law. 
+ 
+ 
+ 
+ The default-mode network (DMN) has become a well accepted concept in cognitive and clinical neuroscience over the last decade, and perusal of the recent literature attests to a stimulating research field of cognitive and diagnostic applications (for example, ( Andrews-Hanna, Reidler, Huang, & Buckner, 2010 ;  Koch et al., 2010 ;  Sheline, Barch et al., 2009 ;  Sheline, Raichle et al., 2009 ;  Uddin et al., 2008 ;  Uddin, Kelly, Biswal, Castellanos, & Milham, 2009 ;  Weng et al., 2009 ;  Yan et al., 2009 )). However, a formal definition of what exactly constitutes a functional brain network is difficult to come by. In recent contributions, some researchers argue that the DMN is best understood as multiple interacting subsystems ( Buckner, Andrews-Hanna, & Schacter, 2008 ) and have explored modular components of the DMN that have different functional specialization and could to some extent be identified separately ( Fox et al., 2005 ;  Harrison et al., 2008 ;  Uddin et al., 2009 ). Such conception of modularity seems to imply an opposite construct of a ‘unified whole’, but it is difficult to locate proponents of the idea of a DMN who are supplying constraints that can be brought to bear on data in rigorous tests. Our aim in this paper is to present a principled way of deriving a single covariance pattern as the neural substrate of the DMN, test to what extent its behavior tracks the coupling strength between critical seed regions, and investigate to what extent our stricter concept of a network is consistent with the already established findings about the DMN in the literature. We show that our approach leads to a functional covariance pattern whose pattern scores are a good proxy for the integrity of the connections between a medioprefrontal, posterior cingulate and parietal seed regions. Our derived DMN network thus has potential for diagnostic applications that are simpler to perform than computation of pairwise correlational strengths or seed maps. 
+ 
+ 
+ Default-mode network 
+ resting fMRI 
+ spatial covariance analysis 
+ Principal Components Analysis 
+ 
+ 
+ 
+ National Institute of Biomedical Imaging and Bioengineering : NIBIB 
+ R01 EB006204 || EB 
+ 
+ 
+ National Institute on Aging : NIA 
+ R01 AG026158 || AG 
+ 
+ 
+ 
+ 
+ 
+ 1. Introduction 
+ The default-mode network (DMN) has become a well accepted concept in cognitive and clinical neuroscience over the last decade, and perusal of the recent literature attests to a stimulating research field of cognitive and diagnostic applications (for example, ( Andrews-Hanna et al., 2010 ;  Koch et al., 2010 ;  Sheline, Barch et al., 2009 ;  Sheline, Raichle et al., 2009 ;  Uddin et al., 2008 ;  Uddin et al., 2009 ;  Weng et al., 2009 ;  Yan et al., 2009 )). 
+ Apart from the obvious physical embodiment of  structural  brain networks, consisting of neurons and their axonal connections, a formal definition of what exactly constitutes a functional brain network is difficult to come by. Functional and resting-state networks are talked and thought about widely in the community, but it is much less clear how to give a rigorous apriori characterization what a functional network really is. It noteworthy that the two landmark papers that laid the foundations for DMN research ( Raichle et al., 2001 ;  Shulman et al., 1997 ) did not invoke the concept of a network when discussing the default-mode of brain function and task-induced de-activations. The concept of a network that could be used diagnostically was pioneered by Greicius et al. ( Greicius, Krasnow, Reiss, & Menon, 2003 ;  Greicius, Srivastava, Reiss, & Menon, 2004 ) in a series of papers that exclusively investigated the resting state with functional MRI. 
+ A limited representative review of papers dealing with resting fMRI since gives an idea about existing practices in the neurosciences with regard to the resting state ( Andrews-Hanna et al., 2010 ;  Andrews-Hanna et al., 2007 ;  Bosma et al., 2009 ;  Esposito et al., 2008 ;  Fair et al., 2009 ;  Greicius et al., 2008 ;  Greicius et al., 2003 ;  Greicius, Supekar, Menon, & Dougherty, 2009 ;  Supekar, Musen, & Menon, 2009 ;  Wang, Zuo, & He, 2010 ). Three approaches can be identified for the majority of resting-state research: for the first approach, a set of nodes or brain areas are given apriori, and functional network indicators are estimated with graph theory techniques ( Bullmore & Sporns, 2009 ;  Wang et al., 2010 ). These indicators often have continuous ranges and speak to questions of degree (“How much?”) rather than questions about whether or not a network is present and how it could be derived. The presence of networks  per se  is not an issue of investigation. 
+ A second approach, pioneered by Fox et al. ( Fox et al., 2005 ) and since used in countless further applications, is similar in that it proceeds from a set of apriori given brain areas. The goal is the identification of brain areas that show significant correlation in their activation with these seed areas. Also, the degree of the association between the seeds and other target areas can be used for diagnostic and prognostic purposes. The seed-correlation approach also circumvents categorical questions about the existence of networks ( Christian Habeck & Moeller ). 
+ A third approach ( Greicius et al., 2008 ;  Greicius et al., 2003 ;  Greicius et al., 2009 ), “ICA”, is similar to the approach of seed correlation, but allows a greater degree of subject variability in the definition of subject-specific DMNs. This approach has the virtue of defining a network for each participant  without  resorting to particular seed locations first, but requires the existence of an apriori template to which the subject-specific Independent Components can be matched and evaluated. Again, knowledge about the DMN is assumed as a given for this approach. This approach is unique for its mixing of univariate and multivariate computations: the first step of identification of subject-specific DMNs on a basis of a best match with a template is clearly multivariate. However, after this identification, each subject-specific DMN is submitted to a group-level mass-univariate analysis, looking for voxel-wise differences or associations with an explanatory variable. Approaches (2) and (3) are thus quite similar in that they involve a univariate comparison of either seed-correlation maps or subject-specific DMN maps at the group level. Our approach is different in that we are aiming to derive a single DMN at the group-level in a multivariate manner. This obviously represents a greater degree of data reduction than the aforementioned approaches, and can be seen as more demanding of the data. A recent review ( Cole, Smith, & Beckmann ) gives an exhaustive account of these 3 main as well as other approaches, which can also involve frequency-domain data. 
+ Algorithmically our approach is similar to other group-level covariance analytic frameworks (e.g. ( C. Habeck, Krakauer et al., 2005 ;  C. Habeck, Rakitin et al., 2005 ;  McIntosh, Bookstein, Haxby, & Grady, 1996 ;  Worsley, Poline, Friston, & Evans, 1997 )), and works by identifying commonalities among seed-correlation maps across subjects with multivariate analysis. The emphasis is on the outcome of the analysis: a single multivariate activity pattern, which can be viewed as a unidimensional construct in a high-dimensional space. Our choice of this strategy was driven by the desire to have the defined DMN meet several criteria. We wanted it to be based on a set of apriori given seed locations, and thus be standardized across individuals. In addition, we wanted it to be a network in a more rigorous sense than manifesting pair-wise statistical associations between different nodes – the derivation of a single covariance pattern demands that all mutual relationships between network nodes are fixed and invariant with respect to changing activation levels of the whole network. Further, derivation of a single covariance pattern as a network substrate enables easy quantification of individual expression of this network across different conditions (such as at rest and during task performance) as a single number. None of the approaches outlined above fully meet these desired characteristics. 
+ To better explain our motivation, we stress that we are not arguing that in terms of underlying mechanisms the neural substrate of the DMN can best be represented with a single covariance pattern, as opposed to the more loosely defined term that allows a variety of sub-systems and differential coupling strengths. From the data at our disposal, determining which approach captures the underlying functional neurophysiology more truthfully would be difficult to answer. Instead, our aim is to present a principled and practical way of deriving a single covariance pattern as the neural substrate of the DMN. Then, we want to investigate  to what extent  our stricter concept of a network is consistent with the already established findings about the DMN in the literature, such as the load-related de-activations that lead to the postulation of the DMN in the first place ( Shulman et al., 1997 ), and to what extent network behavior tracks the coupling strength between the apriori given DMN seeds across subjects and time. 
+ Figure 1  shows a schematic sketch that explains the differences between our strict network definition, demanding one covariance pattern with fixed correlative relationships between all regions in the pattern, with a looser definition which permits  changes  in the correlative relationships, resulting in  several  covariance patterns that come online at different points, for instance over a range of the experimental parameter in a cognitive task. 
+ A single network, rather than several sub-networks, would achieve a simpler account of the data and have practical advantages for the prospective application to independent data sets. If, on the other hand, sub-networks yield a better explanation of behavior, it might be disadvantageous to lump them together as a single network, but rather to refer to each component individually. From the point of view of successful diagnosis, the question whether the DMN is best conceptualized as  one  or  several systems  has an empirical answer which can be obtained after gathering sufficient functional-connectivity data from participants with neurodegenerative or psychiatric disease. For the current study, we do not have such data available and can only investigate to what extent our approach of deriving a single network can produce results that are consistent with what has been established about the DMN so far. 
+ In this paper, we start and describe the derivation of a DMN as a single covariance pattern from seed-correlation maps. Our method of deriving the DMN is described in detail in section 4. However, give a conceptual flow chart with only minimal technical details in  Figure 2 . 
+ The goal of our analysis is to derive a covariance pattern from seed-correlation maps that shows invariance across seeds, while capturing subject variability. The number of seeds used to produce the sets of seed-correlation images is not important and our technique will work for any number, although the more seeds are utilized, the stronger the constraints on the pattern. In the current study we use 3 seed locations that have been established as clearly belonging to the DMN ( Andrews-Hanna et al., 2007 ). 
+ We can summarize this conceptual outline of the paper in three simple steps:
+ Group-level derivation of DMN as single covariance pattern from seed-correlational images, Check DMN pattern scores and their relation to age and inter-seed correlational strength in the time series within and across subjects, Check DMN pattern scores in independent fMRI data obtained from a cognitive task to assess whether DMN expression is decreasing with increasing task difficulty. 
+ 
+ 
+ 
+ 2. Results 
+ 
+ 2.1 Derivation of the DMN 
+ The DMN derived from the resting seed-correlational images is shown in  figure 3  and  Table 1 .  Figure 3  shows a map produced by bootstrap resampling test, indicating regional robustness (p<0.001) in the topographic composition of the covariance pattern. Areas colored in red increase their resting signal with increasing pattern score, while areas colored in blue decrease their resting signal. As expected, the seed locations in the mPFC, pC, and lateral parietal cortex play a pivotal role, with a more widespread cluster of temporal and parietotemporal areas included in the network along with the seed areas as well. 
+ In addition to positive loadings which indicate a positive correlation with the behavior of the 3 seed locations, there were also areas exhibiting negative loadings in the bilateral frontal lobes, Brodmann areas 11 and 25. We cannot speculate on the functional relevance of these areas, but discuss the nature of negative loadings, which are a necessary feature of our analysis, more exhaustively in the Discussion section. 
+ We emphasize that our derived DMN network embodies a group-invariant property and is the same for every participant. The extent to which a participant manifests this covariance pattern in their correlational maps or time series (‘DMN score’ and ‘DMN expression’, respectively), on the other hand, varies from participant to participant, and we will use these scores extensively for further analysis. 
+ 
+ 
+ 2.2 Relationship to age status and time series behavior 
+ The next step was to determine the relationship between the DMN and its behavior in the time series data and in the correlational maps from which the DMN was derived. We first considered the DMN score, i.e. the scalar value which results from computing a dot product between our DMN pattern and the individual subject’s seed maps. We constructed our covariance pattern to produce equal scalars for all three seed-correlational maps and verified that the choice of seed does not matter for the computation of the DMN score. There was a slight mean difference in the DMN score between old and young subjects (p=0.05, non-parametric T-test with 10,000 permutations) and young subjects showed a  higher  level of expression of the DMN in their seed correlation maps (figure not shown). This statistically significant finding appears to be driven by a single data point in the young group so we have to take the age difference in the DMN score with caution. However, this does not in any way speak on the utility of our derived DMN as marker for neurodegenerative disease, which would have to be tested in independent data. 
+ The reader might now ask what the DMN score really captures. After all, the DMN network in our approach represents a second-order construct: it was derived as a covariance pattern from  correlation  (Fisher-Z) maps, rather than directly from the original time series data. The DMN score, i.e. the level of expression of the DMN pattern in a subject’s seed correlation map, is thus a rather abstract quantity at this point. 
+ To address this issue, we empirically related the DMN score directly to subjects’ individual time series. First, we projected the DMN network into the time series data and obtain a time series for the network expression itself. From this time series we computed the standard deviation across time for every subject. 
+ We stress that these time series derived scores are different from what we called ‘DMN score’, which is obtained by projecting the DMN covariance pattern directly into the seed correlation images  Z (i)  (rather than any within-subject time series):
+ DMN score =  Z (i)  ‘  v  (i=1,2,3 for 3 seeds). 
+ 
+ (Due to the seed-invariance nature of DMN, the answer in the above equation will be the same regardless of index  i .) 
+ We then computed the average correlation between all 3 seeds’ time series; again, this was done for every subject. 
+ Figure 3  shows the relationship between the three quantities derived using the DMN pattern, (1) the DMN score, (2) the variability (STD) of the DMN pattern expression in the time series, (3) the variance accounted for by the DMN pattern in the time series, and (4) the inter-seed correlation strengths across the time series 1 . All 4 associations were statistically significant at p<0.0001, i.e. stronger coupling between the seeds in the time series was associated with increased DMN score in the seed-correlational maps, increasing variability of DMN expression in the time series, and larger variance-contribution by the DMN pattern in the time series. Further, as the lower right panel shows, a greater global DMN score also implies a greater amount of variance attributed to the time series. Overall, the amounts of relative variance contributed by the DMN pattern might seem low: the mean amount of relative variance accounted for in the time series across all participants is 0.006. However, this is still more than the amount anticipated for a degenerate eigenvalue spectrum of pure statistical noise in the time series, which would come out as 1/285=0.0035. 
+ It was notable that the mean expression of the DMN in the time series did  not  correlate with the inter-seed coupling strength, i.e. the average activity level within the DMN network across time did  not  show any association with the coupling strength between the seeds. 
+ Next, we checked the association between  time-dependent  measures of both DMN pattern expression and variance contribution with the time-dependent inter-seed coupling in the individual time series as explained in section 2.7. The time-dependent measures, i.e. mean and STD of DMN pattern expression, as well as the variance contribution of the DMN, were computed in 14 non-overlapping time-dependent bins of 20 repetition times (=40 sec). (The first 5 volumes in the time series were discarded.) 
+ One can appreciate from  table 2  that no subject showed an significant association between the time-dependent behaviors of mean DMN expression and inter-seed coupling, while 20 participants show a significant correlation between the  variability  of DMN expression and the inter-seed coupling strength at p<0.05. The time-dependent variance contributed by the DMN in the time series was associated with the inter-seed coupling in 9 subjects. There was no age-group difference in the Fisher-Z transform of any association between our time-dependent DMN-measures and inter-seed coupling strength. Further, the Fisher-Z score of the association between time-dependent variance contributed by the DMN and the inter-seed coupling strength correlated significantly with the DMN score across subjects (p=0.02); a similar relationship was found to the association between the time-dependent variability in DMN expression and the inter-seed coupling strength (p=0.0011). This means that subjects with a higher DMN score have a closer association between time-dependent variability of expression of their DMN in their time series and the inter-seed coupling strength; further they also have a closer association between the time-dependent amount of variance contributed by the DMN and inter-seed coupling strength. The time-dependent mean subject expression of the DMN, however, seemed to carry no important information, similar to the global mean DMN expression. No association with the inter-seed coupling strength was found, and neither did the Fisher-Z transform of these individual within-subject associations shows any relationship to subjects’ global DMN score. 
+ 
+ 
+ 2.3 Behavior of DMN expression with increasing cognitive task demand 
+ For our Executive-Control-Factors set-switching task, we projected the DMN covariance pattern into every subject’s time series and used the obtained time series for the DMN pattern expression in a linear regression against the design matrix to compute a DUAL-SINGLE contrast. We anticipated a negative contrast, in line with the prior observations that the DMN should decrease in activation with increasing task difficulty. 
+ Surprisingly, we found a strong  positive  effect of task difficulty: T(DUAL-SINGLE)=4.77, p<0.0001. We also investigated the task contrast DUAL-SINGLE at each of the seed locations and found that for each seed we had strong positive effects with p-levels of p<0.0001. This check was performed to see whether there were residuals unaccounted for by our derived DMN-network that could still explain a net task-induced decrease in the DUAL-SINGLE contrast. However, this was clearly not the case. Our DMN network thus is a strongly task-positive network, against our expectations. 
+ 
+ 
+ 
+ 3. Discussion 
+ We presented a principled way of deriving a single covariance pattern as the neural substrate of the Default-Mode Network (DMN), by using a version of Principal Components Analysis (PCA) to identify commonalities in different seed-correlation maps, while still allowing for inter-subject variability. This is in contrast to the three other most common approaches, which are different in that they use either seed-correlation maps, Independence Component Analysis, or graph theoretical techniques, which involve mass-univariate comparisons of either correlational strengths or Independent Component Maps at the group-level, and thus do not lead to the derivation of a single group-invariant network for all participants in the experiment. 
+ For the Executive-Control Factors set-switching task we found that during performance of the more difficult DUAL condition subjects employed the DMN network to a greater extent than during the easier SINGLE condition. This was contrary to our expectation that increased task demand would be associated with reduced DMN expression. It is possible that the ECF task might employ cognitive processes that involve the DMN, similar to the cognitive processes of self-referential thought that activate the DMN ( Andrews-Hanna et al., 2010 ;  Spreng & Grady, 2010 ;  Spreng, Mar, & Kim, 2009 ). Further, we might be capturing the overlap between the DMN and the dorsal attention network ( Buckner et al., 2008 ;  Vincent, Kahn, Snyder, Raichle, & Buckner, 2008 ). On the other hand, the difficulties in establishing consistency of the behavior of our derived DMN’s behavior with prior accounts of de-activation might point to a fundamental problem in trying to derive the DMN from  functional  considerations of activations and de-activations during cognitive processing. As has been pointed out by Raichle ( Raichle & Mintun, 2006 ;  Raichle & Snyder, 2007 ), processes of physiological maintenance and tonically active preparatory responses that are as yet poorly understood and cannot be tied to cognitive tasks in a rigorous fashion might also be also important in the formation of the DMN, in addition to the need to support spontaneous stimulus-independent thought. For example, correlated DMN-like activity is clearly present in anesthetized monkeys ( Vincent et al., 2007 ). These observations would dictate that a derivation of the DMN from resting activity with considerations of variance contributions, even under loss of consciousness, is a better approach than either 1) reasoning from the comparatively small changes in activation or de-activation observed in cognitive neuroscience tasks or 2) tying the network apriori to a restrictive set of seed regions, which mainly originate from observations of functional de-activation. 
+ Our DMN can be seen as a second-order construct since it was derived from a population-level analysis of correlation maps. Thus, how the DMN score related to the time series was not clear. Because shifting or rescaling any of the arguments does not affect correlation, a network derived from correlation maps does not predict the time series directly. In our case, the DMN score correlated positively with the average inter-seed correlation across individual time series. This was consistent with our expectations and showed that closer interaction between the seeds in the time series resulted in a higher DMN score. We also found that the  variability  of DMN expression, rather than the mean level of expression, across individuals’ time series was positively associated with both DMN score and inter-seed correlations. Even at the level of the individual time series, for more than half of the participants the time-dependent variability of the DMN expression in the time series correlated significantly with the time-dependent functional coupling between the DMN seeds. Closer interaction between the DMN seeds in the time series apparently results in larger-amplitude fluctuations of the DMN expression, but has no bearing on the mean level of network expression. In general, predictions and statements about the mean level of DMN network activity during unconstrained restful waking (rather than cognitive tasks) are harder to make than about the  integrity  of the DMN as ascertained by correlational analysis, or the magnitude of task-induced de-activation in DMN nodes. Most publications surveyed for this study used some assessment of DMN integrity for diagnostic purposes, while a few others employed the magnitude of DMN de-activation during cognitive processing. None used DMN activity during wakeful rest as a diagnostic marker. A comprehensive review ( Buckner et al., 2008 ) has detailed the association of DMN integrity with psychiatric and neurodegenerative disease: disruption of the network or decreased ability for task-induced de-activation was usually associated with disease. Several studies, for instance, have looked at the DMN for diagnostic purposes in Alzheimer’s disease (Damoiseaux, Prater, Miller, & Greicius; Greicius et al., 2004;  Supekar, Menon, Rubin, Musen, & Greicius, 2008 ). However, to our knowledge, with regard to neurodegenerative disease the  tonic activity level  of the default network during rest has not been investigated to the same extent as the  connectivity within the network . Although the observation of increased amyloid deposition at DMN locations and a general postulation of a correlation with increased neural activity ( Buckner et al., 2008 ) suggests that increased DMN activation at rest might be causally related to the subsequent onset of Alzheimer’s disease, no study has investigated this possibility rigorously. It could be that the combination of an increased DMN activation coupled with a subsequently decreased intrinsic DMN connectivity could constitute the most sensitivity Alzheimer’s maker based on resting fMRI yet. 
+ Apart from the practical advantage of simplified cross-applicability to other data sets, the question whether the DMN can be represented by single covariance pattern with fixed correlative relationships of all regions in the brain strikes us as theoretically important. The neuroscience community would do well to supply a clear definition of what exactly constitutes (1) a network and (2) sub-networks within a network, and how these two scenarios can be clearly distinguished. At the moment these notions are not precise and mainly rhetorical devices. However, the distinction of ‘one vs. several’ might have real importance. Beyond an assessment of reduced integrity within DMN regions, differential employment of sub-networks could signal more subtle alterations in functioning with diagnostic power, even when overall DMN integrity is preserved. 
+ In the same vein, we disagree with a reporting practice that can sometimes be observed when the DMN is discussed in the literature. Although it might be tempting to infer the presence of the DMN on account of the observed task-induced de-activation of one of its constituent nodes, this is problematic and seems to serve as a ‘left-over’ category for regions whose functional task-involvement might be real, but not yet sufficiently understood. In many cases, the statement that deactivation of one DMN constituent reveals DMN involvement as a whole does not lead to any actionable knowledge anyways, and can thus be safely omitted. We might speculate that task-induced de-activation of the posterior cingulate cortex, for instance, might have a variety of causes, one of which might be genuinely functional, rather than the consequence of diverting resources away from the DMN to the neural substrate of the probed cognitive process. In order to make the assertion of DMN de-activation more robust, concrete evidence of de-activation of the entire network should be required Some standardized approaches, not only concerning the derivation, but also such an assessment of the DMN, are therefore needed. 
+ In the current study, we sought to establish whether a network in the strictest sense can be derived from resting fMRI data. Our derivation demonstrated how a common covariance pattern can be identified that shows invariance across different seed-correlation maps  by design . So far, the evidence is lacking whether this network also provides clinically meaningful information when applied to independent data. This remains our research agenda for the future. Despite the earlier caveat of the implausibility of one covariance pattern simultaneously supporting all cognitive processes that involve DMN regions, the diagnostic utility of a single covariance pattern would be considerable: such a pattern could be applied to independent data on a subject-by-subject basis and would obviate the need for checking numerous pairwise associations for multiple seed areas with univariate or graph-theory techniques. 
+ Concerning the topographic composition of our derived DMN, we noted that, in addition to the seed locations which have associated positive loadings, there are negatively weighted areas. Negatively weighted areas, indicating negative correlation with the DMN seed areas, represent a challenge to the interpretation of the DMN as consisting of areas that are active in the absence of task demand, and are usually seen as belonging to a  different  network from the DMN (for instance, see discussion about precuneus role in ( Andrews-Hanna et al., 2010 ;  Buckner et al., 2008 )). Since our derivation is targeted at commonalities in the various seed-correlation maps, there is no apriori constraint that precludes negative loadings on any area. In fact, since PCA involves an Eigen vector decomposition of a covariance matrix, which is the product of a mean-centered data matrix with its own transpose, the voxel-loadings in the Principal Components usually sum to zero, implying positive and negative loadings  by necessity . This issue again represents the inconsistencies in the different routes by which the DMN could be derived. Whether identified in resting fMRI data with the help of ICA, or as a neural substrate of a self-referential thought process, areas of de-activation in the DMN itself are only impossible by a strict reading of the DMN as a network of areas that exclusively shows de-activation in a variety of cognitively demanding tasks. This negative definition, however, collides with the conception of the DMN data as network of major variance contribution/correlation in resting data or as a neural substrate of a well defined self-referential cognitive process. Both those operational definitions allow for negative voxel loadings: some areas might contribute a lot of variance in the resting state and show negative correlation with the seeds, or might de-activate in response to self-referential thoughts. 
+ As a caveat for our derived DMN, we point out that that some of the negative loadings were found in the bilateral rectal gyrus (BA 11), near the orbitofrontal tissue-bone-air interface, an area that is prone to both signal drop-out as well as distortion because of magnetic susceptibility artifacts. While our acquisition protocol did not employ any corrective measures such as active shimming, we find it unlikely that any induced artifacts would display a robust negative correlation across subjects with the DMN seed regions, to be picked up in a covariance analysis. However, we have to interpret these negative loadings with caution. 
+ Concerning the relationship to age, our derived DMN pattern did show only a weak age-effect: the DMN score showed a significant age difference, and was higher for young than aged participants (p=0.05), but this result seems to have been caused by one influential data point. Age differences should regarding the DMN have been shown and two important studies ( Andrews-Hanna et al., 2007 ;  Damoiseaux et al., 2008 ) found altered resting connectivity and decreased default-network activity which could also account for decreased neuropsychological performance. On the other hand, a systematic review of a variety of approaches, using seed-correlation techniques as well as ICA, found weak age and sex effects which also displayed considerable methodological variation ( Bluhm et al., 2008 ). 
+ We close our paper with the remark that for future research, methodological pluralism with larger data sets and relevant clinical information will have to be employed in the derivation of network indicators, including a clear empirical test of the predictive utility of such measures. For instance, it is entirely conceivable that for diagnostic clinical classification,  mean activity  in the resting signal might have more diagnostic potential than functional connectivity 2 . On the other hand, if changes in the functional connectivity of the DMN are  preceding  any obvious signal deficits, FC-maps should provide a more sensitive means for diagnostic classification. In any case, in exploring the diagnostic potential of FC-maps, comparative large-scale studies should be performed, using large training and test data sets and trying out state-of-the-art Machine-Learning and model-selection tools, using all conceivable measures that can be computed from resting fMRI data. FC-maps, while indispensable for answering questions about connectivity per se, have to prove their diagnostic potential above and beyond what is available already. This will be an exciting endeavor in the years to come. 
+ 
+ 
+ 4. Experimental Procedure 
+ The overall methods can be summarized as follows: (1) derive DMN from a 9.5 minute session of bold acquisition at rest; (2) apply the DMN to the active task blocks of an executive control factors (ECF) task administered to be same subjects at the same scanning session. 
+ 
+ 4. 1 Resting task and executive control factors (ECF) task 
+ Twenty four young participants (11M, 13 F, mean age: 25.3 yrs, STD age: 2.8 yrs), and 21 older participants (8M, 10 F, mean age: 65.4 yrs, STD age: 2.5 yrs – 3 participants are missing demographic information) performed both the resting and EC F task. 
+ For the resting task, participants were instructed to just rest in the scanner for 9.5 minutes, with the instruction of keeping their eyes open for the duration of the scan. 
+ The Executive Control Factors (ECF) experiment consists of a series of four different conditions which are implemented in blocks in which 12 letters are displayed sequentially. Subjects respond to each letter with a right-hand/left-hand button press or by making no action at all. Each block is preceded by an instruction cue that informs the subject of the appropriate action for each stimulus.  Figure 2  depicts the instruction cue provided before each stimulus block. For example, in condition i, a green letter is associated with the vowel/ consonant task (left press for vowel, right press for consonant) and a white letter is associated with no action. 
+ This experiment manipulates contextual control and was first presented by E. Koechlin ( Koechlin, Ody, & Kouneiher, 2003 ). In Koechlin’s scheme,  contextual control  relates to control signals that guide behavior on the basis of the immediate, or between-trials, context in which the stimulus occurs. In conditions i & ii (=SINGLE task), only one type of letter judgment occurs in each block. That is, in a block with green letters subjects make a vowel/consonant decision, and in a block with red letters subjects make an upper/lower case decision. In contrast, in conditions iii & iv (=DUAL task), subjects are presented with a dual task situation where, depending on letter color, they have to either perform the vowel/consonant or the upper/lower case task. By increasing the number of dimensions that must be considered within a block, the executive demands have been increased. This, in turn, is associated with increased reaction time and reduced accuracy. This type of increase in contextual demand was associated with increased activation in the caudal LPFC in young adults. Signals flow in a top-down manner from caudal LPFC to the motor cortex ( Koechlin et al., 2003 ;  Koechlin & Summerfield, 2007 ). 
+ In the scanner, this study includes four active conditions along with two resting conditions. The two resting conditions are identical, presenting no stimuli and requiring no responses, but are enumerated separately to simplify description of the Latin Square design. Following a training period, each subject is given 6 blocks of each of the four active and two resting conditions, for a total of 36 blocks, in a complete, balanced 6 × 6 Latin-square design. Each active condition block includes an instruction cue, illustrated in the Figure, and 12 stimuli consisting of colored letters. The instruction cue is shown for 4.8 seconds. Each stimulus is shown for a maximum of 1900 s, but terminates following a response before that deadline, followed by a 500 ms inter-stimulus interval. These trial dynamics are a concession to the performance characteristics of the elders in our behavioral pilot studies, and deviate from Koechlin’s briefer presentations. Each block takes a total of 33.6 s. Each resting block presents an instruction cue (“REST”) followed by a blank screen. The total duration of a resting block including the instruction cue is 33.6 s. We ran an identical 36 block session after training and prior to scanning, making it more likely that we are scanning participants in a stable behavioral and cognitive state, and allowing us to directly assess the impact of the noisy MRI environment on performance. Total scan time for this task was approximately 20 minutes. For the current study, we are only interested in the difference of participants’ utilization of our derived DMN during performance of SINGLE and DUAL tasks. Neural data from the ECF task was not used in this study in any other way, but will be reported in separate papers. 
+ 
+ 
+ 4.2 Scan acquisition and pre-processing for resting task and ECF task 
+ Functional images were acquired using a 3.0 Tesla magnetic resonance scanner (Philips) using a field echo echo-planar imaging (FE-EPI) sequence [TE/TR = 20ms/2000ms; flip angle = 72 degrees; 112×112 matrix; in-plane voxel size = 2.0 mm × 2.0 mm; slice thickness = 3.0 mm (no gap); 37 transverse slices per volume]. A T1-weighted turbo field echo high resolution image was also acquired [TE/TR = 2.98ms/6.57ms; flip angle = 8 degrees; 256×256 matrix; in-plane voxel size = 1.0 mm ×1.0 mm; slice thickness = 1.0mm (no gap); 165 slices]. 
+ The functional data were motion-corrected and co-registered to the structural data, with a subsequent spatial normalization to the MNI template. Slightly different treatment ensued for the data from the cognitive task vs. the resting task. 
+ 
+ 
+ 4.3 Computing corrected resting time series 
+ For the resting task, the individual time series data were bandpass-filtered between 0.009 and 0.08 Hz and further corrected for motion artifacts by focusing on parts of the brain located in the white matter or cerebrospinal fluid which should not carry any meaningful BOLD signal. For this, we used the probabilistic gray-matter mask supplied by SPM5 and looked at the voxel locations with gray-matter probability P<0.01. The time courses at these voxel locations were submitted to a Principal Components Analysis (PCA) to yield a set of spatial components and their associated time courses ( Behzadi, Restom, Liau, & Liu, 2007 ). We picked all components with non-zero Eigen values and used their time courses as independent variables in a subsequent regression. The signal at all voxel locations with gray-matter probability P>0.5 was then residualized with respect to the independent variables in a mass-univariate manner, i.e. it was regressed against the independent variables, and the model prediction was subtracted from the time series voxel by voxel to form a residual time series for each subject at each voxel location. The residual time series images were then smoothed with an isotropic Gaussian kernel (FWHM= 6mm), and served as inputs to the seed-correlational and group-level analyses explained below. 
+ Note that we did  not  use a whole-brain regressor as is commonly done for functional-connectivity studies. Regressing out whole-brain fluctuations most likely shifts the distribution of correlations with seed-location to the left, this inducing negative values ( Cole et al. ), but it is not clear whether this is desirable or not. To comply with the methodological version of Occam’s razor, we decided to use as few nuisance regressors as possible in the face of this uncertainty. 
+ 
+ 
+ 4.4 Identifying seed-invariant resting covariance patterns 
+ We chose 4 DMN seed locations based on prior research ( Andrews-Hanna et al., 2007 ) that investigated the resting state with BOLD fMRI. The 4 locations are given in Talairach (TAL) coordinates in units of millimeters: a medioprefontal location, TAL=[1 40 16], abbreviated as ‘mPFC’; a posterior cingulate location, TAL=[−1 −50 26], abbreviated as ‘pC’; and bilateral parietal locations, TAL=[−45 −67 26] and TAL=[53 −65 26], abbreviated as ‘latPar’. 
+ Time series for all seeds were computing by averaging the signal in a 10mm-cube centered on the TAL locations. The time series of the 2 parietal locations were averaged together, resulting in 3 time series per subject overall. These were used to compute seed-correlational images, again 3 correlational images per subject. 
+ We outline the approach used to identify the similarities of these images across seeds and subjects in order to arrive at one resting covariance pattern for the entire group of subjects. 
+ First, we performed a Fisher-Z transform on all seed-correlational images according to
+ z = (1/2) * ln( (1+R)/(1−R) ). 
+ 
+ This is done for each voxel in each correlational seed image. A group analysis was then performed on all N × 3 seed-Z images. We assembled the Z-images in three matrices, one per seed, as  Z (i) , i=1,2,3. The matrices  Z (i) have as many rows as voxels and  N  columns, one column per subject. The matrices were assembled in one array
+ Z  = [ Z (1) 
+ Z (2) 
+ Z (3) ], 
+which has 3 N  columns. 
+ We then used Principal Components Analysis (PCA) on the data array in order to separate effects that are invariant across seeds (but variable across subjects) from effects that describe seed-by-subject interactions. The latter class of effects can be represented with a matrix of unnormalized Helmert contrasts as
+ H  = [ Z (2)  −  Z (1) 
+ Z (1)  +  Z (2) −2  Z (3) ]; 
+ H  now has 2 N  columns. 
+ With an execution of PCA on the Helmert matrix  H  we produced a set 2 N  basis vectors that were assembled in the matrix  W ;  W  contains the Principal Components as column vectors and has 2 N  columns that collectively span the space of effects that display seed-by-subject interactions. The next step was to isolate the orthogonal complement of  W , which we call  V : it consists of  N  basis vectors that describe effects that are unchanging across seeds  for every subject.  Any linear combination of the basis vectors in  V  will also display invariance across seeds for every subject. The basis vectors in  W  and  V  make up the total space spanned by  Z , but  W  and  V  are mutually orthogonal. 
+ To obtain  V , we first residualized  Z  with respect to the basis set  W  by using the projection operator  WW ’:
+ R  = ( 1  −  WW ’)  Z . 
+ 
+ R  contains effects that are invariant across seeds for every subject.  R  has 3 N  columns, but the true data rank in  R  is only  N . In order to get a basis with assigned ordering of variance contribution, we performed another PCA on  R  to yield the matrix of basis vectors  V . Because of the rank deficiency of  R , only the first  N  of its basis vectors have non-zero Eigen values, and these are the ones that we assembled in matrix  V . 
+ This approach to isolating subject effects that are invariant across a task parameter (in our case: different seed locations) is general and can be performed for an arbitrary number of conditions. For the current study, the number of seeds happened to be three, but any number is admissible. In general, for  T  conditions, the basis  W  obtained from the PCA of the Helmert matrix has rank  (T-1) * N , and the orthogonal complement  V  has rank  N . 
+ For the current study, we consider the first Principal Component in  V , i.e. the seed-invariant covariance pattern that contributes most variance across subjects. This is the simplest approach. Other approaches are conceivable that compute linear combinations of the Principal Components in  V  according to
+ Linear Combination Pattern = V β 
+where  β  is a vector of weights that could be obtained from a brain-behavioral regression to tailor a covariance pattern whose subject scores correlate with a subject variable of choice. This association with an external subject variable would also furnish a possible inferential judgment, which is lacking for our simple choice of the first Principal Component. For the current article we did not posses any apriori constraints that tied the DMN to a particular subject variable, and thus chose the simplest approach. 
+ 
+ 
+ 4.5 Assessment of pattern weight robustness 
+ We assessed the robustness of the weights in the derived covariance pattern with a semi-parametric bootstrap procedure ( Efron & Tibshirani, 1993 ). For this procedure, subjects were re-sampled from the total pool with replacement - this means that the input data into any subsequent PCA will be ranked deficient and some Eigen values will come out as zero. The subject –condition assignments were left intact since we were trying to sample the variability of the underlying distribution, rather than create null-hypothesis conditions. In any bootstrap sample, some subjects will be represented more than once, while some others are dropped entirely. 
+ The complete algorithmic chain that gave rise to the seed-invariant resting covariance pattern was then executed on the re-sampled data. We performed 500 such bootstrap iterations. At the end of the procedure we computed the variability around the point estimate of the covariance pattern for every voxel in the image. If we denote bootstrap iterations as  B =1:500, the point estimate of the covariance pattern, in our case: DMN, pattern as  v  and the covariance pattern derived for a particular bootstrap as  v (B) , we can compute the variability around the point estimate for any voxel  j 
+ std(j) = Σ (v (B) (j) −  v (j)) 2  /sqrt(500) ICV(j) = v(j)/std(j). 
+ 
+ The inverse coefficient-of-variation map  ICV  generally has values that are roughly normally distributed, i.e. a one-tailed p-level of 0.001 would correspond to a | ICV |=3.09. We will display the  ICV -map with this threshold. 
+ 
+ 
+ 4.6 Obtaining network scores 
+ The  ICV -map obtained from the bootstrap procedure mainly serves the purposes of visualizing the covariance pattern and identifying brain regions that show consistently signed loadings across the bootstrap procedure, i.e. whose confidence intervals do not include the zero point. For any subsequent analysis, however, the point estimate of the covariance pattern,  v , is the entity of importance. To obtain a network score, i.e. a single number that quantifies to what extent a subject exhibits the covariance pattern, we projected the covariance pattern onto the subject’s brain image by computing the dot product
+ network score = subject image ·  v , 
+which entails multiplying the subject image and covariance pattern voxel-wise with a subsequent summation of the products. 
+ This network score was used for correlations with additional subject variables that were not included in the analysis. Further, we also projected derived the covariance pattern into individual subjects’ time series to get an idea how expression varies over time and compute means and standard deviations, and relate this within-subject network behavior to the correlation between our 3 seeds. 
+ To avoid confusion in the remainder of the article, we state clearly the different kind of network scores we intend to use. First, we projected the derived DMN pattern onto the seed correlation maps. The resulting scalar values will be referred to as the ‘DMN score’. 
+ Further, we projected the DMN pattern directly into the individual time series and provide pseudo-math notation to clarify this operation. If we assume that matrix  Y  contains all 285 resting volumes in a single time series for one subject and the DMN covariance pattern can be denoted as vector  v , we can compute the mean and STD score in the time series as follows:
+ Mean of DMN score in time series = mean( Y’ v ). STD DMN score in time series = STD ( Y’ v ). 
+ 
+ These score scores are time-independent, i.e. the time dimension has been collapsed, and there is one score value for every subject. 
+ 
+ 
+ 4.7 Testing the relationship between time-dependent DMN expression and time-dependent coupling between the DMN seeds 
+ We also investigated the relationship between the DMN score and the behavior of the seeds in the individual time series. In particular, we are interested whether subjects who manifest tighter coupling between the seeds in their time series also manifest the DMN covariance pattern to a higher degree. Further, we computed the amount of relative variance accounted for by the DMN pattern in the individual time series and checked this quantities relation to the inter-seed coupling strength and the DMN score. 
+ Finally, we wanted to get some resolution of time-dependent behavior and computed the time-dependent mean and standard deviation of the pattern score of the DMN pattern in the time series. We also computed the time-dependent variance accounted for by the DMN in these bins. For these quantities, we chose a bin size of T=20 volumes and computed both mean and STDs by choosing 14 non-overlapping bins, where the first 5 volumes of the time series were discarded (5+14*20=285). For a single subject this means we have the following 3 time-dependent quantities with the index  k =1…14 indicating the time bin for which the quantity was computed.
+ STD SCORE (k) = STD( Y (:,5+(k−1)*20+1:k*20)’  v ) Mean SCORE (k) = mean( Y (:,5+(k−1)*20+1:k*20)’  v ) VAF (k) = variance accounted for by DMN in data  Y (:,5+(k−1)*20+1:k*20) 
+ 
+ These computations were also performed for the mean inter-seed correlation, i.e. all 3 pair-wise correlations between all seeds were computed within the moving window, Fisher-Z transformed and averaged across pairs, resulting in one time-dependent coupling-strength per subject. 
+ To avoid confusion we give final summary of the time-dependent quantities we computed on a subject-by-subject basis: (1) a time-dependent mean pattern expression score, (2) a time-dependent STD of pattern expression, (3) the time-dependent amount of relative variance accounted for by the DMN in the time series, and (4) the time-dependent inter-seed coupling strength in the time series. Quantities (1), (2), (3) and now be correlated with (4) on subject-by-subject basis, Further the quality of the correlation can be related to the overall DMN score for that subject. We anticipated that better correlations of (1),(2),(3) with (4) would be associated with a higher DMN score for that subject; in other words: for a subject whose time-dependent expression closely tracks the time-dependent coupling between the 3 seed voxels, we would expect the global expression of the DMN in the seed correlation images to be high too. 
+ 
+ 
+ 4.8 Testing the relationship between DMN expression and task demand 
+ After delineating how the DMN can be prospectively applied to any data set, we are now in a position to check the DMN network expression during performance of the cognitive task described earlier: since the ECF task had a block-design, the predictor variables comprising the first level design matrix were composed of epochs representing each unique experimental task block. Each epoch was convolved with a model of the hemodynamic response function. We then projected the DMN covariance pattern directly onto individual subjects’ time series data and treated the resulting time series of DMN scores as a dependent variable in a first-level GLM model. We then computed the DUAL-SINGLE contrast number for each subject and performed a one-sample T-test. We anticipated that the DUAL-SINLGE contrast for the whole brain to show a significantly negative effect, indicating decreased activity in the DMN during more effortful task processing. 
+ 
+ 
+ 4.9 Checking the relationship of major findings with motion parameters at the group level 
+ Recently, possible motion artifacts have come to the attention in functional-connectivity in general ( Power, Barnes, Snyder, Schlaggar, & Petersen, 2012 ;  Van Dijk, Sabuncu, & Buckner ). Despite correction for motion as a standard pre-processing step and residualization with respect to motion regressors in the first-level analysis, it cannot be guaranteed that motion effects still show an association with functional-connectivity findings at the group level. 
+ Thus, to perform an additional check we correlated our subject scores of the DMN, as well as all other measures of interest, i.e. the inter-seed correlations and the variance accounted for by our DMN etc., the with the 6 motion parameters that were collected for every participant. For every participant there is a time series of motion parameters and we kept track of the absolute size of the moment-to-moment changes in the parameters. Subjects with larger movements should not display systematically lower or higher expression of our derived DMN. We looked at the within-subject median and maximum of these jerks in all 6 parameters, and used both median and maximum separately in a regression to predict 4 outcomes measures: (1) the DMN score, (2) the STD of the DMN across the time series, (3) the variance accounted for by our derived DMN, (4) the average inter-seed correlation Z-value. No significant predictions could be achieved. Of course, motion could have subtle and non-linear effects that would be hard to uncover. This is just a first quality check to rule out the most obvious linear confounds and make sure that people who move a lot in the scanner are not overly influential for the results of the analysis. 
+ 
+ 
+ 
+ 
+ 
+ This is a PDF file of an unedited manuscript that has been accepted for publication. As a service to our customers we are providing this early version of the manuscript. The manuscript will undergo copyediting, typesetting, and review of the resulting proof before it is published in its final citable form. Please note that during the production process errors may be discovered which could affect the content, and all legal disclaimers that apply to the journal pertain. 
+ 
+ 
+ 1 
+ These 4 quantities were checked for a possible association with the subject motion parameters at the group level, as outlined in section 4.9. No significant associations were found. 
+ 
+ 
+ 2 
+ For instance, when we compared the diagnostic potential of the mean activity in our resting time series with all FC-maps for the prediction of age-status out of sample, using a Support Vector classifier (Hastie et al., 2009) the mean activity did appreciably better. Results were omitted for brevity (Christian Habeck & Moeller). 
+ 
+ 
+ 
+ Acknowledgments 
+ Funding sources: NIH/NIBIB 5R01EB00620 - Multivariate approaches to neuroimaging analysis (Habeck), NIH/NIA 5R01AG26158 - Imaging of Cognition, Learning and Memory in Aging (Stern) 
+ We thank our anonymous reviewers for giving helpful feedback and thus strengthening the manuscript. 
+ 
+ 
+ References 
+ 
+ 
+ 
+ 
+ Andrews-Hanna 
+ JR 
+ 
+ 
+ Reidler 
+ JS 
+ 
+ 
+ Huang 
+ C 
+ 
+ 
+ Buckner 
+ RL 
+ 
+ 
+ Evidence for the default network's role in spontaneous cognition 
+ J Neurophysiol 
+ 2010 
+ 104 
+ 1 
+ 322 
+ 335 
+ 20463201 
+ 
+ 
+ 
+ 
+ 
+ 
+ Andrews-Hanna 
+ JR 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Vincent 
+ JL 
+ 
+ 
+ Lustig 
+ C 
+ 
+ 
+ Head 
+ D 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ 
+ Disruption of large-scale brain systems in advanced aging 
+ Neuron 
+ 2007 
+ 56 
+ 5 
+ 924 
+ 935 
+ 18054866 
+ 
+ 
+ 
+ 
+ 
+ 
+ Behzadi 
+ Y 
+ 
+ 
+ Restom 
+ K 
+ 
+ 
+ Liau 
+ J 
+ 
+ 
+ Liu 
+ TT 
+ 
+ 
+ A component based noise correction method (CompCor) for BOLD and perfusion based fMRI 
+ Neuroimage 
+ 2007 
+ 37 
+ 1 
+ 90 
+ 101 
+ 17560126 
+ 
+ 
+ 
+ 
+ 
+ 
+ Bluhm 
+ RL 
+ 
+ 
+ Osuch 
+ EA 
+ 
+ 
+ Lanius 
+ RA 
+ 
+ 
+ Boksman 
+ K 
+ 
+ 
+ Neufeld 
+ RW 
+ 
+ 
+ Theberge 
+ J 
+ 
+ 
+ 
+ Default mode network connectivity: effects of age, sex, and analytic approach 
+ Neuroreport 
+ 2008 
+ 19 
+ 8 
+ 887 
+ 891 
+ 18463507 
+ 
+ 
+ 
+ 
+ 
+ 
+ Bosma 
+ I 
+ 
+ 
+ Reijneveld 
+ JC 
+ 
+ 
+ Klein 
+ M 
+ 
+ 
+ Douw 
+ L 
+ 
+ 
+ van Dijk 
+ BW 
+ 
+ 
+ Heimans 
+ JJ 
+ 
+ 
+ 
+ Disturbed functional brain networks and neurocognitive function in low-grade glioma patients: a graph theoretical analysis of resting-state MEG 
+ Nonlinear Biomed Phys 
+ 2009 
+ 3 
+ 1 
+ 9 
+ 19698149 
+ 
+ 
+ 
+ 
+ 
+ 
+ Buckner 
+ RL 
+ 
+ 
+ Andrews-Hanna 
+ JR 
+ 
+ 
+ Schacter 
+ DL 
+ 
+ 
+ The brain's default network: anatomy, function, and relevance to disease 
+ Ann N Y Acad Sci 
+ 2008 
+ 1124 
+ 1 
+ 38 
+ 18400922 
+ 
+ 
+ 
+ 
+ 
+ 
+ Bullmore 
+ E 
+ 
+ 
+ Sporns 
+ O 
+ 
+ 
+ Complex brain networks: graph theoretical analysis of structural and functional systems 
+ Nat Rev Neurosci 
+ 2009 
+ 10 
+ 3 
+ 186 
+ 198 
+ 19190637 
+ 
+ 
+ 
+ 
+ 
+ 
+ Cole 
+ DM 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ Advances and pitfalls in the analysis and interpretation of resting-state FMRI data 
+ Front Syst Neurosci 
+ 4 
+ 8 
+ 20407579 
+ 
+ 
+ 
+ 
+ 
+ 
+ Damoiseaux 
+ JS 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ Arigita 
+ EJ 
+ 
+ 
+ Barkhof 
+ F 
+ 
+ 
+ Scheltens 
+ P 
+ 
+ 
+ Stam 
+ CJ 
+ 
+ 
+ 
+ Reduced resting-state brain activity in the "default network" in normal aging 
+ Cereb Cortex 
+ 2008 
+ 18 
+ 8 
+ 1856 
+ 1864 
+ 18063564 
+ 
+ 
+ 
+ 
+ 
+ 
+ Damoiseaux 
+ JS 
+ 
+ 
+ Prater 
+ KE 
+ 
+ 
+ Miller 
+ BL 
+ 
+ 
+ Greicius 
+ MD 
+ 
+ 
+ Functional connectivity tracks clinical deterioration in Alzheimer's disease 
+ Neurobiol Aging 
+ 
+ 
+ 
+ 
+ 
+ 
+ Efron 
+ B 
+ 
+ 
+ Tibshirani 
+ R 
+ 
+ 
+ An introduction to the bootstrap 
+ 1993 
+ New York 
+ Chapman & Hall 
+ 
+ 
+ 
+ 
+ 
+ 
+ Esposito 
+ F 
+ 
+ 
+ Aragri 
+ A 
+ 
+ 
+ Pesaresi 
+ I 
+ 
+ 
+ Cirillo 
+ S 
+ 
+ 
+ Tedeschi 
+ G 
+ 
+ 
+ Marciano 
+ E 
+ 
+ 
+ 
+ Independent component model of the default-mode brain function: combining individual-level and population-level analyses in resting-state fMRI 
+ Magn Reson Imaging 
+ 2008 
+ 26 
+ 7 
+ 905 
+ 913 
+ 18486388 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fair 
+ DA 
+ 
+ 
+ Cohen 
+ AL 
+ 
+ 
+ Power 
+ JD 
+ 
+ 
+ Dosenbach 
+ NU 
+ 
+ 
+ Church 
+ JA 
+ 
+ 
+ Miezin 
+ FM 
+ 
+ 
+ 
+ Functional brain networks develop from a "local to distributed" organization 
+ PLoS Comput Biol 
+ 2009 
+ 5 
+ 5 
+ e1000381 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fox 
+ MD 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Vincent 
+ JL 
+ 
+ 
+ Corbetta 
+ M 
+ 
+ 
+ Van Essen 
+ DC 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ The human brain is intrinsically organized into dynamic, anticorrelated functional networks 
+ Proc Natl Acad Sci U S A 
+ 2005 
+ 102 
+ 27 
+ 9673 
+ 9678 
+ 15976020 
+ 
+ 
+ 
+ 
+ 
+ 
+ Greicius 
+ MD 
+ 
+ 
+ Kiviniemi 
+ V 
+ 
+ 
+ Tervonen 
+ O 
+ 
+ 
+ Vainionpaa 
+ V 
+ 
+ 
+ Alahuhta 
+ S 
+ 
+ 
+ Reiss 
+ AL 
+ 
+ 
+ 
+ Persistent default-mode network connectivity during light sedation 
+ Hum Brain Mapp 
+ 2008 
+ 29 
+ 7 
+ 839 
+ 847 
+ 18219620 
+ 
+ 
+ 
+ 
+ 
+ 
+ Greicius 
+ MD 
+ 
+ 
+ Krasnow 
+ B 
+ 
+ 
+ Reiss 
+ AL 
+ 
+ 
+ Menon 
+ V 
+ 
+ 
+ Functional connectivity in the resting brain: a network analysis of the default mode hypothesis 
+ Proc Natl Acad Sci U S A 
+ 2003 
+ 100 
+ 1 
+ 253 
+ 258 
+ 12506194 
+ 
+ 
+ 
+ 
+ 
+ 
+ Greicius 
+ MD 
+ 
+ 
+ Srivastava 
+ G 
+ 
+ 
+ Reiss 
+ AL 
+ 
+ 
+ Menon 
+ V 
+ 
+ 
+ Default-mode network activity distinguishes Alzheimer's disease from healthy aging: evidence from functional MRI 
+ Proc Natl Acad Sci U S A 
+ 2004 
+ 101 
+ 13 
+ 4637 
+ 4642 
+ 15070770 
+ 
+ 
+ 
+ 
+ 
+ 
+ Greicius 
+ MD 
+ 
+ 
+ Supekar 
+ K 
+ 
+ 
+ Menon 
+ V 
+ 
+ 
+ Dougherty 
+ RF 
+ 
+ 
+ Resting-state functional connectivity reflects structural connectivity in the default mode network 
+ Cereb Cortex 
+ 2009 
+ 19 
+ 1 
+ 72 
+ 78 
+ 18403396 
+ 
+ 
+ 
+ 
+ 
+ 
+ Habeck 
+ C 
+ 
+ 
+ Krakauer 
+ JW 
+ 
+ 
+ Ghez 
+ C 
+ 
+ 
+ Sackeim 
+ HA 
+ 
+ 
+ Eidelberg 
+ D 
+ 
+ 
+ Stern 
+ Y 
+ 
+ 
+ 
+ A new approach to spatial covariance modeling of functional brain imaging data: ordinal trend analysis 
+ Neural Comput 
+ 2005 
+ 17 
+ 7 
+ 1602 
+ 1645 
+ 15901409 
+ 
+ 
+ 
+ 
+ 
+ 
+ Habeck 
+ C 
+ 
+ 
+ Moeller 
+ JR 
+ 
+ 
+ Intrinsic Functional-Connectivity Networks for Diagnosis: Just Beautiful Pictures? 
+ Brain Connectivity 
+ 1 
+ 2 
+ 99 
+ 103 
+ 22433005 
+ 
+ 
+ 
+ 
+ 
+ 
+ Habeck 
+ C 
+ 
+ 
+ Rakitin 
+ BC 
+ 
+ 
+ Moeller 
+ J 
+ 
+ 
+ Scarmeas 
+ N 
+ 
+ 
+ Zarahn 
+ E 
+ 
+ 
+ Brown 
+ T 
+ 
+ 
+ 
+ An event-related fMRI study of the neural networks underlying the encoding, maintenance, and retrieval phase in a delayed-match-to-sample task 
+ Brain Res Cogn Brain Res 
+ 2005 
+ 23 
+ 2–3 
+ 207 
+ 220 
+ 15820629 
+ 
+ 
+ 
+ 
+ 
+ 
+ Harrison 
+ BJ 
+ 
+ 
+ Pujol 
+ J 
+ 
+ 
+ Lopez-Sola 
+ M 
+ 
+ 
+ Hernandez-Ribas 
+ R 
+ 
+ 
+ Deus 
+ J 
+ 
+ 
+ Ortiz 
+ H 
+ 
+ 
+ 
+ Consistency and functional specialization in the default mode brain network 
+ Proc Natl Acad Sci U S A 
+ 2008 
+ 105 
+ 28 
+ 9781 
+ 9786 
+ 18621692 
+ 
+ 
+ 
+ 
+ 
+ 
+ Koch 
+ W 
+ 
+ 
+ Teipel 
+ S 
+ 
+ 
+ Mueller 
+ S 
+ 
+ 
+ Benninghoff 
+ J 
+ 
+ 
+ Wagner 
+ M 
+ 
+ 
+ Bokde 
+ AL 
+ 
+ 
+ 
+ Diagnostic power of default mode network resting state fMRI in the detection of Alzheimer's disease 
+ Neurobiol Aging 
+ 2010 
+ 
+ 
+ 
+ 
+ 
+ 
+ Koechlin 
+ E 
+ 
+ 
+ Ody 
+ C 
+ 
+ 
+ Kouneiher 
+ F 
+ 
+ 
+ The architecture of cognitive control in the human prefrontal cortex 
+ Science 
+ 2003 
+ 302 
+ 5648 
+ 1181 
+ 1185 
+ 14615530 
+ 
+ 
+ 
+ 
+ 
+ 
+ Koechlin 
+ E 
+ 
+ 
+ Summerfield 
+ C 
+ 
+ 
+ An information theoretical approach to prefrontal executive function 
+ Trends Cogn Sci 
+ 2007 
+ 11 
+ 6 
+ 229 
+ 235 
+ 17475536 
+ 
+ 
+ 
+ 
+ 
+ 
+ McIntosh 
+ AR 
+ 
+ 
+ Bookstein 
+ FL 
+ 
+ 
+ Haxby 
+ JV 
+ 
+ 
+ Grady 
+ CL 
+ 
+ 
+ Spatial pattern analysis of functional brain images using partial least squares 
+ Neuroimage 
+ 1996 
+ 3 
+ 3 Pt 1 
+ 143 
+ 157 
+ 9345485 
+ 
+ 
+ 
+ 
+ 
+ 
+ Power 
+ JD 
+ 
+ 
+ Barnes 
+ KA 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Schlaggar 
+ BL 
+ 
+ 
+ Petersen 
+ SE 
+ 
+ 
+ Spurious but systematic correlations in functional connectivity MRI networks arise from subject motion 
+ Neuroimage 
+ 2012 
+ 59 
+ 3 
+ 2142 
+ 2154 
+ 22019881 
+ 
+ 
+ 
+ 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ MacLeod 
+ AM 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Powers 
+ WJ 
+ 
+ 
+ Gusnard 
+ DA 
+ 
+ 
+ Shulman 
+ GL 
+ 
+ 
+ A default mode of brain function 
+ Proc Natl Acad Sci U S A 
+ 2001 
+ 98 
+ 2 
+ 676 
+ 682 
+ 11209064 
+ 
+ 
+ 
+ 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ Mintun 
+ MA 
+ 
+ 
+ Brain work and brain imaging 
+ Annu Rev Neurosci 
+ 2006 
+ 29 
+ 449 
+ 476 
+ 16776593 
+ 
+ 
+ 
+ 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ A default mode of brain function: a brief history of an evolving idea 
+ Neuroimage 
+ 2007 
+ 37 
+ 4 
+ 1083 
+ 1090 
+ discussion 1097–1089 
+ 17719799 
+ 
+ 
+ 
+ 
+ 
+ 
+ Sheline 
+ YI 
+ 
+ 
+ Barch 
+ DM 
+ 
+ 
+ Price 
+ JL 
+ 
+ 
+ Rundle 
+ MM 
+ 
+ 
+ Vaishnavi 
+ SN 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ 
+ The default mode network and self-referential processes in depression 
+ Proc Natl Acad Sci U S A 
+ 2009 
+ 106 
+ 6 
+ 1942 
+ 1947 
+ 19171889 
+ 
+ 
+ 
+ 
+ 
+ 
+ Sheline 
+ YI 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Morris 
+ JC 
+ 
+ 
+ Head 
+ D 
+ 
+ 
+ Wang 
+ S 
+ 
+ 
+ 
+ Amyloid plaques disrupt resting state default mode network connectivity in cognitively normal elderly 
+ Biol Psychiatry 
+ 2009 
+ 67 
+ 6 
+ 584 
+ 587 
+ 19833321 
+ 
+ 
+ 
+ 
+ 
+ 
+ Shulman 
+ GL 
+ 
+ 
+ Fiez 
+ JA 
+ 
+ 
+ Corbetta 
+ M 
+ 
+ 
+ Buckner 
+ RL 
+ 
+ 
+ Miezin 
+ FM 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ 
+ Common Blood Flow Changes across Visual Tasks: II. Decreases in Cerebral Cortex 
+ Journal of Cognitive Neuroscience 
+ 1997 
+ 9 
+ 5 
+ 648 
+ 663 
+ 
+ 
+ 
+ 
+ 
+ 
+ Spreng 
+ RN 
+ 
+ 
+ Grady 
+ CL 
+ 
+ 
+ Patterns of brain activity supporting autobiographical memory, prospection, and theory of mind, and their relationship to the default mode network 
+ J Cogn Neurosci 
+ 2010 
+ 22 
+ 6 
+ 1112 
+ 1123 
+ 19580387 
+ 
+ 
+ 
+ 
+ 
+ 
+ Spreng 
+ RN 
+ 
+ 
+ Mar 
+ RA 
+ 
+ 
+ Kim 
+ AS 
+ 
+ 
+ The common neural basis of autobiographical memory, prospection, navigation, theory of mind, and the default mode: a quantitative meta-analysis 
+ J Cogn Neurosci 
+ 2009 
+ 21 
+ 3 
+ 489 
+ 510 
+ 18510452 
+ 
+ 
+ 
+ 
+ 
+ 
+ Supekar 
+ K 
+ 
+ 
+ Menon 
+ V 
+ 
+ 
+ Rubin 
+ D 
+ 
+ 
+ Musen 
+ M 
+ 
+ 
+ Greicius 
+ MD 
+ 
+ 
+ Network analysis of intrinsic functional brain connectivity in Alzheimer's disease 
+ PLoS Comput Biol 
+ 2008 
+ 4 
+ 6 
+ e1000100 
+ 
+ 
+ 
+ 
+ 
+ 
+ Supekar 
+ K 
+ 
+ 
+ Musen 
+ M 
+ 
+ 
+ Menon 
+ V 
+ 
+ 
+ Development of large-scale functional brain networks in children 
+ PLoS Biol 
+ 2009 
+ 7 
+ 7 
+ e1000157 
+ 
+ 
+ 
+ 
+ 
+ 
+ Uddin 
+ LQ 
+ 
+ 
+ Kelly 
+ AM 
+ 
+ 
+ Biswal 
+ BB 
+ 
+ 
+ Margulies 
+ DS 
+ 
+ 
+ Shehzad 
+ Z 
+ 
+ 
+ Shaw 
+ D 
+ 
+ 
+ 
+ Network homogeneity reveals decreased integrity of default-mode network in ADHD 
+ J Neurosci Methods 
+ 2008 
+ 169 
+ 1 
+ 249 
+ 254 
+ 18190970 
+ 
+ 
+ 
+ 
+ 
+ 
+ Uddin 
+ LQ 
+ 
+ 
+ Kelly 
+ CAM 
+ 
+ 
+ Biswal 
+ BB 
+ 
+ 
+ Castellanos 
+ XF 
+ 
+ 
+ Milham 
+ MP 
+ 
+ 
+ Functional connectivity of default mode network components: correlation, anticorrelation, and causality 
+ Hum Brain Mapp 
+ 2009 
+ 30 
+ 2 
+ 625 
+ 637 
+ 18219617 
+ 
+ 
+ 
+ 
+ 
+ 
+ Van Dijk 
+ KR 
+ 
+ 
+ Sabuncu 
+ MR 
+ 
+ 
+ Buckner 
+ RL 
+ 
+ 
+ The influence of head motion on intrinsic functional connectivity MRI 
+ Neuroimage 
+ 59 
+ 1 
+ 431 
+ 438 
+ 21810475 
+ 
+ 
+ 
+ 
+ 
+ 
+ Vincent 
+ JL 
+ 
+ 
+ Kahn 
+ I 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ Buckner 
+ RL 
+ 
+ 
+ Evidence for a frontoparietal control system revealed by intrinsic functional connectivity 
+ J Neurophysiol 
+ 2008 
+ 100 
+ 6 
+ 3328 
+ 3342 
+ 18799601 
+ 
+ 
+ 
+ 
+ 
+ 
+ Vincent 
+ JL 
+ 
+ 
+ Patel 
+ GH 
+ 
+ 
+ Fox 
+ MD 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Baker 
+ JT 
+ 
+ 
+ Van Essen 
+ DC 
+ 
+ 
+ 
+ Intrinsic functional architecture in the anaesthetized monkey brain 
+ Nature 
+ 2007 
+ 447 
+ 7140 
+ 83 
+ 86 
+ 17476267 
+ 
+ 
+ 
+ 
+ 
+ 
+ Wang 
+ J 
+ 
+ 
+ Zuo 
+ X 
+ 
+ 
+ He 
+ Y 
+ 
+ 
+ Graph-based network analysis of resting-state functional MRI 
+ Front Syst Neurosci 
+ 2010 
+ 4 
+ 16 
+ 20589099 
+ 
+ 
+ 
+ 
+ 
+ 
+ Weng 
+ SJ 
+ 
+ 
+ Wiggins 
+ JL 
+ 
+ 
+ Peltier 
+ SJ 
+ 
+ 
+ Carrasco 
+ M 
+ 
+ 
+ Risi 
+ S 
+ 
+ 
+ Lord 
+ C 
+ 
+ 
+ 
+ Alterations of resting state functional connectivity in the default network in adolescents with autism spectrum disorders 
+ Brain Res 
+ 2009 
+ 1313 
+ 202 
+ 214 
+ 20004180 
+ 
+ 
+ 
+ 
+ 
+ 
+ Worsley 
+ KJ 
+ 
+ 
+ Poline 
+ JB 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ Evans 
+ AC 
+ 
+ 
+ Characterizing the response of PET and fMRI data using multivariate linear models 
+ Neuroimage 
+ 1997 
+ 6 
+ 4 
+ 305 
+ 319 
+ 9417973 
+ 
+ 
+ 
+ 
+ 
+ 
+ Yan 
+ C 
+ 
+ 
+ Liu 
+ D 
+ 
+ 
+ He 
+ Y 
+ 
+ 
+ Zou 
+ Q 
+ 
+ 
+ Zhu 
+ C 
+ 
+ 
+ Zuo 
+ X 
+ 
+ 
+ 
+ Spontaneous brain activity in the default mode network is sensitive to different resting-state conditions with limited cognitive load 
+ PLoS One 
+ 2009 
+ 4 
+ 5 
+ e5743 
+ 19492040 
+ 
+ 
+ 
+ 
+ 
+ 
+ Figure 1 
+ 
+ Schematic sketch explaining our strong conception of a network with the more colloquial definition in the current literature. For simplicity we assume 3 regions of interest are contained in the network. The lower panels plot the putative node activity against time or a parameter that could be manipulated in a cognitive experiment.  Left panel : our strong network definition is demonstrated in the activity curves. The mutual relative slopes between any two nodes are fixed and unchanging across the range of the parameter.  Right panel : the looser network definition adopted in the literature; over the range of the experimental parameters there are re-adjustments in the mutual relationships between different regional activities. The dynamics of such a network cannot be described by a single covariance pattern any longer. For the example shown, 3 covariance patterns would be needed, each coming into play over a different range of the experimental parameter. 
+ 
+ 
+ 
+ 
+ Figure 2 
+ 
+ Conceptual flow chart that gives an over view of our method for deriving the DMN. Darkly shaded boxes describe computations; lightly shaded boxes contain the resulting products of these computations. 
+ 
+ 
+ 
+ 
+ Figure 3 
+ 
+ Bootstrap ICV-map showing robust areas in the topographic composition of the derived DMN network. Selected axial, sagittal and coronal slices show areas whose loadings in the bootstrap test surpass an absolute value of 3.09. Blue indicates negative loadings, i.e.  negative  correlation with the seed voxel time series. Red indicates positive loadings. 
+ 
+ 
+ 
+ 
+ Figure 4 
+ 
+ Relationship between DMN pattern and various quantities derived in the individual time series. Upper left: correlation between the DMN score and the average inter-seed correlation in individual time series; upper right: correlation between the variability (STD) of expression of the DMN in the time series with the average inter-seed correlation; lower left: correlation between the amounts of variance accounted for in the time series by the DMN pattern and the inter-seed correlation. Lower right: relationship between the amounts of variance accounted for in the individual time series and DMN score. All associations are statistically significant at p<0.0001. 
+ 
+ 
+ 
+ 
+ Figure 5 
+ 
+ Demonstration of visual stimuli in Executive Control Factors task. 
+ 
+ 
+ 
+ 
+ Table 1 
+ 
+ TAL coordinates of positive and negative weights of the derived DMN, thresholded at |Z|>3.09 with a cluster threshold of 20 voxels. Nearest gray-matter locations are listed. 
+ 
+ 
+ 
+ 
+ X 
+ Y 
+ Z 
+ Brain Structure 
+ BA label 
+ |Z| 
+ 
+ 
+ 
+ 
+ 
+ Positive Weights 
+ 
+ 
+ 
+ 0 
+ −41 
+ 44 
+ Precuneus 
+ Brodmann area 7 
+ 5.3744 
+ 
+ 
+ 0 
+ −50 
+ 49 
+ Precuneus 
+ Brodmann area 7 
+ 4.5369 
+ 
+ 
+ 4 
+ −51 
+ 30 
+ Precuneus 
+ Brodmann area 31 
+ 4.0523 
+ 
+ 
+ 51 
+ −67 
+ 29 
+ Angular Gyrus 
+ Brodmann area 39 
+ 3.8778 
+ 
+ 
+ 0 
+ 46 
+ 18 
+ Medial Frontal Gyrus 
+ Brodmann area 9 
+ 3.8577 
+ 
+ 
+ −53 
+ −61 
+ 27 
+ Superior Temporal Gyrus 
+ Brodmann area 39 
+ 3.8328 
+ 
+ 
+ 6 
+ 32 
+ 21 
+ Anterior Cingulate 
+ Brodmann area 32 
+ 3.7392 
+ 
+ 
+ 0 
+ 50 
+ 29 
+ Medial Frontal Gyrus 
+ Brodmann area 9 
+ 3.6880 
+ 
+ 
+ −42 
+ −74 
+ 31 
+ Angular Gyrus 
+ Brodmann area 39 
+ 3.5637 
+ 
+ 
+ 4 
+ 18 
+ 43 
+ Cingulate Gyrus 
+ Brodmann area 32 
+ 3.4903 
+ 
+ 
+ −48 
+ −71 
+ 24 
+ Middle Temporal Gyrus 
+ Brodmann area 39 
+ 3.3651 
+ 
+ 
+ 0 
+ 36 
+ 13 
+ Anterior Cingulate 
+ Brodmann area 32 
+ 3.3638 
+ 
+ 
+ 
+ Negative weights 
+ 
+ 
+ 
+ 8 
+ 15 
+ −19 
+ Rectal Gyrus 
+ Brodmann area 11 
+ 4.1578 
+ 
+ 
+ −6 
+ 13 
+ −19 
+ Rectal Gyrus 
+ Brodmann area 11 
+ 4.0943 
+ 
+ 
+ 2 
+ 22 
+ −23 
+ Rectal Gyrus 
+ Brodmann area 11 
+ 4.0120 
+ 
+ 
+ −6 
+ 59 
+ −18 
+ Medial Frontal Gyrus 
+ Brodmann area 11 
+ 3.8339 
+ 
+ 
+ −26 
+ −6 
+ −35 
+ Uncus 
+ Brodmann area 36 
+ 3.6502 
+ 
+ 
+ 2 
+ 5 
+ −12 
+ Subcallosal Gyrus 
+ Brodmann area 25 
+ 3.6128 
+ 
+ 
+ 
+ 
+ 
+ Table 2 
+ 
+ Association between time-dependent DMN-derived quantities and the inter-seed coupling strength and its relation to the DMN score. The second column shows how many out of 45 participants manifest a significant association between the time-dependent DMN measures and the time-dependent inter-seed coupling strength. The forth column shows whether this association itself is related significantly to the DMN score across subjects. The time-dependent STD of the DMN expression and the variance contributed by the DMN are significantly associated with the time-dependent coupling strength in 20 and 9 subjects, respectively. The strength of the association was itself positively correlated with the global DMN score. Thus, for instance, subjects whose time-dependent variance contributed by the DMN correlates strongly with the time-dependent inter-seed coupling strength also have a high global DMN score. 
+ 
+ 
+ 
+ 
+ Pairing of time- dependent quantities 
+ # Subjects with significant association (p<0.05) between time-dependent quantities 
+ Relationship with age in Fisher Z transforms of the association? 
+ Correlation between within-subject association of time- dependent quantities (Fisher Z) and DMN score across subjects 
+ 
+ 
+ 
+ 
+ Mean DMN expression and inter-seed coupling 
+ 
+ 0 
+ 
+ 
+ NO 
+ 
+ 
+ R=−0.22, p = 0.15 
+ 
+ 
+ 
+ STD of DMN expression and inter-seed coupling 
+ 
+ 20 
+ 
+ 
+ NO 
+ 
+ 
+ R=0.35, p = 0.02 
+ 
+ 
+ 
+ Variance contributed by DMN and interseed coupling 
+ 
+ 9 
+ 
+ 
+ NO 
+ 
+ 
+ R=0.47, p = 0.0011 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Highlights 
+ 
+ 
+ 
+ Our motivation is the derivation of the DMN as a covariance pattern from resting data. 
+ 
+ 
+ We introduce a method based on PCA that can extract such a network. 
+ 
+ 
+ Variability in network expression predicted coupling strength between crucial seed regions. 
+ 
+ 
+ Similarly, the amount of variance in the time series by the network also predicted this seed coupling strength. 
+ 
+ 
+ Interestingly, mean network expression, a measure of activity, did not correlated with seed coupling strength. 
+ 
+ 
+ The network was applied to independent fMRI task data for a consistency check: 
+ 
+ 
+ It showed increasing activation with increasing difficulty in a set-switching task. 
+ 
+ 
+ 
+ 

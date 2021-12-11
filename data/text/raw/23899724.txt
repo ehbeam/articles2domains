@@ -1,0 +1,2826 @@
+
+ properties manuscript? 
+ 
+ 
+ 9215515 
+ 20498 
+ Neuroimage 
+ Neuroimage 
+ 
+ NeuroImage 
+ 
+ 1053-8119 
+ 1095-9572 
+ 
+ 
+ 23899724 
+ 3815994 
+ 10.1016/j.neuroimage.2013.07.057 
+ NIHMS511312 
+ 
+ 
+ Article 
+ 
+ 
+ 
+ The amplitude of the resting-state fMRI global signal is related to EEG vigilance measures 
+ 
+ 
+ 
+ 
+ Wong 
+ Chi Wah 
+ 
+ 1 
+ 2 
+ 
+ 
+ 
+ Olafsson 
+ Valur 
+ 
+ 1 
+ 2 
+ 
+ 
+ 
+ Tal 
+ Omer 
+ 
+ 1 
+ 2 
+ 3 
+ 
+ 
+ 
+ Liu 
+ Thomas T. 
+ 
+ 1 
+ 2 
+ 3 
+ 
+ 
+ 1 Center for Functional Magnetic Resonance Imaging, University of California San Diego, 9500 Gilman Drive, MC 0677, La Jolla, CA 92093-0677, USA
+ 
+ 2 Department of Radiology, University of California San Diego, 9500 Gilman Drive, MC 0677, La Jolla, CA 92093-0677, USA
+ 
+ 3 Department of Bioengineering, University of California San Diego, 9500 Gilman Drive, MC 0677, La Jolla, CA 92093-0677, USA
+ 
+ 
+ Correspondence to: Chi Wah Wong, Ph.D., UCSD Center for Functional MRI, 9500 Gilman Drive, MC 0677, La Jolla, CA 92093-0677, Phone: 858-822-0513; Fax: 858-822-0605;  cwwong@ieee.org ; Thomas T. Liu, Ph.D., UCSD Center for Functional MRI, 9500 Gilman Drive, MC 0677, La Jolla, CA 92093-0677, Phone: 858-822-0542; Fax: 858-822-0605;  ttliu@ucsd.edu 
+ 
+ 
+ 14 
+ 9 
+ 2013 
+ 
+ 
+ 27 
+ 7 
+ 2013 
+ 
+ 
+ 12 
+ 2013 
+ 
+ 
+ 01 
+ 12 
+ 2014 
+ 
+ 83 
+ 10.1016/j.neuroimage.2013.07.057 
+ 
+ 
+ This file is available for text mining. It may also be used consistent with the principles of fair use under the copyright law. 
+ 
+ 
+ 
+ In resting-state functional magnetic resonance imaging (fMRI), functional connectivity measures can be influenced by the presence of a strong global component. A widely used pre-processing method for reducing the contribution of this component is global signal regression, in which a global mean time series signal is projected out of the fMRI time series data prior to the computation of connectivity measures. However, the use of global signal regression is controversial because the method can bias the correlation values to have an approximately zero mean and may in some instances create artifactual negative correlations. In addition, while many studies treat the global signal as a non-neural confound that needs to be removed, evidence from electrophysiological and fMRI measures in primates suggests that the global signal may contain significant neural correlates. In this study, we used simultaneously acquired fMRI and electroencephalographic (EEG) measures of resting-state activity to assess the relation between the fMRI global signal and EEG measures of vigilance in humans. We found that the amplitude of the global signal (defined as the standard deviation of the global signal) exhibited a significant negative correlation with EEG vigilance across subjects studied in the eyes-closed condition. In addition, increases in EEG vigilance due to the ingestion of caffeine were significantly associated with both a decrease in global signal amplitude and an increase in the average level of anti-correlation between the default mode network and the task-positive network. 
+ 
+ 
+ resting-state fMRI 
+ global signal 
+ functional connectivity 
+ anti-correlation 
+ default mode network 
+ task positive network 
+ caffeine 
+ vigilance 
+ electroencephalography 
+ 
+ 
+ 
+ National Institute of Mental Health : NIMH 
+ R21 MH096495 || MH 
+ 
+ 
+ National Institute of Neurological Disorders and Stroke : NINDS 
+ R01 NS051661 || NS 
+ 
+ 
+ 
+ 
+ 
+ Introduction 
+ In resting-state functional magnetic resonance imaging (fMRI), synchronous fluctuations in the blood oxygenation level dependent (BOLD) signal have been associated with multiple functional networks, including the default mode network (DMN) and the task positive network (TPN) ( Biswal et al., 1995 ;  Fox and Raichle, 2007 ;  Fox et al., 2005 ;  Fransson, 2005 ;  Raichle et al., 2001 ). Functional connectivity can be assessed using correlations between the BOLD signals from different brain regions, and alterations in these correlations have been shown to serve as an effective indicator of cognitive impairment ( Binnewijzend et al., 2012 ;  Greicius et al., 2004 ;  Wang et al., 2006 ;  Xie et al., 2012 ). Prior to the computation of the correlation coefficients, physiological noise terms are often removed from the BOLD data to minimize the influences of non-neuronal components on the functional connectivity measures ( Birn, 2012 ;  Birn et al., 2008 ;  Chang and Glover, 2009 ;  Glover et al., 2000 ). A widely used approach is global signal regression (GSR) in which a global signal (computed as the mean of all time-courses within the brain) is removed from the BOLD data ( Fox et al., 2005 ;  Greicius et al., 2003 ). A large reason for GSR’s popularity is its ability to improve the spatial specificity of functional connectivity maps. For example, regions correlated with the posterior cingulate cortex are better localized to task-deactivated areas when GSR is used ( Birn, 2012 ;  Fox et al., 2005 ;  Greicius et al., 2003 ). While prior studies have shown that anti-correlated neural activity exists ( Chang et al., 2013 ;  Keller et al., 2013 ;  Liang et al., 2012 ;  Popa et al., 2009 ), there is still some debate about whether the anti-correlations observed between the DMN and TPN are biased due to GSR ( Fox et al., 2009 ;  Murphy et al., 2009 ;  Weissenbacher et al., 2009 ). Despite concerns about its effects, GSR is still a widely used, albeit controversial, pre-processing step. 
+ In order to better understand the effects of GSR, a deeper understanding of the global signal is needed. Specifically, because GSR is largely intended to remove non-neural confounds, it is important to characterize the relative contributions of non-neural and neural sources to the global signal. In a recent study with simultaneous measures of local field potentials (LPF) and BOLD signal in a primate model, ( Scholvinck et al., 2010 ) found widespread correlations between the LPF power fluctuations from a cortical electrode and the resting-state BOLD signal across the entire cerebral cortex. This finding provided evidence for a significant neural contribution to the global signal. Additional evidence for a neural contribution comes from studies of changes in brain states during the transition between wakefulness and sleep. Using simultaneous EEG-fMRI, ( Larson-Prior et al., 2009 ) found that the global signal variance significantly increased during light sleep as compared with awake states. Similarly, ( Fukunaga et al., 2006 ) found that the mean BOLD signal amplitude increased during early sleep stages. Taking into account the relationship between the mean BOLD and global signal amplitudes ( He and Liu, 2012 ), this finding suggests a sleep-related increase in the global signal amplitude. Furthermore, since there are pronounced EEG changes in the transition to sleep, these studies indirectly support the existence of a substantial neural component in the global signal. 
+ In this paper, we build upon the prior studies to examine the relationship between the global signal and EEG measures of brain state. In particular, we consider EEG measures of vigilance, defined as the ratio between power in the alpha band to the power in the delta and theta bands ( Horovitz et al., 2008 ;  Olbrich et al., 2009 ). Decreases in vigilance are characterized by increases in the power in the delta and theta bands and decreases in the alpha power ( Klimesch, 1999 ), and have been found to be related to increases in the amplitude of the BOLD signal during the onset of light sleep ( Horovitz et al., 2008 ;  Olbrich et al., 2009 ). 
+ We used simultaneous EEG-fMRI measures to study the relationship between the global signal amplitude and EEG vigilance measures across a sample of awake subjects. In addition, we examined how changes in vigilance due to caffeine (Barry et al., 2005;  Fredholm et al., 1999 ; Smith, 2002) are related to changes in the global signal. As we had previously found that caffeine-related decreases in the global signal led to a greater degree of anti-correlation between the DMN and TPN ( Wong et al., 2012 ), we also considered how changes in the correlation between the DMN and TPN are related to changes in EEG vigilance. 
+ 
+ 
+ Methods 
+ 
+ Experimental protocol 
+ Twelve healthy volunteers were initially enrolled in this study after providing informed consent. Two subjects were not able to complete the entire study, resulting in a final sample size of 10 subjects (4 males and 6 females, aged 24 to 33 years with an average age of 25.6 years). As prior work has shown that differences in dietary caffeine consumption may cause variability in the BOLD response ( Jones et al., 2000 ;  Reeves et al., 2002 ), we recruited caffeine-naive subjects who consumed less than 50 mg caffeine daily (as assessed over a two month period prior to the study). 
+ A repeated measures design was used in our study with each subject participating in two imaging sessions: a caffeine session and a control session. The order of the two sessions was randomized in a double-blinded manner. For each session, the operator obtained a capsule that contained 200 mg of either caffeine or cornstarch. The two imaging sessions were separated by at least two weeks. Each session consisted of a pre-dose and a post-dose imaging section, with each section lasting for about one hour. Upon completion of the pre-dose section, participants were taken out of the magnet and given the capsule. The subject was then placed back in the scanner, with the first functional scan of the post-dose section obtained approximately 40 minutes after capsule ingestion. This interval was chosen based on studies showing that the absorption of caffeine from the gastrointestinal tract reaches 99% about 45 min after ingestion, with a half-life ranging from 2.5 to 4.5 hours ( Fredholm et al., 1999 ). 
+ Each scan section consisted of (1) a high-resolution anatomical scan, (2) arterial spin labeling scans (these results are reported in our prior study ( Wong et al., 2012 ) but not considered here), and (3) two 5 minute resting-state scans with simultaneous EEG recording (one eyes-closed and one eyes-open). Subjects were instructed to lie still in the scanner and not fall asleep during resting-state scans. The order of the eyes-open and eyes-closed scans was randomized. During the eyes-open resting-state scans, subjects were asked to maintain attention on a black square located at the center of a gray background. During the eyes-closed resting-state scans, subjects were asked to imagine the black square. Field maps were acquired to correct for magnetic field inhomogeneities. 
+ 
+ 
+ MR Data acquisition 
+ Imaging data were acquired on a 3 Tesla GE Discovery MR750 whole body system using an eight channel receiver coil. High resolution anatomical data were collected using a magnetization prepared 3D fast spoiled gradient (FSPGR) sequence (TI=600 ms, TE=3.1 ms, flip angle = 8 degrees, slice thickness = 1 mm, FOV = 25.6 cm, matrix size = 256×256×176). 
+ Whole brain BOLD resting-state data were acquired over thirty axial slices using an echo planar imaging (EPI) sequence (flip angle = 70 degrees, slice thickness = 4 mm, slice gap = 1 mm, FOV = 24 cm, TE = 30 ms, TR = 1.8 s, matrix size = 64×64×30). 
+ Field maps were acquired using a gradient recalled acquisition in steady state (GRASS) sequence (TE1 = 6.5 ms, TE2 = 8.5 ms), with the same in-plane parameters and slice coverage as the BOLD resting-state scans. The phase difference between the two echoes was then used for magnetic field inhomogeneity correction of the BOLD data. 
+ Cardiac pulse and respiratory effect data were monitored using a pulse oximeter (InVivo) and a respiratory effort transducer (BIOPAC), respectively. The pulse oximeter was placed on each subject’s right index finger while the respiratory effort belt was placed around each subject’s abdomen. Physiological data were sampled at 40 Hz using a multi-channel data acquisition board (National Instruments). 
+ 
+ 
+ EEG Data acquisition 
+ EEG data were recorded using a 64 channel MR-compatible EEG system (Brain Products, Munich, Germany). The system consisted of two 32 channel BrainAmp MR Plus amplifiers powered by a rechargeable battery unit. The system was placed behind the scanner bore, which was connected using a 125 cm long data cable to a BrainCap MR with 64 recording electrodes (Brain Products, Munich, Germany). All electrodes in the cap had sintered Ag/AgCl sensors incorporating 5 kΩ safety resistors. The separate ECG electrode had a built-in 15 kΩ resistor. The arrangement of the electrodes in the cap conformed to the international 10/20 standard. FCz and AFz were the reference and ground electrodes, respectively. The EEG data were recorded at a 5 kHz sampling rate with a passband of 0.1-250 Hz. A phase locking device (Syncbox, Brain Products, Munich, Germany) was used to synchronize the clock of the EEG system with the master clock of the MRI system. Before each scan section, the electrode impedances were set below 20 kΩ, while the impedances of the reference and ground electrodes were set below 10 KΩ. Prior to recording EEG data in each resting-state scan, a snapshot of the electrode impedance values was taken from the computer screen. One EEG dataset was created for each 5-min resting-state scan. 
+ 
+ 
+ MR data pre-processing 
+ AFNI and FSL were used for MRI data pre-processing ( Cox, 1996 ;  Smith et al., 2004 ;  Woolrich et al., 2009 ). The high resolution anatomical data were skull stripped and segmentation was applied to estimate white matter (WM), gray matter (GM) and cerebral spinal fluid (CSF) partial volume fractions. In each scan section, the anatomical volume was aligned to the middle functional volume of the first resting-state run using AFNI. The anatomical volume in the post-dose scan section was then registered to the pre-dose anatomical volume, and the rotation and shift parameters obtained from this registration were applied to the post-dose functional images. 
+ The first 6 TRs (10.8 seconds) of the BOLD data were discarded to allow magnetization to reach a steady state. A binary brain mask was created using the skull-stripped anatomical data. For each slice, the mask was eroded by two voxels along the border to eliminate voxels at the edge of the brain ( Rack-Gomer and Liu, 2012 ). For each run, nuisance terms were removed from the resting-state BOLD time series through multiple linear regression. These nuisance regressors included: i) linear and quadratic trends, ii) six motion parameters estimated during image co-registration and their first derivatives, iii) RETROICOR (2 nd  order Fourier series) ( Glover et al., 2000 ) and RVHRCOR ( Chang and Glover, 2009 ) physiological noise terms calculated from the cardiac and respiratory signals, and iv) the mean BOLD signals calculated from WM and CSF regions and their first respective derivatives, where these regions were defined using partial volume thresholds of 0.99 for each tissue type and morphological erosion of two voxels in each direction to minimize partial voluming with gray matter. 
+ 
+ 
+ EEG data pre-processing 
+ Vision Analyzer 2.0.1 software (Brain Products, Munich, Germany) was used for MR gradient removal using an average pulse artifact template procedure ( Allen et al., 2000 ). An average template was created using the volume-start markers from the MRI system and then subtracted from the individual artifacts. After gradient artifact removal, a low pass filter with a cutoff frequency of 30 Hz was applied to all channels and the processed signals were down-sampled to 250 Hz. Heart beat event markers were created within the Analyzer software. The corrected data and event markers were exported to Matlab 7 (Mathworks, Inc.). 
+ EEGLAB (version 9) was used for further pre-processing ( Delorme and Makeig, 2004 ). For each EEG dataset, the ballistocardiogram (BCG) and residual artifacts were removed using a combined optimal basis set and independent component analysis approach (OBS-ICA) ( Debener et al., 2007 ;  Niazy et al., 2005 ). To remove the BCG artifact, the continuous EEG data were divided into epochs based on the heart beat event markers. The epochs were stacked into a matrix configuration and a BCG template was created using the first three principal components calculated from the matrix ( Debener et al., 2007 ). The BCG template was then fitted in a least-squares manner and subtracted from each epoch of the EEG data. 
+ After BCG artifact removal, channels that exhibited high impedance values (>20 kΩ) or were contaminated with high levels of residual gradient artifact were identified and discarded from further processing. The impedance values were identified using the snapshot of channel impedances acquired before the beginning of each scan. To identify channels contaminated with residual gradient artifact that was not adequately removed using the Analyzer software, the continuous EEG data in each channel were bandpass filtered from 15.5 to 17.5 Hz. This frequency band contained the first harmonic of the gradient artifact centered at 16.7 Hz (slice markers were separated by 60 ms). The root mean square (rms) of the filtered time course was calculated for each channel. A channel was identified as a contaminated channel if the rms value was larger than the median plus 6 times the inter-quartile range ( Devore and Farnum, 2005 ), calculated across all channels except the ECG. On average, each channel was included in 95% of the runs in both the eyes-closed and eyes-open conditions (median=98%, s.d.=6%). For further analysis, only the included channels for each run were used. 
+ Extended infomax ICA was then performed. Independent Components (ICs) corresponding to residual BCG or eye blinking artifacts were identified by correlating all IC topographies with artifact template topographies and extracting the ICs with spatial correlation values of 0.8 or more ( Debener et al., 2007 ;  Viola et al., 2009 ). The corrected data were then created by projecting out the artifactual ICs ( Delorme and Makeig, 2004 ). 
+ As bulk head motion creates high amplitude distortion in the EEG data acquired in the MRI environment, it is desirable to discard the distorted time segments ( Jansen et al., 2012 ;  Laufs et al., 2008 ). To identify the contaminated time segments, the EEG data were bandpass filtered from 1 to 15 Hz (to avoid the first harmonic of the residual gradient artifact centered at 16.7 Hz). A mean amplitude time series was calculated by taking the rms across channels. Outlier detection was performed on the mean time series and the outlier threshold was calculated as the sum of the median value and 6 times the inter-quartile range across time ( Devore and Farnum, 2005 ). Data points with values larger than this threshold were regarded as segments contaminated by motion. Contaminated segments less than 5 seconds apart were merged to form larger segments that were then excluded. A binary time series was created by assigning a “1” to the time points within the bad time segments and a “0” to remaining good time points. 
+ In a recent study, ( Jansen et al., 2012 ) found that predictors derived from EEG motion artifact were strongly correlated with the BOLD signal when the EEG predictors were convolved with a hemodynamic response function. To indicate the time points reflecting the BOLD response to the motion artifact, we convolved the binary time series with a hemodynamic response function ( Buxton et al., 2004 ) and binarized the resulting output with a threshold of zero to form a second binary time series. Since both EEG and fMRI measures were considered in our study, a final binary time series was created by combining the two binary time series using an OR operation. The binary time series were down-sampled to match the sampling frequency of the BOLD time courses. In the eyes-closed condition, an average of 81% of the time points of the binary time series were indicated as good (i.e. with a value of zero; median=85%, s.d.=13%). In the eyes-open condition, the corresponding average was 86% (median=88%, s.d.=9%). The application of the binary time series is described in the next paragraph. 
+ For each EEG channel, a spectrogram was created using a short-time Fourier transform with 4-term Blackman-Harris window (1311 points, 5.24 s temporal width, and 65.7% overlap). The output temporal resolution of the spectrogram was 1.8s (i.e. equivalent to the TR of the BOLD resting-state scans). The time points in the EEG spectrogram and BOLD time series that were indicated as potentially contaminated by motion (i.e. values of 1 in the binary time series) were discarded from further analysis. 
+ 
+ 
+ Calculating the fMRI and EEG metrics 
+ For each voxel, a percent change time series was obtained from the pre-processed BOLD time series by subtracting the mean value and then dividing the resulting difference by the mean value. A global mean signal was formed as the average of the percent change time series across all voxels within the brain. The standard deviation of the global signal was defined as the global signal amplitude. 
+ To assess the extent of anti-correlation between nodes within the DMN and TPN, we used previously determined Talairach seed coordinates to define ROIs within these networks ( Wong et al., 2012 ). The centers of the DMN and TPN regions are listed in  Table 1 . To convert the seed coordinates into individual subject space, a 12-parameter affine transformation matrix was first estimated by registering the pre-dose anatomical volume to the T1 template in AFNI (TT_avg152T1+tlrc). The matrix was then applied to warp the seed coordinates into the space of the pre-dose anatomical volume. Note that these ROIs were common to the pre-dose and post-dose data, which were registered to each other. Seed ROIs were then created using a sphere with a diameter of 12 mm centered about each seed coordinate. The BOLD time courses within each ROI were averaged. To quantitatively assess BOLD connectivity between nodes in the DMN and TPN, each ROI in the DMN was correlated with every ROI in the TPN, resulting in 36 correlation values. The correlation values were converted to z-scores using the Fisher z-transformation and the mean was calculated across all z-scores. 
+ To provide a qualitative view of BOLD connectivity between the PCC and the rest of the brain across conditions, the average BOLD time series in the PCC was first correlated with every voxel in the brain for each subject and condition. The correlation values were converted to z-scores using the Fisher z-transformation. The z-score spatial map for each subject was then warped to Talairach space using the 12-parameter affine transformation matrix described above. 
+ As described above, a spectrogram was calculated for each EEG channel with the same temporal resolution as the BOLD time series, and potentially motion-contaminated time points in the spectrogram were removed. For each remaining time point in the spectrogram, a relative amplitude spectrum was computed by normalizing the spectrum by its overall rms amplitude (square root of sum of squares across all frequency bins). A global relative amplitude spectrum was created by taking the rms of all spectra across time points and channels. Relative EEG amplitudes were then computed as the rms amplitude in the following frequency bands (delta: 1-4 Hz, theta: 4-7 Hz, alpha: 7-13 Hz, beta: 13-30 Hz). A measure of vigilance was defined as the rms amplitude in the alpha band divided by the rms amplitude in the delta and theta bands ( Horovitz et al., 2008 ;  Olbrich et al., 2009 ), which is equivalent to the alpha slow-wave index (ASI) ( Jobert et al., 1994 ;  Larson-Prior et al., 2009 ;  Muller et al., 2006 ). 
+ The relation between the global signal amplitude and the relative EEG amplitude across subjects and scans in the non-caffeine sections (pre-dose caffeine, pre-dose control, and post-dose control) was assessed with multiple regression analysis. Motion amplitudes and mean heart rate were included as covariates. The six rms motion amplitudes were calculated by taking the 1 st  derivative of the motion parameter time courses ( Power et al., 2012 ;  Van Dijk et al., 2012 ). The motion contaminated time segments (binary index = 1 as described in previous section) were discarded and the rms values were computed across the remaining time points. The mean heart rate was obtained from the average interval between two consecutive EEG heart beat event markers ( Olbrich et al., 2009 ). 
+ Using the pre-dose and post-dose caffeine session data, the relations between changes in fMRI measures (post-dose minus pre-dose measures of global signal amplitude and connectivity) and EEG amplitudes (post-dose minus pre-dose relative EEG amplitudes) across subjects were assessed using linear regression analysis. 
+ 
+ 
+ 
+ Results 
+ Fig. 1  plots the global signal amplitudes versus the relative EEG amplitudes for all subjects using the eyes-closed non-caffeine section data. The motion amplitudes and heart rate covariates were projected out of each metric prior to display. We found a significant positive correlation in the delta band (R=0.68, p=0.0004) and significant negative correlations in the beta (R=−0.58, p=0.004) band. An inverse trend was found in the alpha band (R=−0.46, p=0.03). Negative correlations in the alpha and beta bands and a positive correlation in the delta band suggest that the EEG amplitude spectra shift towards lower frequencies with increasing global signal amplitude. The right panel of  Fig. 2  shows the global relative amplitude spectra for three representative subjects. For low global signal amplitude levels (e.g. the red spectrum), there is a pronounced peak in the alpha band and relatively low power in the delta band. At high global signal amplitude levels (e.g. the green spectrum), there is relatively little power in the alpha band and much greater power in the delta band. Prior work has demonstrated that an increase in delta and theta powers and a decrease in alpha power are associated with a decrease in the vigilance state ( Klimesch, 1999 ). The left panel of  Fig. 2  displays the global signal amplitude versus the EEG vigilance measure (with motion amplitudes and heart rate covariates projected out prior to display). A significant negative correlation (R=−0.5, p=0.02) was found, with an increase in vigilance corresponding to a reduction in the global signal amplitude. 
+ In our previous study, we found that caffeine reduced the BOLD global signal amplitude ( Wong et al., 2012 ). To examine whether this caffeine-related change is linked to the EEG amplitude and vigilance measures,  Fig. 3  plots the change in the global signal amplitude against the change in the relative EEG amplitude using the caffeine session eyes-closed data. Significant linear relations were observed in the delta (R=0.92, p=0.0002), theta (R=0.77, p=0.01) and alpha (R=−0.82, p=0.004) bands. Positive slopes in the delta and theta bands and a negative slope in the alpha band suggest that caffeine causes a positive frequency shift in the EEG amplitude spectra at the same time that it reduces the global signal amplitude. The right panel of  Fig. 4a  displays the global relative amplitude spectra before and after caffeine intake for two representative subjects. The subject exhibiting a higher caffeine-related decrease (61.7%) in the global signal amplitude (lower spectral plot) shows an increase in alpha power and reductions in delta and theta power. In contrast, the pre-dose and post-dose EEG spectra (upper spectral plot) are similar for the subject showing a smaller caffeine-induced decrease (2.9%) in the global signal amplitude. The left panel of  Fig. 4a  displays the caffeine-induced change in the global signal amplitude versus the change in the vigilance measure, showing a significant negative correlation (R=−0.91, p=0.0002). 
+ Our previous study also found that caffeine enhanced the anti-correlation between the Default Mode Network (DMN) and the Task Positive Network (TPN) ( Wong et al., 2012 ). As shown in the left panel of  Fig. 4b , there is a significant negative relation (R=−0.72, p=0.02) between the mean change in the correlation between the nodes in the DMN and TPN and the change in EEG vigilance. The right panel of  Fig. 4b  shows the whole brain voxel-wise correlations with the PCC seed ROI before and after caffeine intake for two representative subjects, respectively. The subject exhibiting a higher caffeine-related increase in the vigilance (73% increase; lower plot) displays a noticeable increase in the anti-correlation between the DMN and TPN. No obvious change in anti-correlation is observed in the other subject. In summary, the caffeine-related decrease in the global signal amplitude and enhancement of the anti-correlation between the DMN and TPN are associated with an increase in the vigilance measure. 
+ Using eyes-open data from the non-caffeine sections,  Supp. Fig. 1  displays the global signal amplitude and the EEG relative amplitudes. We found a positive but not significant trend between the global signal amplitude and the relative EEG amplitude in the delta (R=0.39, p=0.07) and theta (R=0.39, p=0.06) bands, whereas a significant negative relation was found in the beta band (R=−0.52, p=0.01). As shown in the left panel of  Supp. Fig. 3 , there was a negative but not significant trend (R=−0.39, p=0.07) between the global signal amplitude and vigilance measure across subjects and runs.  Supp. Fig. 2  plots the caffeine-related changes in the global signal amplitude against the changes in relative EEG amplitude, showing a positive trend in the delta (R=0.57, p=0.09) and theta (R=0.57, p=0.09) bands. The right panel of  Supp. Fig. 3  displays the change in the global signal amplitude versus the change in the vigilance measure, with a negative but not significant trend (R=−0.55, p = 0.10). 
+ To examine how physiological noise correction affects the relation between the global signal amplitude and vigilance measure, we repeated the analysis with two additional model-based pre-processing options using the eyes-closed data. In the first option, only linear and quadratic trends and the six motion parameters were regressed out of the BOLD time courses. For this option,  Supp. Fig. 4a  shows a significant negative relation (R=−0.62, p=0.002) between the global signal amplitude and vigilance measure across subjects and runs.  Supp. Fig. 4b  displays the change in the global signal amplitude versus the change in the vigilance measure, with a significant negative relation (R=−0.85, p = 0.002). In the second option, linear and quadratic trends, the six motion parameters, and RETROICOR and RVHRCOR regressors were used. For this option,  Supp. Fig. 4c  shows a significant negative relation (R=−0.51, p=0.01) between the global signal amplitude and vigilance measure across subjects and runs.  Supp. Fig. 4d  displays the change in the global signal amplitude versus the change in the vigilance measure, with a significant negative relation (R=−0.92, p = 0.0001). 
+ To examine whether the relation between the caffeine-related changes in the global signal amplitude and EEG vigilance holds for individual brain regions, we repeated the analysis twelve times, each time using only a subset of electrodes (Fp – frontal polar; F - frontal; C - central; P - parietal; O – occipital; AF – between Fp and F; FT – frontal temporal; FC – frontal central; T - temporal; CP – central parietal; TP – temporal parietal; PO – parietal occipital).  Supp. Fig. 05  shows that the negative trends (p<0.02) are present for all twelve brain regions. 
+ 
+ 
+ Discussion 
+ We have shown that the global signal amplitude is negatively correlated with EEG vigilance across subjects studied in the eyes-closed condition, with lower global signal amplitudes corresponding to higher levels of vigilance. With the administration of caffeine, we found that the caffeine-induced change in the global signal amplitude is negatively correlated with the change in EEG vigilance, with larger increases in the vigilance level corresponding to greater decreases in the global signal amplitude. In addition, we found that caffeine-related increases in EEG vigilance are related to increases in the anti-correlation between the DMN and TPN. The link between a caffeine-induced decrease in global signal amplitude and an increase in the DMN-TPN anti-correlation was noted in our prior study ( Wong et al., 2012 ). In addition, increases in vigilance with caffeine have been noted in prior work ( Fredholm et al, 1999 ). However, we are not aware of a prior study that has explicitly examined the relation between changes in measures of global signal amplitude and EEG vigilance. 
+ Our findings are consistent with those of previous studies examining the relation between the BOLD signal and subject vigilance or wakefulness. In general, these studies have found that both the amplitude of the BOLD signal (as measured in specific regions) and the amplitude of the global signal (measured across the whole brain) increases as subjects enter into light sleep stages and exhibit lower levels of vigilance ( Fukunaga et al., 2006 ;  Horovitz et al., 2008 ;  Larson-Prior et al., 2009 ;  Olbrich et al., 2009 ). In addition, the level of anti-correlation between the DMN and TPN has been shown to decrease during the transition to light sleep ( Larson-Prior et al., 2011 ;  Samann et al., 2011 ). As these studies looked at the effects of decreases in vigilance, the current study nicely complements the prior work by examining the consequences of increases in vigilance due to caffeine. The fact that the caffeine-induced increase in vigilance is associated with effects (smaller global signal and increased DMN-TPN anti-correlation) that are opposite to those observed with vigilance decreases provides evidence for a generalized relation in which the global signal amplitude increases with reduction in vigilance. Furthermore, this generalized relation is supported by the observation that global signal amplitudes from different subjects and experimental runs are inversely correlated with vigilance measures. 
+ The observed relations between the global signal and vigilance extend the prior findings of ( Scholvinck et al., 2010 ) and provide further evidence for a neural contribution to the global signal. A possible explanation for the global decreases in connectivity with increases in vigilance is based on the information integration theory of consciousness ( Stamatakis et al., 2010 ;  Tononi, 2004 ). In this theory, a decrease in consciousness is characterized by a decrease in the spatial diversity of neural activity, with a greater level of global synchronization and a lower level of integrated information. Conversely, a higher level of consciousness is associated with an increase in the spatial diversity of neural activity, resulting in a higher level of integrated information. To the degree that decreases in vigilance and consciousness share the same mechanism, the predictions of the theory are roughly consistent with our experimental findings. 
+ In this study, we examined the relation between EEG vigilance measures, global signal amplitude, and DMN-TPN functional connectivity across the entire scan duration. Recent studies have demonstrated that significant variations in functional connectivity can occur over the length of a typical resting-state run ( Chang and Glover, 2010 ;  Chang et al., 2013 ;  de Pasquale et al., 2010 ;  Hutchison et al., 2012 ;  Kiviniemi et al., 2011 ;  Popa et al., 2009 ;  Rack-Gomer and Liu, 2012 ;  Sakoglu et al., 2010 ). In a recent simultaneous EEG-fMRI study, ( Chang et al., 2013 ) found that the time-varying strength of connectivity between the DMN and default attention network (DAN) was inversely proportional to the alpha power measured within the same time window (40 second window length). A positive relation was found between DMN-DAN connectivity and the ratio of theta to alpha power, where this ratio is similar to the inverse of the EEG vigilance measure used in this paper. Furthermore, the spatial extent of anti-correlation between the DMN and DAN was found to vary with alpha power over the course of a scan, with higher alpha power corresponding to greater anti-correlation extent. In a similar study, ( Tagliazucchi et al., 2012b ) demonstrated that time-varying increases in alpha power were correlated across the duration of a scan with decreases in functional connectivity as measured in awake subjects. For subjects undergoing a vigilance transition between wakefulness and light sleep, delta power increases were correlated across time with increases in functional connectivity. The findings from these two studies suggest that time-varying increases in vigilance (as indicated by higher alpha power) are associated with a reduction in functional connectivity, while time-varying decreases in vigilance (as indicated by higher delta and theta powers) are associated with an increase in functional connectivity. As functional connectivity measures are roughly proportional to the amplitude of the global signal ( He and Liu, 2012 ;  Wong et al., 2012 ), the findings from the non-stationary connectivity studies are consistent with both our finding of an inverse relation between vigilance and the amplitude of the global signal and our observation of increased vigilance leading to greater anti-correlation. This consistency suggests that the relationship between vigilance, connectivity measures, and the global signal holds across multiple time scales. 
+ A key advantage of GSR and other methods that aim to minimize the effects of the global signal is their ability to reduce the variability of functional connectivity measures across subjects and runs ( Fox et al., 2009 ;  Hampson et al., 2010 ;  He and Liu, 2012 ), with the potential to strengthen the correlation between the BOLD signal and neural power fluctuations ( Keller et al., 2013 ). Our results suggest that these methods may reduce the variability in connectivity measures arising from differences in vigilance across subjects, runs, and conditions. This effect may be desirable in some studies but not in others. If the variation in vigilance is viewed as a confound, then methods that minimize variability due to vigilance may be beneficial. On the other hand, if vigilance serves as a systematic proxy for brain state (e.g. higher vigilance in patients versus controls), then the application of these methods will tend to mask differences in brain connectivity measures. For example, we have previously shown that the application of GSR largely eliminates caffeine-related changes in connectivity ( Wong et al., 2012 ). 
+ Caffeine affects both the neural and vascular systems of the brain through its antagonism of adenosine receptors ( Fredholm et al., 1999 ;  Pelligrino et al., 2010 ). As shown in prior studies, caffeine reduces cerebral blood flow, increases baseline oxygen metabolism, and tightens the coupling between changes in blood flow and oxygen metabolism. The interaction of these effects have been found to cause either a slight increase or no change in the BOLD response to stimulus ( Chen and Parrish, 2009 ;  Griffeth and Buxton, 2011 ;  Laurienti et al., 2002 ;  Liau et al., 2008 ;  Mulderink et al., 2002 ), and is thus unlikely to account for the observed decrease in the global signal. In addition, a recent study by our group ( Tal et al., 2013 ) has shown that the caffeine leads to widespread reductions in the connectivity of magnetoencephalographic (MEG) power fluctuations that are similar to the global connectivity reductions previously observed with fMRI ( Wong et al., 2012 ). As MEG directly measures neuromagnetic activity, the MEG connectivity measures are robust to vascular effects, although the effect of vascular changes on the underlying neural activity cannot be ruled out. Overall, the prior findings suggest that caffeine’s effects on the neural system are likely to be the primary mechanism for the observed decreases in the global signal amplitude. 
+ As the distribution of adenosine receptors in the brain is heterogeneous, the effects of caffeine may be spatially localized ( Fredholm et al., 1999 ;  Lazarus et al., 2011 ). For instance, deletion of adenosine receptors in the basal ganglia of mice has been shown to eliminate the arousal effects of caffeine ( Lazarus et al., 2011 ). These localized effects can translate into global effects through projections from the basal ganglia to the thalamus and cortex ( Ashby et al., 2010 ). Future work in both animals and humans will be needed to characterize in detail how localized changes in neuro-electrical activity (and the associated BOLD signal) are related to global changes. 
+ A number of studies have shown that caffeine can alter EEG activity in the delta, theta, alpha, and beta bands, with the observed effects varying across different regions of the brain ( Dimpfel et al., 1993 ;  Siepmann and Kirch, 2002 ;  Van Dort et al., 2009 ). While our main results focused on the relation between caffeine-related changes in the global signal amplitude and EEG vigilance as measured across all electrodes, the results in  Supp. Fig. 5  demonstrate that the relation also holds when using EEG vigilance measures derived from electrodes confined to specific brain regions. This finding indicates that changes in the resting-state global signal amplitude are associated with changes in EEG vigilance that are spatially widespread, rather than limited to vigilance changes in a specific brain region. The strength of the relation shows some variability across brain regions, however, and further work using source localized EEG measures would be useful for better understanding the heterogeneity in EEG vigilance changes across brain regions. 
+ In the eyes open state, we observed similar trends between the global signal amplitude and vigilance measures, although the correlations were weaker than those observed in the eyes close state and did not reach significance at the p=0.05 level. The weaker relations observed in the eyes open state may reflect the lower global signal amplitude, mean BOLD amplitude, and functional connectivity in this state as compared to the eyes closed condition ( Jao et al., 2013 ;  Wong et al., 2012 ;  Zou et al., 2009 ). A decrease in global signal amplitude will tend to reduce the dynamic range of both the global signal amplitude variation across the sample and the caffeine-induced reduction in amplitude. In a similar fashion, opening of the eyes increases the overall arousal and vigilance level and may thus reduce the dynamic range of caffeine-induced changes in vigilance ( Barry et al., 2011 ). With the reduced dynamic range in the eyes open state, underlying relations between global signal amplitude and vigilance can become more difficult to detect in the presence of noise. 
+ Given the relation between vigilance, the global signal, and connectivity measures, investigators will want to carefully consider differences in vigilance when interpreting their resting-state fMRI studies. Our findings suggest that the global signal amplitude may serve as a useful indicator of vigilance. Connectivity-based measures may also be used to estimate vigilance. A recent study by ( Tagliazucchi et al., 2012a ) has shown that sleep stages can be classified using fMRI connectivity measures and support vector machines. It is possible that a significant portion of the predictive power of the connectivity measures may be encoded by the time-varying amplitude of the global signal, and further studies to assess the relative predictive power of the global signal and connectivity measures would be useful. 
+ 
+ 
+ Supplementary Material 
+ 
+ 01 
+ 
+ 
+ 
+ 02 
+ 
+ 
+ 
+ 03 
+ 
+ 
+ 
+ 04 
+ 
+ 
+ 
+ 05 
+ 
+ 
+ 
+ 
+ 
+ 
+ This is a PDF file of an unedited manuscript that has been accepted for publication. As a service to our customers we are providing this early version of the manuscript. The manuscript will undergo copyediting, typesetting, and review of the resulting proof before it is published in its final citable form. Please note that during the production process errors may be discovered which could affect the content, and all legal disclaimers that apply to the journal pertain. 
+ 
+ 
+ 
+ References 
+ 
+ 
+ 
+ 
+ Allen 
+ PJ 
+ 
+ 
+ Josephs 
+ O 
+ 
+ 
+ Turner 
+ R 
+ 
+ 
+ A method for removing imaging artifact from continuous EEG recorded during functional MRI 
+ Neuroimage 
+ 2000 
+ 12 
+ 230 
+ 239 
+ 10913328 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ashby 
+ FG 
+ 
+ 
+ Turner 
+ BO 
+ 
+ 
+ Horvitz 
+ JC 
+ 
+ 
+ Cortical and basal ganglia contributions to habit learning and automaticity 
+ Trends Cogn Sci 
+ 2010 
+ 14 
+ 208 
+ 215 
+ 20207189 
+ 
+ 
+ 
+ 
+ 
+ 
+ Barry 
+ RJ 
+ 
+ 
+ Clarke 
+ AR 
+ 
+ 
+ Johnstone 
+ SJ 
+ 
+ 
+ Caffeine and opening the eyes have additive effects on resting arousal measures 
+ Clin Neurophysiol 
+ 2011 
+ 122 
+ 2010 
+ 2015 
+ 21489866 
+ 
+ 
+ 
+ 
+ 
+ 
+ Binnewijzend 
+ MA 
+ 
+ 
+ Schoonheim 
+ MM 
+ 
+ 
+ Sanz-Arigita 
+ E 
+ 
+ 
+ Wink 
+ AM 
+ 
+ 
+ van der Flier 
+ WM 
+ 
+ 
+ Tolboom 
+ N 
+ 
+ 
+ Adriaanse 
+ SM 
+ 
+ 
+ Damoiseaux 
+ JS 
+ 
+ 
+ Scheltens 
+ P 
+ 
+ 
+ van Berckel 
+ BN 
+ 
+ 
+ Barkhof 
+ F 
+ 
+ 
+ Resting-state fMRI changes in Alzheimer’s disease and mild cognitive impairment 
+ Neurobiol Aging 
+ 2012 
+ 33 
+ 2018 
+ 2028 
+ 21862179 
+ 
+ 
+ 
+ 
+ 
+ 
+ Birn 
+ RM 
+ 
+ 
+ The role of physiological noise in resting-state functional connectivity 
+ Neuroimage 
+ 2012 
+ 62 
+ 864 
+ 870 
+ 22245341 
+ 
+ 
+ 
+ 
+ 
+ 
+ Birn 
+ RM 
+ 
+ 
+ Smith 
+ MA 
+ 
+ 
+ Jones 
+ TB 
+ 
+ 
+ Bandettini 
+ PA 
+ 
+ 
+ The respiration response function: the temporal dynamics of fMRI signal fluctuations related to changes in respiration 
+ Neuroimage 
+ 2008 
+ 40 
+ 644 
+ 654 
+ 18234517 
+ 
+ 
+ 
+ 
+ 
+ 
+ Biswal 
+ B 
+ 
+ 
+ Yetkin 
+ FZ 
+ 
+ 
+ Haughton 
+ VM 
+ 
+ 
+ Hyde 
+ JS 
+ 
+ 
+ Functional Connectivity in the Motor Cortex of Resting Human Brain Using Echo-Planar Mri 
+ Magnetic Resonance in Medicine 
+ 1995 
+ 34 
+ 537 
+ 541 
+ 8524021 
+ 
+ 
+ 
+ 
+ 
+ 
+ Buxton 
+ RB 
+ 
+ 
+ Uludag 
+ K 
+ 
+ 
+ Dubowitz 
+ DJ 
+ 
+ 
+ Liu 
+ TT 
+ 
+ 
+ Modeling the hemodynamic response to brain activation 
+ Neuroimage 
+ 2004 
+ 23 
+ Suppl 1 
+ S220 
+ 233 
+ 15501093 
+ 
+ 
+ 
+ 
+ 
+ 
+ Chang 
+ C 
+ 
+ 
+ Glover 
+ GH 
+ 
+ 
+ Effects of model-based physiological noise correction on default mode network anti-correlations and correlations 
+ Neuroimage 
+ 2009 
+ 47 
+ 1448 
+ 1459 
+ 19446646 
+ 
+ 
+ 
+ 
+ 
+ 
+ Chang 
+ C 
+ 
+ 
+ Glover 
+ GH 
+ 
+ 
+ Time-frequency dynamics of resting-state brain connectivity measured with fMRI 
+ Neuroimage 
+ 2010 
+ 50 
+ 81 
+ 98 
+ 20006716 
+ 
+ 
+ 
+ 
+ 
+ 
+ Chang 
+ C 
+ 
+ 
+ Liu 
+ Z 
+ 
+ 
+ Chen 
+ MC 
+ 
+ 
+ Liu 
+ X 
+ 
+ 
+ Duyn 
+ JH 
+ 
+ 
+ EEG correlates of time-varying BOLD functional connectivity 
+ Neuroimage 
+ 2013 
+ 
+ 
+ 
+ 
+ 
+ 
+ Chen 
+ Y 
+ 
+ 
+ Parrish 
+ TB 
+ 
+ 
+ Caffeine’s effects on cerebrovascular reactivity and coupling between cerebral blood flow and oxygen metabolism 
+ Neuroimage 
+ 2009 
+ 44 
+ 647 
+ 652 
+ 19000770 
+ 
+ 
+ 
+ 
+ 
+ 
+ Cox 
+ RW 
+ 
+ 
+ AFNI: software for analysis and visualization of functional magnetic resonance neuroimages 
+ Comput Biomed Res 
+ 1996 
+ 29 
+ 162 
+ 173 
+ 8812068 
+ 
+ 
+ 
+ 
+ 
+ 
+ de Pasquale 
+ F 
+ 
+ 
+ Della Penna 
+ S 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Lewis 
+ C 
+ 
+ 
+ Mantini 
+ D 
+ 
+ 
+ Marzetti 
+ L 
+ 
+ 
+ Belardinelli 
+ P 
+ 
+ 
+ Ciancetta 
+ L 
+ 
+ 
+ Pizzella 
+ V 
+ 
+ 
+ Romani 
+ GL 
+ 
+ 
+ Corbetta 
+ M 
+ 
+ 
+ Temporal dynamics of spontaneous MEG activity in brain networks 
+ Proc Natl Acad Sci U S A 
+ 2010 
+ 107 
+ 6040 
+ 6045 
+ 20304792 
+ 
+ 
+ 
+ 
+ 
+ 
+ Debener 
+ S 
+ 
+ 
+ Strobel 
+ A 
+ 
+ 
+ Sorger 
+ B 
+ 
+ 
+ Peters 
+ J 
+ 
+ 
+ Kranczioch 
+ C 
+ 
+ 
+ Engel 
+ AK 
+ 
+ 
+ Goebel 
+ R 
+ 
+ 
+ Improved quality of auditory event-related potentials recorded simultaneously with 3-T fMRI: removal of the ballistocardiogram artefact 
+ Neuroimage 
+ 2007 
+ 34 
+ 587 
+ 597 
+ 17112746 
+ 
+ 
+ 
+ 
+ 
+ 
+ Delorme 
+ A 
+ 
+ 
+ Makeig 
+ S 
+ 
+ 
+ EEGLAB: an open source toolbox for analysis of single-trial EEG dynamics including independent component analysis 
+ J Neurosci Methods 
+ 2004 
+ 134 
+ 9 
+ 21 
+ 15102499 
+ 
+ 
+ 
+ 
+ 
+ 
+ Devore 
+ JL 
+ 
+ 
+ Farnum 
+ NR 
+ 
+ 
+ Applied statistics for engineers and scientists 
+ 2005 
+ Thomson Brooks/Cole 
+ Belmont, CA 
+ 2nd ed. 
+ 
+ 
+ 
+ 
+ 
+ 
+ Dimpfel 
+ W 
+ 
+ 
+ Schober 
+ F 
+ 
+ 
+ Spuler 
+ M 
+ 
+ 
+ The influence of caffeine on human EEG under resting conditions and during mental loads 
+ Clin Investig 
+ 1993 
+ 71 
+ 197 
+ 207 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fox 
+ MD 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ Spontaneous fluctuations in brain activity observed with functional magnetic resonance imaging 
+ Nat Rev Neurosci 
+ 2007 
+ 8 
+ 700 
+ 711 
+ 17704812 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fox 
+ MD 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Vincent 
+ JL 
+ 
+ 
+ Corbetta 
+ M 
+ 
+ 
+ Van Essen 
+ DC 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ The human brain is intrinsically organized into dynamic, anticorrelated functional networks 
+ Proceedings of the National Academy of Sciences of the United States of America 
+ 2005 
+ 102 
+ 9673 
+ 9678 
+ 15976020 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fox 
+ MD 
+ 
+ 
+ Zhang 
+ D 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ The global signal and observed anticorrelated resting state brain networks 
+ J Neurophysiol 
+ 2009 
+ 101 
+ 3270 
+ 3283 
+ 19339462 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fransson 
+ P 
+ 
+ 
+ Spontaneous low-frequency BOLD signal fluctuations: an fMRI investigation of the resting-state default mode of brain function hypothesis 
+ Hum Brain Mapp 
+ 2005 
+ 26 
+ 15 
+ 29 
+ 15852468 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fredholm 
+ BB 
+ 
+ 
+ Battig 
+ K 
+ 
+ 
+ Holmen 
+ J 
+ 
+ 
+ Nehlig 
+ A 
+ 
+ 
+ Zvartau 
+ EE 
+ 
+ 
+ Actions of caffeine in the brain with special reference to factors that contribute to its widespread use 
+ Pharmacol Rev 
+ 1999 
+ 51 
+ 83 
+ 133 
+ 10049999 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fukunaga 
+ M 
+ 
+ 
+ Horovitz 
+ SG 
+ 
+ 
+ van Gelderen 
+ P 
+ 
+ 
+ de Zwart 
+ JA 
+ 
+ 
+ Jansma 
+ JM 
+ 
+ 
+ Ikonomidou 
+ VN 
+ 
+ 
+ Chu 
+ R 
+ 
+ 
+ Deckers 
+ RH 
+ 
+ 
+ Leopold 
+ DA 
+ 
+ 
+ Duyn 
+ JH 
+ 
+ 
+ Large-amplitude, spatially correlated fluctuations in BOLD fMRI signals during extended rest and early sleep stages 
+ Magn Reson Imaging 
+ 2006 
+ 24 
+ 979 
+ 992 
+ 16997067 
+ 
+ 
+ 
+ 
+ 
+ 
+ Glover 
+ GH 
+ 
+ 
+ Li 
+ TQ 
+ 
+ 
+ Ress 
+ D 
+ 
+ 
+ Image-based method for retrospective correction of physiological motion effects in fMRI: RETROICOR 
+ Magn Reson Med 
+ 2000 
+ 44 
+ 162 
+ 167 
+ 10893535 
+ 
+ 
+ 
+ 
+ 
+ 
+ Greicius 
+ MD 
+ 
+ 
+ Krasnow 
+ B 
+ 
+ 
+ Reiss 
+ AL 
+ 
+ 
+ Menon 
+ V 
+ 
+ 
+ Functional connectivity in the resting brain: a network analysis of the default mode hypothesis 
+ Proc Natl Acad Sci U S A 
+ 2003 
+ 100 
+ 253 
+ 258 
+ 12506194 
+ 
+ 
+ 
+ 
+ 
+ 
+ Greicius 
+ MD 
+ 
+ 
+ Srivastava 
+ G 
+ 
+ 
+ Reiss 
+ AL 
+ 
+ 
+ Menon 
+ V 
+ 
+ 
+ Default-mode network activity distinguishes Alzheimer’s disease from healthy aging: evidence from functional MRI 
+ Proc Natl Acad Sci U S A 
+ 2004 
+ 101 
+ 4637 
+ 4642 
+ 15070770 
+ 
+ 
+ 
+ 
+ 
+ 
+ Griffeth 
+ VE 
+ 
+ 
+ Buxton 
+ RB 
+ 
+ 
+ A theoretical framework for estimating cerebral oxygen metabolism changes using the calibrated-BOLD method: modeling the effects of blood volume distribution, hematocrit, oxygen extraction fraction, and tissue signal properties on the BOLD signal 
+ Neuroimage 
+ 2011 
+ 58 
+ 198 
+ 212 
+ 21669292 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hampson 
+ M 
+ 
+ 
+ Driesen 
+ N 
+ 
+ 
+ Roth 
+ JK 
+ 
+ 
+ Gore 
+ JC 
+ 
+ 
+ Constable 
+ RT 
+ 
+ 
+ Functional connectivity between task-positive and task-negative brain areas and its relation to working memory performance 
+ Magn Reson Imaging 
+ 2010 
+ 28 
+ 1051 
+ 1057 
+ 20409665 
+ 
+ 
+ 
+ 
+ 
+ 
+ He 
+ H 
+ 
+ 
+ Liu 
+ TT 
+ 
+ 
+ A geometric view of global signal confounds in resting-state functional MRI 
+ Neuroimage 
+ 2012 
+ 59 
+ 2339 
+ 2348 
+ 21982929 
+ 
+ 
+ 
+ 
+ 
+ 
+ Horovitz 
+ SG 
+ 
+ 
+ Fukunaga 
+ M 
+ 
+ 
+ de Zwart 
+ JA 
+ 
+ 
+ van Gelderen 
+ P 
+ 
+ 
+ Fulton 
+ SC 
+ 
+ 
+ Balkin 
+ TJ 
+ 
+ 
+ Duyn 
+ JH 
+ 
+ 
+ Low frequency BOLD fluctuations during resting wakefulness and light sleep: a simultaneous EEG-fMRI study 
+ Hum Brain Mapp 
+ 2008 
+ 29 
+ 671 
+ 682 
+ 17598166 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hutchison 
+ RM 
+ 
+ 
+ Womelsdorf 
+ T 
+ 
+ 
+ Gati 
+ JS 
+ 
+ 
+ Everling 
+ S 
+ 
+ 
+ Menon 
+ RS 
+ 
+ 
+ Resting-state networks show dynamic functional connectivity in awake humans and anesthetized macaques 
+ Hum Brain Mapp 
+ 2012 
+ 
+ 
+ 
+ 
+ 
+ 
+ Jansen 
+ M 
+ 
+ 
+ White 
+ TP 
+ 
+ 
+ Mullinger 
+ KJ 
+ 
+ 
+ Liddle 
+ EB 
+ 
+ 
+ Gowland 
+ PA 
+ 
+ 
+ Francis 
+ ST 
+ 
+ 
+ Bowtell 
+ R 
+ 
+ 
+ Liddle 
+ PF 
+ 
+ 
+ Motion-related artefacts in EEG predict neuronally plausible patterns of activation in fMRI data 
+ Neuroimage 
+ 2012 
+ 59 
+ 261 
+ 270 
+ 21763774 
+ 
+ 
+ 
+ 
+ 
+ 
+ Jao 
+ T 
+ 
+ 
+ Vertes 
+ PE 
+ 
+ 
+ Alexander-Bloch 
+ AF 
+ 
+ 
+ Tang 
+ IN 
+ 
+ 
+ Yu 
+ YC 
+ 
+ 
+ Chen 
+ JH 
+ 
+ 
+ Bullmore 
+ ET 
+ 
+ 
+ Volitional eyes opening perturbs brain dynamics and functional connectivity regardless of light input 
+ Neuroimage 
+ 2013 
+ 69 
+ 21 
+ 34 
+ 23266698 
+ 
+ 
+ 
+ 
+ 
+ 
+ Jobert 
+ M 
+ 
+ 
+ Schulz 
+ H 
+ 
+ 
+ Jahnig 
+ P 
+ 
+ 
+ Tismer 
+ C 
+ 
+ 
+ Bes 
+ F 
+ 
+ 
+ Escola 
+ H 
+ 
+ 
+ A computerized method for detecting episodes of wakefulness during sleep based on the alpha slow-wave index (ASI) 
+ Sleep 
+ 1994 
+ 17 
+ 37 
+ 46 
+ 8191201 
+ 
+ 
+ 
+ 
+ 
+ 
+ Jones 
+ HE 
+ 
+ 
+ Herning 
+ RI 
+ 
+ 
+ Cadet 
+ JL 
+ 
+ 
+ Griffiths 
+ RR 
+ 
+ 
+ Caffeine withdrawal increases cerebral blood flow velocity and alters quantitative electroencephalography (EEG) activity 
+ Psychopharmacology (Berl) 
+ 2000 
+ 147 
+ 371 
+ 377 
+ 10672630 
+ 
+ 
+ 
+ 
+ 
+ 
+ Keller 
+ CJ 
+ 
+ 
+ Bickel 
+ S 
+ 
+ 
+ Honey 
+ CJ 
+ 
+ 
+ Groppe 
+ DM 
+ 
+ 
+ Entz 
+ L 
+ 
+ 
+ Craddock 
+ RC 
+ 
+ 
+ Lado 
+ FA 
+ 
+ 
+ Kelly 
+ C 
+ 
+ 
+ Milham 
+ M 
+ 
+ 
+ Mehta 
+ AD 
+ 
+ 
+ Neurophysiological Investigation of Spontaneous Correlated and Anticorrelated Fluctuations of the BOLD Signal 
+ J Neurosci 
+ 2013 
+ 33 
+ 6333 
+ 6342 
+ 23575832 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kiviniemi 
+ V 
+ 
+ 
+ Vire 
+ T 
+ 
+ 
+ Remes 
+ J 
+ 
+ 
+ Elseoud 
+ AA 
+ 
+ 
+ Starck 
+ T 
+ 
+ 
+ Tervonen 
+ O 
+ 
+ 
+ Nikkinen 
+ J 
+ 
+ 
+ A sliding time-window ICA reveals spatial variability of the default mode network in time 
+ Brain Connect 
+ 2011 
+ 1 
+ 339 
+ 347 
+ 22432423 
+ 
+ 
+ 
+ 
+ 
+ 
+ Klimesch 
+ W 
+ 
+ 
+ EEG alpha and theta oscillations reflect cognitive and memory performance: a review and analysis 
+ Brain Res Brain Res Rev 
+ 1999 
+ 29 
+ 169 
+ 195 
+ 10209231 
+ 
+ 
+ 
+ 
+ 
+ 
+ Larson-Prior 
+ LJ 
+ 
+ 
+ Power 
+ JD 
+ 
+ 
+ Vincent 
+ JL 
+ 
+ 
+ Nolan 
+ TS 
+ 
+ 
+ Coalson 
+ RS 
+ 
+ 
+ Zempel 
+ J 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Schlaggar 
+ BL 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ Petersen 
+ SE 
+ 
+ 
+ Modulation of the brain’s functional network architecture in the transition from wake to sleep 
+ Prog Brain Res 
+ 2011 
+ 193 
+ 277 
+ 294 
+ 21854969 
+ 
+ 
+ 
+ 
+ 
+ 
+ Larson-Prior 
+ LJ 
+ 
+ 
+ Zempel 
+ JM 
+ 
+ 
+ Nolan 
+ TS 
+ 
+ 
+ Prior 
+ FW 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ Cortical network functional connectivity in the descent to sleep 
+ Proc Natl Acad Sci U S A 
+ 2009 
+ 106 
+ 4489 
+ 4494 
+ 19255447 
+ 
+ 
+ 
+ 
+ 
+ 
+ Laufs 
+ H 
+ 
+ 
+ Daunizeau 
+ J 
+ 
+ 
+ Carmichael 
+ DW 
+ 
+ 
+ Kleinschmidt 
+ A 
+ 
+ 
+ Recent advances in recording electrophysiological data simultaneously with magnetic resonance imaging 
+ Neuroimage 
+ 2008 
+ 40 
+ 515 
+ 528 
+ 18201910 
+ 
+ 
+ 
+ 
+ 
+ 
+ Laurienti 
+ PJ 
+ 
+ 
+ Field 
+ AS 
+ 
+ 
+ Burdette 
+ JH 
+ 
+ 
+ Maldjian 
+ JA 
+ 
+ 
+ Yen 
+ YF 
+ 
+ 
+ Moody 
+ DM 
+ 
+ 
+ Dietary caffeine consumption modulates fMRI measures 
+ Neuroimage 
+ 2002 
+ 17 
+ 751 
+ 757 
+ 12377150 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lazarus 
+ M 
+ 
+ 
+ Shen 
+ HY 
+ 
+ 
+ Cherasse 
+ Y 
+ 
+ 
+ Qu 
+ WM 
+ 
+ 
+ Huang 
+ ZL 
+ 
+ 
+ Bass 
+ CE 
+ 
+ 
+ Winsky-Sommerer 
+ R 
+ 
+ 
+ Semba 
+ K 
+ 
+ 
+ Fredholm 
+ BB 
+ 
+ 
+ Boison 
+ D 
+ 
+ 
+ Hayaishi 
+ O 
+ 
+ 
+ Urade 
+ Y 
+ 
+ 
+ Chen 
+ JF 
+ 
+ 
+ Arousal effect of caffeine depends on adenosine A2A receptors in the shell of the nucleus accumbens 
+ J Neurosci 
+ 2011 
+ 31 
+ 10067 
+ 10075 
+ 21734299 
+ 
+ 
+ 
+ 
+ 
+ 
+ Liang 
+ Z 
+ 
+ 
+ King 
+ J 
+ 
+ 
+ Zhang 
+ N 
+ 
+ 
+ Anticorrelated resting-state functional connectivity in awake rat brain 
+ Neuroimage 
+ 2012 
+ 59 
+ 1190 
+ 1199 
+ 21864689 
+ 
+ 
+ 
+ 
+ 
+ 
+ Liau 
+ J 
+ 
+ 
+ Perthen 
+ JE 
+ 
+ 
+ Liu 
+ TT 
+ 
+ 
+ Caffeine reduces the activation extent and contrast-to-noise ratio of the functional cerebral blood flow response but not the BOLD response 
+ Neuroimage 
+ 2008 
+ 42 
+ 296 
+ 305 
+ 18514545 
+ 
+ 
+ 
+ 
+ 
+ 
+ Mulderink 
+ TA 
+ 
+ 
+ Gitelman 
+ DR 
+ 
+ 
+ Mesulam 
+ MM 
+ 
+ 
+ Parrish 
+ TB 
+ 
+ 
+ On the use of caffeine as a contrast booster for BOLD fMRI studies 
+ Neuroimage 
+ 2002 
+ 15 
+ 37 
+ 44 
+ 11771972 
+ 
+ 
+ 
+ 
+ 
+ 
+ Muller 
+ B 
+ 
+ 
+ Gabelein 
+ WD 
+ 
+ 
+ Schulz 
+ H 
+ 
+ 
+ A taxonomic analysis of sleep stages 
+ Sleep 
+ 2006 
+ 29 
+ 967 
+ 974 
+ 16895265 
+ 
+ 
+ 
+ 
+ 
+ 
+ Murphy 
+ K 
+ 
+ 
+ Birn 
+ RM 
+ 
+ 
+ Handwerker 
+ DA 
+ 
+ 
+ Jones 
+ TB 
+ 
+ 
+ Bandettini 
+ PA 
+ 
+ 
+ The impact of global signal regression on resting state correlations: are anti-correlated networks introduced? 
+ Neuroimage 
+ 2009 
+ 44 
+ 893 
+ 905 
+ 18976716 
+ 
+ 
+ 
+ 
+ 
+ 
+ Niazy 
+ RK 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ Iannetti 
+ GD 
+ 
+ 
+ Brady 
+ JM 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Removal of FMRI environment artifacts from EEG data using optimal basis sets 
+ Neuroimage 
+ 2005 
+ 28 
+ 720 
+ 737 
+ 16150610 
+ 
+ 
+ 
+ 
+ 
+ 
+ Olbrich 
+ S 
+ 
+ 
+ Mulert 
+ C 
+ 
+ 
+ Karch 
+ S 
+ 
+ 
+ Trenner 
+ M 
+ 
+ 
+ Leicht 
+ G 
+ 
+ 
+ Pogarell 
+ O 
+ 
+ 
+ Hegerl 
+ U 
+ 
+ 
+ EEG-vigilance and BOLD effect during simultaneous EEG/fMRI measurement 
+ Neuroimage 
+ 2009 
+ 45 
+ 319 
+ 332 
+ 19110062 
+ 
+ 
+ 
+ 
+ 
+ 
+ Pelligrino 
+ DA 
+ 
+ 
+ Xu 
+ HL 
+ 
+ 
+ Vetri 
+ F 
+ 
+ 
+ Caffeine and the control of cerebral hemodynamics 
+ J Alzheimers Dis 
+ 2010 
+ 20 
+ Suppl 1 
+ S51 
+ 62 
+ 20182032 
+ 
+ 
+ 
+ 
+ 
+ 
+ Popa 
+ D 
+ 
+ 
+ Popescu 
+ AT 
+ 
+ 
+ Pare 
+ D 
+ 
+ 
+ Contrasting Activity Profile of Two Distributed Cortical Networks as a Function of Attentional Demands 
+ Journal of Neuroscience 
+ 2009 
+ 29 
+ 1191 
+ 1201 
+ 19176827 
+ 
+ 
+ 
+ 
+ 
+ 
+ Power 
+ JD 
+ 
+ 
+ Barnes 
+ KA 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Schlaggar 
+ BL 
+ 
+ 
+ Petersen 
+ SE 
+ 
+ 
+ Spurious but systematic correlations in functional connectivity MRI networks arise from subject motion 
+ Neuroimage 
+ 2012 
+ 59 
+ 2142 
+ 2154 
+ 22019881 
+ 
+ 
+ 
+ 
+ 
+ 
+ Rack-Gomer 
+ AL 
+ 
+ 
+ Liu 
+ TT 
+ 
+ 
+ Caffeine increases the temporal variability of resting-state BOLD connectivity in the motor cortex 
+ Neuroimage 
+ 2012 
+ 59 
+ 2994 
+ 3002 
+ 22032947 
+ 
+ 
+ 
+ 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ MacLeod 
+ AM 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Powers 
+ WJ 
+ 
+ 
+ Gusnard 
+ DA 
+ 
+ 
+ Shulman 
+ GL 
+ 
+ 
+ A default mode of brain function 
+ Proc Natl Acad Sci U S A 
+ 2001 
+ 98 
+ 676 
+ 682 
+ 11209064 
+ 
+ 
+ 
+ 
+ 
+ 
+ Reeves 
+ RR 
+ 
+ 
+ Struve 
+ FA 
+ 
+ 
+ Patrick 
+ G 
+ 
+ 
+ Topographic quantitative EEG response to acute caffeine withdrawal: a comprehensive analysis of multiple quantitative variables 
+ Clin Electroencephalogr 
+ 2002 
+ 33 
+ 178 
+ 188 
+ 12449850 
+ 
+ 
+ 
+ 
+ 
+ 
+ Sakoglu 
+ U 
+ 
+ 
+ Pearlson 
+ GD 
+ 
+ 
+ Kiehl 
+ KA 
+ 
+ 
+ Wang 
+ YM 
+ 
+ 
+ Michael 
+ AM 
+ 
+ 
+ Calhoun 
+ VD 
+ 
+ 
+ A method for evaluating dynamic functional network connectivity and task-modulation: application to schizophrenia 
+ MAGMA 
+ 2010 
+ 23 
+ 351 
+ 366 
+ 20162320 
+ 
+ 
+ 
+ 
+ 
+ 
+ Samann 
+ PG 
+ 
+ 
+ Wehrle 
+ R 
+ 
+ 
+ Hoehn 
+ D 
+ 
+ 
+ Spoormaker 
+ VI 
+ 
+ 
+ Peters 
+ H 
+ 
+ 
+ Tully 
+ C 
+ 
+ 
+ Holsboer 
+ F 
+ 
+ 
+ Czisch 
+ M 
+ 
+ 
+ Development of the brain’s default mode network from wakefulness to slow wave sleep 
+ Cereb Cortex 
+ 2011 
+ 21 
+ 2082 
+ 2093 
+ 21330468 
+ 
+ 
+ 
+ 
+ 
+ 
+ Scholvinck 
+ ML 
+ 
+ 
+ Maier 
+ A 
+ 
+ 
+ Ye 
+ FQ 
+ 
+ 
+ Duyn 
+ JH 
+ 
+ 
+ Leopold 
+ DA 
+ 
+ 
+ Neural basis of global resting-state fMRI activity 
+ Proc Natl Acad Sci U S A 
+ 2010 
+ 107 
+ 10238 
+ 10243 
+ 20439733 
+ 
+ 
+ 
+ 
+ 
+ 
+ Siepmann 
+ M 
+ 
+ 
+ Kirch 
+ W 
+ 
+ 
+ Effects of caffeine on topographic quantitative EEG 
+ Neuropsychobiology 
+ 2002 
+ 45 
+ 161 
+ 166 
+ 11979068 
+ 
+ 
+ 
+ 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Jenkinson 
+ M 
+ 
+ 
+ Woolrich 
+ MW 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ Behrens 
+ TE 
+ 
+ 
+ Johansen-Berg 
+ H 
+ 
+ 
+ Bannister 
+ PR 
+ 
+ 
+ De Luca 
+ M 
+ 
+ 
+ Drobnjak 
+ I 
+ 
+ 
+ Flitney 
+ DE 
+ 
+ 
+ Niazy 
+ RK 
+ 
+ 
+ Saunders 
+ J 
+ 
+ 
+ Vickers 
+ J 
+ 
+ 
+ Zhang 
+ Y 
+ 
+ 
+ De Stefano 
+ N 
+ 
+ 
+ Brady 
+ JM 
+ 
+ 
+ Matthews 
+ PM 
+ 
+ 
+ Advances in functional and structural MR image analysis and implementation as FSL 
+ Neuroimage 
+ 2004 
+ 23 
+ Suppl 1 
+ S208 
+ 219 
+ 15501092 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stamatakis 
+ EA 
+ 
+ 
+ Adapa 
+ RM 
+ 
+ 
+ Absalom 
+ AR 
+ 
+ 
+ Menon 
+ DK 
+ 
+ 
+ Changes in resting neural connectivity during propofol sedation 
+ PLoS One 
+ 2010 
+ 5 
+ e14224 
+ 21151992 
+ 
+ 
+ 
+ 
+ 
+ 
+ Tagliazucchi 
+ E 
+ 
+ 
+ von Wegner 
+ F 
+ 
+ 
+ Morzelewski 
+ A 
+ 
+ 
+ Borisov 
+ S 
+ 
+ 
+ Jahnke 
+ K 
+ 
+ 
+ Laufs 
+ H 
+ 
+ 
+ Automatic sleep staging using fMRI functional connectivity data 
+ Neuroimage 
+ 2012a 
+ 63 
+ 63 
+ 72 
+ 22743197 
+ 
+ 
+ 
+ 
+ 
+ 
+ Tagliazucchi 
+ E 
+ 
+ 
+ von Wegner 
+ F 
+ 
+ 
+ Morzelewski 
+ A 
+ 
+ 
+ Brodbeck 
+ V 
+ 
+ 
+ Laufs 
+ H 
+ 
+ 
+ Dynamic BOLD functional connectivity in humans and its electrophysiological correlates 
+ Front Hum Neurosci 
+ 2012b 
+ 6 
+ 339 
+ 23293596 
+ 
+ 
+ 
+ 
+ 
+ 
+ Tal 
+ O 
+ 
+ 
+ Diwakar 
+ M 
+ 
+ 
+ Wong 
+ C-W 
+ 
+ 
+ Olafsson 
+ V 
+ 
+ 
+ Lee 
+ R 
+ 
+ 
+ Huang 
+ M-X 
+ 
+ 
+ Liu 
+ T 
+ 
+ 
+ Caffeine-Induced Global Reductions in Resting-state BOLD Connectivity reflect Widespread Decreases in MEG Connectivity 
+ Frontiers in Human Neuroscience 
+ 2013 
+ 7 
+ 23372547 
+ 
+ 
+ 
+ 
+ 
+ 
+ Tononi 
+ G 
+ 
+ 
+ An information integration theory of consciousness 
+ BMC Neurosci 
+ 2004 
+ 5 
+ 42 
+ 15522121 
+ 
+ 
+ 
+ 
+ 
+ 
+ Van Dijk 
+ KR 
+ 
+ 
+ Sabuncu 
+ MR 
+ 
+ 
+ Buckner 
+ RL 
+ 
+ 
+ The influence of head motion on intrinsic functional connectivity MRI 
+ Neuroimage 
+ 2012 
+ 59 
+ 431 
+ 438 
+ 21810475 
+ 
+ 
+ 
+ 
+ 
+ 
+ Van Dort 
+ CJ 
+ 
+ 
+ Baghdoyan 
+ HA 
+ 
+ 
+ Lydic 
+ R 
+ 
+ 
+ Adenosine A(1) and A(2A) receptors in mouse prefrontal cortex modulate acetylcholine release and behavioral arousal 
+ J Neurosci 
+ 2009 
+ 29 
+ 871 
+ 881 
+ 19158311 
+ 
+ 
+ 
+ 
+ 
+ 
+ Viola 
+ FC 
+ 
+ 
+ Thorne 
+ J 
+ 
+ 
+ Edmonds 
+ B 
+ 
+ 
+ Schneider 
+ T 
+ 
+ 
+ Eichele 
+ T 
+ 
+ 
+ Debener 
+ S 
+ 
+ 
+ Semi-automatic identification of independent components representing EEG artifact 
+ Clin Neurophysiol 
+ 2009 
+ 120 
+ 868 
+ 877 
+ 19345611 
+ 
+ 
+ 
+ 
+ 
+ 
+ Wang 
+ L 
+ 
+ 
+ Zang 
+ Y 
+ 
+ 
+ He 
+ Y 
+ 
+ 
+ Liang 
+ M 
+ 
+ 
+ Zhang 
+ X 
+ 
+ 
+ Tian 
+ L 
+ 
+ 
+ Wu 
+ T 
+ 
+ 
+ Jiang 
+ T 
+ 
+ 
+ Li 
+ K 
+ 
+ 
+ Changes in hippocampal connectivity in the early stages of Alzheimer’s disease: evidence from resting state fMRI 
+ Neuroimage 
+ 2006 
+ 31 
+ 496 
+ 504 
+ 16473024 
+ 
+ 
+ 
+ 
+ 
+ 
+ Weissenbacher 
+ A 
+ 
+ 
+ Kasess 
+ C 
+ 
+ 
+ Gerstl 
+ F 
+ 
+ 
+ Lanzenberger 
+ R 
+ 
+ 
+ Moser 
+ E 
+ 
+ 
+ Windischberger 
+ C 
+ 
+ 
+ Correlations and anticorrelations in resting-state functional connectivity MRI: a quantitative comparison of preprocessing strategies 
+ Neuroimage 
+ 2009 
+ 47 
+ 1408 
+ 1416 
+ 19442749 
+ 
+ 
+ 
+ 
+ 
+ 
+ Wong 
+ CW 
+ 
+ 
+ Olafsson 
+ V 
+ 
+ 
+ Tal 
+ O 
+ 
+ 
+ Liu 
+ TT 
+ 
+ 
+ Anti-correlated networks, global signal regression, and the effects of caffeine in resting-state functional MRI 
+ Neuroimage 
+ 2012 
+ 63 
+ 356 
+ 364 
+ 22743194 
+ 
+ 
+ 
+ 
+ 
+ 
+ Woolrich 
+ MW 
+ 
+ 
+ Jbabdi 
+ S 
+ 
+ 
+ Patenaude 
+ B 
+ 
+ 
+ Chappell 
+ M 
+ 
+ 
+ Makni 
+ S 
+ 
+ 
+ Behrens 
+ T 
+ 
+ 
+ Beckmann 
+ C 
+ 
+ 
+ Jenkinson 
+ M 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Bayesian analysis of neuroimaging data in FSL 
+ Neuroimage 
+ 2009 
+ 45 
+ S173 
+ 186 
+ 19059349 
+ 
+ 
+ 
+ 
+ 
+ 
+ Xie 
+ C 
+ 
+ 
+ Bai 
+ F 
+ 
+ 
+ Yu 
+ H 
+ 
+ 
+ Shi 
+ Y 
+ 
+ 
+ Yuan 
+ Y 
+ 
+ 
+ Chen 
+ G 
+ 
+ 
+ Li 
+ W 
+ 
+ 
+ Chen 
+ G 
+ 
+ 
+ Zhang 
+ Z 
+ 
+ 
+ Li 
+ SJ 
+ 
+ 
+ Abnormal insula functional network is associated with episodic memory decline in amnestic mild cognitive impairment 
+ Neuroimage 
+ 2012 
+ 63 
+ 320 
+ 327 
+ 22776459 
+ 
+ 
+ 
+ 
+ 
+ 
+ Zou 
+ QH 
+ 
+ 
+ Long 
+ XY 
+ 
+ 
+ Zuo 
+ XN 
+ 
+ 
+ Yan 
+ CG 
+ 
+ 
+ Zhu 
+ CZ 
+ 
+ 
+ Yang 
+ YH 
+ 
+ 
+ Liu 
+ DQ 
+ 
+ 
+ He 
+ Y 
+ 
+ 
+ Zang 
+ YF 
+ 
+ 
+ Functional Connectivity Between the Thalamus and Visual Cortex Under Eyes Closed and Eyes Open Conditions: A Resting-State fMRI Study 
+ Human Brain Mapping 
+ 2009 
+ 30 
+ 3066 
+ 3078 
+ 19172624 
+ 
+ 
+ 
+ 
+ 
+ 
+ Figure 1 
+ 
+ Global signal amplitude versus relative EEG amplitude for different frequency bands in the eyes-closed condition. 
+ 
+ 
+ 
+ 
+ Figure 2 
+ 
+ Global signal amplitude versus EEG vigilance measure in the eyes-closed condition (left panel); EEG relative amplitude spectra for three representative subjects (right panel). 
+ 
+ 
+ 
+ 
+ Figure 3 
+ 
+ Caffeine-related changes in the global signal amplitude versus corresponding changes in the relative EEG amplitude for different frequency bands in the eyes-closed condition. 
+ 
+ 
+ 
+ 
+ Figure 4 
+ 
+ (a) Caffeine-related changes in the global signal amplitude versus corresponding changes in the EEG vigilance measure in the eyes-closed condition (left panel); global amplitude spectra for two representative subjects before and after caffeine intake (right panel). (b) Caffeine-related changes in the mean anti-correlation between nodes in the Default Mode Network (DMN) and Task Positive Network (TPN) versus changes in vigilance (left panel); whole brain voxel-wise correlation using the Posterior Cingulate Cortex (PCC) seed ROI for the two representative subjects before and after caffeine intake (right panel). 
+ 
+ 
+ 
+ 
+ Table 1 
+ 
+ Definition of seed coordinates in the default mode network and task positive network 
+ 
+ 
+ 
+ 
+ Brain regions 
+ Talairach Coordinates 
+ 
+ 
+ 
+ 
+ 
+ The default mode network (DMN) 
+ 
+ 
+ 
+ posterior cingulate cortex (PCC) 
+ (0, 51, 26) 
+ 
+ 
+ lateral parietal 
+ (48, 59, 35) (−47, 59, 31) 
+ 
+ 
+ medial prefrontal cortex 
+ (0, −46, −7) 
+ 
+ 
+ hippocampal formation 
+ (23, 23, −13) (−23 22 −15) 
+ 
+ 
+ 
+ The task positive network (TPN) 
+ 
+ 
+ 
+ 
+ frontal eye field 
+ (38, 2, 44) (−40, 1, 45) 
+ 
+ 
+ intraparietal cortex 
+ (24, 55, 47) (−23 54 48) 
+ 
+ 
+ middle temporal area 
+ (54, 60, 3) (−54, 58, 1) 
+ 
+ 
+ 
+ 
+ 

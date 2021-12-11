@@ -1,0 +1,2796 @@
+
+ properties manuscript? 
+ 
+ 
+ 9215515 
+ 20498 
+ Neuroimage 
+ NeuroImage 
+ 1053-8119 
+ 1095-9572 
+ 
+ 
+ 20347995 
+ 2908207 
+ 10.1016/j.neuroimage.2010.03.057 
+ NIHMS192918 
+ 
+ 
+ Article 
+ 
+ 
+ 
+ Within- and Cross-Participant Classifiers Reveal Different Neural Coding of Information 
+ 
+ 
+ 
+ 
+ Clithero 
+ John A. 
+ 
+ 1 
+ 4 
+ 
+ 
+ 
+ Smith 
+ David V. 
+ 
+ 2 
+ 4 
+ 
+ 
+ 
+ Carter 
+ R. McKell 
+ 
+ 3 
+ 4 
+ 
+ 
+ 
+ Huettel 
+ Scott A. 
+ 
+ 2 
+ 4 
+ * 
+ 
+ 
+ 1  Department of Economics, Duke University 
+ 2  Department of Psychology and Neuroscience, Duke University 
+ 3  Department of Neurobiology, Duke University 
+ 4  Center for Cognitive Neuroscience, Duke University 
+ 
+ 
+ * Correspondence and requests for materials should be addressed to: Scott A. Huettel, B203 Levine Science Research Center, Box 90999, Durham, NC 27708, USA,  scott.huettel@duke.edu 
+ 
+ 
+ 8 
+ 4 
+ 2010 
+ 
+ 
+ 27 
+ 3 
+ 2010 
+ 
+ 
+ 15 
+ 5 
+ 2011 
+ 
+ 
+ 15 
+ 5 
+ 2012 
+ 
+ 56 
+ 2 
+ 699 
+ 708 
+ 
+ 
+ This file is available for text mining. It may also be used consistent with the principles of fair use under the copyright law. 
+ 
+ 
+ 
+ Analyzing distributed patterns of brain activation using multivariate pattern analysis (MVPA) has become a popular approach for using functional magnetic resonance imaging (fMRI) data to predict mental states. While the majority of studies currently build separate classifiers for each participant in the sample, in principle a single classifier can be derived from and tested on data from all participants. These two approaches, within- and cross-participant classification, rely on potentially different sources of variability and thus may provide distinct information about brain function. Here, we used both approaches to identify brain regions that contain information about passively-received monetary rewards (i.e., images of currency that influenced participant payment) and social rewards (i.e., images of human faces). Our within-participant analyses implicated regions in the ventral visual processing stream – including fusiform gyrus and primary visual cortex – and ventromedial prefrontal cortex (VMPFC). Two key results indicate these regions may contain statistically discriminable patterns that contain different informational representations. First, cross-participant analyses implicated additional brain regions, including striatum and anterior insula. The cross-participant analyses also revealed systematic changes in predictive power across brain regions, with the pattern of change consistent with the functional properties of regions. Second, individual differences in classifier performance in VMPFC were related to individual differences in preferences between our two reward modalities. We interpret these results as reflecting a distinction between patterns reflecting participant-specific functional organization and those indicating aspects of brain organization that generalize across individuals. 
+ 
+ 
+ classification 
+ fMRI 
+ MVPA 
+ faces 
+ reward 
+ 
+ 
+ 
+ 
+ Introduction 
+ Humans can rapidly identify, categorize, and evaluate environmental stimuli. Identifying the neural mechanisms that underlie stimulus evaluation is a fundamental goal of cognitive neuroscience. Part of that research agenda includes the identification of functional changes in the brain that predict the characteristics of perceived stimuli. An important recent approach involves analyzing functional magnetic resonance imaging (fMRI) data for task-related patterns of information ( Kriegeskorte and Bandettini, 2007 ), often through the application of techniques from machine learning, called multivariate pattern analysis (MVPA). Although still less popular than more standard univariate techniques, MVPA continues to grow in scope, as evidenced by recent overviews ( Haynes and Rees, 2006 ;  Mitchell et al., 2004 ;  Norman et al., 2006 ;  O’Toole et al., 2007 ), tutorials ( Etzel et al., 2009 ;  Mur et al., 2009 ;  Pereira et al., 2009 ), and consideration of potential applications ( deCharms, 2007 ;  Friston, 2009 ;  Haynes, 2009 ;  Spiers and Maguire, 2007 ). 
+ Studies employing MVPA now cover a diverse set of topics. The earliest and most-common targets were feature representations and topographies in the visual cortex ( Carlson et al., 2003 ;  Cox and Savoy, 2003 ;  Haynes and Rees, 2005 ;  Kamitani and Tong, 2005 ). More recent studies have broadened the application of MVPA to many other types of information: hidden intentions ( Haynes et al., 2007 ), free will ( Soon et al., 2008 ), odor processing ( Howard et al., 2009 ), scene categorization ( Peelen et al., 2009 ), components of working memory ( Harrison and Tong, 2009 ), individual differences in perception ( Raizada et al., 2009 ), basic choices ( Hampton and O’Doherty, 2007 ), purchasing decisions ( Grosenick et al., 2008 ), and economic value ( Clithero et al., 2009 ;  Krajbich et al., 2009 ). In striking examples, feature spaces determined using MVPA have been extended to decode the content of complex brain states, such as identifying specific pictures ( Kay et al., 2008 ) and reconstructing the contents of visual experience ( Miyawaki et al., 2008 ;  Naselaris et al., 2009 ). 
+ Nearly all MVPA studies that employ classifiers build an independent classification model for each participant, based on the trial-to-trial variability in the fMRI signal. This approach is well-suited to identify brain regions that play a consistent functional role  within-participants , but it cannot make claims about common  cross-participant  representation. While relatively few studies have adopted the latter approach, some early applications have targeted deception ( Davatzikos et al., 2005 ), different object categories ( Shinkareva et al., 2008 ), mental states that are consistent across a wide variety of tasks ( Poldrack et al., 2009 ), attention ( Mourao-Miranda et al., 2005 ), biomarkers for psychosis ( Sun et al., 2009 ), and Alzheimer’s disease ( Vemuri et al., 2008 ). To date, however, no study has systematically evaluated whether within- and cross-participant analyses provide distinct information about brain function. 
+ There may be important functional differences between the results of within- and cross-participant MVPA. The popularity and promise of MVPA stems from the notion that its analyses go beyond demonstrating the involvement of a region in a particular task; they provide important information about the representational content of brain regions ( Mur et al., 2009 ). Accordingly, joint examination of within- and cross-participants patterns may clarify how information is represented within a region. Regions that contribute to the same task may do so for different reasons. One may be consistently recruited but represent participant-specific information, while another’s functional organization may reflect both common recruitment and common information across individuals. The objective of the current study was to provide such comparisons in brain regions whose functional contributions to a task might reflect general or idiosyncratic effects, across individuals. 
+ Here, we employed the “searchlight” method ( Kriegeskorte et al., 2006 ) to extract local spatial information from small spheres of brain voxels while measuring fMRI activation in participants who passively received monetary and social rewards ( Hayden et al., 2007 ;  Smith et al., 2010 ). We then employed a popular machine-learning implementation, support vector machines (SVM), to generate and evaluate classifiers for searchlights throughout the brain. Our goals were to identify the brain regions that contain information that can distinguish the reward modality of each trial, and then to identify potential functional organization within those regions based on the relative classification power and information content of within- and cross-participant analyses. 
+ 
+ 
+ Materials and Methods 
+ 
+ Participants 
+ Twenty healthy participants (mean age: 23 y, range: 18 y to 30 y) completed a session involving both behavioral and fMRI data collection. All participants were male and indicated a heterosexual orientation, via self-report. Four of these participants were dropped from the sample prior to data analyses: three for excessive head motion and one because of equipment failure, leaving a final sample of sixteen participants. Prescreening excluded individuals with prior psychiatric or neurological illness. Participants gave written informed consent as part of a protocol approved by the Institutional Review Board of Duke University Medical Center. 
+ 
+ 
+ Tasks 
+ While in the scanner, participants performed a simple incentive-compatible reward task ( Smith et al., 2010 ). Each trial involved the presentation of one of two equally frequent reward modalities: monetary or social ( Figure 1 ). Monetary rewards involved four different values of real gains and losses: +$5, +$1, − $1, or −$5. Social rewards were images of female faces that had been previously rated, by an independent group of participants, into four categories of attractiveness: 1 to 4 stars (see  Supplementary Materials ). To ensure that the participants maintained vigilance throughout the scanner task, a target yellow border infrequently appeared around the stimuli (<5% trials). Accurate detection of these targets (via button press) could earn the participant a bonus of $5. Trials on which the target was presented were excluded from subsequent analyses. 
+ We presented these stimuli in both uncued and cued trials. Uncued trials involved presentation of each reward stimulus for 2 s, followed by a jittered intertrial interval (ITI) of 4 s to 8 s. Cued trials added an initial 1 s cue (in the form of a blue or yellow square) that indicated the upcoming reward modality, followed by a 1 s to 5 s interstimulus interval (ISI), a 2 s reward stimulus, and a 4 s to 8 s ITI. To minimize participant confusion, we separated these trial types into distinct runs: three uncued runs of 468 s each and two cued runs of 596 s each. In the present analyses, we found no systematic differences in reward-related activation between the uncued and cued trials, and thus we collapse over both trial types hereafter (see  Supplementary Materials ). 
+ Following completion of the fMRI session, participants rated the attractiveness of the viewed faces on an eight-point scale (1 = “low attractiveness” to 8 “high attractiveness”). Second, participants completed an economic exchange task in which they repeatedly chose whether to spend more money to view a novel high attractiveness face or less money to view a novel low attractiveness face ( Figure S1, Supplementary Materials ). 
+ All tasks were presented using the Psychophysics Toolbox 2.54 ( Brainard, 1997 ) in MATLAB (The MathWorks, Inc.). Cash payment was based on a randomly-chosen run from the scanner session. Participants rolled dice to determine the run whose cumulative total would be added to the base payment of $50. Participants received an average of $16 for their bonus reward, and spent an average of $2 to view new faces in the post-fMRI economic exchange task, resulting in a total mean payment of $66 (range $53 to $92). Participants were provided full information about the payment procedure prior to the scanning session. 
+ 
+ 
+ Image acquisition 
+ We acquired fMRI data on a General Electric 3.0 Tesla MRI Scanner with a multi-channel (eight-coil) parallel imaging system. Initial localizer images identified each participant’s head position within the scanner. Whole-brain high-resolution T 1 -weighted coplanar FSPGR structural scans with voxel size 1*1*2 mm were acquired for normalizing and coregistering the fMRI data. Images sensitive to blood-oxygenation-level-dependent (BOLD) contrast were acquired using a gradient-echo echo-planar imaging (EPI) sequence [repetition time (TR) = 2000 ms; echo time (TE) = 27 ms; matrix = 64 × 64; field of view (FOV) = 240 mm; voxel size = 3.75*3.75*3.8 mm; 34 axial slices] parallel to the axial plane connecting the anterior and posterior commissures. We used an initial saturation buffer of seven volumes. 
+ 
+ 
+ Preprocessing 
+ Functional images were first reoriented and then skull stripped using the FSL Brain Extraction Tool (BET) ( Smith, 2002 ). All images were then corrected for intervolume head motion using FMRIB’s Linear Image Registration Tool (MCFLIRT) ( Jenkinson et al., 2002 ), slice-time corrected, subjected to a high-pass temporal filter of 100 s, and normalized into a standard stereotaxic space (Montreal Neurological Institute, MNI) using FSL 4.1.4 ( Smith et al., 2004 ). We maintained the original voxel size and left the data unsmoothed to preserve local voxel information. Importantly, we transformed the data into standard space for both within-participant and cross-participant analyses, so that the same voxels and features were used in both classifications. We constructed a whole-brain mask ( n  = 27102 voxels) from all individual participant functional fMRI runs to ensure that the voxels included in MVPA contained BOLD signal across all participants and all runs. 
+ 
+ 
+ Multivariate pattern analysis 
+ For each voxel in each trial, we estimated the change in BOLD signal intensity associated with each reward by taking the mean signal across two consecutive volumes lagged by 5 s following stimulus onset (to account for hemodynamic delay). These values were then detrended using a constant term and transformed into  z -scores in PyMVPA 0.4.3 ( Hanke et al., 2009a ;  Hanke et al., 2009b ). We used the temporally compressed signal in specific voxels to construct pattern classifiers from searchlights ( Clithero et al., 2009 ;  Kriegeskorte et al., 2006 ). For every voxel in the whole-brain mask, we constructed a searchlight corresponding to a spherical cluster of 12 mm radius (i.e., up to 123 voxels). 
+ We then used PyMVPA to implement a linear SVM with a fixed regularization parameter of  C  = 1 ( Haynes et al., 2007 ;  Soon et al., 2008 ). Classification within PyMVPA was performed using the LIBSVM software ( http://www.csie.ntu.edu.tw/~cjlin/libsvm ). For cross-participant analyses, we used custom scripts in MATLAB and Python to construct the feature spaces (searchlights) before implementing LIBSVM. Importantly, the same features were used for within- and cross-participant analyses. To account for run-to-run differences in mean BOLD signal, we scaled each voxel’s BOLD signal so that it had the same average signal on each run. Moreover, we also ensured that any differences between within-participant and cross-participant models were not an artifact of PyMVPA, through a replication of the core analyses using a within-participant approach previously reported by our laboratory ( Clithero et al., 2009 ). The results of this analysis did not differ significantly from that implemented within PyMVPA, and thus we hereafter describe the within-participant results from PyMVPA. 
+ 
+ 
+ Classifier performance 
+ Performance was judged based on  n -fold cross-validation (CV), which provides evidence for how well a SVM will be able to accurately classify new data drawn from the sample’s underlying population. For the within-participant model, the training set combined all trials from all but one of the  n  runs, leaving the trials from the unselected run as the testing set. This process was repeated five times for each participant, with the average performance across the five tests providing the SVM’s CV percentage. One benefit of using a linear SVM implementation for within-participant analyses is that it provides weights for each feature (i.e., voxel) in the classifier. Here, we reported individual voxel weights based on the average weighting across all folds of the classifier. For the cross-participant model, we employed a similar approach for the  n  = 16 participants (i.e., we used sixteen-fold, rather than five-fold, cross-validation). Importantly, both types of analyses were compared on a common metric: the CV for trial-to-trial predictions of reward modality. 
+ 
+ 
+ Statistical testing 
+ For evaluation of the significance of individual searchlights, we calculated the average CV across participants and then implemented a one-tailed binomial test for each searchlight ( Pereira et al., 2009 ), comparing CV performance to chance (50%). Comparisons of performance between within-participant and cross-participant classifiers used a two-tailed binomial test for each searchlight. All claims of significance refer to  p  < 0.05, corrected for multiple comparisons across all searchlights in the brain mask, by taking brain mask size and dividing by the average searchlight size, an approximation to a Bonferroni correction based on the number of resels in the whole-brain mask. Brain images of CV performance and significance were generated using MRIcron ( Rorden et al., 2007 ). All coordinates in the manuscript are reported in MNI space. 
+ We note that our results were robust to two other thresholding approaches (see  Supplementary Materials ): a full Bonferroni correction over all voxels in the whole-brain mask, and false discovery rate (FDR) correction ( q =  0.05) using FSL ( Genovese et al., 2002 ). 
+ 
+ 
+ 
+ Results 
+ 
+ Behavior 
+ Participants performed well on the background target-detection task (average hit rate of 84.2%). The post-scanning ratings of face attractiveness were highly correlated with those from an independent sample (mean  r  = 0.71, range 0.50 to 0.85; see  Supplementary Materials ), supporting our  a priori  division of stimuli into attractiveness categories. Moreover, on a large fraction of trials during the exchange task, participants were willing to sacrifice money to see a face with a higher attractiveness rating (average fraction of  willing-to-pay  trials was 0.42), with significant interparticipant variability (range 0.10 to 0.80). Participants spent an average of 4.5¢ per trial (45 trials, minimum participant average = 3.8¢, maximum average = 6.0¢) to view more attractive faces. Data from one functional run in one participant were not recorded because of a collection error; all remaining participants had the full complement of five runs. 
+ 
+ 
+ Within-participant classification: reward modality 
+ We first classified trials according to reward modality using within-participant classifiers. The average searchlight classifier performance across the entire brain was 56.7% (standard deviation 5.7%), with significant searchlights ( n  = 4131 out of 27102) primarily constrained to regions associated with visual perception and reward evaluation ( Figure 2A ). There were four maxima ( Table 1 ): visual cortex centered around the calcarine sulcus (VC, global max 83.6%), left fusiform face area (LFFA, local max 77.6%), right fusiform face area (RFFA, local max 79.7%) and ventromedial prefrontal cortex (VMPFC, local max 61.6%). We also note – consistent with previous findings ( McCarthy et al., 1997 ) – that for most participants RFFA was more predictive than LFFA (one-tailed paired difference test,  t(15)  = 1.98,  p  < 0.03). For simplicity, we targeted key analyses to these three regions of interest (ROIs; VC, RFFA, VMPFC), all of which were also local maxima identified through univariate analyses (see  Supplementary Materials ). In general, VC and RFFA both outperformed VMPFC for each participant ( Figure 2B ). There was considerable interparticipant variability in global maximum values (95.50% to 75.32%) and average searchlight performance (68.21% to 51.15%) ( Figure S2, Supplementary Materials ). As a check on our multiple-comparisons correction, we also performed a correction using FDR ( Figure S3A, Supplementary Materials ), and a full Bonferroni ( Figure S3B, Supplementary Materials ). All of our regions of interest survived the FDR correction, whereas VMPFC did not survive the more stringent Bonferroni correction. 
+ Although equal category sizes (monetary and social rewards) justify the use of a binomial test, we confirmed these results using a permutation test. For each participant, we performed permutation tests on each of the three targeted searchlight ROIs. We generated 10000 permutations of the feature labels and repeated the SVM construction and cross-validation processes, for each. For both RFFA and VC, all participants’ searchlight performance was significant at  p  < 0.01, meaning fewer than 1% of the permutation iterations yielded a CV higher than the observed CV for the correct labels. For the peak VMPFC searchlight, 11 out of 16 participants’ permutation tests yielded  p  < 0.05 (2 of the remaining 5 were  p  < 0.10). 
+ 
+ 
+ Within-participant classification: relation to choice preferences 
+ Observed differences among ROIs with respect to average performance can correspond to behavioral differences ( Raizada et al., 2009 ;  Williams et al., 2007 ). As a measure of reward preference, we used the relative value between the two reward modalities; i.e., the fraction of willing-to-pay choices each participant made during the exchange task ( Smith et al., 2010 ). Strikingly, this individual measure was significantly correlated with the difference in VMPFC performance ( r(14)  = 0.59,  p  < 0.02) but was not a function of overall individual decoding performance throughout the brain ( r(14)  = 0.06,  p  > 0.83;  Figure 3 ). In contrast, no such correlation was observed for VC ( r(14)  = 0.37,  p  > 0.16) or for RFFA ( r(14)  = −0.14,  p  > 0.61). 
+ 
+ 
+ Within-participant analyses: similarity of ROI information 
+ One of the primary advantages of MVPA is that it gives access to fine spatial information normally unavailable within univariate analyses (e.g., general linear models). To determine whether local spatial patterns within our ROIs were specific to or common across participants, we extracted voxelwise SVM weights ( LaConte et al., 2005 ) from the peak searchlights in VC, RFFA, and VMPFC. The top ten voxels in terms of mean absolute weight were used to construct similarity matrices ( Aguirre, 2007 ;  Kriegeskorte et al., 2008 ). Although larger weights indicated important voxels, we recognize that other voxels contributed to the classifier, and thus correlated voxels will necessarily have smaller weights ( Pereira et al., 2009 ). We computed first-order similarity matrices according to the Pearson correlation between the weight values of each participant and those of the other participants ( Figure S4, Supplementary Materials ). The second-order similarity between the first-order matrices for two regions provided an index of whether those regions encoded similar sorts of information, across individuals ( Kriegeskorte et al., 2008 ). As the matrix is symmetric, we excluded the lower triangle and diagonal cells from similarity calculations. All three pairs of regions revealed non-zero second-order similarity ( Figure 4  and  Table S1, Supplementary Materials ): RFFA-VC = −0.18, RFFA – VMPFC = 0.26, and VMPFC – VC = −0.11. 
+ We used permutation analyses to evaluate the robustness of these between-region similarities. We ran 10000 permutations that each selected ten different voxel weights from the same ROI ( Figure 4 ). Comparing the measured similarity values to the permutation distribution, we found that there was a significant negative correspondence between RFFA and VC ( p  < 0.002), and non-significant trends for the other pairs (RFFA – VMPFC:  p <  0.091, VMPFC – VC:  p <  0.0918). We repeated these tests for sets of five voxels, which yielded convergent results (RFFA-VC:  p  < 0.017, RFFA – VMPFC:  p <  0.061, VMPFC – VC:  p <  0.006). This result provides evidence not only that each of these regions provides high decoding accuracy for reward modality, but also that the optimal classifiers for each region use different information to distinguish reward modalities (e.g., VC may be tracking different information, across individuals, compared to the other two regions). 
+ 
+ 
+ Cross-participant analyses: reward modality 
+ We repeated the analyses from the previous sections using cross-participant classifiers derived from models trained on  n − 1  participants and tested on the remaining participant. Importantly, our significance thresholding takes into account the increases in training and test set size, allowing direct comparison to the within-participant classification results. Significant classification power was observed in multiple regions ( Figure 5  and  Table 2 ), including RFFA (global max 62.1%), VMPFC (local max 54.5%), anterior insula (AINS, local max 55.8%), and ventral striatum (VSTR, local max 54.7%). Average performance was 51.7% (standard deviation 2.06%). However, given the nature of our searchlights (approximately 110 voxels, on average, with a radius of 12 mm), we qualify the structural specificity of some of these local maxima (e.g., some basal ganglia searchlight voxels overlap with some VMPFC searchlight voxels). The presence of separate local maxima, though, suggests that both regions are implicated in distinguishing reward modality. As we did on the within-participant models, we performed checks on our multiple-comparisons correction, using FDR ( Figure S5A, Supplementary Materials ), and a full Bonferroni ( Figure S5B, Supplementary Materials ). All of our cross-participant results were robust to both of these additional statistical tests. 
+ 
+ 
+ Comparing within-participant and cross-participant models 
+ We conducted searchlight-by-searchlight comparisons of relative performance of the within- and cross-participant models. If moving from the within-participant to the cross-participant models introduces similar sorts of variability throughout the brain, then the two models should exhibit similar global maxima, and those maxima should exhibit a similar proportional decrease in prediction accuracy. Conversely, differences in the regions that exhibit maximal predictive power in each analysis type would argue that within- and cross-participant analyses encode distinct patterns of information. 
+ Our results argue strongly for the latter conclusion. We first compared the global maxima for the two analyses. The maxima were non-overlapping and located in distinct portions of the distribution of results ( Figure 6 ). In other words, the searchlights that MVPA found to be  most informative  about reward modality were in different brain regions for the different model types. For the within-participant models, the most informative searchlights were within VC, with RFFA searchlights being less predictive overall. Strikingly different results were observed for the cross-participant model: The most informative searchlights were all within RFFA, while the searchlights in VC had much lower predictive power (e.g., many were less than the whole-brain average). 
+ Next, we computed a map of the CV difference between the two models. Consistent with other studies ( Shinkareva et al., 2008 ), moving from a within- to cross-participant model led to an average decrease in CV across all searchlights in the whole-brain mask (average decrease: 4.0%; maximal decrease: 25.3%; maximal increase: 3.3%). We masked the difference map using the significant searchlights from the within-participant models ( Figure 7A ), which revealed that the searchlights that exhibited the greatest within- to cross-participant CV decreases were located within VC (−22.8% for the local maximum;  Figure 7B ). A smaller decrease was found for the RFFA maximum (−11.8%), and only a minimal change was observed in VMPFC (−2.85%, less than the mean for the entire brain). So, while there was a negative trend across the entire brain in terms of predictive performance, the lower tail of the distribution of changes in predictive power was contained within early visual cortex. 
+ 
+ 
+ 
+ Discussion 
+ Our results support a novel conclusion: within-participant and cross-participant MVPA classification implicate distinct sets of brain regions. When classifying social and non-social rewards, both models identified key regions for the perception and valuation of social information. Regions showing maximal classification performance (e.g., VC, FFA, and VMPFC) have been implicated in previous studies of face and object recognition ( Grill-Spector and Malach, 2004 ;  Tsao and Livingstone, 2008 ), as well as studies of reward valuation ( Montague et al., 2006 ). In our study, though, the relative predictive power of brain regions changed according to the mode of classification. Depending on the goals of an experiment – potentially, whether to identify features that represent common or idiosyncratic information – different modeling approaches may be more or less effective. Hereafter, we consider the implications of our results in the context of the different patterns observed in each of our key regions of interest. 
+ 
+ Invariant discrimination of reward modalities: fusiform gyrus 
+ Our within-participant classification of reward modality identified a distributed set of brain regions, most of which were contained within the ventral visual processing stream ( Haxby et al., 2004 ). This result is consistent with the literature on face processing ( Haxby et al., 1994 ;  Kanwisher et al., 1997 ;  Puce et al., 1995 ;  Tsao et al., 2006 ), including the observed right-lateralization in FFA ( McCarthy et al., 1997 ). While a within-participant model can state that the general representation of faces in fusiform gyrus was stable within a participant, a cross-participant model can make the additional argument that the representation was stable on a trial-to-trial basis with respect to the participant sample, analogous to the difference between fixed- and mixed-effects analyses ( Friston et al., 2005 ). However, in the case of MVPA, this distinction allows us to identify differences in local computations. Significant prediction in a cross-participant model provides evidence that the stimulus-related information provided by a voxel remains fairly invariant over time and participants ( Kay et al., 2008 ). Given the limited number of cross-participant, trial-to-trial MVPA studies, this result provides an important proof-of-concept for the stability of local functional patterns. 
+ Importantly, we are not arguing that FFA coded information specific to the representation of monetary rewards, given that variability in FFA performance across participants was not correlated with their post-scanner exchanges between the reward types. More plausibly, the monetary rewards and their early, object-based recognition lead to distributed processing throughout the ventral visual cortex ( Haxby et al., 2004 ;  Op de Beeck et al., 2008 ), in contrast to the more focal representation of the social rewards in FFA. One provocative interpretation of our two analyses is that the cross-participant model captures  only  the common representations in FFA, whereas the within-participant models captures  both  the common and idiosyncratic representations of faces ( Hasson et al., 2004 ). We cannot distinguish the two latter components within the current study. Dissociation could be possible, however, through a paradigm that incorporated an additional set of stimuli with well-known neural responses, such as perception of natural scenes ( Epstein and Kanwisher, 1998 ) or reward-related stimuli that motivate learning and updating ( O’Doherty et al., 2003b ). 
+ 
+ 
+ Idiosyncratic discrimination of reward modalities: visual cortex 
+ Our within-participant MVPA models revealed high decoding accuracy in large portions of VC (over 90% for many participants), consistent with numerous prior studies ( Cox and Savoy, 2003 ;  Haynes and Rees, 2005 ;  Kamitani and Tong, 2005 ). Our cross-participant model, in contrast, was not robust to testing sets from new participants; i.e., performance was only slightly above chance. These results are analogous to a previous study that looked at both within-participant and cross-participant results when distinguishing tools versus dwellings ( Shinkareva et al., 2008 ), finding that information contained in within-participant models may be idiosyncratic to individual participants, yet located within similar regions across participants. Cross-participant MVPA classifier models, by their very nature, face additional sources of variability in their features: differences in participant anatomy or functional organization, session-to-session variation in scanner stability, differences in preprocessing success, and state and trait differences among participants. The observation that cross-participant models can provide not only robust predictive power, but also perhaps greater functional specificity, emphasizes the real power of MVPA techniques. 
+ One speculation is that participant-specific information might reflect effects associated with unique stages in processing. Neural activity relating to the representation of faces and objects does not occur within only a single short-latency interval, but is distributed over several distinct time periods with identifiable functional contributions ( Allison et al., 1999 ). Earlier and later processing of facial and monetary stimuli may occur in different regions ( Liu et al., 2002 ;  Thorpe et al., 1996 ) or with different spatial distributions based on the time period of activation ( Haxby et al., 2004 ). Under this conception, the extensive involvement of ventral visual stream in the within-participant models may be a reflection of idiosyncratic interactions between ongoing neural activity and the associated hemodynamic responses. 
+ Our similarity analyses also support the notion that fMRI activation in VC reflects largely idiosyncratic representations ( Figure 4  and  Figure S2, Supplementary Materials ). Some supporting evidence comes from a study of shape representations in lateral occipital cortex (LOC) that employed similarity analyses ( Drucker and Aguirre, 2009 ), which found evidence for sparse spatial coding in lateral LOC and more specific tuning in ventral LOC. Additionally, given the recent finding that reward history can modulate activity in visual cortex ( Serences, 2008 ), individual variability in reward sensitivity could easily contribute to downstream idiosyncratic differences in the within-participant classifiers. 
+ 
+ 
+ Individual reward preferences: ventromedial prefrontal cortex 
+ Although human face stimuli have been a frequent target of MVPA, prior studies have not embedded those stimuli in a reward context. Recent work using standard fMRI analysis techniques (i.e., general linear modeling) has identified neural correlates of social rewards, including faces, both in isolation ( Cloutier et al., 2008 ;  O’Doherty et al., 2003a ), and in comparison to monetary rewards ( Behrens et al., 2008 ;  Izuma et al., 2008 ;  Smith et al., 2010 ). The fact that VMPFC exhibited different patterns for these two types of rewards supports the conception that this region evaluates a range of rewarding stimuli ( Rangel et al., 2008 ). Further corroboration comes from two more specific results: that the relative value between the two modalities was strongly correlated with individual differences in VMPFC predictive power ( Figure 3 ) and that this VMPFC region was not identified by univariate analyses (see  Supplementary Materials ). 
+ The significance of VMPFC for reward-based decision making has been borne out in a growing number of recent studies ( Behrens et al., 2008 ;  Hare et al., 2008 ;  Lebreton et al., 2009 ). Considerable prior neuroimaging and electrophysiological work has implicated VMPFC in the assignment of value to environmental stimuli ( Kringelbach and Rolls, 2004 ;  Rushworth and Behrens, 2008 ). In our paradigm, even though participants were passively receiving the rewards on each trial, it is possible that valuation was occurring ( Lebreton et al., 2009 ). As others have worked to tie predictive fMRI patterns to behavior ( Raizada et al., 2009 ;  Williams et al., 2007 ), we believe it is reasonable to intuit that individual differences in preferences – and hence computations taking place in VMPFC – could subsequently influence a classifier’s ability to decode BOLD signal corresponding to rewards. Our mapping between individual preferences and the statistical discriminability of neural patterns ( Figure 3 ) is a step beyond those previous studies – which were concerned with participant perceptual ability – and demonstrates that fine-grained neural patterns can be informative about complex phenomena such as choice behavior. 
+ 
+ 
+ Alternative explanations and future considerations 
+ Although the patterns of significant classification performance are quite distinct between within- and cross-participant models ( Figure 2  and  Figure 5 ), one might argue that the difference in prediction performance (i.e, cross-validation) reflects a difference in thresholding. Direct comparison of each searchlight’s performance in the two models ( Figure 6 ) eliminates this possibility. Another contributor, at least in principle, could be differential sensitivity to classifier parameters. The training set for the cross-participant model is much larger than that for any single within-participant model, and thus it may be the case that different kernels, or even different classifiers, might be more appropriate in one case. To our knowledge, this question of classification parameters and fMRI data has not been extensively explored. 
+ Another possibility is that our stimuli – and not the sensitivity of MVPA – may have contributed to our results in VMPFC. It is reasonable to suppose that the comparison of faces and monetary amounts could have broad neural effects. Accordingly, if the stimuli had been presented in blocks or mini-blocks, the relative differences between categories might not have been represented in VMPFC ( Padoa-Schioppa and Assad, 2008 ), consistent with other context effects ( Cloutier et al., 2008 ;  Seymour and McClure, 2008 ). Given that our cross-participant model also implicated VMPFC and that other studies tie individual differences to classifier differences ( Raizada et al., 2009 ), we believe this result would be robust to other reward environments. 
+ Feature space is also an important consideration. For example, our choice of searchlight size (a radius of three voxels) may have influenced the within- and cross-participant differences in decoding performance. The searchlight approach serves as a spatial filter, because the classifier’s decoding results are attributed to the center voxel. Thus, a larger radius for cross-participant testing could boost classifier performance by providing a larger number of dimensions to fit the larger system. Such a conclusion would be analogous to the matched filter theorem: the optimal amount of information for cross-participant models is likely at a different resolution (i.e., searchlight size) than for within-participant models ( Rosenfeld and Kak, 1982 ). Increasing searchlight size might also alleviate registration heterogeneities across participants ( Brett et al., 2002 ). Importantly, the size of the searchlight implemented should coincide with the size of the anatomical region(s) of interest ( Kriegeskorte et al., 2006 ), as spatial specificity is clearly sacrificed if a searchlight encompasses voxels from neighboring anatomical regions. Indeed, different information is likely to be uncovered at different spatial scales ( Kamitani and Sawahata, 2010 ;  Swisher et al., 2010 ). 
+ Our results point to several directions for future work. A first extension comes from the use of a searchlight method for feature selection. Although classification performance tends to asymptote as a function of voxel number ( Cox and Savoy, 2003 ;  Haynes and Rees, 2005 ), combining searchlights – or voxels from multiple searchlights – across ROIs ( Clithero et al., 2009 ;  Hampton and O’Doherty, 2007 ) might compensate for reduced performance of cross-participant classification. A related topic – as alluded to in the previous paragraph – would be a full exploration of appropriate searchlight size ( Kriegeskorte et al., 2006 ). Another possible avenue for exploration would be the discrimination of individual reward stimuli. Outside of the reward context, there has already been successful within-category identification of simple man-made objects (teapots and chairs) accomplished using signal from the lateral occipital cortex ( Eger et al., 2008 ), as well as single image identification in early visual cortex ( Kay et al., 2008 ). So, pruning from large reward classes (e.g., money or faces) is a natural progression from the current study. Additionally, cross-participant models make it possible to test group differences (e.g., depressed individuals) in reward representation. Many rewards share similar features (e.g., magnitude, valence), yet the relative sensitivity to those features may differ across participant groups. 
+ 
+ 
+ Conclusion 
+ Using machine-learning techniques and multivariate pattern analysis of fMRI data, we demonstrated that classifier performance differs between within-participant and cross-participant training. We emphasize that we are not concerned with the level changes in classifier performance; there are obvious additional sources of variability for cross-participants classification. Instead, our results indicate that relative classifier sensitivity may reflect the contributions of different brain regions to different computational purposes. As a key example, the statistical discriminability of neural patterns in ventromedial prefrontal cortex for reward modalities was predictive of participants’ willingness to trade one of those reward modalities for the other (i.e., money for social rewards). Given the increasing popularity of both correlational and decoding multivariate analyses in cognitive neuroscience, we believe researchers should explore models aimed at trial-to-trial prediction that use both within-participant and cross-participant neural patterns. 
+ 
+ 
+ 
+ Supplementary Material 
+ 
+ 01 
+ 
+ 
+ 
+ 
+ 
+ Figures and Tables 
+ 
+ Figure 1 
+ 
+ Experimental task 
+ Participants passively viewed a randomized sequence of images of faces and of monetary rewards (2 s event duration; variable fixation interval). The face images varied in valence from very attractive to very unattractive, based on ratings from an independent group of participants. The monetary rewards were drawn from four different values (+$5,+$1,−$1, and −$5) and influenced the participant’s overall payout from the experiment. To ensure task engagement, participants responded to infrequent visual targets that appeared as small yellow borders around the image. Shown is the uncued-trial condition; the cued-trial condition had similar structure, but also included a preceding square cue that indicated whether a face or monetary amount was upcoming. 
+ 
+ 
+ 
+ 
+ Figure 2 
+ 
+ Cross–validation (CV) performance for within-participant models 
+ (A)  Using classifiers that were built on individual participants, we identified four local maxima, in three regions of interest (early visual cortex, VC; the left and right fusiform face area, LFFA and RFFA; and ventromedial prefrontal cortex, VMPFC). The searchlight with the highest average CV, the global maximum, was located in VC.  (B)  The CV percentage for each individual participant is plotted for the three regions of interest (VC, RFFA, and VMPFC), with participants arranged in descending order based on performance in the VC. Average CV percentages across participants are also plotted for reference. 
+ 
+ 
+ 
+ 
+ Figure 3 
+ 
+ Relative valuation coding in VMPFC 
+ The normalized searchlight CV performance in each participant’s VMPFC, defined by subtracting the whole-brain mean performance from the local searchlight performance, was a significant predictor of each participant’s willingness to trade money for social rewards ( r(14)  = 0.59,  p  < 0.02). Each participant’s point’s color indicates the mean CV across the entire brain, which was not itself predictive of exchange proportion. 
+ 
+ 
+ 
+ 
+ Figure 4 
+ 
+ Regions of interest have distinct local patterns of information 
+ At left, histograms indicate the similarity values (across participants) for model weights for each ROI: (visual cortex (VC, blue), right fusiform face area (RFFA, green), and ventromedial prefrontal cortex (VMPFC, red). Mean values of similarity for model weights across ROIs are shown between each pair of compared ROIs: RFFA-VMPFC (cyan), RFFA-VC (magenta), and VMPFC-VC (yellow). At right, histograms show the distribution of cross-ROI similarity comparisons obtained by permutation testing, with mean values indicated using the same color scheme. Each cross-ROI comparison shows significant differences between regions in the pattern of underlying voxel weights across participants. This provides evidence that the high decoding accuracies for different reward modalities reflect different information in the three regions. 
+ 
+ 
+ 
+ 
+ Figure 5 
+ 
+ Cross-validation (CV) performance for cross-participant model 
+ Local maxima in CV performance were found in early visual cortex (VC), right and left fusiform face area (RFFA, LFFA), ventromedial prefrontal cortex (VMPFC), and anterior insular cortex (AINS). In this analysis, the global maximum was located in RFFA. 
+ 
+ 
+ 
+ 
+ Figure 6 
+ 
+ Predictive power differs based on the form of classification 
+ To compare the two sets of results, the within- and cross-participant performance of all 27102 searchlights were plotted, with the searchlights in and adjacent to the three ROIs indicated in color. RFFA and VC searchlights are highlighted based on searchlights constrained to the global maximum. Note that there is complete separation between these ROIs: the searchlights with maximal performance in one model have much reduced relative performance in another model, and no searchlights from other regions had similar performance to the ROI maxima. VMPFC searchlights that were significant are highlighted. Horizontal and vertical dotted lines represent the minimum CV for significant searchlights in each case (53% in cyan for cross-participant model and 61% in magenta for within-participants models, respectively). 
+ 
+ 
+ 
+ 
+ Figure 7 
+ 
+ Regions differ in the relative information carried by within- and cross-participant models 
+ (A)  Shown is the relative decrease in performance when moving from a model based on within-participant information to a model that builds a classifier across the participant set (masked for searchlights that showed a significant effect in the within-participant models). All significant drops in CV were constrained to medial parts of visual cortex, shown in these slices for illustration.  (B)  A histogram of all searchlights with significant within-participant classification power, plotted according to the relative drop when moving to the cross-participant model. The difference values for the peak searchlights in the ROIs from  Figure 2  are shown (VC-blue oval, RFFA-green oval, VMPFC-red oval). Of those three, only VC was more than two standard deviations away from the average drop. The dotted line represents average decrease in CV across all searchlights (−4.0%). 
+ 
+ 
+ 
+ 
+ Table 1 
+ 
+ Local maxima for searchlights from within-participant models 
+ MNI coordinates (mm), CV percentage, and brain region for the best-performing searchlights (see also  Figure 2 ). There were four local maxima after conducting a binomial test for significant performance above chance (50%). The maximum CV for all searchlights (84%) was observed within visual cortex. 
+ 
+ 
+ 
+ 
+ Within - Participant Model 
+ 
+ 
+ Region 
+ MNI 
+ CV 
+ 
+ 
+ 
+ 
+ VC 
+ (2, −86, 0) 
+ 83.6 
+ 
+ 
+ RFFA 
+ (40, −61, −14) 
+ 79.7 
+ 
+ 
+ LFFA 
+ (−38, −67, −11) 
+ 77.6 
+ 
+ 
+ VMPFC 
+ (2, 42, −4) 
+ 61.6 
+ 
+ 
+ 
+ 
+ 
+ Table 2 
+ 
+ Local maxima for searchlights in cross-participant model 
+ MNI coordinates (mm), CV percentage, and brain region for the best-performing searchlights (see also  Figure 5 ). There were ten local maxima after conducting a binomial test for significant performance above chance (50%). The maximum CV for all searchlights (62%) was observed within right fusiform face area (RFFA). 
+ 
+ 
+ 
+ 
+ Cross - Participant Model 
+ 
+ 
+ Region 
+ MNI 
+ CV 
+ 
+ 
+ 
+ 
+ RFFA 
+ (36, −51, −18) 
+ 61.6 
+ 
+ 
+ LFFA 
+ (−30, −61, −15) 
+ 58.7 
+ 
+ 
+ VC 
+ (−8, −98, 2) 
+ 57.6 
+ 
+ 
+ LPPAR 
+ (−26, −73, 40) 
+ 56.9 
+ 
+ 
+ IPL 
+ (40, −42, 39) 
+ 56.5 
+ 
+ 
+ IPL 
+ (54, −40, 52) 
+ 56.2 
+ 
+ 
+ AINS 
+ (38, 21, −7) 
+ 55.8 
+ 
+ 
+ OFC 
+ (−12, 21, −14) 
+ 55.5 
+ 
+ 
+ VSTR 
+ (−9, 10, −12) 
+ 54.7 
+ 
+ 
+ MFG 
+ (36, 40, −18) 
+ 54.5 
+ 
+ 
+ 
+ 
+ 
+ 
+ We thank Justin Meyer for help with data collection and analysis. This research was supported by an Incubator Award from the Duke Institute for Brain Sciences (SAH), by NIMH grant P01-41328 (SAH), by NINDS training grant T32-51156 (RMC), and by NIMH National Research Service Awards F31-086255 (JAC) and F31-086248 (DVS). The authors have no competing financial interests. 
+ 
+ 
+ 
+ 
+ 
+ 
+ Aguirre 
+ GK 
+ 
+ 
+ 2007 
+ Continuous carry-over designs for fMRI 
+ Neuroimage 
+ 35 
+ 1480 
+ 1494 
+ 17376705 
+ 
+ 
+ 
+ 
+ 
+ 
+ Allison 
+ T 
+ 
+ 
+ Puce 
+ A 
+ 
+ 
+ Spencer 
+ DD 
+ 
+ 
+ McCarthy 
+ G 
+ 
+ 
+ 1999 
+ Electrophysiological studies of human face perception. I: Potentials generated in occipitotemporal cortex by face and non-face stimuli 
+ Cereb Cortex 
+ 9 
+ 415 
+ 430 
+ 10450888 
+ 
+ 
+ 
+ 
+ 
+ 
+ Behrens 
+ TEJ 
+ 
+ 
+ Hunt 
+ LT 
+ 
+ 
+ Woolrich 
+ MW 
+ 
+ 
+ Rushworth 
+ MFS 
+ 
+ 
+ 2008 
+ Associative learning of social value 
+ Nature 
+ 456 
+ 245 
+ 250 
+ 19005555 
+ 
+ 
+ 
+ 
+ 
+ 
+ Brainard 
+ DH 
+ 
+ 
+ 1997 
+ The psychophysics toolbox 
+ Spatial Vision 
+ 10 
+ 433 
+ 436 
+ 9176952 
+ 
+ 
+ 
+ 
+ 
+ 
+ Brett 
+ M 
+ 
+ 
+ Johnsrude 
+ IS 
+ 
+ 
+ Owen 
+ AM 
+ 
+ 
+ 2002 
+ The problem of functional localization in the human brain 
+ Nat Rev Neurosci 
+ 3 
+ 243 
+ 249 
+ 11994756 
+ 
+ 
+ 
+ 
+ 
+ 
+ Carlson 
+ TA 
+ 
+ 
+ Schrater 
+ P 
+ 
+ 
+ He 
+ S 
+ 
+ 
+ 2003 
+ Patterns of activity in the categorical representations of objects 
+ J Cogn Neurosci 
+ 15 
+ 704 
+ 717 
+ 12965044 
+ 
+ 
+ 
+ 
+ 
+ 
+ Clithero 
+ JA 
+ 
+ 
+ Carter 
+ RM 
+ 
+ 
+ Huettel 
+ SA 
+ 
+ 
+ 2009 
+ Local pattern classification differentiates processes of economic valuation 
+ Neuroimage 
+ 45 
+ 1329 
+ 1338 
+ 19349244 
+ 
+ 
+ 
+ 
+ 
+ 
+ Cloutier 
+ J 
+ 
+ 
+ Heatherton 
+ TF 
+ 
+ 
+ Whalen 
+ PJ 
+ 
+ 
+ Kelley 
+ WM 
+ 
+ 
+ 2008 
+ Are attractive people rewarding? Sex differences in the neural substrates of facial attractiveness 
+ Journal of Cognitive Neuroscience 
+ 20 
+ 941 
+ 951 
+ 18211242 
+ 
+ 
+ 
+ 
+ 
+ 
+ Cox 
+ DD 
+ 
+ 
+ Savoy 
+ RL 
+ 
+ 
+ 2003 
+ Functional magnetic resonance imaging (fMRI) “brain reading”: detecting and classifying distributed patterns of fMRI activity in human visual cortex 
+ Neuroimage 
+ 19 
+ 261 
+ 270 
+ 12814577 
+ 
+ 
+ 
+ 
+ 
+ 
+ Davatzikos 
+ C 
+ 
+ 
+ Ruparel 
+ K 
+ 
+ 
+ Fan 
+ Y 
+ 
+ 
+ Shen 
+ DG 
+ 
+ 
+ Acharyya 
+ M 
+ 
+ 
+ Loughead 
+ JW 
+ 
+ 
+ Gur 
+ RC 
+ 
+ 
+ Langleben 
+ DD 
+ 
+ 
+ 2005 
+ Classifying spatial patterns of brain activity with machine learning methods: Application to lie detection 
+ Neuroimage 
+ 28 
+ 663 
+ 668 
+ 16169252 
+ 
+ 
+ 
+ 
+ 
+ 
+ deCharms 
+ RC 
+ 
+ 
+ 2007 
+ Reading and controlling human brain activation using real-time functional magnetic resonance imaging 
+ Trends Cogn Sci 
+ 11 
+ 473 
+ 481 
+ 17988931 
+ 
+ 
+ 
+ 
+ 
+ 
+ Drucker 
+ DM 
+ 
+ 
+ Aguirre 
+ GK 
+ 
+ 
+ 2009 
+ Different spatial scales of shape similarity representation in lateral and ventral LOC 
+ Cereb Cortex 
+ 19 
+ 2269 
+ 2280 
+ 19176637 
+ 
+ 
+ 
+ 
+ 
+ 
+ Eger 
+ E 
+ 
+ 
+ Ashburner 
+ J 
+ 
+ 
+ Haynes 
+ JD 
+ 
+ 
+ Dolan 
+ RJ 
+ 
+ 
+ Rees 
+ G 
+ 
+ 
+ 2008 
+ fMRI activity patterns in human LOC carry information about object exemplars within category 
+ J Cogn Neurosci 
+ 20 
+ 356 
+ 370 
+ 18275340 
+ 
+ 
+ 
+ 
+ 
+ 
+ Epstein 
+ R 
+ 
+ 
+ Kanwisher 
+ N 
+ 
+ 
+ 1998 
+ A cortical representation of the local visual environment 
+ Nature 
+ 392 
+ 598 
+ 601 
+ 9560155 
+ 
+ 
+ 
+ 
+ 
+ 
+ Etzel 
+ JA 
+ 
+ 
+ Gazzola 
+ V 
+ 
+ 
+ Keysers 
+ C 
+ 
+ 
+ 2009 
+ An introduction to anatomical ROI-based fMRI classification analysis 
+ Brain Res 
+ 1282 
+ 114 
+ 125 
+ 19505449 
+ 
+ 
+ 
+ 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ 2009 
+ Modalities, modes, and models in functional neuroimaging 
+ Science 
+ 326 
+ 399 
+ 403 
+ 19833961 
+ 
+ 
+ 
+ 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ Stephan 
+ KE 
+ 
+ 
+ Lund 
+ TE 
+ 
+ 
+ Morcom 
+ A 
+ 
+ 
+ Kiebel 
+ S 
+ 
+ 
+ 2005 
+ Mixed-effects and fMRI studies 
+ Neuroimage 
+ 24 
+ 244 
+ 252 
+ 15588616 
+ 
+ 
+ 
+ 
+ 
+ 
+ Genovese 
+ CR 
+ 
+ 
+ Lazar 
+ NA 
+ 
+ 
+ Nichols 
+ T 
+ 
+ 
+ 2002 
+ Thresholding of statistical maps in functional neuroimaging using the false discovery rate 
+ Neuroimage 
+ 15 
+ 870 
+ 878 
+ 11906227 
+ 
+ 
+ 
+ 
+ 
+ 
+ Grill-Spector 
+ K 
+ 
+ 
+ Malach 
+ R 
+ 
+ 
+ 2004 
+ The human visual cortex 
+ Annu Rev Neurosci 
+ 27 
+ 649 
+ 677 
+ 15217346 
+ 
+ 
+ 
+ 
+ 
+ 
+ Grosenick 
+ L 
+ 
+ 
+ Greer 
+ S 
+ 
+ 
+ Knutson 
+ B 
+ 
+ 
+ 2008 
+ Interpretable Classifiers for fMRI Improve Prediction of Purchases 
+ IEEE Transactions on Neural Systems and Rehabilitation Engineering 
+ 16 
+ 539 
+ 548 
+ 19144586 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hampton 
+ AN 
+ 
+ 
+ O’Doherty 
+ JP 
+ 
+ 
+ 2007 
+ Decoding the neural substrates of reward-related decision making with functional MRI 
+ Proceedings of the National Academy of Sciences of the United States of America 
+ 104 
+ 1377 
+ 1382 
+ 17227855 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hanke 
+ M 
+ 
+ 
+ Halchenko 
+ YO 
+ 
+ 
+ Sederberg 
+ PB 
+ 
+ 
+ Hanson 
+ SJ 
+ 
+ 
+ Haxby 
+ JV 
+ 
+ 
+ Pollmann 
+ S 
+ 
+ 
+ 2009a 
+ PyMVPA: A python toolbox for multivariate pattern analysis of fMRI data 
+ Neuroinformatics 
+ 7 
+ 37 
+ 53 
+ 19184561 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hanke 
+ M 
+ 
+ 
+ Halchenko 
+ YO 
+ 
+ 
+ Sederberg 
+ PB 
+ 
+ 
+ Olivetti 
+ E 
+ 
+ 
+ Frund 
+ I 
+ 
+ 
+ Rieger 
+ JW 
+ 
+ 
+ Herrmann 
+ CS 
+ 
+ 
+ Haxby 
+ JV 
+ 
+ 
+ Hanson 
+ SJ 
+ 
+ 
+ Pollmann 
+ S 
+ 
+ 
+ 2009b 
+ PyMVPA: A Unifying Approach to the Analysis of Neuroscientific Data 
+ Front Neuroinformatics 
+ 3 
+ 3 
+ 19212459 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hare 
+ TA 
+ 
+ 
+ O’Doherty 
+ J 
+ 
+ 
+ Camerer 
+ CF 
+ 
+ 
+ Schultz 
+ W 
+ 
+ 
+ Rangel 
+ A 
+ 
+ 
+ 2008 
+ Dissociating the role of the orbitofrontal cortex and the striatum in the computation of goal values and prediction errors 
+ Journal of Neuroscience 
+ 28 
+ 5623 
+ 5630 
+ 18509023 
+ 
+ 
+ 
+ 
+ 
+ 
+ Harrison 
+ SA 
+ 
+ 
+ Tong 
+ F 
+ 
+ 
+ 2009 
+ Decoding reveals the contents of visual working memory in early visual areas 
+ Nature 
+ 458 
+ 632 
+ 635 
+ 19225460 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hasson 
+ U 
+ 
+ 
+ Nir 
+ Y 
+ 
+ 
+ Levy 
+ I 
+ 
+ 
+ Fuhrmann 
+ G 
+ 
+ 
+ Malach 
+ R 
+ 
+ 
+ 2004 
+ Intersubject synchronization of cortical activity during natural vision 
+ Science 
+ 303 
+ 1634 
+ 1640 
+ 15016991 
+ 
+ 
+ 
+ 
+ 
+ 
+ Haxby 
+ JV 
+ 
+ 
+ Gobbini 
+ MI 
+ 
+ 
+ Montgomery 
+ K 
+ 
+ 
+ 
+ 
+ Gazziniga 
+ M 
+ 
+ 
+ 2004 
+ Spatial and temporal distribution of face and object representations in the human brain 
+ The Cognitive Neurosciences III 
+ MIT Press 
+ Cambridge, MA 
+ 889 
+ 904 
+ 
+ 
+ 
+ 
+ 
+ 
+ Haxby 
+ JV 
+ 
+ 
+ Horwitz 
+ B 
+ 
+ 
+ Ungerleider 
+ LG 
+ 
+ 
+ Maisog 
+ JM 
+ 
+ 
+ Pietrini 
+ P 
+ 
+ 
+ Grady 
+ CL 
+ 
+ 
+ 1994 
+ The functional organization of human extrastriate cortex: a PET-rCBF study of selective attention to faces and locations 
+ J Neurosci 
+ 14 
+ 6336 
+ 6353 
+ 7965040 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hayden 
+ BY 
+ 
+ 
+ Parikh 
+ PC 
+ 
+ 
+ Deaner 
+ RO 
+ 
+ 
+ Platt 
+ ML 
+ 
+ 
+ 2007 
+ Economic principles motivating social attention in humans 
+ Proceedings of the Royal Society B-Biological Sciences 
+ 274 
+ 1751 
+ 1756 
+ 
+ 
+ 
+ 
+ 
+ 
+ Haynes 
+ JD 
+ 
+ 
+ 2009 
+ Decoding visual consciousness from human brain signals 
+ Trends Cogn Sci 
+ 13 
+ 194 
+ 202 
+ 19375378 
+ 
+ 
+ 
+ 
+ 
+ 
+ Haynes 
+ JD 
+ 
+ 
+ Rees 
+ G 
+ 
+ 
+ 2005 
+ Predicting the orientation of invisible stimuli from activity in human primary visual cortex 
+ Nature Neuroscience 
+ 8 
+ 686 
+ 691 
+ 
+ 
+ 
+ 
+ 
+ 
+ Haynes 
+ JD 
+ 
+ 
+ Rees 
+ G 
+ 
+ 
+ 2006 
+ Decoding mental states from brain activity in humans 
+ Nature Reviews Neuroscience 
+ 7 
+ 523 
+ 534 
+ 
+ 
+ 
+ 
+ 
+ 
+ Haynes 
+ JD 
+ 
+ 
+ Sakai 
+ K 
+ 
+ 
+ Rees 
+ G 
+ 
+ 
+ Gilbert 
+ S 
+ 
+ 
+ Frith 
+ C 
+ 
+ 
+ Passingham 
+ RE 
+ 
+ 
+ 2007 
+ Reading hidden intentions in the human brain 
+ Current Biology 
+ 17 
+ 323 
+ 328 
+ 17291759 
+ 
+ 
+ 
+ 
+ 
+ 
+ Howard 
+ JD 
+ 
+ 
+ Plailly 
+ J 
+ 
+ 
+ Grueschow 
+ M 
+ 
+ 
+ Haynes 
+ JD 
+ 
+ 
+ Gottfried 
+ JA 
+ 
+ 
+ 2009 
+ Odor quality coding and categorization in human posterior piriform cortex 
+ Nat Neurosci 
+ 12 
+ 932 
+ 938 
+ 19483688 
+ 
+ 
+ 
+ 
+ 
+ 
+ Izuma 
+ K 
+ 
+ 
+ Saito 
+ DN 
+ 
+ 
+ Sadato 
+ N 
+ 
+ 
+ 2008 
+ Processing of social and monetary rewards in the human striatum 
+ Neuron 
+ 85 
+ 284 
+ 294 
+ 18439412 
+ 
+ 
+ 
+ 
+ 
+ 
+ Jenkinson 
+ M 
+ 
+ 
+ Bannister 
+ P 
+ 
+ 
+ Brady 
+ M 
+ 
+ 
+ Smith 
+ S 
+ 
+ 
+ 2002 
+ Improved optimization for the robust and accurate linear registration and motion correction of brain images 
+ Neuroimage 
+ 17 
+ 825 
+ 841 
+ 12377157 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kamitani 
+ Y 
+ 
+ 
+ Sawahata 
+ Y 
+ 
+ 
+ 2010 
+ Spatial smoothing hurts localization but not information: Pitfalls for brain mappers 
+ Neuroimage 
+ 49 
+ 1949 
+ 1952 
+ 19559797 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kamitani 
+ Y 
+ 
+ 
+ Tong 
+ F 
+ 
+ 
+ 2005 
+ Decoding the visual and subjective contents of the human brain 
+ Nature Neuroscience 
+ 8 
+ 679 
+ 685 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kanwisher 
+ N 
+ 
+ 
+ McDermott 
+ J 
+ 
+ 
+ Chun 
+ MM 
+ 
+ 
+ 1997 
+ The fusiform face area: a module in human extrastriate cortex specialized for face perception 
+ J Neurosci 
+ 17 
+ 4302 
+ 4311 
+ 9151747 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kay 
+ KN 
+ 
+ 
+ Naselaris 
+ T 
+ 
+ 
+ Prenger 
+ RJ 
+ 
+ 
+ Gallant 
+ JL 
+ 
+ 
+ 2008 
+ Identifying natural images from human brain activity 
+ Nature 
+ 452 
+ 352 
+ 356 
+ 18322462 
+ 
+ 
+ 
+ 
+ 
+ 
+ Krajbich 
+ I 
+ 
+ 
+ Camerer 
+ C 
+ 
+ 
+ Ledyard 
+ J 
+ 
+ 
+ Rangel 
+ A 
+ 
+ 
+ 2009 
+ Using Neural Measures of Economic Value to Solve the Public Goods Free-Rider Problem 
+ Science 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kriegeskorte 
+ N 
+ 
+ 
+ Bandettini 
+ P 
+ 
+ 
+ 2007 
+ Analyzing for information, not activation, to exploit high-resolution fMRI 
+ Neuroimage 
+ 38 
+ 649 
+ 662 
+ 17804260 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kriegeskorte 
+ N 
+ 
+ 
+ Goebel 
+ R 
+ 
+ 
+ Bandettini 
+ P 
+ 
+ 
+ 2006 
+ Information-based functional brain mapping 
+ Proceedings of the National Academy of Sciences of the United States of America 
+ 103 
+ 3863 
+ 3868 
+ 16537458 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kriegeskorte 
+ N 
+ 
+ 
+ Mur 
+ M 
+ 
+ 
+ Bandettini 
+ P 
+ 
+ 
+ 2008 
+ Representational similarity analysis - connecting the branches of systems neuroscience 
+ Front Syst Neurosci 
+ 2 
+ 4 
+ 19104670 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kringelbach 
+ ML 
+ 
+ 
+ Rolls 
+ ET 
+ 
+ 
+ 2004 
+ The functional neuroanatomy of the human orbitofrontal cortex: evidence from neuroimaging and neuropsychology 
+ Prog Neurobiol 
+ 72 
+ 341 
+ 372 
+ 15157726 
+ 
+ 
+ 
+ 
+ 
+ 
+ LaConte 
+ S 
+ 
+ 
+ Strother 
+ S 
+ 
+ 
+ Cherkassky 
+ V 
+ 
+ 
+ Anderson 
+ J 
+ 
+ 
+ Hu 
+ X 
+ 
+ 
+ 2005 
+ Support vector machines for temporal classification of block design fMRI data 
+ Neuroimage 
+ 26 
+ 317 
+ 329 
+ 15907293 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lebreton 
+ M 
+ 
+ 
+ Jorge 
+ S 
+ 
+ 
+ Michel 
+ V 
+ 
+ 
+ Thirion 
+ B 
+ 
+ 
+ Pessiglione 
+ M 
+ 
+ 
+ 2009 
+ An automatic valuation system in the human brain: evidence from functional neuroimaging 
+ Neuron 
+ 64 
+ 431 
+ 439 
+ 19914190 
+ 
+ 
+ 
+ 
+ 
+ 
+ Liu 
+ J 
+ 
+ 
+ Harris 
+ A 
+ 
+ 
+ Kanwisher 
+ N 
+ 
+ 
+ 2002 
+ Stages of processing in face perception: an MEG study 
+ Nat Neurosci 
+ 5 
+ 910 
+ 916 
+ 12195430 
+ 
+ 
+ 
+ 
+ 
+ 
+ McCarthy 
+ G 
+ 
+ 
+ Puce 
+ A 
+ 
+ 
+ Gore 
+ JC 
+ 
+ 
+ Allison 
+ T 
+ 
+ 
+ 1997 
+ Face-specific processing in the human fusiform gyrus 
+ Journal of Cognitive Neuroscience 
+ 9 
+ 605 
+ 610 
+ 
+ 
+ 
+ 
+ 
+ 
+ Mitchell 
+ TM 
+ 
+ 
+ Hutchinson 
+ R 
+ 
+ 
+ Niculescu 
+ RS 
+ 
+ 
+ Pereira 
+ F 
+ 
+ 
+ Wang 
+ XR 
+ 
+ 
+ Just 
+ M 
+ 
+ 
+ Newman 
+ S 
+ 
+ 
+ 2004 
+ Learning to decode cognitive states from brain images 
+ Machine Learning 
+ 57 
+ 145 
+ 175 
+ 
+ 
+ 
+ 
+ 
+ 
+ Miyawaki 
+ Y 
+ 
+ 
+ Uchida 
+ H 
+ 
+ 
+ Yamashita 
+ O 
+ 
+ 
+ Sato 
+ MA 
+ 
+ 
+ Morito 
+ Y 
+ 
+ 
+ Tanabe 
+ HC 
+ 
+ 
+ Sadato 
+ N 
+ 
+ 
+ Kamitani 
+ Y 
+ 
+ 
+ 2008 
+ Visual Image Reconstruction from Human Brain Activity using a Combination of Multiscale Local Image Decoders 
+ Neuron 
+ 60 
+ 915 
+ 929 
+ 19081384 
+ 
+ 
+ 
+ 
+ 
+ 
+ Montague 
+ PR 
+ 
+ 
+ King-Casas 
+ B 
+ 
+ 
+ Cohen 
+ JD 
+ 
+ 
+ 2006 
+ Imaging valuation models in human choice 
+ Annual Review of Neuroscience 
+ 29 
+ 417 
+ 448 
+ 
+ 
+ 
+ 
+ 
+ 
+ Mourao-Miranda 
+ J 
+ 
+ 
+ Bokde 
+ AL 
+ 
+ 
+ Born 
+ C 
+ 
+ 
+ Hampel 
+ H 
+ 
+ 
+ Stetter 
+ M 
+ 
+ 
+ 2005 
+ Classifying brain states and determining the discriminating activation patterns: Support Vector Machine on functional MRI data 
+ Neuroimage 
+ 28 
+ 980 
+ 995 
+ 16275139 
+ 
+ 
+ 
+ 
+ 
+ 
+ Mur 
+ M 
+ 
+ 
+ Bandettini 
+ PA 
+ 
+ 
+ Kriegeskorte 
+ N 
+ 
+ 
+ 2009 
+ Revealing representational content with pattern-information fMRI--an introductory guide 
+ Soc Cogn Affect Neurosci 
+ 4 
+ 101 
+ 109 
+ 19151374 
+ 
+ 
+ 
+ 
+ 
+ 
+ Naselaris 
+ T 
+ 
+ 
+ Prenger 
+ RJ 
+ 
+ 
+ Kay 
+ KN 
+ 
+ 
+ Oliver 
+ M 
+ 
+ 
+ Gallant 
+ JL 
+ 
+ 
+ 2009 
+ Bayesian reconstruction of natural images from human brain activity 
+ Neuron 
+ 63 
+ 902 
+ 915 
+ 19778517 
+ 
+ 
+ 
+ 
+ 
+ 
+ Norman 
+ KA 
+ 
+ 
+ Polyn 
+ SM 
+ 
+ 
+ Detre 
+ GJ 
+ 
+ 
+ Haxby 
+ JV 
+ 
+ 
+ 2006 
+ Beyond mind-reading: multi-voxel pattern analysis of fMRI data 
+ Trends in Cognitive Sciences 
+ 10 
+ 424 
+ 430 
+ 16899397 
+ 
+ 
+ 
+ 
+ 
+ 
+ O’Doherty 
+ J 
+ 
+ 
+ Winston 
+ J 
+ 
+ 
+ Critchley 
+ H 
+ 
+ 
+ Perrett 
+ D 
+ 
+ 
+ Burt 
+ DM 
+ 
+ 
+ Dolan 
+ RJ 
+ 
+ 
+ 2003a 
+ Beauty in a smile: the role of medial orbitofrontal cortex in facial attractiveness 
+ Neuropsychologia 
+ 41 
+ 147 
+ 155 
+ 
+ 
+ 
+ 
+ 
+ 
+ O’Doherty 
+ JP 
+ 
+ 
+ Dayan 
+ P 
+ 
+ 
+ Friston 
+ K 
+ 
+ 
+ Critchley 
+ H 
+ 
+ 
+ Dolan 
+ RJ 
+ 
+ 
+ 2003b 
+ Temporal difference models and reward-related learning in the human brain 
+ Neuron 
+ 38 
+ 329 
+ 337 
+ 
+ 
+ 
+ 
+ 
+ 
+ O’Toole 
+ AJ 
+ 
+ 
+ Jiang 
+ F 
+ 
+ 
+ Abdi 
+ H 
+ 
+ 
+ Penard 
+ N 
+ 
+ 
+ Dunlop 
+ JP 
+ 
+ 
+ Parent 
+ MA 
+ 
+ 
+ 2007 
+ Theoretical, statistical, and practical perspectives on pattern-based classification amoroaches to the analysis of functional neuroimaging data 
+ Journal of Cognitive Neuroscience 
+ 19 
+ 1735 
+ 1752 
+ 17958478 
+ 
+ 
+ 
+ 
+ 
+ 
+ Op de Beeck 
+ HP 
+ 
+ 
+ Haushofer 
+ J 
+ 
+ 
+ Kanwisher 
+ NG 
+ 
+ 
+ 2008 
+ Interpreting fMRI data: maps, modules and dimensions 
+ Nat Rev Neurosci 
+ 9 
+ 123 
+ 135 
+ 18200027 
+ 
+ 
+ 
+ 
+ 
+ 
+ Padoa-Schioppa 
+ C 
+ 
+ 
+ Assad 
+ JA 
+ 
+ 
+ 2008 
+ The representation of economic value in the orbitofrontal cortex is invariant for changes of menu 
+ Nature Neuroscience 
+ 11 
+ 95 
+ 102 
+ 
+ 
+ 
+ 
+ 
+ 
+ Peelen 
+ MV 
+ 
+ 
+ Fei-Fei 
+ L 
+ 
+ 
+ Kastner 
+ S 
+ 
+ 
+ 2009 
+ Neural mechanisms of rapid natural scene categorization in human visual cortex 
+ Nature 
+ 460 
+ 94 
+ 97 
+ 19506558 
+ 
+ 
+ 
+ 
+ 
+ 
+ Pereira 
+ F 
+ 
+ 
+ Mitchell 
+ T 
+ 
+ 
+ Botvinick 
+ M 
+ 
+ 
+ 2009 
+ Machine learning classifiers and fMRI: a tutorial overview 
+ Neuroimage 
+ 45 
+ S199 
+ 209 
+ 19070668 
+ 
+ 
+ 
+ 
+ 
+ 
+ Poldrack 
+ RA 
+ 
+ 
+ Halchenko 
+ YO 
+ 
+ 
+ Hanson 
+ SJ 
+ 
+ 
+ 2009 
+ Decoding the Large-Scale Structure of Brain Function by Classifying Mental States Across Individuals 
+ Psychol Sci 
+ 
+ 
+ 
+ 
+ 
+ 
+ Puce 
+ A 
+ 
+ 
+ Allison 
+ T 
+ 
+ 
+ Gore 
+ JC 
+ 
+ 
+ McCarthy 
+ G 
+ 
+ 
+ 1995 
+ Face-sensitive regions in human extrastriate cortex studied by functional MRI 
+ J Neurophysiol 
+ 74 
+ 1192 
+ 1199 
+ 7500143 
+ 
+ 
+ 
+ 
+ 
+ 
+ Raizada 
+ RD 
+ 
+ 
+ Tsao 
+ FM 
+ 
+ 
+ Liu 
+ HM 
+ 
+ 
+ Kuhl 
+ PK 
+ 
+ 
+ 2009 
+ Quantifying the Adequacy of Neural Representations for a Cross-Language Phonetic Discrimination Task: Prediction of Individual Differences 
+ Cereb Cortex 
+ 
+ 
+ 
+ 
+ 
+ 
+ Rangel 
+ A 
+ 
+ 
+ Camerer 
+ C 
+ 
+ 
+ Montague 
+ PR 
+ 
+ 
+ 2008 
+ A framework for studying the neurobiology of value-based decision making 
+ Nature Reviews Neuroscience 
+ 9 
+ 545 
+ 556 
+ 
+ 
+ 
+ 
+ 
+ 
+ Rorden 
+ C 
+ 
+ 
+ Karnath 
+ HO 
+ 
+ 
+ Bonilha 
+ L 
+ 
+ 
+ 2007 
+ Improving lesion-symptom mapping 
+ Journal of Cognitive Neuroscience 
+ 19 
+ 1081 
+ 1088 
+ 17583985 
+ 
+ 
+ 
+ 
+ 
+ 
+ Rosenfeld 
+ A 
+ 
+ 
+ Kak 
+ AC 
+ 
+ 
+ 1982 
+ Digital picture processing 
+ 2 
+ Academic Press 
+ New York 
+ 
+ 
+ 
+ 
+ 
+ 
+ Rushworth 
+ MF 
+ 
+ 
+ Behrens 
+ TE 
+ 
+ 
+ 2008 
+ Choice, uncertainty and value in prefrontal and cingulate cortex 
+ Nat Neurosci 
+ 11 
+ 389 
+ 397 
+ 18368045 
+ 
+ 
+ 
+ 
+ 
+ 
+ Serences 
+ JT 
+ 
+ 
+ 2008 
+ Value-based modulations in human visual cortex 
+ Neuron 
+ 60 
+ 1169 
+ 1181 
+ 19109919 
+ 
+ 
+ 
+ 
+ 
+ 
+ Seymour 
+ B 
+ 
+ 
+ McClure 
+ SM 
+ 
+ 
+ 2008 
+ Anchors, scales and the relative coding of value in the brain 
+ Curr Opin Neurobiol 
+ 18 
+ 173 
+ 178 
+ 18692572 
+ 
+ 
+ 
+ 
+ 
+ 
+ Shinkareva 
+ SV 
+ 
+ 
+ Mason 
+ RA 
+ 
+ 
+ Malave 
+ VL 
+ 
+ 
+ Wang 
+ W 
+ 
+ 
+ Mitchell 
+ TM 
+ 
+ 
+ Just 
+ MA 
+ 
+ 
+ 2008 
+ Using FMRI brain activation to identify cognitive states associated with perception of tools and dwellings 
+ PLoS One 
+ 3 
+ e1394 
+ 18167553 
+ 
+ 
+ 
+ 
+ 
+ 
+ Smith 
+ DV 
+ 
+ 
+ Hayden 
+ BY 
+ 
+ 
+ Truong 
+ T-K 
+ 
+ 
+ Song 
+ AW 
+ 
+ 
+ Platt 
+ ML 
+ 
+ 
+ Huettel 
+ SA 
+ 
+ 
+ 2010 
+ Distinct value signals in anterior and posterior ventromedial prefrontal cortex 
+ Journal of Neuroscience 
+ In Press 
+ 
+ 
+ 
+ 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ 2002 
+ Fast robust automated brain extraction 
+ Hum Brain Mapp 
+ 17 
+ 143 
+ 155 
+ 12391568 
+ 
+ 
+ 
+ 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Jenkinson 
+ M 
+ 
+ 
+ Woolrich 
+ MW 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ Behrens 
+ TEJ 
+ 
+ 
+ Johansen-Berg 
+ H 
+ 
+ 
+ Bannister 
+ PR 
+ 
+ 
+ De Luca 
+ M 
+ 
+ 
+ Drobnjak 
+ I 
+ 
+ 
+ Flitney 
+ DE 
+ 
+ 
+ Niazy 
+ RK 
+ 
+ 
+ Saunders 
+ J 
+ 
+ 
+ Vickers 
+ J 
+ 
+ 
+ Zhang 
+ YY 
+ 
+ 
+ De Stefano 
+ N 
+ 
+ 
+ Brady 
+ JM 
+ 
+ 
+ Matthews 
+ PM 
+ 
+ 
+ 2004 
+ Advances in functional and structural MR image analysis and implementation as FSL 
+ Neuroimage 
+ 23 
+ S208 
+ S219 
+ 15501092 
+ 
+ 
+ 
+ 
+ 
+ 
+ Soon 
+ CS 
+ 
+ 
+ Brass 
+ M 
+ 
+ 
+ Heinze 
+ HJ 
+ 
+ 
+ Haynes 
+ JD 
+ 
+ 
+ 2008 
+ Unconscious determinants of free decisions in the human brain 
+ Nature Neuroscience 
+ 11 
+ 543 
+ 545 
+ 
+ 
+ 
+ 
+ 
+ 
+ Spiers 
+ HJ 
+ 
+ 
+ Maguire 
+ EA 
+ 
+ 
+ 2007 
+ Decoding human brain activity during real-world experiences 
+ Trends Cogn Sci 
+ 11 
+ 356 
+ 365 
+ 17618161 
+ 
+ 
+ 
+ 
+ 
+ 
+ Sun 
+ D 
+ 
+ 
+ van Erp 
+ TG 
+ 
+ 
+ Thompson 
+ PM 
+ 
+ 
+ Bearden 
+ CE 
+ 
+ 
+ Daley 
+ M 
+ 
+ 
+ Kushan 
+ L 
+ 
+ 
+ Hardt 
+ ME 
+ 
+ 
+ Nuechterlein 
+ KH 
+ 
+ 
+ Toga 
+ AW 
+ 
+ 
+ Cannon 
+ TD 
+ 
+ 
+ 2009 
+ Elucidating a Magnetic Resonance Imaging-Based Neuroanatomic Biomarker for Psychosis: Classification Analysis Using Probabilistic Brain Atlas and Machine Learning Algorithms 
+ Biol Psychiatry 
+ 
+ 
+ 
+ 
+ 
+ 
+ Swisher 
+ JD 
+ 
+ 
+ Gatenby 
+ JC 
+ 
+ 
+ Gore 
+ JC 
+ 
+ 
+ Wolfe 
+ BA 
+ 
+ 
+ Moon 
+ CH 
+ 
+ 
+ Kim 
+ SG 
+ 
+ 
+ Tong 
+ F 
+ 
+ 
+ 2010 
+ Multiscale pattern analysis of orientation-selective activity in the primary visual cortex 
+ J Neurosci 
+ 30 
+ 325 
+ 330 
+ 20053913 
+ 
+ 
+ 
+ 
+ 
+ 
+ Thorpe 
+ S 
+ 
+ 
+ Fize 
+ D 
+ 
+ 
+ Marlot 
+ C 
+ 
+ 
+ 1996 
+ Speed of processing in the human visual system 
+ Nature 
+ 381 
+ 520 
+ 522 
+ 8632824 
+ 
+ 
+ 
+ 
+ 
+ 
+ Tsao 
+ DY 
+ 
+ 
+ Freiwald 
+ WA 
+ 
+ 
+ Tootell 
+ RB 
+ 
+ 
+ Livingstone 
+ MS 
+ 
+ 
+ 2006 
+ A cortical region consisting entirely of face-selective cells 
+ Science 
+ 311 
+ 670 
+ 674 
+ 16456083 
+ 
+ 
+ 
+ 
+ 
+ 
+ Tsao 
+ DY 
+ 
+ 
+ Livingstone 
+ MS 
+ 
+ 
+ 2008 
+ Mechanisms of face perception 
+ Annu Rev Neurosci 
+ 31 
+ 411 
+ 437 
+ 18558862 
+ 
+ 
+ 
+ 
+ 
+ 
+ Vemuri 
+ P 
+ 
+ 
+ Gunter 
+ JL 
+ 
+ 
+ Senjem 
+ ML 
+ 
+ 
+ Whitwell 
+ JL 
+ 
+ 
+ Kantarci 
+ K 
+ 
+ 
+ Knopman 
+ DS 
+ 
+ 
+ Boeve 
+ BF 
+ 
+ 
+ Petersen 
+ RC 
+ 
+ 
+ Jack 
+ CR 
+ Jr 
+ 
+ 
+ 2008 
+ Alzheimer’s disease diagnosis in individual subjects using structural MR images: validation studies 
+ Neuroimage 
+ 39 
+ 1186 
+ 1197 
+ 18054253 
+ 
+ 
+ 
+ 
+ 
+ 
+ Williams 
+ MA 
+ 
+ 
+ Dang 
+ S 
+ 
+ 
+ Kanwisher 
+ NG 
+ 
+ 
+ 2007 
+ Only some spatial patterns of fMRI response are read out in task performance 
+ Nat Neurosci 
+ 10 
+ 685 
+ 686 
+ 17486103 
+ 
+ 
+ 
+ 
+ 
+ This is a PDF file of an unedited manuscript that has been accepted for publication. As a service to our customers we are providing this early version of the manuscript. The manuscript will undergo copyediting, typesetting, and review of the resulting proof before it is published in its final citable form. Please note that during the production process errors may be discovered which could affect the content, and all legal disclaimers that apply to the journal pertain. 
+ 
+ 
+ 

@@ -1,0 +1,3116 @@
+
+ properties manuscript? 
+ 
+ 
+ 9215515 
+ 20498 
+ Neuroimage 
+ NeuroImage 
+ 1053-8119 
+ 1095-9572 
+ 
+ 
+ 20510374 
+ 3059127 
+ 10.1016/j.neuroimage.2010.05.053 
+ NIHMS248905 
+ 
+ 
+ Article 
+ 
+ 
+ 
+ Reactivity of hemodynamic responses and functional connectivity to different states of alpha synchrony: a concurrent EEG-fMRI study 
+ 
+ 
+ 
+ 
+ Wu 
+ Lei 
+ 
+ 1 
+ 2 
+ 
+ 
+ 
+ Eichele 
+ Tom 
+ 
+ 1 
+ 3 
+ 
+ 
+ 
+ Calhoun 
+ Vince D. 
+ 
+ 1 
+ 2 
+ 
+ 
+ 1 The Mind Research Network, Albuquerque, New Mexico 87131 
+ 2 Dept. of ECE, University of New Mexico, Albuquerque, New Mexico 87131 
+ 3 Dept. of Biological and Medical Psychology, University of Bergen, 5009 Bergen, Norway 
+ 
+ Correspondence: Lei Wu, Image Analysis and MR Research Core, The Mind Research Network, 1101 Yale Blvd NE, Albuquerque, NM 87106, Tel: 505-272-5165,  lwu@mrn.org 
+ 
+ 
+ 11 
+ 2 
+ 2011 
+ 
+ 
+ 25 
+ 5 
+ 2010 
+ 
+ 
+ 1 
+ 10 
+ 2010 
+ 
+ 
+ 16 
+ 3 
+ 2011 
+ 
+ 52 
+ 4 
+ 1252 
+ 1260 
+ 
+ 
+ This file is available for text mining. It may also be used consistent with the principles of fair use under the copyright law. 
+ 
+ 
+ 
+ Concurrent EEG-fMRI studies have provided increasing details of the dynamics of intrinsic brain activity during the resting state. Here, we investigate a prominent effect in EEG during relaxed resting, i.e. the increase of the alpha power when the eyes are closed compared to when the eyes are open. This phenomenon is related to changes in thalamo-cortical and cortico-cortical synchronization. In order to investigate possible changes to EEG-fMRI coupling and fMRI functional connectivity during the two states we adopted a data-driven approach that fuses the multimodal data on the basis of parallel ICA decompositions of the fMRI data in the spatial domain and of the EEG data in the spectral domain. The power variation of a posterior alpha component was used as a reference function to deconvolve the hemodynamic responses from occipital, frontal, temporal, and subcortical fMRI components. Additionally, we computed the functional connectivity between these components. The results showed widespread alpha hemodynamic responses and high functional connectivity during eyes-closed (EC) rest, while eyes open (EO) resting abolished many of the hemodynamic responses and markedly decreased functional connectivity. These data suggest that generation of local hemodynamic responses is highly sensitive to state changes that do not involve changes of mental effort or awareness. They also indicate the localized power differences in posterior alpha between EO and EC in resting state data are accompanied by spatially widespread amplitude changes in hemodynamic responses and inter-regional functional connectivity, i.e. low frequency hemodynamic signals display an equivalent of alpha reactivity. 
+ 
+ 
+ EEG-FMRI 
+ ICA 
+ resting state 
+ spontaneous activity 
+ HRF 
+ functional connectivity 
+ 
+ 
+ 
+ 
+ INTRODUCTION 
+ One of the central questions in imaging neuroscience is how electrical and hemodynamic signals that are acquired by e.g. electroencephalography (EEG) and functional magnetic resonance (fMRI) relate to each other during different states of brain activity. The scalp EEG samples the synchronous post-synaptic potentials in the cerebral cortex that ensue neuronal input processing, whereas blood-oxygen-level dependent (BOLD) fMRI measures a delayed hemodynamic response to neuronal activity ( Bandettini et al., 1993 ). Previous research has shown a linear relationship between local field potentials and multi-unit activity and the BOLD signal ( Logothetis et al., 2001 ;  Logothetis and Wandell, 2004 ). With the advent of recording techniques that allow concurrent data acquisition, the ability to study the link between electrophysiology and hemodynamics non-invasively has drastically improved, and has permitted assessment of a variety of phenomena in the background EEG, event related responses, and pathologies ( Debener and Herrmann, 2008 ;  Laufs et al., 2003a ). Also, suitable methods for handling multivariate concurrent data are becoming available ( Eichele et al., 2009 ). 
+ In this work, we performed a concurrent EEG-fMRI study to evaluate the differential effect of eyes open (EO) versus eyes closed (EC), a simple operation to tests alpha reactivity on EEG-fMRI coupling in the alpha band, and then examined the fMRI connectivity. The motivation for this is two-fold: Firstly, de Munck and others have recently reported widespread alpha hemodynamic responses (ARF’s) estimated from EEG power fluctuations during relaxed resting with EC ( de Munck et al., 2007 ), and we aim to test the possible state-sensitivity of ARF’s. Secondly, it has recently been shown that resting state fMRI activity and connectivity is affected by this manipulation ( McAvoy et al., 2008 ;  Zou et al., 2009 ), leading to the suggestion that differences in functional connectivity represent an analogue to alpha reactivity in EEG. We therefore estimate functional connectivity differences between the two states. 
+ The posterior alpha rhythm, a prominent phenomenon in the EEG typically located in the 8–12 Hz frequency band, is easily identified in the EEG of relaxed awake subjects with EC ( Berger, 1929 ). In contrast, the absence of alpha rhythm is often related with the first stages of sleep ( Lopes da Silva, 1991 ;  Steriade et al, 1990 ). Subsequent studies furthermore discovered distinct decreased alpha activity in posterior regions with individuals’ EO ( Barry et al., 2007 ;  Chapman et al., 1962 ;  Gale et al., 1971 ). One proposed explanation is that the alpha desynchronization can be associated with increased visual system functioning due to the visual stimulation and intervention by reticular activating system ( Gale et al., 1971 ;  Volavka et al., 1967 ); in contrast, alpha desynchronization to visual input has also been argued to reflect the widespread communication of cortical and thalamo-cortical interactions, to aid information processing ( Basar et al., 1997 ;  Broyd et al., 2009 ;  Gevins et al., 1997 ;  Klimesch, 1999 ;  Raichle et al., 2001 ;  Thirion et al., 2006 ). Alpha desynchronization to visual input is generally considered to reflect increased functional inner-activation of the visual system, which activates the entire cortex ( Basar et al., 1997 ). These findings all suggest that the alpha rhythm is associated with a relatively inactive functional state of the brain, and therefore frequently treated as a hallmark of the resting state ( Goncalves et al., 2006 ). 
+ The cortical origin of the alpha rhythm as well as its connection to thalamic activity is well established ( Hughes and Crunelli, 2005 ;  Lopes da Silva, 1991 ;  Steriade et al., 1990 ), and recent EEG-fMRI studies ( Goldman et al., 2002 ;  Goncalves et al., 2006 ;  Laufs et al., 2003a ;  Moosmann et al., 2003 ) have documented the regional hemodynamic correlates. Generally, researchers have reported a negative correlation between the alpha rhythm and the BOLD signal in the occipital lobe, and a positive correlation to thalamus in particular ( Feige et al., 2005 ;  Goldman et al., 2002 ;  Laufs et al., 2003a ;  Moosmann et al., 2003 ). The increases in alpha power are related to decreases in the BOLD signal (deactivations) in occipital-parietal lobes ( de Munck et al., 2007 ), albeit with large individual variability ( Goncalves et al., 2008 ;  Goncalves et al., 2006 ). Using an EO and EC block design, Feige and colleagues found that there were significant positive correlations between the alpha power and thalamic BOLD signals within the EC sections, but the correlations were lessened within the EO sections ( Feige et al., 2005 ). Also, it has been shown that power fluctuations of different EEG bands are significantly correlated and are similar to the alpha harmonics ( de Munck et al., 2009 ), though other studies performed on different frequency bands yield different results ( Laufs et al., 2003b ;  Tyvaert et al., 2008 ). 
+ The main objective of this investigation is to observe the difference between EO and EC resting states and to determine which brain regions, both cortical and sub-cortical, are affected by power modulation of the alpha rhythm. To this end, we use a parallel ICA implementation on group level in which the fMRI data are decomposed into spatially independent maps and associated timecourses ( Calhoun and Adali, 2006 ;  Calhoun et al., 2001 ), while the EEG is transformed into the frequency domain and decomposed into spectrally independent components with associated topographies on group level, adapting a model recently suggested by Eichele, Calhoun and coworkers ( Calhoun et al., In Press ;  Eichele et al., 2008a ;  Moosmann et al., 2008 ). In an extension of de Munck’s work ( de Munck et al., 2007 ) we expected to find robust ARFs in multiple brain regions including but not restricted to the posterior cortex and thalamus during EC. During EO we hypothesized that the reduction of alpha power as a function of inter-regional desynchronziation would diminish the ARFs ( Zou et al., 2009 ). We also expected functional connectivity, estimated as maximal lagged correlation between component timecourses ( Jafri et al., 2008 ) to show a corresponding pattern, i.e. increased during EC and decreased during EO. 
+ The results indicate prevalent alpha rhythm hemodynamic responses and high functional network connectivity during EC rest session; whereas EO rest eliminates many of the hemodynamic responses and markedly reduces functional network connectivity. These data suggest that apart from changes to hemodynamic response magnitude widespread changes in inter-regional low-frequency (<0.1Hz) functional connectivity shown in fMRI are related to the changes in neuronal synchronization as indicated by power fluctuations in higher frequency (>lHz) EEG rhythms such as posterior alpha. They also suggest that generation of local hemodynamic responses is highly sensitive to global state changes that do not involve changes of mental effort or awareness. 
+ 
+ 
+ METHODS 
+ 
+ Participants 
+ Participants were recruited via advertisements at the University of New Mexico and by word-of-mouth. Twenty-five healthy participants (17 males, 8 females, Age 29±8years), provided written, informed consent at Mind Research Network and were compensated for their participation. Prior to inclusion in the study, participants were screened to ensure they were free from DSM-IV Axis I or Axis II psychopathology (assessed using the SCID ( Spitzer et al., 1996 )) and also screened to determine that there was no history of neurological diseases. All participants had normal vision and hearing (assessed by self-report). 
+ 
+ 
+ Experimental Design 
+ The entire experiment for each subject contained a single session of simultaneous EEG-fMRI recording. The session was composed of four parts, a scout scan (10 seconds) and structural MRI scanning (7 minutes), followed by a recording with EO without fixation (7 minutes) and with EC (7 minutes). Subjects were instructed to simply lie still awake and relax inside the dimly lit scanner and keep their EO or EC, respectively. 
+ 
+ 
+ EEG Acquisition 
+ A 32-channel BrainAmp MR-compatible system (Brainproducts, Munich, Germany) was used for EEG recordings using the BrainCap electrode cap (Falk Minow Services, Herrsching-Breitbrunn, Germany). Ring-type sintered nonmagnetic Ag/AgCl electrodes electrodes were placed on the scalp according to the international 10–20 system. Two additional channels were recording electrocardiogram (ECG) and eye movements (EOG). The reference channel was placed at FCz. The impedance of each electrode was kept lower than 5 kΩ using conductive and abrasive electrode paste. Data were collected with a sampling rate of 5 kHz; band-pass filtering from 0.016 to 250 Hz was applied. To avoid temporal jitter the EEG amplifier and fMRI were synchronized using an in-house device. 
+ 
+ 
+ EEG Preprocessing 
+ The preprocessing of EEG data was performed in Matlab ( www.mathworks.com ), with the software toolboxes EEGLAB ( http://sccn.ucsd.edu/eeglab ) and EEGIFT for group-level ICA ( http://icatb.sourceforge.org ) in addition to customized functions for deconvolution and inference testing. After removal of EPI gradient artifacts using standard moving average subtraction ( Allen et al, 1998 ) continuous EEGs were down-sampled offline to 1000 Hz and filtered from 1–45 Hz (24 db/octave). EEG data were also corrected for ballistocardiac artifacts by an effective heart beat detection from electrocardiogram (ECG) channel followed by an optimal basis set technique ( Niazy et al., 2005 ), which is implemented in the EEGLAB-plugin FMRIB. Hereafter the EEG was re-referenced to a common average reference, segmented into epochs for each EPI volume acquisition, and subjected to an individual temporal ICA as implemented in EEGLAB ( Delorme and Makeig, 2004 ;  Eichele et al., 2009 ;  Makeig et al., 2004 ). This step was used to identify and remove residual pulse and eye movement artifacts from the data ( Debener et al, 2006 ;  Eichele et al., 2009 ;  Eichele et al., 2008a ;  Jung et al., 2000 ), retaining minimally 12 out of 30 components. 
+ 
+ 
+ Spectral Independent Component Analysis (spICA) of EEG 
+ After preprocessing, the EEG single sweeps at all channels of each participant were frequency transformed using the fast Fourier transform retaining the spectral content from 1–30 Hz. The data were then concatenated in a 2d matrix (epoch-by-[channels, spectrum]) for each session of each subject, compressed through principal components analysis (255 epochs reduced to 30), concatenated across subjects, sessions and epochs, and then subjected to a single group ICA analysis between EO and EC conditions in EEGIFT ( http://icatb.sourceforge.org ), estimating 12 components (PC/IC), determined by the dimensionality of the data after artifact removal. After that, we performed a back-reconstruction to attain single-subject maps and power fluctuations (across TR) on both sessions for each component. For details about this model see ( Eichele et al., 2008a ). From the decomposition output we selected a single component with a spectral peak in the alpha range (11Hz) and a topography with a posterior maximum. 
+ 
+ 
+ FMRI Acquisition 
+ Functional images were acquired with a Siemens Sonata scanner at 1.5 T by means of T2*-weighted echo planar imaging free induction decay sequences with the following parameters: repeat time (TR) = 2s, echo time (TE) = 39ms, field of view = 224mm, acquisition matrix = 64×64, flip angle = 80°, voxel size = 3.5×3.5×3mm, gap = lmm, 27 slices, ascending acquisition. A high-resolution structural anatomy was acquired via a 3D MPRAGE T1 sequence (sagittal; matrix, 256×256; FOV, 256 mm; slice thickness, 1.5 mm; no gap; in-plane voxel size, 1 mm×l mm; flip angle, 20°; TR, 12 ms; TE, 4.76 ms) to provide the anatomical reference for the functional scan. 
+ 
+ 
+ FMRI Preprocessing 
+ FMRI data were preprocessed using the software package SPM5. Images were realigned using INRI align – a motion correction algorithm unbiased by local signal changes ( Freire and Mangin, 2001 ). Next, data were spatially normalized into standard Montreal Neurological Institute space ( Friston et al., 1995 ), spatially smoothed with a 8×8×8 mm full width at half-maximum Gaussian kernel. The data (originally acquired at 3.5×3.5×3mm or 3.75×3.75×3mm) were slightly sub-sampled to 3×3×3 mm, resulting in 53×63×46 voxels. 
+ 
+ 
+ Spatial Independent Component Analysis (sICA) of FMRI 
+ The preprocessed fMRI data of both sessions were subjected to a single group spatial ICA as implemented in GIFT  http://icatb.sourceforge.net , and followed by back-reconstruction for each subject ( Calhoun et al., 2001 ). ICASSO with 100 re-runs and random initial conditions was used to arrive at a robust decomposition ( Himberg et al., 2004 ), and high model order was used to provide a finer-grained regional separation of components in the cortical and subcortical compartments ( Abou-Elseoud et al., 2010 ;  Kiviniemi et al., 2009 ). The model order was tested according to the spatial map quality as well as the stability and empirically adjusted to 71 components ( Abou-Elseoud et al., 2010 ). Components were selected in a two-step procedure: first, all components co-localizing with nuisance processes, i.e. motion, large vessels, ventricles and susceptibility were identified and discarded (26 nuisance components), and secondly, from the remaining components we selected those that co-localized with regions that earlier concurrent studies have shown to be linked to alpha power. 
+ Ten sICs were selected that were tested for their relationship to the alpha spIC: in the occipital lobe these were located in the lingual gyri, calcarine gyri, cuneus and middle occipital gyrus, typically displaying negative correlations with alpha ( de Munck et al., 2007 ;  de Munck et al., 2009 ;  Feige et al., 2005 ;  Goldman et al., 2002 ;  Laufs et al., 2003a ). In the temporal lobe we selected components in the left and right hemisphere mapping onto the superior and middle temporal gyri ( Goldman et al., 2002 ;  Goncalves et al., 2006 ). In the frontal lobe components including the pre/postcentral cortex, inferior frontal gyrus, insula were selected. Among the subcortical components we focused on one in the thalamus, typically showing positive correlations/ARFs. Additionally, we selected regions of the default mode network ( Laufs et al., 2003b ;  Raichle et al., 2001 ) in the anterior/middle cingulate cortex and the precuneus. 
+ 
+ 
+ Integration of fMRI and EEG components 
+ Instead of a convolution approach that has dominated previous work ( Goldman et al., 2002 ;  Laufs et al., 2003a ;  Moosmann et al., 2003 ) we here use deconvolution of ARF’s akin to de Munck ( de Munck et al., 2007 ). The major advantage of deconvolution is that inter-modal, inter-regional and inter-individual variability can be taken into account in the estimation ( Aguirre et al., 1998 ;  de Munck et al., 2007 ;  Glover, 1999 ;  Handwerker et al., 2004 ) rather than assuming a fixed canonical estimate. This is particularly useful for application to resting state data since this type of data does not contain sparse/blocked stimulus inputs and neuronal responses that are assumed in models for hemodynamic transfer functions ( Buxton et al., 2004 ;  Friston et al., 2000 ). We used a simple deconvolution method in which the pseudoinverse of the convolution matrix generated from the alpha cross-epoch power modulation is multiplied with each of the fMRI component timecourses for each subject and session separately ( Eichele et al., 2008b ). While this method is unconstrained regarding the shape of the output and thus prone to fitting noise, note that sICA summarizes many volume elements into one component which typically entails denoising of the related timecourse, while the EEG estimate similarly is derived from all channels. ARF estimates were then averaged for visualization, subjected to point-wise one-sample T-tests against zero mean for both sessions, and to point-wise paired T-tests between sessions to test the difference between EO and EC (see  Figure 2 ,  Table 2 ). 
+ 
+ 
+ Functional Network Connectivity of sICs 
+ Functional network connectivity (FNC) analysis offers an approach to examine the inter-network neural relations during either particular cognitive tasks or from spontaneous activity during rest. FNC is performed by computing cross-correlations among the time courses from brain networks estimated using ICA ( Jafri et al., 2008 ;  Rzepecki-Smith et al., 2009 ;  Sakoglu et al., In Press ). We computed the maximal correlation within a ±5 seconds’ window, after interpolating the timecourses of fMRI sICs to 100ms as in our previous work ( Jafri et al., 2008 ). To assess the variation of brain region functional connectivity between the EO and EC sessions, we used paired T-tests between conditions in a permutation procedure to directly estimate the null hypothesis from the data. Thus a single test for differences between EO and EC was performed on the maximal correlation for both conditions. A correction for multiple comparisons was also applied for the number of tests (e.g. number of pair-wise correlations). The description of the algorithm and its implementation is provided in detail elsewhere ( Jafri et al., 2008 ), the FNC toolbox is available at  http://mialab.mrn.org/software . 
+ 
+ 
+ 
+ RESULTS 
+ 
+ EEG component 
+ Figure 1  shows the selected spectral component. This spIC had its spectral peak at 11 Hz in the upper alpha band (middle), and shows a topography with the expected posterior maximum (left). The spectrum power modulation of the component over time is consistently higher level in EC compared to EO (right), which is consistent with previous findings ( Barry et al., 2007 ;  Basar et al., 1997 ). 
+ 
+ 
+ FMRI Components 
+ Resting state spatial modes were identified from the BOLD signals by using ICA, a technique that extracts maximally independent patterns of brain activity (or independent components, sICs). Each sIC consists of a temporal waveform and an associated spatial map; the latter is expressed in terms of z-scores that reflect the degree to which a given voxel time-course correlates with the specific IC temporal waveform. Ten sICs associated with alpha spIC were found and shown in  Figure 2 . Talairach coordinates for the peak voxels in the ten fMRI spatial components are presented in  Table 1 . 
+ 
+ 
+ Integration 
+ Next, we analyzed the electrophysiological relationship of each network by estimating the ARF for each sICs derived from the alpha spIC power modulation across epochs. The ARFs in  Figure 2  display some interesting features. During EC all components display significant ARFs (see  Table 2 ), with predominant negative peaks in occipital, temporal and frontal regions, biphasic responses in the DMN and a positive peak in the thalamus. In contrast, ARFs were diminished in amplitude or inverted during EO with changes to the shape and peak latency, especially at occipital lobe, medial parieto-occipital lobe (default mode) and thalamus. Though the amplitude, latency as well as direction of ARFs showed regional dissimilarity, they did not indicate (by visual inspection) a significant left/right side difference on the selected regions. 
+ Table 2  represents the statistics of ARFs. From left to right, it shows the ARF’s peak latency, the maximum t-value on the time course of the ARF and corresponding p-value on EC session, then on EO session, as well as EO versus EC group difference latency. Consistent with the data presented in  Figure 2 , the EC ARFs attained much higher t-statistics than EO. Strong t-statistic differences between EO and EC were found in the occipital lobe, superior temporal gyrus, pre/post central gyrus, and thalamus, while the differences in other components including the DMN were less substantial. 
+ 
+ 
+ Functional Network Connectivity 
+ FNC analysis in  Figure 3  indicated BOLD sIC regions in EC condition have stronger (the intensity of arrows) and broader (the quantity of arrows) correlations than in EO condition. There were eleven connectivity pairs that showed a significant difference (p<5e-3,  Table 3 ) between EO and EC, arranged in a descending order, from pre/post central gyrus and lingual right lobe, to lingual right lobe and thalamus. 
+ In  Figure 3 , the top represents the significant functional network connectivity differences found among EO and EC (p<5e-3, FDR corrected) via a paired T-test. Occipital lobe, including right and left lingual gyrus, calcarine components and frontal lobe, pre/post central gyrus as well as thalamus were the most highly interconnected regions that also display the most significant difference between EO and EC sessions. The color of the arrows indicates the correlation difference (red: EO > EC; blue: EO < EC); the directions of the arrows indicate the lead/lag between the components. The results showed that overall EO session was less correlated across all sIC combinations than in EC session, with the exception of the thalamus. The bottom of  Figure 3  shows the networks of EO (left) and EC (right) session respectively. The colors of the arrows indicate positive correlation (red) and negative correlation (blue); the directions of the arrows indicate the lead/lag. As can be seen, although all ten sICs were highly connected to each other for both sessions, the EC sICs display significantly stronger functional network connectivity. Also, most sICs show positive correlations whereas only the thalamus region has negative correlations (blue) with all connected brain regions, for both EO and EC sessions. 
+ 
+ 
+ 
+ DISCUSSION 
+ The alpha rhythm is an established trait of spontaneous EEG and the reactivity of alpha to EO vs. EC is a robust phenomenon ( Broyd et al, 2009 ;  Goldman et al., 2002 ;  Goncalves et al, 2006 ). A number of papers have elaborated on the generator mechanism and localization of alpha ( Goldman et al., 2002 ;  Lopes da Silva et al., 1973 ;  Moosmann et al., 2003 ). Various source localization models on EEG or MEG ( Hari et al., 1997 ;  Lopes da Silva et al., 1973 ;  Makeig et al., 2002 ), or through indirect functional imaging techniques like PET ( Sadato et al., 1998 ) and fMRI ( Goldman et al., 2002 ;  Moosmann et al., 2003 ) support the notion of an ’idling’, relatively more deactivated posterior cortex as a generator for alpha observed on the scalp. Similarly, the thalamus shows evidence for generating/modulating alpha activity ( Moosmann et al., 2003 ;  Schreckenberger et al., 2004 ). Our results suggest in addition more widespread cortical correlates of posterior alpha in line with de Munck ( de Munck et al., 2007 ) including occipital and thalamic but also frontal, temporal and parietal sources, which may relate to the more global functional roles assumed for alpha-band oscillations ( Klimesch et al., 2007 ;  Palva and Palva, 2007 ). This was achieved by a data-driven spatiotemporal integration approach linking brain rhythms and low-frequency coherent fluctuations of the BOLD signal analysis under concurrent multi-subject EEG-fMRI recordings. 
+ 
+ 1. Group ICA for EEG spectra 
+ Independent component analysis (ICA) provides a data driven approach for feature extraction and we then can test for differences in these features between the two conditions. In our previous studies ( Calhoun et al., 2001 ;  Eichele et al., 2009 ;  Eichele et al., 2008a ), we applied a group temporal ICA strategy to probe sources that are consistently expressed in the population by accumulating data from EEG observations of all the subjects, estimating a single set of ICs and then back-reconstructing into the individual data, so that those subject/condition-specific contributions can be recognized. Group ICA provides a straight-forward solution for multi-subject component estimation and directly affords population inferences ( Calhoun et al., 2001 ;  Calhoun et al., 2009 ). We have previously adopted this model for EEG data in the time domain in order to extract event related response processes, which implied that processes which are not well time/phase-locked across subjects, such as the ongoing EEG rhythms during the resting state as in this study were not well captured ( Eichele et al., 2008a ). In order to decompose EEG background activity in this study we transformed the EEG data in the frequency domain and used the power fluctuations across trials and frequencies to maximize spectral independence. Since particular spectral peaks, especially in the alpha band are consistent across epochs and participants despite variable phase, this enables a group-level decomposition and back-reconstruction. This method is related to other frequency-domain ICA applications (Anemuller et al, 2006;  Anemiiller et al., 2003 ;  Hyvarinen et al., 2010 ;  Onton et al., 2005 ;  Zibulevsky and Pearlmutter, 2001 ). Other options could be canonical correlation analysis (CCA) or non-negative matrix factorization (NMF) to deal with the same problem, however, suitable multi-subject extensions have only recently become available ( Correa et al., 2010 ). 
+ 
+ 
+ 2. Convolution versus deconvolution 
+ The localization of brain regions that are involved in the generation of the different EEG components remains a central challenge, due to the geometrical model fitting difficulty and the time/memory demands of the inverse calculation, therefore limiting its application ( Koles, 1998 ). Correlation analysis of concurrent EEG-fMRI however provides an alternative technique of addressing the source localization problem, relieving the dependence on conductor geometry estimation or dipole model fitting, as well as providing insight into the physiological meaning of spontaneous EEG and trial-by-trial variations of event-related responses ( Debener et al., 2006 ;  Debener et al., 2005 ;  Eichele et al., 2005 ;  Goldman et al., 2002 ;  Goncalves et al., 2006 ;  Laufs et al., 2003a ;  Laufs et al., 2003b ;  Moosmann et al., 2003 ). In most previous concurrent EEG-fMRI studies where EEG and fMRI were correlated a generic hemodynamic response function ( Buxton et al., 2004 ;  Friston, 2005 ) was applied to model the expected BOLD response on the observed EEG features ( Eichele et al., 2005 ;  Goldman et al., 2002 ;  Moosmann et al., 2003 ), whereby the parameters of the HRF such as shape and latency of the peak and undershoot are assumed to be fixed across the entire brain and across subjects. However, multiple sources of variability of the HRF exist across brain regions and individuals ( Aguirre et al., 1998 ;  Glover, 1999 ;  Handwerker et al., 2004 ), such that application of a convolution model with a fixed HRF may decrease sensitivity and yield false negatives ( Handwerker et al., 2004 ). It also appears that the application of a canonical HRF is somewhat less justifiable in resting state data since sparse stimulation, i.e. the input that the HRF models typically assume is not given. In line with this, the findings presented here and previous reports indeed show systematic deviations of EEG-derived hemodynamic responses from the canonical HRF in peak/undershoot latency and ratio ( de Munck et al, 2008 ;  de Munck et al., 2007 ;  de Munck et al., 2009 ). Accordingly, we followed a strategy initially suggested by de Munck ( de Munck et al., 2008 ;  de Munck et al., 2007 ;  de Munck et al., 2009 ;  Eichele et al., 2009 ). Here, instead of estimating the HRF from a posterior average of alpha power directly, we estimated ARFs from independent component modulations. The estimated ARFs from  Figure 2  indeed show systematic latency and shape differences from the canonical HRF and regional activation with significant ARFs was much more widespread than what was previously reported, which can be taken as an indication that the sparser activation patterns in earlier studies ( Goldman et al., 2002 ;  Moosmann et al., 2003 ) may have resulted from weaker sensitivity. Comparing  Figure 2  with  Figure 3 , it is easily observed that the significant amplitude increase of ARF in EC sessions is linked to the rising of intensity as well as the range of inter-region correlation (connectivity). It is intriguing to note the substantial change to the ARFs across EO/EC states that are attainable in an effortless way, which suggests that the transfer functions that mediate the coupling between EEG and fMRI are not stationary, and seem to depend on inter-regional synchronization ( Deco et al., 2009 ;  McAvoy et al., 2008 ;  Zou et al., 2009 ). This is analogous to the finding that (local) measures of event related fMRI activity are affected by (global) connectivity measures ( Fox and Raichle, 2007 ). We can speculate that this effect is even more preponderant during different states of alertness such as sleep and anesthesia. The difference between states stems most likely from the changes of the neuronal contributions of the regional source to alpha generation/modulation since it appears considerably less likely in this case that variations in ARFs can be accounted for by state-dependent differences in properties of the vascular bed. The ARF results ( Figure 2 ), combined with the information from functional network connectivity ( Figure 3 ) indicate that the hemodynamic responses contain information about the coupling of the electrical sources ( Deco et al., 2009 ). 
+ 
+ 
+ 4. Functional Network Connectivity 
+ FNC based upon slow (<0.08 Hz), spontaneous BOLD fluctuations in resting fMRI provide a powerful tool to characterize intrinsic functional associations among brain regions. It has been widely demonstrated that the spontaneous fluctuations are highly coherent within multiple functional brain networks, such as motor, visual, auditory, and memory systems ( Fox and Raichle, 2007 ). First, we examined the temporal correlation of spontaneous low-frequency fluctuations between the multiple brain regions associated with alpha rhythm, since previous studies showed limited (mostly on thalamus and occipital lobe) and contradictory results with positive correlations ( Beckmann et al., 2005 ), negative correlations ( Mantini et al., 2007 ), or no significant correlation ( Kiviniemi et al., 2004 ), which also may be a function of the state-dependency. The comprehensive relationship between these alpha-related regions remains to be further explored. Second, we examined the spontaneous FNC modulation between multiple brain regions under different physiological conditions by comparing the correlation patterns between EO and EC two resting conditions. Previous studies have indicated that the alpha power is connected to different resting states ( Berger, 1929 ;  McAvoy et al., 2008 ). They showed that the alpha rhythm had significant amplitude when one was in an awake and relaxed state with EC, while this phenomenon was attenuated by EO. In our study, we computed the connectivity among the time courses of fMRI spatial components to assess the variation of brain region functional connectivity between EO session and EC session. The results showed that the EC session generally showed stronger functional network connectivity than the EO. This finding is consistent with previous studies ( McAvoy et al., 2008 ;  Zou et al., 2009 ). 
+ 
+ 
+ 
+ CONCLUSION 
+ We implemented a concurrent EEG-fMRI study to evaluate the differential effect of EO versus EC in resting state, by estimating the ARF in the alpha band and fMRI connectivity with parallel ICA. The spectra ICA and ARF estimation helps to focus on particular frequency bands and components of interest, while at the same time incorporating inter-regional and inter-subject differences. The results show widespread alpha hemodynamic responses and strong functional connectivity during EC rest, while EO rest alters the hemodynamic response as well as functional connectivity. 
+ 
+ 
+ 
+ ACKNOWLEDGEMENT 
+ The authors would like to thank Michael Doty and Matthias Moosmann for technical assistance, Diana South for her help with data collection, and Ali Mazaheri for helpful discussions. This research was supported in part by the National Institutes of Health, under grants 1 R01 EB 000840, 1 R01 EB 005846 (VDC), a BILATGRUNN grant from the Norwegian research council and from the L. Meltzer university fund 801616 (TE). 
+ 
+ 
+ Figures and Tables 
+ 
+ Figure 1 
+ 
+ EEG alpha-spIC’s spectra and topography 
+ Left: the topography of alpha-spIC. Middle: the spectra of alpha-spIC component. Right: the power modulation of alpha-spIC. EO rest indicates in blue lines, EC in red lines. 
+ 
+ 
+ 
+ 
+ Figure 2 
+ 
+ Resting state spatial components and alpha hemodynamic responses 
+ Ten fMRI spatial components were selected. Left to right: three in occipital lobe (Lingual L, yellow; Lingual R, blue; Calcarine, cyan); two in temporal lobe (STG L, yellow; STG R, blue); two in frontal lobe (PreC/PostC, yellow; IFG, blue); two in default mode network (Precuneus, yellow; ACC/MCC, blue); and one in subcortical region (Thalamus, yellow). Spatial components top to bottom: axial direction, sagittal direction, coronal direction. ARFs: corresponding to each sIC separately by arrows, red: EC ARFs, blue: EO ARFs. 
+ 
+ 
+ 
+ 
+ Figure 3 
+ 
+ Functional network connectivity of spatial components 
+ Top: The significant functional network connectivity among EO and EC differences (p<5e-3, FDR corrected) under paired T-tests (red: EO > EC; blue: EO < EC). Bottom: the networks of EO (left) and EC (right) session respectively (red: positive correlation; blue: negative correlation). The directions of the arrows indicate the lead/lag. 
+ 
+ 
+ 
+ 
+ Table 1 
+ 
+ Talairach coordinates for fMRI spatial components 
+ The table summarizes the Talairach coordinates (x, y, z in mm) and Brodmann area labels for clusters of significant activity (p<0.001, FDR corr.). 
+ 
+ 
+ 
+ 
+ Anatomic Label 
+ Brodmann Area * 
+ MNI Coordinate 
+ Peak Voxel (t) 
+ 
+ 
+ 
+ 
+ 
+ 
+ Occipital 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lingual gyrus, L 
+ 18,19 
+ (15,−52,5) 
+ 11.1 
+ 
+ 
+ Lingual gyrus, R 
+ 19,18 
+ (−15,−49,2) 
+ 8.0 
+ 
+ 
+ Calcarine 
+ 17,18,23,30,19 
+ (3,−81,10) 
+ 12.3 
+ 
+ 
+ 
+ 
+ Temporal 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Superior temporal gyrus, L 
+ 41,13,42,22 
+ (50,−28,15) 
+ 9.9 
+ 
+ 
+ STG, R 
+ 22,21,13,41,42,38 
+ (−48,−11,3) 
+ 12.5 
+ 
+ 
+ 
+ 
+ Frontal 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Pre/Postcentral Cortex 
+ 6,4,43,9,44,3,1,2 
+ (53,−10,31) 
+ 16.3 
+ 
+ 
+ Inferior frontal gyrus, R 
+ 9,8 
+ (−48,19,24) 
+ 6.8 
+ 
+ 
+ 
+ 
+ Default mode Network 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Precuneus 
+ 7,31,19 
+ (3,−53,39) 
+ 11.7 
+ 
+ 
+ Anterior/mid cingulate cortex 
+ 32,9,24 
+ (−3,25,37) 
+ 13.9 
+ 
+ 
+ 
+ 
+ Subcortical 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Thalamus 
+ N/A 
+ (−3,−17,6) 
+ 10.2 
+ 
+ 
+ 
+ 
+ 
+ * 
+ Brodmann Areas(BA) are only approximate, based upon the Talairach Atlas 
+ 
+ 
+ 
+ 
+ Table 2 
+ 
+ The statistics of alpha hemodynamic responses 
+ Left to right: ARF’s peak latency, the maximum t-value and corresponding p-value under one-sample T-tests on EC session, then on EO session; EO versus EC group difference latency; t-value and corresponding p-value under paired T-tests between sessions. 
+ 
+ 
+ 
+ 
+ Anatomy label 
+ EC latency 
+ EC max T 
+ EC p 
+ EO latency 
+ EO max T 
+ EO p 
+ Difference latency 
+ Difference T 
+ Difference p 
+ 
+ 
+ 
+ 
+ 
+ 
+ Occipital 
+ 
+ 
+ 
+ 
+ lingual L 
+ 7 
+ 4.60 
+ 1e-4 
+ 17 
+ 1.97 
+ 0.06 
+ 7 
+ 4.50 
+ 1e-4 
+ 
+ 
+ lingual R 
+ 7 
+ 3.44 
+ 2e-3 
+ 7 
+ 4.00 
+ 0.00 
+ 5 
+ 1.73 
+ 0.097 
+ 
+ 
+ calcarine 
+ 8 
+ 3.39 
+ 2e-3 
+ 8 
+ 1.59 
+ 0.13 
+ 10 
+ 2.23 
+ 0.035 
+ 
+ 
+ 
+ 
+ Temporal 
+ 
+ 
+ 
+ 
+ STGL 
+ 8 
+ 4.42 
+ 1e-4 
+ 3 
+ 2.42 
+ 0.02 
+ 9 
+ 3.74 
+ 1e-3 
+ 
+ 
+ STG R 
+ 9 
+ 5.78 
+ 1e-4 
+ 4 
+ 3.23 
+ 0.00 
+ 9 
+ 3.67 
+ 1e-3 
+ 
+ 
+ 
+ 
+ Frontal 
+ 
+ 
+ 
+ 
+ Pre/Post C 
+ 7 
+ 5.09 
+ 1e-4 
+ 16 
+ 3.51 
+ 0.00 
+ 6 
+ 4.89 
+ 1e-4 
+ 
+ 
+ IFG R 
+ 10 
+ 3.83 
+ 1e-3 
+ 7 
+ 3.44 
+ 0.00 
+ 11 
+ 2.54 
+ 0.018 
+ 
+ 
+ 
+ 
+ Default mode Network 
+ 
+ 
+ 
+ 
+ Precuneus 
+ 11 
+ 3.62 
+ 1e-3 
+ 9 
+ 2.25 
+ 0.03 
+ 11 
+ 2.14 
+ 0.043 
+ 
+ 
+ ACC/MCC 
+ 11 
+ 3.75 
+ 1e-3 
+ 11 
+ 1.49 
+ 0.15 
+ 4 
+ 2.20 
+ 0.038 
+ 
+ 
+ 
+ 
+ Subcortical 
+ 
+ 
+ 
+ 
+ Thalamus 
+ 9 
+ 5.24 
+ 1e-4 
+ 2 
+ 2.10 
+ 0.05 
+ 10 
+ 3.50 
+ 2e-3 
+ 
+ 
+ 
+ 
+ 
+ Table 3 
+ 
+ The statistics of functional network connectivity 
+ Eleven connectivity pairs show a significant difference (p<5e-3) between EO and EC under paired T-tests, arranged in a descending order. 
+ 
+ 
+ 
+ 
+ 
+ Pre/PostC -Lingual R 
+ Pre/PostC -Calcarine 
+ STG L- Calcarine 
+ Lingual L- Lingual R 
+ Lingual R- STG R 
+ STG L- Thalamus 
+ Pre/PostC -Lingual L 
+ Pre/PostC -STG R 
+ Thalamus -Calcarine 
+ Lingual R- STG L 
+ Lingual R- Thalamus 
+ 
+ 
+ 
+ 
+ tvalue 
+ −5.13 
+ −4.64 
+ −4.50 
+ −4.19 
+ −4.19 
+ 4.11 
+ −3.94 
+ −3.94 
+ 3.91 
+ −3.91 
+ 3.74 
+ 
+ 
+ pvalue 
+ 1e-5 
+ 1e-4 
+ 1e-4 
+ 3e-4 
+ 3e-4 
+ 4e-4 
+ 6e-4 
+ 6e-4 
+ 7e-4 
+ 7e-4 
+ 1e-3 
+ 
+ 
+ 
+ 
+ 
+ p<5e-3, FDR corrected 
+ 
+ 
+ 
+ 
+ 
+ REFERENCE 
+ 
+ 
+ 
+ 
+ Abou-Elseoud 
+ A 
+ 
+ 
+ Starck 
+ T 
+ 
+ 
+ Remes 
+ J 
+ 
+ 
+ Nikkinen 
+ J 
+ 
+ 
+ Tervonen 
+ O 
+ 
+ 
+ Kiviniemi 
+ V 
+ 
+ 
+ The effect of model order selection in group PICA 
+ Human Brain Mapping 
+ 2010 
+ In publish. 
+ 
+ 
+ 
+ 
+ 
+ 
+ Aguirre 
+ GK 
+ 
+ 
+ Zarahn 
+ E 
+ 
+ 
+ D'Esposito 
+ M 
+ 
+ 
+ The Variability of Human, BOLD Hemodynamic Responses 
+ Neuroimage 
+ 1998 
+ 8 
+ 360 
+ 369 
+ 9811554 
+ 
+ 
+ 
+ 
+ 
+ 
+ Allen 
+ PJ 
+ 
+ 
+ Polizzi 
+ G 
+ 
+ 
+ Krakow 
+ K 
+ 
+ 
+ Fish 
+ DR 
+ 
+ 
+ Lemieux 
+ L 
+ 
+ 
+ Identification of EEG Events in the MR Scanner: The Problem of Pulse Artifact and a Method for Its Subtraction 
+ Neuroimage 
+ 1998 
+ 8 
+ 229 
+ 239 
+ 9758737 
+ 
+ 
+ 
+ 
+ 
+ 
+ Anemüller 
+ J 
+ 
+ 
+ Duann 
+ J-R 
+ 
+ 
+ Sejnowski 
+ TJ 
+ 
+ 
+ Makeig 
+ S 
+ 
+ 
+ Spatio-temporal dynamics in fMRI recordings revealed with complex independent component analysis 
+ Neurocomputing 
+ 2006 
+ 69 
+ 1502 
+ 1512 
+ 20689619 
+ 
+ 
+ 
+ 
+ 
+ 
+ Anemüller 
+ J 
+ 
+ 
+ Sejnowski 
+ TJ 
+ 
+ 
+ Makeig 
+ S 
+ 
+ 
+ Complex independent component analysis of frequency-domain electroencephalographic data 
+ Neural Networks 
+ 2003 
+ 16 
+ 1311 
+ 1323 
+ 14622887 
+ 
+ 
+ 
+ 
+ 
+ 
+ Bandettini 
+ PA 
+ 
+ 
+ Jesmanowicz 
+ A 
+ 
+ 
+ Wong 
+ EC 
+ 
+ 
+ Hyde 
+ JS 
+ 
+ 
+ Processing strategies for time-course data sets in functional MRI of the human brain 
+ Magn Reson Med 
+ 1993 
+ 30 
+ 161 
+ 173 
+ 8366797 
+ 
+ 
+ 
+ 
+ 
+ 
+ Barry 
+ RJ 
+ 
+ 
+ Clarke 
+ AR 
+ 
+ 
+ Johnstone 
+ SJ 
+ 
+ 
+ Magee 
+ CA 
+ 
+ 
+ Rushby 
+ JA 
+ 
+ 
+ EEG differences between eyes-closed and eyes-open resting conditions 
+ Clinical Neurophysiology 
+ 2007 
+ 118 
+ 2765 
+ 2773 
+ 17911042 
+ 
+ 
+ 
+ 
+ 
+ 
+ Basar 
+ E 
+ 
+ 
+ Schurmann 
+ M 
+ 
+ 
+ Basar-Eroglu 
+ C 
+ 
+ 
+ Karakas 
+ S 
+ 
+ 
+ Alpha oscillations in brain functioning: an integrative theory 
+ Int J Psychophysiol 
+ 1997 
+ 26 
+ 5 
+ 29 
+ 9202992 
+ 
+ 
+ 
+ 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ DeLuca 
+ M 
+ 
+ 
+ Devlin 
+ JT 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Investigations into resting-state connectivity using independent component analysis 
+ Philos Trans R Soc Lond B Biol Sci 
+ 2005 
+ 360 
+ 1001 
+ 1013 
+ 16087444 
+ 
+ 
+ 
+ 
+ 
+ 
+ Berger 
+ H 
+ 
+ 
+ Über das elektrenkephalogramm des menschen 
+ European Archives of Psychiatry and Clinical Neuroscience 
+ 1929 
+ 87 
+ 527 
+ 570 
+ 
+ 
+ 
+ 
+ 
+ 
+ Broyd 
+ SJ 
+ 
+ 
+ Demanuele 
+ C 
+ 
+ 
+ Debener 
+ S 
+ 
+ 
+ Helps 
+ SK 
+ 
+ 
+ James 
+ CJ 
+ 
+ 
+ Sonuga-Barke 
+ EJ 
+ 
+ 
+ Default-mode brain dysfunction in mental disorders: a systematic review 
+ Neurosci Biobehav Rev 
+ 2009 
+ 33 
+ 279 
+ 296 
+ 18824195 
+ 
+ 
+ 
+ 
+ 
+ 
+ Buxton 
+ RB 
+ 
+ 
+ Uludag 
+ K 
+ 
+ 
+ Dubowitz 
+ DJ 
+ 
+ 
+ Liu 
+ TT 
+ 
+ 
+ Modeling the hemodynamic response to brain activation 
+ Neuroimage 
+ 2004 
+ 23 
+ Suppl 1 
+ S220 
+ S233 
+ 15501093 
+ 
+ 
+ 
+ 
+ 
+ 
+ Calhoun 
+ VD 
+ 
+ 
+ Adali 
+ T 
+ 
+ 
+ Unmixing fMRI with independent component analysis 
+ IEEE Eng Med Biol Mag 
+ 2006 
+ 25 
+ 79 
+ 90 
+ 16568940 
+ 
+ 
+ 
+ 
+ 
+ 
+ Calhoun 
+ VD 
+ 
+ 
+ Adali 
+ T 
+ 
+ 
+ Pearlson 
+ GD 
+ 
+ 
+ Pekar 
+ JJ 
+ 
+ 
+ A Method for Making Group Inferences from Functional MRI Data Using Independent Component Analysis 
+ Human Brain Mapping 
+ 2001 
+ 14 
+ 140 
+ 151 
+ 11559959 
+ 
+ 
+ 
+ 
+ 
+ 
+ Calhoun 
+ VD 
+ 
+ 
+ Eichele 
+ T 
+ 
+ 
+ Pearlson 
+ G 
+ 
+ 
+ Functional brain networks in schizophrenia: a review 
+ Front Hum Neurosci 
+ 2009 
+ 3 
+ 17 
+ 19738925 
+ 
+ 
+ 
+ 
+ 
+ 
+ Calhoun 
+ VD 
+ 
+ 
+ Wu 
+ L 
+ 
+ 
+ Kiehl 
+ KA 
+ 
+ 
+ Eichele 
+ T 
+ 
+ 
+ Pearlson 
+ G 
+ 
+ 
+ Aberrant Processing of Deviant Stimuli in Schizophrenia Revealed by Fusion of FMRI and EEG Data 
+ Acta Neuropsychiatrica 
+ In Press. 
+ 
+ 
+ 
+ 
+ 
+ 
+ Chapman 
+ RM 
+ 
+ 
+ Armington 
+ JC 
+ 
+ 
+ Bragdon 
+ HR 
+ 
+ 
+ A quantitative survey of kappa and alpha EEG activity 
+ Electroencephalogr Clin Neurophysiol 
+ 1962 
+ 14 
+ 858 
+ 868 
+ 14020161 
+ 
+ 
+ 
+ 
+ 
+ 
+ Correa 
+ NM 
+ 
+ 
+ Eichele 
+ T 
+ 
+ 
+ Adali 
+ T 
+ 
+ 
+ Li 
+ YO 
+ 
+ 
+ Calhoun 
+ VD 
+ 
+ 
+ Multi-set canonical correlation analysis for the fusion of concurrent single trial ERP and functional MRI 
+ Neuroimage 
+ 2010 
+ 50 
+ 1438 
+ 1445 
+ 20100584 
+ 
+ 
+ 
+ 
+ 
+ 
+ de Munck 
+ JC 
+ 
+ 
+ Goncalves 
+ SI 
+ 
+ 
+ Faes 
+ TJ 
+ 
+ 
+ Kuijer 
+ JP 
+ 
+ 
+ Pouwels 
+ PJ 
+ 
+ 
+ Heethaar 
+ RM 
+ 
+ 
+ Lopes da Silva 
+ FH 
+ 
+ 
+ A study of the brain's resting state based on alpha band power, heart rate and fMRI 
+ Neuroimage 
+ 2008 
+ 42 
+ 112 
+ 121 
+ 18539049 
+ 
+ 
+ 
+ 
+ 
+ 
+ de Munck 
+ JC 
+ 
+ 
+ Gonçalves 
+ SI 
+ 
+ 
+ Huijboom 
+ L 
+ 
+ 
+ Kuijer 
+ JPA 
+ 
+ 
+ Pouwels 
+ PJW 
+ 
+ 
+ Heethaar 
+ RM 
+ 
+ 
+ Lopes da Silva 
+ FH 
+ 
+ 
+ The hemodynamic response of the alpha rhythm: An EEG/fMRI study 
+ Neuroimage 
+ 2007 
+ 35 
+ 1142 
+ 1151 
+ 17336548 
+ 
+ 
+ 
+ 
+ 
+ 
+ de Munck 
+ JC 
+ 
+ 
+ Goncalves 
+ SI 
+ 
+ 
+ Mammoliti 
+ R 
+ 
+ 
+ Heethaar 
+ RM 
+ 
+ 
+ Lopes da Silva 
+ FH 
+ 
+ 
+ Interactions between different EEG frequency bands and their effect on alpha-fMRI correlations 
+ Neuroimage 
+ 2009 
+ 47 
+ 69 
+ 76 
+ 19376236 
+ 
+ 
+ 
+ 
+ 
+ 
+ Debener 
+ S 
+ 
+ 
+ Herrmann 
+ CS 
+ 
+ 
+ Integration of EEG and fMRI 
+ Editorial. Int J Psychophysiol 
+ 2008 
+ 67 
+ 159 
+ 160 
+ 
+ 
+ 
+ 
+ 
+ 
+ Debener 
+ S 
+ 
+ 
+ Ullsperger 
+ M 
+ 
+ 
+ Siegel 
+ M 
+ 
+ 
+ Engel 
+ AK 
+ 
+ 
+ Single-trial EEG-fMRI reveals the dynamics of cognitive function 
+ Trends Cogn Sci 
+ 2006 
+ 10 
+ 558 
+ 563 
+ 17074530 
+ 
+ 
+ 
+ 
+ 
+ 
+ Debener 
+ S 
+ 
+ 
+ Ullsperger 
+ M 
+ 
+ 
+ Siegel 
+ M 
+ 
+ 
+ Fiehler 
+ K 
+ 
+ 
+ von Cramon 
+ DY 
+ 
+ 
+ Engel 
+ AK 
+ 
+ 
+ Trial-by-trial coupling of concurrent electroencephalogram and functional magnetic resonance imaging identifies the dynamics of performance monitoring 
+ J Neurosci 
+ 2005 
+ 25 
+ 11730 
+ 11737 
+ 16354931 
+ 
+ 
+ 
+ 
+ 
+ 
+ Deco 
+ G 
+ 
+ 
+ Jirsa 
+ V 
+ 
+ 
+ Mclntosh 
+ AR 
+ 
+ 
+ Sporns 
+ O 
+ 
+ 
+ Kötter 
+ R 
+ 
+ 
+ Key role of coupling, delay, and noise in resting brain fluctuations 
+ Proc Natl Acad Sci USA 
+ 2009 
+ 106 
+ 10302 
+ 10307 
+ 19497858 
+ 
+ 
+ 
+ 
+ 
+ 
+ Delorme 
+ A 
+ 
+ 
+ Makeig 
+ S 
+ 
+ 
+ EEGLAB: an open source toolbox for analysis of single-trial EEG dynamics including independent component analysis 
+ J Neurosci Methods 
+ 2004 
+ 134 
+ 9 
+ 21 
+ 15102499 
+ 
+ 
+ 
+ 
+ 
+ 
+ Eichele 
+ T 
+ 
+ 
+ Calhoun 
+ VD 
+ 
+ 
+ Debener 
+ S 
+ 
+ 
+ Mining EEG-fMRI using independent component analysis 
+ Int J Psychophysiol 
+ 2009 
+ 73 
+ 53 
+ 61 
+ 19223007 
+ 
+ 
+ 
+ 
+ 
+ 
+ Eichele 
+ T 
+ 
+ 
+ Calhoun 
+ VD 
+ 
+ 
+ Moosmann 
+ M 
+ 
+ 
+ Specht 
+ K 
+ 
+ 
+ Jongsma 
+ ML 
+ 
+ 
+ Quiroga 
+ RQ 
+ 
+ 
+ Nordby 
+ H 
+ 
+ 
+ Hugdahl 
+ K 
+ 
+ 
+ Unmixing concurrent EEG-fMRI with parallel independent component analysis 
+ Int J Psychophysiol 
+ 2008a 
+ 67 
+ 222 
+ 234 
+ 17688963 
+ 
+ 
+ 
+ 
+ 
+ 
+ Eichele 
+ T 
+ 
+ 
+ Debener 
+ S 
+ 
+ 
+ Calhoun 
+ VD 
+ 
+ 
+ Specht 
+ K 
+ 
+ 
+ Engel 
+ AK 
+ 
+ 
+ Hugdahl 
+ K 
+ 
+ 
+ von Cramon 
+ DY 
+ 
+ 
+ Ullsperger 
+ M 
+ 
+ 
+ Prediction of human errors by maladaptive changes in event-related brain networks 
+ Proc Natl Acad Sci U S A 
+ 2008b 
+ 105 
+ 6173 
+ 6178 
+ 18427123 
+ 
+ 
+ 
+ 
+ 
+ 
+ Eichele 
+ T 
+ 
+ 
+ Specht 
+ K 
+ 
+ 
+ Moosmann 
+ M 
+ 
+ 
+ Jongsma 
+ ML 
+ 
+ 
+ Quiroga 
+ RQ 
+ 
+ 
+ Nordby 
+ H 
+ 
+ 
+ Hugdahl 
+ K 
+ 
+ 
+ Assessing the spatiotemporal evolution of neuronal activation with single-trial event-related potentials and functional MRI 
+ Proc Natl Acad Sci USA 
+ 2005 
+ 102 
+ 17798 
+ 17803 
+ 16314575 
+ 
+ 
+ 
+ 
+ 
+ 
+ Feige 
+ B 
+ 
+ 
+ Scheffler 
+ K 
+ 
+ 
+ Esposito 
+ F 
+ 
+ 
+ Di Salle 
+ F 
+ 
+ 
+ Hennig 
+ J 
+ 
+ 
+ Seifritz 
+ E 
+ 
+ 
+ Cortical and subcortical correlates of electroencephalographic alpha rhythm modulation 
+ J Neurophysiol 
+ 2005 
+ 93 
+ 2864 
+ 2872 
+ 15601739 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fox 
+ MD 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ Spontaneous fluctuations in brain activity observed with functional magnetic resonance imaging 
+ Nat Rev Neurosci 
+ 2007 
+ 8 
+ 700 
+ 711 
+ 17704812 
+ 
+ 
+ 
+ 
+ 
+ 
+ Freire 
+ L 
+ 
+ 
+ Mangin 
+ JF 
+ 
+ 
+ Motion Correction Algorithms May Create Spurious Brain Activations in the Absence of Subject Motion 
+ Neuroimage 
+ 2001 
+ 14 
+ 709 
+ 722 
+ 11506543 
+ 
+ 
+ 
+ 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ Models of brain function in neuroimaging 
+ Annu. Rev. Psychol 
+ 2005 
+ 56 
+ 57 
+ 87 
+ 15709929 
+ 
+ 
+ 
+ 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ Ashburner 
+ J 
+ 
+ 
+ Frith 
+ CD 
+ 
+ 
+ Poline 
+ JB 
+ 
+ 
+ Heather 
+ JD 
+ 
+ 
+ Frackowiak 
+ RSJ 
+ 
+ 
+ Spatial registration and normalization of images 
+ Human Brain Mapping 
+ 1995 
+ 3 
+ 165 
+ 189 
+ 
+ 
+ 
+ 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ Mechelli 
+ A 
+ 
+ 
+ Turner 
+ R 
+ 
+ 
+ Price 
+ CJ 
+ 
+ 
+ Nonlinear Responses in fMRI: The Balloon Model, Volterra Kernels, and Other Hemodynamics 
+ Neuroimage 
+ 2000 
+ 12 
+ 466 
+ 477 
+ 10988040 
+ 
+ 
+ 
+ 
+ 
+ 
+ Gale 
+ A 
+ 
+ 
+ Coles 
+ M 
+ 
+ 
+ Boyd 
+ E 
+ 
+ 
+ Variation in visual input and the occipital EEG: II 
+ Psychonomic Science 
+ 1971 
+ 23 
+ 99 
+ 100 
+ 
+ 
+ 
+ 
+ 
+ 
+ Gevins 
+ A 
+ 
+ 
+ Smith 
+ ME 
+ 
+ 
+ McEvoy 
+ L 
+ 
+ 
+ Yu 
+ D 
+ 
+ 
+ High-resolution EEG mapping of cortical activation related to working memory: effects of task difficulty, type of processing, and practice 
+ Cereb Cortex 
+ 1997 
+ 7 
+ 374 
+ 385 
+ 9177767 
+ 
+ 
+ 
+ 
+ 
+ 
+ Glover 
+ GH 
+ 
+ 
+ Deconvolution of impulse response in event-related BOLD fMRI 
+ Neuroimage 
+ 1999 
+ 9 
+ 416 
+ 429 
+ 10191170 
+ 
+ 
+ 
+ 
+ 
+ 
+ Goldman 
+ RI 
+ 
+ 
+ Stern 
+ JM 
+ 
+ 
+ Engel 
+ J 
+ Jr 
+ 
+ 
+ Cohen 
+ MS 
+ 
+ 
+ Simultaneous EEG and fMRI of the alpha rhythm 
+ Neuroreport 
+ 2002 
+ 13 
+ 2487 
+ 2492 
+ 12499854 
+ 
+ 
+ 
+ 
+ 
+ 
+ Goncalves 
+ SI 
+ 
+ 
+ Bijma 
+ F 
+ 
+ 
+ Pouwels 
+ PJW 
+ 
+ 
+ Jonker 
+ MA 
+ 
+ 
+ Kuijer 
+ JPA 
+ 
+ 
+ Heethaar 
+ RM 
+ 
+ 
+ da Silva 
+ FHL 
+ 
+ 
+ de Munck 
+ JC 
+ 
+ 
+ Inter-subject variability of resting state brain activity explored using a data and model-driven approach in combination with EEG-FMRI 
+ Biomedical Imaging: From Nano to Macro, 2008. ISBI 2008 
+ 2008 
+ 5th IEEE International Symposium on 
+ 608 
+ 611 
+ 
+ 
+ 
+ 
+ 
+ 
+ Goncalves 
+ SI 
+ 
+ 
+ de Munck 
+ JC 
+ 
+ 
+ Pouwels 
+ PJ 
+ 
+ 
+ Schoonhoven 
+ R 
+ 
+ 
+ Kuijer 
+ JP 
+ 
+ 
+ Maurits 
+ NM 
+ 
+ 
+ Hoogduin 
+ JM 
+ 
+ 
+ Van Someren 
+ EJ 
+ 
+ 
+ Heethaar 
+ RM 
+ 
+ 
+ Lopes da Silva 
+ FH 
+ 
+ 
+ Correlating the alpha rhythm to BOLD using simultaneous EEG/fMRI: inter-subject variability 
+ Neuroimage 
+ 2006 
+ 30 
+ 203 
+ 213 
+ 16290018 
+ 
+ 
+ 
+ 
+ 
+ 
+ Handwerker 
+ DA 
+ 
+ 
+ Ollinger 
+ JM 
+ 
+ 
+ D'Esposito 
+ M 
+ 
+ 
+ Variation of BOLD hemodynamic responses across subjects and brain regions and their effects on statistical analyses 
+ Neuroimage 
+ 2004 
+ 21 
+ 1639 
+ 1651 
+ 15050587 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hari 
+ R 
+ 
+ 
+ Salmelin 
+ R 
+ 
+ 
+ Makela 
+ JP 
+ 
+ 
+ Salenius 
+ S 
+ 
+ 
+ Helle 
+ M 
+ 
+ 
+ Magnetoencephalographic cortical rhythms 
+ Int J Psychophysiol 
+ 1997 
+ 26 
+ 51 
+ 62 
+ 9202994 
+ 
+ 
+ 
+ 
+ 
+ 
+ Himberg 
+ J 
+ 
+ 
+ Hyvärinen 
+ A 
+ 
+ 
+ Esposito 
+ F 
+ 
+ 
+ Validating the independent components of neuroimaging time series via clustering and visualization 
+ Neuroimage 
+ 2004 
+ 22 
+ 1214 
+ 1222 
+ 15219593 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hughes 
+ SW 
+ 
+ 
+ Crunelli 
+ V 
+ 
+ 
+ Thalamic mechanisms of EEG alpha rhythms and their pathological implications 
+ Neuroscientist 
+ 2005 
+ 11 
+ 357 
+ 372 
+ 16061522 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hyvarinen 
+ A 
+ 
+ 
+ Ramkumar 
+ P 
+ 
+ 
+ Parkkonen 
+ L 
+ 
+ 
+ Hari 
+ R 
+ 
+ 
+ Independent component analysis of short-time Fourier transforms for spontaneous EEG/MEG analysis 
+ Neuroimage 
+ 2010 
+ 49 
+ 257 
+ 271 
+ 19699307 
+ 
+ 
+ 
+ 
+ 
+ 
+ Jafri 
+ MJ 
+ 
+ 
+ Pearlson 
+ GD 
+ 
+ 
+ Stevens 
+ M 
+ 
+ 
+ Calhoun 
+ VD 
+ 
+ 
+ A method for functional network connectivity among spatially independent resting-state components in schizophrenia 
+ Neuroimage 
+ 2008 
+ 39 
+ 1666 
+ 1681 
+ 18082428 
+ 
+ 
+ 
+ 
+ 
+ 
+ Jung 
+ TP 
+ 
+ 
+ Makeig 
+ S 
+ 
+ 
+ Humphries 
+ C 
+ 
+ 
+ Lee 
+ TW 
+ 
+ 
+ McKeown 
+ MJ 
+ 
+ 
+ Iragui 
+ V 
+ 
+ 
+ Sejnowski 
+ TJ 
+ 
+ 
+ Removing electroencephalographic artifacts by blind source separation 
+ Psychophysiology 
+ 2000 
+ 37 
+ 163 
+ 178 
+ 10731767 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kiviniemi 
+ V 
+ 
+ 
+ Kantola 
+ JH 
+ 
+ 
+ Jauhiainen 
+ J 
+ 
+ 
+ Tervonen 
+ O 
+ 
+ 
+ Comparison of methods for detecting nondeterministic BOLD fluctuation in fMRI 
+ Magn Reson Imaging 
+ 2004 
+ 22 
+ 197 
+ 203 
+ 15010111 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kiviniemi 
+ VJ 
+ 
+ 
+ Starck 
+ T 
+ 
+ 
+ Remes 
+ J 
+ 
+ 
+ Long 
+ X 
+ 
+ 
+ Nikkinen 
+ J 
+ 
+ 
+ Haapea 
+ M 
+ 
+ 
+ Veijola 
+ J 
+ 
+ 
+ Moilanen 
+ I 
+ 
+ 
+ Isohanni 
+ M 
+ 
+ 
+ Zang 
+ YF 
+ 
+ 
+ Tervonen 
+ O 
+ 
+ 
+ Functional segmentation of the brain cortex using high model order group-PICA 
+ Neuroimage 
+ 2009 
+ 47 
+ S194 
+ S194 
+ 
+ 
+ 
+ 
+ 
+ 
+ Klimesch 
+ W 
+ 
+ 
+ EEG alpha and theta oscillations reflect cognitive and memory performance: a review and analysis 
+ Brain Res Brain Res Rev 
+ 1999 
+ 29 
+ 169 
+ 195 
+ 10209231 
+ 
+ 
+ 
+ 
+ 
+ 
+ Klimesch 
+ W 
+ 
+ 
+ Sauseng 
+ P 
+ 
+ 
+ Hanslmayr 
+ S 
+ 
+ 
+ EEG alpha oscillations: the inhibition-timing hypothesis 
+ Brain Res Rev 
+ 2007 
+ 53 
+ 63 
+ 88 
+ 16887192 
+ 
+ 
+ 
+ 
+ 
+ 
+ Koles 
+ ZJ 
+ 
+ 
+ Trends in EEG source localization 
+ Electroencephalogr Clin Neurophysiol 
+ 1998 
+ 106 
+ 127 
+ 137 
+ 9741773 
+ 
+ 
+ 
+ 
+ 
+ 
+ Laufs 
+ H 
+ 
+ 
+ Kleinschmidt 
+ A 
+ 
+ 
+ Beyerle 
+ A 
+ 
+ 
+ Eger 
+ E 
+ 
+ 
+ Salek-Haddadi 
+ A 
+ 
+ 
+ Preibisch 
+ C 
+ 
+ 
+ Krakow 
+ K 
+ 
+ 
+ EEG-correlated fMRI of human alpha activity 
+ Neuroimage 
+ 2003a 
+ 19 
+ 1463 
+ 1476 
+ 12948703 
+ 
+ 
+ 
+ 
+ 
+ 
+ Laufs 
+ H 
+ 
+ 
+ Krakow 
+ K 
+ 
+ 
+ Sterzer 
+ P 
+ 
+ 
+ Eger 
+ E 
+ 
+ 
+ Beyerle 
+ A 
+ 
+ 
+ Salek-Haddadi 
+ A 
+ 
+ 
+ Kleinschmidt 
+ A 
+ 
+ 
+ Electroencephalographic signatures of attentional and cognitive default modes in spontaneous brain activity fluctuations at rest 
+ Proc Natl Acad Sci USA 
+ 2003b 
+ 100 
+ 11053 
+ 11058 
+ 12958209 
+ 
+ 
+ 
+ 
+ 
+ 
+ Logothetis 
+ NK 
+ 
+ 
+ Pauls 
+ J 
+ 
+ 
+ Augath 
+ M 
+ 
+ 
+ Trinath 
+ T 
+ 
+ 
+ Oeltermann 
+ A 
+ 
+ 
+ Neurophysiological investigation of the basis of the fMRI signal 
+ Nature 
+ 2001 
+ 412 
+ 150 
+ 157 
+ 11449264 
+ 
+ 
+ 
+ 
+ 
+ 
+ Logothetis 
+ NK 
+ 
+ 
+ Wandell 
+ BA 
+ 
+ 
+ Interpreting the BOLD signal 
+ Annu Rev Physiol 
+ 2004 
+ 66 
+ 735 
+ 769 
+ 14977420 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lopes da Silva 
+ F 
+ 
+ 
+ Neural mechanisms underlying brain waves: from neural membranes to networks 
+ Electroencephalography and Clinical Neurophysiology 
+ 1991 
+ 79 
+ 81 
+ 93 
+ 1713832 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lopes da Silva 
+ FH 
+ 
+ 
+ Van Lierop 
+ T 
+ 
+ 
+ Schrijer 
+ CF 
+ 
+ 
+ Storm van Leeuwen 
+ W 
+ 
+ 
+ Organization of thalamic and cortical alpha rhythms: spectra and coherences 
+ Electroencephalogr Clin Neurophysiol 
+ 1973 
+ 35 
+ 627 
+ 639 
+ 4128158 
+ 
+ 
+ 
+ 
+ 
+ 
+ Makeig 
+ S 
+ 
+ 
+ Debener 
+ S 
+ 
+ 
+ Onton 
+ J 
+ 
+ 
+ Delorme 
+ A 
+ 
+ 
+ Mining event-related brain dynamics 
+ Trends Cogn Sci 
+ 2004 
+ 8 
+ 204 
+ 210 
+ 15120678 
+ 
+ 
+ 
+ 
+ 
+ 
+ Makeig 
+ S 
+ 
+ 
+ Westerfield 
+ M 
+ 
+ 
+ Jung 
+ TP 
+ 
+ 
+ Enghoff 
+ S 
+ 
+ 
+ Townsend 
+ J 
+ 
+ 
+ Courchesne 
+ E 
+ 
+ 
+ Sejnowski 
+ TJ 
+ 
+ 
+ Dynamic brain sources of visual evoked responses 
+ Science 
+ 2002 
+ 295 
+ 690 
+ 694 
+ 11809976 
+ 
+ 
+ 
+ 
+ 
+ 
+ Mantini 
+ D 
+ 
+ 
+ Perrucci 
+ MG 
+ 
+ 
+ Del Gratta 
+ C 
+ 
+ 
+ Romani 
+ GL 
+ 
+ 
+ Corbetta 
+ M 
+ 
+ 
+ Electrophysiological signatures of resting state networks in the human brain 
+ Proc Natl Acad Sci U S A 
+ 2007 
+ 104 
+ 13170 
+ 13175 
+ 17670949 
+ 
+ 
+ 
+ 
+ 
+ 
+ McAvoy 
+ M 
+ 
+ 
+ Larson-Prior 
+ L 
+ 
+ 
+ Nolan 
+ TS 
+ 
+ 
+ Vaishnavi 
+ SN 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ d'Avossa 
+ G 
+ 
+ 
+ Resting states affect spontaneous BOLD oscillations in sensory and paralimbic cortex 
+ J Neurophysiol 
+ 2008 
+ 100 
+ 922 
+ 931 
+ 18509068 
+ 
+ 
+ 
+ 
+ 
+ 
+ Moosmann 
+ M 
+ 
+ 
+ Eichele 
+ T 
+ 
+ 
+ Nordby 
+ H 
+ 
+ 
+ Hugdahl 
+ K 
+ 
+ 
+ Calhoun 
+ VD 
+ 
+ 
+ Joint independent component analysis for simultaneous EEG-fMRI: principle and simulation 
+ Int J Psychophysiol 
+ 2008 
+ 67 
+ 212 
+ 221 
+ 17688965 
+ 
+ 
+ 
+ 
+ 
+ 
+ Moosmann 
+ M 
+ 
+ 
+ Ritter 
+ P 
+ 
+ 
+ Krastel 
+ I 
+ 
+ 
+ Brink 
+ A 
+ 
+ 
+ Thees 
+ S 
+ 
+ 
+ Blankenburg 
+ F 
+ 
+ 
+ Taskin 
+ B 
+ 
+ 
+ Obrig 
+ H 
+ 
+ 
+ Villringer 
+ A 
+ 
+ 
+ Correlates of alpha rhythm in functional magnetic resonance imaging and near infrared spectroscopy 
+ Neuroimage 
+ 2003 
+ 20 
+ 145 
+ 158 
+ 14527577 
+ 
+ 
+ 
+ 
+ 
+ 
+ Niazy 
+ RK 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ Iannetti 
+ GD 
+ 
+ 
+ Brady 
+ JM 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Removal of FMRI environment artifacts from EEG data using optimal basis sets 
+ Neuroimage 
+ 2005 
+ 28 
+ 720 
+ 737 
+ 16150610 
+ 
+ 
+ 
+ 
+ 
+ 
+ Onton 
+ J 
+ 
+ 
+ Delorme 
+ A 
+ 
+ 
+ Makeig 
+ S 
+ 
+ 
+ Frontal midline EEG dynamics during working memory 
+ Neuroimage 
+ 2005 
+ 27 
+ 341 
+ 356 
+ 15927487 
+ 
+ 
+ 
+ 
+ 
+ 
+ Palva 
+ S 
+ 
+ 
+ Palva 
+ JM 
+ 
+ 
+ New vistas for alpha-frequency band oscillations 
+ Trends Neurosci 
+ 2007 
+ 30 
+ 150 
+ 158 
+ 17307258 
+ 
+ 
+ 
+ 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ MacLeod 
+ AM 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Powers 
+ WJ 
+ 
+ 
+ Gusnard 
+ DA 
+ 
+ 
+ Shulman 
+ GL 
+ 
+ 
+ A default mode of brain function 
+ Proc Natl Acad Sci U S A 
+ 2001 
+ 98 
+ 676 
+ 682 
+ 11209064 
+ 
+ 
+ 
+ 
+ 
+ 
+ Rzepecki-Smith 
+ CI 
+ 
+ 
+ Meda 
+ SA 
+ 
+ 
+ Calhoun 
+ VD 
+ 
+ 
+ Stevens 
+ MC 
+ 
+ 
+ Jafri 
+ MJ 
+ 
+ 
+ Astur 
+ RS 
+ 
+ 
+ Pearlson 
+ GD 
+ 
+ 
+ Disruptions in Functional Network Connectivity During Alcohol Intoxicated Driving 
+ Alcoholism: Clinical and Experimental Research 
+ 2009 
+ 34 
+ 479 
+ 487 
+ 
+ 
+ 
+ 
+ 
+ 
+ Sadato 
+ N 
+ 
+ 
+ Nakamura 
+ S 
+ 
+ 
+ Oohashi 
+ T 
+ 
+ 
+ Nishina 
+ E 
+ 
+ 
+ Fuwamoto 
+ Y 
+ 
+ 
+ Waki 
+ A 
+ 
+ 
+ Yonekura 
+ Y 
+ 
+ 
+ Neural networks for generation and suppression of alpha rhythm: a PET study 
+ Neuroreport 
+ 1998 
+ 9 
+ 893 
+ 897 
+ 9579686 
+ 
+ 
+ 
+ 
+ 
+ 
+ Sakoglu 
+ U 
+ 
+ 
+ Pearlson 
+ GD 
+ 
+ 
+ Kiehl 
+ KA 
+ 
+ 
+ Wang 
+ Y 
+ 
+ 
+ Michael 
+ A 
+ 
+ 
+ Calhoun 
+ VD 
+ 
+ 
+ A Method for Evaluating Dynamic Functional Network Connectivity and Task-Modulation: Application to Schizophrenia 
+ MAGMA 
+ In Press. 
+ 
+ 
+ 
+ 
+ 
+ 
+ Schreckenberger 
+ M 
+ 
+ 
+ Lange-Asschenfeld 
+ C 
+ 
+ 
+ Lochmann 
+ M 
+ 
+ 
+ Mann 
+ K 
+ 
+ 
+ Siessmeier 
+ T 
+ 
+ 
+ Buchholz 
+ H-G 
+ 
+ 
+ Bartenstein 
+ P 
+ 
+ 
+ Gründer 
+ G 
+ 
+ 
+ The thalamus as the generator and modulator of EEG alpha rhythm: a combined PET/EEG study with lorazepam challenge in humans 
+ Neuroimage 
+ 2004 
+ 22 
+ 637 
+ 644 
+ 15193592 
+ 
+ 
+ 
+ 
+ 
+ 
+ Spitzer 
+ RL 
+ 
+ 
+ Williams 
+ JBW 
+ 
+ 
+ Gibbon 
+ M 
+ 
+ 
+ Structured Clinical Interview for DSM-IV: non-patient edition (SCID-NP) 
+ 1996 
+ New York 
+ Biometrics Research Department, New York State Psychiatric Institute 
+ 
+ 
+ 
+ 
+ 
+ 
+ Steriade 
+ M 
+ 
+ 
+ Gloor 
+ P 
+ 
+ 
+ Llinás 
+ RR 
+ 
+ 
+ Lopes da Silva 
+ FH 
+ 
+ 
+ Mesulam 
+ MM 
+ 
+ 
+ Basic mechanisms of cerebral rhythmic activities 
+ Electroencephalography and Clinical Neurophysiology 
+ 1990 
+ 76 
+ 481 
+ 508 
+ 1701118 
+ 
+ 
+ 
+ 
+ 
+ 
+ Thirion 
+ B 
+ 
+ 
+ Dodel 
+ S 
+ 
+ 
+ Poline 
+ JB 
+ 
+ 
+ Detection of signal synchronizations in resting-state fMRI datasets 
+ Neuroimage 
+ 2006 
+ 29 
+ 321 
+ 327 
+ 16129624 
+ 
+ 
+ 
+ 
+ 
+ 
+ Tyvaert 
+ L 
+ 
+ 
+ Levan 
+ P 
+ 
+ 
+ Grova 
+ C 
+ 
+ 
+ Dubeau 
+ F 
+ 
+ 
+ Gotman 
+ J 
+ 
+ 
+ Effects of fluctuating physiological rhythms during prolonged EEG-fMRI studies 
+ Clin Neurophysiol 
+ 2008 
+ 119 
+ 2762 
+ 2774 
+ 18977169 
+ 
+ 
+ 
+ 
+ 
+ 
+ Volavka 
+ J 
+ 
+ 
+ Matousek 
+ M 
+ 
+ 
+ Roubicek 
+ J 
+ 
+ 
+ Mental arithmetic and eye opening. An EEG frequency analysis and GSR study 
+ Electroencephalogr Clin Neurophysiol 
+ 1967 
+ 22 
+ 174 
+ 176 
+ 4163688 
+ 
+ 
+ 
+ 
+ 
+ 
+ Zibulevsky 
+ M 
+ 
+ 
+ Pearlmutter 
+ BA 
+ 
+ 
+ Blind source separation by sparse decomposition in a signal dictionary 
+ Neural Comput 
+ 2001 
+ 13 
+ 863 
+ 882 
+ 11255573 
+ 
+ 
+ 
+ 
+ 
+ 
+ Zou 
+ Q 
+ 
+ 
+ Long 
+ X 
+ 
+ 
+ Zuo 
+ X 
+ 
+ 
+ Yan 
+ C 
+ 
+ 
+ Zhu 
+ C 
+ 
+ 
+ Yang 
+ Y 
+ 
+ 
+ Liu 
+ D 
+ 
+ 
+ He 
+ Y 
+ 
+ 
+ Zang 
+ Y 
+ 
+ 
+ Functional Connectivity Between the Thalamus and Visual Cortex Under Eyes Closed and Eyes Open Conditions: A Resting-State fMRI Study 
+ Human Brain Mapping 
+ 2009 
+ 30 
+ 3066 
+ 3078 
+ 19172624 
+ 
+ 
+ 
+ 

@@ -1,0 +1,4027 @@
+
+ properties manuscript? 
+ 
+ 
+ 8218014 
+ 1577 
+ Brain Cogn 
+ Brain Cogn 
+ 
+ Brain and cognition 
+ 
+ 0278-2626 
+ 1090-2147 
+ 
+ 
+ 27105037 
+ 5233432 
+ 10.1016/j.bandc.2016.03.008 
+ NIHMS780225 
+ 
+ 
+ Article 
+ 
+ 
+ 
+ Functional independence in resting-state connectivity facilitates higher-order cognition 
+ 
+ 
+ 
+ 
+ James 
+ G. Andrew 
+ 
+ * 
+ 
+ 
+ 
+ Kearney-Ramos 
+ Tonisha E. 
+ 
+ 
+ 
+ 
+ Young 
+ Jonathan A. 
+ 
+ 
+ 
+ 
+ Kilts 
+ Clinton D. 
+ 
+ 
+ 
+ 
+ Gess 
+ Jennifer L. 
+ 
+ 
+ 
+ 
+ Fausett 
+ Jennifer S. 
+ 
+ 
+ Psychiatric Research Institute, University of Arkansas for Medical Sciences, United States 
+ 
+ 
+ * Corresponding author at: Psychiatric Research Institute, University of Arkansas for Medical Sciences, 4301 W. Markham St #554, Little Rock, AR 72205-7199, United States.  GAJames@uams.edu  (G.A. James) 
+ 
+ 
+ 8 
+ 5 
+ 2016 
+ 
+ 
+ 20 
+ 4 
+ 2016 
+ 
+ 
+ 6 
+ 2016 
+ 
+ 
+ 01 
+ 6 
+ 2017 
+ 
+ 105 
+ 78 
+ 87 
+ 
+ 
+ This file is available for text mining. It may also be used consistent with the principles of fair use under the copyright law. 
+ 
+ 
+ 
+ Growing evidence suggests that intrinsic functional connectivity (i.e. highly structured patterns of communication between brain regions during wakeful rest) may encode cognitive ability. However, the generalizability of these findings is limited by between-study differences in statistical methodology and cognitive domains evaluated. To address this barrier, we evaluated resting-state neural representations of multiple cognitive domains within a relatively large normative adult sample. Forty-four participants (mean(sd) age = 31(10) years; 18 male and 26 female) completed a resting-state functional MRI scan and neuropsychological assessments spanning motor, visuospatial, language, learning, memory, attention, working memory, and executive function performance. Robust linear regression related cognitive performance to resting-state connectivity among 200  a priori  determined functional regions of interest (ROIs). Only higher-order cognitions (such as learning and executive function) demonstrated significant relationships between brain function and behavior. Additionally, all significant relationships were negative – characterized by moderately positive correlations among low performers and weak to moderately negative correlations among high performers. These findings suggest that functional independence among brain regions at rest facilitates cognitive performance. Our interpretation is consistent with graph theoretic analyses which represent the brain as independent functional nodes that undergo dynamic reorganization with task demand. Future work will build upon these findings by evaluating domain-specific variance in resting-state neural representations of cognitive impairment among patient populations. 
+ 
+ 
+ Connectome 
+ Individual differences 
+ Memory 
+ fMRI 
+ Attention 
+ Executive functioning 
+ 
+ 
+ 
+ 
+ 1. Introduction 
+ Functional neuroimaging studies of brain organization during wakeful rest have become increasingly popularity over the past decade ( Allen et al., 2011 ;  Beckmann, DeLuca, Devlin, & Smith, 2005 ;  Greicius, Krasnow, Reiss, & Menon, 2003 ;  van den Heuvel, Mandl, Kahn, & Hulshoff Pol, 2009 ;  van den Heuvel & Pol, 2010 ). These  resting-state fMRI  (rs-fMRI) studies seek to model patterns of connectivity between brain regions in the absence of overt task, thus capturing the brain’s  intrinsic  functional organization. Brain networks identified at rest have strong correspondence with networks recruited by tasks ( Kristo et al., 2014 ;  Smith et al., 2009 ;  Thomason et al., 2011 ) and exhibit high within-subject replicability ( Damoiseaux et al., 2006 ;  Shehzad et al., 2009 ). rs-fMRI scans are more easily replicated across sites than task-based fMRI scans and do not require effort from the participant, thus avoiding confounds from individual differences in task performance or behavior. These factors have contributed to rs-fMRI’s emerging popularity for studying clinical disorders, notably major depressive disorder ( Craddock, Holtzheimer, Hu, & Mayberg, 2009 ;  Greicius et al., 2007 ;  Kerestes, Davey, Stephanou, Whittle, & Harrison, 2014 ;  Sheline, Price, Yan, & Mintun, 2010 ) and schizophrenia ( Amad et al., 2013 ;  Arbabshirani, Kiehl, Pearlson, & Calhoun, 2013 ;  Bassett et al., 2008 ;  Bullmore et al., 2010 ;  Cole, Anticevic, Repovs, & Barch, 2011 ;  Lynall et al., 2010 ). 
+ Among healthy participants, rs-fMRI has been used to predict individual differences in traits including age ( Allen et al., 2011 ;  Dosenbach et al., 2010 ;  Fair et al., 2007 ) and personality ( Adelstein et al., 2011 ;  Kunisato et al., 2011 ). rs-fMRI has also been used to predict individual differences in cognitive ability, including working memory capacity ( Alavash, Doebler, Holling, Thiel, & Giessing, 2015 ;  Keller et al., 2015 ;  Magnuson et al., 2015 ;  Reineberg, Andrews-Hanna, Depue, Friedman, & Banich, 2015 ;  Xu et al., 2014 ), memory ( Wang et al., 2010 ), motor learning ( Stillman et al., 2013 ;  Wu, Srinivasan, Kaur, & Cramer, 2014 ), reading comprehension ( Koyama et al., 2011 ), and spatial orientation ( Arnold, Protzner, Bray, Levy, & Iaria, 2014 ). But the methodology varies considerably across these studies, including differences in neuroimaging data acquisition parameters, neuroimaging data preprocessing, statistical approach, participant characteristics, and cognitive modalities evaluated. This variance limits our ability to broadly generalize these findings to the larger population. 
+ To address this limitation, we studied resting-state neural representations of cognition within a single, well-characterized normative sample across multiple cognitive domains. The characterization of a homogenous healthy sample circumvents the methodological variance that is inherent in cross-study comparisons, thus improving the generalizability of our findings. Participants were from the Cognitive Connectome project ( Gess, Fausett, Kearney-Ramos, Kilts, & James, 2014 ;  Kearney-Ramos et al., 2014 ), which pairs clinical neuropsychological assessment with both task- and resting-state fMRI to evaluate the neural encoding of cognition among nine domains: motor, visuospatial, attention, language and cognitive fluency, memory, affective processing, decision making, working memory, and executive function. We hypothesized that performance among these cognitive domains would positively regress to resting-state connectivity of brain regions previously associated with each domain. For example, we hypothesize that working memory performance will predict resting-state connectivity of the left prefrontal cortex, whereas motor performance will predict connectivity of the ipsilateral motor cortex. 
+ 
+ 
+ 2. Materials and methods 
+ 
+ 2.1. Participants 
+ Seventy-nine participants met inclusionary criteria for the Cognitive Connectome project and were enrolled in the study. Of these, 26 (33%) met exclusion criteria (see below) and were excluded from further participation. Of the remaining 53 participants, 44 (83%) completed clinical neuropsychological assessment and at least one of the two resting-state sessions. Demographic information for the resulting sample is provided in  Table 1 . All participants were recruited with approval and oversight by the UAMS Institutional Review Board (protocol #130825). 
+ 
+ 
+ 2.2. Procedures 
+ All study procedures were conducted in the Brain Imaging Research Center at the University of Arkansas for Medical Sciences. Study participation was typically conducted in two sessions on separate days. Session 1 included study description, obtaining informed consent to participate, a structured clinical interview (SCID-IV/NP) to assess study exclusionary criteria, behavioral surveys and questionnaires (e.g., State-Trait Anxiety Inventory and Big Five Personality Inventory), and the first of two neuroimaging session (with neuroimaging session order counterbalanced across subjects). Session 2 included neuropsychological assessment and the second neuroimaging session. Exclusionary criteria included current psychopathology, current or past neurologic illness, lifetime history of loss of consciousness exceeding 10 min, or ferromagnetic implants. 
+ 
+ 2.2.1. Neuropsychological assessment 
+ Neuropsychological assessment was performed in a private, quiet room by a graduate student (TKR) with training and oversight by a board-certified clinical neuropsychologist (JKF). The following assessments were administered as per standardized instruction: LaFayette Grooved Pegboard test, Halstead-Reitan Finger-Tapping Test, Judgment of Line Orientation Task, Rey-Osterrieth Complex Figure test (Copy condition); Test of Everyday Attention subtests 1–5; Digit Span (WAIS-IV); Spatial Span (WMS-III); Boston Naming Test; D-KEFS Verbal Fluency; Verbal Paired Associates Task (WMS-IV); California Verbal Learning Test; Brief Visuospatial Memory Test-Revised (BVMT-R); D-KEFS Tower Test; D-KEFS Color-Word Test; D-KEFS Trails Test; D-KEFS Proverbs Test; Booklet Category Test, and Wisconsin Card Sorting Task (PAR WCST:CV4). Scoring was conducted per standardized instructions for each test. Although these tests have normative scores by age and education, normative scores do not exist for rs-fMRI data; consequently, all analyses used raw test scores with age and education as covariates. 
+ 
+ 
+ 2.2.2. Image acquisition 
+ Imaging data were acquired using a Philips 3T Achieva X-series MRI scanner (Philips Healthcare, Eindhoven, The Netherlands). Anatomic images were acquired with a MPRAGE sequence (matrix = 256 × 256, 220 sagittal slices of 1 mm thickness, TR/TE/FA = shortest/shortest/8°, final resolution = 1 × 0.94 × 0.94 mm 3  resolution). Functional images for early participants (001–050) were acquired using an 8-channel head coil with an echo planar imaging (EPI) sequence (TR/TE/FA = 2000 ms/30 ms/90°, FOV = 240 × 240 mm, matrix = 80 × 80, 37 oblique slices parallel to orbitofrontal cortex to reduce sinus artifact, interleaved ascending slice acquisition, slice thickness = 4 mm, final resolution 3.0 × 3.0 × 4.0 mm 3 ). For these subjects, one session’s resting-state scan was acquired with 3-mm slice thickness to be consistent with data acquired for other BIRC studies. Functional images for later participants (051+) were acquired using a 32-channel head coil with the following EPI sequence parameters: TR/TE/FA = 2000 ms/30 ms/90°, FOV = 240 × 240 mm, matrix = 80 × 80, 37 oblique slices, ascending sequential slice acquisition, slice thickness = 2.5 mm with 0.5 mm gap, final resolution 3.0 × 3.0 × 3.0 mm 3 . Parameters for the 32-channel coil were selected to reduce orbitofrontal signal loss due to sinus artifact. We have previously shown that coil type (8- or 32-channel) did not significantly influence the relationship between brain activity and performance ( Gess et al., 2014 ), so did not model coil type as a covariate in these analyses. 
+ 
+ 
+ 2.2.3. Identifying ROIs 
+ Using previously published methods ( Craddock, James, Holtzheimer, Hu, & Mayberg, 2012 ), we generated a 200 region-of-interest (ROI) atlas via functional parcellation of all fMRI data (task and rest) acquired from the Cognitive Connectome project ( James, Hazaroglu, & Bush, 2016 ). Functional parcellation is an approach for identifying  nodes  or  clusters  of spatially contiguous voxels that represent functionally independent brain regions. While similar atlases have been developed from resting-state data, we incorporated both task- and resting-state data into this atlas to capture task-induced changes in functional connectivity between voxels, thus increasing the ecological validity of our functional neuroanatomy atlas. 
+ 
+ 
+ 2.2.4. Resting state Scan and Preprocessing 
+ Participants viewed a white fixation cross centered upon a black screen and were instructed to look at the fixation cross to prevent their eyes from wandering. They were also instructed to “keep your mind from wandering – please relax, look at the cross, and try not to think about anything specific”. Each MRI session began with a resting-state scan to avoid carry-over effects of task-induced activity ( Grigg & Grady, 2010 ). 
+ All MRI data preprocessing was conducted in AFNI ( Cox, 1996 ) unless otherwise noted. Anatomic data underwent skull stripping, spatial normalization to the icbm 452 brain atlas, and segmentation into white matter (WM), gray matter (GM), and cerebrospinal fluid (CSF) with FSL ( Jenkinson, Beckmann, Behrens, Woolrich, & Smith, 2012 ). Functional data underwent despiking; slice correction; deobliquing (to 3 × 3 × 3 mm 3  voxels); motion correction (using the 10th timepoint); transformation to the spatially normalized anatomic image; regression of motion parameters, mean timecourse of WM voxels, and mean timecourse of CSF voxels; spatial smoothing with a 6-mm FWHM Gaussian kernel; and scaling to percent signal change. Using Matlab (The Mathworks, Inc.), timepoints with brief spikes in head motion were identified via the framewise displacement method ( Power, Schlaggar, & Petersen, 2015 ;  Smyser et al., 2010 ); any timepoint for which the sum of these differentials exceeded 0.5 in magnitude was excluded from the timeseries, as these sudden head movements introduce greatest fMRI artifact. Mean activity timecourses were calculated for each ROI by averaging the timeseries of voxels within the ROI. Correlation matrices were generated from these ROIs for each participant and scan, then underwent Fisher’s z-transformation to approximate linearity for subsequent regression. 
+ 
+ 
+ 
+ 2.3. Regression 
+ Prior to regression, outliers (subjects’ whose performance was three or more standard deviations outside the group mean) were identified and removed. The number of outliers removed (if any) for each test is described below. A two-stage linear regression approach was implemented in Matlab to relate cognitive performance to resting-state functional connectivity. The first stage used stepwise linear regression to determine if age or education should be included as covariates. The stepwise regression related performance, age, and education to the outcome variable (resting-state correlation between two ROIs), using  p  < 0.05 as inclusion criteria and  p  > 0.10 as exclusion criteria. The second stage used robust linear regression to relate performance (and age and/or education, if they survived the first stage) to resting-state correlation between two ROIs. Robust linear regression was selected for its resilience against outliers compared to standard linear regression, affording greater sensitivity for neuroimaging analyses ( Wager, Keller, Lacey, & Jonides, 2005 ). This resilience against outliers also makes robust regression suitable for studying small sample sizes. Robust regression was conducted using Huber M-estimation with a tuning constant of 1.345, and two metrics were saved for later analysis: model goodness of fit ( R 2 , incorporating all predictors) and the significance of regression of performance with resting-state BOLD correlation ( t -statistic, controlling for other predictors). This two-stage approach was iterated for all 19,900 unique pairs of resting-state correlations. 
+ The reliability of these findings were assessed via 10-fold cross-validation. Participants were randomly partitioned into 10 equal subsamples ( n  = 4–5 participants per subsample). For each subsample, the above procedure (stepwise regression then robust regression) was trained using participants from the other 9 subsamples, then tested by fitting the current test subsample’s participants to the resulting regression. Mean squared error (MSE) was calculated from each subject’s fit to their respective training set regression, and normalized root mean squared error (NRMSE) was calculated as the square root of MSE divided by the mean of performance variable of interest. NRMSE thus provides a unitless metric for comparing goodness-of-fit across performance measures. All scripts are available upon request. 
+ Thirty-five participants (66%) completed both fMRI sessions and thus had two resting-state fMRI datasets. Only one dataset was used for these participants, as using both would have violated the regressions’ assumptions of independence and biased our analyses. We used the each participant’s first resting-state scan to be consistent with participants who only completed one session. Three of these 35 participants (9%) had excessive head motion (>3 mm movement) which prohibited use of their first session resting-state scan; given the strong test–retest reliability of resting-state networks ( Shehzad et al., 2009 ), we chose to use these participants’ second session resting-state scan rather than exclude them from analysis. 
+ 
+ 
+ 2.4. Visualization 
+ The 200 ROI atlas corresponds to 19,900 unique correlation pairs (“edges”). Multiple comparison correction was conducted using false discovery rate (FDR) criteria  q  ≤ 0.05 ( Genovese, Lazar, & Nichols, 2002 ) to identify edges whose resting-state correlation significantly regressed to performance. These patterns of functional connectivity were visualized using BrainNet Viewer ( Xia, Wang, & He, 2013 ), with scatterplots depicting the relationships of connectivity to performance. 
+ 
+ 
+ 
+ 3. Results 
+ 
+ 3.1. Neuropsychological performance 
+ Descriptive statistics for participants’ neuropsychological assessments are provided in  Table 2 . Significant outliers were identified for the LaFayette Grooved Pegboard Test (participant #27 for left and right hand), D-KEFS Trail Making Test V (#17 and #27), Boston Naming Test (#32), and D-KEFS Trail Making Test IV (#17 and 54). All outliers performed significantly (⩾ 3 standard deviations) worse than the group mean and were removed from subsequent analyses. Additionally, not all participants completed neuropsychological assessments. For example, Digit Span Sequencing had no outliers but only 41 participants because participant #25’s Digit Span data was lost due to technical error, #65 was interrupted by a fire alarm during Digit Span Sequencing subtest, and #67 chose to complete assessments in two sessions but withdrew from the study after the first session. Furthermore, two of the three memory tests (BVMT-R Delayed Recall and Verbal Paired Associates II) had pronounced ceiling effects, with 38% and 40% of participants (respectively) achieving the maximum score. These tests thus cannot be meaningfully interpreted within this normative sample and were omitted from resting-state analysis. 
+ 
+ 
+ 3.2. Relationships of performance to resting-state functional connectivity 
+ The following instruments had significant regressions of performance to resting-state connectivity (FDR corrected  q  ≤ 0.05): working memory (Digit Span Sequencing, Spatial Span Forward), learning (BVMT-R Total Recall, CVLT Total 1–5), and executive function (D-KEFS Color-Word minus Color, D-KEFS Trails IV). Inferential statistics for these brain-behavior relationships are provided in  Table 3 , and graphical depictions of these relationships are provided in  Figs. 1 – 3 . To address concerns about the stringency of FDR correction, tables and figures depicting these brain-behavior relationships at an arbitrary threshold | t | ⩾ 4 are provided in  Supplementary Material  for all neuropsychological instruments. 
+ 
+ 
+ 
+ 4. Discussion 
+ 
+ 4.1. Interpretation of findings by cognitive domain 
+ 
+ 4.1.1. Working memory 
+ A prominent meta-analysis investigated the roles of stimulus domain (verbal, spatial, or objects) and cognitive complexity on neural representations of working memory ( Wager & Smith, 2003 ). Consistent with other meta-analyses ( Owen, McMillan, Laird, & Bullmore, 2005 ;  Smith et al., 2009 ), frontoparietal networks were broadly associated with domain-independent working memory function. Working memory tasks with high cognitive demand (requiring continuous update of information, active manipulation of stimuli, or maintaining stimulus presentation order) resulted in recruitment of regions outside the canonical frontoparietal networks including right intraparietal sulcus (IPS) as well as bilateral superior frontal cortices; these IPS and superior frontal meta-analytic clusters reported by Wager & Smith broadly encompass the right occipital region (bordering IPS) and bilateral DMPFC regions which we report as encoding Digit Span performance. Most functional connectivity studies of verbal working memory have focused upon connectivity among task-positive regions within the canonical frontoparietal network ( Dima, Jogia, & Frangou, 2014 ;  Honey et al., 2002 ;  Huang et al., 2015 ;  Shen, Zhang, Yao, & Zhao, 2015 ). Of studies investigating inter-network or whole-brain connectivity,  Magnuson et al. (2015)  reported that increased resting-state connectivity between task-positive and default-mode networks corresponded to worse performance (more errors) on the operation span verbal working memory task, and  Keller et al. (2015)  reported that greater anti-correlation (i.e. more negative correlations at rest) between medial prefrontal and dorsolateral prefrontal cortices corresponded to greater verbal working memory capacity. Our findings are thus largely consistent with existing literature. 
+ Our visuospatial working memory findings were less consistent with the literature. Of note, we report significant regressions of performance to brain connectivity only for Spatial Span Forward (a simple visual working memory task) but not Spatial Span Reverse (a more complex visual working memory task). However, the distinction between Spatial Span Forward and Reverse has been previously challenged with evidence that Spatial Span Forward also utilizes working memory ( Wilde & Strauss, 2002 ). Consistent with this finding, our participants’ Spatial Span Reverse performance did not significantly differ from Spatial Span Forward performance (as contrasted to Digit Span, where Sequencing and Backward performances were both significantly worse than Forward performance, both  t (40) < −4, both  p  < 0.001).  Wager and Smith (2003)  reported a double dissociation for subtypes of visual working memory, with spatial stimuli encoded by bilateral parietal cortex and object stimuli encoded by inferior temporal cortex. This dichotomy has been supported by subsequent functional connectivity studies ( Bray, Almas, Arnold, Iaria, & MacQueen, 2015 ;  Santangelo & Macaluso, 2013 ). We report seemingly contradictory findings of right fusiform/PHG connectivity encoding spatial working memory. However, recent EEG findings suggest that spatial working memory is subserved by multiple networks with modular recruitment that varies considerably with task demand ( Protopapa, Siettos, Evdokimidis, & Smyrnis, 2014 ). For example, a visuospatial working memory task paired with a two-alternative forced choice response was characterized by occipitoparietal, parietomotor, and parietofrontal effective connectivity; whereas the same task paired with manual movement of a cursor toward the target location was characterized by frontoparietal effective connectivity. Future work is warranted to relate functional connectivity to performance of these spatial working memory task variants. 
+ 
+ 
+ 4.1.2. Learning 
+ Learning is posited as occurring in three stages, each characterized by distinct neural contributions: the parietal cortex focuses attention toward relevant stimuli, the medial temporal lobe (including hippocampal complex) encodes information as memories, and the ventrolateral prefrontal cortex assists in transitioning memories to long-term memory ( Nee & Jonides, 2008 ,  2013 ;  Oztekin, McElree, Staresina, & Davachi, 2009 ). Consistent with this theory, we report visual learning (BVMT-R performance) as encoded by connectivity between left ventrolateral prefrontal cortex (VLPFC) and right superior parietal lobule (SPL). Specifically, right SPL has been strongly associated with deficits of visual construction (a subcomponent process of visual learning) among clinical populations ( Biesbroek et al., 2014 ;  Hoeft et al., 2007 ;  Melrose, Harwood, Khoo, Mandelkern, & Sultzer, 2013 ). SPL is also strongly involved in learning spatial relationships ( Sack et al., 2002 ;  Wang, Yang, et al., 2015 ;  Zago & Tzourio-Mazoyer, 2002 ), another subcomponent process recruited by BVMT-R stimuli. 
+ Verbal learning (CVLT performance) was associated with connectivity between left rostrolateral prefrontal cortex (immediately dorsal to the VLPFC region identified for visual learning) and right frontal eye fields (BA 8). Although frontal eye fields are most commonly associated with procedural learning ( Kassubek, Schmidtke, Kimmig, Lucking, & Greenlee, 2001 ;  Rodriguez & Paule, 2009 , chap. 12;  Schall, Stuphorn, & Brown, 2002 ), patients with left- or right-hemisphere superior frontal cortex lesions have poorer CVLT performance than healthy participants or patients with non-frontal lesions ( Albuquerque, Loureiro, & Martins, 2008 ;  Alexander, Stuss, & Fansabedian, 2003 ;  Baldo, Delis, Kramer, & Shimamura, 2002 ). These performance deficits are putatively attributed to poor cognitive strategy – specifically, the participants’ ability to cluster word items into four semantic categories (“animal”, “vehicle”, etc.) versus serial recall ( Gershberg & Shimamura, 1995 ;  Longenecker et al., 2010 ). This finding may thus be specific to CVLT performance and not generalizable to all modalities of verbal learning. For example, resection of the left mesial temporal lobe for treatment of refractory temporal lobe epilepsy is associated with deficits of verbal paired associates learning ( Byun & Lee, 2010 ;  Davis, Geller, Rizzuto, & Kahana, 2008 ;  Hori et al., 2007 ;  Meltzer & Constable, 2005 ;  Saling, 2009 ). While we report no significant relationships of resting connectivity to the Verbal Paired Associates task within our sample, existing literature supports involvement of mesial temporal lobe regions. 
+ 
+ 
+ 4.1.3. Executive function 
+ Selective attention (D-KEFS Stroop) was associated with resting connectivity of right superior DLPFC with bilateral anterior insula, as well as connectivity of right posterior SPL with bilateral dorsal anterior cingulate. Midline anterior cingulate, bilateral anterior insula, bilateral DLPFC, and bilateral parietal are canonical regions associated with the Stroop task ( Banich et al., 2000 ;  Carter, Minzenberg, West, & Macdonald, 2012 ;  Milham & Banich, 2005 ). Functional connectivity studies have related Stroop performance to decreased (less positive) connectivity within the cinguloinsular “saliency” network, both at rest ( Duchek et al., 2013 ) and during a Stroop fMRI task ( Wang, Wang, et al., 2015 ).  Wang, Yang, et al. (2015)  also related increased Stroop performance to increased (more positive) connectivity within the frontoparietal “central executive” network. While our data-driven approach implicated the same regions as these previous studies, we report  inter -network (rather than  intra -network) connectivity as predicting Stroop performance. 
+ Finally, attentional switching (DKEFS Trails IV) was associated with resting connectivity right VLPFC and left SPL. The Trail Making Test has not been as thoroughly studied as the Stroop task, leading to less consistent neuroimaging findings. Functional neuroimaging studies have implicated bilateral superior parietal ( Allen, Owens, Fong, & Richards, 2011 ;  Moll, de Oliveira-Souza, Moll, Bramati, & Andreiuolo, 2002 ), while lesion and anatomic studies have implicated bilateral prefrontal cortex ( Lee, Wallace, Raznahan, Clasen, & Giedd, 2014 ;  Muir et al., 2015 ;  Pa et al., 2010 ;  Yochim, Baldo, Nelson, & Delis, 2007 ). However, a Trail Making Test optimized for the fMRI environment reported neither parietal nor frontal involvement ( Jacobson, Blanchard, Connolly, Cannon, & Garavan, 2011 ). While our findings have partial support from the task-based fMRI literature, we nonetheless encourage a cautious interpretation given existing conflict. 
+ 
+ 
+ 
+ 4.2. Broad interpretation of findings 
+ 
+ 4.2.1. Resting-state functional connectivity most reliably encodes higher-order cognitions 
+ We report the strongest relationships of cognition to resting-state connectivity for higher-order cognitions of working memory, learning, and executive function – cognitions consistently implicated as requiring integration of multiple brain networks ( Minzenberg, Laird, Thelen, Carter, & Glahn, 2009 ;  Wager & Smith, 2003 ). Conversely, cognitions which have been strongly associated with specific brain regions or networks (such as motor, visuospatial, and language) showed no significant relationship between performance and resting-state connectivity. We offer two possible interpretations. Our first interpretation derives from these cognitions’ strong association with specific brain networks – motor and premotor cortices for motor behavior, dorsal visual stream for visual awareness, and bilateral superior temporal gyri for language ( Barch et al., 2013 ). These networks have highly stable representations (i.e. strong  intra -network connectivity) during both task and rest ( Smith et al., 2009 ) and thus may require task-based “challenges” to induce between-network interactions that subsequently encode individual differences in performance. For example, several studies have related performance on visual attention tasks to task-based connectivity among prefrontal, superior parietal, and dorsal visual networks ( Baldassarre et al., 2012 ;  Vossel, Weidner, Driver, Friston, & Fink, 2012 ;  Wen, Yao, Liu, & Ding, 2012 ). Thus, our finding that resting-state connectivity most reliably encodes higher-order cognitions is made independently of task-based functional connectivity literature. 
+ Our second (and not mutually exclusive) interpretation is that instruments sampling higher-order cognitions may have greater sensitivity to normative variance than instruments sampling lower-order or domain-specific cognitions. This interpretation likely holds true for some cognitive domains like memory, where two of our three tests (BVMT-R and VPA) showed strong ceiling effects within our sample. However, this interpretation does not hold for cognitions such as motor performance, where three independent measures (Halstead-Reitan Finger tapping, LaFayette Grooved Pegboard, and D-KEFS Trails subtest V) had normally distributed performance yet no relationship to resting-state brain connectivity. While finger tapping speed has been previously associated with resting-state connectivity ( Seidler et al., 2015 ), these findings were somewhat modest (| t -scores| < 4) given the sample size ( n  = 191 adults ages 64 and older), suggesting a weak effect size for resting-state representations of motor ability. We thus contend that resting-state connectivity has greater power (i.e. larger effect sizes) for characterizing individual variance in higher-order cognitions such as working memory, learning, and executive function. This hypothesis will be thoroughly explored in future work evaluating more complex cognitive tasks such as the Wisconsin Card Sorting test and D-KEFS Tower test. 
+ 
+ 
+ 4.2.2. Relationships between performance and resting-state connectivity were consistently negative 
+ All significant regressions of performance to resting-state connectivity were characterized by moderately positive correlations ( ρ  ~ 0.3 to 0.5) among poor performers and weak to moderately negative correlations ( ρ  ~ −0.2 to −0.4) among high performers. Each regression involved regions with strong evidence for task-based recruitment by the corresponding cognition. We interpret these findings as evidence that functional independence at rest broadly facilitates cognitive ability. This interpretation is consistent with recent graph theoretic analyses of functional brain organization, which increasingly represent the brain as modular networks of independent brain regions that undergo dynamic functional reorganization in response to cognitive demand ( Crossley et al., 2013 ;  Di, Gohel, Kim, & Biswal, 2013 ;  Meunier, Lambiotte, & Bullmore, 2010 ). Our findings build upon this theory by suggesting that regions with moderately positive connectivity at rest may be “yoked” together and thus less able to dynamically reorganizing under high cognitive demand, whereas regions with weakly negative connectivity are more independent at rest and thus better able to reorganize with cognitive demand. 
+ 
+ 
+ 4.2.3. Caveats and limitations 
+ While these clinical neuropsychology assessments are the gold standard for clinical assessment, several instruments possess relatively narrow dynamic range which may make them suboptimal as statistical regressors of resting state connectivity. For example, Digit Span and Spatial Span performance within this normative sample consisted of discrete variables ranging from 5–15 and 5– 12, respectively. Regressions using these instruments had poorer normalized root mean squared error (NRMSE) scores (0.029–0.039) than instruments with greater dynamic range such as D-KEFS Stroop (NRMSE scores 0.012–0.014), suggesting that poor dynamic range may limit the instruments’ predictive power. Future work will explore if non-standardized but continuous measures of working memory, such as  n -back accuracy, serve as better predictors of brain-behavior relationship. 
+ 
+ 
+ 
+ 
+ 5. Conclusions 
+ We provide a methodological framework for relating resting-state functional connectivity to performance on clinically validated cognitive assessments. Our most striking finding is that resting-state connectivity was predicted only by higher-order cognitions such as working memory, learning, and executive function. All significant relationships were negative, generally characterized by moderately positive resting connectivity of cognition-related brain regions among low performers and weak negative resting connectivity among high performers. Our use of a single, well-characterized sample with consistent methodology for all cognitive domains allows us to directly compare the neural encoding of cognition across domains. Furthermore, our use of clinically validated neuropsychological assessments makes this work readily translatable into clinical populations, which will be the focus of future investigations. 
+ 
+ 
+ Supplementary Material 
+ 
+ 1 
+ 
+ 
+ 
+ 
+ 
+ This research was supported by the Translational Research Institute (TRI) at the University of Arkansas for Medical Sciences (UAMS) which is funded by the National Institutes of Health (NIH) Clinical and Translational Science Award (CTSA) program (UL1TR000039); the CTSA KL2 Scholars Program (KL2TR000063; to GAJ); NIH National Institute of General Medical Sciences Initiative for Maximizing Student Development Fellowship (IMSD; R25GM083247; to TKR) and NIH National Institute of Drug Abuse T32 Addiction Training Grant (T32DA022981; to TKR). CDK served as a member of a scientific advisory meeting for Allergan Pharmaceuticals, served as a member of the national advisory board for Skyland Trail, and is also a co-holder of U.S. Patent No. 6,373,990 (Method and device for the transdermal delivery of lithium). The authors declare no conflicts of interest. All authors contributed to the interpretation and writing of this manuscript. We additionally thank Mrs. Sonet Smitherman MS for MRI operation and assistance with recruitment. 
+ 
+ 
+ 
+ Appendix A. Supplementary material 
+ Supplementary data  associated with this article can be found, in the online version, at  http://dx.doi.org/10.1016/j.bandc.2016.03.008 . 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Adelstein 
+ JS 
+ 
+ 
+ Shehzad 
+ Z 
+ 
+ 
+ Mennes 
+ M 
+ 
+ 
+ Deyoung 
+ CG 
+ 
+ 
+ Zuo 
+ XN 
+ 
+ 
+ Kelly 
+ C 
+ 
+ 
+ Milham 
+ MP 
+ 
+ 
+ 2011 
+ Personality is reflected in the brain’s intrinsic functional architecture 
+ PLoS ONE 
+ 6 
+ e27633 
+ 22140453 
+ 
+ 
+ 
+ 
+ 
+ 
+ Alavash 
+ M 
+ 
+ 
+ Doebler 
+ P 
+ 
+ 
+ Holling 
+ H 
+ 
+ 
+ Thiel 
+ CM 
+ 
+ 
+ Giessing 
+ C 
+ 
+ 
+ 2015 
+ Is functional integration of resting state brain networks an unspecific biomarker for working memory performance? 
+ Neuroimage 
+ 108 
+ 182 
+ 193 
+ 25536495 
+ 
+ 
+ 
+ 
+ 
+ 
+ Albuquerque 
+ L 
+ 
+ 
+ Loureiro 
+ C 
+ 
+ 
+ Martins 
+ IP 
+ 
+ 
+ 2008 
+ Effect of lesion site on serial position during list learning: A study with the CVLT 
+ International Journal of Neuroscience 
+ 118 
+ 917 
+ 933 
+ 18569151 
+ 
+ 
+ 
+ 
+ 
+ 
+ Alexander 
+ MP 
+ 
+ 
+ Stuss 
+ DT 
+ 
+ 
+ Fansabedian 
+ N 
+ 
+ 
+ 2003 
+ California verbal learning test: Performance by patients with focal frontal and non-frontal lesions 
+ Brain 
+ 126 
+ 1493 
+ 1503 
+ 12764068 
+ 
+ 
+ 
+ 
+ 
+ 
+ Allen 
+ EA 
+ 
+ 
+ Erhardt 
+ EB 
+ 
+ 
+ Damaraju 
+ E 
+ 
+ 
+ Gruner 
+ W 
+ 
+ 
+ Segall 
+ JM 
+ 
+ 
+ Silva 
+ RF 
+ 
+ 
+ Calhoun 
+ VD 
+ 
+ 
+ 2011 
+ A baseline for the multivariate comparison of resting-state networks 
+ Frontiers in Systems Neuroscience 
+ 2011 
+ 03/29 
+ 2 
+ 
+ 
+ 
+ 
+ 
+ 
+ Allen 
+ MD 
+ 
+ 
+ Owens 
+ TE 
+ 
+ 
+ Fong 
+ AK 
+ 
+ 
+ Richards 
+ DR 
+ 
+ 
+ 2011 
+ A functional neuroimaging analysis of the Trail Making Test-B: Implications for clinical application 
+ Behavioural Neurology 
+ 24 
+ 159 
+ 171 
+ 21606577 
+ 
+ 
+ 
+ 
+ 
+ 
+ Amad 
+ A 
+ 
+ 
+ Cachia 
+ A 
+ 
+ 
+ Gorwood 
+ P 
+ 
+ 
+ Pins 
+ D 
+ 
+ 
+ Delmaire 
+ C 
+ 
+ 
+ Rolland 
+ B 
+ 
+ 
+ Jardri 
+ R 
+ 
+ 
+ 2013 
+ The multimodal connectivity of the hippocampal complex in auditory and visual hallucinations 
+ Molecular Psychiatry 
+ 2013/01/16 
+ 
+ 
+ 
+ 
+ 
+ 
+ Arbabshirani 
+ MR 
+ 
+ 
+ Kiehl 
+ KA 
+ 
+ 
+ Pearlson 
+ GD 
+ 
+ 
+ Calhoun 
+ VD 
+ 
+ 
+ 2013 
+ Classification of schizophrenia patients based on resting-state functional network connectivity 
+ Frontiers in Neuroscience 
+ 2013 
+ 08/24 
+ 133 
+ 
+ 
+ 
+ 
+ 
+ 
+ Arnold 
+ AE 
+ 
+ 
+ Protzner 
+ AB 
+ 
+ 
+ Bray 
+ S 
+ 
+ 
+ Levy 
+ RM 
+ 
+ 
+ Iaria 
+ G 
+ 
+ 
+ 2014 
+ Neural network configuration and efficiency underlies individual differences in spatial orientation ability 
+ Journal of Cognitive Neuroscience 
+ 26 
+ 380 
+ 394 
+ 24047389 
+ 
+ 
+ 
+ 
+ 
+ 
+ Baldassarre 
+ A 
+ 
+ 
+ Lewis 
+ CM 
+ 
+ 
+ Committeri 
+ G 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Romani 
+ GL 
+ 
+ 
+ Corbetta 
+ M 
+ 
+ 
+ 2012 
+ Individual variability in functional connectivity predicts performance of a perceptual task 
+ Proceedings of the National Academy of Sciences of the United States of America 
+ 109 
+ 3516 
+ 3521 
+ 22315406 
+ 
+ 
+ 
+ 
+ 
+ 
+ Baldo 
+ JV 
+ 
+ 
+ Delis 
+ D 
+ 
+ 
+ Kramer 
+ J 
+ 
+ 
+ Shimamura 
+ AP 
+ 
+ 
+ 2002 
+ Memory performance on the California Verbal Learning Test-II: Findings from patients with focal frontal lesions 
+ Journal of the International Neuropsychological Society 
+ 8 
+ 539 
+ 546 
+ 12030307 
+ 
+ 
+ 
+ 
+ 
+ 
+ Banich 
+ MT 
+ 
+ 
+ Milham 
+ MP 
+ 
+ 
+ Atchley 
+ RA 
+ 
+ 
+ Cohen 
+ NJ 
+ 
+ 
+ Webb 
+ A 
+ 
+ 
+ Wszalek 
+ T 
+ 
+ 
+ Brown 
+ C 
+ 
+ 
+ 2000 
+ Prefrontal regions play a predominant role in imposing an attentional ’set’: Evidence from fMRI 
+ Cognitive Brain Research 
+ 10 
+ 1 
+ 9 
+ 10978687 
+ 
+ 
+ 
+ 
+ 
+ 
+ Barch 
+ DM 
+ 
+ 
+ Burgess 
+ GC 
+ 
+ 
+ Harms 
+ MP 
+ 
+ 
+ Petersen 
+ SE 
+ 
+ 
+ Schlaggar 
+ BL 
+ 
+ 
+ Corbetta 
+ M 
+ 
+ 
+ Van Essen 
+ DC 
+ 
+ 
+ 2013 
+ Function in the human connectome: Task-fMRI and individual differences in behavior 
+ Neuroimage 
+ 2013 
+ 05/21 
+ 169 
+ 189 
+ 
+ 
+ 
+ 
+ 
+ 
+ Bassett 
+ DS 
+ 
+ 
+ Bullmore 
+ E 
+ 
+ 
+ Verchinski 
+ BA 
+ 
+ 
+ Mattay 
+ VS 
+ 
+ 
+ Weinberger 
+ DR 
+ 
+ 
+ Meyer-Lindenberg 
+ A 
+ 
+ 
+ 2008 
+ Hierarchical organization of human cortical networks in health and schizophrenia 
+ Journal of Neuroscience 
+ 2008 
+ 09/12 
+ 9239 
+ 9248 
+ 
+ 
+ 
+ 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ DeLuca 
+ M 
+ 
+ 
+ Devlin 
+ JT 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ 2005 
+ Investigations into resting-state connectivity using independent component analysis 
+ Philosophical Transactions of the Royal Society of London Series B, Biological sciences 
+ 2005 
+ 08/10 
+ 1001 
+ 1013 
+ 
+ 
+ 
+ 
+ 
+ 
+ Biesbroek 
+ JM 
+ 
+ 
+ van Zandvoort 
+ MJ 
+ 
+ 
+ Kuijf 
+ HJ 
+ 
+ 
+ Weaver 
+ NA 
+ 
+ 
+ Kappelle 
+ LJ 
+ 
+ 
+ Vos 
+ PC 
+ 
+ 
+ Postma 
+ A 
+ 
+ 
+ 2014 
+ The anatomy of visuospatial construction revealed by lesion-symptom mapping 
+ Neuropsychologia 
+ 62 
+ 68 
+ 76 
+ 25062545 
+ 
+ 
+ 
+ 
+ 
+ 
+ Bray 
+ S 
+ 
+ 
+ Almas 
+ R 
+ 
+ 
+ Arnold 
+ AE 
+ 
+ 
+ Iaria 
+ G 
+ 
+ 
+ MacQueen 
+ G 
+ 
+ 
+ 2015 
+ Intraparietal sulcus activity and functional connectivity supporting spatial working memory manipulation 
+ Cerebral Cortex 
+ 25 
+ 1252 
+ 1264 
+ 24275831 
+ 
+ 
+ 
+ 
+ 
+ 
+ Bullmore 
+ E 
+ 
+ 
+ Lynall 
+ ME 
+ 
+ 
+ Bassett 
+ DS 
+ 
+ 
+ Kerwin 
+ R 
+ 
+ 
+ McKenna 
+ PJ 
+ 
+ 
+ Kitzbichler 
+ M 
+ 
+ 
+ Muller 
+ U 
+ 
+ 
+ 2010 
+ Functional connectivity and brain networks in Schizophrenia 
+ Journal of Neuroscience 
+ 30 
+ 9477 
+ 9487 
+ 20631176 
+ 
+ 
+ 
+ 
+ 
+ 
+ Byun 
+ J 
+ 
+ 
+ Lee 
+ I 
+ 
+ 
+ 2010 
+ Disambiguation of similar object-place paired associations and the roles of the brain structures in the medial temporal lobe 
+ Experimental Neurobiology 
+ 19 
+ 15 
+ 22 
+ 22110337 
+ 
+ 
+ 
+ 
+ 
+ 
+ Carter 
+ CS 
+ 
+ 
+ Minzenberg 
+ M 
+ 
+ 
+ West 
+ R 
+ 
+ 
+ Macdonald 
+ A 
+ III 
+ 
+ 
+ 2012 
+ CNTRICS imaging biomarker selections: Executive control paradigms 
+ Schizophrenia Bulletin 
+ 38 
+ 34 
+ 42 
+ 22114099 
+ 
+ 
+ 
+ 
+ 
+ 
+ Cole 
+ MW 
+ 
+ 
+ Anticevic 
+ A 
+ 
+ 
+ Repovs 
+ G 
+ 
+ 
+ Barch 
+ D 
+ 
+ 
+ 2011 
+ Variable global dysconnectivity and individual differences in schizophrenia 
+ Biological Psychiatry 
+ 2011 
+ 04/19 
+ 43 
+ 50 
+ 
+ 
+ 
+ 
+ 
+ 
+ Cox 
+ RW 
+ 
+ 
+ 1996 
+ AFNI: Software for analysis and visualization of functional magnetic resonance neuroimages 
+ Computers and Biomedical Research, an International Journal 
+ 29 
+ 162 
+ 173 
+ 
+ 
+ 
+ 
+ 
+ 
+ Craddock 
+ RC 
+ 
+ 
+ Holtzheimer 
+ PE 
+ III 
+ 
+ 
+ Hu 
+ XP 
+ 
+ 
+ Mayberg 
+ HS 
+ 
+ 
+ 2009 
+ Disease state prediction from resting state functional connectivity 
+ Magnetic Resonance in Medicine 
+ 62 
+ 1619 
+ 1628 
+ 19859933 
+ 
+ 
+ 
+ 
+ 
+ 
+ Craddock 
+ RC 
+ 
+ 
+ James 
+ GA 
+ 
+ 
+ Holtzheimer 
+ PE 
+ 3rd 
+ 
+ 
+ Hu 
+ XP 
+ 
+ 
+ Mayberg 
+ HS 
+ 
+ 
+ 2012 
+ A whole brain fMRI atlas generated via spatially constrained spectral clustering 
+ Human Brain Mapping 
+ 33 
+ 1914 
+ 1928 
+ 21769991 
+ 
+ 
+ 
+ 
+ 
+ 
+ Crossley 
+ NA 
+ 
+ 
+ Mechelli 
+ A 
+ 
+ 
+ Vertes 
+ PE 
+ 
+ 
+ Winton-Brown 
+ TT 
+ 
+ 
+ Patel 
+ AX 
+ 
+ 
+ Ginestet 
+ CE 
+ 
+ 
+ Bullmore 
+ ET 
+ 
+ 
+ 2013 
+ Cognitive relevance of the community structure of the human brain functional coactivation network 
+ Proceedings of the National Academy of Sciences of the United States of America 
+ 110 
+ 11583 
+ 11588 
+ 23798414 
+ 
+ 
+ 
+ 
+ 
+ 
+ Damoiseaux 
+ JS 
+ 
+ 
+ Rombouts 
+ SA 
+ 
+ 
+ Barkhof 
+ F 
+ 
+ 
+ Scheltens 
+ P 
+ 
+ 
+ Stam 
+ CJ 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ 2006 
+ Consistent resting-state networks across healthy subjects 
+ Proceedings of the National Academy of Sciences of the United States of America 
+ 2006 
+ 09/02 
+ 13848 
+ 13853 
+ 
+ 
+ 
+ 
+ 
+ 
+ Davis 
+ OC 
+ 
+ 
+ Geller 
+ AS 
+ 
+ 
+ Rizzuto 
+ DS 
+ 
+ 
+ Kahana 
+ MJ 
+ 
+ 
+ 2008 
+ Temporal associative processes revealed by intrusions in paired-associate recall 
+ Psychonomic Bulletin & Review 
+ 15 
+ 64 
+ 69 
+ 18605481 
+ 
+ 
+ 
+ 
+ 
+ 
+ Di 
+ X 
+ 
+ 
+ Gohel 
+ S 
+ 
+ 
+ Kim 
+ EH 
+ 
+ 
+ Biswal 
+ BB 
+ 
+ 
+ 2013 
+ Task vs. rest-different network configurations between the coactivation and the resting-state brain networks 
+ Frontiers in Human Neuroscience 
+ 7 
+ 493 
+ 24062654 
+ 
+ 
+ 
+ 
+ 
+ 
+ Dima 
+ D 
+ 
+ 
+ Jogia 
+ J 
+ 
+ 
+ Frangou 
+ S 
+ 
+ 
+ 2014 
+ Dynamic causal modeling of load-dependent modulation of effective connectivity within the verbal working memory network 
+ Human Brain Mapping 
+ 35 
+ 3025 
+ 3035 
+ 24142432 
+ 
+ 
+ 
+ 
+ 
+ 
+ Dosenbach 
+ NU 
+ 
+ 
+ Nardos 
+ B 
+ 
+ 
+ Cohen 
+ AL 
+ 
+ 
+ Fair 
+ DA 
+ 
+ 
+ Power 
+ JD 
+ 
+ 
+ Church 
+ JA 
+ 
+ 
+ Schlaggar 
+ BL 
+ 
+ 
+ 2010 
+ Prediction of individual brain maturity using fMRI 
+ Science 
+ 329 
+ 1358 
+ 1361 
+ 20829489 
+ 
+ 
+ 
+ 
+ 
+ 
+ Duchek 
+ JM 
+ 
+ 
+ Balota 
+ DA 
+ 
+ 
+ Thomas 
+ JB 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Rich 
+ P 
+ 
+ 
+ Benzinger 
+ TL 
+ 
+ 
+ Ances 
+ BM 
+ 
+ 
+ 2013 
+ Relationship between Stroop performance and resting state functional connectivity in cognitively normal older adults 
+ Neuropsychology 
+ 27 
+ 516 
+ 528 
+ 24040929 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fair 
+ DA 
+ 
+ 
+ Dosenbach 
+ NUF 
+ 
+ 
+ Church 
+ JA 
+ 
+ 
+ Cohen 
+ AL 
+ 
+ 
+ Brahmbhatt 
+ S 
+ 
+ 
+ Miezin 
+ FM 
+ 
+ 
+ Schlaggar 
+ BL 
+ 
+ 
+ 2007 
+ Development of distinct control networks through segregation and integration 
+ Proceedings of the National Academy of Sciences 
+ 104 
+ 13507 
+ 13512 
+ 
+ 
+ 
+ 
+ 
+ 
+ Genovese 
+ CR 
+ 
+ 
+ Lazar 
+ NA 
+ 
+ 
+ Nichols 
+ T 
+ 
+ 
+ 2002 
+ Thresholding of statistical maps in functional neuroimaging using the false discovery rate 
+ Neuroimage 
+ 15 
+ 870 
+ 878 
+ 11906227 
+ 
+ 
+ 
+ 
+ 
+ 
+ Gershberg 
+ FB 
+ 
+ 
+ Shimamura 
+ AP 
+ 
+ 
+ 1995 
+ Impaired use of organizational strategies in free recall following frontal lobe damage 
+ Neuropsychologia 
+ 33 
+ 1305 
+ 1333 
+ 8552230 
+ 
+ 
+ 
+ 
+ 
+ 
+ Gess 
+ JL 
+ 
+ 
+ Fausett 
+ JS 
+ 
+ 
+ Kearney-Ramos 
+ TE 
+ 
+ 
+ Kilts 
+ CD 
+ 
+ 
+ James 
+ GA 
+ 
+ 
+ 2014 
+ Task-dependent recruitment of intrinsic brain networks reflects normative variance in cognition 
+ Brain and Behavior 
+ 4 
+ 650 
+ 664 
+ 25328842 
+ 
+ 
+ 
+ 
+ 
+ 
+ Greicius 
+ MD 
+ 
+ 
+ Flores 
+ BH 
+ 
+ 
+ Menon 
+ V 
+ 
+ 
+ Glover 
+ GH 
+ 
+ 
+ Solvason 
+ HB 
+ 
+ 
+ Kenna 
+ H 
+ 
+ 
+ Schatzberg 
+ AF 
+ 
+ 
+ 2007 
+ Resting-state functional connectivity in major depression: Abnormally increased contributions from subgenual cingulate cortex and thalamus 
+ Biological Psychiatry 
+ 2007 
+ 01/11 
+ 429 
+ 437 
+ 
+ 
+ 
+ 
+ 
+ 
+ Greicius 
+ MD 
+ 
+ 
+ Krasnow 
+ B 
+ 
+ 
+ Reiss 
+ AL 
+ 
+ 
+ Menon 
+ V 
+ 
+ 
+ 2003 
+ Functional connectivity in the resting brain: A network analysis of the default mode hypothesis 
+ Proceedings of the National Academy of Sciences of the United States of America 
+ 2002 
+ 12/31 
+ 253 
+ 258 
+ 
+ 
+ 
+ 
+ 
+ 
+ Grigg 
+ O 
+ 
+ 
+ Grady 
+ CL 
+ 
+ 
+ 2010 
+ Task-related effects on the temporal and spatial dynamics of resting-state functional connectivity in the default network 
+ PLoS ONE 
+ 5 
+ e13311 
+ 20967203 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hoeft 
+ F 
+ 
+ 
+ Barnea-Goraly 
+ N 
+ 
+ 
+ Haas 
+ BW 
+ 
+ 
+ Golarai 
+ G 
+ 
+ 
+ Ng 
+ D 
+ 
+ 
+ Mills 
+ D 
+ 
+ 
+ Reiss 
+ AL 
+ 
+ 
+ 2007 
+ More is not always better: Increased fractional anisotropy of superior longitudinal fasciculus associated with poor visuospatial abilities in Williams syndrome 
+ Journal of Neuroscience 
+ 27 
+ 11960 
+ 11965 
+ 17978036 
+ 
+ 
+ 
+ 
+ 
+ 
+ Honey 
+ GD 
+ 
+ 
+ Fu 
+ CH 
+ 
+ 
+ Kim 
+ J 
+ 
+ 
+ Brammer 
+ MJ 
+ 
+ 
+ Croudace 
+ TJ 
+ 
+ 
+ Suckling 
+ J 
+ 
+ 
+ Bullmore 
+ ET 
+ 
+ 
+ 2002 
+ Effects of verbal working memory load on corticocortical connectivity modeled by path analysis of functional magnetic resonance imaging data 
+ Neuroimage 
+ 17 
+ 573 
+ 582 
+ 12377135 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hori 
+ T 
+ 
+ 
+ Yamane 
+ F 
+ 
+ 
+ Ochiai 
+ T 
+ 
+ 
+ Kondo 
+ S 
+ 
+ 
+ Shimizu 
+ S 
+ 
+ 
+ Ishii 
+ K 
+ 
+ 
+ Miyata 
+ H 
+ 
+ 
+ 2007 
+ Selective subtemporal amygdalohippocampectomy for refractory temporal lobe epilepsy: Operative and neuropsychological outcomes 
+ Journal of Neurosurgery 
+ 106 
+ 134 
+ 141 
+ 
+ 
+ 
+ 
+ 
+ 
+ Huang 
+ W 
+ 
+ 
+ Huang 
+ D 
+ 
+ 
+ Chen 
+ Z 
+ 
+ 
+ Ye 
+ W 
+ 
+ 
+ Lv 
+ Z 
+ 
+ 
+ Diao 
+ L 
+ 
+ 
+ Zheng 
+ J 
+ 
+ 
+ 2015 
+ Alterations in the functional connectivity of a verbal working memory-related brain network in patients with left temporal lobe epilepsy 
+ Neuroscience Letters 
+ 602 
+ 6 
+ 11 
+ 26101832 
+ 
+ 
+ 
+ 
+ 
+ 
+ Jacobson 
+ SC 
+ 
+ 
+ Blanchard 
+ M 
+ 
+ 
+ Connolly 
+ CC 
+ 
+ 
+ Cannon 
+ M 
+ 
+ 
+ Garavan 
+ H 
+ 
+ 
+ 2011 
+ An fMRI investigation of a novel analogue to the Trail-Making Test 
+ Brain and Cognition 
+ 77 
+ 60 
+ 70 
+ 21782309 
+ 
+ 
+ 
+ 
+ 
+ 
+ James 
+ GA 
+ 
+ 
+ Hazaroglu 
+ O 
+ 
+ 
+ Bush 
+ KA 
+ 
+ 
+ 2016 
+ A human brain atlas derived via ncut parcellation of resting-state and task-based fMRI data 
+ Magnetic Resonance Imaging 
+ 34 
+ 209 
+ 218 
+ 26523655 
+ 
+ 
+ 
+ 
+ 
+ 
+ Jenkinson 
+ M 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ Behrens 
+ TE 
+ 
+ 
+ Woolrich 
+ MW 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ 2012 
+ FSL 
+ Neuroimage 
+ 62 
+ 782 
+ 790 
+ 21979382 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kassubek 
+ J 
+ 
+ 
+ Schmidtke 
+ K 
+ 
+ 
+ Kimmig 
+ H 
+ 
+ 
+ Lucking 
+ CH 
+ 
+ 
+ Greenlee 
+ MW 
+ 
+ 
+ 2001 
+ Changes in cortical activation during mirror reading before and after training: An fMRI study of procedural learning 
+ Cognitive Brain Research 
+ 10 
+ 207 
+ 217 
+ 11167046 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kearney-Ramos 
+ TE 
+ 
+ 
+ Fausett 
+ JS 
+ 
+ 
+ Gess 
+ JL 
+ 
+ 
+ Reno 
+ A 
+ 
+ 
+ Peraza 
+ J 
+ 
+ 
+ Kilts 
+ CD 
+ 
+ 
+ James 
+ GA 
+ 
+ 
+ 2014 
+ Merging clinical neuropsychology and functional neuroimaging to evaluate the construct validity and neural network engagement of the n-Back Task 
+ Journal of the International Neuropsychological Society 
+ 2014 
+ 06/26 
+ 736 
+ 750 
+ 
+ 
+ 
+ 
+ 
+ 
+ Keller 
+ JB 
+ 
+ 
+ Hedden 
+ T 
+ 
+ 
+ Thompson 
+ TW 
+ 
+ 
+ Anteraper 
+ SA 
+ 
+ 
+ Gabrieli 
+ JD 
+ 
+ 
+ Whitfield-Gabrieli 
+ S 
+ 
+ 
+ 2015 
+ Resting-state anticorrelations between medial and lateral prefrontal cortex: Association with working memory, aging, and individual differences 
+ Cortex 
+ 64 
+ 271 
+ 280 
+ 25562175 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kerestes 
+ R 
+ 
+ 
+ Davey 
+ CG 
+ 
+ 
+ Stephanou 
+ K 
+ 
+ 
+ Whittle 
+ S 
+ 
+ 
+ Harrison 
+ BJ 
+ 
+ 
+ 2014 
+ Functional brain imaging studies of youth depression: A systematic review 
+ NeuroImage: Clinical 
+ 4 
+ 209 
+ 231 
+ 24455472 
+ 
+ 
+ 
+ 
+ 
+ 
+ Koyama 
+ MS 
+ 
+ 
+ Di 
+ MA 
+ 
+ 
+ Zuo 
+ XN 
+ 
+ 
+ Kelly 
+ C 
+ 
+ 
+ Mennes 
+ M 
+ 
+ 
+ Jutagir 
+ DR 
+ 
+ 
+ Milham 
+ MP 
+ 
+ 
+ 
+ 2011 
+ Resting-state functional connectivity indexes reading competence in children and adults 
+ Journal of Neuroscience 
+ 31 
+ 8617 
+ 8624 
+ 21653865 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kristo 
+ G 
+ 
+ 
+ Rutten 
+ GJ 
+ 
+ 
+ Raemaekers 
+ M 
+ 
+ 
+ de Gelder 
+ B 
+ 
+ 
+ Rombouts 
+ SA 
+ 
+ 
+ Ramsey 
+ NF 
+ 
+ 
+ 2014 
+ Task and task-free FMRI reproducibility comparison for motor network identification 
+ Human Brain Mapping 
+ 2012 
+ 09/19 
+ 340 
+ 352 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kunisato 
+ Y 
+ 
+ 
+ Okamoto 
+ Y 
+ 
+ 
+ Okada 
+ G 
+ 
+ 
+ Aoyama 
+ S 
+ 
+ 
+ Nishiyama 
+ Y 
+ 
+ 
+ Onoda 
+ K 
+ 
+ 
+ Yamawaki 
+ S 
+ 
+ 
+ 2011 
+ Personality traits and the amplitude of spontaneous low-frequency oscillations during resting state 
+ Neuroscience Letters 
+ 2011 
+ 02/05 
+ 109 
+ 113 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lee 
+ NR 
+ 
+ 
+ Wallace 
+ GL 
+ 
+ 
+ Raznahan 
+ A 
+ 
+ 
+ Clasen 
+ LS 
+ 
+ 
+ Giedd 
+ JN 
+ 
+ 
+ 2014 
+ Trail making test performance in youth varies as a function of anatomical coupling between the prefrontal cortex and distributed cortical regions 
+ Frontiers in Psychology 
+ 5 
+ 496 
+ 25071613 
+ 
+ 
+ 
+ 
+ 
+ 
+ Longenecker 
+ J 
+ 
+ 
+ Kohn 
+ P 
+ 
+ 
+ Liu 
+ S 
+ 
+ 
+ Zoltick 
+ B 
+ 
+ 
+ Weinberger 
+ DR 
+ 
+ 
+ Elvevag 
+ B 
+ 
+ 
+ 2010 
+ Data-driven methodology illustrating mechanisms underlying word list recall: Applications to clinical research 
+ Neuropsychology 
+ 24 
+ 625 
+ 636 
+ 20804251 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lynall 
+ ME 
+ 
+ 
+ Bassett 
+ DS 
+ 
+ 
+ Kerwin 
+ R 
+ 
+ 
+ McKenna 
+ PJ 
+ 
+ 
+ Kitzbichler 
+ M 
+ 
+ 
+ Muller 
+ U 
+ 
+ 
+ Bullmore 
+ E 
+ 
+ 
+ 2010 
+ Functional connectivity and brain networks in schizophrenia 
+ Journal of Neuroscience 
+ 2010 
+ 07/16 
+ 9477 
+ 9487 
+ 
+ 
+ 
+ 
+ 
+ 
+ Magnuson 
+ ME 
+ 
+ 
+ Thompson 
+ GJ 
+ 
+ 
+ Schwarb 
+ H 
+ 
+ 
+ Pan 
+ WJ 
+ 
+ 
+ McKinley 
+ A 
+ 
+ 
+ Schumacher 
+ EH 
+ 
+ 
+ Keilholz 
+ SD 
+ 
+ 
+ 2015 
+ Errors on interrupter tasks presented during spatial and verbal working memory performance are linearly linked to large-scale functional network connectivity in high temporal resolution resting state fMRI 
+ Brain Imaging and Behavior 
+ 
+ 
+ 
+ 
+ 
+ 
+ Melrose 
+ RJ 
+ 
+ 
+ Harwood 
+ D 
+ 
+ 
+ Khoo 
+ T 
+ 
+ 
+ Mandelkern 
+ M 
+ 
+ 
+ Sultzer 
+ DL 
+ 
+ 
+ 2013 
+ Association between cerebral metabolism and Rey-Osterrieth Complex Figure Test performance in Alzheimer’s disease 
+ Journal of Clinical and Experimental Neuropsychology 
+ 35 
+ 246 
+ 258 
+ 23387510 
+ 
+ 
+ 
+ 
+ 
+ 
+ Meltzer 
+ JA 
+ 
+ 
+ Constable 
+ RT 
+ 
+ 
+ 2005 
+ Activation of human hippocampal formation reflects success in both encoding and cued recall of paired associates 
+ Neuroimage 
+ 24 
+ 384 
+ 397 
+ 15627581 
+ 
+ 
+ 
+ 
+ 
+ 
+ Meunier 
+ D 
+ 
+ 
+ Lambiotte 
+ R 
+ 
+ 
+ Bullmore 
+ ET 
+ 
+ 
+ 2010 
+ Modular and hierarchically modular organization of brain networks 
+ Frontiers in Neuroscience 
+ 4 
+ 200 
+ 21151783 
+ 
+ 
+ 
+ 
+ 
+ 
+ Milham 
+ MP 
+ 
+ 
+ Banich 
+ MT 
+ 
+ 
+ 2005 
+ Anterior cingulate cortex: An fMRI analysis of conflict specificity and functional differentiation 
+ Human Brain Mapping 
+ 25 
+ 328 
+ 335 
+ 15834861 
+ 
+ 
+ 
+ 
+ 
+ 
+ Minzenberg 
+ MJ 
+ 
+ 
+ Laird 
+ AR 
+ 
+ 
+ Thelen 
+ S 
+ 
+ 
+ Carter 
+ CS 
+ 
+ 
+ Glahn 
+ DC 
+ 
+ 
+ 2009 
+ Meta-analysis of 41 functional neuroimaging studies of executive function in schizophrenia 
+ Archives of General Psychiatry 
+ 66 
+ 811 
+ 822 
+ 19652121 
+ 
+ 
+ 
+ 
+ 
+ 
+ Moll 
+ J 
+ 
+ 
+ de Oliveira-Souza 
+ R 
+ 
+ 
+ Moll 
+ FT 
+ 
+ 
+ Bramati 
+ IE 
+ 
+ 
+ Andreiuolo 
+ PA 
+ 
+ 
+ 2002 
+ The cerebral correlates of set-shifting: An fMRI study of the trail making test 
+ Arquivos de Neuro-Psiquiatria 
+ 60 
+ 900 
+ 905 
+ 12563376 
+ 
+ 
+ 
+ 
+ 
+ 
+ Muir 
+ RT 
+ 
+ 
+ Lam 
+ B 
+ 
+ 
+ Honjo 
+ K 
+ 
+ 
+ Harry 
+ RD 
+ 
+ 
+ McNeely 
+ AA 
+ 
+ 
+ Gao 
+ FQ 
+ 
+ 
+ Black 
+ SE 
+ 
+ 
+ 2015 
+ Trail making test elucidates neural substrates of specific Poststroke executive dysfunctions 
+ Stroke 
+ 46 
+ 2755 
+ 2761 
+ 26382176 
+ 
+ 
+ 
+ 
+ 
+ 
+ Nee 
+ DE 
+ 
+ 
+ Jonides 
+ J 
+ 
+ 
+ 2008 
+ Neural correlates of access to short-term memory 
+ Proceedings of the National Academy of Sciences of the United States of America 
+ 105 
+ 14228 
+ 14233 
+ 18757724 
+ 
+ 
+ 
+ 
+ 
+ 
+ Nee 
+ DE 
+ 
+ 
+ Jonides 
+ J 
+ 
+ 
+ 2013 
+ Neural evidence for a 3-state model of visual short-term memory 
+ Neuroimage 
+ 74 
+ 1 
+ 11 
+ 23435212 
+ 
+ 
+ 
+ 
+ 
+ 
+ Owen 
+ AM 
+ 
+ 
+ McMillan 
+ KM 
+ 
+ 
+ Laird 
+ AR 
+ 
+ 
+ Bullmore 
+ E 
+ 
+ 
+ 2005 
+ N-back working memory paradigm: A meta-analysis of normative functional neuroimaging studies 
+ Human Brain Mapping 
+ 2005 
+ 04/23 
+ 46 
+ 59 
+ 
+ 
+ 
+ 
+ 
+ 
+ Oztekin 
+ I 
+ 
+ 
+ McElree 
+ B 
+ 
+ 
+ Staresina 
+ BP 
+ 
+ 
+ Davachi 
+ L 
+ 
+ 
+ 2009 
+ Working memory retrieval: Contributions of the left prefrontal cortex, the left posterior parietal cortex, and the hippocampus 
+ Journal of Cognitive Neuroscience 
+ 21 
+ 581 
+ 593 
+ 18471055 
+ 
+ 
+ 
+ 
+ 
+ 
+ Pa 
+ J 
+ 
+ 
+ Possin 
+ KL 
+ 
+ 
+ Wilson 
+ SM 
+ 
+ 
+ Quitania 
+ LC 
+ 
+ 
+ Kramer 
+ JH 
+ 
+ 
+ Boxer 
+ AL 
+ 
+ 
+ Johnson 
+ JK 
+ 
+ 
+ 2010 
+ Gray matter correlates of set-shifting among neurodegenerative disease, mild cognitive impairment, and healthy older adults 
+ Journal of the International Neuropsychological Society 
+ 16 
+ 640 
+ 650 
+ 20374676 
+ 
+ 
+ 
+ 
+ 
+ 
+ Power 
+ JD 
+ 
+ 
+ Schlaggar 
+ BL 
+ 
+ 
+ Petersen 
+ SE 
+ 
+ 
+ 2015 
+ Recent progress and outstanding issues in motion correction in resting state fMRI 
+ Neuroimage 
+ 105 
+ 536 
+ 551 
+ 25462692 
+ 
+ 
+ 
+ 
+ 
+ 
+ Protopapa 
+ F 
+ 
+ 
+ Siettos 
+ CI 
+ 
+ 
+ Evdokimidis 
+ I 
+ 
+ 
+ Smyrnis 
+ N 
+ 
+ 
+ 2014 
+ Granger causality analysis reveals distinct spatio-temporal connectivity patterns in motor and perceptual visuo-spatial working memory 
+ Frontiers in Computational Neuroscience 
+ 8 
+ 146 
+ 25431557 
+ 
+ 
+ 
+ 
+ 
+ 
+ Reineberg 
+ AE 
+ 
+ 
+ Andrews-Hanna 
+ JR 
+ 
+ 
+ Depue 
+ BE 
+ 
+ 
+ Friedman 
+ NP 
+ 
+ 
+ Banich 
+ MT 
+ 
+ 
+ 2015 
+ Resting-state networks predict individual differences in common and specific aspects of executive function 
+ Neuroimage 
+ 104 
+ 69 
+ 78 
+ 25281800 
+ 
+ 
+ 
+ 
+ 
+ 
+ Rodriguez 
+ JS 
+ 
+ 
+ Paule 
+ MG 
+ 
+ 
+ 2009 
+ Working memory delayed response tasks in monkeys 
+ 
+ 
+ Buccafusco 
+ JJ 
+ 
+ 
+ Methods of behavior analysis in neuroscience 
+ 2nd 
+ Boca Raton (FL) 
+ CRC Press/Taylor & Francis 
+ 
+ 
+ 
+ 
+ 
+ 
+ Sack 
+ AT 
+ 
+ 
+ Hubl 
+ D 
+ 
+ 
+ Prvulovic 
+ D 
+ 
+ 
+ Formisano 
+ E 
+ 
+ 
+ Jandl 
+ M 
+ 
+ 
+ Zanella 
+ FE 
+ 
+ 
+ Linden 
+ DE 
+ 
+ 
+ 2002 
+ The experimental combination of rTMS and fMRI reveals the functional relevance of parietal cortex for visuospatial functions 
+ Cognitive Brain Research 
+ 2002 
+ 02/28 
+ 85 
+ 93 
+ 
+ 
+ 
+ 
+ 
+ 
+ Saling 
+ MM 
+ 
+ 
+ 2009 
+ Verbal memory in mesial temporal lobe epilepsy: Beyond material specificity 
+ Brain 
+ 2009 
+ 03/03 
+ 570 
+ 582 
+ 
+ 
+ 
+ 
+ 
+ 
+ Santangelo 
+ V 
+ 
+ 
+ Macaluso 
+ E 
+ 
+ 
+ 2013 
+ Visual salience improves spatial working memory via enhanced parieto-temporal functional connectivity 
+ Journal of Neuroscience 
+ 33 
+ 4110 
+ 4117 
+ 23447619 
+ 
+ 
+ 
+ 
+ 
+ 
+ Schall 
+ JD 
+ 
+ 
+ Stuphorn 
+ V 
+ 
+ 
+ Brown 
+ JW 
+ 
+ 
+ 2002 
+ Monitoring and control of action by the frontal lobes 
+ Neuron 
+ 36 
+ 309 
+ 322 
+ 12383784 
+ 
+ 
+ 
+ 
+ 
+ 
+ Seidler 
+ R 
+ 
+ 
+ Erdeniz 
+ B 
+ 
+ 
+ Koppelmans 
+ V 
+ 
+ 
+ Hirsiger 
+ S 
+ 
+ 
+ Merillat 
+ S 
+ 
+ 
+ Jancke 
+ L 
+ 
+ 
+ 2015 
+ Associations between age, motor function, and resting state sensorimotor network connectivity in healthy older adults 
+ Neuroimage 
+ 108 
+ 47 
+ 59 
+ 25514517 
+ 
+ 
+ 
+ 
+ 
+ 
+ Shehzad 
+ Z 
+ 
+ 
+ Kelly 
+ AM 
+ 
+ 
+ Reiss 
+ PT 
+ 
+ 
+ Gee 
+ DG 
+ 
+ 
+ Gotimer 
+ K 
+ 
+ 
+ Uddin 
+ LQ 
+ 
+ 
+ Milham 
+ MP 
+ 
+ 
+ 2009 
+ The resting brain: Unconstrained yet reliable 
+ Cerebral Cortex 
+ 2009 
+ 02/18 
+ 2209 
+ 2229 
+ 
+ 
+ 
+ 
+ 
+ 
+ Sheline 
+ YI 
+ 
+ 
+ Price 
+ JL 
+ 
+ 
+ Yan 
+ Z 
+ 
+ 
+ Mintun 
+ MA 
+ 
+ 
+ 2010 
+ Resting-state functional MRI in depression unmasks increased connectivity between networks via the dorsal nexus 
+ Proceedings of the National Academy of Sciences of the United States of America 
+ 2010 
+ 06/11 
+ 11020 
+ 11025 
+ 
+ 
+ 
+ 
+ 
+ 
+ Shen 
+ J 
+ 
+ 
+ Zhang 
+ G 
+ 
+ 
+ Yao 
+ L 
+ 
+ 
+ Zhao 
+ X 
+ 
+ 
+ 2015 
+ Real-time fMRI training-induced changes in regional connectivity mediating verbal working memory behavioral performance 
+ Neuroscience 
+ 289 
+ 144 
+ 152 
+ 25595984 
+ 
+ 
+ 
+ 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Fox 
+ PT 
+ 
+ 
+ Miller 
+ KL 
+ 
+ 
+ Glahn 
+ DC 
+ 
+ 
+ Fox 
+ PM 
+ 
+ 
+ Mackay 
+ CE 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ 2009 
+ Correspondence of the brain’s functional architecture during activation and rest 
+ Proceedings of the National Academy of Sciences of the United States of America 
+ 2009 
+ 07/22 
+ 13040 
+ 13045 
+ 
+ 
+ 
+ 
+ 
+ 
+ Smyser 
+ CD 
+ 
+ 
+ Inder 
+ TE 
+ 
+ 
+ Shimony 
+ JS 
+ 
+ 
+ Hill 
+ JE 
+ 
+ 
+ Degnan 
+ AJ 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Neil 
+ JJ 
+ 
+ 
+ 2010 
+ Longitudinal analysis of neural network development in preterm infants 
+ Cerebral Cortex 
+ 20 
+ 2852 
+ 2862 
+ 20237243 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stillman 
+ CM 
+ 
+ 
+ Gordon 
+ EM 
+ 
+ 
+ Simon 
+ JR 
+ 
+ 
+ Vaidya 
+ CJ 
+ 
+ 
+ Howard 
+ DV 
+ 
+ 
+ Howard 
+ JH 
+ Jr 
+ 
+ 
+ 2013 
+ Caudate resting connectivity predicts implicit probabilistic sequence learning 
+ Brain Connectivity 
+ 3 
+ 601 
+ 610 
+ 24090214 
+ 
+ 
+ 
+ 
+ 
+ 
+ Thomason 
+ ME 
+ 
+ 
+ Dennis 
+ EL 
+ 
+ 
+ Joshi 
+ AA 
+ 
+ 
+ Joshi 
+ SH 
+ 
+ 
+ Dinov 
+ ID 
+ 
+ 
+ Chang 
+ C 
+ 
+ 
+ Gotlib 
+ IH 
+ 
+ 
+ 2011 
+ Resting-state fMRI can reliably map neural networks in children 
+ Neuroimage 
+ 2010 
+ 12/08 
+ 165 
+ 175 
+ 
+ 
+ 
+ 
+ 
+ 
+ van den Heuvel 
+ MP 
+ 
+ 
+ Mandl 
+ RCW 
+ 
+ 
+ Kahn 
+ RS 
+ 
+ 
+ Hulshoff Pol 
+ HE 
+ 
+ 
+ 2009 
+ Functionally linked resting-state networks reflect the underlying structural connectivity architecture of the human brain 
+ Human Brain Mapping 
+ 30 
+ 3127 
+ 3141 
+ 19235882 
+ 
+ 
+ 
+ 
+ 
+ 
+ van den Heuvel 
+ MP 
+ 
+ 
+ Pol 
+ HE 
+ 
+ 
+ 2010 
+ Exploring the brain network: A review on resting-state fMRI functional connectivity 
+ European Neuropsychopharmacology 
+ 2010 
+ 05/18 
+ 519 
+ 534 
+ 
+ 
+ 
+ 
+ 
+ 
+ Vossel 
+ S 
+ 
+ 
+ Weidner 
+ R 
+ 
+ 
+ Driver 
+ J 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ Fink 
+ GR 
+ 
+ 
+ 2012 
+ Deconstructing the architecture of dorsal and ventral attention systems with dynamic causal modeling 
+ Journal of Neuroscience 
+ 32 
+ 10637 
+ 10648 
+ 22855813 
+ 
+ 
+ 
+ 
+ 
+ 
+ Wager 
+ TD 
+ 
+ 
+ Keller 
+ MC 
+ 
+ 
+ Lacey 
+ SC 
+ 
+ 
+ Jonides 
+ J 
+ 
+ 
+ 2005 
+ Increased sensitivity in neuroimaging analyses using robust regression 
+ Neuroimage 
+ 2005 
+ 05/03 
+ 99 
+ 113 
+ 
+ 
+ 
+ 
+ 
+ 
+ Wager 
+ TD 
+ 
+ 
+ Smith 
+ EE 
+ 
+ 
+ 2003 
+ Neuroimaging studies of working memory: A meta-analysis 
+ Cognitive, Affective, & Behavioral Neuroscience 
+ 2004 
+ 03/26 
+ 255 
+ 274 
+ 
+ 
+ 
+ 
+ 
+ 
+ Wang 
+ L 
+ 
+ 
+ Negreira 
+ A 
+ 
+ 
+ LaViolette 
+ P 
+ 
+ 
+ Bakkour 
+ A 
+ 
+ 
+ Sperling 
+ RA 
+ 
+ 
+ Dickerson 
+ BC 
+ 
+ 
+ 2010 
+ Intrinsic interhemispheric hippocampal functional connectivity predicts individual differences in memory performance ability 
+ Hippocampus 
+ 20 
+ 345 
+ 351 
+ 20087893 
+ 
+ 
+ 
+ 
+ 
+ 
+ Wang 
+ X 
+ 
+ 
+ Wang 
+ T 
+ 
+ 
+ Chen 
+ Z 
+ 
+ 
+ Hitchman 
+ G 
+ 
+ 
+ Liu 
+ Y 
+ 
+ 
+ Chen 
+ A 
+ 
+ 
+ 2015 
+ Functional connectivity patterns reflect individual differences in conflict adaptation 
+ Neuropsychologia 
+ 70 
+ 177 
+ 184 
+ 25721566 
+ 
+ 
+ 
+ 
+ 
+ 
+ Wang 
+ J 
+ 
+ 
+ Yang 
+ Y 
+ 
+ 
+ Fan 
+ L 
+ 
+ 
+ Xu 
+ J 
+ 
+ 
+ Li 
+ C 
+ 
+ 
+ Liu 
+ Y 
+ 
+ 
+ Jiang 
+ T 
+ 
+ 
+ 2015 
+ Convergent functional architecture of the superior parietal lobule unraveled with multimodal neuroimaging approaches 
+ Human Brain Mapping 
+ 36 
+ 238 
+ 257 
+ 25181023 
+ 
+ 
+ 
+ 
+ 
+ 
+ Wen 
+ X 
+ 
+ 
+ Yao 
+ L 
+ 
+ 
+ Liu 
+ Y 
+ 
+ 
+ Ding 
+ M 
+ 
+ 
+ 2012 
+ Causal interactions in attention networks predict behavioral performance 
+ Journal of Neuroscience 
+ 32 
+ 1284 
+ 1292 
+ 22279213 
+ 
+ 
+ 
+ 
+ 
+ 
+ Wilde 
+ N 
+ 
+ 
+ Strauss 
+ E 
+ 
+ 
+ 2002 
+ Functional equivalence of WAIS-III/WMS-III digit and spatial span under forward and backward recall conditions 
+ The Clinical Neuropsychologist 
+ 16 
+ 322 
+ 330 
+ 12607145 
+ 
+ 
+ 
+ 
+ 
+ 
+ Wu 
+ J 
+ 
+ 
+ Srinivasan 
+ R 
+ 
+ 
+ Kaur 
+ A 
+ 
+ 
+ Cramer 
+ SC 
+ 
+ 
+ 2014 
+ Resting-state cortical connectivity predicts motor skill acquisition 
+ Neuroimage 
+ 91 
+ 84 
+ 90 
+ 24473097 
+ 
+ 
+ 
+ 
+ 
+ 
+ Xia 
+ M 
+ 
+ 
+ Wang 
+ J 
+ 
+ 
+ He 
+ Y 
+ 
+ 
+ 2013 
+ BrainNet Viewer: A network visualization tool for human brain connectomics 
+ PLoS ONE 
+ 8 
+ e68910 
+ 23861951 
+ 
+ 
+ 
+ 
+ 
+ 
+ Xu 
+ J 
+ 
+ 
+ Rees 
+ G 
+ 
+ 
+ Yin 
+ X 
+ 
+ 
+ Song 
+ C 
+ 
+ 
+ Han 
+ Y 
+ 
+ 
+ Ge 
+ H 
+ 
+ 
+ Liu 
+ S 
+ 
+ 
+ 2014 
+ Spontaneous neuronal activity predicts intersubject variations in executive control of attention 
+ Neuroscience 
+ 263 
+ 181 
+ 192 
+ 24447598 
+ 
+ 
+ 
+ 
+ 
+ 
+ Yochim 
+ B 
+ 
+ 
+ Baldo 
+ J 
+ 
+ 
+ Nelson 
+ A 
+ 
+ 
+ Delis 
+ DC 
+ 
+ 
+ 2007 
+ D-KEFS Trail Making Test performance in patients with lateral prefrontal cortex lesions 
+ Journal of the International Neuropsychological Society 
+ 13 
+ 704 
+ 709 
+ 17521488 
+ 
+ 
+ 
+ 
+ 
+ 
+ Zago 
+ L 
+ 
+ 
+ Tzourio-Mazoyer 
+ N 
+ 
+ 
+ 2002 
+ Distinguishing visuospatial working memory and complex mental calculation areas within the parietal lobes 
+ Neuroscience Letters 
+ 2002 
+ 10/03 
+ 45 
+ 49 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fig. 1 
+ 
+ Relationship of working memory to resting-state brain connectivity. Digit Span Sequencing performance negatively regressed to resting-state functional connectivity of right middle occipital gyrus (bordering superior parietal lobule) to bilateral dorsomedial prefrontal cortex (top). Spatial Span Forward performance negatively regressed to functional connectivity of right fusiform/parahippocampal gyrus with right lateral premotor area (bottom). All depicted relationships survived FDR correction ( q  ≤ 0.05). Scatterplots indicate significant robust linear regressions between performance (abscissa) and functional connectivity (ordinate), with data points indicated by subject number (01-79). ROIs are color-coded by region for all figures: light green for prefrontal, yellow for cingulate, red for striatum, magenta for sensorimotor, cyan for temporal, blue for occipital, and dark green for cerebellum. Brain connectivity is depicted with BrainNet Viewer ( Xia, Wang, & He, 2013 ). 
+ 
+ 
+ 
+ 
+ Fig. 2 
+ 
+ Relationship of learning to resting-state brain connectivity. Brief Visuospatial Memory Test – Revised performance negatively regressed to resting-state functional connectivity of left ventrolateral prefrontal cortex to right superior lobule (top). California Verbal Learning Test performance negatively regressed to functional connectivity of left rostrolateral prefrontal cortex (adjacent to the ventrolateral prefrontal cortex region) with right frontal eye fields (bottom). All depicted relationships survived FDR correction ( q  ≤ 0.05). 
+ 
+ 
+ 
+ 
+ Fig. 3 
+ 
+ Relationship of executive function to resting-state brain connectivity. D-KEFS Color-Word Interference Performance (Color-Word condition minus Color condition) negatively regressed to four pairs of resting-state connectivity: connectivity of right superior dorsolateral prefrontal cortex with bilateral anterior insula, and right posterior inferior parietal cortex with bilateral pre-SMA/dorsal anterior cingulate (top). Performance on D-KEFS Trail Making Test Condition IV negatively regressed to resting-state functional connectivity of right ventrolateral prefonrtal Cortex with left superior parietal lobule (bottom). All depicted relationships survived FDR correction ( q  ≤ 0.05). 
+ 
+ 
+ 
+ 
+ Table 1 
+ 
+ Demographic information. 
+ 
+ 
+ 
+ 
+ 
+ n 
+ 
+ 44 participants 
+ 
+ 
+ Age 
+ mean(sd) = 31(10) years, range 20–50 
+ 
+ 
+ Sex 
+ 26 female 
+ 
+ 
+ 
+ 18 male 
+ 
+ 
+ Ethnicity* 
+ 26 Caucasian 
+ 
+ 
+ 
+ 16 African–American 
+ 
+ 
+ 
+ 1 Hispanic 
+ 
+ 
+ 
+ *1 self-reporting as Cauc and AA 
+ 
+ 
+ Handedness 
+ 38 right 
+ 
+ 
+ 
+ 4 left 
+ 
+ 
+ 
+ 2 unreported 
+ 
+ 
+ Education 
+ 3 (7%) did not complete high school/GED 
+ 
+ 
+ 
+ 3 (7%) completed high school or GED 
+ 
+ 
+ 
+ 16 (36%) partial college/currently enrolled 
+ 
+ 
+ 
+ 2 (5%) graduated from 2 year college 
+ 
+ 
+ 
+ 6 (14%) graduated from 4 year college 
+ 
+ 
+ 
+ 9 (20%) enrolled in graduate/professional 
+ 
+ 
+ 
+ 5 (11%) had graduate/professional degree 
+ 
+ 
+ 
+ 
+ 
+ Table 2 
+ 
+ Neuropsychological performance. 
+ 
+ 
+ 
+ 
+ Neuropsychological assessment 
+ Performance
+ 
+ 
+ 
+ 
+ n 
+ 
+ 
+ μ 
+ 
+ 
+ σ 
+ 
+ min 
+ max 
+ 
+ 
+ 
+ 
+ 
+ Motor 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Halstead-Reitan Finger Tapping, Right 
+ 44 
+   49.3 
+   6.9 
+ 32.7 
+ 68.6 
+ 
+ 
+ Halstead-Reitan Finger Tapping, Left 
+ 44 
+   44.9 
+   6.2 
+ 31.1 
+ 61.3 
+ 
+ 
+ LaFayette Grooved Pegboard Speed, Right 
+ 43 
+   67.2 
+ 11.1 
+ 48 
+ 100 
+ 
+ 
+ LaFayette Grooved Pegboard Speed, Left 
+ 43 
+   75.6 
+ 14.0 
+ 57 
+ 119 
+ 
+ 
+ D-KEFS Trail Making Test, Cond V 
+ 42 
+ −26.6 
+   7.6 
+ −45 
+ −11 
+ 
+ 
+ 
+ Visuospatial awareness 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Benton Judgment of Line Orientation, Total 
+ 44 
+   23.6 
+   5.3 
+ 9 
+ 30 
+ 
+ 
+ 
+ Working memory 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ WAIS-IV Digit Span Forward 
+ 42 
+   10.6 
+   2.4 
+ 6 
+ 16 
+ 
+ 
+ WAIS-IV Digit Span Backward 
+ 42 
+     9.1 
+   2.7 
+ 5 
+ 15 
+ 
+ 
+ WAIS-IV Digit Span Sequencing 
+ 41 
+     8.8 
+   2.2 
+ 4 
+ 15 
+ 
+ 
+ WMS-III Spatial Span Forward 
+ 43 
+     8.9 
+   1.7 
+ 5 
+ 12 
+ 
+ 
+ WMS-III Spatial Span Reverse 
+ 43 
+     8.1 
+   1.6 
+ 5 
+ 11 
+ 
+ 
+ 
+ Language 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Boston Naming Test 
+ 43 
+   52.8 
+   5.0 
+ 36 
+ 59 
+ 
+ 
+ D-KEFS Verbal Fluency (Letters) 
+ 43 
+   40.0 
+ 10.3 
+ 21 
+ 61 
+ 
+ 
+ D-KEFS Verbal Fluency (Categories) 
+ 43 
+   42.3 
+   7.6 
+ 23 
+ 57 
+ 
+ 
+ 
+ Learning 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Brief Visuospatial Memory Test – Revised, Total Recall 
+ 44 
+   27.2 
+   6.4 
+ 10 
+ 36 
+ 
+ 
+ WMS-IV Verbal Paired Associates I 
+ 42 
+   40.8 
+ 10.8 
+ 14 
+ 55 
+ 
+ 
+ California Verbal Learning Test, Total 1–5 
+ 42 
+   57.8 
+ 10.6 
+ 30 
+ 75 
+ 
+ 
+ 
+ Memory 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Brief Visuospatial Memory Test – Revised, Delayed Recall 
+ 44 
+   10.5 
+   2.1 
+ 5 
+ 12 
+ 
+ 
+ WMS-IV Verbal Paired Associates II 
+ 42 
+   52.2 
+   2.5 
+ 45 
+ 54 
+ 
+ 
+ California Verbal Learning Test, Long Delay Free Recall 
+ 41 
+   12.6 
+   3.1 
+ 3 
+ 16 
+ 
+ 
+ 
+ Executive function 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ D-KEFS Trail Making Test, Cond IV 
+ 42 
+ −72.3 
+ 28.1 
+ −152 
+ −34 
+ 
+ 
+ D-KEFS Color-Word (Stroop), Color-Word minus Color 
+ 42 
+ −22.9 
+   8.9 
+ −47 
+ −8 
+ 
+ 
+ 
+ 
+ 
+ Table 3 
+ 
+ Significant regressions of performance to resting-state connectivity (FDR q ≤ 0.05). 
+ 
+ 
+ 
+ 
+ Neuropsychological assessment 
+ Region of interest #1
+ 
+ Region of interest #2
+ 
+ Regression
+ 
+ 
+ 
+ ROI 
+ Label 
+ MNI coordinates 
+ ROI 
+ Label 
+ MNI coordinates 
+ 
+ R 
+ 2 
+ 
+ t -score 
+ NRME 
+ Covariates 
+ 
+ 
+ 
+ 
+ 
+ Working memory 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Digit Span Sequencing 
+   85 
+ Left dorsomedial PFC 
+ (−10, 49.4, 42) 
+ 184 
+ Right middle occipital 
+ (30, −81.5, 30.8) 
+ 0.482 
+ −5.64 
+ 0.015 
+ None 
+ 
+ 
+ Digit Span Sequencing 
+ 144 
+ Right DMPFC 
+ (9.3, 46.4, 45) 
+ 184 
+ Right middle occipital 
+ (30, −81.5, 30.8) 
+ 0.459 
+ −5.35 
+ 0.025 
+ None 
+ 
+ 
+ Spatial Span Forward 
+ 149 
+ Right fusiform/parahippocampus 
+ (32.6, −36.5, −14.9) 
+ 180 
+ Right lateral premotor 
+ (24.3, −4.3, 58.5) 
+ 0.513 
+ −6.03 
+ 0.008 
+ None 
+ 
+ 
+ 
+ Learning 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ BVMT-R, Total Recall 
+   73 
+ Left anterior VLPFC 
+ (−25.5, 56.5, 15.6) 
+   99 
+ Right SPL 
+ (13.8, −76.1, 45.2) 
+ 0.500 
+ −5.62 
+ 0.013 
+ None 
+ 
+ 
+ CVLT, Total 1–5 
+   16 
+ Right frontal eye fields 
+ (23.5, 13.2, 56.5) 
+ 151 
+ Left rostrolateral PFC 
+ (−26.5, 50.4, 29.6) 
+ 0.508 
+ −5.93 
+ 0.017 
+ None 
+ 
+ 
+ 
+ Executive function 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ D-KEFS Color-Word (Stroop) 
+   10 
+ Right superior DLPFC 
+ (39.4, 15.8, 47.7) 
+ 125 
+ Left sup. ant. insula 
+ (−34.5, 22.4, 10.5) 
+ 0.500 
+ −5.09 
+ 0.023 
+ Education 
+ 
+ 
+ D-KEFS Color-Word (Stroop) 
+   10 
+ Right superior DLPFC 
+ (39.4, 15.8, 47.7) 
+ 130 
+ Right superior anterior insula 
+ (34.4, 19.6, 10.1) 
+ 0.404 
+ −5.13 
+ 0.017 
+ None 
+ 
+ 
+ D-KEFS Color-Word (Stroop) 
+   30 
+ Right post. Inf. parietal 
+ (33.2, −68.6, 44.7) 
+ 136 
+ Left pre-SMA/dorsal anterior cingulate 
+ (−7.4, 0.2, 48.3) 
+ 0.397 
+ −5.05 
+ 0.015 
+ None 
+ 
+ 
+ D-KEFS Color-Word (Stroop) 
+   30 
+ Right post. Inf. parietal 
+ (33.2, −68.6, 44.7) 
+ 200 
+ Right pre-SMA/dorsal cingulate cortex 
+ (5.5, −8.7, 49.9) 
+ 0.517 
+ −6.42 
+ 0.009 
+ None 
+ 
+ 
+ D-KEFS Trail Making Test IV 
+   71 
+ Right VLPFC 
+ (39.1, 46.7, 6.3) 
+ 116 
+ Left SPL 
+ (−15.1, −68.2, 52.7) 
+ 0.465 
+ −5.60 
+ 0.015 
+ None 
+ 
+ 
+ 
+ 
+ 
+ BVMT-R, Brief Visuospatial Memory Test – Revised; CVLT, California Verbal Learning Test; VLPFC, ventrolateral prefrontal cortex; SPL, superior parietal lobule; PFC, prefrontal cortex. 
+ 
+ 
+ 
+ 

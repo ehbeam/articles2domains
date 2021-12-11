@@ -1,0 +1,4524 @@
+
+ properties manuscript? 
+ 
+ 
+ 101282001 
+ 33781 
+ Brain Struct Funct 
+ Brain Struct Funct 
+ 
+ Brain structure & function 
+ 
+ 1863-2653 
+ 1863-2661 
+ 
+ 
+ 27372336 
+ 5205581 
+ 10.1007/s00429-016-1264-3 
+ NIHMS800247 
+ 
+ 
+ Article 
+ 
+ 
+ 
+ A seed-based cross-modal comparison of brain connectivity measures 
+ 
+ 
+ 
+ 
+ Reid 
+ Andrew T. 
+ 
+ 1 
+ 9 
+ * 
+ 
+ 
+ 
+ Hoffstaedter 
+ Felix 
+ 
+ 1 
+ 2 
+ 
+ 
+ 
+ Gong 
+ Gaolang 
+ 
+ 3 
+ 
+ 
+ 
+ Laird 
+ Angela R. 
+ 
+ 4 
+ 
+ 
+ 
+ Fox 
+ Peter 
+ 
+ 5 
+ 6 
+ 
+ 
+ 
+ Evans 
+ Alan C. 
+ 
+ 7 
+ 
+ 
+ 
+ Amunts 
+ Katrin 
+ 
+ 1 
+ 8 
+ 
+ 
+ 
+ Eickhoff 
+ Simon B. 
+ 
+ 1 
+ 2 
+ 
+ 
+ 1 Institute for Neuroscience and Medicine (INM-1), Jülich Research Center, Wilhelm-Johnen-Straße, 52428 Jülich, Germany 
+ 2 Department of Clinical Neuroscience and Medicine, Heinrich Heine University, Düsseldorf, Germany 
+ 3 School of Brain and Cognitive Sciences, National Key Laboratory of Cognitive Neuroscience and Learning, Beijing, China 
+ 4 Department of Physics, Florida International University, Miami, FL, USA 
+ 5 University of Texas Health Sciences Center at San Antonio, San Antonio, TX, USA 
+ 6 South Texas Veterans Health Care System, San Antonio, TX, USA 
+ 7 McConnell Brain Imaging Centre, Montreal Neurological Institute, McGill University, Montreal, Canada 
+ 8 C. & O. Vogt Institute for Brain Research, Heinrich Heine University, Düsseldorf, Germany 
+ 9 Donders Institute for Brain, Cognition and Behaviour, Radboud University Nijmegen, Nijmegen, the Netherlands 
+ 
+ * Corresponding author :  a.reid@donders.ru.nl , +31 24 36 55931 
+ 
+ 
+ 9 
+ 7 
+ 2016 
+ 
+ 
+ 02 
+ 7 
+ 2016 
+ 
+ 
+ 4 
+ 2017 
+ 
+ 
+ 01 
+ 4 
+ 2018 
+ 
+ 222 
+ 3 
+ 1131 
+ 1151 
+ 
+ 
+ This file is available for text mining. It may also be used consistent with the principles of fair use under the copyright law. 
+ 
+ 
+ 
+ Human neuroimaging methods have provided a number of means by which the connectivity structure of the human brain can be inferred. For instance, correlations in blood oxygen level dependent (BOLD) signal time series are commonly used to make inferences about “functional connectivity”. Correlations across samples in structural morphometric measures, such as voxel-based morphometry (VBM) or cortical thickness (CT), have also been used to estimate connectivity, putatively through mutually trophic effects on connected brain areas. In this study, we have compared seed-based connectivity estimates obtained from four common correlational approaches: resting-state functional connectivity (RS-fMRI), meta-analytic connectivity modelling (MACM), VBM correlations, and CT correlations. We found that the two functional approaches (RS-fMRI and MACM) had the best agreement. While the two structural approaches (CT and VBM) had better-than-random convergence, they were no more similar to each other than to the functional approaches. The degree of correspondence between modalities varied considerably across seed regions, and also depended on the threshold applied to the connectivity distribution. These results demonstrate some degree of similarity between connectivity inferred from structural and functional covariance, particularly for the most robust functionally connected regions (e.g., the default mode network). However, they also caution that these measures likely capture very different aspects of brain structure and function. 
+ 
+ 
+ multimodal comparison 
+ cortical thickness 
+ VBM 
+ resting-state fMRI 
+ MACM 
+ 
+ 
+ 
+ 
+ Introduction 
+ One of the promising aspects of neuroimaging methods such as MRI, PET, EEG, and MEG, is their use in compiling the human “connectome”: in other words, how the brain’s distinct regions are wired up via long-range axonal projections to produce functional networks. Myriad methodologies have been designed to obtain networks from imaging data, and myriad analytic methods have been introduced to analyze them. Graph theory has figured prominently. Despite the understandable enthusiasm, however, it is important to understand the assumptions and limitations of these approaches; in particular, what do we mean by the term “connectivity”, and how does this definition differ (and converge) across imaging modalities, methodologies, and analysis techniques? 
+ One approach to this question is to characterize how connectomes obtained via different approaches compare to one another. Where do they agree and disagree? Is there a systematic pattern to this correspondence that can help us interpret it in biological or physical terms? Are there specific factors that affect the degree of correspondence? Such a characterization does not directly address the question of how inferred connectivity relates to biology, but it can help establish constraints on this question. Recent studies have begun to approach this issue, finding a good correspondence between resting-state functional ( Miranda-Dominguez et al. 2014 ) and diffusion-weighted imaging- (DWI-) based structural ( Goulas et al. 2014 ) connectivity estimates, and tract tracing evidence obtained from macaque monkeys.  Honey et al. (2009)  similarly found a substantial agreement between structural connectivity, measured through DWI tractography, and both empirical and simulated resting-state BOLD correlations. More recently,  Reid et al. (2015)  compared macaque tract tracing evidence to human DWI, resting-state fMRI, and structural covariance estimates of connectivity, and found a fairly poor general correspondence, with fMRI/DWI having the strongest agreement. In general, however, these studies utilized relatively coarse parcellation schemes, which limits the spatial specificity of the signals being compared. Additionally, while they provide useful global characterizations of how connectivity compares across modalities, they provide less insight into patterns specific to particular regions of interest (ROIs). The use of seed-based ROIs, on the other hand, allows the connectivity of a specific parcel of cortical grey matter to be assessed with respect to all other voxels or vertices in an imaging dataset, and the determination of these ROIs can be achieved via principled functional, anatomical, and meta-analytic approaches. Meta-analytic techniques such as activation likelihood estimation (ALE;  Eickhoff et al. 2009 ), for example, allow one to define a seed ROI based upon data drawn from a large database of task-based fMRI results, using a specific set of criteria and statistical contrasts. 
+ The term “functional connectivity” (FC) is now ubiquitous in the brain connectivity literature, but more accurately refers to covariance or co-activation in functional brain signals, most commonly the MRI-based blood oxygen level dependent (BOLD) signal. FC has been measured under both “task-free” resting-state conditions (RS-fMRI), meant to capture intrinsic connectivity; and task-based conditions, using a meta-analytic approach which assesses the degree of co-activation between brain regions, across many types of task. The latter is typically referred to as meta-analytic connectivity mapping (MACM;  Laird et al. 2013 ;  Eickhoff et al. 2010 ;  Fox et al. 2014 ). While the covariance structure of functional signals can certainly carry information about the underlying physical networks that mediate them, the interpretation of such covariance is ambiguous, due both to the fact that correlations do not support causal inference, and the poor temporal resolution of the BOLD signal (typically 1–2 s, although new multiband acquisition techniques achieve as low as 370 ms;  Xu et al. 2013 ;  Narsude et al. 2015 ), in relation to the rate at which information is transferred along axons (the average conduction delay of a myelinated corticocortical axon in monkeys is estimated at 7 ms, and the generation of a somatic postsynaptic potential requires approximately 5 ms;  Swadlow and Waxman 2012 ;  Roland, Hilgetag, and Deco 2014 ). The consequential temporal averaging of activation patterns suggests that BOLD correlations are likely a convolution of simultaneous and sequential activations, which capture a general pattern of activation, rather than the underlying physical connectivity directly ( Messé et al. 2015 ). As such, FC measures are most useful for identifying sets of regions which activate together over this relatively coarse time interval, which are commonly referred to as “networks” in the literature. 
+ Structural covariance (SCov), which captures covariance of gross morphological features (typically of grey matter) across a population, in turn represents a much coarser temporal scale ( Alexander-Bloch et al. 2013 ;  Evans 2013 ). The idea behind this approach is that covarying structural features may capture long-term “mutually trophic” influences on particular brain regions, a subset of which likely reflects the physical connectivity structure ( Mechelli et al. 2005 ). This hypothesis is premised on the notion that “form follows function”; i.e, that the gross morphological features measured by methods such as voxel-based morphometry (VBM;  Ashburner and Friston 2000 ) or cortical thickness (CT;  MacDonald et al. 2000 ;  Kim et al. 2005 ;  Dale, Fischl, and Sereno 1999 ) are driven to some extent by their rate of functional activation, in turn determined by long-range connectivity patterns. At the cellular/molecular level, there is certainly evidence of such a relationship. It is well established, for instance, that the success with which afferent signals produce excitatory post-synaptic potentials (EPSPs) in their target neurons drives the formation/retraction of synapses as a means of modifying the strength of those specific connections (cf.  Engert and Bonhoeffer 1999 ;  Bi and Poo 2001 ;  Trachtenberg et al. 2002 ). Moreover, blocking visual input via prenatal enucleation (eye removal) in rats has been shown to result in increased metabolism in somatosensory cortical areas (barrel cortex), as well as significant growth in these areas, as measured histologically ( Zheng and Purves 1995 ). Indeed, such relationships may be a key mechanism through which developing nervous systems adapt to environmental conditions, although it remains unclear the extent to which morphological plasticity remains in a mature organism (reviewed in  Li et al. 2006 ). At the grosser scale of anatomical MRI, localized grey matter increases have also been reported for experienced taxi drivers ( Maguire et al. 2000 ), adults learning to juggle ( Draganski et al. 2004 ), and bi-/multilingualism across the lifespan (reviewed in  Li, Legault, and Litcofsky 2014 ). 
+ The “mutually trophic” hypothesis suggests that SCov may capture functional covariance on a much coarser time scale. However, the empirical relationship between FC and SCov remains largely uncharacterized. In a previous analysis using whole brain parcellations, we reported a modest agreement ( r 2  = 0.2) between connectivity estimates generated by RS-fMRI and cortical thickness covariance ( Reid et al. 2015 ). In this study, we investigate this relationship further, by comparing seed-based connectivity inferred through four distinct approaches, two measuring SCov and two FC. Firstly, we estimated SCov using: voxel-based morphometry, a volumetric method which estimates grey matter density from T1-weighted intensities ( Ashburner and Friston 2000 ); and surface-based morphometry, which estimates the thickness of the cortical grey matter by modeling the interface between grey matter and its neighbouring white matter and cerebrospinal fluid ( MacDonald et al. 2000 ;  Kim et al. 2005 ;  Dale, Fischl, and Sereno 1999 ). Secondly, we estimated FC using: MACM, in which functional co-activation patterns were obtained across thousands of task-based fMRI experiments compiled in the BrainMap database; and resting-state fMRI, capturing average within-subject covariance across time in resting-state BOLD data obtained from a large, publicly available dataset (the Nathan Klein Institute Enhanced Rockland Sample; NKI-E) ( Nooner et al. 2012 ). This approach allowed us to quantify the correspondence of connectivity estimates both within structural and functional modalities, and between them. We expected high agreement between the two functional and the two structural measures, since these methods are likely to capture highly overlapping phenomena. Moreover, given the putative associations between structure and function, we also expected a lower but significant agreement between these modalities. 
+ 
+ 
+ Materials and Methods 
+ 
+ Data sets 
+ For the MACM approach, we employed the BrainMap database ( Laird, Lancaster, and Fox 2009 ;  Laird et al. 2011 ) ( www.brainmap.org ), only including studies that reported group analyses of functional mapping experiments with healthy subjects. Studies including clinical cohorts or testing drug effects were excluded from the analysis. No further constraints (e.g., on acquisition and analysis details, experimental design, or stimulation procedures) were enforced. This resulted in an analysis of approximately 6,500 experiments. Notably, this inclusive approach avoided bias which would otherwise have been imposed by preselecting specific taxonomic categories. We elected for this conservative approach, considering our currently limited understanding of how specific psychological constructs, such as action and cognition, map onto regional brain responses ( Laird et al. 2011 ;  Poldrack et al. 2011 ;  Poldrack 2006 ). 
+ Resting-state fMRI and anatomical T1-weighted images of 132 healthy volunteers (mean age 42.3 ± 18.08 years; 78 males) from the Enhanced NKI/Rockland sample ( Nooner et al. 2012 ) were obtained through the 1000 functional connectomes project ( www.nitrc.org/projects/fcon_1000/ ). This imaging data for this cohort was collected using the same Siemens TimTrio 3T MRI scanner (see below for a more detailed description), and has been made publicly available for research. 
+ 
+ 
+ Seed regions 
+ In any seed-based connectivity analysis, the derivation of the seed regions is a critical consideration. We selected nine seed ROIs in order to maximize the spatial sampling of the cortical sheet, as well as the variety of functional systems which these regions likely subserve (see  Figure 1 ). Furthermore, we utilized ROIs derived from multiple distinct approaches, in order to obtain a more generic set of regions, independent of how they were derived. Accordingly, seed ROIs were obtained from previous published studies, and were derived using functional, anatomical, and meta-analytic approaches. In the case of meta-analytic data, we obtained images from the Archive of Neuroimaging Data (ANIMA;  Reid et al. 2015 ), an open data source providing the results of published meta-analytic studies, which is available at  http://anima.fz-juelich.de .  Table I  lists each seed region, along with the coordinates of their peak locations in standard MNI-152 space, the study from which it was derived, and its size in voxels. 
+ A brief description of each ROI follows. Left primary motor cortex (M1) was obtained through a bimanual repetitive finger tapping task, as an fMRI contrast with baseline (Rosky et al., 2013). Right middle frontal gyrus (MFG) was obtained through Activation Likelihood Estimation (ALE), showing convergence of fMRI activations across studies investigating sustained attention (Langner & Eickhoff, 2013). Right middle temporal gyrus (MTG) was obtained from  Bzdok et al. (2012) , who performed an ALE analysis across studies investigating theory of mind and empathy. Left anterior insula (aINS) was isolated using an ALE analysis of 14 functional paradigms known to activate insula ( Kurth et al., 2010 ).  Hoffstaedter et al. (2013)  identified anterior middle cingulate cortex (aMCC) bilaterally, through a convergence of resting-state fMRI and meta-analytic connectivity modelling (MACM) results. Left anterior lateral prefrontal cortex (aLPFC) was obtained through an ALE analysis of working memory ( Rottschy et al., 2012 ). Right ventromedial prefrontal cortex (vmPFC) was obtained from a study showing convergence across resting-state fMRI and MACM results focused on default mode network (DMN) areas specifically associated with social-affective processes (Amft et al., 2015).  Schilbach et al. (2012)  identified the bilateral precuneus (PrC) using an ALE approach to find a conjunction between regions associated with emotional and social processing, and the DMN. Finally, Malikovic et al. (2007) user observer-independent cytoarchitectonic mapping to identify the boundaries of visual area V5. 
+ 
+ 
+ Meta-analytic connectivity mapping 
+ Meta-analytic connectivity mapping (MACM) assesses co-activation of brain regions across a broad spectrum of task-based fMRI experiments. To delineate co-activation of a seed region, we first identified all experiments in the BrainMap database ( Laird et al. 2011 ) that reported group analyses of functional mapping experiments of healthy subjects, and which featured at least one focus of activation in the respective seed. The convergence of foci reported in these experiments was quantified using the revised ALE algorithm ( Eickhoff et al., 2010 ) for coordinate-based meta-analysis of neuroimaging results ( Laird et al. 2009 ;  Eickhoff et al. 2009 ). Reported activation foci are not treated as single points, but rather as centres for 3D Gaussian probability distributions capturing the spatial uncertainty associated with each focus. The probabilities of all foci reported in a given experiment are then combined for each voxel, resulting in a modelled activation (MA) map ( Turkeltaub et al. 2012 ). Taking the union across these MA maps yielded voxel-wise ALE scores describing the convergence of results at each particular location of the brain. To distinguish ‘true’ convergence between studies from random convergence (i.e., noise), ALE scores were compared to a null distribution reflecting a random spatial association between experiments (Eickhoff et al., 2012). Hereby, a random-effects inference was invoked, focussing on the above-chance convergence between studies, rather than clustering foci within a particular study. Significant convergence of reported foci in other brain regions than the seed indicates consistent co-activation, i.e., functional connectivity with the seed. 
+ 
+ 
+ Resting-state functional connectivity 
+ Resting-state fMRI images of 132 healthy volunteers (mean age 42.3 ± 18.08 years; 78 males) from the Enhanced NKI/Rockland sample ( Nooner et al. 2012 ) were obtained through the 1000 functional connectomes project ( http://www.nitrc.org/projects/fcon_1000/ ). During the resting-state scan, a fixation cross was presented and participants were instructed to: “Keep your eyes open and stay awake” before each resting-state scan. For each subject 260 resting state EPI images were acquired on a Siemens TimTrio 3T scanner using blood-oxygen-level-dependent (BOLD) contrast [gradient-echo EPI pulse sequence, TR = 1.4s, TE = 30ms, flip angle = 80°, in plane resolution = 3.0 × 3.0mm2, 38 axial slices (3.0 mm thickness) covering the entire brain]. The first four scans were excluded from further analysis. The EPI images were first corrected for movement artifacts by affine registration using a two pass procedure in which the images were first aligned to the initial volumes and subsequently to the mean. The obtained mean EPI was then spatially normalized to the MNI-152 template using the ‘unified segmentation’ approach ( Ashburner and Friston 2000 ). The ensuing deformation was applied to all individual EPI volumes. To improve signal-to-noise ratio and compensate for residual anatomical variations, images were smoothed by a 5-mm FWHM Gaussian. For each each voxel, the BOLD time series was pre-processed as follows. To reduce spurious correlations, variance that could be explained by the following nuisance variables was regressed out: (1) six motion parameters derived from the image realignment; (2) the first derivative of the realignment parameters ( Satterthwaite et al. 2013 ); (3) mean grey matter, white matter, and CSF signal per time-point, obtained by averaging across voxels attributed to the respective tissue class in the SPM8 segmentation ( Weissenbacher et al. 2009 ); and (4) coherent signal changes across the whole brain, as reflected by the first five components of a principal component analysis (PCA) decomposition of the whole-brain time-series [CompCor denoising ( Behzadi et al. 2007 ;  Chai et al. 2012 )]. All nuisance variables entered the model as first- and (with the exception of the PCA components) second-order terms. Data were then band-pass filtered to preserve only BOLD frequencies between 0.01 and 0.08 Hz ( Cordes et al. 2001 ). 
+ For each subject, time series were extracted for all voxels within a given seed region, and the first eigenvariate of these was used as a region-wise time series. Pearson correlation coefficients between this regional time series and all other grey matter voxels in the brain were subsequently computed to quantify resting-state functional connectivity ( Eulenburg et al. 2012 ). These voxel-wise correlation coefficients were then transformed into Fisher’s Z-scores and tested for consistency across subjects in a random-effects analysis. 
+ 
+ 
+ Voxel-based morphometry 
+ To assess population-wise structural covariance with each seed region, we used anatomical T1-weighted images from the same subjects as described above for the RS-FC analysis. These images were acquired on a Siemens TimTrio 3T scanner using an MP-RAGE sequence (TR = 2.5 s, TE = 3.5 ms, TI = 1200 ms, flip angle = 8°, FOV = 256 mm, 192 slices, voxel size 1 × 1 × 1 mm). The anatomical scans were preprocessed using the VBM8 toolbox ( http://dbm.neuro.uni-jena.de/vbm ) in SPM8 using standard settings (DARTEL normalization, spatially adaptive non-linear means denoising, a Markov random field weighting of 0.15 and bias field modeling with a regularization term of 0.0001 and a 60 mm FWHM cut-off). The resulting normalized gray matter segments were modulated only for the non-linear components of the deformation; this ensured that only local, non-linear deformations were used to estimate grey matter volume (GMV). Normalized images were then smoothed using an 8 mm isotropic FWHM Gaussian kernel, and statistically analyzed by non-parametrical permutation testing, using the “permute” function in FSL. In particular, we first computed the volume of the seed region by integrating the modulated voxel-wise gray matter probabilities for each subject. This vector of subject-specific local volumes represented the covariate of interest in the voxel-wise SPM analysis, and age and sex were included as nuisance variables. Because we used only local, non-linear modulation, total brain volume was not included in this analysis. 
+ 
+ 
+ Cortical thickness 
+ Cortical thickness measures the width of the cortical sheet using a surface-based geometric modelling approach. Here, thickness was computed using the CIVET pipeline ( Zijdenbos, Forghani, and Evans 2002 ). This involves an initial N3 correction for field non-uniformities ( Sled, Zijdenbos, and Evans 1998 ), linear and nonlinear registration to the MNI152 population template ( Mazziotta et al. 2001 ), tissue classification with partial-volume estimation ( Tohka, Zijdenbos, and Evans 2004 ), and the approximation of GM/WM and GM/CSF boundaries using the Constrained Laplacian Anatomic Segmentation using Proximity (CLASP) algorithm ( Kim et al. 2005 ;  MacDonald et al. 2000 ). CLASP uses a deformable surface model approach to find the optimal surface mesh representing borders between tissue classes. Cortical GM thickness is then computed as the distance between the two surface meshes along a pre-computed Laplacian field ( t laplace  constraint). The resultant surface meshes contain 40,962 vertices per hemisphere, and are subsequently coregistered to a population average surface template using an iterative vertex resampling approach, which finds an optimal fit between the sulcal depth patterns of each individual surface. This approach ensures vertex correspondence across all subjects, allowing for intersubject comparisons ( Lyttelton et al. 2007 ). Thickness values were smoothed with a 5 mm Gaussian kernel and adjusted for the age, sex, and mean cortical thickness. Correlations in thickness were then computed between each vertex in the seed region and every other vertex in the surface. 
+ 
+ 
+ Projection to cortical surface 
+ Because cortical thickness is expressed on the cortical surface, and in order to perform all comparisons in the same space, we projected fMRI, MACM, and VBM statistical maps to the iterative ICBM-152 middle template surface. Statistical analyses performed in surface rather than volumetric space have a number of benefits ( Anticevic et al., 2008 ); perhaps most importantly, explicitly modelling the cortical sheet as a surface prevents the attribution of spatial correspondences to regions separated by sulci. Notably, both the volumetric and surface representations were already coregistered in ICBM-152 coordinate space. The volume-to-surface transfer was done using an anisotropic Gaussian projection, biased along the surface normal, as described in  Bojak et al. (2010) . We used a Gaussian kernel with μ tangent  = 3 mm and μ normal  = 4 mm. The projection was performed using ModelGUI software version 0.0.21-alpha ( http://www.modelgui.org ). All subsequent comparisons were performed in this surface space (i.e., vertices as opposed to voxels). Since cortical thickness values are only possible to estimate for neocortex, a medial wall and brainstem mask was applied to all projected volumetric stats, to ensure comparable distributions. Thus, all comparisons were exclusive to the cortical sheet. 
+ 
+ 
+ Measures of comparison, thresholding, and permutation testing 
+ 
+ Bimodal similarity 
+ For a comparison between two modalities, we required that each distribution had an equal threshold density δ (percentage of non-zero vertices). This is an important requirement, as comparisons between matrices of unequal density are known to produce trivial differences ( Wijk, Stam, and Daffertshofer 2010 ). Thus, for a single comparison, connectivity scores were thresholded to match a specific density, and a Bimodal Similarity ( BS ) score was derived from the ratio of the intersection and union of thresholded voxels (adjacency matrix  A ) for the two modalities. To compute  BS , we first obtained the Jaccard index ( Jaccard 1912 ), denoted Φ, for each pair of modalities  f  and  g :
+ Φ ( f , g , δ ) = | A f ∩ A g | | A f ∪ A g | 
+ 
+ In a typical fMRI/SCov analysis or meta-analysis, the density of a distribution is determined by the application of a statistical threshold; e.g., α = 0.05, corrected for multiple comparisons. However, while such an approach is sufficiently conservative to limit Type I error, it does not likely represent the “true” density, as far as such a quantity is determinable. Indeed, the choice of any specific threshold is more or less arbitrary, given our lack of direct knowledge about the underlying physical connectivity of the networks we are investigating. Thus, to obtain a score independent of a particular choice of threshold, Φ was computed across the range of threshold densities [0.025 0.8], at intervals of 0.025. At each threshold, a certain degree of agreement is expected by chance, with a probability determined by the connection density. Given a matrix with a density δ, the probability of any element being non-zero is  P x =1  = δ (for all  x  ∈  A ). For a pair of matrices with identical density δ, we can derive the probabilities for intersection ( P ∩ ) and union ( P ∪ ) as:
+ P ∩   = P x = 1 2 = δ 2 
+ P ∪   = 2 · P x = 1 − P ∩ = 2 · δ − δ 2 
+ 
+ Thus, given that 𝔼(| A f |) =  P f  ·  N , where  N  is the total vertex count, the expected value of Φ, or Φ rand , is given by:
+ Φ rand ( δ ) = P ∩ · N P ∪ · N = δ 2 2 · δ − δ 2 = δ 2 − δ 
+ 
+ To characterize a null distribution (in other words, the distribution of agreement expected between entirely random distributions), we generated 500 random permutations of the thresholded connectivity maps and computed Φ for each of these, across all thresholds. A permutation was generated as a randomly-ordered binary distribution, at a fixed threshold density. Notably, the mean of this null distribution will be approximately equal to the theoretical expected value Φ rand . The resulting distribution provides a point of comparison to non-permuted Φ scores; specifically, the degree to which Φ exceeds Φ rand  indicates the magnitude of agreement between two modalities above that expected by chance. This formulation also allows us to characterize the relationship between threshold and agreement. Accordingly, the final score  BS  was normalized at each density from the range [Φ rand (δ),1] to [0,1], where maximal agreement indicates  P ∩  =  P ∪ :
+ B S ( f , g , δ ) = Φ ( f , g , δ ) − Φ rand ( δ ) 1 − Φ rand ( δ ) 
+ 
+ Negative values of  BS  were clamped to 0. To obtain a summary score of agreement between two modalities, independent of threshold, we integrated  BS  across values of δ. The resulting value represents the area under the curve (AUC), and gives an indication of the overall agreement between modalities, above that expected by chance:
+ B S total ( f , g ) = ∫ B S ( f , g , δ ) d δ 
+ 
+ 
+ 
+ Cross-modal similarity 
+ While Φ and  BS  give an indication of how individual pairs of modalities compare to one another, we are also interested in summarizing agreement  across  all four modalities. This score can be used, for instance, to characterize each seed ROI with respect to the similarity of connectivity estimates it generates. To obtain a summary metric of agreement across all modalities, we used the proportion Ψ, defined for a given vertex  i  as:
+ Ψ ( δ , i ) = 1 M | ∑ f = 1 M A f ( i ) | 
+where  M  is the total number of modalities (here,  M  = 4). Ψ thus represents the degree of cross-modal correspondence, for a given density δ. Similarly to the  BS  analysis, the Correspondence Index  CI  was obtained by normalizing Ψ to the range [Ψ rand ,1]:
+ C I ( δ , i ) = Ψ ( δ , i ) − Ψ rand ( δ ) 1 − Ψ rand ( δ ) 
+where Ψ rand  is equivalent to the probability of finding  M  coincident above-threshold vertices by random chance. This was determined numerically, using 500 randomly generated distributions at each density. As for  BS , negative values of  CI  were clamped to 0. 
+ CI  was computed across the same range of thresholds [0.025 0.8], at intervals of 0.025. This allowed us to assess the degree of correspondence across all modalities, and how this is associated with density. A summary  CI  score was also computed as the integral across densities:
+ C I total = ∫ C I ( δ ) d δ 
+ 
+ 
+ 
+ 
+ Interhemispheric symmetry 
+ Statistical parametric fMRI/SCov maps of the cortex tend to have a high degree of interhemispheric symmetry (see, for instance,  Lyttelton et al. 2009 ). Thus, covariance in a left-hemisphere cortical region confers a higher probability of covariance with its homotopic right-hemisphere region, and vice versa. It is thus interesting to examine the degree to which intermodal correspondence can be explained by the degree of symmetry in the corresponding maps. Interhemispheric symmetry was measured by comparing seed-based distributions across hemispheres, using the symmetric ICBM 152 surface template (40th generation;  Lyttelton, 2009 ). Symmetry was assessed simply as the ratio of corresponding interhemispheric vertex pairs above threshold, to the total above-threshold vertices per hemisphere. In other words, given a density δ, the average number of above-threshold vertices per hemisphere will be δ ·  N hemi , where  N hemi  is the number of vertices in a single hemisphere. Thus, the symmetry measure Θ is determined as:
+ Θ ( δ ) = | A left ∩ A right | δ · N hemi 
+ 
+ As for the comparisons above, we computed Θ across all densities for 500 random permutations, using the mean value at each δ to obtain a normalized measure of symmetry, ranging from 0 (equal or worse symmetry than that expected by chance) to 1 (perfect symmetry).
+ Θ norm ( δ ) = Θ ( δ ) − Θ rand 1 − Θ rand 
+ 
+ 
+ 
+ Distance estimation 
+ Since a large proportion of all distributions appears to occur proximal to the seed ROI or its contralateral homotope, we were interested in assessing the association between the cortical distance of a vertex from a seed ROI and its bimodal similarity. To do this, we first computed, for each seed region, an approximate geodesic distance map. This was performed using a simple Matlab routine. Distances were also computed for the contralateral hemisphere, by mirroring the seed ROI onto this hemisphere and computing geodesic distance from it. To make seed ROIs more comparable, and to obtain subsurfaces with which to compute individual similarity scores, we next discretized these distance maps into octiles ( Figure 7 , inset). Homotopic ROI vertices, but not seed ROI vertices themselves, were included in these octiles. Finally,  BS  scores were obtained, as above, for the individual subsurfaces corresponding to each octile. This yielded the same density-by-similarity relationship as described above, but added a distance dimension. 
+ 
+ 
+ Specific agreement between structural and functional covariance 
+ Finally, in order to better quantify the patterns of systematic disagreement between structural and functional covariance measures, we compared instances where either both functional modalities agreed that a connection existed whereas both structural modalities agreed that it did not, or vice versa. This simple measure, hereafter referred to as  specific agreement , allowed us to better elucidate cases where the correspondence index  CI  was worse than expected by random chance (i.e., signifying a systematic rather than random divergence). 
+ 
+ 
+ 
+ Results 
+ 
+ Connectivity distributions for individual modalities 
+ The distributions for each modality and the aLPFC and vmPFC seed regions (as exemplars) are shown in  Figure 2  (please refer to Supplementary Figure S1 for distributions of all seed/modality combinations). Distributions are thresholded at 10% and 30%, to illustrate how they differ as a function of density for different modalities. As a general observation, we find that distributions for all modalities include the region proximal to the seed, as well as its homotopic contralateral region. The majority of distributions are symmetric (see below) and also include clusters which are spatially distal from the seed and its homologue, but these clusters tended to be tighter for both functional modalities, and more dispersed and “noisy” for both structural ones. Moreover, the functional distributions appear qualitatively more similar to one another. 
+ 
+ 
+ Correspondence index 
+ Figure 2  illustrates the relationship between distributions produced by individual modalities, and the cross-modal correspondence Ψ, for 10% and 30% density. Increasing the density increased the extent of agreement (red and orange), but also increased disagreement (blue and green) across the cortex. For all seed regions, full agreement (red) occurred in regions proximal to the seed region, and its contralateral homotope. For some (but not all) regions, full agreement was also found in distal regions; for instance, in vmPFC (bottom row of  Figure 2 ), full agreement was found in the posterior cingulate and inferior parietal cortex, bilaterally, as well as the ipsilateral inferior temporal cortex. The existence of such distal correspondence depended both on the specific seed region, and the threshold density, and provides a more spatially intuitive representation of the  BS /δ curves. 
+ Figure 2  (rightmost plots) shows the correspondence Ψ for two selected seed regions, at two selected threshold densities (10% and 30%). This value gives an indication of how convergence or divergence across modalities is distributed across the cortex. As a general observation, patterns of full agreement (red) were mostly excluded to the region proximal to the seed and its contralateral homotopic region. In some cases (for instance, vmPFC,  Figure 2  at bottom), full agreement extended to regions distant from the seed/homotope. In most cases, there was partial (3-modality) correspondence in distal regions. These relationships were also modulated by density, as is summarized in line plots ( Figure 3 , right column). Mean Ψ ( Figure 4A ) was fairly stable across the density range [0,0.4], after which it converged with random.  CI  also varied across seeds ( Figure 4B ), with vmPFC having the best correspondence, and V5 the worst. 
+ 
+ 
+ Bimodal comparisons 
+ To obtain bimodal comparisons independent of any particular thresholding choice, we thresholded across a large range of densities, [0.025,0.8]. This allowed us to plot the Φ score as a function of density. Φ vs. δ plots for four selected seed regions are shown in  Figure 3  (please refer to Supplementary Figure S2 for similar plots of all seed regions). Importantly, because no statistical threshold was applied to these data, many values – particularly at higher densities – are likely to be spurious (i.e., not significantly different from a null hypothesis of zero correlation). To address this, we analytically determined random values (i.e., values expected by random chance) at all densities (Φ rand , see Methods). These values are shown in  Figure 3  as a dashed line. The degree to which the curves for actual and random values differs indicates how much better the similarity is between two modalities than would be expected by chance. This can be represented as the integral of Φ, minus the integral of Φ rand , across all density values (orange region in  Figure 3 ). To remove any bias towards a particular density range, the  BS  values were further normalized such that random scores were set to zero, and integrals were obtained for these normalized scores. This yielded a summary measure of similarity, which is interpretable as a continuum for which zero signifies no different from random chance, and one signifies full agreement. 
+ As shown in  Figures 3  and S3, the  BS /δ relationship differs remarkably across both seed regions and bimodal comparisons. A summary of these patterns across all seed regions is presented in  Figure 5 .  Figure 5A  shows the average and standard deviation (in grey) of Φ and Φ rand  for each bimodal comparison. These patterns differed somewhat across comparisons, but as a general trend, agreement was higher at lower densities and converged to random at higher ones. The mean and standard deviation of the normalized integral scores are shown in  Figure 5B . Notably, the two functional modalities (fMRI and MACM) had the best agreement, which was significantly higher than all other scores ( p  < 0.05, Bonferroni corrected). All other scores, including the CT/VBM, were better than chance, but not significantly different from one another. 
+ 
+ 
+ Symmetry 
+ Both functional and structural covariance patterns show strong interhemispheric symmetry, and it is interesting to investigate how this symmetry might relate to the degree of correspondence across modalities. For instance, do some modalities produce more symmetry than others? Does symmetry predict the degree to which two patterns agree? We find that distributions for all modalities are generally symmetric, with average normalized symmetry Θ norm  being stronger for functional than for structural modalities ( Figure 6A,B ), with the order RS-fMRI > MACM > VBM > CT. Additionally, when averaged across all comparisons involving a single modality,  BS  was strongly correlated with Θ norm  ( Figure 4C ;  r 2  = 0.5,  p  < 0.001), indicating that higher symmetry predicts higher bimodal similarity. 
+ 
+ 
+ Distance from seed region 
+ The relationship between the distance from the seed ROI, density, and bimodal similarity is illustrated in  Figure 7 . For all bimodal comparisons, the strongest similarity occurred in the nearest octile, which corroborates observations from visual inspection of individual surface distributions (cf.  Figures 2  and Supplementary Figure S1), of consistent agreement in areas proximal to the seed ROI or its homotopic region. Generally, some similarity was also observed in the second octile, but only for higher densities (i.e., consisting primarily of the weaker connectivity estimates that survive only low threshold values). Most notably, only for the RS-fMRI/MACM comparison did we find substantial correspondence for distances beyond the second octile. For this comparison, some degree of similarity was found even at large distances for lower densities, illustrating strong agreement between the two functional modalities even at distal locations. 
+ 
+ 
+ Divergence in structural and functional measures 
+ Figure 8  shows the  specific agreement  for functional and structural modalities, both using PrC as an exemplar, and computed as a summary across all nine seed regions. Specific agreement is defined as the case where the two functional modalities show connectivity at a specific density, but the two structural modalities do not – or vice versa. The line plot of  Figure 8  demonstrates that specific agreement is substantially more frequent for the functional modalities, and that this agreement is maximal at a density of ~0.25. The exemplar distribution for PrC was thus obtained at a density of 0.25, and its general pattern is also typical of the other seed ROIs. In particular, this distribution shows that specific functional agreement occurs for larger contiguous regions – in this case for the medial prefrontal cortex, anterior middle temporal cortex, and the angular gyrus – while the pattern for specific structural agreement is comprised of smaller and more diffuse clusters. The general pattern across seed regions is shown at the bottom of  Figure 8 , and shows consistency in the anterior middle cingulate and superior medial prefrontal regions, as well as the anterior insula, angular gyrus, and supplementary motor area. The structural agreement pattern is less widespread, but shows consistency in the anterior medial prefrontal cortex, posterior cingulate cortex, and the inferior lateral parietal cortex. 
+ 
+ 
+ 
+ Discussion 
+ 
+ Summary 
+ Both functional and structural covariance are popular means of inferring “connectivity” in whole brain analyses of human imaging data. For structural covariance in particular, the relationship to physical connectivity is premised on the notion that mutually trophic functional activation patterns can lead to covarying morphology ( Mechelli et al. 2005 ). This hypothesis suggests that structural covariance patterns should have an association with functional covariance, i.e., more robust functional activations should drive coordinated morphological growth. Evidence from histology ( Zheng and Purves 1995 ), VBM ( Maguire et al. 2000 ;  Draganski et al. 2004 ), and cortical thickness ( Lerch et al. 2006 ) lends support to this possibility. However, our results suggest that this relationship is rather limited – both cortical thickness and VBM covariance patterns had a better correspondence with RS-fMRI and MACM than would be expected by random chance, but only marginally so; with the most consistent cross-modal correspondence occurring in regions proximal to the seed region, or homotopic regions in the opposite hemisphere. Perhaps more surprisingly, the agreement between covariance patterns produced by both morphological approaches was also quite low; indeed, it did not statistically differ from the comparisons between structural and functional modalities. In contrast, the agreement between RS-fMRI and MACM was substantially higher than for all other comparisons. 
+ 
+ 
+ Spatial patterns of convergence and divergence 
+ The correspondence index,  CI , measures the degree to which patterns from all four modalities agree. This measure allows us to compare individual seed regions on how consistently they generate a connectivity estimate, across multiple modalities. We found significant variance across seed regions on the  CI  measure, as an integral across densities ( Figure 4B ). Specifically, vmPFC and MTG showed the highest correspondence, while V5 and aINS showed relatively low correspondence. The reasons for these differences are not readily interpretable. The relative symmetry of a seed region’s distribution is one likely factor (see below). The specific methodological differences between modalities is also likely a significant factor. Interestingly, at very high densities,  CI  actually assumes values which are  less  than those expected by random chance (see  Figure 3  and  Figure 4A ). This observation may reflect systematic differences between modalities, i.e., differential patterns of “structured noise” which may result in a non-random divergence at these high densities. These differences also vary by seed region, and thus may partly explain the variation in correspondence across seeds. 
+ The most consistent pattern of cross-modal convergence across seed regions occurred in regions proximal to the seed, as well as its contralateral homotope. The relationships between distance from the seed ROI (or its homotope) and bimodal similarity,  BS , are summarized as an average across seed ROIs in  Figure 7 . Here, we divided the geodesic distance from the seed ROI into eight quantiles, and assessed similarity for each subsurface. In general, the highest  BS  occurred for the first octile (i.e., vertices closest to the seed ROI or its homotopic region), which substantiates the qualitative observations shown in  Figures 2  and S1, and described in more detail below. For further distances, only the RS-fMRI/MACM comparison yielded a substantially better-than-random  BS . For this comparison, we found substantial agreement even at higher distances, for lower densities, indicating some consistency in the whole-brain agreement of these two functional approaches. The consistent agreement for proximal regions is not particularly surprising, given the smoothness of each dataset. However, in many cases, the extent of the distribution went beyond that expected from the intrinsic smoothness. It is thus also likely that a large proportion of spatially proximal agreement reflects a robust connectivity pattern for neighbouring regions. Such connectivity bias for short connections has been demonstrated in macaque tract tracing ( Markov et al. 2011 ), and may contribute to the spatial smoothness of both the BOLD signal and brain morphology. 
+ Similarly, the robustness of cross-modal correspondence for homotopic regions likely reflects the degree of functional and structural symmetry of the cortex. For functional activations, such symmetry is an ubiquitous observation, and may reflect a combination of well-characterized parallel processing streams, and interhemispheric cross-talk via callosal fibers (although such symmetry is also found in the absence of callosal fibers; see  Tyszka et al. 2011 ;  Uddin et al. 2008 ;  Hinkley et al. 2012 ). The brain also exhibits a high degree of morphological symmetry, consistent with the patterns found here, which are likely due to a combination of genetic determination and symmetrical functional co-activations which drive growth in a coordinated way. Here, we here find a strong association between the relative symmetry of the covariance distribution for a particular seed/modality and the average  BS  of that modality ( r 2  = 0.5;  Figure 6C ), which supports such a relationship. An association between the symmetry of brain morphology and function has also been reported in earlier studies. For instance,  Aboitiz, Scheibel, and Zaidel (1992)  found a correlation between corpus callosum size and symmetry of the Sylvian fissure, while negative associations have been reported for corpus callosum size and the degree of behavioural asymmetry in language processing tasks ( O’Kusky et al. 1988 ;  Yazgan et al. 1995 ). On the other hand, functional covariance was generally more symmetric than structural ( Figure 4A,B ). Since RS-fMRI and MACM also had a higher similarity with one another, the relationship with symmetry may also be reflecting this difference. Future studies could address the relationship between symmetry, correspondence, and genetic influence, using heritability analyses (cf.  Winkler et al. 2010 ). 
+ Notwithstanding the average BS/distance relationships described above, full convergence (Ψ = 1) was also observed for some seed regions in spatially distal, non-homotopic regions of cortex. As there is no a priori reason to expect such distal correspondence, these patterns represent the strongest evidence of robust long-range connectivity patterns captured both by structural and functional covariance. These patterns of convergence and divergence between distributions produced by each modality varied according to seed region, and as a complement to summarizing across seeds, it is also interesting to consider patterns for each particular region. The left aLPFC ( Figure 2 , top), for instance, showed strong bilateral cross-modal correspondence (orange and red regions) in the aMCC and PrC. Corroborating this finding, several lines of evidence have demonstrated dense structural connectivity between LPFC and cingulate regions (medial PFC), using tract tracing in nonhuman primates ( Saleem, Miller, and Price 2014 ), as well as DWI tractography in humans ( Beckmann, Johansen-Berg, and Rushworth 2009 ). On the other hand, morphological measures disagreed with functional ones in widespread areas of the lateral temporal lobe and other parts of medial PFC, resulting in poor general correspondence for this seed region (green and blue regions). The morphological measures themselves diverged in their correlational patterns, which reduces the confidence with which inferences about connectivity can be drawn in these regions of cortex. 
+ As a second example, the left vmPFC ( Figure 2 , bottom) showed strong correspondence for the posterior cingulate and inferior parietal cortex bilaterally, with divergence occurring primarily in lateral temporal and prefrontal regions. These regions comprise the well-known default mode network (DMN), which has been studied using resting-state fMRI ( Fox and Raichle 2007 ;  Greicius et al. 2003 ), PET ( Raichle et al. 2001 ), DWI, and macaque tract tracing ( Margulies et al. 2009 ). vmPFC had the best mean  CI , which likely reflects the robust connectivity of the DMN, a network which has been topologically characterized as a “rich club” ( Heuvel and Sporns 2011 ), comprised of strongly interconnected “hub” regions, including PCC, PrC (which also shows high correspondence as a seed region), vmPFC, and inferior parietal cortex. The ubiquitous activation of this network may account for the morphological correlations observed here, and supports the idea of gross-scale activity-dependent plasticity, being most prominent for those regional pairs which are most continuously co-activated across the lifespan. 
+ Plotted as a function of density,  BS , differs remarkably across individual comparisons (see  Figure 3 ,  Figure 7 , and Supplementary Figure S1, for reference). In some cases,  BS  converges to zero (random) at higher densities (typically δ > 0.4), while in other cases it remains fairly stable across the entire range. As a general trend (see summary in  Figure 5A ),  BS  is highest at lower densities and decreases progressively at higher ones. This is not particularly surprising, since at higher densities, an increasing number of above-threshold edges will be based on very weak or spurious correlations. Similarly, at lower densities, modalities are expected to have higher agreement based mostly on the robust proximal and homotopic agreement which are common to all modalities. However, the relationship between  BS  and density is not trivially linear, and the present results help us characterize the density ranges over which the different modalities produce convergent patterns of connectivity estimates. Based on the patterns we observe, considered on the whole, only fMRI/MACM converge at rates substantially better than random. This is not universally true, however, since similarity between other modality pairs can be considerably higher for specific seed regions (see, for instance, area M1 in  Figure 3 ). 
+ 
+ 
+ Structural versus functional covariance 
+ Bimodal similarity was significantly higher between the two functional modalities (RS-fMRI and MACM), whereas there was no significant difference in agreement between any of the other modality pairs, including the two structural covariance approaches. This higher agreement for fMRI likely reflects both functional and methodological factors. Functionally, these results support the idea that seed regions are robustly co-activated with a “core” set of other regions, regardless of whether a specific task is presented to the subject. This agrees with evidence from  Smith et al. (2009) , who found a strong overlap between independent components derived from RS-fMRI, and networks corresponding to task activations from the BrainMap database. Methodologically, the two modalities are based upon an identical observation (the BOLD signal), while the morphometric techniques may estimate substantially different quantities. Additionally, the overlap between functional approaches may reflect the poor temporal resolution of the BOLD signal, with respect to the time scales on which neurons communicate. This temporal blurring likely captures only the accumulated activity as information is propagated through a network, which is evident both in task-driven and resting-state conditions. 
+ Interestingly, we found that the structural and functional modalities were no less similar than the two structural modalities ( Figure 5B ). All comparisons were better than chance, but also exhibited a high degree of divergence. The former observation suggests that structural covariance indeed does capture functional co-activation, to some degree, which is consistent with the notion that SCov represents mutually trophic influences. The latter observation suggests that this similarity is limited, however. Additionally, we found that the pattern of specific agreement (where functional modalities find connectivity but structural ones do not, or vice versa) is much stronger and more widespread for the functional modalities, with a peak at density δ = 0.25 ( Figure 8 ). This suggests that structural covariance fails to capture functional associations across a wide swathe of cortex, while only marginally adding complementary information (i.e., in the form of specific structural agreement). It is a notable caveat, however, that we are summarizing on the basis of only nine selected seed ROIs; a more global analysis would be necessary to more thoroughly characterize this relationship. 
+ Given the similar objective of both CT and VBM analysis (i.e., an anatomical estimate of grey matter morphology), the poor correspondence between them is somewhat unexpected. However, there are a number of distinct differences between these approaches which may help elucidate this divergence. While cortical thickness has the advantage of explicitly modelling the cortical sheet, and thus respecting its convoluted geometry, its accuracy depends on the accuracy with which GM is estimated, since this estimation determines the location of the modelled interface between cortical GM and WM. At present, most approaches – including CIVET – estimate GM using a global intensity distribution. However, as the cellular composition (e.g., the number of myelinated axons) of the cortical mantle varies substantially across the cortex, this estimate is likely to underestimate GM in some regions, and overestimate in others. More critically, it is impossible, using only T1-weighted information, to disambiguate the relative contribution of myelinated axons, neuronal somata, glia, and other cell types and supporting tissue, to an observed difference or correlation in this estimated value. In other words, given the heterogeneity of GM and WM tissue across the cortex ( Elston 2002 ;  Glasser and Van Essen 2011 ), the use of a single T1-weighted intensity value to classify tissue is fundamentally limited. 
+ VBM analysis, on the other hand, estimates the deformation necessary to transform an individual T1-weighted image to a pre-defined template image. Firstly, this approach is designed to estimate grey matter volume, rather than thickness, which is conceptually a quite different quantity. This transformation is limited by the fact that no prior model (e.g., a cortical surface) is specified for the tissue of interest, and thus deformation is free to occur in three dimensions equally. Due to this lack of definitive model, VBM typically relies upon a smoothing kernel to better ensure alignment between images, which often results in a misalignment across individuals, particularly in regions where gyral morphology varies substantially across individuals (cf.  Zilles et al. 1997 ). Thus, while VBM escapes the limitation of defining fast boundaries between tissue classes, it loses spatial specificity and sensitivity to identify localized effects, which are better captured using surface-based alignment ( Frost and Goebel 2012 ;  Desai et al. 2005 ;  Anticevic et al. 2008 ). Moreover, discrepancies between different VBM approaches (FSL versus SPM) have been reported, which suggest that this method is highly sensitive to the statistical assumptions and specific methods used ( Rajagopalan and Pioro 2015 ). 
+ The poor correspondence between structural and functional covariance patterns suggests that SCov derived from neither structural modality captures functional connectivity patterns well. Using an ROI-based approach, we have recently reported a similar lack of correspondence between (cortical thickness) SCov and RS-fMRI (and indeed DWI- and tract-tracing-based estimates as well;  Reid et al. 2015 ). SCov was also found to have a poor stability for moderate correlations, measured as a signal-to-noise ratio (SNR) across random subsamples of the data, relative to RS-fMRI. SNR for individual ROI pairs was furthermore strongly associated with the degree of cross-modal correspondence in this study, which suggests that structural covariance is less sensitive to moderate associations than functional approaches, and may help account for the discrepancies observed here. Notably, in both studies, we used relatively large sample sizes (89 and 132). These findings are not completely unexpected, given the numerous influences which likely contribute to brain morphology over time. Both cortical thickness and volume have strong genetic determinants, for instance ( Panizzon et al. 2009 ;  Winkler et al. 2010 ), which may operate largely independently of functional activations. Correlations in structural morphometry may thus be driven by global variations which are largely accountable to these genetic influences. Moreover, the vastly different time scales of the BOLD signal and morphological growth ensure that only very robust and ubiquitous functional correlations are likely to be captured by measuring the coordination of brain morphology. Here, we find the best functional/structural correspondence in regions of the DMN (vmPFC and PrC), as well as MTG, which may reflect the robustness with which these “hub” regions are activated across the lifespan. It is likely that the utility of SCov to capture functional covariance patterns is limited to such networks. Indeed, while SCov patterns may be a useful means of differentiating between groups on the basis of clinical or psychological scores ( Lerch et al. 2006 ;  Alexander-Bloch et al. 2013 ;  Evans 2013 ), we would conclude that their usefulness for inferring functional brain connectivity, at least in the healthy adult population considered here, is rather limited. 
+ 
+ 
+ Limitations and Perspectives 
+ Connectivity estimates from each modality considered here are subject to the particular set of preprocessing steps which were applied to the raw imaging data. Each preprocessing regime entails a set of choices that a researcher must make, and in many cases, there is a lack of consensus in the neuroimaging community over which choice is most ideal. For example, all four approaches considered here require than some smoothing kernel be applied to the data, which helps deal with noise and spatial uncertainty. The choice of smoothing kernel (typically an isotropic Gaussian with a specific full-width-at-half-maximum parameter, or FWHM) differs between modalities, and is motivated by various factors which are often unique to a particular approach. Standard kernels generally reflect the degree of spatial uncertainty in a given modality, thus leading to a different inherent smoothness in each distribution being compared here. Similarly, it is common in preprocessing pipelines to include steps which attempt to remove nuisance factors from the raw image acquisitions. This is particularly pertinent for BOLD time series, for which artifacts from subject motion, respiration, and cardiovascular rhythms are well characterized (e.g.,  Birn et al. 2008 ;  Power et al. 2014 ). Numerous approaches have been proposed for isolating the neural signal from these noise components. However, each of these methods has limitations in terms of how well it removes nuisance variance, while not also removing the neural signal of interest ( Power et al. 2012 ) or even inducing spurious variance ( Murphy et al. 2009 ). For the sake of simplicity, we chose in this study to select one particular set of smoothing, artifact removal, and other preprocessing steps, for each modality. A natural extension of the current approach would be to systematically manipulate these parameters with the goal of maximizing cross-modal correspondence. 
+ Another necessary choice for this study was the selection of seed ROIs. For this purpose, we chose a set of ROIs that have been previously derived through various approaches, including meta-analysis, cytoarchitectonic classification, and task-based fMRI experiments. Our choice was further motivated by a desire to provide a good representation of the whole cortex. This approach allowed us to relate our results to the specific methodologies and studies from which they were derived, but it also entails a number of limitations. Firstly, since the extent of each ROI was determined by the specific methodology from which it was derived, it varied in size and shape across ROIs. Secondly, our choice of nine ROIs, while spatially diffuse, does not provide substantial coverage of the cortical sheet. It is likely that both ROI extent and coverage will provide additional insight into how each connectivity estimate behaves across the cortex, and another useful extension of this study would be to systematically investigate how ROI size and position influence cross-modal correspondence in whole-brain parcellations with equal-sized parcels. These can be derived, for instance, using a “patch” approach, as in  Hagmann et al. (2008) . 
+ The use of DWI-based tractography has become a popular and promising means of estimating “structural” connectivity between brain regions, due to its relatively more direct estimation of white matter microstructure. In a recent study, we compared probabilistic DWI tractography to both RS-fMRI and SCov based on cortical thickness, finding a moderately high correspondence for the former, and poor correspondence for the latter ( Reid et al., 2015 ). However, in this article we also highlight a number of substantial biases in the tractography approach, which are not trivial to address. Specifically, both the distance and anisotropy profile of a given streamline will bias its apparent connectivity (i.e., number of streamlines originating in region A and terminating in region B) in a way that is difficult to model. While excellent methods have been proposed to deal with complex fibre configurations and allow a better sampling of potential streamline orientations (e.g.,  Behrens et al., 2007 ), there remains an inherent ambiguity in the relationship between tractography and the structural connectivity it is meant to model. In this study, we have chosen not to include DWI tractography or other alternative estimates of brain connectivity. While this limits the generalizability of our findings to alternative estimation approaches, our intention was to specifically investigate correspondence between functional and structural covariance estimates, to test and establish constraints on the “mutually trophic” hypothesis. However, the method we present is easily extensible to broader investigations of any method with attempts to estimate connectivity in a seed-based fashion. 
+ Finally, while the NKI sample used here to obtain RS-fMRI and T1 images has a fairly wide age range, it does not include a representation of either early-life neurodevelopment, late-life neurodegeneration, or disease states associated with systematic cortical atrophy. Similarly, the sample chosen for MACM analysis was filtered to exclude studies of clinical populations. Focusing on such populations will likely alter the observed lack of correspondence for our SCov-based connectivity estimates. Specifically, the distribution of brain morphology across the population considered here is expected to be relatively stable, and individual differences are highly heritable ( Baaré et al. 2001 ;  Chouinard-Decorte et al. 2014 ). On the other hand, in early life, the morphology of the brain changes according to a stereotypical developmental pattern, and its covariance can potentially help elucidate developmental processes and abnormalities in these processes ( Khundrakpam et al. 2013 ). Similarly, late-life neurodegenerative conditions such as small vessel disease ( Laat et al. 2012 ;  Reid et al. 2010 ), Alzheimer’s disease ( Lerch et al. 2005 ;  Reid and Evans 2013  for review), or Parkinson’s disease ( Xia et al. 2013 ;  Fioravanti et al. 2015 ) also result in stereotypical changes to brain morphology, which give rise to observable changes in structural covariance ( Tuladhar et al. 2015 ;  He, Chen, and Evans 2008 ;  Zhou et al. 2012 ). Psychiatric conditions such as schizophrenia and depression have also been shown to have common patterns of grey matter atrophy, focused mainly on “hub” regions ( Goodkind et al. 2015 ;  Crossley et al. 2014 ). Thus it is likely that the poor cross-modal correspondence observed here might improved if one were to apply the present methodology to developing or specific clinical populations. 
+ 
+ 
+ Conclusions 
+ Our findings provide a number of insights into the use of functional and structural covariance to infer brain connectivity. Firstly, while the two functional approaches had a substantially better correspondence than all other comparisons, the same was not true of the two structural covariance measures, which had a better-than-chance agreement, but did not agree better than comparisons of different modalities (i.e., structural vs. functional). While this difference may reflect methodological and conceptual differences, these results indicate that functional and structural covariance do not generally capture the same underlying phenomena, and calls into question the degree to which SCov analyses truly capture activity-related “mutually trophic influences”, at least in the healthy adult population. Secondly, the degree to which connectivity inferred from different modalities corresponds is highly dependent on how these distributions are thresholded, and this relationship is not trivial. This indicates that arbitrary thresholding (including statistical p-value thresholds) will likely bias seed-based connectivity results in a way which is difficult to predict  a priori . Based on these observations, we recommend the use of the approach introduced herein, whereby thresholding was performed across all plausible threshold densities, compared to random expected values, and finally integrated to obtain a non-biased estimate of connectivity and correspondence. 
+ 
+ 
+ 
+ 
+ 
+ Funding 
+ 
+ This study was supported by the Deutsche Forschungsgemeinschaft (DFG, EI 816/4-1; EI 816/6-1 and LA 3071/3-1.), the National Institute of Mental Health (R01-MH074457) and the European EFT program (Human Brain Project). 
+ 
+ 
+ References 
+ 
+ 
+ 
+ 
+ Aboitiz 
+ F 
+ 
+ 
+ Scheibel 
+ AB 
+ 
+ 
+ Zaidel 
+ E 
+ 
+ 
+ Morphometry of the Sylvian fissure and the corpus callosum, with emphasis on sex differences 
+ Brain 
+ 1992 
+ 115 
+ 1521 
+ 1541 
+ 1422802 
+ 
+ 
+ 
+ 
+ 
+ 
+ Alexander-Bloch 
+ A 
+ 
+ 
+ Raznahan 
+ A 
+ 
+ 
+ Bullmore 
+ E 
+ 
+ 
+ Giedd 
+ J 
+ 
+ 
+ The convergence of maturational change and structural covariance in human cortical networks 
+ J Neurosci 
+ 2013 
+ 33 
+ 2889 
+ 2899 
+ 23407947 
+ 
+ 
+ 
+ 
+ 
+ 
+ Anticevic 
+ A 
+ 
+ 
+ Dierker 
+ DL 
+ 
+ 
+ Gillespie 
+ SK 
+ 
+ 
+ Repovs 
+ G 
+ 
+ 
+ Csernansky 
+ JG 
+ 
+ 
+ Van Essen 
+ DC 
+ 
+ 
+ Barch 
+ DM 
+ 
+ 
+ Comparing surface-based and volume-based analyses of functional neuroimaging data in patients with schizophrenia 
+ Neuroimage 
+ 2008 
+ 41 
+ 835 
+ 848 
+ 18434199 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ashburner 
+ J 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ Voxel-based morphometry–the methods 
+ Neuroimage 
+ 2000 
+ 11 
+ 805 
+ 821 
+ 10860804 
+ 
+ 
+ 
+ 
+ 
+ 
+ Baaré 
+ WF 
+ 
+ 
+ Hulshoff Pol 
+ HE 
+ 
+ 
+ Boomsma 
+ DI 
+ 
+ 
+ Posthuma 
+ D 
+ 
+ 
+ Geus 
+ EJ de 
+ 
+ 
+ Schnack 
+ HG 
+ 
+ 
+ Haren 
+ NE van 
+ 
+ 
+ Oel 
+ CJ van 
+ 
+ 
+ Kahn 
+ RS 
+ 
+ 
+ Quantitative genetic modeling of variation in human brain morphology 
+ Cerebral cortex (New York, NY: 1991) 
+ 2001 
+ 11 
+ 816 
+ 824 
+ 
+ 
+ 
+ 
+ 
+ 
+ Beckmann 
+ M 
+ 
+ 
+ Johansen-Berg 
+ H 
+ 
+ 
+ Rushworth 
+ MFS 
+ 
+ 
+ Connectivity-based parcellation of human cingulate cortex and its relation to functional specialization 
+ The Journal of Neuroscience: The Official Journal of the Society for Neuroscience 
+ 2009 
+ 29 
+ 1175 
+ 1190 
+ 19176826 
+ 
+ 
+ 
+ 
+ 
+ 
+ Behrens 
+ TE 
+ 
+ 
+ Berg 
+ HJ 
+ 
+ 
+ Jbabdi 
+ S 
+ 
+ 
+ Rushworth 
+ MF 
+ 
+ 
+ Woolrich 
+ MW 
+ 
+ 
+ Probabilistic diffusion tractography with multiple fibre orientations: What can we gain? 
+ Neuroimage 
+ 2007 
+ 34 
+ 1 
+ 144 
+ 155 
+ 17070705 
+ 
+ 
+ 
+ 
+ 
+ 
+ Behzadi 
+ Y 
+ 
+ 
+ Restom 
+ K 
+ 
+ 
+ Liau 
+ J 
+ 
+ 
+ Liu 
+ TT 
+ 
+ 
+ A component based noise correction method (CompCor) for BOLD and perfusion based fMRI 
+ Neuroimage 
+ 2007 
+ 37 
+ 90 
+ 101 
+ 17560126 
+ 
+ 
+ 
+ 
+ 
+ 
+ Bi 
+ G 
+ 
+ 
+ Poo 
+ M 
+ 
+ 
+ Synaptic modification by correlated activity: Hebb’s postulate revisited 
+ Annu Rev Neurosci 
+ 2001 
+ 24 
+ 139 
+ 166 
+ 11283308 
+ 
+ 
+ 
+ 
+ 
+ 
+ Birn 
+ RM 
+ 
+ 
+ Smith 
+ MA 
+ 
+ 
+ Jones 
+ TB 
+ 
+ 
+ Bandettini 
+ PA 
+ 
+ 
+ The respiration response function: The temporal dynamics of fMRI signal fluctuations related to changes in respiration 
+ NeuroImage 
+ 2008 
+ 40 
+ 644 
+ 654 
+ 18234517 
+ 
+ 
+ 
+ 
+ 
+ 
+ Bojak 
+ I 
+ 
+ 
+ Oostendorp 
+ TF 
+ 
+ 
+ Reid 
+ AT 
+ 
+ 
+ Kotter 
+ R 
+ 
+ 
+ Connecting mean field models of neural activity to EEG and fMRI data 
+ Brain Topogr 
+ 2010 
+ 23 
+ 139 
+ 149 
+ 20364434 
+ 
+ 
+ 
+ 
+ 
+ 
+ Bzdok 
+ D 
+ 
+ 
+ Schilbach 
+ L 
+ 
+ 
+ Vogeley 
+ K 
+ 
+ 
+ Schneider 
+ K 
+ 
+ 
+ Laird 
+ AR 
+ 
+ 
+ Langner 
+ R 
+ 
+ 
+ Eickhoff 
+ SB 
+ 
+ 
+ Parsing the neural correlates of moral cognition: ALE meta-analysis on morality, theory of mind, and empathy 
+ Brain Struct Funct 
+ 2012 
+ 217 
+ 783 
+ 796 
+ 22270812 
+ 
+ 
+ 
+ 
+ 
+ 
+ Caspers 
+ S 
+ 
+ 
+ Zilles 
+ K 
+ 
+ 
+ Laird 
+ AR 
+ 
+ 
+ Eickhoff 
+ SB 
+ 
+ 
+ ALE meta-analysis of action observation and imitation in the human brain 
+ Neuroimage 
+ 2010 
+ 50 
+ 1148 
+ 1167 
+ 20056149 
+ 
+ 
+ 
+ 
+ 
+ 
+ Chai 
+ XJ 
+ 
+ 
+ Castanon 
+ AN 
+ 
+ 
+ Ongur 
+ D 
+ 
+ 
+ Whitfield-Gabrieli 
+ S 
+ 
+ 
+ Anticorrelations in resting state networks without global signal regression 
+ Neuroimage 
+ 2012 
+ 59 
+ 1420 
+ 1428 
+ 21889994 
+ 
+ 
+ 
+ 
+ 
+ 
+ Chouinard-Decorte 
+ F 
+ 
+ 
+ McKay 
+ DR 
+ 
+ 
+ Reid 
+ AT 
+ 
+ 
+ Khundrakpam 
+ B 
+ 
+ 
+ Zhao 
+ L 
+ 
+ 
+ Karama 
+ S 
+ 
+ 
+ Rioux 
+ P 
+ 
+ 
+ Sprooten 
+ E 
+ 
+ 
+ Knowles 
+ E 
+ 
+ 
+ JW 
+ JK 
+ 
+ 
+ Curran 
+ JE 
+ 
+ 
+ Göring 
+ HH 
+ 
+ 
+ Dyer 
+ TD 
+ 
+ 
+ Olvera 
+ RL 
+ 
+ 
+ Kochunov 
+ P 
+ 
+ 
+ Duggirala 
+ R 
+ 
+ 
+ Fox 
+ PT 
+ 
+ 
+ Almasy 
+ L 
+ 
+ 
+ Blangero 
+ J 
+ 
+ 
+ Bellec 
+ P 
+ 
+ 
+ Evans 
+ AC 
+ 
+ 
+ Glahn 
+ DC 
+ 
+ 
+ Heritable changes in regional cortical thickness with age 
+ Brain Imaging and Behavior 
+ 2014 
+ 8 
+ 208 
+ 216 
+ 24752552 
+ 
+ 
+ 
+ 
+ 
+ 
+ Cordes 
+ D 
+ 
+ 
+ Haughton 
+ VM 
+ 
+ 
+ Arfanakis 
+ K 
+ 
+ 
+ Carew 
+ JD 
+ 
+ 
+ Turski 
+ PA 
+ 
+ 
+ Moritz 
+ CH 
+ 
+ 
+ Quigley 
+ MA 
+ 
+ 
+ Meyerand 
+ ME 
+ 
+ 
+ Frequencies Contributing to Functional Connectivity in the Cerebral Cortex in “Resting-state” Data 
+ American Journal of Neuroradiology 
+ 2001 
+ 22 
+ 1326 
+ 1333 
+ 11498421 
+ 
+ 
+ 
+ 
+ 
+ 
+ Crossley 
+ NA 
+ 
+ 
+ Mechelli 
+ A 
+ 
+ 
+ Scott 
+ J 
+ 
+ 
+ Carletti 
+ F 
+ 
+ 
+ Fox 
+ PT 
+ 
+ 
+ McGuire 
+ P 
+ 
+ 
+ Bullmore 
+ ET 
+ 
+ 
+ The hubs of the human connectome are generally implicated in the anatomy of brain disorders 
+ Brain: A Journal of Neurology 
+ 2014 
+ 137 
+ 2382 
+ 2395 
+ 25057133 
+ 
+ 
+ 
+ 
+ 
+ 
+ Dale 
+ AM 
+ 
+ 
+ Fischl 
+ B 
+ 
+ 
+ Sereno 
+ MI 
+ 
+ 
+ Cortical surface-based analysis. I. Segmentation and surface reconstruction 
+ Neuroimage 
+ 1999 
+ 9 
+ 179 
+ 194 
+ 9931268 
+ 
+ 
+ 
+ 
+ 
+ 
+ Desai 
+ R 
+ 
+ 
+ Liebenthal 
+ E 
+ 
+ 
+ Possing 
+ ET 
+ 
+ 
+ Waldron 
+ E 
+ 
+ 
+ Binder 
+ JR 
+ 
+ 
+ Volumetric vs. surface-based alignment for localization of auditory cortex activation 
+ Neuroimage 
+ 2005 
+ 26 
+ 1019 
+ 1029 
+ 15893476 
+ 
+ 
+ 
+ 
+ 
+ 
+ Draganski 
+ B 
+ 
+ 
+ Gaser 
+ C 
+ 
+ 
+ Busch 
+ V 
+ 
+ 
+ Schuierer 
+ G 
+ 
+ 
+ Bogdahn 
+ U 
+ 
+ 
+ May 
+ A 
+ 
+ 
+ Neuroplasticity: changes in grey matter induced by training 
+ Nature 
+ 2004 
+ 427 
+ 311 
+ 312 
+ 14737157 
+ 
+ 
+ 
+ 
+ 
+ 
+ Eickhoff 
+ SB 
+ 
+ 
+ Jbabdi 
+ S 
+ 
+ 
+ Caspers 
+ S 
+ 
+ 
+ Laird 
+ AR 
+ 
+ 
+ Fox 
+ PT 
+ 
+ 
+ Zilles 
+ K 
+ 
+ 
+ Behrens 
+ TE 
+ 
+ 
+ Anatomical and functional connectivity of cytoarchitectonic areas within the human parietal operculum 
+ J Neurosci 
+ 2010 
+ 30 
+ 6409 
+ 6421 
+ 20445067 
+ 
+ 
+ 
+ 
+ 
+ 
+ Eickhoff 
+ SB 
+ 
+ 
+ Laird 
+ AR 
+ 
+ 
+ Grefkes 
+ C 
+ 
+ 
+ Wang 
+ LE 
+ 
+ 
+ Zilles 
+ K 
+ 
+ 
+ Fox 
+ PT 
+ 
+ 
+ Coordinate-based activation likelihood estimation meta-analysis of neuroimaging data: a random-effects approach based on empirical estimates of spatial uncertainty 
+ Hum Brain Mapp 
+ 2009 
+ 30 
+ 2907 
+ 2926 
+ 19172646 
+ 
+ 
+ 
+ 
+ 
+ 
+ Elston 
+ GN 
+ 
+ 
+ Cortical heterogeneity: implications for visual processing and polysensory integration 
+ J Neurocytol 
+ 2002 
+ 31 
+ 317 
+ 335 
+ 12815250 
+ 
+ 
+ 
+ 
+ 
+ 
+ Engert 
+ F 
+ 
+ 
+ Bonhoeffer 
+ T 
+ 
+ 
+ Dendritic spine changes associated with hippocampal long-term synaptic plasticity 
+ Nature 
+ 1999 
+ 399 
+ 66 
+ 70 
+ 10331391 
+ 
+ 
+ 
+ 
+ 
+ 
+ Eulenburg 
+ P zu 
+ 
+ 
+ Caspers 
+ S 
+ 
+ 
+ Roski 
+ C 
+ 
+ 
+ Eickhoff 
+ SB 
+ 
+ 
+ Meta-analytical definition and functional connectivity of the human vestibular cortex 
+ Neuroimage 
+ 2012 
+ 60 
+ 162 
+ 169 
+ 22209784 
+ 
+ 
+ 
+ 
+ 
+ 
+ Evans 
+ AC 
+ 
+ 
+ Networks of anatomical covariance 
+ Neuroimage 
+ 2013 
+ 80 
+ 489 
+ 504 
+ 23711536 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fioravanti 
+ V 
+ 
+ 
+ Benuzzi 
+ F 
+ 
+ 
+ Codeluppi 
+ L 
+ 
+ 
+ Contardi 
+ S 
+ 
+ 
+ Cavallieri 
+ F 
+ 
+ 
+ Nichelli 
+ P 
+ 
+ 
+ Valzania 
+ F 
+ 
+ 
+ MRI Correlates of Parkinson’s Disease Progression: A Voxel Based Morphometry Study, MRI Correlates of Parkinson’s Disease Progression: A Voxel Based Morphometry Study 
+ Parkinson’s Disease, Parkinson’s Disease 2015 
+ 2015 
+ 2015 
+ e378032 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fox 
+ MD 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ Spontaneous fluctuations in brain activity observed with functional magnetic resonance imaging 
+ Nat Rev Neurosci 
+ 2007 
+ 8 
+ 700 
+ 711 
+ 17704812 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fox 
+ PT 
+ 
+ 
+ Lancaster 
+ JL 
+ 
+ 
+ Laird 
+ AR 
+ 
+ 
+ Eickhoff 
+ SB 
+ 
+ 
+ Meta-analysis in human neuroimaging: Computational modeling of large-scale databases 
+ Annual Review of Neuroscience 
+ 2014 
+ 37 
+ 409 
+ 434 
+ 
+ 
+ 
+ 
+ 
+ 
+ Frost 
+ MA 
+ 
+ 
+ Goebel 
+ R 
+ 
+ 
+ Measuring structural-functional correspondence: spatial variability of specialised brain regions after macro-anatomical alignment 
+ Neuroimage 
+ 2012 
+ 59 
+ 1369 
+ 1381 
+ 21875671 
+ 
+ 
+ 
+ 
+ 
+ 
+ Glasser 
+ MF 
+ 
+ 
+ Van Essen 
+ DC 
+ 
+ 
+ Mapping human cortical areas in vivo based on myelin content as revealed by T1- and T2-weighted MRI 
+ J Neurosci 
+ 2011 
+ 31 
+ 11597 
+ 11616 
+ 21832190 
+ 
+ 
+ 
+ 
+ 
+ 
+ Goodkind 
+ M 
+ 
+ 
+ Eickhoff 
+ SB 
+ 
+ 
+ Oathes 
+ D 
+ 
+ 
+ Jiang 
+ Y 
+ 
+ 
+ Chang 
+ A 
+ 
+ 
+ Jones-Hagata 
+ L 
+ 
+ 
+ Ortega 
+ B 
+ 
+ 
+ Zaiko 
+ Y 
+ 
+ 
+ Roach 
+ E 
+ 
+ 
+ Korgaonkar 
+ M 
+ 
+ 
+ Grieve 
+ S 
+ 
+ 
+ Galatzer-Levy 
+ I 
+ 
+ 
+ Fox 
+ P 
+ 
+ 
+ Etkin 
+ A 
+ 
+ 
+ Identification of a common neurobiological substrate for mental illness 
+ JAMA Psychiatry 
+ 2015 
+ in press 
+ 
+ 
+ 
+ 
+ 
+ 
+ Goulas 
+ A 
+ 
+ 
+ Bastiani 
+ M 
+ 
+ 
+ Bezgin 
+ G 
+ 
+ 
+ Uylings 
+ HB 
+ 
+ 
+ Roebroeck 
+ A 
+ 
+ 
+ Stiers 
+ P 
+ 
+ 
+ Comparative analysis of the macroscale structural connectivity in the macaque and human brain 
+ PLoS Comput Biol 
+ 2014 
+ 10 
+ e1003529 
+ 24676052 
+ 
+ 
+ 
+ 
+ 
+ 
+ Greicius 
+ MD 
+ 
+ 
+ Krasnow 
+ B 
+ 
+ 
+ Reiss 
+ AL 
+ 
+ 
+ Menon 
+ V 
+ 
+ 
+ Functional connectivity in the resting brain: A network analysis of the default mode hypothesis 
+ Proceedings of the National Academy of Sciences 
+ 2003 
+ 100 
+ 253 
+ 258 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hagmann 
+ P 
+ 
+ 
+ Cammoun 
+ L 
+ 
+ 
+ Gigandet 
+ X 
+ 
+ 
+ Meuli 
+ R 
+ 
+ 
+ Honey 
+ CJ 
+ 
+ 
+ Wedeen 
+ VJ 
+ 
+ 
+ Sporns 
+ O 
+ 
+ 
+ Mapping the Structural Core of Human Cerebral Cortex 
+ PLoS Biol 
+ 2008 
+ 6 
+ e159 
+ 18597554 
+ 
+ 
+ 
+ 
+ 
+ 
+ He 
+ Y 
+ 
+ 
+ Chen 
+ Z 
+ 
+ 
+ Evans 
+ A 
+ 
+ 
+ Structural insights into aberrant topological patterns of large-scale cortical networks in Alzheimer’s disease 
+ J Neurosci 
+ 2008 
+ 28 
+ 4756 
+ 4766 
+ 18448652 
+ 
+ 
+ 
+ 
+ 
+ 
+ Heuvel 
+ MP van den 
+ 
+ 
+ Sporns 
+ O 
+ 
+ 
+ Rich-Club Organization of the Human Connectome 
+ The Journal of Neuroscience 
+ 2011 
+ 31 
+ 15775 
+ 15786 
+ 22049421 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hinkley 
+ LB 
+ 
+ 
+ Marco 
+ EJ 
+ 
+ 
+ Findlay 
+ AM 
+ 
+ 
+ Honma 
+ S 
+ 
+ 
+ Jeremy 
+ RJ 
+ 
+ 
+ Strominger 
+ Z 
+ 
+ 
+ Bukshpun 
+ P 
+ 
+ 
+ Wakahiro 
+ M 
+ 
+ 
+ Brown 
+ WS 
+ 
+ 
+ Paul 
+ LK 
+ 
+ 
+ Barkovich 
+ AJ 
+ 
+ 
+ Mukherjee 
+ P 
+ 
+ 
+ Nagarajan 
+ SS 
+ 
+ 
+ Sherr 
+ EH 
+ 
+ 
+ The role of corpus callosum development in functional connectivity and cognitive processing 
+ PLoS ONE 
+ 2012 
+ 7 
+ e39804 
+ 22870191 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hoffstaedter 
+ F 
+ 
+ 
+ Grefkes 
+ C 
+ 
+ 
+ Zilles 
+ K 
+ 
+ 
+ Eickhoff 
+ SB 
+ 
+ 
+ The “what” and “when” of self-initiated movements 
+ Cereb Cortex 
+ 2013 
+ 23 
+ 520 
+ 530 
+ 22414772 
+ 
+ 
+ 
+ 
+ 
+ 
+ Honey 
+ CJ 
+ 
+ 
+ Sporns 
+ O 
+ 
+ 
+ Cammoun 
+ L 
+ 
+ 
+ Gigandet 
+ X 
+ 
+ 
+ Thiran 
+ JP 
+ 
+ 
+ Meuli 
+ R 
+ 
+ 
+ Hagmann 
+ P 
+ 
+ 
+ Predicting human resting-state functional connectivity from structural connectivity 
+ Proc Natl Acad Sci USA 
+ 2009 
+ 106 
+ 2035 
+ 2040 
+ 19188601 
+ 
+ 
+ 
+ 
+ 
+ 
+ Jaccard 
+ P 
+ 
+ 
+ The distribution of flora in the alpine zone 
+ New Phytologist 
+ 1912 
+ 11 
+ 37 
+ 50 
+ 
+ 
+ 
+ 
+ 
+ 
+ Khundrakpam 
+ BS 
+ 
+ 
+ Reid 
+ A 
+ 
+ 
+ Brauer 
+ J 
+ 
+ 
+ Carbonell 
+ F 
+ 
+ 
+ Lewis 
+ J 
+ 
+ 
+ Ameis 
+ S 
+ 
+ 
+ Karama 
+ S 
+ 
+ 
+ Lee 
+ J 
+ 
+ 
+ Chen 
+ Z 
+ 
+ 
+ Das 
+ S 
+ 
+ 
+ Evans 
+ AC 
+ 
+ 
+ Brain Development Cooperative Group 
+ Developmental Changes in Organization of Structural Brain Networks 
+ Cerebral Cortex 
+ 2013 
+ 23 
+ 2072 
+ 2085 
+ 22784607 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kim 
+ JS 
+ 
+ 
+ Singh 
+ V 
+ 
+ 
+ Lee 
+ JK 
+ 
+ 
+ Lerch 
+ J 
+ 
+ 
+ Ad-Dab’bagh 
+ Y 
+ 
+ 
+ MacDonald 
+ D 
+ 
+ 
+ Lee 
+ JM 
+ 
+ 
+ Kim 
+ SI 
+ 
+ 
+ Evans 
+ AC 
+ 
+ 
+ Automated 3-D extraction and evaluation of the inner and outer cortical surfaces using a Laplacian map and partial volume effect classification 
+ Neuroimage 
+ 2005 
+ 27 
+ 210 
+ 221 
+ 15896981 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kurth 
+ F 
+ 
+ 
+ Zilles 
+ K 
+ 
+ 
+ Fox 
+ PT 
+ 
+ 
+ Laird 
+ AR 
+ 
+ 
+ Eickhoff 
+ SB 
+ 
+ 
+ A link between the systems: functional differentiation and integration within the human insula revealed by meta-analysis 
+ Brain Struct Funct 
+ 2010 
+ 214 
+ 519 
+ 534 
+ 20512376 
+ 
+ 
+ 
+ 
+ 
+ 
+ Laat 
+ KF de 
+ 
+ 
+ Reid 
+ AT 
+ 
+ 
+ Grim 
+ DC 
+ 
+ 
+ Evans 
+ AC 
+ 
+ 
+ Kötter 
+ R 
+ 
+ 
+ Norden 
+ AGW van 
+ 
+ 
+ Leeuw 
+ F-E de 
+ 
+ 
+ Cortical thickness is associated with gait disturbances in cerebral small vessel disease 
+ NeuroImage 
+ 2012 
+ 59 
+ 1478 
+ 1484 
+ 
+ http://www.ncbi.nlm.nih.gov/pubmed/21854857 
+ 
+ 21854857 
+ 
+ 
+ 
+ 
+ 
+ 
+ Laird 
+ AR 
+ 
+ 
+ Eickhoff 
+ SB 
+ 
+ 
+ Fox 
+ PM 
+ 
+ 
+ Uecker 
+ AM 
+ 
+ 
+ Ray 
+ KL 
+ 
+ 
+ Saenz 
+ JJ 
+ 
+ 
+ McKay 
+ DR 
+ 
+ 
+ Bzdok 
+ D 
+ 
+ 
+ Laird 
+ RW 
+ 
+ 
+ Robinson 
+ JL 
+ 
+ 
+ Turner 
+ JA 
+ 
+ 
+ Turkeltaub 
+ PE 
+ 
+ 
+ Lancaster 
+ JL 
+ 
+ 
+ Fox 
+ PT 
+ 
+ 
+ The BrainMap strategy for standardization, sharing, and meta-analysis of neuroimaging data 
+ BMC Res Notes 
+ 2011 
+ 4 
+ 349 
+ 21906305 
+ 
+ 
+ 
+ 
+ 
+ 
+ Laird 
+ AR 
+ 
+ 
+ Eickhoff 
+ SB 
+ 
+ 
+ Li 
+ K 
+ 
+ 
+ Robin 
+ DA 
+ 
+ 
+ Glahn 
+ DC 
+ 
+ 
+ Fox 
+ PT 
+ 
+ 
+ Investigating the functional heterogeneity of the default mode network using coordinate-based meta-analytic modeling 
+ J Neurosci 
+ 2009a 
+ 29 
+ 14496 
+ 14505 
+ 19923283 
+ 
+ 
+ 
+ 
+ 
+ 
+ Laird 
+ AR 
+ 
+ 
+ Lancaster 
+ JL 
+ 
+ 
+ Fox 
+ PT 
+ 
+ 
+ Lost in localization? The focus is meta-analysis 
+ Neuroimage 
+ 2009b 
+ 48 
+ 18 
+ 20 
+ 19559800 
+ 
+ 
+ 
+ 
+ 
+ 
+ Laird 
+ AR 
+ 
+ 
+ Eickhoff 
+ SB 
+ 
+ 
+ Rottschy 
+ C 
+ 
+ 
+ Bzdok 
+ D 
+ 
+ 
+ Ray 
+ KL 
+ 
+ 
+ Fox 
+ PT 
+ 
+ 
+ Networks of Task Co-Activations 
+ NeuroImage 
+ 2013 
+ 80 
+ 505 
+ 514 
+ 23631994 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lerch 
+ JP 
+ 
+ 
+ Worsley 
+ K 
+ 
+ 
+ Shaw 
+ WP 
+ 
+ 
+ Greenstein 
+ DK 
+ 
+ 
+ Lenroot 
+ RK 
+ 
+ 
+ Giedd 
+ J 
+ 
+ 
+ Evans 
+ AC 
+ 
+ 
+ Mapping anatomical correlations across cerebral cortex (MACACC) using cortical thickness from MRI 
+ Neuroimage 
+ 2006 
+ 31 
+ 993 
+ 1003 
+ 16624590 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lerch 
+ JP 
+ 
+ 
+ Pruessner 
+ JC 
+ 
+ 
+ Zijdenbos 
+ A 
+ 
+ 
+ Hampel 
+ H 
+ 
+ 
+ Teipel 
+ SJ 
+ 
+ 
+ Evans 
+ AC 
+ 
+ 
+ Focal decline of cortical thickness in Alzheimer’s disease identified by computational neuroanatomy 
+ Cerebral Cortex (New York, NY: 1991) 
+ 2005 
+ 15 
+ 995 
+ 1001 
+ 
+ 
+ 
+ 
+ 
+ 
+ Li 
+ P 
+ 
+ 
+ Legault 
+ J 
+ 
+ 
+ Litcofsky 
+ KA 
+ 
+ 
+ Neuroplasticity as a function of second language learning: anatomical changes in the human brain 
+ Cortex 
+ 2014 
+ 58 
+ 301 
+ 324 
+ 24996640 
+ 
+ 
+ 
+ 
+ 
+ 
+ Li 
+ SC 
+ 
+ 
+ Brehmer 
+ Y 
+ 
+ 
+ Shing 
+ YL 
+ 
+ 
+ Werkle-Bergner 
+ M 
+ 
+ 
+ Lindenberger 
+ U 
+ 
+ 
+ Neuromodulation of associative and organizational plasticity across the life span: empirical evidence and neurocomputational modeling 
+ Neurosci Biobehav Rev 
+ 2006 
+ 30 
+ 775 
+ 790 
+ 16930705 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lyttelton 
+ O 
+ 
+ 
+ Boucher 
+ M 
+ 
+ 
+ Robbins 
+ S 
+ 
+ 
+ Evans 
+ A 
+ 
+ 
+ An unbiased iterative group registration template for cortical surface analysis 
+ Neuroimage 
+ 2007 
+ 34 
+ 1535 
+ 1544 
+ 17188895 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lyttelton 
+ OC 
+ 
+ 
+ Karama 
+ S 
+ 
+ 
+ Ad-Dab’bagh 
+ Y 
+ 
+ 
+ Zatorre 
+ RJ 
+ 
+ 
+ Carbonell 
+ F 
+ 
+ 
+ Worsley 
+ K 
+ 
+ 
+ Evans 
+ AC 
+ 
+ 
+ Positional and surface area asymmetry of the human cerebral cortex 
+ NeuroImage 
+ 2009 
+ 46 
+ 895 
+ 903 
+ 19345735 
+ 
+ 
+ 
+ 
+ 
+ 
+ MacDonald 
+ D 
+ 
+ 
+ Kabani 
+ N 
+ 
+ 
+ Avis 
+ D 
+ 
+ 
+ Evans 
+ AC 
+ 
+ 
+ Automated 3-D extraction of inner and outer surfaces of cerebral cortex from MRI 
+ Neuroimage 
+ 2000 
+ 12 
+ 340 
+ 356 
+ 10944416 
+ 
+ 
+ 
+ 
+ 
+ 
+ Maguire 
+ EA 
+ 
+ 
+ Gadian 
+ DG 
+ 
+ 
+ Johnsrude 
+ IS 
+ 
+ 
+ Good 
+ CD 
+ 
+ 
+ Ashburner 
+ J 
+ 
+ 
+ Frackowiak 
+ RS 
+ 
+ 
+ Frith 
+ CD 
+ 
+ 
+ Navigation-related structural change in the hippocampi of taxi drivers 
+ Proc Natl Acad Sci USA 
+ 2000 
+ 97 
+ 4398 
+ 4403 
+ 10716738 
+ 
+ 
+ 
+ 
+ 
+ 
+ Margulies 
+ DS 
+ 
+ 
+ Vincent 
+ JL 
+ 
+ 
+ Kelly 
+ C 
+ 
+ 
+ Lohmann 
+ G 
+ 
+ 
+ Uddin 
+ LQ 
+ 
+ 
+ Biswal 
+ BB 
+ 
+ 
+ Villringer 
+ A 
+ 
+ 
+ Castellanos 
+ FX 
+ 
+ 
+ Milham 
+ MP 
+ 
+ 
+ Petrides 
+ M 
+ 
+ 
+ Precuneus shares intrinsic functional architecture in humans and monkeys 
+ Proc Natl Acad Sci USA 
+ 2009 
+ 106 
+ 20069 
+ 20074 
+ 19903877 
+ 
+ 
+ 
+ 
+ 
+ 
+ Markov 
+ NT 
+ 
+ 
+ Misery 
+ P 
+ 
+ 
+ Falchier 
+ A 
+ 
+ 
+ Lamy 
+ C 
+ 
+ 
+ Vezoli 
+ J 
+ 
+ 
+ Quilodran 
+ R 
+ 
+ 
+ Gariel 
+ MA 
+ 
+ 
+ Giroud 
+ P 
+ 
+ 
+ Ercsey-Ravasz 
+ M 
+ 
+ 
+ Pilaz 
+ LJ 
+ 
+ 
+ Huissoud 
+ C 
+ 
+ 
+ Barone 
+ P 
+ 
+ 
+ Dehay 
+ C 
+ 
+ 
+ Toroczkai 
+ Z 
+ 
+ 
+ Van Essen 
+ DC 
+ 
+ 
+ Kennedy 
+ H 
+ 
+ 
+ Knoblauch 
+ K 
+ 
+ 
+ Weight consistency specifies regularities of macaque cortical networks 
+ Cerebral Cortex (New York, NY: 1991) 
+ 2011 
+ 21 
+ 1254 
+ 1272 
+ 
+ 
+ 
+ 
+ 
+ 
+ Mazziotta 
+ J 
+ 
+ 
+ Toga 
+ A 
+ 
+ 
+ Evans 
+ A 
+ 
+ 
+ Fox 
+ P 
+ 
+ 
+ Lancaster 
+ J 
+ 
+ 
+ Zilles 
+ K 
+ 
+ 
+ Woods 
+ R 
+ 
+ 
+ Paus 
+ T 
+ 
+ 
+ Simpson 
+ G 
+ 
+ 
+ Pike 
+ B 
+ 
+ 
+ Holmes 
+ C 
+ 
+ 
+ Collins 
+ L 
+ 
+ 
+ Thompson 
+ P 
+ 
+ 
+ MacDonald 
+ D 
+ 
+ 
+ Iacoboni 
+ M 
+ 
+ 
+ Schormann 
+ T 
+ 
+ 
+ Amunts 
+ K 
+ 
+ 
+ Palomero-Gallagher 
+ N 
+ 
+ 
+ Geyer 
+ S 
+ 
+ 
+ Parsons 
+ L 
+ 
+ 
+ Narr 
+ K 
+ 
+ 
+ Kabani 
+ N 
+ 
+ 
+ Le Goualher 
+ G 
+ 
+ 
+ Boomsma 
+ D 
+ 
+ 
+ Cannon 
+ T 
+ 
+ 
+ Kawashima 
+ R 
+ 
+ 
+ Mazoyer 
+ B 
+ 
+ 
+ A probabilistic atlas and reference system for the human brain: International Consortium for Brain Mapping (ICBM) 
+ Philos Trans R Soc Lond B, Biol Sci 
+ 2001 
+ 356 
+ 1293 
+ 1322 
+ 11545704 
+ 
+ 
+ 
+ 
+ 
+ 
+ Mechelli 
+ A 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ Frackowiak 
+ RS 
+ 
+ 
+ Price 
+ CJ 
+ 
+ 
+ Structural covariance in the human cortex 
+ J Neurosci 
+ 2005 
+ 25 
+ 8303 
+ 8310 
+ 16148238 
+ 
+ 
+ 
+ 
+ 
+ 
+ Messé 
+ A 
+ 
+ 
+ Hutt 
+ MT 
+ 
+ 
+ König 
+ P 
+ 
+ 
+ Hilgetag 
+ CC 
+ 
+ 
+ A closer look at the apparent correlation of structural and functional connectivity in excitable neural networks 
+ Sci Rep 
+ 2015 
+ 5 
+ 7870 
+ 25598302 
+ 
+ 
+ 
+ 
+ 
+ 
+ Miranda-Dominguez 
+ O 
+ 
+ 
+ Mills 
+ BD 
+ 
+ 
+ Grayson 
+ D 
+ 
+ 
+ Woodall 
+ A 
+ 
+ 
+ Grant 
+ KA 
+ 
+ 
+ Kroenke 
+ CD 
+ 
+ 
+ Fair 
+ DA 
+ 
+ 
+ Bridging the gap between the human and macaque connectome: a quantitative comparison of global interspecies structure-function relationships and network topology 
+ J Neurosci 
+ 2014 
+ 34 
+ 5552 
+ 5563 
+ 24741045 
+ 
+ 
+ 
+ 
+ 
+ 
+ Murphy 
+ K 
+ 
+ 
+ Birn 
+ RM 
+ 
+ 
+ Handwerker 
+ DA 
+ 
+ 
+ Jones 
+ TB 
+ 
+ 
+ Bandettini 
+ PA 
+ 
+ 
+ The impact of global signal regression on resting state correlations: Are anti-correlated networks introduced? 
+ NeuroImage 
+ 2009 
+ 44 
+ 893 
+ 905 
+ 18976716 
+ 
+ 
+ 
+ 
+ 
+ 
+ Narsude 
+ M 
+ 
+ 
+ Gallichan 
+ D 
+ 
+ 
+ Zwaag 
+ W van der 
+ 
+ 
+ Gruetter 
+ R 
+ 
+ 
+ Marques 
+ JP 
+ 
+ 
+ Three-dimensional echo planar imaging with controlled aliasing: A sequence for high temporal resolution functional MRI 
+ Magnetic resonance in medicine 
+ 2015 
+ 
+ 
+ 
+ 
+ 
+ 
+ Nooner 
+ KB 
+ 
+ 
+ Colcombe 
+ SJ 
+ 
+ 
+ Tobe 
+ RH 
+ 
+ 
+ Mennes 
+ M 
+ 
+ 
+ Benedict 
+ MM 
+ 
+ 
+ Moreno 
+ AL 
+ 
+ 
+ Panek 
+ LJ 
+ 
+ 
+ Brown 
+ S 
+ 
+ 
+ Zavitz 
+ ST 
+ 
+ 
+ Li 
+ Q 
+ 
+ 
+ Sikka 
+ S 
+ 
+ 
+ Gutman 
+ D 
+ 
+ 
+ Bangaru 
+ S 
+ 
+ 
+ Schlachter 
+ RT 
+ 
+ 
+ Kamiel 
+ SM 
+ 
+ 
+ Anwar 
+ AR 
+ 
+ 
+ Hinz 
+ CM 
+ 
+ 
+ Kaplan 
+ MS 
+ 
+ 
+ Rachlin 
+ AB 
+ 
+ 
+ Adelsberg 
+ S 
+ 
+ 
+ Cheung 
+ B 
+ 
+ 
+ Khanuja 
+ R 
+ 
+ 
+ Yan 
+ C 
+ 
+ 
+ Craddock 
+ CC 
+ 
+ 
+ Calhoun 
+ V 
+ 
+ 
+ Courtney 
+ W 
+ 
+ 
+ King 
+ M 
+ 
+ 
+ Wood 
+ D 
+ 
+ 
+ Cox 
+ CL 
+ 
+ 
+ Kelly 
+ AM 
+ 
+ 
+ Di Martino 
+ A 
+ 
+ 
+ Petkova 
+ E 
+ 
+ 
+ Reiss 
+ PT 
+ 
+ 
+ Duan 
+ N 
+ 
+ 
+ Thomsen 
+ D 
+ 
+ 
+ Biswal 
+ B 
+ 
+ 
+ Coffey 
+ B 
+ 
+ 
+ Hoptman 
+ MJ 
+ 
+ 
+ Javitt 
+ DC 
+ 
+ 
+ Pomara 
+ N 
+ 
+ 
+ Sidtis 
+ JJ 
+ 
+ 
+ Koplewicz 
+ HS 
+ 
+ 
+ Castellanos 
+ FX 
+ 
+ 
+ Leventhal 
+ BL 
+ 
+ 
+ Milham 
+ MP 
+ 
+ 
+ The NKI-Rockland Sample: A Model for Accelerating the Pace of Discovery Science in Psychiatry 
+ Front Neurosci 
+ 2012 
+ 6 
+ 152 
+ 23087608 
+ 
+ 
+ 
+ 
+ 
+ 
+ O’Kusky 
+ J 
+ 
+ 
+ Strauss 
+ E 
+ 
+ 
+ Kosaka 
+ B 
+ 
+ 
+ Wada 
+ J 
+ 
+ 
+ Li 
+ D 
+ 
+ 
+ Druhan 
+ M 
+ 
+ 
+ Petrie 
+ J 
+ 
+ 
+ The corpus callosum is larger with right-hemisphere cerebral speech dominance 
+ Annals of Neurology 
+ 1988 
+ 24 
+ 379 
+ 383 
+ 3228272 
+ 
+ 
+ 
+ 
+ 
+ 
+ Panizzon 
+ MS 
+ 
+ 
+ Fennema-Notestine 
+ C 
+ 
+ 
+ Eyler 
+ LT 
+ 
+ 
+ Jernigan 
+ TL 
+ 
+ 
+ Prom-Wormley 
+ E 
+ 
+ 
+ Neale 
+ M 
+ 
+ 
+ Jacobson 
+ K 
+ 
+ 
+ Lyons 
+ MJ 
+ 
+ 
+ Grant 
+ MD 
+ 
+ 
+ Franz 
+ CE 
+ 
+ 
+ Xian 
+ H 
+ 
+ 
+ Tsuang 
+ M 
+ 
+ 
+ Fischl 
+ B 
+ 
+ 
+ Seidman 
+ L 
+ 
+ 
+ Dale 
+ A 
+ 
+ 
+ Kremen 
+ WS 
+ 
+ 
+ Distinct genetic influences on cortical surface area and cortical thickness 
+ Cereb Cortex 
+ 2009 
+ 19 
+ 2728 
+ 2735 
+ 19299253 
+ 
+ 
+ 
+ 
+ 
+ 
+ Poldrack 
+ RA 
+ 
+ 
+ Can cognitive processes be inferred from neuroimaging data? 
+ Trends Cogn Sci (Regul Ed) 
+ 2006 
+ 10 
+ 59 
+ 63 
+ 16406760 
+ 
+ 
+ 
+ 
+ 
+ 
+ Poldrack 
+ RA 
+ 
+ 
+ Kittur 
+ A 
+ 
+ 
+ Kalar 
+ D 
+ 
+ 
+ Miller 
+ E 
+ 
+ 
+ Seppa 
+ C 
+ 
+ 
+ Gil 
+ Y 
+ 
+ 
+ Parker 
+ DS 
+ 
+ 
+ Sabb 
+ FW 
+ 
+ 
+ Bilder 
+ RM 
+ 
+ 
+ The cognitive atlas: toward a knowledge foundation for cognitive neuroscience 
+ Front Neuroinform 
+ 2011 
+ 5 
+ 17 
+ 21922006 
+ 
+ 
+ 
+ 
+ 
+ 
+ Power 
+ JD 
+ 
+ 
+ Barnes 
+ KA 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Schlaggar 
+ BL 
+ 
+ 
+ Petersen 
+ SE 
+ 
+ 
+ Spurious but systematic correlations in functional connectivity MRI networks arise from subject motion 
+ NeuroImage 
+ 2012 
+ 59 
+ 2142 
+ 2154 
+ 22019881 
+ 
+ 
+ 
+ 
+ 
+ 
+ Power 
+ JD 
+ 
+ 
+ Mitra 
+ A 
+ 
+ 
+ Laumann 
+ TO 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Schlaggar 
+ BL 
+ 
+ 
+ Petersen 
+ SE 
+ 
+ 
+ Methods to detect, characterize, and remove motion artifact in resting state fMRI 
+ NeuroImage 
+ 2014 
+ 84 
+ 320 
+ 341 
+ 23994314 
+ 
+ 
+ 
+ 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ MacLeod 
+ AM 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Powers 
+ WJ 
+ 
+ 
+ Gusnard 
+ DA 
+ 
+ 
+ Shulman 
+ GL 
+ 
+ 
+ A default mode of brain function 
+ Proceedings of the National Academy of Sciences 
+ 2001 
+ 98 
+ 676 
+ 682 
+ 
+ 
+ 
+ 
+ 
+ 
+ Rajagopalan 
+ V 
+ 
+ 
+ Pioro 
+ EP 
+ 
+ 
+ Disparate voxel based morphometry (VBM) results between SPM and FSL softwares in ALS patients with frontotemporal dementia: which VBM results to consider? 
+ BMC Neurol 
+ 2015 
+ 15 
+ 32 
+ 25879588 
+ 
+ 
+ 
+ 
+ 
+ 
+ Reid 
+ AT 
+ 
+ 
+ Evans 
+ AC 
+ 
+ 
+ Structural networks in Alzheimer’s disease 
+ European neuropsychopharmacology: the journal of the European College of Neuropsychopharmacology 
+ 2013 
+ 23 
+ 63 
+ 77 
+ 23294972 
+ 
+ 
+ 
+ 
+ 
+ 
+ Reid 
+ AT 
+ 
+ 
+ Bzdok 
+ D 
+ 
+ 
+ Genon 
+ S 
+ 
+ 
+ Langner 
+ R 
+ 
+ 
+ Müller 
+ VI 
+ 
+ 
+ Eickhoff 
+ CR 
+ 
+ 
+ Hoffstaedter 
+ F 
+ 
+ 
+ Cieslik 
+ E-C 
+ 
+ 
+ Fox 
+ PT 
+ 
+ 
+ Laird 
+ AR 
+ 
+ 
+ Amunts 
+ K 
+ 
+ 
+ Caspers 
+ S 
+ 
+ 
+ Eickhoff 
+ SB 
+ 
+ 
+ ANIMA: A data-sharing initiative for neuroimaging meta-analyses 
+ NeuroImage 
+ 2015a 
+ 124 
+ B 
+ 1245 
+ 1253 
+ 26231246 
+ 
+ 
+ 
+ 
+ 
+ 
+ Reid 
+ AT 
+ 
+ 
+ Lewis 
+ J 
+ 
+ 
+ Bezgin 
+ G 
+ 
+ 
+ Khundrakpam 
+ B 
+ 
+ 
+ Eickhoff 
+ SB 
+ 
+ 
+ McIntosh 
+ AR 
+ 
+ 
+ Bellec 
+ P 
+ 
+ 
+ Evans 
+ AC 
+ 
+ 
+ A cross-modal, cross-species comparison of connectivity measures in the primate brain 
+ NeuroImage 
+ 2015b 
+ 125 
+ 311 
+ 331 
+ 26515902 
+ 
+ 
+ 
+ 
+ 
+ 
+ Reid 
+ AT 
+ 
+ 
+ Norden 
+ AG van 
+ 
+ 
+ Laat 
+ KF de 
+ 
+ 
+ Oudheusden 
+ LJ van 
+ 
+ 
+ Zwiers 
+ MP 
+ 
+ 
+ Evans 
+ AC 
+ 
+ 
+ Leeuw 
+ F-E de 
+ 
+ 
+ Kötter 
+ R 
+ 
+ 
+ Patterns of cortical degeneration in an elderly cohort with cerebral small vessel disease 
+ Human Brain Mapping 
+ 2010 
+ 31 
+ 1983 
+ 1992 
+ 20336684 
+ 
+ 
+ 
+ 
+ 
+ 
+ Roland 
+ PE 
+ 
+ 
+ Hilgetag 
+ CC 
+ 
+ 
+ Deco 
+ G 
+ 
+ 
+ Cortico-cortical communication dynamics 
+ Front Syst Neurosci 
+ 2014 
+ 8 
+ 19 
+ 24847217 
+ 
+ 
+ 
+ 
+ 
+ 
+ Roski 
+ C 
+ 
+ 
+ Caspers 
+ S 
+ 
+ 
+ Lux 
+ S 
+ 
+ 
+ Hoffstaedter 
+ F 
+ 
+ 
+ Bergs 
+ R 
+ 
+ 
+ Amunts 
+ K 
+ 
+ 
+ Eickhoff 
+ SB 
+ 
+ 
+ Activation shift in elderly subjects across functional systems: an fMRI study 
+ Brain Struct Funct 
+ 2014 
+ 219 
+ 707 
+ 718 
+ 23455650 
+ 
+ 
+ 
+ 
+ 
+ 
+ Rottschy 
+ C 
+ 
+ 
+ Langner 
+ R 
+ 
+ 
+ Dogan 
+ I 
+ 
+ 
+ Reetz 
+ K 
+ 
+ 
+ Laird 
+ AR 
+ 
+ 
+ Schulz 
+ JB 
+ 
+ 
+ Fox 
+ PT 
+ 
+ 
+ Eickhoff 
+ SB 
+ 
+ 
+ Modelling neural correlates of working memory: a coordinate-based meta-analysis 
+ Neuroimage 
+ 2012 
+ 60 
+ 830 
+ 846 
+ 22178808 
+ 
+ 
+ 
+ 
+ 
+ 
+ Saleem 
+ KS 
+ 
+ 
+ Miller 
+ B 
+ 
+ 
+ Price 
+ JL 
+ 
+ 
+ Subdivisions and connectional networks of the lateral prefrontal cortex in the macaque monkey 
+ The Journal of Comparative Neurology 
+ 2014 
+ 522 
+ 1641 
+ 1690 
+ 24214159 
+ 
+ 
+ 
+ 
+ 
+ 
+ Satterthwaite 
+ TD 
+ 
+ 
+ Elliott 
+ MA 
+ 
+ 
+ Gerraty 
+ RT 
+ 
+ 
+ Ruparel 
+ K 
+ 
+ 
+ Loughead 
+ J 
+ 
+ 
+ Calkins 
+ ME 
+ 
+ 
+ Eickhoff 
+ SB 
+ 
+ 
+ Hakonarson 
+ H 
+ 
+ 
+ Gur 
+ RC 
+ 
+ 
+ Gur 
+ RE 
+ 
+ 
+ Wolf 
+ DH 
+ 
+ 
+ An improved framework for confound regression and filtering for control of motion artifact in the preprocessing of resting-state functional connectivity data 
+ NeuroImage 
+ 2013 
+ 64 
+ 240 
+ 256 
+ 22926292 
+ 
+ 
+ 
+ 
+ 
+ 
+ Schilbach 
+ L 
+ 
+ 
+ Bzdok 
+ D 
+ 
+ 
+ Timmermans 
+ B 
+ 
+ 
+ Fox 
+ PT 
+ 
+ 
+ Laird 
+ AR 
+ 
+ 
+ Vogeley 
+ K 
+ 
+ 
+ Eickhoff 
+ SB 
+ 
+ 
+ Introspective minds: using ALE meta-analyses to study commonalities in the neural correlates of emotional processing, social & unconstrained cognition 
+ PLoS ONE 
+ 2012 
+ 7 
+ e30920 
+ 22319593 
+ 
+ 
+ 
+ 
+ 
+ 
+ Sled 
+ JG 
+ 
+ 
+ Zijdenbos 
+ AP 
+ 
+ 
+ Evans 
+ AC 
+ 
+ 
+ A nonparametric method for automatic correction of intensity nonuniformity in MRI data 
+ IEEE Trans Med Imaging 
+ 1998 
+ 17 
+ 87 
+ 97 
+ 9617910 
+ 
+ 
+ 
+ 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Fox 
+ PT 
+ 
+ 
+ Miller 
+ KL 
+ 
+ 
+ Glahn 
+ DC 
+ 
+ 
+ Fox 
+ PM 
+ 
+ 
+ Mackay 
+ CE 
+ 
+ 
+ Filippini 
+ N 
+ 
+ 
+ Watkins 
+ KE 
+ 
+ 
+ Toro 
+ R 
+ 
+ 
+ Laird 
+ AR 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ Correspondence of the brain’s functional architecture during activation and rest 
+ Proc Natl Acad Sci USA 
+ 2009 
+ 106 
+ 13040 
+ 13045 
+ 19620724 
+ 
+ 
+ 
+ 
+ 
+ 
+ Swadlow 
+ HA 
+ 
+ 
+ Waxman 
+ SG 
+ 
+ 
+ Axonal conduction delays 
+ Scholarpedia 
+ 2012 
+ 7 
+ 1451 
+ 
+ 
+ 
+ 
+ 
+ 
+ Tohka 
+ J 
+ 
+ 
+ Zijdenbos 
+ A 
+ 
+ 
+ Evans 
+ A 
+ 
+ 
+ Fast and robust parameter estimation for statistical partial volume models in brain MRI 
+ Neuroimage 
+ 2004 
+ 23 
+ 84 
+ 97 
+ 15325355 
+ 
+ 
+ 
+ 
+ 
+ 
+ Trachtenberg 
+ JT 
+ 
+ 
+ Chen 
+ BE 
+ 
+ 
+ Knott 
+ GW 
+ 
+ 
+ Feng 
+ G 
+ 
+ 
+ Sanes 
+ JR 
+ 
+ 
+ Welker 
+ E 
+ 
+ 
+ Svoboda 
+ K 
+ 
+ 
+ Long-term in vivo imaging of experience-dependent synaptic plasticity in adult cortex 
+ Nature 
+ 2002 
+ 420 
+ 788 
+ 794 
+ 12490942 
+ 
+ 
+ 
+ 
+ 
+ 
+ Tuladhar 
+ AM 
+ 
+ 
+ Reid 
+ AT 
+ 
+ 
+ Shumskaya 
+ E 
+ 
+ 
+ Laat 
+ KF de 
+ 
+ 
+ Norden 
+ AGW van 
+ 
+ 
+ Dijk 
+ EJ van 
+ 
+ 
+ Norris 
+ DG 
+ 
+ 
+ Leeuw 
+ F-E de 
+ 
+ 
+ Relationship between white matter hyperintensities, cortical thickness, and cognition 
+ Stroke; a Journal of Cerebral Circulation 
+ 2015 
+ 46 
+ 425 
+ 432 
+ 
+ 
+ 
+ 
+ 
+ 
+ Turkeltaub 
+ PE 
+ 
+ 
+ Eickhoff 
+ SB 
+ 
+ 
+ Laird 
+ AR 
+ 
+ 
+ Fox 
+ M 
+ 
+ 
+ Wiener 
+ M 
+ 
+ 
+ Fox 
+ P 
+ 
+ 
+ Minimizing within-experiment and within-group effects in Activation Likelihood Estimation meta-analyses 
+ Hum Brain Mapp 
+ 2012 
+ 33 
+ 1 
+ 13 
+ 21305667 
+ 
+ 
+ 
+ 
+ 
+ 
+ Tyszka 
+ JM 
+ 
+ 
+ Kennedy 
+ DP 
+ 
+ 
+ Adolphs 
+ R 
+ 
+ 
+ Paul 
+ LK 
+ 
+ 
+ Intact bilateral resting-state networks in the absence of the corpus callosum 
+ J Neurosci 
+ 2011 
+ 31 
+ 15154 
+ 15162 
+ 22016549 
+ 
+ 
+ 
+ 
+ 
+ 
+ Uddin 
+ LQ 
+ 
+ 
+ Mooshagian 
+ E 
+ 
+ 
+ Zaidel 
+ E 
+ 
+ 
+ Scheres 
+ A 
+ 
+ 
+ Margulies 
+ DS 
+ 
+ 
+ Kelly 
+ AM 
+ 
+ 
+ Shehzad 
+ Z 
+ 
+ 
+ Adelstein 
+ JS 
+ 
+ 
+ Castellanos 
+ FX 
+ 
+ 
+ Biswal 
+ BB 
+ 
+ 
+ Milham 
+ MP 
+ 
+ 
+ Residual functional connectivity in the split-brain revealed with resting-state functional MRI 
+ Neuroreport 
+ 2008 
+ 19 
+ 703 
+ 709 
+ 18418243 
+ 
+ 
+ 
+ 
+ 
+ 
+ Weissenbacher 
+ A 
+ 
+ 
+ Kasess 
+ C 
+ 
+ 
+ Gerstl 
+ F 
+ 
+ 
+ Lanzenberger 
+ R 
+ 
+ 
+ Moser 
+ E 
+ 
+ 
+ Windischberger 
+ C 
+ 
+ 
+ Correlations and anticorrelations in resting-state functional connectivity MRI: a quantitative comparison of preprocessing strategies 
+ Neuroimage 
+ 2009 
+ 47 
+ 1408 
+ 1416 
+ 19442749 
+ 
+ 
+ 
+ 
+ 
+ 
+ Wijk 
+ BCM van 
+ 
+ 
+ Stam 
+ CJ 
+ 
+ 
+ Daffertshofer 
+ A 
+ 
+ 
+ Comparing Brain Networks of Different Size and Connectivity Density Using Graph Theory 
+ PLoS ONE 
+ 2010 
+ 5 
+ 
+ 
+ 
+ 
+ 
+ 
+ Winkler 
+ AM 
+ 
+ 
+ Kochunov 
+ P 
+ 
+ 
+ Blangero 
+ J 
+ 
+ 
+ Almasy 
+ L 
+ 
+ 
+ Zilles 
+ K 
+ 
+ 
+ Fox 
+ PT 
+ 
+ 
+ Duggirala 
+ R 
+ 
+ 
+ Glahn 
+ DC 
+ 
+ 
+ Cortical thickness or grey matter volume? The importance of selecting the phenotype for imaging genetics studies 
+ Neuroimage 
+ 2010 
+ 53 
+ 1135 
+ 1146 
+ 20006715 
+ 
+ 
+ 
+ 
+ 
+ 
+ Xia 
+ J 
+ 
+ 
+ Miu 
+ J 
+ 
+ 
+ Ding 
+ H 
+ 
+ 
+ Wang 
+ X 
+ 
+ 
+ Chen 
+ H 
+ 
+ 
+ Wang 
+ J 
+ 
+ 
+ Wu 
+ J 
+ 
+ 
+ Zhao 
+ J 
+ 
+ 
+ Huang 
+ H 
+ 
+ 
+ Tian 
+ W 
+ 
+ 
+ Changes of brain gray matter structure in Parkinson’s disease patients with dementia 
+ Neural Regeneration Research 
+ 2013 
+ 8 
+ 1276 
+ 1285 
+ 25206422 
+ 
+ 
+ 
+ 
+ 
+ 
+ Xu 
+ J 
+ 
+ 
+ Moeller 
+ S 
+ 
+ 
+ Auerbach 
+ EJ 
+ 
+ 
+ Strupp 
+ J 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Feinberg 
+ DA 
+ 
+ 
+ Yacoub 
+ E 
+ 
+ 
+ Uğurbil 
+ K 
+ 
+ 
+ Evaluation of slice accelerations using multiband echo planar imaging at 3 T 
+ Neuroimage 
+ 2013 
+ 83 
+ 991 
+ 1001 
+ 23899722 
+ 
+ 
+ 
+ 
+ 
+ 
+ Yazgan 
+ MY 
+ 
+ 
+ Wexler 
+ BE 
+ 
+ 
+ Kinsbourne 
+ M 
+ 
+ 
+ Peterson 
+ B 
+ 
+ 
+ Leckman 
+ JF 
+ 
+ 
+ Functional significance of individual variations in callosal area 
+ Neuropsychologia 
+ 1995 
+ 33 
+ 769 
+ 779 
+ 7675166 
+ 
+ 
+ 
+ 
+ 
+ 
+ Zheng 
+ D 
+ 
+ 
+ Purves 
+ D 
+ 
+ 
+ Effects of increased neural activity on brain growth 
+ Proc Natl Acad Sci USA 
+ 1995 
+ 92 
+ 1802 
+ 1806 
+ 7892181 
+ 
+ 
+ 
+ 
+ 
+ 
+ Zhou 
+ J 
+ 
+ 
+ Gennatas 
+ ED 
+ 
+ 
+ Kramer 
+ JH 
+ 
+ 
+ Miller 
+ BL 
+ 
+ 
+ Seeley 
+ WW 
+ 
+ 
+ Predicting Regional Neurodegeneration from the Healthy Brain Functional Connectome 
+ Neuron 
+ 2012 
+ 73 
+ 1216 
+ 1227 
+ 22445348 
+ 
+ 
+ 
+ 
+ 
+ 
+ Zijdenbos 
+ AP 
+ 
+ 
+ Forghani 
+ R 
+ 
+ 
+ Evans 
+ AC 
+ 
+ 
+ Automatic “pipeline” analysis of 3-D MRI data for clinical trials: application to multiple sclerosis 
+ IEEE Trans Med Imaging 
+ 2002 
+ 21 
+ 1280 
+ 1291 
+ 12585710 
+ 
+ 
+ 
+ 
+ 
+ 
+ Zilles 
+ K 
+ 
+ 
+ Schleicher 
+ A 
+ 
+ 
+ Langemann 
+ C 
+ 
+ 
+ Amunts 
+ K 
+ 
+ 
+ Morosan 
+ P 
+ 
+ 
+ Palomero-Gallagher 
+ N 
+ 
+ 
+ Schormann 
+ T 
+ 
+ 
+ Mohlberg 
+ H 
+ 
+ 
+ Burgel 
+ U 
+ 
+ 
+ Steinmetz 
+ H 
+ 
+ 
+ Schlaug 
+ G 
+ 
+ 
+ Roland 
+ PE 
+ 
+ 
+ Quantitative analysis of sulci in the human cerebral cortex: development, regional heterogeneity, gender difference, asymmetry, intersubject variability and cortical architecture 
+ Hum Brain Mapp 
+ 1997 
+ 5 
+ 218 
+ 221 
+ 20408218 
+ 
+ 
+ 
+ 
+ 
+ 
+ Figure 1 
+ 
+ Seed regions for the analyses performed in this study (see  Table I  for list). All regions are expressed on the fiducial ICBM-152 symmetric template surface, after projection from volumetric representations. 
+ 
+ 
+ 
+ 
+ Figure 2 
+ 
+ Distributions of connectivity estimates (t- or z-valued statistical maps) produced by the four modalities, for the aLPFC and vmPFC seed regions as examplars. Distributions are shown for densities of 10% and 30% (δ = 0.1 and 0.3). The rightmost renderings show the cross-modal correspondence Ψ, which illustrates the degree to which thresholded distributions overlap across modalities, at these densities. 
+ 
+ 
+ 
+ 
+ Figure 3 
+ 
+ Seedwise cross-modal comparisons.  A.  Similarity, measured as the Jaccard Index Φ, between pairs of modalities, for four selected seed regions (blue lines). Dashed lines show Φ rand , i.e., similarity as expected by chance at a given density δ. The orange area between these lines represents the integrated difference between them, which is proportional to Bimodal Similarity, BS, shown as a bar chart in ( B ).  C.  Cross-modal correspondence (Ψ) plotted over densities. Dashed lines indicate Ψ rand , the correspondence expected by random chance. The orange area between these curves is proportional to the Correspondence Index, CI, show in the insets. The blue areas represent the proportion of disagreement (i.e., systematic differences) below that expected by chance. 
+ 
+ 
+ 
+ 
+ Figure 4 
+ 
+ Summary measures of the correspondence index CI, quantifying agreement across all modalities.  A.  Correspondence Ψ averaged across seeds, indicating the degree of agreement across all modalities, plotted across densities. The dashed line indicates Ψ rand , and the grey area represents standard deviation. The correspondence index CI, and its variance, are shown in the inset.  B.  CI for each seed, sorted from best to worst correspondence. The dashed red line indicates the average CI. 
+ 
+ 
+ 
+ 
+ Figure 5 
+ 
+ Summary measures (across all seed regions) of bimodal comparisons for each modality pair.  A . The Jaccard Index Φ, computed across the density range [0.05,0.8]. The orange shading represents the mean integral difference, across modalities, between empirically obtained connectivity estimates and values expected from random distributions of equal density (Φ rand ). The grey shaded area represents the standard deviation of this value.  B . Bimodal similarity, BS, computed as Φ normalized between Φ rand  and full agreement (Φ = 1). Bars show the mean and standard deviation of across all seed regions. Significant differences were found between the RS/MACM scores and all other bimodal comparisons, while no other significant differences were found (* indicates significance at p < 0.01, Bonferroni corrected; indicates no significance). 
+ 
+ 
+ 
+ 
+ Figure 6 
+ 
+ Symmetry of connectivity patterns.  A.  Normalized symmetry Θ norm , integrated across all densities. The distribution across seed regions is shown as boxplots, for each modality.  B.  Θ norm  shown as a line plot across all densities. Shaded areas represent standard deviation across seed regions.  C.  Scatterplot showing the relationship between Θ norm  and BS total ; the correlation is highly significant with r 2  = 0.50. AUC = area under the curve. 
+ 
+ 
+ 
+ 
+ Figure 7 
+ 
+ 3D surface plots showing the relationship of distance from seed ROI to density and  BS . Each plot represents a pair of modalities, as labeled, and colour/height shows  BS , averaged across seeds. Negative scores indicate that similarity is lower than that expected from random. Inset: Division of the cortical surface into distance octiles, which are used to generate the  BS  scores. Distances for the left aLPFC are shown, as an exemplar. 
+ 
+ 
+ 
+ 
+ Figure 8 
+ 
+ Specific agreement between structural and functional modalities.  Top left : the blue line shows the number of vertices (above that expected at random) for which the two functional modalities showed significant connectivity, but the two structural modalities did not; the red line shows the opposite relationship.  Top right : Specific agreement plotted on the average cortical surface for functional (blue) and structural (red) modalities, for PrC as an exemplar. The pattern was derived using a density δ=0.25, corresponding to the peak in the line plot.  Bottom : Proportion of seeds regions for which specific agreement was found for either function or structure, at δ=0.25, plotted on the average cortical surface. 
+ 
+ 
+ 
+ 
+ Table I 
+ 
+ Seed regions used in this study, obtained using various methodologies. 
+ 
+ 
+ 
+ 
+ Region [hemisphere] 
+ Size (vertices) 
+ Name 
+ Derived from 
+ Study [ANIMA version] 
+ Centroid (MNI-152) 
+ 
+ 
+ X 
+ Y 
+ Z 
+ 
+ 
+ 
+ 
+ M1 [L] 
+ 165 
+ Left primary motor cortex 
+ Task-fMRI 
+ Roski et al. (2013) [n/a] 
+ −34 
+ −26 
+ 56 
+ 
+ 
+ MFG [R] 
+ 162 
+ Right middle frontal gyrus 
+ ALE 
+ Langer & Eickhoff (2013) [1] 
+ 44 
+ 40 
+ 20 
+ 
+ 
+ MTG [R] 
+ 26 
+ Right middle temporal gyrus 
+ ALE 
+ Bzdok et al. (2012)  [1] 
+ 54 
+ −8 
+ −16 
+ 
+ 
+ aINS [L] 
+ 99 
+ Left anterior insula 
+ ALE 
+ Kurth et al. (2010)  [1] 
+ −34 
+ 14 
+ 8 
+ 
+ 
+ aMCC [B] 
+ 123 
+ Bilateral anterior middle cingulate cortex 
+ MACM/Task- fMRI 
+ Hoffstaedter et al. (2013)  [1] 
+ −4 
+ 18 
+ 42 
+ 
+ 
+ aLPFC [L] 
+ 146 
+ Left anterior lateral prefrontal cortex 
+ ALE 
+ Rottschy et al. (2012)  [1] 
+ −38 
+ 50 
+ 12 
+ 
+ 
+ vmPFC [R] 
+ 51 
+ Right ventromedial prefrontal cortex 
+ MACM/RS-fMRI 
+ Amft et al. (2015) [1] 
+ −2 
+ 48 
+ −8 
+ 
+ 
+ PrC [B] 
+ 122 
+ Bilateral precuneus 
+ ALE 
+ Schilbach et al. (2012)  [1] 
+ −2 
+ −52 
+ 26 
+ 
+ 
+ V5 [L] 
+ 65 
+ Left middle temporal visual area (MT) 
+ Cytoarchitecture 
+ Malikovic et al. (2007) [n/a] 
+ −44 
+ −72 
+ 0 
+ 
+ 
+ 
+ 
+ 
+ For data retrieved from the ANIMA database ( http://anima.fz-juelich.de ), the corresponding version is also shown; otherwise “n/a” is indicated. 
+ 
+ 
+ ALE = activation likelihood estimation; MACM = meta-analytic connectivity modelling; RS-fMRI = resting-state fMRI. Centroids are reported as millimeter coordinates in MNI-152 space. 
+ 
+ 
+ 
+ 

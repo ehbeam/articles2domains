@@ -1,0 +1,2523 @@
+
+ properties manuscript? 
+ 
+ 
+ 9215515 
+ 20498 
+ Neuroimage 
+ Neuroimage 
+ 
+ NeuroImage 
+ 
+ 1053-8119 
+ 1095-9572 
+ 
+ 
+ 24979343 
+ 4370842 
+ 10.1016/j.neuroimage.2014.06.047 
+ NIHMS611065 
+ 
+ 
+ Article 
+ 
+ 
+ 
+ Resting State Distinguish Human Ventral Tegmental Area from Substantia Nigra 
+ 
+ 
+ 
+ 
+ Murty 
+ Vishnu P. 
+ 
+ a 
+ b 
+ 
+ 
+ 
+ Shermohammed 
+ Maheen 
+ 
+ a 
+ 
+ 
+ 
+ Smith 
+ David V. 
+ 
+ a 
+ c 
+ 
+ 
+ 
+ Carter 
+ R. McKell 
+ 
+ a 
+ d 
+ 
+ 
+ 
+ Huettel 
+ Scott A. 
+ 
+ a 
+ b 
+ c 
+ d 
+ e 
+ 
+ 
+ 
+ Adcock 
+ R. Alison 
+ 
+ a 
+ b 
+ c 
+ d 
+ e 
+ 
+ 
+ a Center for Cognitive Neuroscience, Duke University, Durham, NC, 27708, USA 
+ b Department of Neurobiology, Duke University, Durham, NC, 27708, USA 
+ c Department of Psychology and Neuroscience, Duke University, Durham, NC, 27708, USA 
+ d Brain Imaging and Analysis Center, Duke University, Durham, NC, 27708 
+ e Department of Psychiatry and Behavioral Sciences, Duke University, Durham, NC, 27708, USA 
+ 
+ Corresponding Author: R. Alison Adcock, B203 Levine Science Research Center, Duke University, Box 90999, Durham, NC 27708, USA, Phone: (919) 681 – 7486, Fax: (919) 681-0815,  alison.adcock@duke.edu 
+ 
+ 
+ 19 
+ 2 
+ 2015 
+ 
+ 
+ 27 
+ 6 
+ 2014 
+ 
+ 
+ 15 
+ 10 
+ 2014 
+ 
+ 
+ 15 
+ 10 
+ 2015 
+ 
+ 100 
+ 580 
+ 589 
+ 
+ 
+ This file is available for text mining. It may also be used consistent with the principles of fair use under the copyright law. 
+ 
+ 
+ 
+ Dopaminergic networks modulate neural processing across a spectrum of function from perception to learning to action. Multiple organizational schemes based on anatomy and function have been proposed for dopaminergic nuclei in the midbrain. One schema originating in rodent models delineated ventral tegmental area (VTA), implicated in complex behaviors like addiction, from more lateral substantia nigra (SN), preferentially implicated in movement. However, because anatomy and function in rodent midbrain differs from the primate midbrain in important ways, the utility of this distinction for human neuroscience has been questioned. We asked whether functional definition of networks within the human dopaminergic midbrain would recapitulate this traditional anatomical topology. We first developed a method for reliably defining SN and VTA in humans at conventional MRI resolution. Hand-drawn VTA and SN regions-of-interest (ROIs) were constructed for 50 participants, using individually-localized anatomical landmarks and signal intensity. Individual segmentation was used in seed-based functional connectivity analysis of resting-state functional MRI data; results of this analysis recapitulated traditional anatomical targets of the VTA versus SN. Next, we constructed a probabilistic atlas of the VTA, SN, and the dopaminergic midbrain region comprised (SN plus VTA) from individual hand-drawn ROIs. The combined probabilistic (VTA plus SN) ROI was then used for connectivity-based dual-regression analysis in two independent resting-state datasets (n=69 and n=79). Results of the connectivity-based, dual-regression functional segmentation recapitulated results of the anatomical segmentation, validating the utility of this probabilistic atlas for future research. 
+ 
+ 
+ VTA 
+ SN 
+ resting-state 
+ ICA 
+ functional connectivity 
+ probabilistic atlas 
+ 
+ 
+ 
+ 
+ 1. Introduction 
+ The dopaminergic midbrain receives information from and modulates neuronal physiology in widely distributed and diverse brain circuits to regulate motivated behavior. To accomplish these functions, highly convergent afferent inputs are mirrored by divergent (but not ubiquitous) dopaminergic efferents. However, amid the high convergence and divergence, anatomical and physiological evidence in animals has revealed parallel midbrain circuits ( Haber and Fudge, 1997 ;  Lammel et al., 2011 ;  Watabe-Uchida et al., 2012 ) that support a spectrum of functions from perception to learning to action ( Berridge et al., 2009 ;  Salamone et al., 2007 ;  Wise, 2004 ). 
+ The spectrum of functions supported by midbrain nuclei reflects demonstrated gradients of connectivity and function, yet traditional anatomical nomenclature for dopaminergic systems differentiates the substantia nigra (SN) from the ventral tegmental area (VTA), based on anatomical features in the rodent brain. Although these anatomical divisions reflect functional organization with fidelity in rodents, evidence indicates that they do not capture the multiple functional gradients and dissociations in the midbrain of primates ( Haber and Knutson, 2010 ;  Williams and Goldman-Rakic, 1998 ;  Düzel et al., 2009 ). Yet, functional differences undoubtedly exist - for example, there is no known disorder involving selective degeneration of VTA neurons as seen for SN neurons in Parkinson’s Disease ( Dagher and Robbins, 2009 ;  Damier et al., 1999 ;  Fearnley and Lees, 1991 ). Establishing the utility of this specific anatomical schema in understanding primate brain function, particularly in humans, is thus an important step in integrating rodent, primate, and human models of dopamine function. 
+ In humans, multiple challenges constrain attempts at anatomical or functional parcellation of dopaminergic systems. The resolution of conventional functional magnetic resonance imaging (fMRI) has made it difficult to discern small anatomical regions, like the midbrain, in average group images. Increased image resolution reduces but does not eliminate the related problem of binary voxel assignment into categorical regions. Increased image resolution often comes at the cost of a decreased field of view, precluding the study of whole-brain networks involving these nuclei and sites they modulate throughout the brain. 
+ Using resting-state fMRI connectivity, we investigated the existence of dissociable functional networks within the human midbrain and their relationship to anatomical delineations between the VTA and SN. First we developed replicable anatomical segmentation. Rather than defining regions of interest (ROIs) on a group anatomical image (cf.  Tomasi and Volkow, 2012 ), we directly visualized individually-identified landmarks in 50 participants. The definition of these subject-specific subregions allowed us to then develop a probabilistic atlas of the human dopaminergic midbrain and its traditional subdivisions; crucially, the use of probabilistic rather than binary boundaries addresses partial volume effects and permits generalization to other brains. We contrasted connectivity patterns in these anatomically defined SN and VTA ROIs. Then, in two independent resting-state datasets, we examined patterns of functional connectivity within the combined (SN plus VTA) midbrain ROI via spatially-restricted independent components analysis (ICA) ( Leech et al., 2012 ;  Smith et al., 2014 ). Using these two complementary methods in a large human sample, we show robust, reliable, differences in the functional networks associated with SN versus VTA midbrain regions. Further, these findings demonstrate the utility of our publically available probabilistic atlases of the dopaminergic midbrain. 
+ 
+ 
+ 2. Materials and Methods 
+ 
+ 2.1 Methods Overview 
+ The current manuscript describes two separate analysis streams on independent dataset. The methods section is organized to parallel the presentation of the findings in the results sections. First, we describe participant inclusion criteria (section 2.2) and imaging acquisition parameters (section 2.3), and preprocessing procedures (section 2.4), which are common across both analysis streams. Next, we describe the methodological procedures for our first analysis stream that includes details on anatomical ROI demarcation (section 2.5) and detailed methodology and statistical models for our seed-based functional connectivity analyses (section 2.6). Then, we describe the methodological procedures for our second analysis stream, which includes how construction probabilistic atlases (section 2.7) and detailed methodology and statistical models for our ICA (section 2.8) and Dual Regression (section 2.9) analyses. 
+ 
+ 
+ 2.2 Participants 
+ A total of 209 participants with normal or corrected-to-normal vision completed a resting-state fMRI scan as part of a larger study (results not considered here). During the resting-state scan, participants were instructed to maintain fixation on a central cross and to not think about anything particular. Prescreening excluded individuals with prior psychiatric or neurological illness. Additionally, individuals were excluded based on data quality concerns (see Preprocessing), leaving a final sample of 189 participants. Given the large size of this sample, we subdivided the sample into three groups. Dataset 1 was utilized for our seed-based functional connectivity analysis and generation of the dopaminergic midbrain probabilistic atlas [Dataset 1: N 1  = 50 (25 females), mean age: 21, range: 18–25]. Datasets 2 and 3 were used to run the ICA and Dual Regression Analysis (detailed below) to investigate the reliability of distinct networks across the VTA and SN across independent samples [Dataset 2: N 2  = 69 (38 females), mean age = 21.9 years, range: 18–31; Dataset 3: N 3  = 70 (46 females), mean age = 22.3 years, range: 18:30]. The ICA and Dual Regression Analysis was complementary to the seed-based functional connectivity analysis utilizing the dopaminergic midbrain probabilistic atlas. All participants gave written informed consent as part of a protocol approved by the Institutional Review Board of Duke University Medical Center. 
+ 
+ 
+ 2.3 Image Acquisition 
+ Neuroimaging data were collected using a General Electric MR750 3.0 Tesla scanner equipped with an 8-channel parallel imaging system. Images sensitive to blood- oxygenation-level-dependent (BOLD) contrast were acquired using a T 2 *-weighted spiral-in sensitivity encoding sequence (acceleration factor = 2), with slices parallel to the axial plane connecting the anterior and posterior commissures [repetition time (TR): 1580 ms; echo time (TE): 30 ms; matrix: 64 × 64; field of view (FOV): 243 mm; voxel size: 3.8 × 3.8 × 3.8 mm; 37 axial slices; flip angle: 70 degrees]. We chose this sequence to ameliorate susceptibility artifacts ( Pruessmann et al., 2001 ;  Truong and Song, 2008 ). Prior to preprocessing these functional data, we discarded the first eight volumes of each run to allow for magnetic stabilization. To facilitate co-registration and normalization of these functional data, we also acquired whole-brain high-resolution anatomical scans (T 1 -weighted FSPGR sequence; TR: 7.58 ms; TE: 2.93 ms; matrix: 256 × 256; FOV: 256 mm; voxel size: 1 × 1 × 1 mm; 206 axial slices; flip angle: 12 degrees). 
+ 
+ 
+ 2.4 Preprocessing 
+ Our preprocessing routines employed tools from the FMRIB Software Library (FSL Version 4.1.8;  http://www.fmrib.ox.ac.uk/fsl/ ) package ( Smith et al., 2004 ;  Woolrich et al., 2009 ). We corrected for head motion by realigning the time series to the middle volume ( Jenkinson et al., 2002 ), removed non-brain material using the brain extraction tool ( Smith, 2002 ), and corrected intra-volume slice-timing differences using Fourier-space phase shifting, aligning to the middle slice ( Sladky et al., 2011 ). Images were then spatially smoothed with a 6 mm full-width-half-maximum Gaussian kernel. Because of the broadband spectral power of resting-state fluctuations ( Niazy et al., 2011 ), we utilized a liberal high-pass temporal filter with a 150 second cutoff (Gaussian-weighted least-squares straight line fitting, with sigma = 75 s), capturing both high and low frequency fluctuations. Finally, each 4-dimensional dataset was grand-mean intensity normalized using a single multiplicative factor. Prior to group analyses, the high-resolution anatomical image was normalized to the MNI avg152 T1-weighted template (2 mm isotropic resolution) using a nonlinear transformation with a 10-mm warp resolution, as implemented by FSL’s fMRI Non-Linear Registration Tool. Thus, all coordinates are reported in MNI-space. 
+ As part of our preprocessing steps, we examined three measures of quality assurance and excluded subjects with extreme values on these metrics prior to data analyses. First, we estimated the average signal-to-fluctuation-noise ratio (SFNR) for each subject ( Friedman et al., 2006 ). Second, we computed the average volume-to-volume motion for each subject, and regressed out the variance tied to 6 parameters describing individual subject’s motion (rotations and translations along the three principle axes). Third, we identified and removed outlier volumes in our functional data. We identified outlier volumes in our functional data by evaluating the root-mean-square error (RMSE) of each volume relative to the reference volume (the middle time point). We considered a volume an outlier if its RMSE amplitude exceeded the 75th percentile plus the value of 150% of the interquartile range of RMSE for all volumes in a run (i.e., a standard boxplot threshold); this threshold is thus dynamic to account for subtle scaling differences between subjects and runs. This approach is conceptually similar to a —scrubbing approach described in Power et al, (2012), but different in two significant ways. Firstly, outlier timepoints are classified against a standard reference image (the middle time point) as opposed to the following time point (N+1). Notably, both of these approaches use RMSE intensity differences to identify outlier images, they only differ in the reference message used to identify these images. Secondly, we identified and removed outlier time points from analysis with frame-specific regressors (i.e. one regressor per outlier), whereas the scrubbing’ method interpolates timecourses over outlier time points. Critically, both approaches accomplish the same goal of removing variance tied to sudden and discontinuous (i.e. non-linear) changes in intensity that cannot be accounted for with traditional motion parameter regressors. 
+ 
+ 
+ 2.5 Anatomical ROI demarcation 
+ Regions of interest (ROIs) were hand-drawn on high-resolution anatomical MR images of individual subjects in Dataset 1 using the Multi-image Analysis GUI software ( http://ric.uthscsa.edu/mango/ ). The VTA was defined according to a procedure previously outlined by  Ballard et al. (2011) . To summarize, these were drawn in the axial section, with the anterior boundary at the CSF, posterior boundary at the coronal section that bisected the red nucleus, superior boundary at the top of the superior colliculus, inferior boundary at the bottom of the red nucleus, and lateral boundaries in the sagittal slice connecting the peak of curvature of the interpeduncular fossa with the center of the colliculus (see  Fig. 1  for examples of drawn ROIs). The mean volume of the VTA ROI across participants was 440.98 ± 100.6 mm 3  (mean ± standard deviation). The average coordinates for the center of mass in standardized MNI space for the individual ROIs are as follows: left VTA: x = −2.7, y = −15.9, z = −13.9; right VTA: x = 4.1, y = −15.9, z = −13.9). 
+ The SN was identified based on gray-white matter boundaries, and constrained by the following anatomical landmarks (Naidich et al, 2008), outside of which no gray matter voxels were included: the inferior boundary was the most inferior horizontal section before the cerebral aqueduct merged with the fourth ventricle. The superior boundary was the most superior horizontal section that did not contain the third ventricle. Finally, medial and lateral boundaries were drawn for each side of the SN (best visualized in the axial section). The medial boundary of exclusion on each side was a straight line between the posterior edge of the cerebral peduncle and the posterior edge of the interpeduncular fossa. The lateral boundary on each side was a curve from the peduncle’s anterior medial edge to its posterior medial edge, both often visible as small indentations on the CSF surface, to approximate the medial edge of the cerebral peduncle. The mean volume of the SN ROI across participants was 972.38 ± 267.5 mm 3  (mean ± standard deviation). The average coordinates for the center of mass in standardized MNI space for the individual ROIs are as follows: left SN: x = −10.1, y = −18.9, z = −11.6; right SN: x = 11.3, y = −18.7, z = −11.7). 
+ Fig. 1  shows examples the definition of the SN and VTA on a subset of participants included in the analysis. Instructions detailing the definition of these ROIs with illustrated guidelines are available at  https://web.duke.edu/adcocklab/neuroimaging/neuroimaging.html . 
+ 
+ 
+ 2.6 Seed-Based Functional Connectivity Analysis 
+ In Dataset 1 we utilized a seed-based analysis to investigate differences in the functional connectivity of anatomically-defined SN and VTA. Maintaining the specificity conferred by individually drawing ROIs for each subject precluded transformations of the ROIs. Thus, we first transformed functional data into high-resolution anatomical space and then extracted the eigenvariate of a single time-series from each ROI for each subject. Because the ROI for the SN was larger than that of the VTA, to avoid differences in signal-to-noise in the extracted time-series, we created a 3mm sphere at the bilateral centers of mass for each hand-drawn ROI and used these for the time-series extraction. Time-series extraction was done using unsmoothed functional data, as averaging over whole individually drawn ROIs is a method of functional smoothing that does not detract from the critical anatomical specificity. Critically, to characterize whether noise, such as physiological noise, was differentially contributing to the signal across the SN and VTA, we tested for differences in signal-to-fluctuation-to-noise (SFNR) across these extracted, eigenvariate time-series from both ROIs. The SFNR, defined as the mean of the signal across time divided by the standard deviation of the signal across time, can be used to quantify differences in signal quality across functional ROIs for fMRI analyses ( Friedman and Glover, 2006 ). This analysis did not reveal any significant differences in SFNR across SN and VTA ROIs (p = 0.62, eigenvariate). To further determine whether noise may be differentially influence our time-series, we compared SFNR across raw extracted time-series from the SN and VTA, by hemisphere. This analysis also did not yield any significant differences (left: p = 0.23; right: p = 0.63). We then used FSL’s FEAT (fMRI Expert Analysis Tool) Version 5.98 to create bilateral and hemispheric regression models (the general linear model, or GLM) that included the time-series for both the VTA and SN. It is important to note, that during the estimation procedure, any shared variance that existed between regressor was explicitly not assigned to either regressor, and thus did not influence the estimation of said regressors. This resulted in individual subject whole-brain maps of all voxels predicted by each regressor of the following contrasts of interest: VTA > baseline, SN > baseline, VTA>SN, SN>VTA. We constructed a group-level general linear model to estimate differences in resting-state connectivity between these midbrain sub regions using a one sample t-test of the contrasts estimated at the first level. Of note, a mask was created to analyze only activations that were positively correlated with either of the regions region. Z-score images were then corrected for multiple comparisons using cluster-based thresholding, with clusters determined by Z>2.3 and a (corrected) significance threshold of p=0.05 as implemented in FEAT 5.98 ( Worsley, 2001 ). 
+ 
+ 
+ 2.7 Generation of the Dopaminergic Midbrain Probabilistic Atlas 
+ To generate the probabilistic midbrain atlas, 50 sets of individual ROIs comprising the entire dopaminergic midbrain, the SN alone, and the VTA alone were normalized into standard space using the methods described above. These individual ROIs were binary, consisting of a value of 1 for regions within each ROI and 0 outside the ROI. Then, for each region, the 50 ROI images were averaged using fslmaths tool as implemented in FSL. These atlases (SN alone, VTA alone, entire dopaminergic midbrain) are publicly available. 
+ 
+ 
+ 2.8 Independent Components Analyses 
+ In Datasets 2 and 3, we used a complementary analysis to seed-based connectivity to investigate SN and VTA networks. Independent components analysis (ICA) identifies coherent spatial patterns in fMRI data—patterns that include functionally coherent networks and spatially structured artifacts related to physiological and machine-driven noise ( Beckmann et al., 2005 ;  Smith et al., 2009 ;  Beckmann and Smith, 2004 ). This approach also avoids several analytical pitfalls that are inherent to traditional seed-based methods for examining functional connectivity ( Cole et al., 2010 ). Thus, to identify coherent resting-state networks in our datasets, we utilized a probabilistic group ICA of the entire dopaminergic midbrain, as implemented in MELODIC (Multivariate Exploratory Linear Decomposition into Independent Components) Version 3.10, part of FSL. 
+ We first generated an ROI out of our probabilistic atlas set to a threshold of 10%, i.e. including all voxels that showed overlap of greater than 10% of participants (center of mass: x = 0.4, y = −17.8, z = −12.1). Within this ROI, we conducted spatially restricted group ICAs on each dataset ( Leech et al., 2012 ). Prior to estimating the group ICAs, we submitted the functional data to additional preprocessing routines to ensure the validity of the ICA results; these routines consisted of voxel-wise de-meaning of the data and normalization of the voxel-wise variance. The resulting datasets were each whitened and projected into a 10-dimensional subspace. The whitened observations were decomposed into sets of vectors that describe signal variation across the temporal domain (time courses), the subject domain and across the spatial domain (maps) by optimizing for non-Gaussian spatial source distributions using a fixed-point iteration technique ( Hyvärinen, 1999 ). 
+ 
+ 
+ 2.9 Dual-Regression Functional Connectivity Analyses 
+ To delineate SN/VTA network connectivity in Datasets 2 and 3, we employed a variant of the dual-regression analytical approach ( Filippini et al., 2009 ;  Leech et al., 2011 ;  Utevesky et al., 2014 ), which quantifies whole-brain functional connectivity with each midbrain subregion ( Leech et al., 2012 ). This analysis proceeds in two independent stages. First, spatial maps identified with the independent components analyses are regressed onto each participant’s functional data (spatial regression), resulting in a T (time points) × C (components) set of beta coefficients that characterize, in each subject, the temporal dynamics for each midbrain network. As part of the second step of the dual regression, the resulting temporal dynamics that describe each network, in each subject, are regressed onto each subject’s functional data (temporal regression). This temporal regression produces a set of spatial maps that quantify, within each subject, each voxel’s connectivity with each network identified with the group ICA while controlling for the influence of other networks—some of which may reflect artifacts, such as head motion and physiological noise. Indeed, a recent fMRI analysis confirms this analysis approach by demonstrating that spatially-restricted ICA analysis within the brainstem works as a operates as a means to suppress contributions of physiological noise ( Beissner et al., 2014 ). 
+ In each dataset, we identified component maps corresponding to the VTA and SN by selecting maps with the highest spatial correlation with the parameter estimate images produced by the GLM-based analysis in Dataset 1, an independent sample (Dataset 2: VTA r = 0.36, SN r = 0.38; Dataset 3: VTA r = 0.47, SN r = 0.26). In addition, given the relative paucity of voxels in our spatially-restricted ICA, we also examined the robustness of the resulting components using a spatial correlation analysis between the components in Dataset 2 and Dataset 3. Out of the 10 components, we found 7 components with a unique match in corresponding dataset (mean r = 0.55; range = 0.37:0.82). Components reflecting VTA and SN exhibited inter-dataset correlations of 0.37 and 0.42, respectively. Of note, these correlations refer to the correlation of spatial patterns of activity within the spatially restricted ICA across the two groups (as opposed to whole-brain connectivity, for similar measures see  Smith et al., 2009 ). Taken together, these observations indicate that our spatially restricted ICA produced reliable results, with components that can be uniquely linked to VTA and SN. Using these subject- and network-specific connectivity maps for VTA and SN, we constructed a group-level general linear model to estimate differences in resting-state connectivity between these midbrain sub regions using a single-sample t-test of contrasts generated at the subject specific level (SN > VTA, VTA > SN). Z-score images, for each dataset, were then corrected for multiple comparisons using cluster-based thresholding, with clusters determined by Z>2.3 and a (corrected) significance threshold of p=0.05 ( Worsley, 2001 ). Additionally we conducted a conjunction analysis, in which there was evidence for significant activation in both datasets independently, i.e. testing the Conjunction Null Hypothesis’ ( Nichols et al., 2005 ). 
+ 
+ 
+ 
+ 3. Results 
+ 
+ 3.1 Data Analysis Strategy 
+ Our resting-state analysis involved two independent analysis streams performed in separate fMRI datasets ( Fig. 1 ). In Dataset 1, seed-based connectivity analysis was performed on ROIs of the SN and VTA that were hand-drawn on individual subjects. This seed-based connectivity analysis compared functional coupling of the whole brain with time series extracted from 3mm spheres around the center of mass within the SN and VTA. In Datasets 2 and 3, ICA combined with dual-regression analyses were performed using the probabilistic atlas of the entire dopaminergic midbrain ( Figure 3 ,  supplemental Fig. 2 ), which was generated from Dataset 1. In contrast to the seed-based approach, this analytic strategy estimated functional connectivity patterns with independent midbrain structures hypothesized to reflect SN and VTA while controlling for other midbrain signals via multiple regression. Finally, conjunction analyses quantified reliable patterns of SN-VTA differences across the two independent datasets. 
+ 
+ 
+ 3.2 Seed-Based Functional Connectivity Analysis 
+ Using a seed-based connectivity analysis on hand-drawn ROIs of the SN and VTA from Dataset 1 (see methods), we performed a whole-brain functional connectivity analysis that identified regions showing preferential connectivity with the SN or VTA during rest. This analysis revealed that compared to the VTA, the SN demonstrated greater functional coupling with medial prefrontal cortices, precentral sulci, postcentral sulci, superior temporal gyrus, inferior parietal lobule, and the middle occipital gyrus (p< 0.05 whole-brain corrected;  Table 1 ;  Fig. 2 ). Conversely, the VTA showed greater functional coupling with the nucleus accumbens, hippocampus, cerebellum, and posterior midbrain encompassing the superior and inferior colliculi (p< 0.05, whole-brain corrected;  Table 1 ;  Fig. 2 ). To further test the validity of these results, we ran an additional model that included cerebral spinal fluid (CSF) as a nuisance regressor as a proxy for physiological noise. Inclusion of this nuisance regressor into our model did not result in substantial changes in our comparisons across the SN and VTA ( supplemental Fig. 1 ). 
+ 
+ 
+ 3.3 Dual-Regression Functional Connectivity Analysis 
+ Conjunction analyses between the dual-regression analyses of Dataset 2 and 3 revealed reliable patterns of functional connectivity that distinguished midbrain subregions (defined from ICA) hypothesized to reflect SN and VTA. Compared to the ICA-defined VTA, the ICA-defined SN consistently co-varied with a network of regions including the superior parietal lobe, postcentral gyrus, superior frontal gyrus, precentral gyrus, supplementary motor cortex, anterior cingulate cortex (conjunction null hypothesis of p< 0.05, whole-brain corrected in each group;  Table 2 ;  Fig. 4A ). Conversely, compared to the ICA-defined SN, the ICA-defined VTA consistently co-varied with a network of regions including the anterior brain stem (encompassing the VTA), subgenual cingulate, nucleus accumbens, parahippocampal gyrus, and posterior brain stem (encompassing the inferior and superior colliculus; conjunction null hypothesis of p< 0.05, whole-brain corrected in each group;  Table 2 ;  Fig. 4A ). Descriptive plots of t-scores for regions of interest independently were also extracted and plotted from Datasets 2 (blue) and 3 (grey), separately, for SN and VTA dual-regression analyses ( Fig. 4B ). Notably, patterns of differential connectivity significantly overlapped with the findings from dataset 1 ( supplemental Fig. 3 ). 
+ 
+ 
+ 
+ 4. Discussion 
+ Experiments in rodents indicate that the medial (VTA) and lateral (SN) aspects of the dopaminergic midbrain support distinct functions. Work in non-human primates and humans has brought into question the relevance of this distinction for human brain function (for review see Duzel 2009). Nevertheless, the two regions are dissociable in human neurological disease, in that Parkinson’s disease selectively affects the SN, not the VTA. Here we demonstrate the utility of differentiating the SN and VTA by showing robust, reliable differences in the functional networks associated with these two regions using two complementary methods in a large human sample. Further, to facilitate future study of the dopaminergic midbrain in humans and to encourage external validation of these maps, we have made our probabilistic atlases publicly available. 
+ The analyses presented in this paper provide evidence that segmentation of the midbrain into the SN and VTA has functional significance in human participants, with functional connectivity that parallels the organization seen in rodents. This convergence of midbrain segmentation is crucial, as it suggests homology across human and rodent models of dopamine function. In our first dataset, seed-based functional connectivity analysis confirmed that our hand-drawn SN region was more strongly connected to sensory and motor cortices than the VTA. Conversely, the VTA was more strongly connected with the ventral striatum and medial prefrontal cortex, regions involved with reward and decision-making processes, than the SN. Previous studies have used seed-based functional connectivity during rest to characterize other functional networks within the human brain ( Di Martino et al., 2008 ;  Kahn and Shohamy, 2013 ;  Roy et al., 2009 ;  Taren et al., 2011 ;  Zhang et al., 2012 ), and have demonstrated that functional connectivity at rest mirrors structural connectivity, both mono- and poly-synaptic connectivity, within the brain ( Honey et al., 2009 ;  Skudlarski et al., 2008 ;  Teipel et al., 2010 ). Our findings provide evidence that the methodology is sensitive enough to delineate functional networks of small, neighboring nuclei within the midbrain (see also  Tomasi and Volkow, 2012 , discussed in detail below). 
+ We further tested whether the above differences were evident with complementary methods that were generalizable across individuals and did not require hand-drawn individual ROIs. Using the hand-drawn ROIs from Dataset 1, we produced a probabilistic atlas of the VTA and SN. A complementary resting state functional connectivity analysis via dual-regression segmentation of the midbrain ROI in two additional datasets largely replicated the connectivity differences found in the original dataset. For example, our dual-regression analyses replicated preferential connectivity of the SN with pre-motor and motor cortex compared to the VTA, as well as preferential connectivity of the VTA with the nucleus accumbens and medial prefrontal cortex compared to the SN. These anatomical relationships are well documented in primates ( Haber and Fudge, 1997 ). Thus, the findings from Datasets 2 and 3 replicate seed-based connectivity findings using a complementary data-driven methodology, without hand-drawn ROIs, and highlight the utility of our novel probabilistic atlases to delineate SN and VTA functional networks. 
+ Prior to the current study, one previous study has characterized resting state connectivity differences across the VTA and SN ( Tomasi and Volkow, 2012 ). Our results partially replicate this prior work. The SN-motor cortex connectivity finding is consistent with  Tomasi and Volkow (2012) , however the prior authors did not find any differences in nucleus accumbens connectivity across the SN and VTA, despite the large literature demonstrating stronger connectivity with the VTA. These discrepancies in findings could be due to many factors that differed between the current study and  Tomasi and Volkow (2012) . For example, the definition of seed regions/ROIs differed across studies. Critically,  Tomasi and Volkow (2012)  identified their functional connectivity seeds on group anatomical images without consideration of individual differences in anatomy, whereas we both drew ROIs in individual anatomical space and used a probabilistic atlas to validate these in a large replication sample. In addition, other factors differed across these two studies, including sample size, pre-processing methods, analysis software (spm vs fsl), image acquisition, and homogeneity of data acquisition (single site vs multiple sites). Future studies will need to investigate how these factors contribute to differences in resting-state connectivity, with an emphasis on investigating the impact of accounting for individual differences in anatomy. 
+ Our current findings have important implications for the characterization of the dopaminergic midbrain in humans. While research in rodents has provided strong support for a functional differentiation of VTA and SN, work in primates has opened a number of questions about midbrain organization in humans. First, there is the question of anatomical equivalence. It has been proposed that the dorsal portion of the SN is most similar to the rodent VTA ( Haber and Fudge, 1997 ;  McRitchie et al., 1996 ). Second, the anatomical location of dopamine neurons in primates differs from that of rodents, again supporting the idea that the primate SN may have greater functional similarity to the rodent VTA ( Düzel et al., 2009 ). Third, in primates it is difficult to define an exact boundary between the VTA and SN ( Lynd-Balta and Haber, 1994 ) suggesting that a gradient view of the region may be more useful ( Tobler et al., 2003 ). Additional support for the gradient description of SN/VTA anatomy comes from the heterogeneity of efferent projections from the SN/VTA. In rodents, most efferent connections to limbic structures come from the VTA, but in primates, there is evidence that dopamine neurons in the SN also project to limbic structures ( Björklund and Dunnett, 2007 ;  Haber et al., 2000 ;  Smith and Kieval, 2000 ). In fact, recent research in humans using DTI has demonstrated a double disassociation in the degeneration of the medial and lateral portions of the SN in Parkinson’s disease and aging, respectively ( Vaillancourt et al., 2012 ). Further, DTI measure of connectivity have demonstrated that only the most medial parts of the SN (closely neighboring the VTA, which was not examined) show enhanced structural connectivity with the nucleus accumbens ( Chowdhury et al., 2013 ). Thus, the overall pattern of previous research about observed efferent projections from the midbrain is more similar to that predicted by the VTA/SN split than not ( Haber and Knutson, 2010 ;  Haber, 2003 ). 
+ Our current findings support the interpretation that there is a differentiation of function across the human VTA and SN, as elucidated by their different connectivity patterns. These neuroimaging findings in healthy volunteers are corroborated by clinical studies of Parkinson’s Disease, which results in loss of dopamine neurons over a gradient within the SN while leaving the VTA spared. Research in Parkinson’s Disease has shown reliable deficits in a variety of dopamine-mediated behaviors, such as feedback learning ( Foerde and Shohamy, 2011 ). Interestingly, however, behaviors that rely more on VTA-nucleus accumbens interactions are relatively intact in Parkinson’s Disease ( Cools et al., 2003 ;  Dagher and Robbins, 2009 ). Complementing these human functional dissociations, a recent primate study demonstrated working memory and reward learning signals that distinguished SN from VTA ( Matsumoto and Takada, 2013 ). Thus, in line with our current results, these clinical and primate findings suggest functional distinctions between SN- and VTA-centered networks. 
+ Here, functional interactions of the SN and VTA were characterized during rest. Thus, our current findings cannot speak to connectivity differences that may emerge while participants perform a task. Different SN and VTA connectivity patterns are likely to emerge during the execution of different behaviors. For example, previous research has demonstrated that although there was no intrinsic connectivity between the VTA and dlPFC at rest, significant connectivity emerged between the VTA and dlPFC during the initiation of motivated behavior ( Ballard et al., 2011 ). Resting state analyses would also be insensitive to another proposed gradient structure for the dopaminergic midbrain, from work by Matsumoto and colleagues ( Bromberg-Martin et al., 2010 ;  Matsumoto and Hikosaka, 2009 ;  Matsumoto and Takada, 2013 ). These authors report that the main difference between dopaminergic neurons in the VTA and SN is that those in the SN respond to both positively and negatively reinforced stimuli. However, these distinct functional gradients are not incompatible, and systematic integration of these schemas could better characterize midbrain function in humans. 
+ Although the current study provided evidence for distinct network connectivity of the SN and VTA during rest, aspects of our experimental design limit the interpretation of our findings. Firstly, as mentioned above, multiple schemas for the organization of the dopaminergic midbrain exist, only one of which is a delineation between the SN and VTA. Within humans, multiple studies have demonstrated functional gradients in functionality across the SN in isolation ( Chowdhury et al., 2013 ;  Vaillancourt et al., 2012 ), while other studies have demonstrated gradients across the entire dopaminergic midbrain when including the VTA ( Krebs et al., 2011 ). Future work will be needed to investigate the relative utility of gradients across the midbrain—which have been described in non-human primates ( Bromberg-Martin et al., 2010 ;  Matsumoto and Hikosaka, 2009 ;  Matsumoto and Takada, 2013 ) and humans ( Düzel et al., 2009 ;  Krebs et al., 2011 )—and whether the organization of the midbrain is better served by categorical, continuous, or both organizational schema. Specifically, future work using high-resolution fMRI should be used to determine whether there is functional segregation of the most lateral regions of the SN and the VTA. Secondly, the current study only investigated resting-state connectivity and did not specifically address how this measure associated with behavior. Although we believe identification of separable circuits across the SN and VTA advances our understanding of the organization of the dopaminergic midbrain, future work will need to investigate how connectivity differences across these regions relate to distinct behaviors, such as procedural versus goal-oriented behaviors. Finally, although the current study investigated connectivity of the dopaminergic midbrain regions, fMRI cannot directly assay dopamine release or the specific activity of dopamine neurons. Future resting-state neuroimaging studies could determine if the network connectivity highlighted in the current paper is sensitive to changes in dopaminergic tone via pharmacological manipulations ( Honey and Bullmore, 2004 ). 
+ In addition to demonstrating resting-state connectivity differences across the SN and VTA, our manuscript also introduces publically available probabilistic atlases of the dopaminergic midbrain ( https://web.duke.edu/adcocklab/neuroimaging/neuroimaging ). These include an atlas of the dopaminergic midbrain (SN+VTA) and separate atlases for the SN and VTA. To our knowledge, this is the first set of publically available atlases for these regions. These atlases will provide a much-needed tool in the community of neuroimaging researchers investigating the function of the dopaminergic midbrain, such as their utility in more ROI definition, anatomical labeling, visualization, and small-volume correction. We believe probabilistic atlases will be especially useful for the dopaminergic midbrain, which is a small anatomical nuclei. For example, the atlases will allow researchers to determine the probability that an activation cluster falls within on of these relatively small nuclei, which is difficult to determine on normalized images. Additionally, the atlases can be used as a means to perform anatomically weighted-ROI extraction, a procedure of data extraction that down-weights unwanted signals from other tissues (i.e., partial-volume effects). Finally, our current data set demonstrates that our atlases facilitate investigating the functional properties of the SN and VTA on datasets collected in standard spatial resolution (3*3*3 mm) in normalized space. Thus, these atlases may facilitate further neuroimaging research investigating the organization and functional properties of the human SN and VTA. 
+ In conclusion, our findings that the SN and VTA differentially interact with a variety of sub-cortical and cortical targets have important implications for understanding human behavior. Many human neuroimaging studies investigating the role of the mesolimbic dopamine system have characterized the SN and the VTA as a unified structure, and have not investigated the respective functional contributions of these two regions. Our findings clearly demonstrate that the SN and VTA have distinct functional connectivity, and thus differentially contribute to cognition. This demonstration also offers a tool for delineating SN and VTA networks in neuropsychiatric disorders such as drug addiction, ADHD, schizophrenia, and depression. Neuropsychiatric research has implicated dopaminergic neuromodulation in the etiology and treatment of these disorders; however, specific circuits modulated by dopaminergic efferents are still an open area of research ( Lee, 2013 ;  Montague et al., 2012 ). The separate SN and VTA probabilistic atlases generated in this study will allow future studies to better delineate the role of these two dopaminergic midbrain nuclei. Thus, this study marks a significant step in accelerating the integration of rodent models of brain function and disease with human neuroscience to ultimately inform patient diagnosis and treatment. 
+ 
+ 
+ Supplementary Material 
+ 
+ supplement 
+ 
+ 
+ 
+ 
+ 
+ This project was supported by National Institutes of Health grants R01 MH094743 (RAA), an Incubator Award from Duke Institute of Brain Sciences (SAH), and by NIMH National Research Service Award F31-MH086248 (DVS). We thank Anne Harsch and Edward McLaurin for assistance with data collection. VPM is now at New York University; DVS is now at Rutgers University. 
+ 
+ 
+ 
+ Conflicts of Interest:  The authors have no conflicts of interest to report 
+ 
+ 
+ This is a PDF file of an unedited manuscript that has been accepted for publication. As a service to our customers we are providing this early version of the manuscript. The manuscript will undergo copyediting, typesetting, and review of the resulting proof before it is published in its final citable form. Please note that during the production process errors may be discovered which could affect the content, and all legal disclaimers that apply to the journal pertain. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ballard 
+ IC 
+ 
+ 
+ Murty 
+ VP 
+ 
+ 
+ Carter 
+ RM 
+ 
+ 
+ MacInnes 
+ JJ 
+ 
+ 
+ Huettel 
+ SA 
+ 
+ 
+ Adcock 
+ RA 
+ 
+ 
+ 2011 
+ Dorsolateral prefrontal cortex drives mesolimbic dopaminergic regions to initiate motivated behavior 
+ J Neurosci Off J Soc Neurosci 
+ 31 
+ 10340 
+ 10346 
+ 
+ 
+ 
+ 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ DeLuca 
+ M 
+ 
+ 
+ Devlin 
+ JT 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ 2005 
+ Investigations into resting-state connectivity using independent component analysis 
+ Philos Trans R Soc Lond B Biol Sci 
+ 360 
+ 1001 
+ 1013 
+ 16087444 
+ 
+ 
+ 
+ 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ 2004 
+ Probabilistic independent component analysis for functional magnetic resonance imaging 
+ IEEE Trans Med Imaging 
+ 23 
+ 137 
+ 152 
+ 14964560 
+ 
+ 
+ 
+ 
+ 
+ 
+ Beissner 
+ F 
+ 
+ 
+ Schumann 
+ A 
+ 
+ 
+ Brunn 
+ F 
+ 
+ 
+ Eisenträger 
+ D 
+ 
+ 
+ Bär 
+ KJ 
+ 
+ 
+ 2014 
+ Advances in functional magnetic resonance imaging of the human brainstem 
+ NeuroImage 
+ 86 
+ 91 
+ 98 
+ 23933038 
+ 
+ 
+ 
+ 
+ 
+ 
+ Berridge 
+ KC 
+ 
+ 
+ Robinson 
+ TE 
+ 
+ 
+ Aldridge 
+ JW 
+ 
+ 
+ 2009 
+ Dissecting components of reward: —liking, —wanting, and learning 
+ Curr Opin Pharmacol 
+ 9 
+ 65 
+ 73 
+ 19162544 
+ 
+ 
+ 
+ 
+ 
+ 
+ Björklund 
+ A 
+ 
+ 
+ Dunnett 
+ SB 
+ 
+ 
+ 2007 
+ Dopamine neuron systems in the brain: an update 
+ Trends Neurosci 
+ 30 
+ 194 
+ 202 
+ 17408759 
+ 
+ 
+ 
+ 
+ 
+ 
+ Bromberg-Martin 
+ ES 
+ 
+ 
+ Matsumoto 
+ M 
+ 
+ 
+ Hikosaka 
+ O 
+ 
+ 
+ 2010 
+ Dopamine in motivational control: rewarding, aversive, and alerting 
+ Neuron 
+ 68 
+ 815 
+ 834 
+ 21144997 
+ 
+ 
+ 
+ 
+ 
+ 
+ Chowdhury 
+ R 
+ 
+ 
+ Lambert 
+ C 
+ 
+ 
+ Dolan 
+ RJ 
+ 
+ 
+ Düzel 
+ E 
+ 
+ 
+ 2013 
+ Parcellation of the human substantia nigra based on anatomical connectivity to the striatum 
+ NeuroImage 
+ 81 
+ 191 
+ 198 
+ 23684858 
+ 
+ 
+ 
+ 
+ 
+ 
+ Cole 
+ DM 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ 2010 
+ Advances and pitfalls in the analysis and interpretation of resting-state FMRI data 
+ Front Syst Neurosci 
+ 4 
+ 8 
+ 20407579 
+ 
+ 
+ 
+ 
+ 
+ 
+ Cools 
+ R 
+ 
+ 
+ Barker 
+ RA 
+ 
+ 
+ Sahakian 
+ BJ 
+ 
+ 
+ Robbins 
+ TW 
+ 
+ 
+ 2003 
+ L-Dopa medication remediates cognitive inflexibility, but increases impulsivity in patients with Parkinson’s disease 
+ Neuropsychologia 
+ 41 
+ 1431 
+ 1441 
+ 12849761 
+ 
+ 
+ 
+ 
+ 
+ 
+ Dagher 
+ A 
+ 
+ 
+ Robbins 
+ TW 
+ 
+ 
+ 2009 
+ Personality, addiction, dopamine: insights from Parkinson’s disease 
+ Neuron 
+ 61 
+ 502 
+ 510 
+ 19249271 
+ 
+ 
+ 
+ 
+ 
+ 
+ Damier 
+ P 
+ 
+ 
+ Hirsch 
+ EC 
+ 
+ 
+ Agid 
+ Y 
+ 
+ 
+ Graybiel 
+ AM 
+ 
+ 
+ 1999 
+ The substantia nigra of the human brain. II Patterns of loss of dopamine-containing neurons in Parkinson’s disease 
+ Brain J Neurol 
+ 122  
+  Pt 8 
+ 1437 
+ 1448 
+ 
+ 
+ 
+ 
+ 
+ 
+ Di Martino 
+ A 
+ 
+ 
+ Scheres 
+ A 
+ 
+ 
+ Margulies 
+ DS 
+ 
+ 
+ Kelly 
+ AMC 
+ 
+ 
+ Uddin 
+ LQ 
+ 
+ 
+ Shehzad 
+ Z 
+ 
+ 
+ Biswal 
+ B 
+ 
+ 
+ Walters 
+ JR 
+ 
+ 
+ Castellanos 
+ FX 
+ 
+ 
+ Milham 
+ MP 
+ 
+ 
+ 2008 
+ Functional connectivity of human striatum: a resting state FMRI study 
+ Cereb Cortex N Y N 1991 
+ 18 
+ 2735 
+ 2747 
+ 
+ 
+ 
+ 
+ 
+ 
+ Düzel 
+ E 
+ 
+ 
+ Bunzeck 
+ N 
+ 
+ 
+ Guitart-Masip 
+ M 
+ 
+ 
+ Wittmann 
+ B 
+ 
+ 
+ Schott 
+ BH 
+ 
+ 
+ Tobler 
+ PN 
+ 
+ 
+ 2009 
+ Functional imaging of the human dopaminergic midbrain 
+ Trends Neurosci 
+ 32 
+ 321 
+ 328 
+ 19446348 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fearnley 
+ JM 
+ 
+ 
+ Lees 
+ AJ 
+ 
+ 
+ 1991 
+ Ageing and Parkinson’s disease: substantia nigra regional selectivity 
+ Brain J Neurol 
+ 114  
+  Pt 5 
+ 2283 
+ 2301 
+ 
+ 
+ 
+ 
+ 
+ 
+ Filippini 
+ N 
+ 
+ 
+ MacIntosh 
+ BJ 
+ 
+ 
+ Hough 
+ MG 
+ 
+ 
+ Goodwin 
+ GM 
+ 
+ 
+ Frisoni 
+ GB 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Matthews 
+ PM 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ Mackay 
+ CE 
+ 
+ 
+ 2009 
+ Distinct patterns of brain activity in young carriers of the APOE-epsilon4 allele 
+ Proc Natl Acad Sci U S A 
+ 106 
+ 7209 
+ 7214 
+ 19357304 
+ 
+ 
+ 
+ 
+ 
+ 
+ Foerde 
+ K 
+ 
+ 
+ Shohamy 
+ D 
+ 
+ 
+ 2011 
+ The role of the basal ganglia in learning and memory: insight from Parkinson’s disease 
+ Neurobiol Learn Mem 
+ 96 
+ 624 
+ 636 
+ 21945835 
+ 
+ 
+ 
+ 
+ 
+ 
+ Friedman 
+ L 
+ 
+ 
+ Glover 
+ GH 
+ 
+ 
+ Fbirn 
+ Consortium 
+ 
+ 
+ 2006 
+ Reducing interscanner variability of activation in a multicenter fMRI study: controlling for signal-to-fluctuation-noise-ratio (SFNR) differences 
+ NeuroImage 
+ 33 
+ 471 
+ 481 
+ 16952468 
+ 
+ 
+ 
+ 
+ 
+ 
+ Haber 
+ SN 
+ 
+ 
+ 2003 
+ The primate basal ganglia: parallel and integrative networks 
+ J Chem Neuroanat 
+ 26 
+ 317 
+ 330 
+ 14729134 
+ 
+ 
+ 
+ 
+ 
+ 
+ Haber 
+ SN 
+ 
+ 
+ Fudge 
+ JL 
+ 
+ 
+ 1997 
+ The primate substantia nigra and VTA: integrative circuitry and function 
+ Crit Rev Neurobiol 
+ 11 
+ 323 
+ 342 
+ 9336716 
+ 
+ 
+ 
+ 
+ 
+ 
+ Haber 
+ SN 
+ 
+ 
+ Fudge 
+ JL 
+ 
+ 
+ McFarland 
+ NR 
+ 
+ 
+ 2000 
+ Striatonigrostriatal pathways in primates form an ascending spiral from the shell to the dorsolateral striatum 
+ J Neurosci Off J Soc Neurosci 
+ 20 
+ 2369 
+ 2382 
+ 
+ 
+ 
+ 
+ 
+ 
+ Haber 
+ SN 
+ 
+ 
+ Knutson 
+ B 
+ 
+ 
+ 2010 
+ The reward circuit: linking primate anatomy and human imaging 
+ Neuropsychopharmacol Off Publ Am Coll Neuropsychopharmacol 
+ 35 
+ 4 
+ 26 
+ 
+ 
+ 
+ 
+ 
+ 
+ Honey 
+ CJ 
+ 
+ 
+ Sporns 
+ O 
+ 
+ 
+ Cammoun 
+ L 
+ 
+ 
+ Gigandet 
+ X 
+ 
+ 
+ Thiran 
+ JP 
+ 
+ 
+ Meuli 
+ R 
+ 
+ 
+ Hagmann 
+ P 
+ 
+ 
+ 2009 
+ Predicting human resting-state functional connectivity from structural connectivity 
+ Proc Natl Acad Sci U S A 
+ 106 
+ 2035 
+ 2040 
+ 19188601 
+ 
+ 
+ 
+ 
+ 
+ 
+ Honey 
+ G 
+ 
+ 
+ Bullmore 
+ E 
+ 
+ 
+ 2004 
+ Human pharmacological MRI 
+ Trends Pharmacol Sci 
+ 25 
+ 366 
+ 374 
+ 15219979 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hyvärinen 
+ A 
+ 
+ 
+ 1999 
+ Fast and robust fixed-point algorithms for independent component analysis 
+ IEEE Trans Neural Netw Publ IEEE Neural Netw Counc 
+ 10 
+ 626 
+ 634 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kahn 
+ I 
+ 
+ 
+ Shohamy 
+ D 
+ 
+ 
+ 2013 
+ Intrinsic connectivity between the hippocampus, nucleus accumbens, and ventral tegmental area in humans 
+ Hippocampus 
+ 23 
+ 187 
+ 192 
+ 23129267 
+ 
+ 
+ 
+ 
+ 
+ 
+ Jenkinson 
+ M 
+ 
+ 
+ Bannister 
+ P 
+ 
+ 
+ Brady 
+ M 
+ 
+ 
+ Smith 
+ S 
+ 
+ 
+ 2002 
+ Improved optimization for the robust and accurate linear registration and motion correction of brain images 
+ NeuroImage 
+ 17 
+ 825 
+ 841 
+ 12377157 
+ 
+ 
+ 
+ 
+ 
+ 
+ Krebs 
+ RM 
+ 
+ 
+ Heipertz 
+ D 
+ 
+ 
+ Schuetze 
+ H 
+ 
+ 
+ Duzel 
+ E 
+ 
+ 
+ 2011 
+ Novelty increases the mesolimbic functional connectivity of the substantia nigra/ventral tegmental area (SN/VTA) during reward anticipation: Evidence from high-resolution fMRI 
+ NeuroImage 
+ 58 
+ 647 
+ 655 
+ 21723396 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lammel 
+ S 
+ 
+ 
+ Ion 
+ DI 
+ 
+ 
+ Roeper 
+ J 
+ 
+ 
+ Malenka 
+ RC 
+ 
+ 
+ 2011 
+ Projection-specific modulation of dopamine neuron synapses by aversive and rewarding stimuli 
+ Neuron 
+ 70 
+ 855 
+ 862 
+ 21658580 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lee 
+ D 
+ 
+ 
+ 2013 
+ Decision making: from neuroscience to psychiatry 
+ Neuron 
+ 78 
+ 233 
+ 248 
+ 23622061 
+ 
+ 
+ 
+ 
+ 
+ 
+ Leech 
+ R 
+ 
+ 
+ Braga 
+ R 
+ 
+ 
+ Sharp 
+ DJ 
+ 
+ 
+ 2012 
+ Echoes of the Brain within the Posterior Cingulate Cortex 
+ J Neurosci 
+ 32 
+ 215 
+ 222 
+ 22219283 
+ 
+ 
+ 
+ 
+ 
+ 
+ Leech 
+ R 
+ 
+ 
+ Kamourieh 
+ S 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ Sharp 
+ DJ 
+ 
+ 
+ 2011 
+ Fractionating the default mode network: distinct contributions of the ventral and dorsal posterior cingulate cortex to cognitive control 
+ J Neurosci Off J Soc Neurosci 
+ 31 
+ 3217 
+ 3224 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lynd-Balta 
+ E 
+ 
+ 
+ Haber 
+ SN 
+ 
+ 
+ 1994 
+ Primate striatonigral projections: a comparison of the sensorimotor-related striatum and the ventral striatum 
+ J Comp Neurol 
+ 345 
+ 562 
+ 578 
+ 7962700 
+ 
+ 
+ 
+ 
+ 
+ 
+ Matsumoto 
+ M 
+ 
+ 
+ Hikosaka 
+ O 
+ 
+ 
+ 2009 
+ Two types of dopamine neuron distinctly convey positive and negative motivational signals 
+ Nature 
+ 459 
+ 837 
+ 841 
+ 19448610 
+ 
+ 
+ 
+ 
+ 
+ 
+ Matsumoto 
+ M 
+ 
+ 
+ Takada 
+ M 
+ 
+ 
+ 2013 
+ Distinct Representations of Cognitive and Motivational Signals in Midbrain Dopamine Neurons 
+ Neuron 
+ 
+ 
+ 
+ 
+ 
+ 
+ McRitchie 
+ DA 
+ 
+ 
+ Hardman 
+ CD 
+ 
+ 
+ Halliday 
+ GM 
+ 
+ 
+ 1996 
+ Cytoarchitectural distribution of calcium binding proteins in midbrain dopaminergic regions of rats and humans 
+ J Comp Neurol 
+ 364 
+ 121 
+ 150 
+ 8789281 
+ 
+ 
+ 
+ 
+ 
+ 
+ Montague 
+ PR 
+ 
+ 
+ Dolan 
+ RJ 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ Dayan 
+ P 
+ 
+ 
+ 2012 
+ Computational psychiatry 
+ Trends Cogn Sci 
+ 16 
+ 72 
+ 80 
+ 22177032 
+ 
+ 
+ 
+ 
+ 
+ 
+ Niazy 
+ RK 
+ 
+ 
+ Xie 
+ J 
+ 
+ 
+ Miller 
+ K 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ 2011 
+ Spectral characteristics of resting state networks 
+ Prog Brain Res 
+ 193 
+ 259 
+ 276 
+ 21854968 
+ 
+ 
+ 
+ 
+ 
+ 
+ Nichols 
+ T 
+ 
+ 
+ Brett 
+ M 
+ 
+ 
+ Andersson 
+ J 
+ 
+ 
+ Wager 
+ T 
+ 
+ 
+ Poline 
+ JB 
+ 
+ 
+ 2005 
+ Valid conjunction inference with the minimum statistic 
+ NeuroImage 
+ 25 
+ 653 
+ 660 
+ 15808966 
+ 
+ 
+ 
+ 
+ 
+ 
+ Pruessmann 
+ KP 
+ 
+ 
+ Weiger 
+ M 
+ 
+ 
+ Börnert 
+ P 
+ 
+ 
+ Boesiger 
+ P 
+ 
+ 
+ 2001 
+ Advances in sensitivity encoding with arbitrary k-space trajectories 
+ Magn Reson Med Off J Soc Magn Reson Med Soc Magn Reson Med 
+ 46 
+ 638 
+ 651 
+ 
+ 
+ 
+ 
+ 
+ 
+ Roy 
+ AK 
+ 
+ 
+ Shehzad 
+ Z 
+ 
+ 
+ Margulies 
+ DS 
+ 
+ 
+ Kelly 
+ AMC 
+ 
+ 
+ Uddin 
+ LQ 
+ 
+ 
+ Gotimer 
+ K 
+ 
+ 
+ Biswal 
+ BB 
+ 
+ 
+ Castellanos 
+ FX 
+ 
+ 
+ Milham 
+ MP 
+ 
+ 
+ 2009 
+ Functional connectivity of the human amygdala using resting state fMRI 
+ NeuroImage 
+ 45 
+ 614 
+ 626 
+ 19110061 
+ 
+ 
+ 
+ 
+ 
+ 
+ Salamone 
+ JD 
+ 
+ 
+ Correa 
+ M 
+ 
+ 
+ Farrar 
+ A 
+ 
+ 
+ Mingote 
+ SM 
+ 
+ 
+ 2007 
+ Effort-related functions of nucleus accumbens dopamine and associated forebrain circuits 
+ Psychopharmacology (Berl) 
+ 191 
+ 461 
+ 482 
+ 17225164 
+ 
+ 
+ 
+ 
+ 
+ 
+ Skudlarski 
+ P 
+ 
+ 
+ Jagannathan 
+ K 
+ 
+ 
+ Calhoun 
+ VD 
+ 
+ 
+ Hampson 
+ M 
+ 
+ 
+ Skudlarska 
+ BA 
+ 
+ 
+ Pearlson 
+ G 
+ 
+ 
+ 2008 
+ Measuring brain connectivity: diffusion tensor imaging validates resting state temporal correlations 
+ NeuroImage 
+ 43 
+ 554 
+ 561 
+ 18771736 
+ 
+ 
+ 
+ 
+ 
+ 
+ Sladky 
+ R 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ Tröstl 
+ J 
+ 
+ 
+ Cunnington 
+ R 
+ 
+ 
+ Moser 
+ E 
+ 
+ 
+ Windischberger 
+ C 
+ 
+ 
+ 2011 
+ Slice-timing effects and their correction in functional MRI 
+ NeuroImage 
+ 58 
+ 588 
+ 594 
+ 21757015 
+ 
+ 
+ 
+ 
+ 
+ 
+ Smith 
+ DV 
+ 
+ 
+ Utevsky 
+ AV 
+ 
+ 
+ Bland 
+ AR 
+ 
+ 
+ Clement 
+ NJ 
+ 
+ 
+ Clithero 
+ JA 
+ 
+ 
+ Harsch 
+ AE 
+ 
+ 
+ Carter 
+ RM 
+ 
+ 
+ Huettel 
+ SA 
+ 
+ 
+ 2014 
+ Individual differences in functional connectivity using dual-regression and seed-based approaches 
+ NeuroImage 
+ 95 
+ 1 
+ 12 
+ 24662574 
+ 
+ 
+ 
+ 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ 2002 
+ Fast robust automated brain extraction 
+ Hum Brain Mapp 
+ 17 
+ 143 
+ 155 
+ 12391568 
+ 
+ 
+ 
+ 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Fox 
+ PT 
+ 
+ 
+ Miller 
+ KL 
+ 
+ 
+ Glahn 
+ DC 
+ 
+ 
+ Fox 
+ PM 
+ 
+ 
+ Mackay 
+ CE 
+ 
+ 
+ Filippini 
+ N 
+ 
+ 
+ Watkins 
+ KE 
+ 
+ 
+ Toro 
+ R 
+ 
+ 
+ Laird 
+ AR 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ 2009 
+ Correspondence of the brain’s functional architecture during activation and rest 
+ Proc Natl Acad Sci U S A 
+ 106 
+ 13040 
+ 13045 
+ 19620724 
+ 
+ 
+ 
+ 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Jenkinson 
+ M 
+ 
+ 
+ Woolrich 
+ MW 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ Behrens 
+ TEJ 
+ 
+ 
+ Johansen-Berg 
+ H 
+ 
+ 
+ Bannister 
+ PR 
+ 
+ 
+ De Luca 
+ M 
+ 
+ 
+ Drobnjak 
+ I 
+ 
+ 
+ Flitney 
+ DE 
+ 
+ 
+ Niazy 
+ RK 
+ 
+ 
+ Saunders 
+ J 
+ 
+ 
+ Vickers 
+ J 
+ 
+ 
+ Zhang 
+ Y 
+ 
+ 
+ De Stefano 
+ N 
+ 
+ 
+ Brady 
+ JM 
+ 
+ 
+ Matthews 
+ PM 
+ 
+ 
+ 2004 
+ Advances in functional and structural MR image analysis and implementation as FSL 
+ NeuroImage 
+ 23 
+ Suppl 1 
+ S208 
+ 219 
+ 15501092 
+ 
+ 
+ 
+ 
+ 
+ 
+ Smith 
+ Y 
+ 
+ 
+ Kieval 
+ JZ 
+ 
+ 
+ 2000 
+ Anatomy of the dopamine system in the basal ganglia 
+ Trends Neurosci 
+ 23 
+ S28 
+ 33 
+ 11052217 
+ 
+ 
+ 
+ 
+ 
+ 
+ Taren 
+ AA 
+ 
+ 
+ Venkatraman 
+ V 
+ 
+ 
+ Huettel 
+ SA 
+ 
+ 
+ 2011 
+ A parallel functional topography between medial and lateral prefrontal cortex: evidence and implications for cognitive control 
+ J Neurosci Off J Soc Neurosci 
+ 31 
+ 5026 
+ 5031 
+ 
+ 
+ 
+ 
+ 
+ 
+ Teipel 
+ SJ 
+ 
+ 
+ Bokde 
+ ALW 
+ 
+ 
+ Meindl 
+ T 
+ 
+ 
+ Amaro 
+ E 
+ Jr 
+ 
+ 
+ Soldner 
+ J 
+ 
+ 
+ Reiser 
+ MF 
+ 
+ 
+ Herpertz 
+ SC 
+ 
+ 
+ Möller 
+ HJ 
+ 
+ 
+ Hampel 
+ H 
+ 
+ 
+ 2010 
+ White matter microstructure underlying default mode network connectivity in the human brain 
+ NeuroImage 
+ 49 
+ 2021 
+ 2032 
+ 19878723 
+ 
+ 
+ 
+ 
+ 
+ 
+ Tobler 
+ PN 
+ 
+ 
+ Dickinson 
+ A 
+ 
+ 
+ Schultz 
+ W 
+ 
+ 
+ 2003 
+ Coding of predicted reward omission by dopamine neurons in a conditioned inhibition paradigm 
+ J Neurosci Off J Soc Neurosci 
+ 23 
+ 10402 
+ 10410 
+ 
+ 
+ 
+ 
+ 
+ 
+ Tomasi 
+ D 
+ 
+ 
+ Volkow 
+ ND 
+ 
+ 
+ 2012 
+ Functional Connectivity of Substantia Nigra and Ventral Tegmental Area: Maturation During Adolescence and Effects of ADHD 
+ Cereb Cortex N Y N 
+ 1991 
+ 
+ 
+ 
+ 
+ 
+ 
+ Truong 
+ TK 
+ 
+ 
+ Song 
+ AW 
+ 
+ 
+ 2008 
+ Single-shot dual-z-shimmed sensitivity-encoded spiral-in/out imaging for functional MRI with reduced susceptibility artifacts 
+ Magn Reson Med Off J Soc Magn Reson Med Soc Magn Reson Med 
+ 59 
+ 221 
+ 227 
+ 
+ 
+ 
+ 
+ 
+ 
+ Utevesky 
+ AV 
+ 
+ 
+ Smith 
+ DV 
+ 
+ 
+ Huettel 
+ SA 
+ 
+ 
+ 2014 
+ Precuneus is a Functional Core of the Default-Mode Network 
+ J Neurosci 
+ 34 
+ 932 
+ 940 
+ 24431451 
+ 
+ 
+ 
+ 
+ 
+ 
+ Vaillancourt 
+ DE 
+ 
+ 
+ Spraker 
+ MB 
+ 
+ 
+ Prodoehl 
+ J 
+ 
+ 
+ Zhou 
+ XJ 
+ 
+ 
+ Little 
+ DM 
+ 
+ 
+ 2012 
+ Effects of aging on the ventral and dorsal substantia nigra using diffusion tensor imaging 
+ Neurobiol Aging 
+ 33 
+ 35 
+ 42 
+ 20359780 
+ 
+ 
+ 
+ 
+ 
+ 
+ Watabe-Uchida 
+ M 
+ 
+ 
+ Zhu 
+ L 
+ 
+ 
+ Ogawa 
+ SK 
+ 
+ 
+ Vamanrao 
+ A 
+ 
+ 
+ Uchida 
+ N 
+ 
+ 
+ 2012 
+ Whole-brain mapping of direct inputs to midbrain dopamine neurons 
+ Neuron 
+ 74 
+ 858 
+ 873 
+ 22681690 
+ 
+ 
+ 
+ 
+ 
+ 
+ Williams 
+ SM 
+ 
+ 
+ Goldman-Rakic 
+ PS 
+ 
+ 
+ 1998 
+ Widespread origin of the primate mesofrontal dopamine system 
+ Cereb Cortex N Y N 1991 
+ 8 
+ 321 
+ 345 
+ 
+ 
+ 
+ 
+ 
+ 
+ Wise 
+ RA 
+ 
+ 
+ 2004 
+ Dopamine, learning and motivation 
+ Nat Rev Neurosci 
+ 5 
+ 483 
+ 494 
+ 15152198 
+ 
+ 
+ 
+ 
+ 
+ 
+ Woolrich 
+ MW 
+ 
+ 
+ Jbabdi 
+ S 
+ 
+ 
+ Patenaude 
+ B 
+ 
+ 
+ Chappell 
+ M 
+ 
+ 
+ Makni 
+ S 
+ 
+ 
+ Behrens 
+ T 
+ 
+ 
+ Beckmann 
+ C 
+ 
+ 
+ Jenkinson 
+ M 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ 2009 
+ Bayesian analysis of neuroimaging data in FSL 
+ NeuroImage 
+ 45 
+ S173 
+ 186 
+ 19059349 
+ 
+ 
+ 
+ 
+ 
+ 
+ Worsley 
+ K 
+ 
+ 
+ 2001 
+ Statistical analysis of activation images 
+ Ch 14 
+ Functional MRK: An Introduction to Methods 
+ 
+ 
+ 
+ 
+ 
+ 
+ Zhang 
+ Yaqin 
+ 
+ 
+ Fan 
+ L 
+ 
+ 
+ Zhang 
+ Yu 
+ 
+ 
+ Wang 
+ J 
+ 
+ 
+ Zhu 
+ M 
+ 
+ 
+ Zhang 
+ Yuanchao 
+ 
+ 
+ Yu 
+ C 
+ 
+ 
+ Jiang 
+ T 
+ 
+ 
+ 2012 
+ Connectivity-Based Parcellation of the Human Posteromedial Cortex 
+ Cereb Cortex N Y N 
+ 1991 
+ 
+ 
+ 
+ 
+ 
+ 
+ Figure 1 
+ 
+ Data analysis approach for comparing SN and VTA network connectivity 
+ 
+ 
+ 
+ 
+ Figure 2 
+ 
+ Seed based connectivity reveals distinct SN and VTA functional networks 
+ A group map of significant differences in SN and VTA functional coupling as assayed by seed-based functional connectivity in Dataset 1 (p < 0.05, whole-brain corrected). 
+ 
+ 
+ 
+ 
+ Figure 3 
+ 
+ Probabilistic Midbrain Atlas 
+ Axial view of the SN and VTA probabilistic atlas. The topographical heat-map represents the percentage of overlap for a specific voxel across participants, with warm colors being the greatest amount of overlap. Of note, these images do not reflect the absolute volume of these regions but rather the extent of anatomical consistency across participants in normalized space. 
+ 
+ 
+ 
+ 
+ Figure 4 
+ 
+ ICA/Dual-Regression analysis recapitulates connectivity-based segmentation of the SN from VTA 
+ (A) A conjunction analysis between significant differences in SN and VTA network activity as assayed by dual-regression analyses across Datasets 2 and 3 (p < 0.05, whole-brain corrected). (B) Descriptive plots of t-scores for regions of interest independently plotted from Datasets 2 and 3 independently for SN and VTA dual-regression analyses. ROIs were generated from the Harvard-Oxford Cortical and Sub-cortical atlas as implemented by FSL. 
+ 
+ 
+ 
+ 
+ Table 1 
+ 
+ Significant Activations from the seed-based analysis in Dataset 1. 
+ 
+ 
+ 
+ 
+ Region 
+ Major Cluster 
+ Z 
+ x 
+ y 
+ z 
+ 
+ 
+ 
+ 
+ 
+ 
+ SN > VTA 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 1 (4051 voxels) 
+ 
+ 
+ 
+ 
+ 
+ 
+ L Superior Temporal Gyrus 
+ 
+ 4.04 
+ − 54 
+ − 8 
+ 0 
+ 
+ 
+ L Superior Temporal Gyrus 
+ 
+ 3.88 
+ − 54 
+ − 4 
+ 0 
+ 
+ 
+ L Superior Temporal Gyrus 
+ 
+ 3.8 
+ − 54 
+ − 12 
+ − 2 
+ 
+ 
+ L Insula, Superior Temporal Gyrus 
+ 
+ 3.67 
+ − 50 
+ 0 
+ 0 
+ 
+ 
+ L Precuneus 
+ 
+ 3.66 
+ − 20 
+ − 46 
+ 46 
+ 
+ 
+ L Medial Frontal Gyrus 
+ 
+ 3.53 
+ − 14 
+ 2 
+ 56 
+ 
+ 
+ 
+ 2 (2835 voxels) 
+ 
+ 
+ 
+ 
+ 
+ 
+ R Superior Temporal Gyrus 
+ 
+ 3.82 
+ 66 
+ 2 
+ 0 
+ 
+ 
+ R Inferior Parietal Lobule/Supramarginal Gyrus 
+ 
+ 3.62 
+ 48 
+ − 40 
+ 30 
+ 
+ 
+ White Matter/Precuneus 
+ 
+ 3.55 
+ 26 
+ − 48 
+ 40 
+ 
+ 
+ R Precental Gyrus 
+ 
+ 3.54 
+ 52 
+ − 28 
+ 32 
+ 
+ 
+ R Postcentral Gyrus 
+ 
+ 3.52 
+ 62 
+ 12 
+ 6 
+ 
+ 
+ L Middle Occipital Gyrus 
+ 3 (641 voxels) 
+ 3.43 
+ 50 
+ − 28 
+ 38 
+ 
+ 
+ L Middle Occipital Gyrus 
+ 
+ 3.42 
+ − 40 
+ − 82 
+ 2 
+ 
+ 
+ R Middle Occipital Gyrus 
+ 
+ 3.1 
+ − 32 
+ − 82 
+ 6 
+ 
+ 
+ L Cuneus 
+ 
+ 3.07 
+ 26 
+ − 92 
+ 12 
+ 
+ 
+ L Middle Occipital Gyrus 
+ 
+ 3 
+ − 12 
+ − 84 
+ 18 
+ 
+ 
+ R Middle Occipital Gyrus 
+ 
+ 2.93 
+ − 46 
+ − 92 
+ 2 
+ 
+ 
+ 
+ 
+ 2.9 
+ 30 
+ − 86 
+ 16 
+ 
+ 
+ 
+ 
+ VTA > SN 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 1 (2271 voxels) 
+ 
+ 
+ 
+ 
+ 
+ 
+ Anterior Midbrain 
+ 
+ 9.47 
+ 2 
+ − 18 
+ − 14 
+ 
+ 
+ L Posterior Midbrain 
+ 
+ 4.83 
+ − 6 
+ − 36 
+ − 22 
+ 
+ 
+ R Posterior Midbrain 
+ 
+ 4.77 
+ 8 
+ − 32 
+ − 16 
+ 
+ 
+ Subgenual Cingulate/ Nucleus Accumbens 
+ 
+ 3.94 
+ − 6 
+ 4 
+ − 12 
+ 
+ 
+ Cerebellum 
+ 
+ 3.83 
+ − 6 
+ − 44 
+ − 14 
+ 
+ 
+ Cerebellum 
+ 
+ 3.79 
+ 8 
+ − 38 
+ − 24 
+ 
+ 
+ Hippocampus/Parahippocampus 
+ 
+ 3.17 
+ − 22 
+ − 28 
+ 16 
+ 
+ 
+ 
+ 
+ 
+ Table 2 
+ 
+ Consistent activations from the ICA/Dual Regression analysis across datasets 2 and 3. 
+ 
+ 
+ 
+ 
+ Region 
+ Major Cluster 
+ Z 
+ x 
+ y 
+ z 
+ 
+ 
+ 
+ 
+ 
+ 
+ SN > VTA 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 1 (42,967 voxels) 
+ 
+ 
+ 
+ 
+ 
+ 
+ Superior Parietal Lobule, Postcentral Gyrus 
+ 
+ 3.72 
+ 28 
+ −40 
+ 72 
+ 
+ 
+ Postcentral Gyrus, Superior Parietal Lobule 
+ 
+ 3.72 
+ 22 
+ −42 
+ 72 
+ 
+ 
+ Superior Frontal Gyrus, Precentral Gyrus 
+ 
+ 3.72 
+ 16 
+ −6 
+ 70 
+ 
+ 
+ Precentral Gyrus 
+ 
+ 3.72 
+ 22 
+ −24 
+ 52 
+ 
+ 
+ Postcentral Gyrus, Precentral Gyrus 
+ 
+ 3.72 
+ 36 
+ −26 
+ 52 
+ 
+ 
+ Supplementary Motor Cortex, Anterior Cingulate Gyrus, Precentral Gyrus 
+ 
+ 3.72 
+ 12 
+ −2 
+ 50 
+ 
+ 
+ 
+ 
+ VTA > SN 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 1 (1056 voxels) 
+ 
+ 
+ 
+ 
+ 
+ 
+ Anterior Brain-Stem (Ventral Tegmental Area) 
+ 
+ 3.72 
+ −6 
+ −20 
+ −22 
+ 
+ 
+ Anterior Brain-Stem (Ventral Tegmental Area) 
+ 
+ 3.72 
+ 10 
+ −20 
+ −22 
+ 
+ 
+ Subgenual Cingulate, Nucleus Accumbens 
+ 
+ 3.43 
+ −4 
+ 4 
+ −12 
+ 
+ 
+ Subgenual Cingulate, Nucleus Accumbens 
+ 
+ 3.35 
+ 6 
+ 6 
+ −12 
+ 
+ 
+ Parahippocampal Gyrus, Posterior Brain-Stem (Inferior Colliculus) 
+ 
+ 3.35 
+ 12 
+ −28 
+ −18 
+ 
+ 
+ Posterior Brain-Stem (Inferior Colliculus) 
+ 
+ 2.93 
+ 6 
+ −42 
+ −14 
+ 
+ 
+ 
+ 
+ 
+ 
+ Highlights 
+ 
+ 
+ 
+ Substantia nigra and ventral tegmental area show distinct resting connectivity 
+ 
+ 
+ Connectivity differences are homologous with anatomical patterns in rodents 
+ 
+ 
+ Findings replicate across two convergent connectivity methods and three datasets 
+ 
+ 
+ The probabilistic atlas developed and validated here is now publically available 
+ 
+ 
+ 
+ 

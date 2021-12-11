@@ -1,0 +1,1987 @@
+
+ properties manuscript? 
+ 
+ 
+ 8804207 
+ 1862 
+ Schizophr Res 
+ 
+ Schizophrenia Research 
+ 
+ 0920-9964 
+ 1573-2509 
+ 
+ 
+ 22277668 
+ 3288252 
+ 10.1016/j.schres.2012.01.001 
+ NIHMS352499 
+ 
+ 
+ Article 
+ 
+ 
+ 
+ Automated classification of fMRI during cognitive control identifies more severely disorganized subjects with schizophrenia 
+ 
+ 
+ 
+ 
+ Yoon 
+ Jong H. 
+ 
+ 1 
+ * 
+ 
+ 
+ 
+ Nguyen 
+ Danh V. 
+ 
+ 2 
+ 
+ 
+ 
+ McVay 
+ Lindsey M. 
+ 
+ 2 
+ 
+ 
+ 
+ Deramo 
+ Paul 
+ 
+ 
+ 
+ 
+ Minzenberg 
+ Michael J. 
+ 
+ 1 
+ 
+ 
+ 
+ Ragland 
+ J. Daniel 
+ 
+ 1 
+ 
+ 
+ 
+ Niendham 
+ Tara 
+ 
+ 1 
+ 
+ 
+ 
+ Solomon 
+ Marjorie 
+ 
+ 1 
+ 
+ 
+ 
+ Carter 
+ Cameron S. 
+ 
+ 1 
+ 
+ 
+ 1 Department of Psychiatry and Imaging Research Center, University of California Davis Health Systems, Sacramento CA, USA 
+ 2 Division of Biostatistics, Department of Public Health Sciences, University of California Davis, Davis, CA, USA 
+ 
+ 
+ * Corresponding Author,  jhyyoon@ucdavis.edu , UC Davis Imaging Research Center, 4701 X St. Sacramento, CA 95817, 916-734-0867 
+ 
+ 
+ 27 
+ 1 
+ 2012 
+ 
+ 
+ 25 
+ 1 
+ 2012 
+ 
+ 
+ 3 
+ 2012 
+ 
+ 
+ 1 
+ 3 
+ 2013 
+ 
+ 135 
+ 1-3 
+ 28 
+ 33 
+ 
+ 
+ This file is available for text mining. It may also be used consistent with the principles of fair use under the copyright law. 
+ 
+ 
+ 
+ The establishment of a neurobiologically based nosological system is one of the ultimate goals of modern biological psychiatry research. Developments in neuroimaging and statistical/machine learning have provided useful basic tools for these efforts. Recent studies have demonstrated the utility of fMRI as input data for the classification of schizophrenia, but none, to date, has used fMRI of cognitive control for this purpose. In this study, we evaluated the accuracy of an unbiased classification method on fMRI data from a large cohort of subjects with first episode schizophrenia and a cohort of age matched healthy control subjects while they completed the AX version of the Continuous Performance Task (AX-CPT). We compared these results to classifications based on AX-CPT behavioral data. Classification accuracy for DSM-IV defined schizophrenia using fMRI data was modest and comparable to classifications conducted with behavioral data. Interestingly fMRI classifications did however identify a distinct subgroup of patients with greater behavioral disorganization, whereas behavioral data classifications did not. These results suggest that fMRI-based classification could be a useful tool in defining a neurobiologically distinct subgroup within the clinically defined syndrome of schizophrenia, reflecting alterations in discrete neural circuits. Independent validation of classification-based phenotypes using other biological data such as genetics would provide a strong test of this hypothesis. 
+ 
+ 
+ Schizophrenia 
+ fMRI 
+ automated classification 
+ nosology 
+ 
+ 
+ 
+ 
+ INTRODUCTION 
+ One of the goals of modern biological psychiatry research has been the establishment of a diagnostic system for mental disorders based on objective neurobiological measures. This achievement would address the limitations associated with the current symptom and observation-based nosologic system ( Jablensky, 2006 ;  Kendell and Jablensky, 2003 ;  Kendler, 2009 ) and could revolutionize research and treatment of psychiatric illnesses. These nosologic concerns have led to proposals for the development of fundamentally new ways of classifying mental illness, including schizophrenia ( Insel et al., 2010 ;  Jablensky, 2006 ;  Kendler, 2009 ). The Research Domain Criteria (RDoC) initiative ( Insel et al., 2010 ) sponsored by the NIMH seeks to foster the development neural circuit based systems of classification that reflect the underlying pathophysiology of mental illnesses. The availability of modern brain imaging techniques, which afford rapid, detailed and non-invasive means of detecting alterations in structure or function, have spurred several efforts at establishing such brain based diagnostic systems ( Calhoun et al., 2008 ;  Costafreda et al., 2011 ; Costafreda et al.;  Davatzikos et al., 2005 ;  Demirci et al., 2008a ;  Kawasaki et al., 2007 ;  Koutsouleris et al., 2009 ;  Shen et al., 2010 ;  Shinkareva et al., 2006 ;  Takayanagi et al., 2011 ;  Yoon et al., 2007 ). These efforts have applied statistical tools for classification/prediction of high dimensional data, which, in basic studies, have demonstrated remarkable ability to decode activity patterns associated with distinct mental states, e.g. viewing of faces vs. scenes ( Haynes and Rees, 2006 ;  O’Toole et al., 2005 ;  Polyn et al., 2005 ). In psychiatric clinical studies, pattern classification, using machine learning algorithms, has been adapted to the classification of group membership; a classifier “learns” to distinguish brain image patterns from control subjects and patients, reviewed in ( Demirci et al., 2008b ). 
+ There have been a number of recent neuroimaging classification studies in schizophrenia demonstrating relatively high classification accuracy. These studies have primarily examined structural images ( Davatzikos et al., 2005 ;  Kawasaki et al., 2007 ;  Sun et al., 2009a ;  Sun et al., 2009b ;  Takayanagi et al., 2011 ;  Yoon et al., 2007 ) and one study has even shown high accuracies in predicting conversion from risk states to schizophrenia ( Koutsouleris et al., 2009 ). 
+ In principle, it is reasonable to expect functional images to be particularly useful for classifying schizophrenia since its underlying neurobiological abnormalities may be more evident in terms of impaired function. The application of pattern classifiers to fMRI data has demonstrated notable sensitivity in detecting subtle abnormalities in the distributed pattern of neural activity in schizophrenia ( Yoon et al., 2008a ;  Yoon et al., 2008b ). A number of published studies have demonstrated the feasibility of using fMRI data for classifying schizophrenia ( Calhoun et al., 2008 ;  Costafreda et al., 2011 ; Costafreda et al.; Demirci et al., 2008a;  Shen et al., 2010 ;  Shinkareva et al., 2006 ). Most have utilized images of unstructured mental states i.e. resting state, ( Calhoun et al., 2008 ;  Shen et al., 2010 ;  Shinkareva et al., 2006 ), and few have utilized images of structured cognition ( Costafreda et al., 2011 ;  Demirci et al., 2008a ). The convergence of findings that higher order cognitive deficits, particularly those involving cognitive control, are core features of schizophrenia ( Barch et al., 2001 ;  Barch et al., 2003 ;  MacDonald et al., 2005 ;  Minzenberg et al., 2009 ;  Yoon et al., 2008b ), suggest that fMRI of cognitive control may be a particularly useful method for schizophrenia classification. However, no previous study, to our knowledge, has utilized fMRI obtained during the completion of a cognitive control task. 
+ In this study, we applied statistical classification of fMRI data derived from the completion of a cognitive control task to distinguish images of subjects with schizophrenia from those of healthy subjects. We measured fMRI responses in a cohort of subjects with first episode schizophrenia and a healthy control group while they completed the AX-version of the Continuous Performance Task (AXCPT), a paradigm consistently demonstrated to elicit a differential deficit in cognitive performance, PFC dysfunction and related networks in schizophrenia ( Barch et al., 2001 ;  Barch et al., 2003 ;  MacDonald et al., 2005 ;  Yoon et al., 2008a ). Data derived from these functional images served as inputs for classifiers. 
+ Another goal of this study is to examine an alternative potential application of brain based classification of schizophrenia. This effort is motivated by the possibility that schizophrenia is in fact composed of neurophysiologically heterogeneous conditions. While this question of heterogeneity is far from being settled ( Cardno and Farmer, 1995 ;  Crow, 1995 ;  Goldberg and Weinberger, 1995 ), several lines of evidence support the heterogeneity view ( Carpenter et al., 1988 ;  Crow, 1980 ;  Jablensky, 2006 ;  Tsuang and Faraone, 1995 ). If this were the case, there would be hard limits to the maximal classification accuracy of a neurophysiologically based system. In other words, if schizophrenia were pathophysiologically diverse, with no one signature of dysfunction shared by the predominant majority of cases, the classification of functional images sensitive to this heterogeneity could not achieve very high accuracy. Instead, we would expect the classifier to produce relatively modest overall accuracy as measured against the traditional diagnostic standard, e.g. DSM-IV criteria, and the fMRI classifier would, by definition, identify neurophysiologically distinguishable cases. In this situation, the fMRI classifier would produce classifications in which the clinical profile of the “correctly” classified group of patients differs from the “incorrectly” classified group of patients along a dimension linked to the neural circuits being measured. The neural circuits differentially engaged in schizophrenia during the completion of the AX-CPT indexes cognitive and behavioral disorganization ( MacDonald et al., 2005 ;  Yoon et al., 2008a ). Consequently, we predicted that patients classified correctly into the schizophrenia group would exhibit greater disorganization than patient cases incorrectly classified into the control group. 
+ 
+ 
+ METHODS 
+ 
+ Participants 
+ 51 first episode schizophrenia and 51 healthy control subjects participated. Demographic features are displayed in  Table 1 . Mean age of the control sample was 20.22 years (SD = 3.90, range 12–32) and the mean age of the patient sample was 19.92 years (SD = 3.59, range 14–30). First episode status was defined as the first psychotic episode occurring within one year of testing. 19 subjects were anti-psychotic naïve at time of testing. The groups differed on years of education and IQ, with controls displaying higher means for both variables, p<.05. The patient group also had a significantly greater percentage of male subjects, p<.05. 
+ Diagnostic evaluations with the Structured Clinical Interview for DSM-IV-TR confirmed the diagnosis of schizophrenia in patients, including 4 subjects with schizoaffective disorder, depressed type, and excluded major psychiatric illness in controls. All patients’ diagnoses were confirmed by consensus conferences, which occurred approximately 12 months following initial presentation to our study. In the consensus conference, we used all available information, including, in most cases, input from clinicians providing on going psychiatric care to our subjects and the results of structured clinical diagnostic instruments. Participants in the consensus conference were all masters or doctoral level clinicians. Controls with a first-degree relative with a psychotic disorder were also excluded. Subjects under 16 were evaluated with the Kiddie-SADS-Present and Lifetime Version. Diagnoses were confirmed by consensus conference. Symptoms were quantified with the BPRS, SANS, SAPS, and GAS. Sub-scores from the BPRS, SANS, and SAPS were used to derive indices of disorganization, reality distortion and poverty ( Barch et al., 2003 ). Exclusion criteria for all subjects were: IQ < 70, drug/alcohol abuse in the previous three months or a positive drug screen on the day of testing, significant head trauma, or any known contraindication to MRI. After complete description of the study, written informed consent was obtained. For subjects under 18, we obtained written consent from their legal guardians. This study was approved by the IRB at the University of California Davis. 
+ 
+ 
+ Cognitive Task 
+ fMRI was conducted while subjects performed the AX-CPT. Detailed descriptions of this paradigm can be found elsewhere ( Barch et al., 2001 ). In summary, the appearance of an A cue represent the low cognitive control condition while the appearance of the B cue signals the need to engage control processes in order to overcome a pre-potent response tendency. Therefore, the key contrast of interest is between B cue and A cue trials, as they entail lower and higher levels of cognitive control necessary to complete the task, respectively. 
+ 
+ 
+ Neuroimaging 
+ Functional scans (T2* EPI, TR 2000 ms, TE 40 ms, flip angle 90 degrees, FOV 22 cm, 4.0 mm axial slices with 3.4 mm 2  in-plane resolution) were acquired on a 1.5T GE scanner. Preprocessing, implemented in SPM5 ( http://www.fil.ion.ucl.ac.uk/spm5 ), included: temporal and spatial realignment, normalization to the EPI MNI template, and spatial smoothing with a 8 mm FWHM kernel. Subjects exhibiting greater than 4mm within run movement were excluded as were subjects with <60% overall task performance accuracy. Analyses were conducted using a general linear model within an event related framework. We modeled correct trials with covariates for A cue, B cue, AX probe, AY probe, BX probe and BY probe. Incorrect trials were modeled separately and excluded from analyses. We used the B cue – A cue contrast to generate the fMRI data for classification since this contrast identifies brain regions differentially engaged by greater cognitive control demands ( MacDonald et al., 2005 ;  Yoon et al., 2008a ). Activation significance for all analyses were defined at the voxel level with p<.05, FDR, corrected for multiple comparisons. These contrast images were obtained by combining subjects across diagnoses; therefore, activations produced by this contrast would not bias subsequent between-group analyses. We used a functional ROI approach to generate data for classification. This approach affords a simple means of data reduction and indexing robust neural activity. From the regions showing significant activity in the B cue – A cue contrast,  Fig. 1 , we obtained summary measures of activity (average beta values) for each subject, which served as classifier inputs. In one set of analyses, given the hypothesized importance of the DLPFC in the cognitive deficits in schizophrenia, classifications were conducted on fMRI data derived from significant voxels within the left DLPFC (defined by the anatomical boundaries of the middle frontal gyrus). We then examined classification of fMRI activity from significant voxels from the entire network of brain regions indentified by the B cue – A cue contrast. 
+ 
+ 
+ Classification Analysis 
+ We applied a linear discriminant analysis classifier and conducted unbiased classifications using leave-one-out cross-validation (LOOCV). LOOCV entailed 102 rounds of classifications, one round for each subject. In each round, the classier trained on fMRI data from all but one subject and prediction of group membership was tested on the one subject excluded from training. This procedure was repeated until all subjects were tested. To estimate classification performance, we conducted classifications 100 times and error rates are averaged over the 100 iterations. To assess the potential of the fMRI-based classifier to identify neurophysiologically distinct subgroups, we compared the clinical characteristics of correctly and incorrectly classified patients. Based on prior studies demonstrating that fMRI data derived from patients completing the AX-CPT is associated with greater disorganization in schizophrenia ( MacDonald et al., 2005 ;  Yoon et al., 2008a ), we predicted that disorganization in correctly classified patients would be greater than in incorrectly classified patients. To ensure reliable estimates of the propensity of each patient with schizophrenia to be misclassified, we calculated the proportion of times each patient was misclassified in 1000 iterations of training/testing allocation. Those patients predicted by the classifier to be belonging the control group greater than 50% of the time across these iterations were deemed misclassified. Patients predicted by the classifier to belong to the schizophrenia group more than 50% of the time were deemed correctly classified. 
+ 
+ 
+ 
+ RESULTS 
+ 
+ Behavioral Results 
+ Subjects with schizophrenia exhibited a specific deficit in cognitive control in the context of impaired overall performance in the AX-CPT task. In the planned comparison between the AX (low cognitive control) and BX (high cognitive control) conditions, there was a significant Group × Condition interaction on RTs (p = .048) and a nearly significant interaction on accuracy (p = .058) such that patients were slower and less accurate in the BX compared to the AX condition ( Table 2 ). When the BX condition was considered alone, patients were less accurate (p = .001) and slower (p = .026) compared to controls. 
+ 
+ 
+ fMRI Results 
+ The contrast between B cue and A cue trials revealed a network of cortical regions, including the left DLPFC,  Fig. 1 . A full list of activations can be found in  Table 3 . 
+ 
+ 
+ Classification 
+ We examined the utility of behavioral data (see  Table 3 ) as classifier inputs in distinguishing patients with schizophrenia from healthy comparison subjects. The difference in the percentage of trials correctly performed in the BX and AX conditions was chosen for this purpose because this measure most closely matches the B cue – A cue contrast used for the fMRI based classifications. Behavioral data yielded an average classification accuracy of 57.8% for all subjects. The group specific accuracies were 64.7% and 51.0% for controls and patients respectively. Classification of left DLPFC fMRI data resulted in an overall accuracy of 61.8% with 64.7% of healthy subject and 58.8% patients being correctly classified compared to their DSM-IV diagnosis. Classifications based on whole brain network fMRI data resulted in an overall accuracy of 58.8%, with 62.7% of healthy subject and 54.9% patients being correctly classified. 
+ 
+ 
+ Clinical characteristics of misclassified patients with schizophrenia 
+ To test the hypothesis that the modest classification accuracy reflects pathophysiologic heterogeneity, we compared the level of disorganization exhibited by correctly classified and incorrectly classified patients ( Table 5 ). Patients incorrectly classified exhibit brain activity that is similar to healthy subjects. Therefore, we predicted that the incorrectly classified patients would exhibit diminished severity of disorganization symptoms compared to the correctly classified patients and. Patients, whose fMRI data from the entire network of significantly activated regions were correctly classified, exhibited greater disorganization compared to misclassified patients, p<.05, but they did not differ in GAF scores, total BPRS, and negative symptoms (p>.15). There was a trend level difference in positive symptoms, with incorrectly classified patients having more symptoms, p=.091. The classification of fMRI data from the left DLPFC did not result in differences in the level of disorganization between correctly and incorrectly classified patients, p=.146. However, the GAF score among the former was significantly lower than among the latter, p=.028. The groups did not differ in total BPRS, negative or positive symptoms, p>.199. Classifications based on behavioral data did not yield significant group differences in the magnitude of disorganization or in any of the other symptom measures, p>.2. 
+ 
+ 
+ 
+ DISCUSSION 
+ This study adds to a rapidly growing literature on the application of automated classification towards the development of a neurobiologically based diagnostic system for schizophrenia. To the best of our knowledge, this is the first schizophrenia fMRI classification study utilizing a cognitive control task. Since deficits in cognitive control may be one of the core features of illness, it was thought that fMRI of this process could be a powerful means of classifying schizophrenia. Contrary to this predication, we obtained very modest classification accuracies, suggesting the limited capacity of this approach to classify schizophrenia. Correctly classified patients exhibited significantly greater levels of disorganization compared to patients assigned to the control group. In contrast to the fMRI data, classifications based on in-scanner behavioral data, although yielding very similar accuracy, produced classification assignments among patients that did not differ on the disorganization dimension. These results suggest a novel application for classification of fMRI data in schizophrenia – a circuit based approach to identifying neurophysiologically distinct subgroups among clinically defined cases of schizophrenia. 
+ A number of factors may have contributed to the modest classification accuracy. One factor may be related to the patient sample. Unlike most other classification studies, we studied first episode patients. Evidence of progressive brain pathology ( Andreasen et al., 2011 ;  Borgwardt et al., 2009 ;  Mathalon et al., 2001 ) suggests the possibility that the neurophysiological markers of illness may not be as evident in first episode patients as they are in patients with more established illness. Consequently, fMRI data from early in the course of illness may be less distinguishable from healthy subjects. Another potential factor may be related to our efforts to avoid prediction biases that have affected prior classification efforts, reviewed in ( Demirci et al., 2008b ). We excluded test subjects from all stages of training to address a subject selection bias. We did not optimize classification parameters across multiple runs to avoid parameter selection bias. We massively reduced the dimensionality of our input data to avoid the “curse of dimensionality,” a situation in which over-fitting of the data at the cost of reduced generalizeabiity can occur. Another potential factor affecting classification accuracy could be the limitations associated with the particular classifier and algorithm we used in this study. This is unlikely since we obtained similar accuracies using alternative classifiers and methods for data reduction, feature selection and cross validation. We tested whether medications could be contributing to low classification accuracy by conducting a chi-square test. We found that the classification performance was not associated with antipsychotic medication status (p > 0.2). 
+ One of the limitations of this study is the fact that the samples were not well matched on gender. Stratification of our samples by gender would have resulted in relatively small sample sizes, rendering results from these groups unstable and potentially misleading. Consequently, future studies will have to address the effects of gender on fMRI classification of schizophrenia. 
+ The magnitude of classification accuracy has been regarded as the primary measure of a classifier’s success. By this metric, this study produced very modest accuracy compared to prior efforts ( Calhoun et al., 2008 ;  Costafreda et al., 2011 ; Costafreda et al.;  Davatzikos et al., 2005 ;  Shen et al., 2010 ;  Sun et al., 2009a ;  Sun et al., 2009b ;  Takayanagi et al., 2011 ). This low accuracy suggests that our approach, classification of fMRI obtained during the completion of a cognitive control paradigm, holds limited potential in the automated classification of schizophrenia. An alternative interpretation of our results, however, is suggested by the question of whether high classification accuracy should be the proper measure of classifier success. In other words, is maximal correspondence between a brain based classifier assignment and the DSM-IV diagnosis of schizophrenia desired or meaningful from a research perspective? The answer to this question ultimately depends on the validity of the DSM-IV diagnosis of schizophrenia in terms of defining a unitary disease pathophysiology. A number of investigators have questioned this validity ( Carpenter et al., 1988 ;  Crow, 1980 ;  Insel et al., 2010 ;  Kendell & Jablensky, 2003 ;  Kendler, 2009 ). Given the possibility that the diagnostic signs and symptoms may be the product of diverse neural disturbances, individuals diagnosed with schizophrenia under the current system may share relatively little common neural substrates. 
+ Our results are broadly consistent with the RDoC initiative ( Insel et al., 2010 ) initiative and one of the main conclusions we draw from our results is that fMRI-based classification may be a novel means of identifying neural circuit based phenotypes within schizophrenia. By classifying patients into sub-groups with similar macro-circuit level dysfunction, the classification procedure outlined in this study has the potential to reduce unwanted variance and boost the ability to discover causative mechanisms. Group stratifications based on refined phenotypes has been advocated as a strategy to boost power to detect the genetic causes of complex conditions ( Allison et al., 1998 ), including schizophrenia ( Ginsburg et al., 1996 ). One test of the validity of this proposition would be to use fMRI-based classifications to stratify group assignments and examine if these stratifications results in greater power to identify causative genes, as has been the case with phenotype stratification strategies in other complex neuropsychiatric conditions such as autism ( Shao et al., 2003 ) and Alzheimer disease ( Ginsburg et al., 1996 ). In this proof of concept study, we employed a binary classifier and detected one sub-group within schizophrenia. Future studies with substantially larger sample sizes and additional fMRI paradigms could be designed with multi-category classifiers capable of identifying multiple patient sub-groups within the same study. 
+ 
+ 
+ 
+ Funding 
+ JHY: Grant 1K08MH076174 from the National Institute of Mental Health/National Institutes of Health; NARSAD Young Investigators Award 
+ DVN: Grant UL1 RR024146 from the National Center for Research Resources/National Institutes of Health; 2R01MH059883-05A1 from the National Institute of Mental Health/National Institutes of Health 
+ 
+ 
+ 
+ 
+ 
+ 
+ Allison 
+ DB 
+ 
+ 
+ Thiel 
+ B 
+ 
+ 
+ St Jean 
+ P 
+ 
+ 
+ Elston 
+ RC 
+ 
+ 
+ Infante 
+ MC 
+ 
+ 
+ Schork 
+ NJ 
+ 
+ 
+ 1998 
+ Multiple phenotype modeling in gene-mapping studies of quantitative traits: power advantages 
+ Am J Hum Genet 
+ 63 
+ 4 
+ 1190 
+ 1201 
+ 9758596 
+ 
+ 
+ 
+ 
+ 
+ 
+ Andreasen 
+ NC 
+ 
+ 
+ Nopoulos 
+ P 
+ 
+ 
+ Magnotta 
+ V 
+ 
+ 
+ Pierson 
+ R 
+ 
+ 
+ Ziebell 
+ S 
+ 
+ 
+ Ho 
+ BC 
+ 
+ 
+ 2011 
+ Progressive Brain Change in Schizophrenia: A Prospective Longitudinal Study of First-Episode Schizophrenia 
+ Biol Psychiatry 
+ 
+ 
+ 
+ 
+ 
+ 
+ Barch 
+ DM 
+ 
+ 
+ Carter 
+ CS 
+ 
+ 
+ Braver 
+ TS 
+ 
+ 
+ Sabb 
+ FW 
+ 
+ 
+ MacDonald 
+ A 
+ 3rd 
+ 
+ 
+ Noll 
+ DC 
+ 
+ 
+ Cohen 
+ JD 
+ 
+ 
+ 2001 
+ Selective deficits in prefrontal cortex function in medication-naive patients with schizophrenia 
+ Arch Gen Psychiatry 
+ 58 
+ 3 
+ 280 
+ 288 
+ 11231835 
+ 
+ 
+ 
+ 
+ 
+ 
+ Barch 
+ DM 
+ 
+ 
+ Carter 
+ CS 
+ 
+ 
+ MacDonald 
+ AW 
+ 3rd 
+ 
+ 
+ Braver 
+ TS 
+ 
+ 
+ Cohen 
+ JD 
+ 
+ 
+ 2003 
+ Context-processing deficits in schizophrenia: diagnostic specificity, 4-week course, and relationships to clinical symptoms 
+ J Abnorm Psychol 
+ 112 
+ 1 
+ 132 
+ 143 
+ 12653421 
+ 
+ 
+ 
+ 
+ 
+ 
+ Borgwardt 
+ SJ 
+ 
+ 
+ Dickey 
+ C 
+ 
+ 
+ Hulshoff Pol 
+ H 
+ 
+ 
+ Whitford 
+ TJ 
+ 
+ 
+ DeLisi 
+ LE 
+ 
+ 
+ 2009 
+ Workshop on defining the significance of progressive brain change in schizophrenia: December 12, 2008 American College of Neuropsychopharmacology (ACNP) all-day satellite, Scottsdale, Arizona. The rapporteurs’ report 
+ Schizophr Res 
+ 112 
+ 1–3 
+ 32 
+ 45 
+ 19477100 
+ 
+ 
+ 
+ 
+ 
+ 
+ Calhoun 
+ VD 
+ 
+ 
+ Maciejewski 
+ PK 
+ 
+ 
+ Pearlson 
+ GD 
+ 
+ 
+ Kiehl 
+ KA 
+ 
+ 
+ 2008 
+ Temporal lobe and “default” hemodynamic brain modes discriminate between schizophrenia and bipolar disorder 
+ Human Brain Mapping 
+ 29 
+ 1265 
+ 1275 
+ 17894392 
+ 
+ 
+ 
+ 
+ 
+ 
+ Cardno 
+ AG 
+ 
+ 
+ Farmer 
+ AE 
+ 
+ 
+ 1995 
+ The case for or against heterogeneity in the etiology of schizophrenia. The genetic evidence 
+ Schizophr Res 
+ 17 
+ 2 
+ 153 
+ 159 
+ 8562490 
+ 
+ 
+ 
+ 
+ 
+ 
+ Carpenter 
+ WT 
+ Jr 
+ 
+ 
+ Heinrichs 
+ DW 
+ 
+ 
+ Wagman 
+ AM 
+ 
+ 
+ 1988 
+ Deficit and nondeficit forms of schizophrenia: the concept 
+ Am J Psychiatry 
+ 145 
+ 5 
+ 578 
+ 583 
+ 3358462 
+ 
+ 
+ 
+ 
+ 
+ 
+ Costafreda 
+ S 
+ 
+ 
+ Fu 
+ C 
+ 
+ 
+ Picchioni 
+ M 
+ 
+ 
+ 2011 
+ Pattern of neural responses to verbal fluency shows diagnostic specificity for schizophrenia and bipolar disorder 
+ BMC 
+ 
+ 
+ 
+ 
+ 
+ 
+ Costafreda 
+ SG 
+ 
+ 
+ Fu 
+ CH 
+ 
+ 
+ Picchioni 
+ M 
+ 
+ 
+ Toulopoulou 
+ T 
+ 
+ 
+ McDonald 
+ C 
+ 
+ 
+ Kravariti 
+ E 
+ 
+ 
+ Walshe 
+ M 
+ 
+ 
+ Prata 
+ D 
+ 
+ 
+ Murray 
+ RM 
+ 
+ 
+ McGuire 
+ PK 
+ 
+ 
+ Pattern of neural responses to verbal fluency shows diagnostic specificity for schizophrenia and bipolar disorder 
+ BMC Psychiatry 
+ 11 
+ 18 
+ 21276242 
+ 
+ 
+ 
+ 
+ 
+ 
+ Crow 
+ TJ 
+ 
+ 
+ 1980 
+ Molecular pathology of schizophrenia: more than one disease process? 
+ Br Med J 
+ 280 
+ 6207 
+ 66 
+ 68 
+ 6101544 
+ 
+ 
+ 
+ 
+ 
+ 
+ Crow 
+ TJ 
+ 
+ 
+ 1995 
+ A continuum of psychosis, one human gene, and not much else--the case for homogeneity 
+ Schizophr Res 
+ 17 
+ 2 
+ 135 
+ 145 
+ 8562488 
+ 
+ 
+ 
+ 
+ 
+ 
+ Davatzikos 
+ C 
+ 
+ 
+ Ruparel 
+ K 
+ 
+ 
+ Fan 
+ Y 
+ 
+ 
+ Shen 
+ DG 
+ 
+ 
+ Acharyya 
+ M 
+ 
+ 
+ Loughead 
+ JW 
+ 
+ 
+ Gur 
+ RC 
+ 
+ 
+ Langleben 
+ DD 
+ 
+ 
+ 2005 
+ Classifying spatial patterns of brain activity with machine learning methods: application to lie detection 
+ Neuroimage 
+ 28 
+ 3 
+ 663 
+ 668 
+ 16169252 
+ 
+ 
+ 
+ 
+ 
+ 
+ Demirci 
+ O 
+ 
+ 
+ Clark 
+ V 
+ 
+ 
+ Calhoun 
+ V 
+ 
+ 
+ 2008a 
+ A projection pursuit algorithm to classify individuals using fMRI data: Application to schizophrenia 
+ NeuroImage 
+ 39 
+ 4 
+ 1774 
+ 1782 
+ 18396487 
+ 
+ 
+ 
+ 
+ 
+ 
+ Demirci 
+ O 
+ 
+ 
+ Clark 
+ V 
+ 
+ 
+ Magnotta 
+ V 
+ 
+ 
+ 2008b 
+ A review of challenges in the sse of fMRI for disease classification/characterization and a projection pursuit application from a multi-site fMRI schizophrenia study 
+ Brain imaging and Behavior 
+ 2 
+ 207 
+ 226 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ginsburg 
+ BE 
+ 
+ 
+ Werick 
+ TM 
+ 
+ 
+ Escobar 
+ JI 
+ 
+ 
+ Kugelmass 
+ S 
+ 
+ 
+ Treanor 
+ JJ 
+ 
+ 
+ Wendtland 
+ L 
+ 
+ 
+ 1996 
+ Molecular genetics of psychopathologies: a search for simple answers to complex problems 
+ Behav Genet 
+ 26 
+ 3 
+ 325 
+ 333 
+ 8754255 
+ 
+ 
+ 
+ 
+ 
+ 
+ Goldberg 
+ TE 
+ 
+ 
+ Weinberger 
+ DR 
+ 
+ 
+ 1995 
+ A case against subtyping in schizophrenia 
+ Schizophr Res 
+ 17 
+ 2 
+ 147 
+ 152 
+ 8562489 
+ 
+ 
+ 
+ 
+ 
+ 
+ Haynes 
+ JD 
+ 
+ 
+ Rees 
+ G 
+ 
+ 
+ 2006 
+ Decoding mental states from brain activity in humans 
+ Nat Rev Neurosci 
+ 7 
+ 7 
+ 523 
+ 534 
+ 16791142 
+ 
+ 
+ 
+ 
+ 
+ 
+ Insel 
+ T 
+ 
+ 
+ Cuthbert 
+ B 
+ 
+ 
+ Garvey 
+ M 
+ 
+ 
+ Heinssen 
+ R 
+ 
+ 
+ Pine 
+ DS 
+ 
+ 
+ Quinn 
+ K 
+ 
+ 
+ Sanislow 
+ C 
+ 
+ 
+ Wang 
+ P 
+ 
+ 
+ 2010 
+ Research domain criteria (RDoC): toward a new classification framework for research on mental disorders 
+ Am J Psychiatry 
+ 167 
+ 7 
+ 748 
+ 751 
+ 20595427 
+ 
+ 
+ 
+ 
+ 
+ 
+ Jablensky 
+ A 
+ 
+ 
+ 2006 
+ Subtyping schizophrenia: implications for genetic research 
+ Mol Psychiatry 
+ 11 
+ 9 
+ 815 
+ 836 
+ 16801952 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kawasaki 
+ Y 
+ 
+ 
+ Suzuki 
+ M 
+ 
+ 
+ Kherif 
+ F 
+ 
+ 
+ Takahashi 
+ T 
+ 
+ 
+ Zhou 
+ S 
+ 
+ 
+ Nakamura 
+ K 
+ 
+ 
+ Matsui 
+ M 
+ 
+ 
+ Sumiyoshi 
+ T 
+ 
+ 
+ Seto 
+ H 
+ 
+ 
+ Kurachi 
+ M 
+ 
+ 
+ 2007 
+ Multivariate voxel-based morphometry successfully differentiates schizophrenia patients from healthy controls 
+ NeuroImage 
+ 34 
+ 1 
+ 235 
+ 242 
+ 17045492 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kendell 
+ R 
+ 
+ 
+ Jablensky 
+ A 
+ 
+ 
+ 2003 
+ Distinguishing between the validity and utility of psychiatric diagnoses 
+ American Journal of Psychiatry 
+ 160 
+ 1 
+ 4 
+ 12505793 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kendler 
+ KS 
+ 
+ 
+ 2009 
+ An historical framework for psychiatric nosology 
+ Psychol Med 
+ 39 
+ 12 
+ 1935 
+ 1941 
+ 19368761 
+ 
+ 
+ 
+ 
+ 
+ 
+ Koutsouleris 
+ N 
+ 
+ 
+ Meisenzahl 
+ E 
+ 
+ 
+ Davatzikos 
+ C 
+ 
+ 
+ Bottlender 
+ R 
+ 
+ 
+ Frodl 
+ T 
+ 
+ 
+ Scheuerecker 
+ J 
+ 
+ 
+ Schmitt 
+ G 
+ 
+ 
+ Zetzsche 
+ T 
+ 
+ 
+ Decker 
+ P 
+ 
+ 
+ Reiser 
+ M 
+ 
+ 
+ 2009 
+ Use of neuroanatomical pattern classification to identify subjects in at-risk mental states of psychosis and predict disease transition 
+ Archives of general psychiatry 
+ 66 
+ 7 
+ 700 
+ 19581561 
+ 
+ 
+ 
+ 
+ 
+ 
+ MacDonald 
+ AW 
+ 3rd 
+ 
+ 
+ Carter 
+ CS 
+ 
+ 
+ Kerns 
+ JG 
+ 
+ 
+ Ursu 
+ S 
+ 
+ 
+ Barch 
+ DM 
+ 
+ 
+ Holmes 
+ AJ 
+ 
+ 
+ Stenger 
+ VA 
+ 
+ 
+ Cohen 
+ JD 
+ 
+ 
+ 2005 
+ Specificity of prefrontal dysfunction and context processing deficits to schizophrenia in never-medicated patients with first-episode psychosis 
+ Am J Psychiatry 
+ 162 
+ 3 
+ 475 
+ 484 
+ 15741464 
+ 
+ 
+ 
+ 
+ 
+ 
+ Mathalon 
+ DH 
+ 
+ 
+ Sullivan 
+ EV 
+ 
+ 
+ Lim 
+ KO 
+ 
+ 
+ Pfefferbaum 
+ A 
+ 
+ 
+ 2001 
+ Progressive brain volume changes and the clinical course of schizophrenia in men: a longitudinal magnetic resonance imaging study 
+ Arch Gen Psychiatry 
+ 58 
+ 2 
+ 148 
+ 157 
+ 11177116 
+ 
+ 
+ 
+ 
+ 
+ 
+ Minzenberg 
+ MJ 
+ 
+ 
+ Laird 
+ AR 
+ 
+ 
+ Thelen 
+ S 
+ 
+ 
+ Carter 
+ CS 
+ 
+ 
+ Glahn 
+ DC 
+ 
+ 
+ 2009 
+ Meta-analysis of 41 functional neuroimaging studies of executive function in schizophrenia 
+ Arch Gen Psychiatry 
+ 66 
+ 8 
+ 811 
+ 822 
+ 19652121 
+ 
+ 
+ 
+ 
+ 
+ 
+ O’Toole 
+ AJ 
+ 
+ 
+ Jiang 
+ F 
+ 
+ 
+ Abdi 
+ H 
+ 
+ 
+ Haxby 
+ JV 
+ 
+ 
+ 2005 
+ Partially distributed representations of objects and faces in ventral temporal cortex 
+ J Cogn Neurosci 
+ 17 
+ 4 
+ 580 
+ 590 
+ 15829079 
+ 
+ 
+ 
+ 
+ 
+ 
+ Polyn 
+ SM 
+ 
+ 
+ Natu 
+ VS 
+ 
+ 
+ Cohen 
+ JD 
+ 
+ 
+ Norman 
+ KA 
+ 
+ 
+ 2005 
+ Category-specific cortical activity precedes retrieval during memory search 
+ Science 
+ 310 
+ 5756 
+ 1963 
+ 1966 
+ 16373577 
+ 
+ 
+ 
+ 
+ 
+ 
+ Shao 
+ Y 
+ 
+ 
+ Cuccaro 
+ ML 
+ 
+ 
+ Hauser 
+ ER 
+ 
+ 
+ Raiford 
+ KL 
+ 
+ 
+ Menold 
+ MM 
+ 
+ 
+ Wolpert 
+ CM 
+ 
+ 
+ Ravan 
+ SA 
+ 
+ 
+ Elston 
+ L 
+ 
+ 
+ Decena 
+ K 
+ 
+ 
+ Donnelly 
+ SL 
+ 
+ 
+ Abramson 
+ RK 
+ 
+ 
+ Wright 
+ HH 
+ 
+ 
+ DeLong 
+ GR 
+ 
+ 
+ Gilbert 
+ JR 
+ 
+ 
+ Pericak-Vance 
+ MA 
+ 
+ 
+ 2003 
+ Fine mapping of autistic disorder to chromosome 15q11-q13 by use of phenotypic subtypes 
+ Am J Hum Genet 
+ 72 
+ 3 
+ 539 
+ 548 
+ 12567325 
+ 
+ 
+ 
+ 
+ 
+ 
+ Shen 
+ H 
+ 
+ 
+ Wang 
+ L 
+ 
+ 
+ Liu 
+ Y 
+ 
+ 
+ Hu 
+ D 
+ 
+ 
+ 2010 
+ Discriminative analysis of resting-state functional connectivity patterns of schizophrenia using low dimensional embedding of fMRI 
+ NeuroImage 
+ 49 
+ 3110 
+ 3121 
+ 19931396 
+ 
+ 
+ 
+ 
+ 
+ 
+ Shinkareva 
+ SV 
+ 
+ 
+ Ombao 
+ HC 
+ 
+ 
+ Sutton 
+ BP 
+ 
+ 
+ Mohanty 
+ A 
+ 
+ 
+ Miller 
+ GA 
+ 
+ 
+ 2006 
+ Classification of functional brain images with a spatio-temporal dissimilarity map 
+ NeuroImage 
+ 33 
+ 1 
+ 63 
+ 71 
+ 16908198 
+ 
+ 
+ 
+ 
+ 
+ 
+ Sun 
+ D 
+ 
+ 
+ Van Erp 
+ T 
+ 
+ 
+ Thompson 
+ P 
+ 
+ 
+ 2009a 
+ Elucidating a magnetic resonance imaging-based neuroanatomic biomarker for psychosis: Classification analysis using probabilistic brain atlas and machine learning 
+ Biological 
+ 
+ 
+ 
+ 
+ 
+ 
+ Sun 
+ D 
+ 
+ 
+ van Erp 
+ TG 
+ 
+ 
+ Thompson 
+ PM 
+ 
+ 
+ Bearden 
+ CE 
+ 
+ 
+ Daley 
+ M 
+ 
+ 
+ Kushan 
+ L 
+ 
+ 
+ Hardt 
+ ME 
+ 
+ 
+ Nuechterlein 
+ KH 
+ 
+ 
+ Toga 
+ AW 
+ 
+ 
+ Cannon 
+ TD 
+ 
+ 
+ 2009b 
+ Elucidating a magnetic resonance imaging-based neuroanatomic biomarker for psychosis: classification analysis using probabilistic brain atlas and machine learning algorithms 
+ Biol Psychiatry 
+ 66 
+ 11 
+ 1055 
+ 1060 
+ 19729150 
+ 
+ 
+ 
+ 
+ 
+ 
+ Takayanagi 
+ Y 
+ 
+ 
+ Takahashi 
+ T 
+ 
+ 
+ Orikabe 
+ L 
+ 
+ 
+ Mozue 
+ Y 
+ 
+ 
+ Kawasaki 
+ Y 
+ 
+ 
+ Nakamura 
+ K 
+ 
+ 
+ Sato 
+ Y 
+ 
+ 
+ Itokawa 
+ M 
+ 
+ 
+ Yamasue 
+ H 
+ 
+ 
+ Kasai 
+ K 
+ 
+ 
+ Kurachi 
+ M 
+ 
+ 
+ Okazaki 
+ Y 
+ 
+ 
+ Suzuki 
+ M 
+ 
+ 
+ 2011 
+ Classification of first-episode schizophrenia patients and healthy subjects by automated MRI measures of regional brain volume and cortical thickness 
+ PLoS One 
+ 6 
+ 6 
+ e21047 
+ 21712987 
+ 
+ 
+ 
+ 
+ 
+ 
+ Tsuang 
+ MT 
+ 
+ 
+ Faraone 
+ SV 
+ 
+ 
+ 1995 
+ The case for heterogeneity in the etiology of schizophrenia 
+ Schizophr Res 
+ 17 
+ 2 
+ 161 
+ 175 
+ 8562491 
+ 
+ 
+ 
+ 
+ 
+ 
+ Yoon 
+ JH 
+ 
+ 
+ Minzenberg 
+ MJ 
+ 
+ 
+ Ursu 
+ S 
+ 
+ 
+ Ryan Walter 
+ BS 
+ 
+ 
+ Wendelken 
+ C 
+ 
+ 
+ Ragland 
+ JD 
+ 
+ 
+ Carter 
+ CS 
+ 
+ 
+ 2008a 
+ Association of dorsolateral prefrontal cortex dysfunction with disrupted coordinated brain activity in schizophrenia: relationship with impaired cognition, behavioral disorganization, and global function 
+ Am J Psychiatry 
+ 165 
+ 8 
+ 1006 
+ 1014 
+ 18519527 
+ 
+ 
+ 
+ 
+ 
+ 
+ Yoon 
+ JH 
+ 
+ 
+ Tamir 
+ D 
+ 
+ 
+ Minzenberg 
+ MJ 
+ 
+ 
+ Ragland 
+ JD 
+ 
+ 
+ Ursu 
+ S 
+ 
+ 
+ Carter 
+ CS 
+ 
+ 
+ 2008b 
+ Multivariate pattern analysis of functional magnetic resonance imaging data reveals deficits in distributed representations in schizophrenia 
+ Biol Psychiatry 
+ 64 
+ 12 
+ 1035 
+ 1041 
+ 18822407 
+ 
+ 
+ 
+ 
+ 
+ 
+ Yoon 
+ U 
+ 
+ 
+ Lee 
+ JM 
+ 
+ 
+ Im 
+ K 
+ 
+ 
+ Shin 
+ YW 
+ 
+ 
+ Cho 
+ BH 
+ 
+ 
+ Kim 
+ IY 
+ 
+ 
+ Kwon 
+ JS 
+ 
+ 
+ Kim 
+ SI 
+ 
+ 
+ 2007 
+ Pattern classification using principal components of cortical thickness and its discriminative pattern in schizophrenia 
+ Neuroimage 
+ 34 
+ 4 
+ 1405 
+ 1415 
+ 17188902 
+ 
+ 
+ 
+ 
+ 
+ Contibutors 
+ JHY conceived of the design, formulated the hypothesis, assisted in the analysis and interpretation of results, and wrote the majority of the manuscript. 
+ DVH conceived and supervised the analytic strategies, assisted in the interpretation and writing of the manuscript. 
+ LMM assisted in data analysis. 
+ PD assisted in data collection and implementation of data analysis. 
+ MJM, JDR, TN and MS assisted in data collection, interpretation of data and writing of the manuscript. 
+ CSC assisted in the development of the design and hypothesis and guided the writing of the manuscript. 
+ 
+ 
+ This is a PDF file of an unedited manuscript that has been accepted for publication. As a service to our customers we are providing this early version of the manuscript. The manuscript will undergo copyediting, typesetting, and review of the resulting proof before it is published in its final citable form. Please note that during the production process errors may be discovered which could affect the content, and all legal disclaimers that apply to the journal pertain. 
+ 
+ 
+ 
+ 
+ 
+ Figure 1 
+ 
+ Map of significant activations. A contrast of Cue B – Cue A among the sample including all subjects revealed activations within the left DLPFC (purple) and within the entire brain (brown), p < .05, FDR corrected. Activation estimates from these regions served as inputs for the classier. Peak activation coordinates are displayed in  Table 3 . 
+ 
+ 
+ 
+ 
+ Table 1 
+ 
+ Descriptive Analysis and Statistics for Demographic Variables and Clinical Characteristics 
+ 
+ 
+ 
+ 
+ 
+ Healthy Subjects (N=51) 
+ Schizophrenia Patients (N=51) 
+ 
+ 
+ 
+ Mean 
+ SD 
+ Mean 
+ SD 
+ P-Value 
+ 
+ 
+ 
+ 
+ WAIS IQ score 
+ 113.51 
+ 9.59 
+ 101.63 
+ 13.09 
+ 0.000 
+ 
+ 
+ Age 
+ 20.22 
+ 3.90 
+ 19.92 
+ 3.59 
+ 0.693 
+ 
+ 
+ Subject Education (Years) 
+ 14.00 
+ 2.94 
+ 12.32 
+ 2.34 
+ 0.002 
+ 
+ 
+ Parental Education (Years) 
+ 14.57 
+ 2.31 
+ 14.89 
+ 2.74 
+ 0.527 
+ 
+ 
+ Mother Education (years) 
+ 14.64 
+ 2.32 
+ 14.86 
+ 2.22 
+ 0.675 
+ 
+ 
+ Father Education (years) 
+ 15.04 
+ 3.22 
+ 15.46 
+ 2.63 
+ 0.552 
+ 
+ 
+ 
+ Symptom Severity 
+ 
+ 
+ 
+  GAF 
+ - 
+ - 
+ 47.75 
+ 9.97 
+ - 
+ 
+ 
+  BPRS 
+ - 
+ - 
+ 43.51 
+ 11.90 
+ - 
+ 
+ 
+  SANS 
+ - 
+ - 
+ 7.98 
+ 4.36 
+ - 
+ 
+ 
+  SAPS 
+ - 
+ - 
+ 6.78 
+ 3.59 
+ - 
+ 
+ 
+  Disorganization 
+ - 
+ - 
+ 0.87 
+ 0.60 
+ - 
+ 
+ 
+ 
+ 
+ Count 
+ 
+ 
+ % 
+ 
+ 
+ Count 
+ 
+ 
+ % 
+ 
+ 
+ P-Value 
+ 
+ 
+ 
+ 
+ Gender 
+ 
+ 
+ 
+  Female 
+ 25 
+ 49.02 
+ 12 
+ 23.53 
+ 0.013 
+ 
+ 
+  Male 
+ 26 
+ 50.98 
+ 39 
+ 76.47 
+ 
+ 
+ 
+ 
+ 
+ 
+ Table 2 
+ 
+ Descriptive Analysis and Statistics for AX Continuous Performance Task 
+ 
+ 
+ 
+ 
+ 
+ Healthy Subjects (N=51) 
+ Schizophrenia Patients (N=51) 
+ 
+ 
+ 
+ Mean 
+ SD 
+ Mean 
+ SD 
+ P-Value 
+ 
+ 
+ 
+ 
+ 
+ Accuracy 
+ 
+ 
+ 
+  AX 
+ 0.97 
+ 0.03 
+ 0.94 
+ 0.09 
+ 0.013 
+ 
+ 
+  AY 
+ 0.81 
+ 0.21 
+ 0.77 
+ 0.25 
+ 0.453 
+ 
+ 
+  BX 
+ 0.92 
+ 0.07 
+ 0.83 
+ 0.18 
+ 0.001 
+ 
+ 
+  BY 
+ 1.00 
+ 0.01 
+ 0.97 
+ 0.06 
+ 0.002 
+ 
+ 
+ 
+ Reaction Time 
+ 
+ 
+ 
+  AX 
+ 537.86 
+ 105.77 
+ 603.02 
+ 175.68 
+ 0.026 
+ 
+ 
+  AY 
+ 701.91 
+ 123.75 
+ 763.62 
+ 175.15 
+ 0.043 
+ 
+ 
+  BX 
+ 609.51 
+ 183.35 
+ 724.64 
+ 279.80 
+ 0.016 
+ 
+ 
+  BY 
+ 553.44 
+ 127.26 
+ 644.74 
+ 216.90 
+ 0.011 
+ 
+ 
+ 
+ 
+ 
+ Table 3 
+ 
+ Significant Activations 
+ 
+ 
+ 
+ 
+ Cluster size 
+ P (FDR) 
+ T 
+ x,y,z {mm} 
+ 
+ 
+ 
+ 
+ 1664 
+ 0.002 
+ 5.6 
+ 30 −70 52 
+ 
+ 
+ 427 
+ 0.002 
+ 5.19 
+ −50 32 32 
+ 
+ 
+ 1047 
+ 0.004 
+ 4.75 
+ 44 20 20 
+ 
+ 
+ 162 
+ 0.011 
+ 4.16 
+ 38 10 60 
+ 
+ 
+ 61 
+ 0.019 
+ 3.81 
+ −20 8 62 
+ 
+ 
+ 125 
+ 0.025 
+ 3.62 
+ −44 −50 40 
+ 
+ 
+ 34 
+ 0.027 
+ 3.57 
+ −48 10 −6 
+ 
+ 
+ 94 
+ 0.028 
+ 3.56 
+ −32 −68 54 
+ 
+ 
+ 66 
+ 0.031 
+ 3.47 
+ 0 28 58 
+ 
+ 
+ 17 
+ 0.034 
+ 3.39 
+ 52 44 0 
+ 
+ 
+ 
+ 
+ 
+ Table 4 
+ 
+ Classification Performance 
+ 
+ 
+ 
+ 
+ 
+ Overall 
+ Healthy Control Subjects 
+ Patients with Schizophrenia 
+ 
+ 
+ 
+ 
+ Behavioral Data: BX-AX Accuracy 
+ 57.8% 
+ 64.7% 
+ 51.0% 
+ 
+ 
+ fMRI Data: B cue – A cue Left DLPFC 
+ 61.8% 
+ 64.7% 
+ 58.8% 
+ 
+ 
+ fMRI Data: B cue – A cue Network 
+ 58.8% 
+ 62.7% 
+ 54.9% 
+ 
+ 
+ 
+ 
+ 
+ Table 5 
+ 
+ Level of Disorganization in Correctly and Incorrectly Classified Subjects with Schizophrenia 
+ 
+ 
+ 
+ 
+ 
+ Correctly Classified Schizophrenia 
+ Misclassified Schizophrenia 
+ 
+ 
+ 
+ 
+ Mean 
+ Mean 
+ P-Value 
+ 
+ 
+ 
+ 
+ BX-AX Accuracy B cue - A cue Network 
+ 0.93 
+ 0.82 
+ 0.525 
+ 
+ 
+ 1.02 
+ 0.69 
+ 0.049 
+ 
+ 
+ B cue -A cue Left DLPFC 
+ .97 
+ .73 
+ .146 
+ 
+ 
+ 
+ 
+ 

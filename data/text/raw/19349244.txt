@@ -1,0 +1,2381 @@
+
+ properties manuscript? 
+ 
+ 
+ 9215515 
+ 20498 
+ Neuroimage 
+ NeuroImage 
+ 1053-8119 
+ 1095-9572 
+ 
+ 
+ 19349244 
+ 2694407 
+ 10.1016/j.neuroimage.2008.12.074 
+ NIHMS106569 
+ 
+ 
+ Article 
+ 
+ 
+ 
+ Local Pattern Classification Differentiates Processes of Economic Valuation 
+ 
+ 
+ 
+ 
+ Clithero 
+ John A. 
+ 
+ 1 
+ 5 
+ 
+ 
+ 
+ Carter 
+ R. McKell 
+ 
+ 2 
+ 5 
+ 
+ 
+ 
+ Huettel 
+ Scott A. 
+ 
+ 3 
+ 4 
+ 5 
+ * 
+ 
+ 
+ 1  Department of Economics, Duke University 
+ 2  Department of Neurobiology, Duke University 
+ 3  Department of Psychology and Neuroscience, Duke University 
+ 4  Brain Imaging and Analysis Center, Duke University 
+ 5  Center for Cognitive Neuroscience, Duke University 
+ 
+ Correspondence and requests for materials should be addressed to: Scott A. Huettel, Center for Cognitive Neuroscience, Box 90999, Duke University, Durham, NC 27708 USA, Phone: (919) 681-9527, Fax: (919) 681-0815, E-mail:  scott.huettel@duke.edu 
+ 
+ 
+ 13 
+ 5 
+ 2009 
+ 
+ 
+ 21 
+ 1 
+ 2009 
+ 
+ 
+ 1 
+ 5 
+ 2009 
+ 
+ 
+ 1 
+ 5 
+ 2010 
+ 
+ 45 
+ 4 
+ 1329 
+ 1338 
+ 
+ 
+ This file is available for text mining. It may also be used consistent with the principles of fair use under the copyright law. 
+ 
+ 
+ 
+ For effective decision making, individuals must be able to form subjective values from many types of information. Yet, the neural mechanisms that underlie potential differences in value computation across different decision scenarios are incompletely understood. Here, we used functional magnetic resonance imaging (fMRI), in conjunction with the machine learning technique of support vector machines (SVM), to identify brain regions that contain unique local information associated with different types of valuation. We used a combinatoric approach that evaluated the unique contributions of different brain regions to model generalization strength. Local voxel patterns in left posterior parietal cortex contained unique information differentiating probabilistic and intertemporal valuation, a result that was not accessible using standard fMRI analyses. We conclude that the early valuation phases for these reward types differ on a fine spatial scale, suggesting the existence of computational topographies along the value construction pathway. 
+ 
+ 
+ Local Information 
+ Pattern Classification 
+ Posterior Parietal Cortex 
+ Value 
+ 
+ 
+ 
+ 
+ Introduction 
+ Understanding the mechanisms that underlie the construction of value is a central goal of neuroeconomic research ( Camerer et al., 2005 ;  Glimcher and Rustichini, 2004 ;  Rangel et al., 2008 ). In the current study, we investigated the neural systems underlying the valuation of economic outcomes through the application of alternative analytic techniques to functional magnetic resonance imaging (fMRI) data. 
+ Recent work has delineated neural systems that underlie valuation processes, both in human ( Hare et al., 2008 ;  Kable and Glimcher, 2007 ;  Plassmann et al., 2007 ) and nonhuman primates ( Padoa-Schioppa and Assad, 2006 ;  Roesch and Olson, 2004 ), as summarized in comprehensive reviews ( Montague and Berns, 2002 ;  Padoa-Schioppa, 2007 ;  Wallis, 2007 ). These and earlier works ( Delgado et al., 2000 ;  Knutson et al., 2000 ;  Schultz et al., 1997 ) have focused on the ventral striatum (VSTR) and medial prefrontal cortex (MPFC)/orbitofrontal cortex (OFC), based on demonstrations that these regions encode anticipated value and chosen value, respectively. Together, these regions may convert a broad range of rewards into a common currency that expedites choice, with OFC ultimately playing the central role in comparison ( Montague and Berns, 2002 ). 
+ Although there is mounting evidence to support the role of OFC in representing subjective value and guiding economic choice, relatively little is known about how other regions may support the construction of value based on different underlying information ( Rangel et al., 2008 ). For example, parietal cortex has been discussed in some models of value computation, specifically with regard to evaluating and integrating the value of potential actions ( Glimcher et al., 2005 ;  Sugrue et al., 2004 ). Even if OFC represents the value of choice options, across a wide range of information, there may still be processing differences associated with different forms of valuation, most likely in earlier regions that support particular computations necessary for some decision variables, but not others. These differences may not be reflected in the overall metabolic demand within a given region, and thus could be inaccessible via standard neuroimaging analysis methods. To identify local information associated with the construction of value, we used statistical analyses from the emerging field of machine learning. 
+ Machine learning refers to a set of statistical learning methods, a subset of which are commonly called “pattern classifiers”, which uses the characteristics of known examples to develop feature sets that can classify new examples into categories ( Vapnik and Lerner, 1963 ). Although machine learning algorithms represent a relatively new approach to fMRI data analysis, their use is increasing rapidly ( Haynes and Rees, 2006 ;  Norman et al., 2006 ;  O’Toole et al., 2007 ). Support vector machines (SVM) underlie the most common approaches ( Cortes and Vapnik, 1995 ), although other techniques have been applied ( Friston et al., 2008 ;  Haynes and Rees, 2005 ;  Mitchell et al., 2004 ). Given a binary classification problem, an SVM finds the maximum-separating hyperplane for a pattern, while minimizing the upper bound on the generalization error of the classifier. Unlike univariate analyses that evaluate the overall change in activation of a cluster of voxels, pattern classification employs a multivariate approach that includes information derived from the joint changes in activation across voxels. The most common application has been to decode various feature representations and demonstrate the existence of topographies in visual cortex ( Cox and Savoy, 2003 ;  Haynes and Rees, 2005 ;  Kamitani and Tong, 2005 ;  Kay et al., 2008 ). Yet, pattern classification has also shown potential for evaluating covert and subjective experiences: lie detection ( Davatzikos et al., 2005 ), prediction of conscious decisions about emotional faces ( Pessoa and Padmala, 2005 ), attending to specific features ( Serences and Boynton, 2007 ), hidden intentions ( Haynes et al., 2007 ), free will ( Soon et al., 2008 ) and basic choices ( Hampton and O’Doherty, 2007 ). Here, by comparing the valuations of different types of rewards, we aimed to provide new information about the value construction process. 
+ Two common types of valuations involve outcomes that only occur with some probability or after some time delay. A vast body of theoretical and behavioral research has provided descriptive and prescriptive theories of decision making in probabilistic and intertemporal settings ( Frederick et al., 2002 ;  Starmer, 2000 ). Many behavioral phenomena are similar across these two domains, leading to theoretical models of intertemporal and probabilistic choice that account for these commonalities ( Green and Myerson, 2004 ;  Prelec and Loewenstein, 1991 ). Each has, at least independently, been a target of neuroscience research. For neuroimaging studies of uncertainty ( Critchley et al., 2001 ;  Hsu et al., 2005 ;  Huettel et al., 2005 ;  Huettel et al., 2006 ;  Knutson and Peterson, 2005 ;  Kuhnen and Knutson, 2005 ;  Paulus et al., 2003 ;  Preuschoff et al., 2006 ), most have implicated insular cortex (INS), posterior parietal cortex (PPAR), inferior prefrontal cortex (IPFC), and OFC in processes used to evaluate and choose between uncertain prospects. There is a comparatively smaller collection of neuroimaging studies of intertemporal choice ( Hariri et al., 2006 ;  Kable and Glimcher, 2007 ;  McClure et al., 2007 ;  McClure et al., 2004 ;  Tanaka et al., 2004 ;  Weber and Huettel, 2008 ). These studies point to a variety of regions: VSTR, MPFC, medial orbitofrontal cortex (MOFC), anterior cingulate cortex (ACC), posterior cingulate cortex (PCC), PPAR, and dorsolateral prefrontal cortex (DLPFC). When considered as a whole, these studies have identified a set of candidate regions that may support value construction. 
+ We report here functional neuroimaging data collected while participants valued probabilistic and intertemporal rewards. Whereas traditional machine learning analyses are concerned with the absolute predictive power of a model, our analyses sought to identify the specific brain regions that – when added to a classifier – contributed most to relative changes in predictive power. The localization of this unique information provides a robust measure for the contributions of neural patterns to brain states. Specifically, our results point to potential neural topographies involving explicit intertemporal or probabilistic value computations. 
+ 
+ 
+ Materials and Methods 
+ 
+ Participants 
+ Thirteen (four male) healthy participants (mean: 23 ± 5 years, range: 18–35) participated in an experimental session involving collection of both behavioral and fMRI data. Two of these individuals were dropped from the sample prior to data analyses: one for excessive head motion and one due to a data collection error, leaving a final sample of eleven participants. All participants were prescreened to exclude individuals with prior psychiatric or neurological illness. Participants gave written informed consent as part of a protocol approved by the Institutional Review Board of Duke University Medical Center. 
+ 
+ 
+ Task 
+ Each trial began with the presentation of a probabilistic or intertemporal economic prize ( Fig. 1 , presented in grayscale). For the probabilistic trials, outcome probabilities ranged continuously from 0.25 to 0.75 and prize values ranged from $20 to $75. Both the prize and its probability were drawn pseudo-randomly from uniform distributions, constrained so that expected value ranged from $15 to $50. The probability of winning the prize was represented by the green area of the rectangle, which was always on top. The alternate outcome was $0 on all trials. For the intertemporal trials, the period until delivery ranged from one to sixteen weeks, and the prize ranged from $15 to $50 (integer values only). The delay and prize were both drawn randomly from uniform distributions. Here, length of delay was represented by the gray portion of the rectangle, meaning the green area represented the fraction of the sixteen weeks that the participant would not have to wait. Thus, our two types of trials were matched as closely as possible in their visual representations. 
+ In a pre-scanning session, participants faced 12 trials of each type (24 total). All gambles were presented in pseudo-random order, with no more than two of the same type appearing consecutively. Each gamble was initially shown for 7 s, then participants were given unlimited time to type their subjective value (i.e., certainty or immediacy equivalent) for that prize. This initial session served two purposes. First, it familiarized the participants with the task before the later scanner session. Second, it allowed us to calculate preliminary estimates of risk- and delay-sensitivity that guided selection of the potential response values within the fMRI session. Participants completed a second, short, practice run during the collection of the anatomical images within the scanner. 
+ In the scanner session, participants completed eight runs, each with 24 valuation trials. The timing was the same as the practice run: prizes were visible for 7 s, followed by a 4 s response window. Eight potential values were presented for each prize, and participants selected the value closest to their subjective rating by pressing one of eight buttons. The potential response values were presented in ascending or descending order (randomized across trials), with the predicted response for each participant randomly placed between button three and button six. Once a button was pressed, a blue rectangle was displayed around the selected value ( Fig. 1 ) for a brief interval (0.2 s). Trials were separated by a varying interval of 0.2 s to 0.5 s. The experiment was presented using the Psychophysics Toolbox ( Brainard, 1997 ) in MATLAB (MathWorks). 
+ 
+ 
+ Payment 
+ Participants were compensated entirely with Amazon.com gift cards. They were guaranteed at least $30 in gift cards, although it was possible that a fraction (including all) of their payment could be delayed by up to 16 weeks. Non-cash payment was chosen to ensure accurate delayed payment (all payments were sent via an email confirmation) and to maintain a single currency throughout the experiment (no cash amount was paid; the guaranteed amount was built into minimum values for the intertemporal and probabilistic prizes). Participants were informed of all of these conditions prior to agreeing to participate. 
+ Payment was based on two randomly-chosen trials from the scanner session. First, the participants rolled an eight-sided die twice, once for a probabilistic trial and once for an intertemporal trial, to determine the two runs from which a computer would randomly select the trials for payment. Once the trials were chosen, we used a Becker-DeGroot-Marschak procedure ( Becker et al., 1964 ) to determine payment. For each trial, the computer randomly drew an integer from a uniform distribution of values between zero and the expected value of the chosen trial’s gamble. If the random integer was less than the stated subjective value for that trial, then the gamble was carried out. If it was greater than the participant’s value equivalent, they were given a gift certificate (payable immediately) equivalent to the integer value, in dollars. Average gift-certificate payout was $55 ± $22. 
+ 
+ 
+ Image Acquisition and Preprocessing 
+ We acquired fMRI data on a General Electric 3.0 Tesla MRI Scanner with a multi-channel (eight-coil) parallel imaging system. Images sensitive to blood-oxygenation-level-dependent (BOLD) contrast were acquired using a gradient echo-planar imaging (EPI) sequence (TR = 2000 ms; TE = 27 ms; FOV = 256 mm; voxel size = 4*4*4 mm) at 30 axial slices parallel to the line connecting the anterior and posterior commissures. For each participant we collected 8 runs consisting of 182 images (except for one participant with 178), with an initial saturation buffer of ten images. Whole-brain high-resolution T1-weighted structural scans with voxel size 1*1*2 mm were acquired from each participant for normalizing and coregistering data. 
+ Functional images were corrected for motion using MCFLIRT (Motion Correction using FMRIB’s Linear Image Registration Tool) ( Jenkinson et al., 2002 ), were slice-time corrected, and were normalized into a standard stereotaxic space (Montreal Neurological Institute, MNI) using FSL 4.0 ( Smith et al., 2004 ), maintaining a resolution of 4*4*4-mm for pattern classification. We note that data were left unsmoothed to preserve local voxel information. 
+ 
+ 
+ Regions of Interest Selection 
+ We selected anatomically distinct regions of interest (ROIs) based on recent fMRI studies of probabilistic or intertemporal outcome environments ( Huettel et al., 2005 ;  Huettel et al., 2006 ;  McClure et al., 2007 ) and on the existing literature on executive function and decision making ( Hampton and O’Doherty, 2007 ). Each ROI was made up of several voxel spheres centered on various ( x ,  y ,  z ) MNI coordinates. ROI masks were constructed using the Wake Forest University PickAtlas 2.4. 
+ 
+ 
+ Behavioral Analysis 
+ All behavioral analysis was carried out in MATLAB. Participants’ discounting rate was estimated using the standard hyperbolic function ( Frederick et al., 2002 ), 
+ 
+ (1) V = Z 1 + k W  where  V  is the participant’s reported value for prize  Z  with delay  W  in weeks. The discounting rate is then  k . A perfectly delay-neutral individual would have  k  = 0. For the probabilistic trials, we assume the subjective value  V  of a monetary prize Z can be modeled as a simple power function ( Huettel et al., 2006 ), 
+ 
+ (2) V = Z a  where  a  determines whether a participant is risk-averse ( a  < 1), risk-neutral ( a  = 1), or risk-seeking ( a  > 1). Given our probabilistic prizes, we also assumed participants’ preferences have an expected utility representation. 
+ 
+ 
+ Pattern Classification 
+ Following preprocessing, we identified an estimate of mean signal intensity within every voxel for every trial, defined as the mean signal across three consecutive volumes within the valuation period (lagged by 5 s following valuation onset). The goal was to capture BOLD signal that corresponded to the early phases of the valuation part of the task, specifically avoiding activity associated with the response. We then used the signal in specific voxels to construct pattern classifiers from four sets of feature data: ROI global, ROI local, searchlight global, and searchlight local ( Fig. 2 ). The  ROI global  signal was calculated by taking the mean signal across all  N  voxels in the ROI. The  ROI local  signal was obtained by subtracting the ROI global signal from each individual voxel’s signal, resulting in an  N -dimensional pattern vector for each trial pair, where  N  depends upon the ROI or combination of ROIs. For both of these types of ROI data, we used SVM to determine whether local information decoded trials of intertemporal valuation versus probabilistic valuation. In all cases, the classifier was a linear SVM using a radial basis set. A grid search was used to optimize the tradeoffs among error, margin, and the radial basis function used. 
+ In order to check the robustness of our ROI analyses and to reduce the size of our feature spaces used to train the classifiers, our third and fourth sets ( Fig. 2 ) used  searchlight  feature sets ( Kriegeskorte et al., 2006 ). These datasets are also more spatially specific; we might be able to identify individual voxels that are driving ROI local or ROI global performance. For every voxel in each ROI, we constructed a searchlight corresponding to a spherical cluster of radius 12 mm that contained  M  voxels (up to 123, depending on the distance between that voxel and the ROI boundary). The  searchlight global  classifier was defined as the mean signal of all voxels in the searchlight, while the  searchlight local  classifier was obtained (as for the larger ROIs) by subtracting the  searchlight global  signal from the activation of every voxel in the ROI. 
+ Prediction performance was judged based on five-fold cross-validation (CV), a common method for evaluating the reliability of a pattern classifier ( Mitchell et al., 2004 ). We repeatedly selected four-fifths of the trials to train the SVM, with the remaining portion of trials used as the test set of trial pairs. This process was repeated five times, and the average performance across the five tests was the SVM’s CV rate. For any SVM, a high CV is indicative of a flexible learning algorithm that is more likely to accurately classify additional data. Classification was performed using the LIBSVM software ( http://www.csie.ntu.edu.tw/~cjlin/libsvm ). For statistical testing of individual ROIs and searchlights, we tested CV against performance of a chance classifier (50%). All claims of significance refer to  p  < 0.05, corrected for multiple comparisons using False Discovery Rate (FDR), where the correction is over the number of classifiers being compared (e.g., for single ROIs, there were 13). As an additional test for our classifier accuracy, we also used LIBSVM to generate receiver operating characteristic (ROC) curves, which can describe the relationship between the fraction of correct predictions for one trial-type (e.g. risk) and the fraction of incorrect predictions for the other trial-type (e.g. delay), for each participant and ROI. 
+ 
+ 
+ Combinatoric Analysis of Regions of Interest 
+ For the  ROI local  classifiers, we also constructed classifiers using all possible combinations of two, three, and four ROIs. This resulted in 1092 SVMs for each participant. To compare the performance of these classifiers to each other, we took their CV rates and ranked them (within each participant) from 1 to 1092. This process allowed us to control for differences across participants in the mean performance of all classifiers (i.e., overall better classification across all ROIs). The average ranks of each possible ROI combination across participants were then used for paired-difference rank-order tests. For statistical testing of individual ROI contributions to combinations, we tested increases or decreases against no change (0%). Images of CV performance were generated using MRICron ( Rorden et al., 2007 ). 
+ 
+ 
+ General Linear Model Analysis 
+ Analysis using a general linear model (GLM) was carried out using FEAT (FMRI Expert Analysis Tool) 5.92 in FSL 4.0. First, MELODIC 3.0 ( Beckmann and Smith, 2004 ) was used to identify scanner artifacts, and an automated and unbiased process was implemented to remove them from each run for all participants. Motion correction was done using MCFLIRT, non-brain removal using BET, the high pass filter cutoff was set to 100, and the data were spatially smoothed with a Gaussian kernel of 8 mm. Registration to MNI space was carried out using FLIRT. 
+ The model was constructed with four explanatory variables: two for intertemporal trials and two for probabilistic trials. Within each valuation type, one explanatory variable represented the valuation period, and a second represented the response period. Each of the two valuation regressors was modeled for the full 7 s valuation interval, time-locked to the onset of the presentation of the gamble or delayed prize, and convolved with the canonical double-gamma hemodynamic response function. Regressors were constructed similarly for the response period, although that interval was modeled for its 4 s interval. Initial multiple regressions were conducted on each of the eight individual runs for our eleven participants. Data were combined across runs using a fixed-effect analysis, and data were combined across participants using random-effects analysis via FSL’s FLAME algorithm. These third-level analyses used the standard cluster significance threshold of  p =  0.05, corrected for multiple comparisons using FDR across the whole brain. We report both whole-brain analyses and analyses masked by our  a priori  ROIs (i.e., with a smaller number of voxels and thus fewer statistical comparisons). 
+ 
+ 
+ 
+ Results 
+ 
+ Behavior 
+ Participants successfully indicated their subjective value on nearly all trials, with ten of eleven hitting an average of 99.6% of 192 trials; the remaining participant missed 16%. (We note that all reported analyses were robust to elimination of this participant, or of any other participant, and that this subject’s preferences did not differ from those of other participants when responses were made). Across all trials, there were no systematic biases toward responding with one hand. Responses were balanced across the eight possible values for each trial, with the most responses occurring near the middle values, reflecting our pre-estimation procedure. There was no significant difference in number of responses between the two trial types for any of the eleven participants. Mean response time (RT) for the intertemporal condition (1.8 ± 0.5 s) was significantly faster (paired difference,  p  < 0.01) than that for the probabilistic condition (2.1 ± 0.4 s). This may reflect a greater difficulty in locating the chosen value on the reporting screen, not necessarily an increased time spent valuing the gamble, given that participants were allocated seven seconds to complete valuation before the response screen was even displayed. Using RT as a one-dimensional classification rule, we found an average CV of 64.1% across participants. This indicates that RT contains some valuation-relevant information (no relevant information would have place the classifier CV at 50%), providing a useful baseline for performance. 
+ We also obtained measures of delay and risk preferences for each of our participants ( Table S1, Supplementary Material ) using the data from the eight scanning runs. Individual preferences were estimated using  Equations 1  and  2 . Our participants ranged from delay-neutral to quite delay-averse, with all participants’ behavior fit well by a hyperbolic discounting function (median r 2  = 0.97;  Fig. S1, Supplementary Material ). Participants were risk-neutral to slightly risk-seeking, with their choices generally well fit by a power model for risk (median r 2  = 0.84;  Fig. S1, Supplementary Material ). Risk and delay preferences were not correlated across participants [r (9) = 0.07,  p  = 0.84]. 
+ 
+ 
+ Local Information Contains Value Information 
+ Our initial analyses evaluated the degree to which overall activation in ROIs predicted the type of valuation: probabilistic or intertemporal. All thirteen of our  a priori  chosen ROIs performed significantly above chance when the pattern classifier used local information; i.e., the pattern of increases and decreases across voxels from the average ROI signal ( Fig. 3 ). The top performing local signal region was the left posterior parietal cortex (LPPAR; CV of 76.2%,  p  < 0.001). In contrast, none performed significantly above chance when the pattern classifier used our control feature space, global information; i.e., the average signal across all voxels in the ROI. For average signal, the highest was in PCC (54.0%); after correcting for multiple comparisons, this effect was not significantly different from chance. For all regions, the local signal encoded significantly more information than the global signal, with the greatest difference again found in LPPAR (local signal CV was 24.8% greater than global signal CV,  p  < 0.001). 
+ Our ROC curves for the ROI local classifiers provide further supporting evidence that LPPAR contains unique valuation information. Using the area under the curve (AUC) as our measure of classifier performance ( Fawcett, 2006 ) across all possible thresholds, we found that the average AUC for LPPAR was 0.79 ( p  < 0.001), the highest of the 13 ROIs. Further, this measure of classifier accuracy led to similar conclusions as CV performance about the relative information carried by the different ROIs ( Fig. 3 , circles). 
+ A concern intrinsic to fMRI data is that this differential classifier performance could depend on functional signal-to-noise ratio (fSNR), which could itself vary across regions based on scanner properties (e.g., distance from receiver coils in the phased array). We determined the fSNR for every ROI and found that fSNR differences explained less than 6% of all variance across ROIs. This indicates that differences in fMRI data sensitivity can only account for a minimal portion of our variance in predictive power across regions. 
+ 
+ 
+ Pattern Classification using Combinatoric Analysis of ROIs 
+ To evaluate the unique local information contained within each region, we combined data from all combinations of one, two, three, and four regions, resulting in a total of 1092 classifiers for each participant. By using rankings of the ROI combinations to perform our statistical tests (see Materials and Methods), we can assess how these combinations perform with respect to each other, while controlling for interindividual differences in absolute predictive power. Across participants, the best-performing pair was LPPAR-RPPAR, with an average CV of 76.1%. The triple combination of LPPAR-PCC-RPPAR (average CV of 77.7%) was the best-performing of all possible combinations. This group was significantly better ( p  < 0.05) than all other combinations of three or four ROIs that did not contain two of those three regions. Interestingly, this combination of three is significantly better at predicting valuation type than either PCC or RPPAR on their own ( p  < 0.01), but not significantly better than LPPAR by itself ( p  = 0.32). Finally, the top two combinations of four ROIs were DSTR-LPPAR-PCC-RPPAR (76.6%) and INS-LPPAR-PCC-RPPAR (76.3%); note that neither of these outperformed the best combination of three ROIs. 
+ Our results showed that local information in LPPAR was a better predictor of the form of valuation than local information from any other region. LPPAR by itself significantly outperformed all other combinations ( p  < 0.05) that did not contain at least one of LPPAR, PCC, or RPPAR, and was not significantly outperformed by any combination of regions. Moreover, when considering all of the 1092 possible classifiers, LPPAR consistently does better than PCC ( p  < 0.02) and RPPAR ( p  < 0.001). Thus, our data indicated that LPPAR provided the greatest amount of unique information differentiating probabilistic and intertemporal valuations. 
+ 
+ 
+ LPPAR Provides Unique Local Information about Valuation Process 
+ To illustrate the independent contributions of the chosen ROIs,  Fig. 4A  shows increases or decreases in CV of a specific ROI when one of the other twelve ROIs was paired with it. For example, when LPPAR was paired with AMYG (lower left of  Fig. 4A ) the resulting classifier increased CV by 15% when compared to AMYG alone. Yet, as shown in the upper-right corner, the combined ROIs actually performed worse (i.e., a reduction in CV by 5%) than LPPAR alone.  Fig. 4B  collapses across rows of  Fig. 4A  to demonstrate that, on average, LPPAR (average 9.3%,  p  < 0.001), PCC (6.6%,  p  < 0.001), RPPAR (5.9%,  p  < 0.001), and DLPFC (5.5%,  p  < 0.003) all added predictive power to the other twelve ROIs. When collapsing across columns for combinations of two ROIs ( Fig. 4C ), the CV rates of many of those regions were either unaffected or improved by the addition of a second ROI. The exception is LPPAR, which evinced a significant decrease in CV when paired with any another ROI (−2.9%,  p  < 0.001). That is, the addition of other ROIs to LPPAR consistently decreases the new classifier’s CV. No other ROI exhibited similar decreases when paired with other regions. 
+ These results held even when considering larger combinations of three or four ROIs ( Fig. S2, Supplementary Material ). The addition of LPPAR to other combinations of ROIs still consistently improved the overall predictive power, whereas the additions of other ROIs to combinations that contained LPPAR tended to reduce predictive power. Thus, data from these combinations of ROIs converges upon a robust conclusion: voxels within LPPAR contained unique information that differentiates probabilistic from intertemporal valuation. 
+ 
+ 
+ Pattern Classification using Searchlight Methods 
+ While ROI-based approaches have many advantages for fMRI research (e.g., reducing the number of statistical tests), they risk misidentifying functional regions, especially if the voxels carrying meaningful signal are included within models that incorporate a large number of noisier voxels. As a check on our primary ROI results, we can assess the predictive power associated with sub-regions within our ROIs: we created pattern classifiers from smaller searchlights ( Fig. 2B ), defined as ~100-voxel spheres surrounding each voxel in the ROI ( Haynes et al., 2007 ;  Kriegeskorte et al., 2006 ). The process for constructing the global and local classifiers was analogous to the process for each ROI. We tested the predictive power present in a given searchlight using the same five-fold CV procedure as with the ROIs. 
+ Searchlight results are summarized in  Table 1 . The only region containing searchlights with predictive accuracy greater than 70% was LPPAR ( Fig. 5A ), within which more than 23% of all voxels passed that level (maximum searchlight CV of 78.6%). We note that this performance, which reflects contributions from a small set of contiguous voxels in one brain region, was roughly equivalent to the best combination of local information across multiple ROIs. For every ROI, the mean global signal classifier performance fell between chance and ~55%, although each ROI had at least one local searchlight and one global searchlight with a CV significantly above chance. Moreover, the greatest difference between local and global searchlights (~39%) is again found in LPPAR ( Fig. 5B ) indicating that LPPAR contains the greatest amount of local information. These findings are in line with the ROI results ( Fig. 3  and  Fig. 4 ). 
+ Also interesting was the observation that the peak global searchlight in MPFC (66.7%) was higher than the peak local searchlight in MPFC (64.9%), indicating that local information made minimal contributions (if any) compared to the average signal within that region. 
+ 
+ 
+ Analyses using Standard Regression Modeling 
+ As a check on our pattern classification data, we used standard fMRI analysis methods based on the GLM to identify activation clusters that differentiated probabilistic and intertemporal valuation (local maxima for all contrasts are listed in  Table S2, Supplementary Material ). For valuation of intertemporal delays (D), we found significant activation in both ACC and medial frontal cortex. On trials involving probabilistic risk (R), significant activation was also found in ACC, as well as in the superior frontal gyrus, and along with portions of LPPAR, with a local maximum in the superior parietal lobule. Importantly, the CV for the local searchlight about that local maximum was 57.7%, indicating a discrepancy between the coordinates of maximal global and local information in LPPAR. We also identified regions that were significantly more active for intertemporal valuations compared to probabilistic valuations (D>R) or for probabilistic compared to intertemporal (R>D). For D>R, significant differences were found in MOFC and several other cortical regions. The only cortical regions that proved significant for the R>D contrast were regions of visual cortex. 
+ As an additional check for our ROIs, we repeated our GLM analyses using our ROIs as a volume mask before thresholding and correcting for multiple comparisons ( Table S3, Supplementary Material ). We found the same ACC activation for both intertemporal and probabilistic valuations. Both valuation processes also recruited left IPFC, anterior INS, and bilateral PPAR. For D>R, ACC, bilateral DLPFC, MOFC, MPFC, and PCC all were significant. Importantly, none of the ROIs were significant for R>D, and PPAR did not distinguish either trial type from the other. Thus, we conclude that the use of pattern classification methods here provided novel information about the neural systems differentiating forms of economic valuation; i.e., information that was not available within standard fMRI analysis methods. 
+ 
+ 
+ 
+ Discussion 
+ Convergent evidence from several forms of machine learning analyses indicated that unique information about value construction was provided by the pattern of local activation within LPPAR. The most-predictive voxels in LPPAR were located in the more posterior part of the superior parietal lobule, along the intraparietal sulcus, within the left hemisphere. These local computational maps were not evident when examining the results of standard fMRI analysis, perhaps because we used a simple valuation task that controlled for several possible confounds, including value range, motor preparation, and visual features. Our interpretation is that while the valuation processes of different rewards and sets of information may involve a similar system of brain regions, there is differential recruitment of local circuitry within at least one of those regions, posterior parietal cortex (PPAR). 
+ 
+ Combinatoric Approach Identifies Unique Information in Posterior Parietal Cortex 
+ Our standard fMRI analyses revealed brain regions typically implicated in decision making under uncertainty: aINS, lateral PFC, and PPAR, among others ( Table S3, Supplementary Material ). This result supports the inference that participants were treating the probabilistic and intertemporal valuations as meaningful decisions. For both valuation processes, we also observed significant dorsal ACC activation, which may be relevant to task and choice representation ( Rushworth et al., 2007 ). Yet, when we examined the regression contrast between probabilistic and intertemporal valuation, no significant differences were observed in PPAR. Our pattern classification data, however, led us to a different conclusion: the local pattern of voxel activation within PPAR provides unique and highly predictive information about the form of valuation being attempted by the individual. 
+ A recent study used an ascending search of ROI combinations to try to identify an optimal classifier in an executive function task ( Hampton and O’Doherty, 2007 ). Our interest in the present study was not to correctly classify the largest percentage of our data, but rather to identify unique information that can form the basis of robust models of computation. We used a full combinatoric approach that developed classifiers from all combinations of up to four regions. This allowed measurement of the unique information within a given region that could contribute to a general model of value construction. We also used increases or decreases in cross-validation, rather than model prediction, as our measure of performance. This second step is crucial; regions that lead to increases in cross-validation reveal useful information and serve to construct a more robust model. Based on examination of all combinations of two, three, and four ROIs, we found that LPPAR consistently added the most information, regardless of combination size. Even though PCC and RPPAR also increased the predictive power of ROI combinations, these improvements disappeared when LPPAR was already present in the classifier, as is demonstrated in  Fig. 4A . This conclusion was further supported by our searchlight analysis ( Fig. 5  and  Table 1 ). So, local information encoded in other brain regions was redundant with the information encoded in LPPAR, which further suggests that there are elements of value construction unique to PPAR. 
+ That pattern classification identifies local patterns associated with distinct forms of valuation is by itself unsurprising. Indeed, neural differences between the processing of probabilistic and intertemporal decisions have been recently identified ( Weber and Huettel, 2008 ). More critical is our finding that LPPAR contains unique local information that is not present elsewhere within the decision making system. One potential interpretation of this result is that it reflects a computational topography within that specific region, similar to topographies demonstrated using fMRI pattern classification for features (e.g., orientation) within the primary visual cortex ( Haynes and Rees, 2005 ;  Kamitani and Tong, 2005 ). Consistent with this speculation, lateral intraparietal areas have been postulated to provide maps of salience ( Gottlieb, 2007 ) and subjective value ( Glimcher et al., 2005 ). Alternatively, local patterns could reflect separate projections to other regions where other computations can be performed. We consider these possibilities in more detail in the following section. 
+ 
+ 
+ Discrimination of Value Construction in Posterior Parietal Cortex 
+ Prior research has implicated parietal cortex, particularly the lateral intraparietal area, in the construction of value ( Glimcher et al., 2005 ;  Sugrue et al., 2005 ). This region may reflect an early stage in processing, one well before distinct classes of rewards are represented within a common currency ( Montague and Berns, 2002 ). Despite the common assumption of fMRI analyses that the function of an ROI is homogenous, our searchlight analyses provided strong evidence for fine-scale heterogeneity within PPAR. We found that voxels within a 12 mm radius differentiated intertemporal and probabilistic trials; it was striking that these two valuations evoked different and reproducible patterns of activation within highly localized regions of PPAR. 
+ Just as stimulus features like orientation ( Haynes and Rees, 2005 ;  Kamitani and Tong, 2005 ) and object category ( Shinkareva et al., 2008 ) are represented by spatial topographies within specific regions, there may be a similar topography in parietal cortex based on the sorts of computations (e.g., distinct mathematical operations) necessary for economic valuations. Such spatial proximity could provide efficiencies for valuation of complex stimuli that require different subsets of local computations, as frequently would be the case for real-world decision stimuli (e.g., purchasing tradeoffs). These potential computational efficiencies may be described by two non-exclusive hypotheses. First, both forms of valuation, even if other aspects may differ, could require a common computation, and thus spatial proximity may reflect a need for common operations used to compute risk and delay. Second, spatial proximity could facilitate comparisons between these different valuation types (and perhaps others) within PPAR as may be required in many real-world decisions but not in the present study. 
+ Given that our task design contained separate valuation and response phases, we can be confident that the observed effects in PPAR do not confound decision and motor preparation processes. Equally important is that our task differs considerably from those of previous fMRI studies using pattern classification. As examples, prior studies have asked participants to add or subtract ( Haynes et al., 2007 ), to switch or stay in an executive function task ( Hampton and O’Doherty, 2007 ), or to be honest or deceitful ( Davatzikos et al., 2005 ). Our task, for comparison, presents participants with a serious of prizes and asks them to evaluate each one independently, not to choose between prizes. This is a more introspective procedure and hence provides novel information about subjective valuation, instead of distinguishing between types of choices themselves. 
+ Thus, we conclude that PPAR plays a key role in the valuation process via preliminary information representation and integration prior to, but still necessary for, computing economic value. Because this PPAR information is likely upstream of other regions that ultimately encode subjective value in the context of choice ( Padoa-Schioppa, 2007 ;  Rangel et al., 2008 ), future models of both value computation and choice should account for what computational output PPAR might provide VSTR and OFC. While our task was not designed to parse out specific stages of value construction (e.g. probability and reward magnitude), some exploratory classification results indicated that many of our ROIs, including PCC, contain local patterns that can be used to discern high-probability from low-probability trials and short-delay from long-delay trials. This within-valuation class analysis provides further evidence of computational topographies that would play a role in early parts of reward presentation and value computation. 
+ 
+ 
+ Alternative Explanations 
+ A common concern for neuroimaging experiments is that observed effects could reflect differences in degree (i.e., magnitude of neuronal activity), but not kind (i.e., population or pattern of neuronal activity). Considering our experiment, if participants were relatively delay-neutral (as they were in our study) and used a simple heuristic for those trials, probabilistic valuations could more strongly recruit brain regions involved in calculation and perhaps lead to more activation (in general) throughout cortex. Subregions of PPAR are widely-demonstrated to be involved in numerical computation and the representation of numerical information, particularly along the intraparietal sulcus ( Cantlon et al., 2006 ;  Dehaene et al., 2003 ) as well as approximate calculation ( Piazza et al., 2004 ). If we interpret response time differences as the result of calculation time differences, then our data support this hypothesis, as both valuation types recruited PPAR within the GLM analyses ( Table S3, Supplementary Material ). However, there is evidence arguing against this possibility. Our searchlight data demonstrated that local patterns of voxel activation reliably discriminated the two forms of valuation, even after the global activation level across that searchlight was removed. We note, however, that other regions, including visual cortex, were significantly more active on probabilistic trials than on intertemporal trials ( Table S2  and  Fig. S3, Supplementary Material ), consistent with overall computational or arousal effects in those regions. 
+ Our posited role for PPAR in value construction could also reflect a cognitive process specific to our experimental design, but not general to economic valuation. Left parietal cortex (including the intraparietal sulcus) has been found to increase in activation when mediating representations of potential responses ( Bunge et al., 2002 ), and PPAR activation scales with representational difficulty ( Anderson et al., 2005 ). Our robust ACC activation in both valuation types is consistent with the task switching literature ( Liston et al., 2006 ) which also frequently implicates PPAR as sensitive to stimulus representation conflict. Also, some of our participants demonstrated “aversive” or “neutral” preferences on one trial type (intertemporal) and “seeking” preferences on another trial type (probabilistic). A possible heuristic-based explanation might also apply here: a difference in how participants treat the two types of prizes, not in how they value them, could potentially lead to neural differences that were decoded by our classifiers. Importantly, we note that LPPAR remained the best discriminator of economic valuation even if we examined only the delay-averse participants or only the non risk-seeking participants ( Fig. S4, Supplementary Material ). Our results were also robust to removal of any one participants from the analyses. Finally, we note that LPPAR was either the most or second-most predictive region in every participant within the sample. 
+ 
+ 
+ Future Considerations 
+ Our findings indicate several avenues for further investigations of the mechanisms – both psychological and neural – that underlie value construction. Many of our participants exhibited risk-neutral to risk-seeking behavior on probabilistic decision making trials. While such preferences are uncommon, we note that risk-seeking behavior has been sometimes reported both in neuroscience studies ( Kuhnen and Knutson, 2005 ) and in behavioral research, particularly when stakes are small ( Weber and Chapman, 2005 ). Moreover, our presentation-style was novel (visual representations were nearly identical across both trial-types) and our payments were entirely in Amazon.com dollars. One or both of these facets of our design may have changed the relative valuation (or set aspiration levels) across prizes. Economics frequently explores the effects of fungibility on value ( Thaler, 1990 ), but further research would be required to evaluate the effects of prize modality upon risk preferences. We note that changes in the relative valuation of the prizes, even seemingly maladaptive changes to risk-seeking behavior, do not obviate conclusions drawn about the differential valuation of probability and delay. 
+ Our study also raises questions about the existence of computational topographies involving components of subjective value. Future modifications of our task and methods could validate or refute our claims of differences in the early phases of value construction. Consider a task that involves choosing between two rewards, one probabilistic and one intertemporal. Under the first alternative above, similar activity in PPAR would be expected regardless of whether a participant faces a mixed-type trial or a same-type trial, as there is only a common computation to perform (another region, however, could show differences in activation associated with the comparison process). But, under the second alternative, PPAR activation patterns would discriminate whether a participant was choosing between the above two rewards versus two rewards of the same type, providing evidence of the comparison computation. The use of connectivity analyses ( Buchel and Friston, 1997 ;  Friston et al., 2003 ) or a more precise temporal classification process ( Mourao-Miranda et al., 2007 ;  Soon et al., 2008 ) could provide important information about differences in the input to and output from PPAR associated with valuation type. A more comprehensive understanding of the role of PPAR in valuation will then be informative for understanding and modeling the general valuation pathway ( Rangel et al., 2008 ). 
+ 
+ 
+ Conclusion 
+ Using pattern classification, we demonstrated that local voxel information provides novel and independent evidence for neural regions of interest associated with economic valuation. We developed simple measures of predictive power, based on combinatoric measures, that identify the unique information provided by specific regions. We used convergent analyses to reach our primary objective: gaining insight into the neural processing of reward valuation. Notably, posterior parietal cortex (and, secondarily, posterior cingulate cortex) encoded information about whether participants were making an intertemporal valuation or a probabilistic valuation, and much of this information is not available from analyses of the mean activation across voxels. These results suggest a potential computational topography in posterior parietal cortex, a possibility worthy of future research. 
+ 
+ 
+ 
+ Supplementary Material 
+ 
+ 01 
+ 
+ Table S1. Summary of Participant Preferences. 
+ Listed are the individual estimates of risk- and delay-preferences based on  Equations (1)  and  (2) . Both equations provided a good fit for all participants. All but one of the participants demonstrated mild risk-seeking preferences ( a  > 1). Most participants demonstrated mild to moderate delay-averse preferences ( k  > 0). The ordering of participants is the same as in Fig. S1. 
+ 
+ 
+ 
+ 
+ 02 
+ 
+ Table S2. Summary of Results for GLM. 
+ Significant clusters in delay, risk, and their difference, using a whole brain analysis. An analysis limited to each ROI is shown in  Table S3 . A standard cluster correction threshold of  z  > 2.3 and a cluster significance threshold of  p=  0.05 were used, corrected for multiple comparisons across the whole brain. Region abbreviations: Cuneus (CUN), Lateral Occipital Gyrus (LOG), Lingual Gyrus (LING), Thalamus (THAL), Superior Colliculus (SC), Thalamus (THAL), Medulla (MED), Precentral Gyrus (preCG), Supramarginal Gyrus (SMG), Postcentral Gyrus (postCG), Gyrus Rectus (GREC), Superior Frontal Gyrus (SFG), Middle Temporal Gyrus (MTG), Angular Gyrus (AG), and Inferior Temporal Gyrus (ITG). 
+ 
+ 
+ 
+ 
+ 03 
+ 
+ Table S3. Standard fMRI Analysis for Areas that Distinguish Delay and Risk. 
+ Local maxima and significance values for regions that were significantly active for either delay or risk. Local maxima for areas that were significantly more active for delay than risk or for risk than delay are also listed. We ran third-level analyses using our thirteen ROI masks before thresholding to determine if any of them were significantly activated by either type of valuation. A standard cluster significance threshold of  p =  0.05 were used, corrected for multiple comparisons. 
+ 
+ 
+ 
+ 
+ 04 
+ 
+ Fig. S1. Participant Preference Behavior. 
+ Value responses of all participants, plotted in order of their delay preferences, from most delay-averse (participant 1) to most delay-neutral (participant 11). The median response for each participant is the red line, the 25 th  and 75 th  quartiles are represented by the box. The error bars are drawn from the median, with length equal to 1.5 times the interquartile range. Outlier trials are plotted in red. (A) Subjective values for intertemporal prize trials, expressed as a ratio of subjective value over prize. (B) Subjective values for probabilistic prize trials, expressed as a ratio of subjective value over expected value. 
+ 
+ 
+ 
+ 
+ 05 
+ 
+ Fig. S2. Increases in Cross-Validation for each Region of Interest in Combinations of Three and Four. 
+ Average increase in CV accuracy (y-axis) from the addition of one ROI (x-axis) to combinations of two, creating combinations of three (A), and combinations of three, creating combinations of four (B). The relative ordering of ROIs from  Fig. 4B , which reflected combinations of two ROIs, is maintained for larger combinations. Error bars indicate standard error of the mean. 
+ 
+ 
+ 
+ 
+ 06 
+ 
+ Fig. S3. Expansion of Searchlight Analyses to the Entire Brain. 
+ While we used a comprehensive list of regions commonly implicated in decision making and other executive processes, there remains a chance that other regions also encode information that would allow us to differentiate the two tasks. To account for this possibility, we also ran a searchlight for the entire brain using an analysis similar to that shown in  Fig. 5 . We found that in addition to LPPAR, there are portions of occipital cortex (OCC) containing CV rates well above 70% (A), as well as large differences between local signal searchlight performance and average signal searchlight performance (B). 
+ 
+ 
+ 
+ 
+ 07 
+ 
+ Fig. S4. Cross-Validation Performance for Individual Regions of Interest with Subpopulations Removed. 
+ To show that our results are not influenced by the specific risk- or delay-preferences of our participants, we repeated our analyses using the ROI local information after removing different subpopulations: our five most delay-neutral participants (A) and the three most risk-seeking participants (B). The overall performance and ordering of regions was strikingly similar, in both replications, to that from the entire sample (cf.  Fig. 3 ), demonstrating that our effects were not driven by the preferences of particular subpopulations of our sample. Error bars indicate s.e.m. 
+ 
+ 
+ 
+ 
+ 
+ 
+ Figures and Table 
+ 
+ Fig. 1 
+ 
+ Probabilistic and Intertemporal Valuation Task 
+ Probabilistic and intertemporal prizes were displayed using a common graphical representation, shown here in grayscale. For the probabilistic valuations (left), the probability of winning the positive-value prize was represented by a green area on top, while the probability of winning nothing was represented by the gray area on bottom. For the intertemporal valuations (right), the length of delay was represented by the gray portion of the rectangle, leaving the green area to represent the fraction of the sixteen weeks that the participant would not have to wait. In the example intertemporal trial (bottom), a fixation screen (0.2 s to 0.5 s, not shown in figure) would be followed by the presentation of the delayed prize ($39 in the example) for 7 s. During that interval, participants determined their subjective value, and then found the closest value out of eight available during the response phase (4 s). The selected value was then briefly highlighted (0.2 s). 
+ 
+ 
+ 
+ 
+ Fig. 2 
+ 
+ Feature Spaces used for Pattern Classification 
+ To predict probabilistic or intertemporal valuations, we identified the following four feature spaces for training sets and testing sets. We estimated fMRI signal amplitude for each voxel on each trial. Then, we extracted four types of feature sets: (1) ROI local, (2) ROI global, (3) searchlight local, and (4) searchlight global. Shown as examples are (A) our inferior prefrontal cortex ROI, comprising  n  = 928 voxels, and (B) one of its spherical searchlights, comprising  m  = ~100 voxels. For each of these feature sets, we used an iterated cross-validation technique to evaluate whether a classifier derived from training data could predict whether, on a given trial, the participant was valuing a probabilistic or intertemporal outcome. 
+ 
+ 
+ 
+ 
+ Fig. 3 
+ 
+ Local information in LPPAR ROI Outperforms Other ROIs 
+ Classification accuracy in each ROI, plotted in descending order based upon local performance (error bars indicate s.e.m.). Models built from local information in each ROI perform significantly above chance and consistently better than models based on the global signal from the ROI. LPPAR provided the best local information for classification (76%,  p  < 0.0001). LPPAR also had the greatest gain in performance from global to local (25%,  p  < 0.0001). We additionally constructed receiver operating characteristic (ROC) curves for every region by varying the classifier response thresholds. From measurements of the area under each ROC curve, we found that LPPAR is the most likely to correctly classify a trial, regardless of the allowed response threshold (0.79,  p  < 0.001). We summarize the ROC-based classification performance, for each ROI, with a filled circle indicating the area under the curve (AUC) of each ROC curve. 
+ 
+ 
+ 
+ 
+ Fig. 4 
+ 
+ Cross-Validation Performance for Combinations of Regions of Interest 
+ Shown in (A) is the increase (red) or decrease (blue) in CV performance when local information from one ROI combined with local information from another. Significant changes in CV performance are displayed in solid colors. (B) Average increase in CV from the addition of a given ROI, plotted in descending order (error bars indicate s.e.m.). Each reported value in the bar graph is the average of the corresponding column in Fig. 4A. (C) Average amount the CV increases when local information from another ROI is added (error bars indicate s.e.m.). This provides a measure of how much predictive power a region has on its own, since regions that perform poorly on their own will always benefit from the addition of other regions. Each reported value in the bar graph is the average of a row in Fig. 4A. 
+ 
+ 
+ 
+ 
+ Fig. 5 
+ 
+ Cross-Validation Performance for Local Searchlights within Regions of Interest 
+ (A) CV performance for models utilizing local information. Only LPPAR contained voxels with searchlights with CV over 70%, with a maximum of 78.6%. (B) The performance difference between models using local information and those using global information. The only searchlights with more than a 15% difference between local and global CV were in PCC and LPPAR. The maximum again was in LPPAR (38.6%). 
+ 
+ 
+ 
+ 
+ Table 1 
+ 
+ Peak Performance for Searchlights with Regions of Interest. 
+ MNI coordinates and CV rate for the best-performing local searchlights in each of the ROIs (see also  Fig. 5 ). The average CV for all local searchlights within each ROI and the standard deviation are also shown. The maximum CV for local signal searchlights was observed within LPPAR. 
+ 
+ 
+ 
+ 
+ ROI 
+ Peak (MNI) 
+ CV (max) 
+ CV (mean) 
+ CV (std) 
+ 
+ 
+ 
+ 
+ LPPAR 
+ −18, −78, 50 
+ 78.6 
+ 65.1 
+ 6.6 
+ 
+ 
+ MOFC 
+ 2, 38, −34 
+ 69.6 
+ 60.2 
+ 4.0 
+ 
+ 
+ ACC 
+ −10, 30, 26 
+ 68.5 
+ 57.4 
+ 3.8 
+ 
+ 
+ PCC 
+ 14, −58, 6 
+ 67.9 
+ 55.7 
+ 4.1 
+ 
+ 
+ DLPFC 
+ 42, −2, 46 
+ 67.9 
+ 54.1 
+ 3.3 
+ 
+ 
+ RPPAR 
+ 22, −62, 46 
+ 67.3 
+ 53.1 
+ 4.8 
+ 
+ 
+ AMYG 
+ 26, 6, −22 
+ 66.7 
+ 56.6 
+ 3.5 
+ 
+ 
+ INS 
+ 46, 26, −2 
+ 66.7 
+ 56.2 
+ 2.9 
+ 
+ 
+ IPFC 
+ 46, 26, −2 
+ 66.7 
+ 55.5 
+ 3.1 
+ 
+ 
+ MPFC 
+ 6, 42, 26 
+ 64.9 
+ 53.5 
+ 2.9 
+ 
+ 
+ DSTR 
+ 6, 10, 6 
+ 63.7 
+ 57.3 
+ 2.5 
+ 
+ 
+ VSTR 
+ 22, 6, −18 
+ 63.1 
+ 55.5 
+ 3.3 
+ 
+ 
+ LOFC 
+ 14, 54, −14 
+ 61.9 
+ 54.5 
+ 2.5 
+ 
+ 
+ 
+ 
+ 
+ 
+ We thank Ben Hayden for his comments on this manuscript. This research was supported by the US National Institute of Mental Health (NIMH-70685) and by the US National Institute of Neurological Disease and Stroke (NINDS-41328). The authors have no competing financial interests. 
+ 
+ 
+ 
+ 
+ 
+ 
+ Anderson 
+ JR 
+ 
+ 
+ Albert 
+ MV 
+ 
+ 
+ Fincham 
+ JM 
+ 
+ 
+ 2005 
+ Tracing problem solving in real time: fMRI analysis of the subject-paced tower of Hanoi 
+ Journal of Cognitive Neuroscience 
+ 17 
+ 1261 
+ 1274 
+ 16197682 
+ 
+ 
+ 
+ 
+ 
+ 
+ Becker 
+ GM 
+ 
+ 
+ Degroot 
+ MH 
+ 
+ 
+ Marschak 
+ J 
+ 
+ 
+ 1964 
+ Measuring Utility by a Single-Response Sequential Method 
+ Behavioral Science 
+ 9 
+ 226 
+ 232 
+ 5888778 
+ 
+ 
+ 
+ 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ Smith 
+ SA 
+ 
+ 
+ 2004 
+ Probabilistic independent component analysis for functional magnetic resonance imaging 
+ Ieee Transactions on Medical Imaging 
+ 23 
+ 137 
+ 152 
+ 14964560 
+ 
+ 
+ 
+ 
+ 
+ 
+ Brainard 
+ DH 
+ 
+ 
+ 1997 
+ The psychophysics toolbox 
+ Spatial Vision 
+ 10 
+ 433 
+ 436 
+ 9176952 
+ 
+ 
+ 
+ 
+ 
+ 
+ Buchel 
+ C 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ 1997 
+ Modulation of connectivity in visual pathways by attention: Cortical interactions evaluated with structural equation modelling and fMRI 
+ Cerebral Cortex 
+ 7 
+ 768 
+ 778 
+ 9408041 
+ 
+ 
+ 
+ 
+ 
+ 
+ Bunge 
+ SA 
+ 
+ 
+ Hazeltine 
+ E 
+ 
+ 
+ Scanlon 
+ MD 
+ 
+ 
+ Rosen 
+ AC 
+ 
+ 
+ Gabrieli 
+ JDE 
+ 
+ 
+ 2002 
+ Dissociable contributions of prefrontal and parietal cortices to response selection 
+ Neuroimage 
+ 17 
+ 1562 
+ 1571 
+ 12414294 
+ 
+ 
+ 
+ 
+ 
+ 
+ Camerer 
+ C 
+ 
+ 
+ Loewenstein 
+ G 
+ 
+ 
+ Prelec 
+ D 
+ 
+ 
+ 2005 
+ Neuroeconomics: How neuroscience can inform economics 
+ Journal of Economic Literature 
+ 43 
+ 9 
+ 64 
+ 
+ 
+ 
+ 
+ 
+ 
+ Cantlon 
+ JF 
+ 
+ 
+ Brannon 
+ EM 
+ 
+ 
+ Carter 
+ EJ 
+ 
+ 
+ Pelphrey 
+ KA 
+ 
+ 
+ 2006 
+ Functional imaging of numerical processing in adults and 4-y-old children 
+ Plos Biology 
+ 4 
+ 844 
+ 854 
+ 
+ 
+ 
+ 
+ 
+ 
+ Cortes 
+ C 
+ 
+ 
+ Vapnik 
+ V 
+ 
+ 
+ 1995 
+ Support-Vector Networks 
+ Machine Learning 
+ 20 
+ 273 
+ 297 
+ 
+ 
+ 
+ 
+ 
+ 
+ Cox 
+ DD 
+ 
+ 
+ Savoy 
+ RL 
+ 
+ 
+ 2003 
+ Functional magnetic resonance imaging (fMRI) “brain reading”: detecting and classifying distributed patterns of fMRI activity in human visual cortex 
+ Neuroimage 
+ 19 
+ 261 
+ 270 
+ 12814577 
+ 
+ 
+ 
+ 
+ 
+ 
+ Critchley 
+ HD 
+ 
+ 
+ Mathias 
+ CJ 
+ 
+ 
+ Dolan 
+ RJ 
+ 
+ 
+ 2001 
+ Neural activity in the human brain relating to uncertainty and arousal during anticipation 
+ Neuron 
+ 29 
+ 537 
+ 545 
+ 11239442 
+ 
+ 
+ 
+ 
+ 
+ 
+ Davatzikos 
+ C 
+ 
+ 
+ Ruparel 
+ K 
+ 
+ 
+ Fan 
+ Y 
+ 
+ 
+ Shen 
+ DG 
+ 
+ 
+ Acharyya 
+ M 
+ 
+ 
+ Loughead 
+ JW 
+ 
+ 
+ Gur 
+ RC 
+ 
+ 
+ Langleben 
+ DD 
+ 
+ 
+ 2005 
+ Classifying spatial patterns of brain activity with machine learning methods: Application to lie detection 
+ Neuroimage 
+ 28 
+ 663 
+ 668 
+ 16169252 
+ 
+ 
+ 
+ 
+ 
+ 
+ Dehaene 
+ S 
+ 
+ 
+ Piazza 
+ M 
+ 
+ 
+ Pinel 
+ P 
+ 
+ 
+ Cohen 
+ L 
+ 
+ 
+ 2003 
+ Three parietal circuits for number processing 
+ Cognitive Neuropsychology 
+ 20 
+ 487 
+ 506 
+ 
+ 
+ 
+ 
+ 
+ 
+ Delgado 
+ MR 
+ 
+ 
+ Nystrom 
+ LE 
+ 
+ 
+ Fissell 
+ C 
+ 
+ 
+ Noll 
+ DC 
+ 
+ 
+ Fiez 
+ JA 
+ 
+ 
+ 2000 
+ Tracking the hemodynamic responses to reward and punishment in the striatum 
+ Journal of Neurophysiology 
+ 84 
+ 3072 
+ 3077 
+ 11110834 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fawcett 
+ T 
+ 
+ 
+ 2006 
+ An introduction to ROC analysis 
+ Pattern Recognition Letters 
+ 27 
+ 861 
+ 874 
+ 
+ 
+ 
+ 
+ 
+ 
+ Frederick 
+ S 
+ 
+ 
+ Loewenstein 
+ G 
+ 
+ 
+ O’Donoghue 
+ T 
+ 
+ 
+ 2002 
+ Time discounting and time preference: A critical review 
+ Journal of Economic Literature 
+ 40 
+ 351 
+ 401 
+ 
+ 
+ 
+ 
+ 
+ 
+ Friston 
+ K 
+ 
+ 
+ Chu 
+ C 
+ 
+ 
+ Mourao-Miranda 
+ J 
+ 
+ 
+ Hulme 
+ O 
+ 
+ 
+ Rees 
+ G 
+ 
+ 
+ Penny 
+ W 
+ 
+ 
+ Ashburner 
+ J 
+ 
+ 
+ 2008 
+ Bayesian decoding of brain images 
+ Neuroimage 
+ 39 
+ 181 
+ 205 
+ 17919928 
+ 
+ 
+ 
+ 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ Harrison 
+ L 
+ 
+ 
+ Penny 
+ W 
+ 
+ 
+ 2003 
+ Dynamic causal modelling 
+ Neuroimage 
+ 19 
+ 1273 
+ 1302 
+ 12948688 
+ 
+ 
+ 
+ 
+ 
+ 
+ Glimcher 
+ PW 
+ 
+ 
+ Dorris 
+ MC 
+ 
+ 
+ Bayer 
+ HM 
+ 
+ 
+ 2005 
+ Physiological utility theory and the neuroeconomics of choice 
+ Games and Economic Behavior 
+ 52 
+ 213 
+ 256 
+ 16845435 
+ 
+ 
+ 
+ 
+ 
+ 
+ Glimcher 
+ PW 
+ 
+ 
+ Rustichini 
+ A 
+ 
+ 
+ 2004 
+ Neuroeconomics: The consilience of brain and decision 
+ Science 
+ 306 
+ 447 
+ 452 
+ 15486291 
+ 
+ 
+ 
+ 
+ 
+ 
+ Gottlieb 
+ J 
+ 
+ 
+ 2007 
+ From thought to action: The parietal cortex as a bridge between perception, action, and cognition 
+ Neuron 
+ 53 
+ 9 
+ 16 
+ 17196526 
+ 
+ 
+ 
+ 
+ 
+ 
+ Green 
+ L 
+ 
+ 
+ Myerson 
+ J 
+ 
+ 
+ 2004 
+ A discounting framework for choice with delayed and probabilistic rewards 
+ Psychological Bulletin 
+ 130 
+ 769 
+ 792 
+ 15367080 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hampton 
+ AN 
+ 
+ 
+ O’Doherty 
+ JP 
+ 
+ 
+ 2007 
+ Decoding the neural substrates of reward-related decision making with functional MRI 
+ Proc Natl Acad Sci U S A 
+ 104 
+ 1377 
+ 1382 
+ 17227855 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hare 
+ TA 
+ 
+ 
+ O’Doherty 
+ J 
+ 
+ 
+ Camerer 
+ CF 
+ 
+ 
+ Schultz 
+ W 
+ 
+ 
+ Rangel 
+ A 
+ 
+ 
+ 2008 
+ Dissociating the role of the orbitofrontal cortex and the striatum in the computation of goal values and prediction errors 
+ Journal of Neuroscience 
+ 28 
+ 5623 
+ 5630 
+ 18509023 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hariri 
+ AR 
+ 
+ 
+ Brown 
+ SM 
+ 
+ 
+ Williamson 
+ DE 
+ 
+ 
+ Flory 
+ JD 
+ 
+ 
+ de Wit 
+ H 
+ 
+ 
+ Manuck 
+ SB 
+ 
+ 
+ 2006 
+ Preference for immediate over delayed rewards is associated with magnitude of ventral striatal activity 
+ Journal of Neuroscience 
+ 26 
+ 13213 
+ 13217 
+ 17182771 
+ 
+ 
+ 
+ 
+ 
+ 
+ Haynes 
+ JD 
+ 
+ 
+ Rees 
+ G 
+ 
+ 
+ 2005 
+ Predicting the orientation of invisible stimuli from activity in human primary visual cortex 
+ Nature Neuroscience 
+ 8 
+ 686 
+ 691 
+ 
+ 
+ 
+ 
+ 
+ 
+ Haynes 
+ JD 
+ 
+ 
+ Rees 
+ G 
+ 
+ 
+ 2006 
+ Decoding mental states from brain activity in humans 
+ Nature Reviews Neuroscience 
+ 7 
+ 523 
+ 534 
+ 
+ 
+ 
+ 
+ 
+ 
+ Haynes 
+ JD 
+ 
+ 
+ Sakai 
+ K 
+ 
+ 
+ Rees 
+ G 
+ 
+ 
+ Gilbert 
+ S 
+ 
+ 
+ Frith 
+ C 
+ 
+ 
+ Passingham 
+ RE 
+ 
+ 
+ 2007 
+ Reading hidden intentions in the human brain 
+ Current Biology 
+ 17 
+ 323 
+ 328 
+ 17291759 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hsu 
+ M 
+ 
+ 
+ Bhatt 
+ M 
+ 
+ 
+ Adolphs 
+ R 
+ 
+ 
+ Tranel 
+ D 
+ 
+ 
+ Camerer 
+ CF 
+ 
+ 
+ 2005 
+ Neural systems responding to degrees of uncertainty in human decision-making 
+ Science 
+ 310 
+ 1680 
+ 1683 
+ 16339445 
+ 
+ 
+ 
+ 
+ 
+ 
+ Huettel 
+ SA 
+ 
+ 
+ Song 
+ AW 
+ 
+ 
+ McCarthy 
+ G 
+ 
+ 
+ 2005 
+ Decisions under uncertainty: Probabilistic context influences activation of prefrontal and parietal cortices 
+ Journal of Neuroscience 
+ 25 
+ 3304 
+ 3311 
+ 15800185 
+ 
+ 
+ 
+ 
+ 
+ 
+ Huettel 
+ SA 
+ 
+ 
+ Stowe 
+ CJ 
+ 
+ 
+ Gordon 
+ EM 
+ 
+ 
+ Warner 
+ BT 
+ 
+ 
+ Platt 
+ ML 
+ 
+ 
+ 2006 
+ Neural signatures of economic preferences for risk and ambiguity 
+ Neuron 
+ 49 
+ 765 
+ 775 
+ 16504951 
+ 
+ 
+ 
+ 
+ 
+ 
+ Jenkinson 
+ M 
+ 
+ 
+ Bannister 
+ P 
+ 
+ 
+ Brady 
+ M 
+ 
+ 
+ Smith 
+ S 
+ 
+ 
+ 2002 
+ Improved optimization for the robust and accurate linear registration and motion correction of brain images 
+ Neuroimage 
+ 17 
+ 825 
+ 841 
+ 12377157 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kable 
+ JW 
+ 
+ 
+ Glimcher 
+ PW 
+ 
+ 
+ 2007 
+ The neural correlates of subjective value during intertemporal choice 
+ Nature Neuroscience 
+ 10 
+ 1625 
+ 1633 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kamitani 
+ Y 
+ 
+ 
+ Tong 
+ F 
+ 
+ 
+ 2005 
+ Decoding the visual and subjective contents of the human brain 
+ Nature Neuroscience 
+ 8 
+ 679 
+ 685 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kay 
+ KN 
+ 
+ 
+ Naselaris 
+ T 
+ 
+ 
+ Prenger 
+ RJ 
+ 
+ 
+ Gallant 
+ JL 
+ 
+ 
+ 2008 
+ Identifying natural images from human brain activity 
+ Nature 
+ 452 
+ 352 
+ 355 
+ 18322462 
+ 
+ 
+ 
+ 
+ 
+ 
+ Knutson 
+ B 
+ 
+ 
+ Peterson 
+ R 
+ 
+ 
+ 2005 
+ Neurally reconstructing expected utility 
+ Games and Economic Behavior 
+ 52 
+ 305 
+ 315 
+ 
+ 
+ 
+ 
+ 
+ 
+ Knutson 
+ B 
+ 
+ 
+ Westdorp 
+ A 
+ 
+ 
+ Kaiser 
+ E 
+ 
+ 
+ Hommer 
+ D 
+ 
+ 
+ 2000 
+ FMRI visualization of brain activity during a monetary incentive delay task 
+ Neuroimage 
+ 12 
+ 20 
+ 27 
+ 10875899 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kriegeskorte 
+ N 
+ 
+ 
+ Goebel 
+ R 
+ 
+ 
+ Bandettini 
+ P 
+ 
+ 
+ 2006 
+ Information-based functional brain mapping 
+ Proc Natl Acad Sci U S A 
+ 103 
+ 3863 
+ 3868 
+ 16537458 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kuhnen 
+ CM 
+ 
+ 
+ Knutson 
+ B 
+ 
+ 
+ 2005 
+ The neural basis of financial risk taking 
+ Neuron 
+ 47 
+ 763 
+ 770 
+ 16129404 
+ 
+ 
+ 
+ 
+ 
+ 
+ Liston 
+ C 
+ 
+ 
+ Matalon 
+ S 
+ 
+ 
+ Hare 
+ TA 
+ 
+ 
+ Davidson 
+ MC 
+ 
+ 
+ Casey 
+ BJ 
+ 
+ 
+ 2006 
+ Anterior cingulate and posterior parietal cortices are sensitive to dissociable forms of conflict in a task-switching paradigm 
+ Neuron 
+ 50 
+ 643 
+ 653 
+ 16701213 
+ 
+ 
+ 
+ 
+ 
+ 
+ McClure 
+ SM 
+ 
+ 
+ Ericson 
+ KM 
+ 
+ 
+ Laibson 
+ DI 
+ 
+ 
+ Loewenstein 
+ G 
+ 
+ 
+ Cohen 
+ JD 
+ 
+ 
+ 2007 
+ Time discounting for primary rewards 
+ J Neurosci 
+ 27 
+ 5796 
+ 5804 
+ 17522323 
+ 
+ 
+ 
+ 
+ 
+ 
+ McClure 
+ SM 
+ 
+ 
+ Laibson 
+ DI 
+ 
+ 
+ Loewenstein 
+ G 
+ 
+ 
+ Cohen 
+ JD 
+ 
+ 
+ 2004 
+ Separate neural systems value immediate and delayed monetary rewards 
+ Science 
+ 306 
+ 503 
+ 507 
+ 15486304 
+ 
+ 
+ 
+ 
+ 
+ 
+ Mitchell 
+ TM 
+ 
+ 
+ Hutchinson 
+ R 
+ 
+ 
+ Niculescu 
+ RS 
+ 
+ 
+ Pereira 
+ F 
+ 
+ 
+ Wang 
+ XR 
+ 
+ 
+ Just 
+ M 
+ 
+ 
+ Newman 
+ S 
+ 
+ 
+ 2004 
+ Learning to decode cognitive states from brain images 
+ Machine Learning 
+ 57 
+ 145 
+ 175 
+ 
+ 
+ 
+ 
+ 
+ 
+ Montague 
+ PR 
+ 
+ 
+ Berns 
+ GS 
+ 
+ 
+ 2002 
+ Neural economics and the biological substrates of valuation 
+ Neuron 
+ 36 
+ 265 
+ 284 
+ 12383781 
+ 
+ 
+ 
+ 
+ 
+ 
+ Mourao-Miranda 
+ J 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ Brammer 
+ M 
+ 
+ 
+ 2007 
+ Dynamic discrimination analysis: a spatial-temporal SVM 
+ Neuroimage 
+ 36 
+ 88 
+ 99 
+ 17400479 
+ 
+ 
+ 
+ 
+ 
+ 
+ Norman 
+ KA 
+ 
+ 
+ Polyn 
+ SM 
+ 
+ 
+ Detre 
+ GJ 
+ 
+ 
+ Haxby 
+ JV 
+ 
+ 
+ 2006 
+ Beyond mind-reading: multi-voxel pattern analysis of fMRI data 
+ Trends in Cognitive Sciences 
+ 10 
+ 424 
+ 430 
+ 16899397 
+ 
+ 
+ 
+ 
+ 
+ 
+ O’Toole 
+ AJ 
+ 
+ 
+ Jiang 
+ F 
+ 
+ 
+ Abdi 
+ H 
+ 
+ 
+ Penard 
+ N 
+ 
+ 
+ Dunlop 
+ JP 
+ 
+ 
+ Parent 
+ MA 
+ 
+ 
+ 2007 
+ Theoretical, statistical, and practical perspectives on pattern-based classification amoroaches to the analysis of functional neuroimaging data 
+ Journal of Cognitive Neuroscience 
+ 19 
+ 1735 
+ 1752 
+ 17958478 
+ 
+ 
+ 
+ 
+ 
+ 
+ Padoa-Schioppa 
+ C 
+ 
+ 
+ 2007 
+ Orbitofrontal cortex and the computation of economic value 
+ Linking Affect to Action: Critical Contributions of the Orbitofrontal Cortex 
+ 1121 
+ 232 
+ 253 
+ 
+ 
+ 
+ 
+ 
+ 
+ Padoa-Schioppa 
+ C 
+ 
+ 
+ Assad 
+ JA 
+ 
+ 
+ 2006 
+ Neurons in the orbitofrontal cortex encode economic value 
+ Nature 
+ 441 
+ 223 
+ 226 
+ 16633341 
+ 
+ 
+ 
+ 
+ 
+ 
+ Paulus 
+ MP 
+ 
+ 
+ Rogalsky 
+ C 
+ 
+ 
+ Simmons 
+ A 
+ 
+ 
+ Feinstein 
+ JS 
+ 
+ 
+ Stein 
+ MB 
+ 
+ 
+ 2003 
+ Increased activation in the right insula during risk-taking decision making is related to harm avoidance and neuroticism 
+ Neuroimage 
+ 19 
+ 1439 
+ 1448 
+ 12948701 
+ 
+ 
+ 
+ 
+ 
+ 
+ Pessoa 
+ L 
+ 
+ 
+ Padmala 
+ S 
+ 
+ 
+ 2005 
+ Quantitative prediction of perceptual decisions during near-threshold fear detection 
+ Proc Natl Acad Sci U S A 
+ 102 
+ 5612 
+ 5617 
+ 15800041 
+ 
+ 
+ 
+ 
+ 
+ 
+ Piazza 
+ M 
+ 
+ 
+ Izard 
+ V 
+ 
+ 
+ Pinel 
+ P 
+ 
+ 
+ Le Bihan 
+ D 
+ 
+ 
+ Dehaene 
+ S 
+ 
+ 
+ 2004 
+ Tuning curves for approximate numerosity in the human intraparietal sulcus 
+ Neuron 
+ 44 
+ 547 
+ 555 
+ 15504333 
+ 
+ 
+ 
+ 
+ 
+ 
+ Plassmann 
+ H 
+ 
+ 
+ O’Doherty 
+ J 
+ 
+ 
+ Rangel 
+ A 
+ 
+ 
+ 2007 
+ Orbitofrontal cortex encodes willingness to pay in everyday economic transactions 
+ Journal of Neuroscience 
+ 27 
+ 9984 
+ 9988 
+ 17855612 
+ 
+ 
+ 
+ 
+ 
+ 
+ Prelec 
+ D 
+ 
+ 
+ Loewenstein 
+ G 
+ 
+ 
+ 1991 
+ Decision-Making over Time and under Uncertainty - a Common Approach 
+ Management Science 
+ 37 
+ 770 
+ 786 
+ 
+ 
+ 
+ 
+ 
+ 
+ Preuschoff 
+ K 
+ 
+ 
+ Bossaerts 
+ P 
+ 
+ 
+ Quartz 
+ SR 
+ 
+ 
+ 2006 
+ Neural differentiation of expected reward and risk in human subcortical structures 
+ Neuron 
+ 51 
+ 381 
+ 390 
+ 16880132 
+ 
+ 
+ 
+ 
+ 
+ 
+ Rangel 
+ A 
+ 
+ 
+ Camerer 
+ C 
+ 
+ 
+ Montague 
+ PR 
+ 
+ 
+ 2008 
+ A framework for studying the neurobiology of value-based decision making 
+ Nature Reviews Neuroscience 
+ 9 
+ 545 
+ 556 
+ 
+ 
+ 
+ 
+ 
+ 
+ Roesch 
+ MR 
+ 
+ 
+ Olson 
+ CR 
+ 
+ 
+ 2004 
+ Neuronal activity related to reward value and motivation in primate frontal cortex 
+ Science 
+ 304 
+ 307 
+ 310 
+ 15073380 
+ 
+ 
+ 
+ 
+ 
+ 
+ Rorden 
+ C 
+ 
+ 
+ Karnath 
+ HO 
+ 
+ 
+ Bonilha 
+ L 
+ 
+ 
+ 2007 
+ Improving lesion-symptom mapping 
+ Journal of Cognitive Neuroscience 
+ 19 
+ 1081 
+ 1088 
+ 17583985 
+ 
+ 
+ 
+ 
+ 
+ 
+ Rushworth 
+ MFS 
+ 
+ 
+ Behrens 
+ TEJ 
+ 
+ 
+ Rudebeck 
+ PH 
+ 
+ 
+ Walton 
+ ME 
+ 
+ 
+ 2007 
+ Contrasting roles for cingulate and orbitofrontal cortex in decisions and social behaviour 
+ Trends in Cognitive Sciences 
+ 11 
+ 168 
+ 176 
+ 17337237 
+ 
+ 
+ 
+ 
+ 
+ 
+ Schultz 
+ W 
+ 
+ 
+ Dayan 
+ P 
+ 
+ 
+ Montague 
+ PR 
+ 
+ 
+ 1997 
+ A neural substrate of prediction and reward 
+ Science 
+ 275 
+ 1593 
+ 1599 
+ 9054347 
+ 
+ 
+ 
+ 
+ 
+ 
+ Serences 
+ JT 
+ 
+ 
+ Boynton 
+ GM 
+ 
+ 
+ 2007 
+ Feature-based attentional modulations in the absence of direct visual stimulation 
+ Neuron 
+ 55 
+ 301 
+ 312 
+ 17640530 
+ 
+ 
+ 
+ 
+ 
+ 
+ Shinkareva 
+ SV 
+ 
+ 
+ Mason 
+ RA 
+ 
+ 
+ Malave 
+ VL 
+ 
+ 
+ Wang 
+ W 
+ 
+ 
+ Mitchell 
+ TM 
+ 
+ 
+ Just 
+ MA 
+ 
+ 
+ 2008 
+ Using fMRI Brain Activation to Identify Cognitive States Associated with Perception of Tools and Dwellings 
+ PLoS ONE 
+ 3 
+ 
+ 
+ 
+ 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Jenkinson 
+ M 
+ 
+ 
+ Woolrich 
+ MW 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ Behrens 
+ TEJ 
+ 
+ 
+ Johansen-Berg 
+ H 
+ 
+ 
+ Bannister 
+ PR 
+ 
+ 
+ De Luca 
+ M 
+ 
+ 
+ Drobnjak 
+ I 
+ 
+ 
+ Flitney 
+ DE 
+ 
+ 
+ Niazy 
+ RK 
+ 
+ 
+ Saunders 
+ J 
+ 
+ 
+ Vickers 
+ J 
+ 
+ 
+ Zhang 
+ YY 
+ 
+ 
+ De Stefano 
+ N 
+ 
+ 
+ Brady 
+ JM 
+ 
+ 
+ Matthews 
+ PM 
+ 
+ 
+ 2004 
+ Advances in functional and structural MR image analysis and implementation as FSL 
+ Neuroimage 
+ 23 
+ S208 
+ S219 
+ 15501092 
+ 
+ 
+ 
+ 
+ 
+ 
+ Soon 
+ CS 
+ 
+ 
+ Brass 
+ M 
+ 
+ 
+ Heinze 
+ HJ 
+ 
+ 
+ Haynes 
+ JD 
+ 
+ 
+ 2008 
+ Unconscious determinants of free decisions in the human brain 
+ Nature Neuroscience 
+ 11 
+ 543 
+ 545 
+ 
+ 
+ 
+ 
+ 
+ 
+ Starmer 
+ C 
+ 
+ 
+ 2000 
+ Developments in non-expected utility theory: The hunt for a descriptive theory of choice under risk 
+ Journal of Economic Literature 
+ 38 
+ 332 
+ 382 
+ 
+ 
+ 
+ 
+ 
+ 
+ Sugrue 
+ LP 
+ 
+ 
+ Corrado 
+ GS 
+ 
+ 
+ Newsome 
+ WT 
+ 
+ 
+ 2004 
+ Matching behavior and the representation of value in the parietal cortex 
+ Science 
+ 304 
+ 1782 
+ 1787 
+ 15205529 
+ 
+ 
+ 
+ 
+ 
+ 
+ Sugrue 
+ LP 
+ 
+ 
+ Corrado 
+ GS 
+ 
+ 
+ Newsome 
+ WT 
+ 
+ 
+ 2005 
+ Choosing the greater of two goods: Neural currencies for valuation and decision making 
+ Nature Reviews Neuroscience 
+ 6 
+ 363 
+ 375 
+ 
+ 
+ 
+ 
+ 
+ 
+ Tanaka 
+ SC 
+ 
+ 
+ Doya 
+ K 
+ 
+ 
+ Okada 
+ G 
+ 
+ 
+ Ueda 
+ K 
+ 
+ 
+ Okamoto 
+ Y 
+ 
+ 
+ Yamawaki 
+ S 
+ 
+ 
+ 2004 
+ Prediction of immediate and future rewards differentially recruits cortico-basal ganglia loops 
+ Nature Neuroscience 
+ 7 
+ 887 
+ 893 
+ 
+ 
+ 
+ 
+ 
+ 
+ Thaler 
+ RH 
+ 
+ 
+ 1990 
+ Anomalies - Saving, Fungibility, and Mental Accounts 
+ Journal of Economic Perspectives 
+ 4 
+ 193 
+ 205 
+ 
+ 
+ 
+ 
+ 
+ 
+ Vapnik 
+ V 
+ 
+ 
+ Lerner 
+ A 
+ 
+ 
+ 1963 
+ Pattern recognition using generalized portrait method 
+ Automation and Remote Control 
+ 24 
+ 774 
+ 780 
+ 
+ 
+ 
+ 
+ 
+ 
+ Wallis 
+ JD 
+ 
+ 
+ 2007 
+ Orbitofrontal cortex and its contribution to decision-making 
+ Annual Review of Neuroscience 
+ 30 
+ 31 
+ 56 
+ 
+ 
+ 
+ 
+ 
+ 
+ Weber 
+ BJ 
+ 
+ 
+ Chapman 
+ GB 
+ 
+ 
+ 2005 
+ Playing for peanuts: Why is risk seeking more common for low-stakes gambles? 
+ Organizational Behavior and Human Decision Processes 
+ 97 
+ 31 
+ 46 
+ 
+ 
+ 
+ 
+ 
+ 
+ Weber 
+ BJ 
+ 
+ 
+ Huettel 
+ SA 
+ 
+ 
+ 2008 
+ The neural substrates of probabilistic and intertemporal decision making 
+ Brain Research 
+ 1234 
+ 104 
+ 115 
+ 18710652 
+ 
+ 
+ 
+ 
+ 
+ This is a PDF file of an unedited manuscript that has been accepted for publication. As a service to our customers we are providing this early version of the manuscript. The manuscript will undergo copyediting, typesetting, and review of the resulting proof before it is published in its final citable form. Please note that during the production process errors may be discovered which could affect the content, and all legal disclaimers that apply to the journal pertain. 
+ 
+ 
+ 

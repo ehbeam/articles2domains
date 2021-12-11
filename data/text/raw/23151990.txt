@@ -1,0 +1,4122 @@
+
+ properties manuscript? 
+ 
+ 
+ 9419065 
+ 21028 
+ Hum Brain Mapp 
+ Hum Brain Mapp 
+ 
+ Human brain mapping 
+ 
+ 1065-9471 
+ 1097-0193 
+ 
+ 
+ 23151990 
+ 4440319 
+ 10.1002/hbm.22212 
+ NIHMS673204 
+ 
+ 
+ Article 
+ 
+ 
+ 
+ Stochastic Dynamic Causal Modeling of Working Memory Connections in Cocaine Dependence 
+ 
+ 
+ 
+ 
+ Ma 
+ Liangsuo 
+ 
+ a 
+ * 
+ 
+ 
+ 
+ Steinberg 
+ Joel L. 
+ 
+ a 
+ 
+ 
+ 
+ Hasan 
+ Khader M. 
+ 
+ b 
+ 
+ 
+ 
+ Narayana 
+ Ponnada A. 
+ 
+ b 
+ 
+ 
+ 
+ Kramer 
+ Larry A. 
+ 
+ b 
+ 
+ 
+ 
+ Moeller 
+ F. Gerard 
+ 
+ a 
+ 
+ 
+ a Department of Psychiatry and Behavioral Sciences, University of Texas Health Science Center, Houston, Texas 77030, USA 
+ b Department of Diagnostic and Interventional Imaging, University of Texas Health Science Center, Houston, Texas 77030, USA 
+ 
+ * Correspondence: Liangsuo Ma, Ph.D., Department of Psychiatry and Behavioral Sciences, University of Texas Health Science Center, 1941 East Road, Room 3160, Houston, Texas 77054, USA, Phone: +1 713-486-2638, Fax: +1 713-486-2618,  liangsuo.ma@uth.tmc.edu 
+ 
+ 
+ 14 
+ 5 
+ 2015 
+ 
+ 
+ 14 
+ 11 
+ 2012 
+ 
+ 
+ 3 
+ 2014 
+ 
+ 
+ 21 
+ 5 
+ 2015 
+ 
+ 35 
+ 3 
+ 760 
+ 778 
+ 
+ 
+ This file is available for text mining. It may also be used consistent with the principles of fair use under the copyright law. 
+ 
+ 
+ 
+ Although reduced working memory brain activation has been reported in several brain regions of cocaine dependent subjects compared to controls, very little is known about whether there is altered connectivity of working memory pathways in cocaine dependence. This study addresses this issue by using functional magnetic resonance imaging (fMRI)-based stochastic dynamic causal model (DCM) analysis to study the effective connectivity of 19 cocaine-dependent subjects and 14 healthy controls while performing a working memory task. Stochastic DCM is an advanced method that has recently been implemented in SPM8 that can obtain improved estimates, relative to deterministic DCM, of hidden neuronal causes prior to convolution with the hemodynamic response. Thus, stochastic DCM may be less influenced by the confounding effects of variations in BOLD response caused by disease or drugs. Based on the significant regional activation common to both groups, and consistent with previous working memory activation studies, seven regions of interest were chosen as nodes for DCM analyses. Bayesian family level inference, Bayesian model selection analyses, and Bayesian model averaging (BMA) were conducted. BMA showed that the cocaine-dependent subjects had large differences compared to the control subjects in the strengths of prefrontal-striatal modulatory (B matrix) DCM parameters. These findings are consistent with altered cortical-striatal networks that may be related to reduced dopamine function in cocaine dependence. As far as we are aware, this is the first between-group DCM study using stochastic methodology. 
+ 
+ 
+ dynamic causal modeling 
+ stochastic DCM 
+ effective connectivity 
+ working memory 
+ cocaine dependence 
+ addiction 
+ 
+ 
+ 
+ 
+ 1. Introduction 
+ Functional magnetic resonance imaging (fMRI) univariate analysis of regional activation is valuable for understanding the regional neural substrates associated with cognitive functions. However, this method has a potential inherent disadvantage when it is used for studying disease, i.e., difficulty in interpreting the results because of significant variations in blood oxygen level dependent (BOLD) response caused by the disease ( Buxton, 2009 ). Changes in the BOLD signal could be confounded by the possible disruption by disease or drugs on neurovascular coupling and/or hemodynamic response ( Iannetti and Wise, 2007 ). Correspondingly, a previous study ( Choi et al., 2006 ) has shown that the direct effects of dopamine upon the vasculature need to be considered when measuring the hemodynamic coupling associated with dopaminergic drugs. This is especially relevant in cocaine dependence, for which studies have suggested is a disorder associated with reduced dopamine neurotransmission in the brain ( Volkow et al., 2009 ;  Volkow et al., 2007 ). 
+ Interregional connectivity is generally quantified by using functional connectivity or effective connectivity analysis techniques ( Friston, 1995a ). Functional connectivity refers to the correlations between spatially remote neurophysiological events ( Friston, 1995a ). Unlike functional connectivity, effective connectivity measures the causal effect that one region’s activity has on that of another region ( Friston, 1995a ). Dynamic causal modeling (DCM) ( Friston et al., 2003 ;  Li et al., 2011a ) can explicitly evaluate the directional modulation effects of contextual experimental conditions on effective connectivity ( Stephan et al., 2007a ). Furthermore, effective connectivity in DCM is modeled at the underlying neuronal level rather than the observed hemodynamic level ( Friston et al., 2003 ;  Stephan et al., 2007a ). In addition, DCM may reduce the potential hemodynamic confounding effects on effective connectivity through jointly optimizing the underlying neuronal parameters of the effective connectivity and the regionally specific hemodynamic response functions ( Stephan et al., 2007b ). DCM has been successfully used to study the effective connectivity of several diseases (see  Seghier et al., 2010  for review). 
+ An advance in DCM technique that has recently been implemented in SPM8, stochastic DCM ( Daunizeau et al., 2009 ;  Li et al., 2011a ), is an extension of deterministic DCM, which seeks to improve model estimation by modeling random fluctuations (or noise variance) and hidden neuronal causes in the differential equations of the neuronal states ( Li et al., 2011a ). Stochastic DCM can obtain improved estimates, relative to deterministic DCM, of hidden neuronal causes prior to convolution with the hemodynamic response ( Li et al., 2011a ). Therefore the effective connectivity estimated by stochastic DCM may be less influenced by the confounding effects of significant variations in BOLD response caused by disease or drugs. 
+ Cocaine dependence is associated with several cognitive deficits including working memory ( Ardila et al., 1991 ;  Beveridge et al., 2008 ;  George et al., 2008 ;  Jovanovski et al., 2005 ;  Sofuoglu, 2010 ). Current functional neuroimaging research on cognitive deficits in substance dependence has focused on identifying regional neural substrates mediating the impaired cognitive functions (See  Aron and Paulus, 2007 ;  Lundqvist, 2010  for review.). Several research groups have used fMRI to study regional brain activation, finding differences in BOLD activation between cocaine-dependent subjects and controls while performing a working memory task. For example, using an n-back working memory task,  Tomasi et al. (2007)  found lower working memory load-dependent activation in the prefrontal and parietal cortices in cocaine abusers compared to controls. Another study using an n-back task reported that, relative to controls, cocaine-dependent subjects showed reduced activation in the right inferior parietal cortex ( Bustamante et al., 2011 ). Using a working memory task with variable load,  Moeller et al. (2010)  found that cocaine dependent subjects showed significantly lower working memory load-dependent activation in several cortical and subcortical regions compared to normal control subjects, including caudate nucleus, middle, superior, and inferior frontal gyri, and thalamus. 
+ Accumulated findings from human and animal studies have led to models for interpreting the neural basis of cognitive functions as interactions between functionally related brain regions ( Collette and Van der Linden, 2002 ;  D’Esposito, 2007 ;  Funahashi, 2006 ;  Fuster, 2006 ;  Vuilleumier and Driver, 2007 ). Recent studies have shown that interregional connectivity methods are more sensitive to the presence or severity of diseases and/or treatment effects than the traditional univariate analysis of regional activations (reviewed by  Rowe, 2010 ). 
+ Several studies ( Camchong et al., 2011 ;  Gu et al., 2010 ;  Hanlon et al., 2011 ;  Kelly et al., 2011 ;  Li et al., 2011b ;  Tomasi et al., 2010 ;  Wilcox et al., 2011 ) have used functional connectivity to study cocaine dependence. For example,  Tomasi et al. (2010)  used a drug-word fMRI paradigm and found that, relative to controls, cocaine abusers had lower functional connectivity of midbrain with thalamus, cerebellum, and rostral cingulate. In addition, the lower functional connectivity was associated with less activation in thalamus and cerebellum and greater deactivation in rostral cingulate ( Tomasi et al., 2010 ). These studies demonstrated abnormal functional connectivity in cocaine users during tasks ( Hanlon et al., 2011 ;  Li et al., 2011b ;  Tomasi et al., 2010 ) or during resting state ( Camchong et al., 2011 ;  Gu et al., 2010 ;  Kelly et al., 2011 ;  Li et al., 2011b ;  Wilcox et al., 2011 ). In addition, other studies using diffusion tensor imaging found reduced white matter integrity in the anterior and posterior corpus callosum in cocaine-dependent subjects compared to controls ( Ma et al., 2009 ;  Moeller et al., 2005 ;  Moeller et al., 2007 ). The findings of these studies suggested that transcallosal connections, including those that are important for working memory, may be compromised in cocaine-dependent subjects. 
+ Based on these findings in the context of interregional connectivity models for working memory (e.g.,  Fuster, 2006 ;  Fuster, 2008 ,  2009 ;  Ma et al., 2011 ), and the findings that cocaine dependence is associated with reduced dopamine neurotransmission in the brain ( Volkow et al., 2009 ;  Volkow et al., 2007 ), we hypothesized that the effective connectivity of brain regions involved in working memory is altered in cocaine dependent subjects. To test this hypothesis, we used stochastic DCM to measure the differences in fMRI-based effective connectivity of the working memory system between nineteen cocaine dependent subjects and fourteen normal control subjects while they performed a working memory task with variable loads. As far as we are aware, this is the first between-group DCM study using stochastic methodology. 
+ 
+ 
+ 2. Materials and methods 
+ 
+ 2.1 Subjects 
+ This study was approved by the institutional review board at the University of Texas Health Science Center at Houston, and was performed in accordance with the Code of Ethics of the World Medical Association (Declaration of Helsinki). Subjects with current cocaine dependence and non-drug-using normal controls were recruited through advertisements for research volunteers. Informed consent was obtained from all subjects. 
+ All subjects were screened for psychiatric disorders using the Structured Clinical Interview for DSM-IV (SCID) ( First et al., 1996 ). All subjects underwent physical examination and their medical history was obtained. Subjects also underwent the Addiction Severity Index ( McLellan et al., 1992 ) to document possible lifetime drug and alcohol use. All female subjects underwent a urine pregnancy test immediately prior to MRI scanning. Each subject’s urine was screened for tetrahydrocannabinol (THC), opiates, cocaine (benzoylecgonine), amphetamines, and benzodiazepines using an immunochromatographic assay (Syva Company, Dearfield, IL), and each subject was screened for alcohol using an Intoximeter Alcosensor III breathalyzer (Intoximeters, Inc., St Louis, MO) immediately prior to MRI scanning. 
+ After meeting the inclusion and exclusion criteria, a total of 19 cocaine-dependent subjects (cocaine group) and 14 control subjects (control group) were included in this study, out of 71 subjects (28 controls and 43 cocaine subjects) who were initially screened. Among the 33 subjects in the current study, 8 cocaine subjects and 6 controls had been previously studied in  Moeller et al. (2010) , which was purely an fMRI activation study that did not perform any DCM or other connectivity analysis. Among the 14 control subjects in the current study, 13 of them had been used in the DCM study by  Ma et al. (2011) , which examined effective connectivity in normals only and did not involve any group comparisons. None of the cocaine subjects in the current study had ever been studied previously using DCM or any other functional or effective connectvity analysis. The current study is the first time that our group has compared fMRI-based connectivity in cocaine users with normal controls. Please see the  Supplementary Materials  for the inclusion and exclusion criteria, and the details regarding the subjects who were excluded. 
+ 
+ 
+ 2.2 IMT/DMT fMRI protocol 
+ The immediate memory task (IMT) and delayed memory task (DMT) working memory protocol has been described in detail in  Moeller et al. (2010)  and the references therein. In DMT, the target and probe stimuli are separated by distracter stimuli, consisting of strings of zeros, and the memory delay between the end of the target stimulus and beginning of the probe stimulus is 3.5 s. In IMT, there are no distracter stimuli, and thus the memory delay is 0.5 s. The A′ score (Donaldson, 1992) is used as an accuracy measure. The IMT/DMT fMRI protocol is a block design, and the duration of each block is 42.5 s. There are 12 blocks alternating between IMT and DMT within each run. Each stimulus string can be 3, 5, or 7 digits in length, which is held constant within a block. In detail, the blocks during each run were: 3-digit-IMT, 3-digit-DMT, 5-digit-IMT, 5-digit-DMT, 7-digit-IMT, 7-digit-DMT; which were then repeated during the same run, in which the order of the 3, 5, and 7 digits was counterbalanced across runs and subjects. In addition there was a 20 s rest period at the beginning of the run, and a 10 s rest period between each of the above blocks. 
+ 
+ 
+ 2.3 Data Acquisition 
+ MRI data, including three-dimensional spoiled gradient recalled echo (3D-SPGR), fMRI, and fluid-attenuated inversion recovery (FLAIR) sequences were acquired on a Philips 3.0 T Intera system with an eight-channel receive head coil (Philips Medical Systems, Best, Netherlands). Single shot spin-echo echo planar imaging (EPI) was used for acquiring the fMRI data. The spin echo EPI sequence eliminates signal losses caused by through-slice dephasing in medial orbitofrontal cortex ( Kruger et al., 2001 ;  Norris et al., 2002 ;  Wang et al., 2004 ). The fMRI acquisition parameters were: SENSE factor=2.0, repetition time=2212 ms, echo time=75 ms, flip angle=90°, number of axial slices=22, field-of-view=240 mm × 240 mm, in-plane resolution 3.75 mm × 3.75 mm, slice thickness=3.75 mm, gap=1.25 mm, repetitions=294 after 10 dummy acquisitions, total scan duration=10 min 47 s. Each subject had two runs of fMRI scans. 
+ Stimulus presentation and recording of behavioral IMT/DMT performance data during fMRI scanning were managed through the Integrated Functional Imaging System-Stand Alone (IFIS-SA, Invivo Corporation, Orlando, Florida) fMRI system or the Eloquence (an update of IFIS-SA) fMRI System (Invivo Corporation, Orlando, Florida). The software controlling the task was exactly the same in both systems. Using the two systems, we ascertained that each subject could see the visual stimuli adequately on the screen prior to the start of the fMRI scan. 14 IFIS subjects and 19 Eloquence subjects were included for final analysis. 
+ 
+ 
+ 2.4 fMRI Preprocessing 
+ Preprocessing of the fMRI data was performed using AFNI ( Cox, 1996 ) software ( http://afni.nimh.nih.gov/afni/ ) and Statistical Parametric Mapping 8 (SPM8) software ( http://www.fil.ion.ucl.ac.uk/spm/ ) from the Wellcome Department of Cognitive Neurology, London, UK, implemented in Matlab 7.1 (Mathworks Inc. Sherborn MA, USA). Preprocessing consisted of examination for artifacts using AFNI, and slice-timing correction, realignment, coregistration, normalization, and smoothing using standard SPM8 modules. Please see the  Supplementary Materials  for details of the fMRI preprocessing. 
+ 
+ 
+ 2.5 Univariate fMRI statistical parametric mapping analysis 
+ First level univariate statistical analysis of the fMRI data was conducted using SPM8. The IMT and DMT blocks for each digit condition were modeled by boxcar functions convolved with the SPM8 canonical hemodynamic response function. The parameters for each condition were estimated using the General Linear Model ( Friston, 1995b ) at each voxel without global normalization. The fMRI time series was high-pass filtered with an optimized cut-off period of 330 s determined by the Fourier transformation of each condition’s time model. Activation for each digit condition was defined as the contrast of DMT minus IMT parameter estimates (“DI”) for that digit condition (i.e., DI3, DI5, and DI7 for 3 digits, 5 digits, and 7 digit conditions respectively). In addition, the following contrast images were defined to determine the interaction effects between the memory delay (IMT and DMT) and the digit load (3 digits, 5 digits, and 7 digits): DI5 minus DI3, DI3 minus DI5, DI7 minus DI3, DI3 minus DI7, DI7 minus DI5, and DI5 minus DI7. The following contrast image was defined to determine the main effects of memory delay (pooled across 3 digits, 5 digits, and 7 digits): combined DI3, DI5, and DI7. The summary contrast images were output for each subject for entry into the second-level analysis. 
+ Because DCM in patients focuses on the characterization of abnormal connectivity in a common network of regions in which the models must have identical nodes,  Seghier et al. (2010)  recommended that only commonly activated regions in patients and controls should be included as nodes in DCM ( Seghier et al., 2010 ). According to the practical steps in a typical DCM analysis suggested by  Seghier et al. (2010 ,  Figure 1 ), random effects group analysis can be used to determine the DCM nodes. Consistent with Seghier et al.’s recommendation and previous DCM studies (e.g.,  Bitan et al., 2005 ;  Deserno et al., 2012 ;  Dima et al., 2009 ;  DiQuattro and Geng, 2011 ;  Wang et al., 2011 ), we used random effects ( Holmes and Friston, 1998 ) group analysis to determine the regions that significantly activated across both groups in the present study, along with conservative correction for multiple voxelwise comparisons, in order to provide a valid generalization of the results to the populations from which the subjects were sampled. In a relatively large cognitive fMRI-based DCM study such as this (14 controls and 19 patients), there is no guarantee that each individual subject activates exactly the same region in common with all the other subjects, unless extremely low thresholds are used ad hoc in some subjects without adequate protection against Type I statistical error due to multiple voxelwise comparisons. In our preliminary analysis we found this to be the case even when using SPM8 Small Volume Correction (data available upon request). In addition (please see the next Section: Stochastic dynamic causal modeling), the principal eigenvariate was extracted from the volume of interest and used as a summary of the time series. This procedure does not assume homogenous responses within the volume of interest, and uses the temporal covariance of voxels in the volume of interest to find coherent spatial modes of activation ( Friston et al., 2006 ). Furthermore (please see the next Section: Stochastic dynamic causal modeling), individual differences between subjects in DCM parameters can be captured by the Bayesian Model Averaging (BMA) procedure which was conducted in this study. For each type of summary contrast image, the group difference and the main effects across the means for both groups was determined with the default non-sphericity correction for unequal variance between groups. 
+ Statistical significance of the univariate fMRI analysis was defined to be false discovery rate (FDR) corrected cluster P less than 0.05. The cluster-defining threshold was voxel t = 2.4. Approximate anatomical labels for regions of activation were determined using the Anatomical Automatic Labeling ( Tzourio-Mazoyer et al., 2002 ) toolbox for SPM. 
+ 
+ 
+ 2.6 Stochastic dynamic causal modeling 
+ Stochastic DCM ( Daunizeau et al., 2009 ;  Li et al., 2011a ), as implemented in DCM10 (SPM8 revision 4010), was used for effective connectivity analysis. Stochastic DCM is an extension of deterministic DCM, which seeks to improve model estimation by modeling random fluctuations (or noise variance) and hidden neuronal causes in the differential equations of the neuronal states ( Li et al., 2011a ). In stochastic DCM for fMRI, the dynamics of the neural states underlying the BOLD response are modeled by a differential state equation that describes how the neural states change based on the current neural states and the exogenous inputs ( Friston et al., 2003 ). In addition, random fluctuations ( Li et al., 2011a ) are modeled in stochastic DCM, which are not modeled in deterministic DCM. In this differential equation, the interactions between the neural states are termed as endogenous connections and quantified by A matrix parameters. The contextual experimental conditions can bilinearly modulate the connections as quantified by B matrix parameters, or affect the nodes of DCM as driving inputs as quantified by C matrix parameters ( Friston et al., 2003 ;  Stephan et al., 2007a ). If there are connections that are gated by some regions in the system, the gating effects (nonlinear) can be modeled by D matrix parameters (Stephan et al., 2008). The random differential equation treats the driving inputs as priors on the hidden neuronal causes because the fluctuations induce uncertainty about the way that the driving inputs affect neuronal activity ( Li et al., 2011a ).  Li et al. (2011a)  have demonstrated that stochastic DCM can show improvement in parameter estimation over deterministic DCM. More recently,  Daunizeau et al. (2012)  have validated stochastic DCM and shown that stochastic DCM is superior over deterministic DCM in both model structure inference and model parameter inference. We used bilinear stochastic DCM in the present study (the nonlinear D-matrix option was not applied). 
+ 
+ 2.6.1 Regions-of-interest 
+ The regions-of-interest (ROIs) were chosen based on the following criteria: (1) these regions showed significant activation in the univariate SPM second-level analysis of the main effect of memory delay for the combined groups (see Results); (2) previous meta-analyses of neuroimaging studies have shown that these regions activate consistently during verbal working memory tasks ( Owen et al., 2005 ;  Wager and Smith, 2003 ); (3) these regions have been implicated in working memory processes, e.g., encoding ( Woodward et al., 2006 ), storage ( Hartley and Speer, 2000 ), maintenance ( Hartley and Speer, 2000 ;  Wager and Smith, 2003 ;  Woodward et al., 2006 ), and executive control ( Hartley and Speer, 2000 ). Based on these criteria, the ROIs for the DCM analyses in this study were: (1) left (L) inferior frontal cortex (IFC), (2) L middle frontal gyrus (MFG) (i.e., representing left dorsolateral prefrontal cortex), (3) L posterior parietal cortex (PPC), (4) right (R) PPC, (5) combined left and right (LR) supplementary motor area (SMA), (6) L striatum (STR), and (7) R STR. The LR SMA was treated as a single ROI because the detected activation in SMA contiguously spanned both L and R sides combined. 
+ 
+ 
+ 2.6.2 Volumes of interest and time series extraction 
+ We followed the method of constructing the volumes of interest that was described in  Ma et al. (2011) . The significant group level activation clusters formed the volumes of interest, which were further constrained ( Stephan et al., 2010 ) to be within the boundaries of the aforementioned seven ROIs, as defined by anatomical atlases. The atlas-derived binary masks of the regions were obtained from the Anatomical Automatic Labeling atlas ( Tzourio-Mazoyer et al., 2002 ) as implemented in the WFU (Wake Forest University) PickAtlas SPM toolbox ( Maldjian et al., 2004 ;  Maldjian et al., 2003 ). The binary mask of IFC was the set-theoretic union of the atlas-based binary masks of inferior frontal gyrus pars opercularis and inferior frontal gyrus pars triangularis. The binary mask of PPC was the union of the atlas-based binary masks of superior parietal lobule and inferior parietal lobule. The binary mask of striatum was the union of the atlas-based binary masks of caudate, putamen, and nucleus accumbens. The atlas-derived binary mask of the nucleus accumbens was obtained from the Harvard-Oxford Subcortical Structural atlas ( http://www.cma.mgh.harvard.edu/ ) as provided in the FSL software ( Smith et al., 2004 ;  Woolrich et al., 2009 ). Each volume of interest was obtained by the intersection of the atlas-based binary masks with the significant activation clusters in common for both groups, as determined by the SPM second level random effects univariate analysis. After the volumes of interest have been determined, it is necessary to obtain a summary of their activity. The principal eigenvariate of the volume of interest (the first principal component of the local multivariate time series over all voxels in the volume of interest) is usually used as such a summary for fMRI-based DCM analysis ( Stephan et al., 2010 ). Different from the mean, the principal eigenvariate does not assume homogenous responses within the volume of interest, and uses the temporal covariance of voxels in the volume of interest to find coherent spatial modes of activation ( Friston et al., 2006 ). Thus the principal eigenvariate avoids the cancellation of positive and negative responses in extracting a summary time series across voxels ( Friston et al., 2006 ;  Stephan et al., 2010 ). For each subject, the principal eigenvariates were obtained from all volumes of interest. Each principal eigenvariate was adjusted for the F-contrast of effects of interest before it was input into DCM for model estimation ( Stephan et al., 2010 ). In SPM, the F-contrast of effects of interest includes each parameter corresponding to each condition (except for the constant representing the mean). The same volumes of interest were used for all subjects. 
+ 
+ 
+ 2.6.3 Endogenous connections 
+ Full endogenous connections (the DCM “A” matrix) were specified between all the ROIs ( Supplementary Figure 1 ). In other words, each ROI connected all other ROIs. Thus, there were 42 endogenous connections, and they were used in all subsequent DCM analyses. 
+ 
+ 
+ 2.6.4 DCM structure inference at group level 
+ In the studies comparing DCMs between groups that were reviewed by  Seghier et al. (2010) , one study ( Rocca et al. 2009 ) located the optimal DCM in controls and used this DCM in comparison to patients. The majority of studies in that review conducted model inference independently in patients and controls, based on the same set of alternative models (e.g.,  Allen et al., 2010 ;  Almeida et al., 2009 ;  Rowe et al., 2010 ;  Schlosser et al., 2008 ,  2010 ;  Sonty et al., 2007 ). In addition,  Seghier et al. (2010)  suggested that Bayesian model comparison can be conducted separately on patients and controls to identify the best family of models in patients and controls. In the present study, consistent with Seghier et al.’s recommendation, inference on DCM structure was conducted separately in both controls and cocaine subjects. If group differences in DCM structure were not found, group differences were then inferred at DCM parameter level. 
+ We used a heuristic strategy for finding the group-level optimal DCMs (or DCM families), which has been described in  Ma et al. (2011) . In brief, we used random effects Bayesian family level inference ( Penny et al., 2010 ) and Bayesian model selection (BMS) ( Stephan et al., 2009 ) to consider increasingly complex models, based upon the model with the highest evidence at each level of complexity as reflected by the Bayesian exceedance probability ( Stephan et al., 2009 ). The exceedance probability (Φ) for a given model denotes the probability that this model was more likely to have generated the observed data than any other model considered ( Stephan et al., 2009 ). According to  Stephan et al. (2009) , random effects BMS derives the so-called “exceedance probability”, which is the probability that a particular model is more frequent than any other model tested, given the group data. Note that the exceedance probability of a model differs in a subtle but important way from the conventional posterior probability of a model in Bayesian model comparison at the subject level. This is because when considering a group of subjects, the frequency of models in the population is itself treated as a random (unknown) variable. In this context, the exceedance probability is a statement of belief about the frequency of models within the population. So, for example, when we say that the exceedance probability is 98%, we mean that we can be 98% confident that the favoured model is more frequent than any other model tested. In addition to BMS, exceedance probabilities are useful in reporting the results of Bayesian family level inference and Bayesian Model Averaging (BMA) ( Penny et al., 2010 ). For the Bayesian family level inference and BMS procedures in the present paper, we used the criterion that exceedance probability Φ=0.95, as the threshold to determine an optimal DCM (or family), to reduce model selection risk (i.e. the probability of picking a wrong model). 
+ Based on our design, we tested three putative Modulation Types (B-matrix) based on the three available types of contextual experimental conditions. Modulation  Type 1 : A putative all-visual-stimulus modulation includes all 12 experimental blocks (but not the rest periods). Modulation  Type 2 : The putative memory-delay modulations consist respectively of the IMT blocks that represent the relatively shorter memory delay period of 0.5 s (two blocks of 3-digit-IMT, two blocks of 5-digit-IMT, and two blocks of 7-digit-IMT), but not including the rest periods; and the DMT blocks that represent the relatively longer memory delay period of 3.5 s (two blocks of 3-digit-DMT, two blocks of 5-digit-DMT, and two blocks of 7-digit-DMT), but not including the rest periods. In the DCM analysis of B matrix modulations, a parameter is estimated for the IMT condition and a parameter is estimated for the DMT condition. The IMT and DMT parameters can vary independently from each other with respect to the mean because the mean also takes into account the rest periods. Modulation  Type 3 : The putative digit-length modulations consist respectively of the 3-digit blocks (two blocks of 3-digit-IMT, and two blocks of 3-digit-DMT); the 5-digit blocks (two blocks of 5-digit-IMT, and two blocks of 5-digit-DMT); and the 7-digit blocks (two blocks of 7-digit-IMT, and two blocks of 7-digit-DMT), but not including the rest periods. In the DCM analysis of B matrix modulations, a parameter is estimated for each putative digit-length condition. The digit-length parameters can vary independently from each other with respect to the mean because the mean also takes into account the rest periods. We used Bayesian Family Level Inference and BMS to determine which of these three Modulation Types is the optimal modulation type, and also used Bayesian Family Level Inference and BMS to determine which connection(s) is (are) the optimal location(s) for the modulation. 
+ Similarly, we tested three putative Driving Input Types (C-matrix) based the three types of contextual experimental conditions. Driving Input  Type 1  consists of the same experimental conditions as Modulation  Type 1  above, Driving Input  Type 2  consists of the same experimental conditions as Modulation  Type 2  above, and Driving Input  Type 3  consists of the same experimental conditions as Modulation  Type 3  above. We use Bayesian family level inference and BMS to determine which of these three Driving Input Types is the optimal driving input (C-matrix), and also used Bayesian family level inference and BMS to determine which ROI(s) is (are) the optimal driving input location(s). 
+ 
+ 
+ 2.6.5 Group differences in DCM parameters 
+ In order to conduct inference on DCM parameters ( Stephan et al., 2010 ), we used Bayesian model averaging (BMA) ( Penny et al., 2010 ;  Stephan et al., 2010 ). BMA is a Bayesian approach that averages each parameter across subjects and across models such that the contribution of each model (of each subject) for that parameter is weighted by each model’s posterior probability for that subject. When multiple competing DCMs are averaged for each group, BMA avoids the rigid assumption of an identical single DCM for all subjects in both groups that is required in classical “Frequentist” analysis of model parameters. In this study, the parameter strengths for each group were determined by conducting a separate BMA analysis within each group. 
+ During the BMA analysis, a software bug was found that some values exceeded the machine limits resulting in Matlab infinity or divide by zero errors. All BMA results in this paper were determined after the bug was fixed by regularizing extreme values to be within the Matlab range for finite numbers. 
+ 
+ 
+ 
+ 2.7 Statistical Analyses 
+ Student’s t-test and Fisher’s exact test were used to evaluate group differences on continuous and categorical demographic variables, respectively. Linear mixed models analysis, as implemented in SPSS Version 19 (SPSS Inc, Chicago, Illinois) for Windows (Microsoft Corp, Redmond, WA), was used to analyze the main effects of the three factors and their interaction effects on the behavioral accuracy scores (A′). The between-subjects factor in this analysis was group (cocaine and control groups), a within-subjects factor was memory delay (IMT and DMT), and another within-subject factor was digit load (3 digits, 5 digits, and 7 digits). If main effects or interactions were statistically significant, then post hoc analyses were conducted with the Bonferroni correction for multiple comparisons. 
+ 
+ 
+ 
+ 3. Results 
+ 
+ 3.1 Demographics 
+ There were 6 females and 13 males in the cocaine group, and 5 females and 9 males in the control group. The ages were: cocaine group 37.2 ± 6.0 (mean ± standard deviation) years (range 23.1 to 47.7); and control group 37.2 ± 8.2 years (range 19.7 to 48.8). The education durations were 13.0 ± 1.6 years (range 10.0 to 16.0) for the cocaine group; and 13.6 ± 2.5 years (range 11.0 to 19.0) for the control group. 
+ Student t-tests showed that there were no significant differences in age (t=0.010, p=0.992, degrees of freedom [d.f.]=31) and education duration (t=0.871, p=0.391, d.f. =31) between groups. Fisher’s exact tests revealed that there were no significant differences in proportion of female and male subjects (p>0.999, two tails) and proportion of IFIS and Eloquence subjects (p>0.999, two tails) between groups. 
+ 
+ 
+ 3.2 DSM-IV diagnosis 
+ None of the control subjects had a DSM-IV diagnosis of any drug abuse or dependence. All the cocaine subjects had a DSM-IV diagnosis of current cocaine dependence. Among the 19 cocaine dependent subjects, 11 of them were treatment-seeking subjects, and 8 of them were non-treatment-seeking subjects; 10 of them had cannabis abuse and/or cannabis dependence diagnoses, and 9 of them do not have any of these cannabis diagnoses; and 8 of them had alcohol abuse and/or past alcohol dependence, and 10 of them did not have any of these alcohol diagnoses. Please see  Supplementary Materials  for any additional DSM-IV diagnoses for the cocaine-dependent subjects. 
+ 
+ 
+ 3.3 Behavior during fMRI scanning 
+ The mean and standard deviation of the subjects’ performance accuracy (A′) in each group during memory delays and different digit loads are shown in  Table I . The SPSS linear mixed model analysis revealed statistically significant main effects of digit load (F = 43.08; d.f. = 2, 93.17; P < 0.001). The main effects of subject group (F = 0.035; d.f. = 1, 129.621; P = 0.853) and memory delay (F = 2.010; d.f. = 1, 129.621; P = 0.159) were not statistically significant. The interactions of subject group × memory delay (F = 0.360; d.f. = 1, 129.621; P = 0.550), subject group × digit load (F = 1.790; d.f. = 2, 93.173; P = 0.173), and memory delay × digit load (F = 0.149; d.f. = 2, 93.173; P = 0.861) were not statistically significant. The three-way interaction of subject group × memory delay × digit load also was not significant (F = 1.096; d.f. = 2, 93.173; P = 0.338). Post hoc comparisons showed that A′ during 7 digits was significantly lower than A′ during 5 digits (P < 0.001, corrected) and significantly lower than A′ during 3 digits (P < 0.001, corrected). In addition, A′ during 5 digits was significantly lower than A′ during 3 digits (P < 0.001, corrected). 
+ In order to test whether there were group differences in behavior that could have been obscured because of the heterogeneous treatment and diversity of substance abuse, we partitioned the cocaine dependent subjects into the following subgroups: (1) treatment-seeking (11 subjects) and non-treatment-seeking (8 subjects) cocaine groups, (2) cannabis (with cannabis abuse and/or cannabis dependence, 10 subjects) and non-cannabis (without cannabis abuse and without cannabis dependence, 9 subjects) cocaine groups, and (3) alcohol (with alcohol abuse and/or past alcohol dependence 1 , 8 subjects) and non-alcohol (without alcohol abuse and without alcohol dependence, 11 subjects) cocaine groups. We did not conduct other subgroup partitions because there were only sporadically other DMS-IV diagnoses. Three separate SPSS linear mixed models analyses were conducted to test whether there were group differences in behavior between any of the cocaine groups and control group or between the cocaine groups. 
+ 
+ Treatment-seeking cocaine group, and non-treatment-seeking cocaine group, versus control group 
+ The SPSS linear mixed model analysis revealed statistically significant main effects of digit load across all groups (F = 36.971; d.f. = 2, 92.649; P < 0.001). The main effects of subject group (F = 0.401; d.f. = 2, 130.652; P = 0.670) and memory delay (F = 2.283; d.f. = 1, 130.652; P = 0.133) were not statistically significant. The interactions of subject group × memory delay (F = 0.278; d.f. = 2, 130.652; P = 0.758), subject group × digit load (F = 1.533; d.f. = 4, 92.649; P = 0.199), and memory delay × digit load (F = 1.023; d.f. = 2, 92.649; P = 0.364) were not statistically significant. The three-way interaction of subject group × memory delay × digit load also was not significant (F = 0.802; d.f. = 4, 92.649; P = 0.527). Post hoc comparisons showed that A′ during 7 digits was significantly lower than A′ during 5 digits (P < 0.001, corrected) and significantly lower than A′ during 3 digits (P < 0.001, corrected) across all groups. In addition, A′ during 5 digits was significantly lower than A′ during 3 digits (P < 0.001, corrected) across all groups. 
+ 
+ 
+ Cannabis cocaine group, and non-cannabis cocaine group, versus control group 
+ The SPSS linear mixed model analysis revealed statistically significant main effects of digit load (F = 38.856; d.f. = 2, 93.419; P < 0.001) across all groups. The main effects of subject group (F = 1.508; d.f. = 2, 131.944; P = 0.225) and memory delay (F = 2.523; d.f. = 1, 131.944; P = 0.115) were not statistically significant. The interactions of subject group × memory delay (F = 0.196; d.f. = 2, 131.944; P = 0.822), subject group × digit load (F = 1.069; d.f. = 4, 93.419; P = 0.376), and memory delay × digit load (F = 1.176; d.f. = 2, 93.419; P = 0.313) were not statistically significant. The three-way interaction of subject group × memory delay × digit load also was not significant (F = 0.802; d.f. = 4, 93.419; P = 0.527). Post hoc comparisons showed that A′ during 7 digits was significantly lower than A′ during 5 digits (P = 0.001, corrected) and significantly lower than A′ during 3 digits (P < 0.001, corrected) across all groups. In addition, A′ during 5 digits was significantly lower than A′ during 3 digits (P < 0.001, corrected) across all groups. 
+ 
+ 
+ Alcohol cocaine group, and non-alcohol cocaine group, versus control group 
+ The SPSS linear mixed model analysis revealed statistically significant main effects of digit load (F = 37.005; d.f. = 2, 93.631; P < 0.001) across all groups. The main effects of subject group (F = 0.067; d.f. = 2, 132.227; P = 0.935) and memory delay (F = 2.373; d.f. = 1, 132.227; P = 0.126) were not statistically significant. The interactions of subject group × memory delay (F = 0.204; d.f. = 2, 132.227; P = 0.815), subject group × digit load (F = 0.857; d.f. = 4, 93.631; P = 0.493), and memory delay × digit load (F = 1.360; d.f. = 2, 93.631; P = 0.262) were not statistically significant. The three-way interaction of subject group × memory delay × digit load also was not significant (F = 1.286; d.f. = 4, 93.631; P = 0.281). Post hoc comparisons showed that A′ during 7 digits was significantly lower than A′ during 5 digits (P = 0.001, corrected) and significantly lower than A′ during 3 digits (P < 0.001, corrected) across all groups. In addition, A′ during 5 digits was significantly lower than A′ during 3 digits (P < 0.001, corrected) across all groups. 
+ 
+ 
+ Cocaine groups partitioned based on individual DCM results, versus control group 
+ In order to test whether there were group differences in behavior that could have been obscured because of the heterogeneity in individual optimal DCMs among the cocaine dependent subjects (please see Section 3.5 and  Supplementary Materials ), we partitioned the cocaine group into: Cocaine Group I (7 subjects), in which the subjects had an optimal DCM that was the same as the optimal DCM of the control group (the memory delay modulated the connection from L MFG to L IFC), and Cocaine Group II (12 subjects), in which the subjects had optimal DCMs that were different from the optimal DCM of the control group. Within Cocaine Group II, 4 subjects (Cocaine subgroup II.1) had optimal DCM in which the memory delay modulated the connection from L IFC to L MFG; 3 subjects (Cocaine subgroup II.2) had optimal DCM in which the memory delay modulated the connection from L IFC to L PPC; 2 subjects (Cocaine subgroup II.3) had optimal DCM in which the memory delay modulated the connection from L PPC to L IFC; 1 subject (Cocaine subgroup II.4) had optimal DCM in which the memory delay modulated the connection from R PPC to L IFC; 1 subject (Cocaine subgroup II.5) had optimal DCM in which the memory delay modulated the connection from L IFC to LR SMA; and 1 subject (Cocaine subgroup II.6) had optimal DCM in which the memory delay modulated the connection from LR SMA to L IFC. 
+ An SPSS linear mixed models analysis was conducted to test whether there were statistically significant group differences in A′ accuracy score between the control group and Cocaine Groups I and II. Because of the small number of subjects within each of the Cocaine II subgroups, the Cocaine II subgroups were not statistically analyzed individually. This SPSS linear mixed model analysis revealed statistically significant main effects of digit load (F = 38.146; d.f. = 2, 93.500; P < 0.001) across all groups. The main effects of subject group (F = 1.340; d.f. = 2, 132.008; P = 0.265) and memory delay (F = 2.586; d.f. = 1, 132.008; P = 0.110) were not statistically significant. The interactions of subject group × memory delay (F = 0.232; d.f. = 2, 132.008; P = 0.793), subject group × digit load (F = 0.976; d.f. = 4, 93.500; P = 0.424), and memory delay × digit load (F = 1.280; d.f. = 2, 93.500; P = 0.283) were not statistically significant. The three-way interaction of subject group × memory delay × digit load also was not significant (F = 0.829; d.f. = 4, 93.500; P = 0.510). Post hoc comparisons showed that A′ during 7 digits was significantly lower than A′ during 5 digits (P = 0.001, corrected) and significantly lower than A′ during 3 digits (P < 0.001, corrected) across all groups. In addition, A′ during 5 digits was significantly lower than A′ during 3 digits (P < 0.001, corrected) across all groups. 
+ A separate SPSS linear mixed models analysis was conducted to test whether there were group differences in A′ accuracy score between the control group and Cocaine Group II, in which the cocaine subjects had optimal DCMs that were different from the optimal DCM of the control group. This SPSS linear mixed model analysis revealed statistically significant main effects of digit load (F = 34.186; d.f. = 2, 69.850; P < 0.001) across both groups. The main effects of subject group (F = 0.211; d.f. = 1, 94.478; P = 0.647) and memory delay (F = 1.465; d.f. = 1, 94.478; P = 0.229) were not statistically significant. The interactions of subject group × memory delay (F = 0.212; d.f. = 1, 94.478; P = 0.646), subject group × digit load (F = 2.120; d.f. = 2, 69.850; P = 0.128), and memory delay × digit load (F = 0.285; d.f. = 2, 69.850; P = 0.753) were not statistically significant. The three-way interaction of subject group × memory delay × digit load also was not significant (F = 1.106; d.f. = 2, 69.850; P = 0.337). Post hoc comparisons showed that A′ during 7 digits was significantly lower than A′ during 5 digits (P = 0.001, corrected) and significantly lower than A′ during 3 digits (P < 0.001, corrected) across both groups. In addition, A′ during 5 digits was significantly lower than A′ during 3 digits (P < 0.001, corrected) across both groups. 
+ The values of the A′ accuracy scores (mean and standard deviation) for the control group, Cocaine Groups I and II, and each of the subgroups within Cocaine Group II are displayed graphically in  Figure 1 , which shows that there are no marked differences in A′ among any of the groups or subgroups. 
+ 
+ 
+ 
+ 3.4 SPM univariate analysis of fMRI 
+ The SPM univariate second level GLM analysis of the fMRI data revealed four FDR corrected significant clusters for the main effects of the delayed minus immediate memory conditions pooled across 3 digits, 5 digits, and 7 digits per stimulus and across both groups combined ( Figure 2  and  Table II ). In addition, the univariate SPM second-level analysis found a cluster with trend of significance (P=0.095, FDR-corrected) showing a group difference in activation (control greater than cocaine) at the 7-digit condition (DI7). No significant clusters were found for the other SPM second-level analyses. For each of the clusters (Cluster 1 to Cluster 4), the cluster-level FDR corrected P value, number of voxels, mean difference in activation across all voxels in cluster, and the Montreal Neurological Institute (MNI) coordinates of the voxel with relative maximal t value are listed in  Table II . 
+ For the main effects of memory delay, Cluster 1 was found in portions of L inferior parietal lobule, L superior parietal lobule, and other posterior regions (please see the  Supplementary Materials  for details). Cluster 2 was found in portions of R inferior parietal lobule, R superior parietal lobule, and other posterior regions (please see the  Supplementary Materials  for details). Cluster 3 was found in portions of L supplementary motor area, R supplementary motor area, L middle frontal gyrus, and other frontal regions (please see the  Supplementary Materials  for details). Cluster 4 was found in portions of L middle frontal gyrus, L inferior frontal gyrus pars triangularis, L inferior frontal gyrus pars opercularis, L caudate, R caudate, L putamen, and other frontal and subcortical regions (please see the  Supplementary Materials  for details). Another cluster which had trend of significance (FDR corrected cluster P = 0.095, number of voxels = 650) for the group difference (control greater than cocaine) at the 7-digit condition, was found in portions of R superior frontal gyrus, R middle frontal gyrus, R anterior cingulate cortex, R superior medial frontal gyrus, and R middle cingulate cortex. 
+ 
+ 
+ 3.5 DCM analysis 
+ The number of voxels, volume, and center of mass of the seven volumes of interest are listed in  Supplementary Table I . 
+ 
+ 3.5.1 Inference on DCM structure 
+ 
+ 3.5.1.1 Optimal driving input type (C matrix) established at family level 
+ A random-effects Bayesian family level inference analysis in the control group established that Driving Input  Type 1  (all-visual-stimulus) was the optimal driving input (C matrix) type (Φ=0.984, relative to the other 5 model families), and this Bayesian family level inference analysis also established that the optimal number of regions receiving the driving input was one region (L IFC) for the control group. 
+ A separate Bayesian family level inference analysis conducted independently in the cocaine group established that, same as the control group, Driving Input  Type 1  (all-visual-stimulus) was the optimal driving input (C matrix) type (Φ=0. 999, relative to the other 5 model families), and this Bayesian family level inference analysis also established that, same as the control group, the optimal number of regions receiving the driving input was one region (L IFC) for the cocaine group. 
+ Please see  Supplementary Materials  for detailed description of above Bayesian family level inference analyses. 
+ 
+ 
+ 3.5.1.2 Optimal modulation type (B matrix) established at family level 
+ Based on the above findings, a third random-effects Bayesian family level inference conducted independently within the control group showed that Modulation  Type 2  (memory-delay) was the optimal bilinear modulation type (B matrix) for the control group (Φ=0. 991, relative to the other 5 modulation families). This optimal DCM family for the control group consisted of 42 DCMs, and the only difference among these DCMs was which connection was modulated by the memory-delay. In each of these 42 DCMs, the optimum driving input (C-matrix) entered the model through L IFC, as established in the previous step for the control group. 
+ Likewise, Bayesian family level inference conducted independently within the cocaine group showed that Modulation  Type 2  (memory-delay) was also the optimal bilinear modulation type (B matrix) for the cocaine group (Φ=0.989, relative to the other 5 model families). This optimal DCM family for the cocaine group consisted of 42 DCMs, and the only difference among these DCMs was which connection was modulated by the memory-delay. In each of these 42 DCMs, the optimum driving input (C-matrix) entered the model through L IFC, as established in the previous step for the cocaine group. 
+ Please see  Supplementary Materials  for detailed description of above Bayesian family level inference analyses and the optimal DCM family. 
+ 
+ 
+ 3.5.1.3 Inference on DCM structure at model level 
+ Within the optimal DCM family (Modulation Type 2) described above for the control group, random-effects BMS analysis conducted independently for the control group ( Figure 3 , left panels) revealed that the DCM with the location of the bilinear memory-delay modulation on the connection from L MFG to L IFC had the highest exceedance probability (Φ=0. 901, relative to the other 41 DCMs). 
+ Within the optimal DCM family (Modulation Type 2) described above for the cocaine group, random-effects BMS analysis conducted independently for the cocaine group ( Figure 3 , right panels) likewise revealed that the DCM with the location of the bilinear memory-delay modulation on the connection from L MFG to L IFC had the highest exceedance probability (Φ=0.698, relative to the other 41 DCMs). 
+ The preliminary BMS results showed that, in the cocaine group, 6 of the Single-modulation models had higher exceedence probabilities than the other 36 ( Figure 3 , right panels); the exceedence probability of each of these 6 DCMs was at least 5 times the mean exceedence probability of the other 36 DCMs. However, there was no obvious clear-cut “winner” among these 6 models because of the finding that these 6 Single-modulation models had exceedance probabilities that were not markedly different from each other ( Figure 3 , right top panel), but which were clearly superior to the other 36 Single-modulation DCMs. A possible explanation for this finding would be that all 6 of these “winning” connections may have been modulated by the memory delay in the cocaine group. Here we used a heuristic strategy that was based on the analysis strategy in a previous DCM study by our group ( Ma et al, 2011 ) by constructing a putative Multiple-modulation DCM, consisting collectively together in the same model all 6 modulated connections (L MFG to L IFC, L IFC to L MFG, L PPC to L IFC, L IFC to L PPC, LR SMA to L IFC, and R PPC to L STR) that had the highest exceedence probability in the previous preliminary BMS step. An additional BMS analysis showed that this Multiple-modulation DCM was “better” (Φ=0.940) than the Single-modulation DCM that had shown the largest exceedance probability in the prior preliminary BMS analysis (in spite of the penalty for model complexity inherent in the BMS procedure [ Stephan et al., 2009 ]), but the exceedance probability did not reach the threshold Φ=0.95. 
+ Applying the same reasoning and criteria to the control group as in the cocaine group, we constructed a Multiple-modulation DCM with 2 modulated connections (L MFG to L IFC, and L STR to L IFC) in the control group, based on the finding that in the control group there were 2 “winning” models that each had exceedence probabilities that were at least 5 times of the mean of those of the other DCMs ( Figure 3 , left panels). Another BMS analysis showed that this Multiple-modulation DCM was “better” (Φ=0.687) than the Single-modulation DCM that had shown the largest exceedance probability in the prior preliminary BMS analysis. 
+ Because neither the Single- nor Multiple-modulation DCMs within each group had exceedance probabilities that were greater than the threshold Φ=0.95, group difference in DCM structure could not clearly be established. However, in each group, the Multiple-modulation DCM had exceedance probability greater than the Single-modulation DCM that had shown the largest exceedance probability in the prior preliminary BMS analysis, suggesting that these putative Multiple-modulation DCMs are plausible and appropriate to be included along with the putative Single-modulation DCMs in the model search space of the subsequent BMA analysis (see next section). 
+ 
+ 
+ 
+ 3.5.2 Group differences on DCM parameters 
+ Because of the fact that group difference in DCM structure could not be clearly established stemming from Bayesian family level inference and BMS conducted independently within each group, we used BMA to identify quantitative differences in memory modulation parameters between patients and controls. The relatively low exceedance probabilities (less than 0.95 for both groups) of the “winning” DCM in each group suggest high model selection risk (i.e. the probability of picking a wrong model) ( Daunizeau et al., 2011 ). Therefore the inference on DCM parameters was conducted at the family level rather than the model level. Family inference helps to increase statistical power by pooling evidence across models belonging to the same family ( Penny et al., 2010 ). 
+ We constructed the model space for the BMA analysis for each group to consist of both of the two aforementioned putative Multiple-modulation DCMs (i.e., the 6-modulation DCM from the cocaine group and the 2-modulation DCM from the control group) in addition to all 42 putative single modulation DCMs. Thus, the same, identical model search space was used in both BMA analyses that were conducted independently for each group. 
+ For each endogenous connection, the posterior mean (or group difference), standard deviation, and the probability that a Bayesian posterior mean (or group difference between posterior means) is different from zero are listed separately for the cocaine group, the control group, and the group-difference in  Supplementary Table II . The corresponding measures are also listed for the modulation effects exerted by IMT and DMT in  Supplementary Table III  and  Supplementary Table IV  respectively. 
+ Twenty-eight of the 42 connections showed probabilities of at least 0.999 that the group difference between posteror means was different from zero for the bilinear modulation effects exerted by the IMT condition, and 27 of the 42 connections showed probabilities of at least 0.999 that the group difference between posteror means was different from zero for the bilinear modulation effects exerted by the DMT condition. For IMT condition, the connection showing largest difference between groups was L IFC to L STR ( Figure 4 , left panels): The IMT condition exerted more negative bilinear modulation strength in the cocaine group (−0.026 ± 0.044 Hz) compared to the control group (−0.007 ± 0.041 Hz) on this connection. For DMT condition, the connection showing largest difference between groups was L MFG to L STR ( Figure 4 , right panels): The DMT condition exerted a negative bilinear modulation effect on this connection in the cocaine group (−0.005 ± 0.028 Hz) and a positive modulation effect on this connection in the control group (0.015 ± 0.033 Hz). 
+ The driving input (C-matrix) exerted by the all-visual-stimulus (Driving Input Type 1) on the L IFC showed a probability of 0.999 that the group difference was different from zero. The driving input in the cocaine group (0.076 ± 0.024 Hz) was greater than that in the control group (0.059 ± 0.028Hz). 
+ Because of the heterogeneity within the cocaine group, BMS analysis was conducted for each individual cocaine subject to test whether this heterogeneity can be captured. The detailed results of this analysis are shown in the  Supplementary Materials . 
+ 
+ 
+ 
+ 
+ 4. Discussion 
+ To the best of our knowledge, this is the first published between-group study using stochastic DCM, which takes into account random fluctuations in neuronal and vascular responses that may have profound effects on the measurement of effective connectivity ( Li et al., 2011a ). Group differences were first evaluated at the DCM structure level. The random effects Bayesian family level inference procedures showed strong evidence (Φ>0.95) that the cocaine group and the control group had the same type of bilinear modulation (i.e., memory delay) at the family level. But further random effects BMS procedures did not provide strong evidence showing whether or not the cocaine group and the control group had the same DCM structure in terms of which connections were modulated by the memory delay. These DCM structure inference results warranted DCM parameter inference to be conducted. To avoid picking a wrong model, group differences in DCM parameters were evaluated at DCM family level using BMA. The BMA analyses revealed that the cocaine-dependent subjects had marked differences in bilinear modulation effective connectivity strengths in prefrontal-striatal connections compared to the control group. Cocaine subjects differed from controls in terms of the connection from L IFC to L striatum being less affected by the IMT (shorter memory-delay) in the cocaine group compared to the control group, and the connection from L MFG to L striatum being less affected by the DMT (longer memory delay) in the cocaine group compared to the control group. Consistent with prior studies comparing cocaine users and controls using PET or fMRI ( Moeller et al., 2010 ;  Tomasi et al., 2007 ;  Volkow et al., 2007 ), prefrontal regions and striatum were involved in this altered effective connectivity. 
+ The altered prefrontal-striatal effective connectivity observed in cocaine dependent subjects is in the associative loop of cortical-striatal connections that may be related to cognitive functions ( Leh et al., 2007 ;  Leh et al., 2010 ), and is consistent with findings (e.g.,  Hanlon et al., 2011 ;  Wilcox et al., 2011 ) and theories (e.g.,  Volkow et al., 2011 ) regarding altered cortical-striatal function in cocaine dependence. As discussed in  Volkow et al. (2011) , several brain circuits related to reward, motivation, conditioning, and inhibitory or executive control are thought to be critical for the development of addiction. While there may be alternative interpretations, e.g., brain perfusion ( Tucker et al., 2004 ), white matter integrity ( Moeller et al., 2005 ;  Romero et al., 2010 ), or gray matter structure ( Barros-Loscertales et al., 2011 ), the result that dopaminergic target regions (prefrontal regions and striatum) were involved in the connections showing the largest and most reliable group differences lead us to speculate that the changes in dopamine function in cocaine users could be an underlying factor for the altered effective connectivity. Evidence to support a role for dopamine function in the observed altered effective connectivity comes from a previous study showing that dopamine synthesis capacity as measured by 6-[18F]-fluoro-L-m-tyrosine PET was correlated with frontal-caudate functional connectivity during a working memory task ( Klostermann et al., 2012 ). Other evidence comes from a study showing that dopamineric augmentation increased frontal-striatal functional connectivity and behavioral performance in low working-memory capacity individuals ( Wallace et al., 2011 ). In addition, studies on human subjects other than cocaine users have shown that brain connectivity can be tuned by dopaminergic medications ( Honey et al., 2003 ;  Jahanshahi et al., 2010 ;  Kelly et al., 2009 ;  Palmer et al., 2009 ;  Wallace et al., 2011 ). 
+ Consistent with the above interpretation was the negative modulation effect between prefrontal cortical regions and striatum that was observed in the cocaine dependent subjects which differed from the modulation effect in controls. Previous studies by Volkow and associates have shown significant correlations between reduction in dopamine D2 receptor function and glucose metabolism in orbitofrontal cortex, anterior cingulate, and dorsolateral prefrontal cortex in subjects with cocaine dependence and other drug abuse disorders ( Volkow et al., 2009 ;  Volkow et al., 2007 ). A prefrontal-striatal glutamatergic pathway may regulate striatal dopamine function through glutamatergic efferents from prefrontal regions, involving both direct and indirect projections to brainstem and striatum ( Carlsson et al., 2001 ;  Meyer-Lindenberg et al., 2002 ;  Kalivas 2004 ). Evidence from animal studies shows that stimulation of the prefrontal regions elevates dopamine release in the nucleus accumbens and burst firing of midbrain dopamine neurons ( Karreman and Moghaddam 1996 ;  Murase et al. 1993 ;  Taber and Fibiger 1995 ;  Tong et al. 1996 ). This is consistent with a study in humans showing that administration of the N-methyl-D-aspartate (NMDA) receptor antagonist ketamine resulted in increased amphetamine-induced dopamine release in the striatum ( Kegeles et al., 2000 ). The prefrontal-striatal glutaminergic pathway has been hypothesized to be critical for addictions ( Koob and Volkow, 2010 ). Evidence for a direct link between prefrontal cortical glutamate and striatal function includes a study showing that prefrontal glutamate release into the nucleus accumbens mediates cocaine-induced reinstatement of drug-seeking behavior ( McFarland et al., 2003 ). Glutamate perfused into the striatum increases dopamine release ( Shimizu et al., 1990 ). We speculate that altered prefrontal-striatal effective connectivity in cocaine users could be related to a reduction in prefrontal cortical glutamatergic input to the striatum, resulting in reduction in striatal dopamine function. Further studies are needed to examine this issue, including further studies on effective connectivity between prefrontal cortex and striatum in cocaine dependence. 
+ We have found a significant group difference in effective connectivity. However, we did not find a significant group difference in behavioral performance, and the non-significance remained after the heterogeneous treatment, the diversity of substance abuse, and the heterogeneity in optimal DCMs in the cocaine dependent subjects were considered statistically. These results are consistent with the opinion that altered effective connectivity may not necessarily produce altered behavior between groups ( Seghier et al., 2010 ). Behavioral and brain activation measures are often jointly used in neuroimaging experiments to infer group differences between patients and controls. It is a common observation that these two measures generate divergent results ( Wilkinson and Halligan, 2004 ). For example, using fMRI and an n-back working memory task,  Tomasi et al. (2007)  found widespread group differences in brain activation between cocaine abusers and controls but did not find a significant group difference in behavior. The combination of significant group difference in neural activity and insignificant group difference in behavioral measures is a possible outcome in neuroimaging experiments and may not be an evidence of weak hypothesis ( Wilkinson and Halligan, 2004 ). In fact, the absence of between-group difference in behavioral performance may be helpful in interpreting the neuroimaging results as a difference between groups at the neuronal level because it reduces the confounding effects due to difference in behavioral performance between groups ( Price and Friston, 2002 ). For example, decreased performance compared to normals may cause (rather than be a consequence of) decreased neuronal activation because of decreased engagement of unimpaired processes ( Price and Friston, 2002 ). On the other hand, abnormal neuronal responses in the context of normal performance can indicate alternative neuronal mechanisms for supporting the same level of task performance ( Price and Friston, 2002 ). Our findings reflect that the effective connectivity as measured by DCM may be a more sensitive indicator of altered neural pathways between groups than the behavioral measures. This interpretation may not be very surprising, since it is possible that fairly subtle neural processes can be detected using DCM analysis ( Rowe 2010 ;  Stephan et al. 2010 ). 
+ Given the relatively large number of regions, it is almost impossible to evaluate all possible DCMs given the current computation technique. Therefore a relevant model space should include a set of plausible DCMs, based on prior knowledge of the system ( Stephan et al., 2010 ). In our DCM analysis, when constructing the putative modulation model space, we used a two-step heuristic strategy to reduce the number of models examined to a manageable level. Other strategies could have been used to reduce the model space to a manageable level, but the heuristic strategy that we used was a plausible and principled approach that was based on the analysis strategy in a previous DCM study by our group ( Ma et al, 2011 ). We believe that the procedure for constructing putative Multiple-modulation DCMs was reasonable, given that the modulated connections in each Multiple-modulation model respectively corresponded to the DCMs with highest exceedance probabilities in the BMS analysis within each group in the first preliminary BMS step. We would like to emphasize that that these putative Multiple-modulation models were not arbitrarily selected for use in the subsequent BMA comparison of model parameters between groups. Instead, the Multiple-modulation models were tested against the corresponding Single-modulation models in a second BMS step, and the Multiple-modulation models were included in the BMA model search space only if the Multiple-modulation had greater exceedence probability than the corresponding Single-modulation models. 
+ We have chosen to use stochastic DCM rather than deterministic DCM. Unlike deterministic DCM, stochastic DCM takes into account random fluctuations in physiological noise that may contribute to the system connectivity input ( Li et al., 2011a ) due to stochastic fluctuations in neuronal and vascular responses ( Kruger and Glover, 2001 ;  Li et al., 2011a ).  Li et al. (2011a)  have demonstrated that stochastic DCM can show improvement in parameter estimation over deterministic DCM. More recently,  Daunizeau et al. (2012)  have validated stochastic DCM and shown that the stochastic DCM is superior over deterministic DCM in both model structure inference and model parameter inference. In the present study, we studied cocaine dependence, which is a disorder associated with altered dopaminergic (and perhaps other) neurotransmission in the brain ( Volkow et al., 2009 ;  Volkow et al., 2007 ). In disease populations, changes in the BOLD signal could be confounded by the possible disruption by disease or drugs on neurovascular coupling and/or hemodynamic response ( Iannetti and Wise, 2007 ). In addition,  Choi et al. (2006)  has shown that the direct effects of dopamine upon the vasculature need to be considered when measuring the hemodynamic coupling associated with dopaminergic drugs. Because stochastic DCM can account for these confounding effects better than deterministic DCM, we believe that stochastic DCM can detect the altered effective connectivity in cocaine dependent subjects more accurately than deterministic DCM. 
+ Please see the  Supplementary Materials  for additional discussion on the regional activation in left prefrontal regions, the between-study comparison of regional activations, and the between-study comparison of DCM inference on model structure. 
+ Several limitations regarding the application of DCM and the IMT/DMT protocol in working memory studies have been discussed in  Ma et al. (2011) . Additional limitations specifically for the present study include the heterogeneous sample in the cocaine group, which consisted of treatment-seeking and non-treatment-seeking patients. The inclusion of more than half (eleven) of the total sample of cocaine-dependent subjects who had other types of substance abuse in addition to cocaine dependence also may limit interpretation of the findings of the present study. Further studies with more homogeneous groups are necessary to clarify these issues. 
+ In summary, stochastic DCM analysis showed that compared to normal controls, cocaine-dependent subjects had markedly altered working-memory related prefrontal-striatal effective connectivity that may reflect altered cortical-striatal networks in cocaine dependent subjects. Reduced dopamine function in cocaine users may be an underlying factor for the altered effective connectivity observed in the present study. Future studies are needed to test this hypothesis. 
+ 
+ 
+ Supplementary Material 
+ 
+ supp 
+ 
+ 
+ 
+ 
+ 
+ The authors thank Zahra N. Kamdar, Vipulkumar S. Patel (Vips), and Edward A. Zuniga for their excellent technical support. 
+ 
+ Role of funding source 
+ 
+ Funding for this study was provided by a Peter F. McManus Charitable Trust Grant (LM and FGM) and National Institute on Drug Abuse (NIDA) Grants #P50 DA009262 and K02 DA00403 (FGM). The funding orgnizations had no further role in study design; in the collection, analysis and interpretation of data; in the writing of the manuscript; or in the decision to submit the manuscript for publication. 
+ 
+ 
+ 
+ 
+ Conflict of interest 
+ 
+ None of the authors has any conflict of interest with regard to the findings presented in this manuscript, financial or otherwise. 
+ 
+ 
+ 1 
+ The subjects who had a DSM-IV diagnosis of current alcohol dependence were excluded from the study. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Allen 
+ P 
+ 
+ 
+ Stephan 
+ KE 
+ 
+ 
+ Mechelli 
+ A 
+ 
+ 
+ Day 
+ F 
+ 
+ 
+ Ward 
+ N 
+ 
+ 
+ Dalton 
+ J 
+ 
+ 
+ Williams 
+ SC 
+ 
+ 
+ McGuire 
+ P 
+ 
+ 
+ 2010 
+ Cingulate activity and fronto-temporal connectivity in people with prodromal signs of psychosis 
+ Neuroimage 
+ 49 
+ 947 
+ 955 
+ 19703570 
+ 
+ 
+ 
+ 
+ 
+ 
+ Almeida 
+ JR 
+ 
+ 
+ Mechelli 
+ A 
+ 
+ 
+ Hassel 
+ S 
+ 
+ 
+ Versace 
+ A 
+ 
+ 
+ Kupfer 
+ DJ 
+ 
+ 
+ Phillips 
+ ML 
+ 
+ 
+ 2009 
+ Abnormally increased effective connectivity between parahippocampal gyrus and ventromedial prefrontal regions during emotion labeling in bipolar disorder 
+ Psychiatry Res 
+ 174 
+ 195 
+ 201 
+ 19910166 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ardila 
+ A 
+ 
+ 
+ Rosselli 
+ M 
+ 
+ 
+ Strumwasser 
+ S 
+ 
+ 
+ 1991 
+ Neuropsychological deficits in chronic cocaine abusers 
+ Int J Neurosci 
+ 57 
+ 73 
+ 79 
+ 1938157 
+ 
+ 
+ 
+ 
+ 
+ 
+ Aron 
+ JL 
+ 
+ 
+ Paulus 
+ MP 
+ 
+ 
+ 2007 
+ Location, location: using functional magnetic resonance imaging to pinpoint brain differences relevant to stimulant use 
+ Addiction 
+ 102 
+ Suppl 1 
+ 33 
+ 43 
+ 17493051 
+ 
+ 
+ 
+ 
+ 
+ 
+ Barros-Loscertales 
+ A 
+ 
+ 
+ Garavan 
+ H 
+ 
+ 
+ Bustamante 
+ JC 
+ 
+ 
+ Ventura-Campos 
+ N 
+ 
+ 
+ Llopis 
+ JJ 
+ 
+ 
+ Belloch 
+ V 
+ 
+ 
+ Parcet 
+ MA 
+ 
+ 
+ Avila 
+ C 
+ 
+ 
+ 2011 
+ Reduced striatal volume in cocaine-dependent patients 
+ Neuroimage 
+ 56 
+ 1021 
+ 1026 
+ 21338692 
+ 
+ 
+ 
+ 
+ 
+ 
+ Beveridge 
+ TJ 
+ 
+ 
+ Gill 
+ KE 
+ 
+ 
+ Hanlon 
+ CA 
+ 
+ 
+ Porrino 
+ LJ 
+ 
+ 
+ 2008 
+ Review. Parallel studies of cocaine-related neural and cognitive impairment in humans and monkeys 
+ Philos Trans R Soc Lond B Biol Sci 
+ 363 
+ 3257 
+ 3266 
+ 18640916 
+ 
+ 
+ 
+ 
+ 
+ 
+ Bitan 
+ T 
+ 
+ 
+ Booth 
+ JR 
+ 
+ 
+ Choy 
+ J 
+ 
+ 
+ Burman 
+ DD 
+ 
+ 
+ Gitelman 
+ DR 
+ 
+ 
+ Mesulam 
+ MM 
+ 
+ 
+ 2005 
+ Shifts of effective connectivity within a language network during rhyming and spelling 
+ J Neurosci 
+ 25 
+ 5397 
+ 5403 
+ 15930389 
+ 
+ 
+ 
+ 
+ 
+ 
+ Bustamante 
+ JC 
+ 
+ 
+ Barros-Loscertales 
+ A 
+ 
+ 
+ Ventura-Campos 
+ N 
+ 
+ 
+ Sanjuan 
+ A 
+ 
+ 
+ Llopis 
+ JJ 
+ 
+ 
+ Parcet 
+ MA 
+ 
+ 
+ Avila 
+ C 
+ 
+ 
+ 2011 
+ Right parietal hypoactivation in a cocaine-dependent group during a verbal working memory task 
+ Brain Res 
+ 1375 
+ 111 
+ 119 
+ 21172322 
+ 
+ 
+ 
+ 
+ 
+ 
+ Buxton 
+ RB 
+ 
+ 
+ 2009 
+ Introduction to Functional Magnetic Resonance Imaging 
+ Cambridge University Press 
+ 
+ 
+ 
+ 
+ 
+ 
+ Cabeza 
+ R 
+ 
+ 
+ Anderson 
+ ND 
+ 
+ 
+ Locantore 
+ JK 
+ 
+ 
+ McIntosh 
+ AR 
+ 
+ 
+ 2002 
+ Aging gracefully: compensatory brain activity in high-performing older adults 
+ Neuroimage 
+ 17 
+ 1394 
+ 1402 
+ 12414279 
+ 
+ 
+ 
+ 
+ 
+ 
+ Camchong 
+ J 
+ 
+ 
+ MacDonald 
+ AW 
+ 3rd 
+ 
+ 
+ Nelson 
+ B 
+ 
+ 
+ Bell 
+ C 
+ 
+ 
+ Mueller 
+ BA 
+ 
+ 
+ Specker 
+ S 
+ 
+ 
+ Lim 
+ KO 
+ 
+ 
+ 2011 
+ Frontal hyperconnectivity related to discounting and reversal learning in cocaine subjects 
+ Biol Psychiatry 
+ 69 
+ 1117 
+ 1123 
+ 21371689 
+ 
+ 
+ 
+ 
+ 
+ 
+ Carlsson 
+ A 
+ 
+ 
+ Waters 
+ N 
+ 
+ 
+ Holm-Waters 
+ S 
+ 
+ 
+ Tedroff 
+ J 
+ 
+ 
+ Nilsson 
+ M 
+ 
+ 
+ Carlsson 
+ ML 
+ 
+ 
+ 2001 
+ Interactions between monoamines, glutamate, and GABA in schizophrenia: new evidence 
+ Annu Rev Pharmacol Toxicol 
+ 41 
+ 237 
+ 260 
+ 11264457 
+ 
+ 
+ 
+ 
+ 
+ 
+ Choi 
+ JK 
+ 
+ 
+ Chen 
+ YI 
+ 
+ 
+ Hamel 
+ E 
+ 
+ 
+ Jenkins 
+ BG 
+ 
+ 
+ 2006 
+ Brain hemodynamic changes mediated by dopamine receptors: Role of the cerebral microvasculature in dopamine-mediated neurovascular coupling 
+ Neuroimage 
+ 30 
+ 700 
+ 712 
+ 16459104 
+ 
+ 
+ 
+ 
+ 
+ 
+ Collette 
+ F 
+ 
+ 
+ Van der Linden 
+ M 
+ 
+ 
+ 2002 
+ Brain imaging of the central executive component of working memory 
+ Neurosci Biobehav Rev 
+ 26 
+ 105 
+ 125 
+ 11856556 
+ 
+ 
+ 
+ 
+ 
+ 
+ Cox 
+ RW 
+ 
+ 
+ 1996 
+ AFNI: software for analysis and visualization of functional magnetic resonance neuroimages 
+ Comput Biomed Res 
+ 29 
+ 162 
+ 173 
+ 8812068 
+ 
+ 
+ 
+ 
+ 
+ 
+ D’Esposito 
+ M 
+ 
+ 
+ 2007 
+ From cognitive to neural models of working memory 
+ Philos Trans R Soc Lond B Biol Sci 
+ 362 
+ 761 
+ 772 
+ 17400538 
+ 
+ 
+ 
+ 
+ 
+ 
+ Daunizeau 
+ J 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ Kiebel 
+ SJ 
+ 
+ 
+ 2009 
+ Variational Bayesian identification and prediction of stochastic nonlinear dynamic causal models 
+ Physica D 
+ 238 
+ 2089 
+ 2118 
+ 19862351 
+ 
+ 
+ 
+ 
+ 
+ 
+ Daunizeau 
+ J 
+ 
+ 
+ Preuschoff 
+ K 
+ 
+ 
+ Friston 
+ K 
+ 
+ 
+ Stephan 
+ K 
+ 
+ 
+ 2011 
+ Optimizing experimental design for comparing models of brain function 
+ PLoS Comput Biol 
+ 7 
+ e1002280 
+ 22125485 
+ 
+ 
+ 
+ 
+ 
+ 
+ Daunizeau 
+ J 
+ 
+ 
+ Stephan 
+ KE 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ 2012 
+ Stochastic dynamic causal modeling of fMRI data: Should we care about neural noise? 
+ Neuroimage 
+ 62 
+ 464 
+ 481 
+ 22579726 
+ 
+ 
+ 
+ 
+ 
+ 
+ Deserno 
+ L 
+ 
+ 
+ Sterzer 
+ P 
+ 
+ 
+ Wustenberg 
+ T 
+ 
+ 
+ Heinz 
+ A 
+ 
+ 
+ Schlagenhauf 
+ F 
+ 
+ 
+ 2012 
+ Reduced prefrontal-parietal effective connectivity and working memory deficits in schizophrenia 
+ J Neurosci 
+ 32 
+ 12 
+ 20 
+ 22219266 
+ 
+ 
+ 
+ 
+ 
+ 
+ Dima 
+ D 
+ 
+ 
+ Roiser 
+ JP 
+ 
+ 
+ Dietrich 
+ DE 
+ 
+ 
+ Bonnemann 
+ C 
+ 
+ 
+ Lanfermann 
+ H 
+ 
+ 
+ Emrich 
+ HM 
+ 
+ 
+ Dillo 
+ W 
+ 
+ 
+ 2009 
+ Understanding why patients with schizophrenia do not perceive the hollow-mask illusion using dynamic causal modelling 
+ Neuroimage 
+ 46 
+ 1180 
+ 1186 
+ 19327402 
+ 
+ 
+ 
+ 
+ 
+ 
+ DiQuattro 
+ NE 
+ 
+ 
+ Geng 
+ JJ 
+ 
+ 
+ 2011 
+ Contextual knowledge configures attentional control networks 
+ J Neurosci 
+ 31 
+ 18026 
+ 18035 
+ 22159116 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fernandez-Serrano 
+ MJ 
+ 
+ 
+ Perez-Garcia 
+ M 
+ 
+ 
+ Perales 
+ JC 
+ 
+ 
+ Verdejo-Garcia 
+ A 
+ 
+ 
+ 2010 
+ Prevalence of executive dysfunction in cocaine, heroin and alcohol users enrolled in therapeutic communities 
+ Eur J Pharmacol 
+ 626 
+ 104 
+ 112 
+ 19836375 
+ 
+ 
+ 
+ 
+ 
+ 
+ First 
+ MB 
+ 
+ 
+ Spitzer 
+ RL 
+ 
+ 
+ Gibbon 
+ M 
+ 
+ 
+ Williams 
+ JBW 
+ 
+ 
+ 1996 
+ Structured Clinical Interview for DSM-IV Axis I Disorders–Patient Edition (SCID-I/P, Version 2.0) 
+ Biometrics Research Department, New York State Psychiatric Institute 
+ New York 
+ 
+ 
+ 
+ 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ 1995a 
+ Functional and effective connectivity in neuroimaging: a synthesis 
+ Human Brain Mapping 
+ 2 
+ 56 
+ 78 
+ 
+ 
+ 
+ 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ 1995b 
+ Statistical parametric maps in functional imaging: a general linear approach 
+ Human Brain Mapping 
+ 2 
+ 189 
+ 210 
+ 
+ 
+ 
+ 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ Harrison 
+ L 
+ 
+ 
+ Penny 
+ W 
+ 
+ 
+ 2003 
+ Dynamic causal modelling 
+ Neuroimage 
+ 19 
+ 1273 
+ 1302 
+ 12948688 
+ 
+ 
+ 
+ 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ Rotshtein 
+ P 
+ 
+ 
+ Geng 
+ JJ 
+ 
+ 
+ Sterzer 
+ P 
+ 
+ 
+ Henson 
+ RN 
+ 
+ 
+ 2006 
+ A critique of functional localisers 
+ Neuroimage 
+ 30 
+ 1077 
+ 1087 
+ 16635579 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fujii 
+ T 
+ 
+ 
+ Tanabe 
+ HC 
+ 
+ 
+ Kochiyama 
+ T 
+ 
+ 
+ Sadato 
+ N 
+ 
+ 
+ 2009 
+ An investigation of cross-modal plasticity of effective connectivity in the blind by dynamic causal modeling of functional MRI data 
+ Neurosci Res 
+ 65 
+ 175 
+ 186 
+ 19580827 
+ 
+ 
+ 
+ 
+ 
+ 
+ Funahashi 
+ S 
+ 
+ 
+ 2006 
+ Prefrontal cortex and working memory processes 
+ Neuroscience 
+ 139 
+ 251 
+ 261 
+ 16325345 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fuster 
+ JM 
+ 
+ 
+ 2006 
+ The cognit: a network model of cortical representation 
+ Int J Psychophysiol 
+ 60 
+ 125 
+ 132 
+ 16626831 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fuster 
+ JM 
+ 
+ 
+ 2008 
+ The prefrontal cortex 
+ Acadamic Press 
+ London, UK 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fuster 
+ JM 
+ 
+ 
+ 2009 
+ Cortex and memory: emergence of a new paradigm 
+ J Cogn Neurosci 
+ 21 
+ 2047 
+ 2072 
+ 19485699 
+ 
+ 
+ 
+ 
+ 
+ 
+ George 
+ O 
+ 
+ 
+ Mandyam 
+ CD 
+ 
+ 
+ Wee 
+ S 
+ 
+ 
+ Koob 
+ GF 
+ 
+ 
+ 2008 
+ Extended access to cocaine self-administration produces long-lasting prefrontal cortex-dependent working memory impairments 
+ Neuropsychopharmacology 
+ 33 
+ 2474 
+ 2482 
+ 18033234 
+ 
+ 
+ 
+ 
+ 
+ 
+ Gigi 
+ A 
+ 
+ 
+ Babai 
+ R 
+ 
+ 
+ Penker 
+ A 
+ 
+ 
+ Hendler 
+ T 
+ 
+ 
+ Korczyn 
+ AD 
+ 
+ 
+ 2010 
+ Prefrontal compensatory mechanism may enable normal semantic memory performance in mild cognitive impairment (MCI) 
+ J Neuroimaging 
+ 20 
+ 163 
+ 168 
+ 19490403 
+ 
+ 
+ 
+ 
+ 
+ 
+ Gu 
+ H 
+ 
+ 
+ Salmeron 
+ BJ 
+ 
+ 
+ Ross 
+ TJ 
+ 
+ 
+ Geng 
+ X 
+ 
+ 
+ Zhan 
+ W 
+ 
+ 
+ Stein 
+ EA 
+ 
+ 
+ Yang 
+ Y 
+ 
+ 
+ 2010 
+ Mesocorticolimbic circuits are impaired in chronic cocaine users as demonstrated by resting-state functional connectivity 
+ Neuroimage 
+ 53 
+ 593 
+ 601 
+ 20603217 
+ 
+ 
+ 
+ 
+ 
+ 
+ Han 
+ SD 
+ 
+ 
+ Bangen 
+ KJ 
+ 
+ 
+ Bondi 
+ MW 
+ 
+ 
+ 2009 
+ Functional magnetic resonance imaging of compensatory neural recruitment in aging and risk for Alzheimer’s disease: review and recommendations 
+ Dement Geriatr Cogn Disord 
+ 27 
+ 1 
+ 10 
+ 19088472 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hanlon 
+ CA 
+ 
+ 
+ Wesley 
+ MJ 
+ 
+ 
+ Stapleton 
+ JR 
+ 
+ 
+ Laurienti 
+ PJ 
+ 
+ 
+ Porrino 
+ LJ 
+ 
+ 
+ 2011 
+ The association between frontal-striatal connectivity and sensorimotor control in cocaine users 
+ Drug Alcohol Depend 
+ 115 
+ 240 
+ 243 
+ 21193273 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hartley 
+ AA 
+ 
+ 
+ Speer 
+ NK 
+ 
+ 
+ 2000 
+ Locating and fractionating working memory using functional neuroimaging: storage, maintenance, and executive functions 
+ Microsc Res Tech 
+ 51 
+ 45 
+ 53 
+ 11002352 
+ 
+ 
+ 
+ 
+ 
+ 
+ Henseler 
+ I 
+ 
+ 
+ Gruber 
+ O 
+ 
+ 
+ Kraft 
+ S 
+ 
+ 
+ Krick 
+ C 
+ 
+ 
+ Reith 
+ W 
+ 
+ 
+ Falkai 
+ P 
+ 
+ 
+ 2008 
+ Compensatory hyperactivations as markers of latent working memory dysfunctions in patients with obsessive-compulsive disorder: an fMRI study 
+ J Psychiatry Neurosci 
+ 33 
+ 209 
+ 215 
+ 18592040 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hester 
+ R 
+ 
+ 
+ Garavan 
+ H 
+ 
+ 
+ 2004 
+ Executive dysfunction in cocaine addiction: evidence for discordant frontal, cingulate, and cerebellar activity 
+ J Neurosci 
+ 24 
+ 11017 
+ 11022 
+ 15590917 
+ 
+ 
+ 
+ 
+ 
+ 
+ Holmes 
+ AP 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ 1998 
+ Generalisability, random effects and population inference 
+ NeuroImage 
+ 7 
+ S754 
+ 
+ 
+ 
+ 
+ 
+ 
+ Honey 
+ GD 
+ 
+ 
+ Suckling 
+ J 
+ 
+ 
+ Zelaya 
+ F 
+ 
+ 
+ Long 
+ C 
+ 
+ 
+ Routledge 
+ C 
+ 
+ 
+ Jackson 
+ S 
+ 
+ 
+ Ng 
+ V 
+ 
+ 
+ Fletcher 
+ PC 
+ 
+ 
+ Williams 
+ SC 
+ 
+ 
+ Brown 
+ J 
+ 
+ 
+ Bullmore 
+ ET 
+ 
+ 
+ 2003 
+ Dopaminergic drug effects on physiological connectivity in a human cortico-striato-thalamic system 
+ Brain 
+ 126 
+ 1767 
+ 1781 
+ 12805106 
+ 
+ 
+ 
+ 
+ 
+ 
+ Iannetti 
+ GD 
+ 
+ 
+ Wise 
+ RG 
+ 
+ 
+ 2007 
+ BOLD functional MRI in disease and pharmacological studies: room for improvement? 
+ Magn Reson Imaging 
+ 25 
+ 978 
+ 988 
+ 17499469 
+ 
+ 
+ 
+ 
+ 
+ 
+ Jahanshahi 
+ M 
+ 
+ 
+ Jones 
+ CR 
+ 
+ 
+ Zijlmans 
+ J 
+ 
+ 
+ Katzenschlager 
+ R 
+ 
+ 
+ Lee 
+ L 
+ 
+ 
+ Quinn 
+ N 
+ 
+ 
+ Frith 
+ CD 
+ 
+ 
+ Lees 
+ AJ 
+ 
+ 
+ 2010 
+ Dopaminergic modulation of striato-frontal connectivity during motor timing in Parkinson’s disease 
+ Brain 
+ 133 
+ 727 
+ 745 
+ 20305278 
+ 
+ 
+ 
+ 
+ 
+ 
+ Jovanovski 
+ D 
+ 
+ 
+ Erb 
+ S 
+ 
+ 
+ Zakzanis 
+ KK 
+ 
+ 
+ 2005 
+ Neurocognitive deficits in cocaine users: a quantitative review of the evidence 
+ J Clin Exp Neuropsychol 
+ 27 
+ 189 
+ 204 
+ 15903150 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kalivas 
+ PW 
+ 
+ 
+ 2004 
+ Glutamate systems in cocaine addiction 
+ Curr Opin Pharmacol 
+ 4 
+ 23 
+ 29 
+ 15018835 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kaufmann 
+ L 
+ 
+ 
+ Vogel 
+ SE 
+ 
+ 
+ Starke 
+ M 
+ 
+ 
+ Kremser 
+ C 
+ 
+ 
+ Schocke 
+ M 
+ 
+ 
+ Wood 
+ G 
+ 
+ 
+ 2009 
+ Developmental dyscalculia: compensatory mechanisms in left intraparietal regions in response to nonsymbolic magnitudes 
+ Behav Brain Funct 
+ 5 
+ 35 
+ 19653919 
+ 
+ 
+ 
+ 
+ 
+ 
+ Karreman 
+ M 
+ 
+ 
+ Moghaddam 
+ B 
+ 
+ 
+ 1996 
+ The prefrontal cortex regulates the basal release of dopamine in the limbic striatum: an effect mediated by ventral tegmental area 
+ J Neurochem 
+ 66 
+ 589 
+ 598 
+ 8592128 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kegeles 
+ LS 
+ 
+ 
+ Abi-Dargham 
+ A 
+ 
+ 
+ Zea-Ponce 
+ Y 
+ 
+ 
+ Rodenhiser-Hill 
+ J 
+ 
+ 
+ Mann 
+ JJ 
+ 
+ 
+ Van Heertum 
+ RL 
+ 
+ 
+ Cooper 
+ TB 
+ 
+ 
+ Carlsson 
+ A 
+ 
+ 
+ Laruelle 
+ M 
+ 
+ 
+ 2000 
+ Modulation of amphetamine-induced striatal dopamine release by ketamine in humans: implications for schizophrenia 
+ Biol Psychiatry 
+ 48 
+ 627 
+ 640 
+ 11032974 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kelly 
+ C 
+ 
+ 
+ de Zubicaray 
+ G 
+ 
+ 
+ Di Martino 
+ A 
+ 
+ 
+ Copland 
+ DA 
+ 
+ 
+ Reiss 
+ PT 
+ 
+ 
+ Klein 
+ DF 
+ 
+ 
+ Castellanos 
+ FX 
+ 
+ 
+ Milham 
+ MP 
+ 
+ 
+ McMahon 
+ K 
+ 
+ 
+ 2009 
+ L-dopa modulates functional connectivity in striatal cognitive and motor networks: a double-blind placebo-controlled study 
+ J Neurosci 
+ 29 
+ 7364 
+ 7378 
+ 19494158 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kelly 
+ C 
+ 
+ 
+ Zuo 
+ XN 
+ 
+ 
+ Gotimer 
+ K 
+ 
+ 
+ Cox 
+ CL 
+ 
+ 
+ Lynch 
+ L 
+ 
+ 
+ Brock 
+ D 
+ 
+ 
+ Imperati 
+ D 
+ 
+ 
+ Garavan 
+ H 
+ 
+ 
+ Rotrosen 
+ J 
+ 
+ 
+ Castellanos 
+ FX 
+ 
+ 
+ Milham 
+ MP 
+ 
+ 
+ 2011 
+ Reduced interhemispheric resting state functional connectivity in cocaine addiction 
+ Biol Psychiatry 
+ 69 
+ 684 
+ 692 
+ 21251646 
+ 
+ 
+ 
+ 
+ 
+ 
+ Klostermann 
+ EC 
+ 
+ 
+ Braskie 
+ MN 
+ 
+ 
+ Landau 
+ SM 
+ 
+ 
+ O’Neil 
+ JP 
+ 
+ 
+ Jagust 
+ WJ 
+ 
+ 
+ 2012 
+ Dopamine and frontostriatal networks in cognitive aging 
+ Neurobiol Aging 
+ 33 
+ 623 e615 
+ 624 
+ 21511369 
+ 
+ 
+ 
+ 
+ 
+ 
+ Koob 
+ GF 
+ 
+ 
+ Volkow 
+ ND 
+ 
+ 
+ 2010 
+ Neurocircuitry of addiction 
+ Neuropsychopharmacology 
+ 35 
+ 217 
+ 238 
+ 19710631 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kruger 
+ G 
+ 
+ 
+ Glover 
+ GH 
+ 
+ 
+ 2001 
+ Physiological noise in oxygenation-sensitive magnetic resonance imaging 
+ Magn Reson Med 
+ 46 
+ 631 
+ 637 
+ 11590638 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kruger 
+ G 
+ 
+ 
+ Kastrup 
+ A 
+ 
+ 
+ Glover 
+ GH 
+ 
+ 
+ 2001 
+ Neuroimaging at 1.5 T and 3.0 T: comparison of oxygenation-sensitive magnetic resonance imaging 
+ Magn Reson Med 
+ 45 
+ 595 
+ 604 
+ 11283987 
+ 
+ 
+ 
+ 
+ 
+ 
+ Leh 
+ SE 
+ 
+ 
+ Ptito 
+ A 
+ 
+ 
+ Chakravarty 
+ MM 
+ 
+ 
+ Strafella 
+ AP 
+ 
+ 
+ 2007 
+ Fronto-striatal connections in the human brain: a probabilistic diffusion tractography study 
+ Neurosci Lett 
+ 419 
+ 113 
+ 118 
+ 17485168 
+ 
+ 
+ 
+ 
+ 
+ 
+ Leh 
+ SE 
+ 
+ 
+ Petrides 
+ M 
+ 
+ 
+ Strafella 
+ AP 
+ 
+ 
+ 2010 
+ The neural circuitry of executive functions in healthy subjects and Parkinson’s disease 
+ Neuropsychopharmacology 
+ 35 
+ 70 
+ 85 
+ 19657332 
+ 
+ 
+ 
+ 
+ 
+ 
+ Li 
+ B 
+ 
+ 
+ Daunizeau 
+ J 
+ 
+ 
+ Stephan 
+ KE 
+ 
+ 
+ Penny 
+ W 
+ 
+ 
+ Hu 
+ D 
+ 
+ 
+ Friston 
+ K 
+ 
+ 
+ 2011a 
+ Generalised filtering and stochastic DCM for fMRI 
+ Neuroimage 
+ 
+ 
+ 
+ 
+ 
+ 
+ Li 
+ Z 
+ 
+ 
+ Santhanam 
+ P 
+ 
+ 
+ Coles 
+ CD 
+ 
+ 
+ Lynch 
+ ME 
+ 
+ 
+ Hamann 
+ S 
+ 
+ 
+ Peltier 
+ S 
+ 
+ 
+ Hu 
+ X 
+ 
+ 
+ 2011b 
+ Increased “default mode” activity in adolescents prenatally exposed to cocaine 
+ Hum Brain Mapp 
+ 32 
+ 759 
+ 770 
+ 20690141 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lim 
+ KO 
+ 
+ 
+ Wozniak 
+ JR 
+ 
+ 
+ Mueller 
+ BA 
+ 
+ 
+ Franc 
+ DT 
+ 
+ 
+ Specker 
+ SM 
+ 
+ 
+ Rodriguez 
+ CP 
+ 
+ 
+ Silverman 
+ AB 
+ 
+ 
+ Rotrosen 
+ JP 
+ 
+ 
+ 2008 
+ Brain macrostructural and microstructural abnormalities in cocaine dependence 
+ Drug Alcohol Depend 
+ 92 
+ 164 
+ 172 
+ 17904770 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lundqvist 
+ T 
+ 
+ 
+ 2010 
+ Imaging cognitive deficits in drug abuse 
+ Curr Top Behav Neurosci 
+ 3 
+ 247 
+ 275 
+ 21161756 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ma 
+ L 
+ 
+ 
+ Hasan 
+ KM 
+ 
+ 
+ Steinberg 
+ JL 
+ 
+ 
+ Narayana 
+ PA 
+ 
+ 
+ Lane 
+ SD 
+ 
+ 
+ Zuniga 
+ EA 
+ 
+ 
+ Kramer 
+ LA 
+ 
+ 
+ Moeller 
+ FG 
+ 
+ 
+ 2009 
+ Diffusion tensor imaging in cocaine dependence: regional effects of cocaine on corpus callosum and effect of cocaine administration route 
+ Drug Alcohol Depend 
+ 104 
+ 262 
+ 267 
+ 19595517 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ma 
+ L 
+ 
+ 
+ Steinberg 
+ JL 
+ 
+ 
+ Hasan 
+ KM 
+ 
+ 
+ Narayana 
+ PA 
+ 
+ 
+ Kramer 
+ LA 
+ 
+ 
+ Moeller 
+ FG 
+ 
+ 
+ 2011 
+ Working memory load modulation of parieto-frontal connections: evidence from dynamic causal modeling 
+ 10.1002/hbm.21329 
+ Human Brain Mapping 
+ 
+ 
+ 
+ 
+ 
+ 
+ Madoz-Gurpide 
+ A 
+ 
+ 
+ Blasco-Fontecilla 
+ H 
+ 
+ 
+ Baca-Garcia 
+ E 
+ 
+ 
+ Ochoa-Mangado 
+ E 
+ 
+ 
+ 2011 
+ Executive dysfunction in chronic cocaine users: an exploratory study 
+ Drug Alcohol Depend 
+ 117 
+ 55 
+ 58 
+ 21277707 
+ 
+ 
+ 
+ 
+ 
+ 
+ Maldjian 
+ JA 
+ 
+ 
+ Laurienti 
+ PJ 
+ 
+ 
+ Burdette 
+ JH 
+ 
+ 
+ 2004 
+ Precentral gyrus discrepancy in electronic versions of the Talairach atlas 
+ Neuroimage 
+ 21 
+ 450 
+ 455 
+ 14741682 
+ 
+ 
+ 
+ 
+ 
+ 
+ Maldjian 
+ JA 
+ 
+ 
+ Laurienti 
+ PJ 
+ 
+ 
+ Kraft 
+ RA 
+ 
+ 
+ Burdette 
+ JH 
+ 
+ 
+ 2003 
+ An automated method for neuroanatomic and cytoarchitectonic atlas-based interrogation of fMRI data sets 
+ Neuroimage 
+ 19 
+ 1233 
+ 1239 
+ 12880848 
+ 
+ 
+ 
+ 
+ 
+ 
+ McFarland 
+ K 
+ 
+ 
+ Lapish 
+ CC 
+ 
+ 
+ Kalivas 
+ PW 
+ 
+ 
+ 2003 
+ Prefrontal glutamate release into the core of the nucleus accumbens mediates cocaine-induced reinstatement of drug-seeking behavior 
+ J Neurosci 
+ 23 
+ 3531 
+ 3537 
+ 12716962 
+ 
+ 
+ 
+ 
+ 
+ 
+ McLellan 
+ AT 
+ 
+ 
+ Kushner 
+ H 
+ 
+ 
+ Metzger 
+ D 
+ 
+ 
+ Peters 
+ R 
+ 
+ 
+ Smith 
+ I 
+ 
+ 
+ Grissom 
+ G 
+ 
+ 
+ Pettinati 
+ H 
+ 
+ 
+ Argeriou 
+ M 
+ 
+ 
+ 1992 
+ The Fifth Edition of the Addiction Severity Index 
+ J Subst Abuse Treat 
+ 9 
+ 199 
+ 213 
+ 1334156 
+ 
+ 
+ 
+ 
+ 
+ 
+ Meyer-Lindenberg 
+ A 
+ 
+ 
+ Miletich 
+ RS 
+ 
+ 
+ Kohn 
+ PD 
+ 
+ 
+ Esposito 
+ G 
+ 
+ 
+ Carson 
+ RE 
+ 
+ 
+ Quarantelli 
+ M 
+ 
+ 
+ Weinberger 
+ DR 
+ 
+ 
+ Berman 
+ KF 
+ 
+ 
+ 2002 
+ Reduced prefrontal activity predicts exaggerated striatal dopaminergic function in schizophrenia 
+ Nat Neurosci 
+ 5 
+ 267 
+ 271 
+ 11865311 
+ 
+ 
+ 
+ 
+ 
+ 
+ Moeller 
+ FG 
+ 
+ 
+ Hasan 
+ KM 
+ 
+ 
+ Steinberg 
+ JL 
+ 
+ 
+ Kramer 
+ LA 
+ 
+ 
+ Dougherty 
+ DM 
+ 
+ 
+ Santos 
+ RM 
+ 
+ 
+ Valdes 
+ I 
+ 
+ 
+ Swann 
+ AC 
+ 
+ 
+ Barratt 
+ ES 
+ 
+ 
+ Narayana 
+ PA 
+ 
+ 
+ 2005 
+ Reduced anterior corpus callosum white matter integrity is related to increased impulsivity and reduced discriminability in cocaine-dependent subjects: diffusion tensor imaging 
+ Neuropsychopharmacology 
+ 30 
+ 610 
+ 617 
+ 15637640 
+ 
+ 
+ 
+ 
+ 
+ 
+ Moeller 
+ FG 
+ 
+ 
+ Hasan 
+ KM 
+ 
+ 
+ Steinberg 
+ JL 
+ 
+ 
+ Kramer 
+ LA 
+ 
+ 
+ Valdes 
+ I 
+ 
+ 
+ Lai 
+ LY 
+ 
+ 
+ Swann 
+ AC 
+ 
+ 
+ Narayana 
+ PA 
+ 
+ 
+ 2007 
+ Diffusion tensor imaging eigenvalues: preliminary evidence for altered myelin in cocaine dependence 
+ Psychiatry Res 
+ 154 
+ 253 
+ 258 
+ 17321725 
+ 
+ 
+ 
+ 
+ 
+ 
+ Moeller 
+ FG 
+ 
+ 
+ Steinberg 
+ JL 
+ 
+ 
+ Schmitz 
+ JL 
+ 
+ 
+ Ma 
+ L 
+ 
+ 
+ Liu 
+ S 
+ 
+ 
+ Kjome 
+ KL 
+ 
+ 
+ Rathnayaka 
+ N 
+ 
+ 
+ Kramer 
+ LA 
+ 
+ 
+ Narayana 
+ PA 
+ 
+ 
+ 2010 
+ Working memory fMRI activation in cocaine dependent subjects: association with treatment response 
+ Psychiatry Research Neuroimaging 
+ 181 
+ 174 
+ 182 
+ 
+ 
+ 
+ 
+ 
+ 
+ Murase 
+ S 
+ 
+ 
+ Grenhoff 
+ J 
+ 
+ 
+ Chouvet 
+ G 
+ 
+ 
+ Gonon 
+ FG 
+ 
+ 
+ Svensson 
+ TH 
+ 
+ 
+ 1993 
+ Prefrontal cortex regulates burst firing and transmitter release in rat mesolimbic dopamine neurons studied in vivo 
+ Neurosci Lett 
+ 157 
+ 53 
+ 56 
+ 7901810 
+ 
+ 
+ 
+ 
+ 
+ 
+ Nishimura 
+ Y 
+ 
+ 
+ Isa 
+ T 
+ 
+ 
+ 2009 
+ Compensatory changes at the cerebral cortical level after spinal cord injury 
+ Neuroscientist 
+ 15 
+ 436 
+ 444 
+ 19826168 
+ 
+ 
+ 
+ 
+ 
+ 
+ Norris 
+ DG 
+ 
+ 
+ Zysset 
+ S 
+ 
+ 
+ Mildner 
+ T 
+ 
+ 
+ Wiggins 
+ CJ 
+ 
+ 
+ 2002 
+ An investigation of the value of spin-echo-based fMRI using a Stroop color-word matching task and EPI at 3 T 
+ Neuroimage 
+ 15 
+ 719 
+ 726 
+ 11848715 
+ 
+ 
+ 
+ 
+ 
+ 
+ Owen 
+ AM 
+ 
+ 
+ McMillan 
+ KM 
+ 
+ 
+ Laird 
+ AR 
+ 
+ 
+ Bullmore 
+ E 
+ 
+ 
+ 2005 
+ N-back working memory paradigm: a meta-analysis of normative functional neuroimaging studies 
+ Hum Brain Mapp 
+ 25 
+ 46 
+ 59 
+ 15846822 
+ 
+ 
+ 
+ 
+ 
+ 
+ Palmer 
+ SJ 
+ 
+ 
+ Eigenraam 
+ L 
+ 
+ 
+ Hoque 
+ T 
+ 
+ 
+ McCaig 
+ RG 
+ 
+ 
+ Troiano 
+ A 
+ 
+ 
+ McKeown 
+ MJ 
+ 
+ 
+ 2009 
+ Levodopa-sensitive, dynamic changes in effective connectivity during simultaneous movements in Parkinson’s disease 
+ Neuroscience 
+ 158 
+ 693 
+ 704 
+ 18722512 
+ 
+ 
+ 
+ 
+ 
+ 
+ Penny 
+ WD 
+ 
+ 
+ Stephan 
+ KE 
+ 
+ 
+ Daunizeau 
+ J 
+ 
+ 
+ Rosa 
+ MJ 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ Schofield 
+ TM 
+ 
+ 
+ Leff 
+ AP 
+ 
+ 
+ 2010 
+ Comparing families of dynamic causal models 
+ PLoS Comput Biol 
+ 6 
+ e1000709 
+ 20300649 
+ 
+ 
+ 
+ 
+ 
+ 
+ Price 
+ CJ 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ 2002 
+ Functional imaging studies of neuropsychological patients: applications and limitations 
+ Neurocase 
+ 8 
+ 345 
+ 354 
+ 12499409 
+ 
+ 
+ 
+ 
+ 
+ 
+ Rocca 
+ MA 
+ 
+ 
+ Valsasina 
+ P 
+ 
+ 
+ Ceccarelli 
+ A 
+ 
+ 
+ Absinta 
+ M 
+ 
+ 
+ Ghezzi 
+ A 
+ 
+ 
+ Riccitelli 
+ G 
+ 
+ 
+ Pagani 
+ E 
+ 
+ 
+ Falini 
+ A 
+ 
+ 
+ Comi 
+ G 
+ 
+ 
+ Scotti 
+ G 
+ 
+ 
+ Filippi 
+ M 
+ 
+ 
+ 2009 
+ Structural and functional MRI correlates of Stroop control in benign MS 
+ Hum Brain Mapp 
+ 30 
+ 276 
+ 290 
+ 18041737 
+ 
+ 
+ 
+ 
+ 
+ 
+ Romero 
+ MJ 
+ 
+ 
+ Asensio 
+ S 
+ 
+ 
+ Palau 
+ C 
+ 
+ 
+ Sanchez 
+ A 
+ 
+ 
+ Romero 
+ FJ 
+ 
+ 
+ 2010 
+ Cocaine addiction: diffusion tensor imaging study of the inferior frontal and anterior cingulate white matter 
+ Psychiatry Res 
+ 181 
+ 57 
+ 63 
+ 19959341 
+ 
+ 
+ 
+ 
+ 
+ 
+ Rowe 
+ JB 
+ 
+ 
+ 2010 
+ Connectivity Analysis is Essential to Understand Neurological Disorders 
+ Front Syst Neurosci 
+ 4 
+ 
+ 
+ 
+ 
+ 
+ 
+ Rowe 
+ JB 
+ 
+ 
+ Hughes 
+ LE 
+ 
+ 
+ Barker 
+ RA 
+ 
+ 
+ Owen 
+ AM 
+ 
+ 
+ 2010 
+ Dynamic causal modelling of effective connectivity from fMRI: are results reproducible and sensitive to Parkinson’s disease and its treatment? 
+ Neuroimage 
+ 52 
+ 1015 
+ 1026 
+ 20056151 
+ 
+ 
+ 
+ 
+ 
+ 
+ Schlosser 
+ RG 
+ 
+ 
+ Wagner 
+ G 
+ 
+ 
+ Koch 
+ K 
+ 
+ 
+ Dahnke 
+ R 
+ 
+ 
+ Reichenbach 
+ JR 
+ 
+ 
+ Sauer 
+ H 
+ 
+ 
+ 2008 
+ Fronto-cingulate effective connectivity in major depression: a study with fMRI and dynamic causal modeling 
+ Neuroimage 
+ 43 
+ 645 
+ 655 
+ 18761094 
+ 
+ 
+ 
+ 
+ 
+ 
+ Schlosser 
+ RG 
+ 
+ 
+ Wagner 
+ G 
+ 
+ 
+ Schachtzabel 
+ C 
+ 
+ 
+ Peikert 
+ G 
+ 
+ 
+ Koch 
+ K 
+ 
+ 
+ Reichenbach 
+ JR 
+ 
+ 
+ Sauer 
+ H 
+ 
+ 
+ 2010 
+ Fronto-cingulate effective connectivity in obsessive compulsive disorder: A study with fMRI and dynamic causal modeling 
+ Hum Brain Mapp 
+ 31 
+ 1834 
+ 1850 
+ 20162605 
+ 
+ 
+ 
+ 
+ 
+ 
+ Seghier 
+ ML 
+ 
+ 
+ Zeidman 
+ P 
+ 
+ 
+ Neufeld 
+ NH 
+ 
+ 
+ Leff 
+ AP 
+ 
+ 
+ Price 
+ CJ 
+ 
+ 
+ 2010 
+ Identifying abnormal connectivity in patients using dynamic causal modeling of FMRI responses 
+ Front Syst Neurosci 
+ 4 
+ 
+ 
+ 
+ 
+ 
+ 
+ Shimizu 
+ N 
+ 
+ 
+ Duan 
+ SM 
+ 
+ 
+ Hori 
+ T 
+ 
+ 
+ Oomura 
+ Y 
+ 
+ 
+ 1990 
+ Glutamate modulates dopamine release in the striatum as measured by brain microdialysis 
+ Brain Res Bull 
+ 25 
+ 99 
+ 102 
+ 1976424 
+ 
+ 
+ 
+ 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Jenkinson 
+ M 
+ 
+ 
+ Woolrich 
+ MW 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ Behrens 
+ TE 
+ 
+ 
+ Johansen-Berg 
+ H 
+ 
+ 
+ Bannister 
+ PR 
+ 
+ 
+ De Luca 
+ M 
+ 
+ 
+ Drobnjak 
+ I 
+ 
+ 
+ Flitney 
+ DE 
+ 
+ 
+ Niazy 
+ RK 
+ 
+ 
+ Saunders 
+ J 
+ 
+ 
+ Vickers 
+ J 
+ 
+ 
+ Zhang 
+ Y 
+ 
+ 
+ De Stefano 
+ N 
+ 
+ 
+ Brady 
+ JM 
+ 
+ 
+ Matthews 
+ PM 
+ 
+ 
+ 2004 
+ Advances in functional and structural MR image analysis and implementation as FSL 
+ Neuroimage 
+ 23 
+ Suppl 1 
+ S208 
+ 219 
+ 15501092 
+ 
+ 
+ 
+ 
+ 
+ 
+ Sofuoglu 
+ M 
+ 
+ 
+ 2010 
+ Cognitive enhancement as a pharmacotherapy target for stimulant addiction 
+ Addiction 
+ 105 
+ 38 
+ 48 
+ 20078461 
+ 
+ 
+ 
+ 
+ 
+ 
+ Sonty 
+ SP 
+ 
+ 
+ Mesulam 
+ MM 
+ 
+ 
+ Weintraub 
+ S 
+ 
+ 
+ Johnson 
+ NA 
+ 
+ 
+ Parrish 
+ TB 
+ 
+ 
+ Gitelman 
+ DR 
+ 
+ 
+ 2007 
+ Altered effective connectivity within the language network in primary progressive aphasia 
+ J Neurosci 
+ 27 
+ 1334 
+ 1345 
+ 17287508 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stephan 
+ KE 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ 2010 
+ Analyzing effective connectivity with functional magnetic resonance imaging 
+ WIREs Cognitive Sience 
+ 1 
+ 446 
+ 459 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stephan 
+ KE 
+ 
+ 
+ Harrison 
+ LM 
+ 
+ 
+ Kiebel 
+ SJ 
+ 
+ 
+ David 
+ O 
+ 
+ 
+ Penny 
+ WD 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ 2007a 
+ Dynamic causal models of neural system dynamics:current state and future extensions 
+ J Biosci 
+ 32 
+ 129 
+ 144 
+ 17426386 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stephan 
+ KE 
+ 
+ 
+ Penny 
+ WD 
+ 
+ 
+ Daunizeau 
+ J 
+ 
+ 
+ Moran 
+ RJ 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ 2009 
+ Bayesian model selection for group studies 
+ Neuroimage 
+ 46 
+ 1004 
+ 1017 
+ 19306932 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stephan 
+ KE 
+ 
+ 
+ Penny 
+ WD 
+ 
+ 
+ Moran 
+ RJ 
+ 
+ 
+ den Ouden 
+ HE 
+ 
+ 
+ Daunizeau 
+ J 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ 2010 
+ Ten simple rules for dynamic causal modeling 
+ Neuroimage 
+ 49 
+ 3099 
+ 3109 
+ 19914382 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stephan 
+ KE 
+ 
+ 
+ Weiskopf 
+ N 
+ 
+ 
+ Drysdale 
+ PM 
+ 
+ 
+ Robinson 
+ PA 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ 2007b 
+ Comparing hemodynamic models with DCM 
+ Neuroimage 
+ 38 
+ 387 
+ 401 
+ 17884583 
+ 
+ 
+ 
+ 
+ 
+ 
+ Taber 
+ MT 
+ 
+ 
+ Fibiger 
+ HC 
+ 
+ 
+ 1995 
+ Electrical stimulation of the prefrontal cortex increases dopamine release in the nucleus accumbens of the rat: modulation by metabotropic glutamate receptors 
+ J Neurosci 
+ 15 
+ 3896 
+ 3904 
+ 7751954 
+ 
+ 
+ 
+ 
+ 
+ 
+ Tomasi 
+ D 
+ 
+ 
+ Goldstein 
+ RZ 
+ 
+ 
+ Telang 
+ F 
+ 
+ 
+ Maloney 
+ T 
+ 
+ 
+ Alia-Klein 
+ N 
+ 
+ 
+ Caparelli 
+ EC 
+ 
+ 
+ Volkow 
+ ND 
+ 
+ 
+ 2007 
+ Widespread disruption in brain activation patterns to a working memory task during cocaine abstinence 
+ Brain Res 
+ 1171 
+ 83 
+ 92 
+ 17765877 
+ 
+ 
+ 
+ 
+ 
+ 
+ Tomasi 
+ D 
+ 
+ 
+ Volkow 
+ ND 
+ 
+ 
+ Wang 
+ R 
+ 
+ 
+ Carrillo 
+ JH 
+ 
+ 
+ Maloney 
+ T 
+ 
+ 
+ Alia-Klein 
+ N 
+ 
+ 
+ Woicik 
+ PA 
+ 
+ 
+ Telang 
+ F 
+ 
+ 
+ Goldstein 
+ RZ 
+ 
+ 
+ 2010 
+ Disrupted functional connectivity with dopaminergic midbrain in cocaine abusers 
+ PLoS One 
+ 5 
+ e10815 
+ 20520835 
+ 
+ 
+ 
+ 
+ 
+ 
+ Tong 
+ ZY 
+ 
+ 
+ Overton 
+ PG 
+ 
+ 
+ Clark 
+ D 
+ 
+ 
+ 1996 
+ Stimulation of the prefrontal cortex in the rat induces patterns of activity in midbrain dopaminergic neurons which resemble natural burst events 
+ Synapse 
+ 22 
+ 195 
+ 208 
+ 9132987 
+ 
+ 
+ 
+ 
+ 
+ 
+ Tucker 
+ KA 
+ 
+ 
+ Potenza 
+ MN 
+ 
+ 
+ Beauvais 
+ JE 
+ 
+ 
+ Browndyke 
+ JN 
+ 
+ 
+ Gottschalk 
+ PC 
+ 
+ 
+ Kosten 
+ TR 
+ 
+ 
+ 2004 
+ Perfusion abnormalities and decision making in cocaine dependence 
+ Biol Psychiatry 
+ 56 
+ 527 
+ 530 
+ 15450790 
+ 
+ 
+ 
+ 
+ 
+ 
+ Tzourio-Mazoyer 
+ N 
+ 
+ 
+ Landeau 
+ B 
+ 
+ 
+ Papathanassiou 
+ D 
+ 
+ 
+ Crivello 
+ F 
+ 
+ 
+ Etard 
+ O 
+ 
+ 
+ Delcroix 
+ N 
+ 
+ 
+ Mazoyer 
+ B 
+ 
+ 
+ Joliot 
+ M 
+ 
+ 
+ 2002 
+ Automated anatomical labeling of activations in SPM using a macroscopic anatomical parcellation of the MNI MRI single-subject brain 
+ Neuroimage 
+ 15 
+ 273 
+ 289 
+ 11771995 
+ 
+ 
+ 
+ 
+ 
+ 
+ van der Plas 
+ EA 
+ 
+ 
+ Crone 
+ EA 
+ 
+ 
+ van den Wildenberg 
+ WP 
+ 
+ 
+ Tranel 
+ D 
+ 
+ 
+ Bechara 
+ A 
+ 
+ 
+ 2009 
+ Executive control deficits in substance-dependent individuals: a comparison of alcohol, cocaine, and methamphetamine and of men and women 
+ J Clin Exp Neuropsychol 
+ 31 
+ 706 
+ 719 
+ 19037812 
+ 
+ 
+ 
+ 
+ 
+ 
+ Volkow 
+ ND 
+ 
+ 
+ Fowler 
+ JS 
+ 
+ 
+ Wang 
+ GJ 
+ 
+ 
+ Baler 
+ R 
+ 
+ 
+ Telang 
+ F 
+ 
+ 
+ 2009 
+ Imaging dopamine’s role in drug abuse and addiction 
+ Neuropharmacology 
+ 56 
+ Suppl 1 
+ 3 
+ 8 
+ 18617195 
+ 
+ 
+ 
+ 
+ 
+ 
+ Volkow 
+ ND 
+ 
+ 
+ Fowler 
+ JS 
+ 
+ 
+ Wang 
+ GJ 
+ 
+ 
+ Swanson 
+ JM 
+ 
+ 
+ Telang 
+ F 
+ 
+ 
+ 2007 
+ Dopamine in drug abuse and addiction: results of imaging studies and treatment implications 
+ Arch Neurol 
+ 64 
+ 1575 
+ 1579 
+ 17998440 
+ 
+ 
+ 
+ 
+ 
+ 
+ Volkow 
+ ND 
+ 
+ 
+ Wang 
+ GJ 
+ 
+ 
+ Fowler 
+ JS 
+ 
+ 
+ Tomasi 
+ D 
+ 
+ 
+ Telang 
+ F 
+ 
+ 
+ 2011 
+ Quantification of Behavior Sackler Colloquium: Addiction: Beyond dopamine reward circuitry 
+ Proc Natl Acad Sci U S A 
+ 
+ 
+ 
+ 
+ 
+ 
+ Vuilleumier 
+ P 
+ 
+ 
+ Driver 
+ J 
+ 
+ 
+ 2007 
+ Modulation of visual processing by attention and emotion: windows on causal interactions between human brain regions 
+ Philos Trans R Soc Lond B Biol Sci 
+ 362 
+ 837 
+ 855 
+ 17395574 
+ 
+ 
+ 
+ 
+ 
+ 
+ Wager 
+ TD 
+ 
+ 
+ Smith 
+ EE 
+ 
+ 
+ 2003 
+ Neuroimaging studies of working memory: a meta-analysis 
+ Cogn Affect Behav Neurosci 
+ 3 
+ 255 
+ 274 
+ 15040547 
+ 
+ 
+ 
+ 
+ 
+ 
+ Wallace 
+ DL 
+ 
+ 
+ Vytlacil 
+ JJ 
+ 
+ 
+ Nomura 
+ EM 
+ 
+ 
+ Gibbs 
+ SE 
+ 
+ 
+ D’Esposito 
+ M 
+ 
+ 
+ 2011 
+ The dopamine agonist bromocriptine differentially affects fronto-striatal functional connectivity during working memory 
+ Front Hum Neurosci 
+ 5 
+ 32 
+ 21503140 
+ 
+ 
+ 
+ 
+ 
+ 
+ Wang 
+ J 
+ 
+ 
+ Li 
+ L 
+ 
+ 
+ Roc 
+ AC 
+ 
+ 
+ Alsop 
+ DC 
+ 
+ 
+ Tang 
+ K 
+ 
+ 
+ Butler 
+ NS 
+ 
+ 
+ Schnall 
+ MD 
+ 
+ 
+ Detre 
+ JA 
+ 
+ 
+ 2004 
+ Reduced susceptibility effects in perfusion fMRI with single-shot spin-echo EPI acquisitions at 1.5 Tesla 
+ Magn Reson Imaging 
+ 22 
+ 1 
+ 7 
+ 14972387 
+ 
+ 
+ 
+ 
+ 
+ 
+ Wang 
+ Y 
+ 
+ 
+ Ramsey 
+ R 
+ 
+ 
+ de C Hamilton 
+ AF 
+ 
+ 
+ 2011 
+ The control of mimicry by eye contact is mediated by medial prefrontal cortex 
+ J Neurosci 
+ 31 
+ 12001 
+ 12010 
+ 21849560 
+ 
+ 
+ 
+ 
+ 
+ 
+ Wilcox 
+ CE 
+ 
+ 
+ Teshiba 
+ TM 
+ 
+ 
+ Merideth 
+ F 
+ 
+ 
+ Ling 
+ J 
+ 
+ 
+ Mayer 
+ AR 
+ 
+ 
+ 2011 
+ Enhanced cue reactivity and fronto-striatal functional connectivity in cocaine use disorders 
+ Drug Alcohol Depend 
+ 115 
+ 137 
+ 144 
+ 21466926 
+ 
+ 
+ 
+ 
+ 
+ 
+ Wilkinson 
+ D 
+ 
+ 
+ Halligan 
+ P 
+ 
+ 
+ 2004 
+ The relevance of behavioural measures for functional-imaging studies of cognition 
+ Nat Rev Neurosci 
+ 5 
+ 67 
+ 73 
+ 14708005 
+ 
+ 
+ 
+ 
+ 
+ 
+ Woodward 
+ TS 
+ 
+ 
+ Cairo 
+ TA 
+ 
+ 
+ Ruff 
+ CC 
+ 
+ 
+ Takane 
+ Y 
+ 
+ 
+ Hunter 
+ MA 
+ 
+ 
+ Ngan 
+ ET 
+ 
+ 
+ 2006 
+ Functional connectivity reveals load dependent neural systems underlying encoding and maintenance in verbal working memory 
+ Neuroscience 
+ 139 
+ 317 
+ 325 
+ 16324799 
+ 
+ 
+ 
+ 
+ 
+ 
+ Woolrich 
+ MW 
+ 
+ 
+ Jbabdi 
+ S 
+ 
+ 
+ Patenaude 
+ B 
+ 
+ 
+ Chappell 
+ M 
+ 
+ 
+ Makni 
+ S 
+ 
+ 
+ Behrens 
+ T 
+ 
+ 
+ Beckmann 
+ C 
+ 
+ 
+ Jenkinson 
+ M 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ 2009 
+ Bayesian analysis of neuroimaging data in FSL 
+ Neuroimage 
+ 45 
+ S173 
+ 186 
+ 19059349 
+ 
+ 
+ 
+ 
+ 
+ 
+ Yeterian 
+ EH 
+ 
+ 
+ Pandya 
+ DN 
+ 
+ 
+ 1991 
+ Prefrontostriatal connections in relation to cortical architectonic organization in rhesus monkeys 
+ J Comp Neurol 
+ 312 
+ 43 
+ 67 
+ 1744243 
+ 
+ 
+ 
+ 
+ 
+ 
+ Figure 1 
+ 
+ Plots showing the values of the mean (bar) and standard deviation (error bar) of the A′ accuracy scores for the control group, Cocaine Groups I and II and each of the subgroups within Cocaine Group II. Error bars are not shown for Cocaine subgroups II.4, II.5, and II.6 because there was only one subject in each of those subgroups. The top panel is for the IMT (shorter memory delay) condition, and the bottom panel is for the DMT (longer memory delay) condition. CTL=control, and COC=cocaine. 
+ 
+ 
+ 
+ 
+ Figure 2 
+ 
+ False discovery rate corrected significant clusters for the main effect of the delayed minus immediate memory conditions pooled across 3 digits, 5 digits, and 7 digits per stimulus and across both groups combined, detected by the univariate SPM8 second-level GLM analysis. Brain activations are overlaid in color on axial slices of the MNI template brain. The number above each slice indicates slice location (mm) of the MNI z coordinate. Scale on color bar represents voxel t values. The viewer’s left (L) side of each slice is left hemisphere of the brain, and right (R) side of each slice is right hemisphere of brain. 
+ 
+ 
+ 
+ 
+ Figure 3 
+ 
+ Random-effects BMS results (left panels for control group, and right panels for cocaine group) of the connections modulated by the optimal bilinear modulator (memory-delay). For the control group, two Single-modulation DCMs (corresponding to connections L MFG to L IFC, and L STR to L IFC respectively) had exceedance probabilities that were at least 5 times greater than the mean exceedance probability of the other 36 DCMs. For the cocaine group, six Single-modulation DCMs (corresponding to connections L MFG to L IFC, L IFC to L MFG, L PPC to L IFC, L IFC to L PPC, LR SMA to L IFC, and R PPC to L STR respectively) had exceedance probabilities that were at least 5 times greater than the mean exceedance probability of the other 36 DCMs. Please see  Supplementary Table II  for the 42 endogenous connections that correspond to the 42 modulation model numbers. 
+ 
+ 
+ 
+ 
+ Figure 4 
+ 
+ The results of BMA analysis showing the largest group differences in posterior mean values of the DCM bilinear modulation (B-matrix) parameters. The endogenous connections (that were bilinearly modulated) are denoted by solid line with arrow. The driving input (Type 1, all visual stimuli) is depicted by dotted line with arrow. The bilinear modulation effects exerted separately by IMT (shorter working memory delay) and DMT (longer working memory delay) are depicted by thin lines ending with solid dot. The mean strengths (in units of Hz) of the bilinear modulation effects exerted by the IMT condition (left panels), and the bilinear modulation effects exerted by the DMT condition (right panels) are separately shown for the cocaine group (top panels), and the control group (lower panels). The ROIs of the DCM analyisis are depicted by gray circles. The abbreviations for the ROI labels are defined in section 2.6.1 of the Materials and methods. 
+ 
+ 
+ 
+ 
+ Table I 
+ 
+ Mean and standard deviation of the performance accuracy (A′) in each subject group during different digit loads and memory delays. 
+ 
+ 
+ 
+ 
+ 
+ IMT 
+ DMT 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 3 digits 
+ 5 digits 
+ 7 digits 
+ 3 digits 
+ 5 digits 
+ 7 digits 
+ 
+ 
+ 
+ 
+ Cocaine 
+ 0.941 ± 0.088 
+ 0.883 ± 0.092 
+ 0.843 ± 0.114 
+ 0.945 ± 0.056 
+ 0.853 ± 0.143 
+ 0.782 ± 0.137 
+ 
+ 
+ Control 
+ 0.967 ± 0.047 
+ 0.904 ± 0.078 
+ 0.762 ± 0.121 
+ 0.941 ± 0.051 
+ 0.887 ± 0.059 
+ 0.771 ± 0.169 
+ 
+ 
+ 
+ 
+ 
+ Table II 
+ 
+ Univariate SPM second-level general linear model analysis (Random Effects) of regional activation for the main effect of the delayed minus immediate memory conditions pooled across 3digits, 5 digits, and 7 digits per stimulus and across both groups combined. Within each significant cluster, the voxel with relative maximal t value and its approximate anatomical location are listed. CI = 90 percent confidence interval. x, y, and z = MNI standard space coordinates (mm). Negative x = Left hemisphere. Smoothness of residual field (FWHM) = [13.2 12.8 11.1] mm. Search volume=125395voxels=495.0 resolution elements (resels). FDR = false discovery rate corrected probability. L = left. R = right. g = gyrus. d.f. = degrees of freedom. 
+ 
+ 
+ 
+ 
+ Contrast 
+ Cluster label 
+ Cluster P [FDR-corrected] 
+ Number of voxels 
+ Mean activation across all voxels in cluster [percent of whole brain activation] (± CI) 
+ Maximal voxel t value (31 d.f.) 
+ Maximal voxel t MNI coordinates [x, y, z] 
+ Maximal voxel t location 
+ 
+ 
+ 
+ 
+ Main effects of memory delay (pooled across 3 digits, 5 digits, and 7 digits,and across both groups combined) 
+ 1 
+ <0.001 
+ 2396 
+ 1.04 (0.21) 
+ 7.61 
+ −28,−56, 40 
+ L inferior parietal lobule 
+ 
+ 
+ 
+ 2 
+ <0.001 
+ 2104 
+ 0.79 (0.19) 
+ 6.73 
+ 28,−64, 34 
+ L parietal lobe white matter 
+ 
+ 
+ 
+ 3 
+ 0.006 
+ 979 
+ 0.94 (0.23) 
+ 6.60 
+ −6, 4, 54 
+ L supplementary motor area 
+ 
+ 
+ 
+ 4 
+ <0.001 
+ 4265 
+ 0.81 (0.34) 
+ 6.18 
+ −42, 10, 24 
+ L precentral g 
+ 
+ 
+ 
+ 
+ 

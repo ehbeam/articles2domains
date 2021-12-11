@@ -1,0 +1,2931 @@
+
+ properties manuscript? 
+ 
+ 
+ 9215515 
+ 20498 
+ Neuroimage 
+ Neuroimage 
+ 
+ NeuroImage 
+ 
+ 1053-8119 
+ 1095-9572 
+ 
+ 
+ 26216278 
+ 4618037 
+ 10.1016/j.neuroimage.2015.07.054 
+ NIHMS710874 
+ 
+ 
+ Article 
+ 
+ 
+ 
+ A group ICA based framework for evaluating resting fMRI markers when disease categories are unclear: application to schizophrenia, bipolar, and schizoaffective disorders 
+ 
+ 
+ 
+ 
+ Du 
+ Yuhui 
+ 
+ 1 
+ 2 
+ * 
+ 
+ 
+ 
+ Pearlson 
+ Godfrey D 
+ 
+ 3 
+ 4 
+ 5 
+ 
+ 
+ 
+ Liu 
+ Jingyu 
+ 
+ 1 
+ 6 
+ 
+ 
+ 
+ Sui 
+ Jing 
+ 
+ 1 
+ 7 
+ 
+ 
+ 
+ Yu 
+ Qingbao 
+ 
+ 1 
+ 
+ 
+ 
+ He 
+ Hao 
+ 
+ 1 
+ 6 
+ 
+ 
+ 
+ Castro 
+ Eduardo 
+ 
+ 1 
+ 
+ 
+ 
+ Calhoun 
+ Vince D. 
+ 
+ 1 
+ 3 
+ 6 
+ 
+ 
+ 1 The Mind Research Network & LBERI, Albuquerque, NM, USA 
+ 2 School of Information and Communication Engineering, North University of China, Taiyuan, China 
+ 3 Department of Psychiatry, Yale University, New Haven, CT, USA 
+ 4 Department of Neurobiology, Yale University, New Haven, CT, USA 
+ 5 Olin Neuropsychiatry Research Center, Institute of Living, Hartford, CT, USA 
+ 6 Department of Electrical and Computer Engineering, University of New Mexico, Albuquerque, NM, USA 
+ 7 Brainnetome Center and National Laboratory of Pattern Recognition, Institute of Automation, Chinese Academy of Sciences, Beijing, China 
+ 
+ Corresponding author: Yuhui Du, Ph.D.,  ydu@mrn.org , Full postal address: The Mind Research Network, 1101 Yale Blvd NE, Albuquerque, NM, 87106, USA, Telephone numbers: +1-505-573-1356 
+ 
+ 
+ 29 
+ 7 
+ 2015 
+ 
+ 
+ 26 
+ 7 
+ 2015 
+ 
+ 
+ 15 
+ 11 
+ 2015 
+ 
+ 
+ 15 
+ 11 
+ 2016 
+ 
+ 122 
+ 272 
+ 280 
+ 
+ 
+ This file is available for text mining. It may also be used consistent with the principles of fair use under the copyright law. 
+ 
+ 
+ 
+ Schizophrenia (SZ), bipolar disorder (BP) and schizoaffective disorder (SAD) share some common symptoms, and there is a debate about whether SAD is an independent category. To the best of our knowledge, no study has been done to differentiate these three disorders or to investigate the distinction of SAD as an independent category using fMRI data. The present study is aimed to explore biomarkers from resting-state fMRI networks for differentiating these disorders and investigate the relationship among these disorders based on fMRI networks with an emphasis on SAD. Firstly, a novel group ICA method, group information guided independent component analysis (GIG-ICA), was applied to extract subject-specific brain networks from fMRI data of 20 healthy controls (HC), 20 SZ patients, 20 BP patients, 20 patients suffering SAD with manic episodes (SADM), and 13 patients suffering SAD with depressive episodes exclusively (SADD). Then, five-level one-way analysis of covariance and multiclass support vector machine recursive feature elimination were employed to identify discriminative regions from the networks. Subsequently, the t-distributed stochastic neighbor embedding (t-SNE) projection and the hierarchical clustering methods were implemented to investigate the relationship among those groups. Finally, to evaluate the generalization ability, 16 new subjects were classified based on the found regions and the trained model using original 93 subjects. Results show that the discriminative regions mainly include frontal, parietal, precuneus, cingulate, supplementary motor, cerebellar, insula and supramarginal cortices, which performed well in distinguishing different groups. SADM and SADD were the most similar to each other, although SADD had greater similarity to SZ compared to other groups, which indicates SAD may be an independent category. BP was closer to HC compared with other psychotic disorders. In summary, resting-state fMRI brain networks extracted via GIG-ICA provide a promising potential to differentiate SZ, BP, and SAD. 
+ 
+ 
+ Schizophrenia 
+ Bipolar disorder 
+ Schizoaffective disorder 
+ Resting-state brain intrinsic networks 
+ Independent component analysis 
+ Functional magnetic resonance imaging 
+ 
+ 
+ 
+ 
+ 1.Introduction 
+ Schizophrenia (SZ), bipolar disorder (BP), and schizoaffective disorder (SAD) have overlapping clinical symptoms, shared risk genes and co-occurrence within relatives ( Cardno and Owen, 2014 ;  Cosgrove and Suppes, 2013 ;  Malaspina et al., 2013 ). SZ is a psychotic disorder characterized by altered perception, loss of motivation and judgment, and impairment in social cognition. BP is a mood disorder marked by alternating episodes of mania and depression. SAD is diagnosed when the symptom criteria for SZ are met, and during the same continuous period there are major depressive, manic or mixed episodes. Among SAD, one type is determined when an individual exhibits manic, hypomanic or mixed episodes, and the other type is defined when an individual has depressive episodes exclusively. Differentiating SAD from SZ and/or BP is difficult due to their similar symptoms. In fact, there has been considerable controversy about SAD’s clinical distinction from SZ and BP ( Heckers, 2009 ;  Maier, 2006 ). The DSM-V defines SAD as an independent diagnosis within the same diagnostic class as SZ ( Malaspina et al., 2013 ). There is some evidence that SAD is an intermediate disease between BP and SZ ( Cheniaux et al., 2008 ;  Gupta et al., 2007 ;  Mancuso et al., 2015 ). Other work claims that SAD represents the co-occurrence of SZ and BP ( Laursen et al., 2009 ) or an atypical form of SZ/BP ( Bogan et al., 2000 ;  Cascade et al., 2009 ;  Lake and Hurwitz, 2006 ). SAD is also discussed as a heterogeneous group comprised of both SZ and BP ( Levitt and Tsuang, 1988 ). In general, the hope is that neuroimaging-based measures rather than clinical symptoms may provide adjunctive information for clinic diagnosis. Recently, it is found that brain intrinsic networks (INs) that provide a unique insight into the organization of brain intrinsic activity are very informative and reliable. Therefore, it is expected that measures from INs could offer biomarkers for distinguishing these disorders as well as evidence about whether the schizoaffective disorder is an independent category. 
+ There has been an increasing interest in exploring biomarkers from functional magnetic resonance imaging (fMRI) extracted INs ( Calhoun and Adali, 2012 ;  van den Heuvel and Hulshoff Pol, 2010 ;  Zhang and Raichle, 2010 ) for differentiating mental disorders. With respect to SZ and BP, some studies have explored these two disorders using fMRI INs. Researchers applied independent component analysis (ICA) on resting-state or task-related fMRI to analyze the difference in INs for healthy controls (HC), SZ patients, BP patients and the relatives of patients, revealed that regions reflecting differences were mainly from INs including default mode network (DMN), temporal network, and frontal network ( Calhoun et al., 2011 ;  Garrity et al., 2007 ;  Khadka et al., 2013 ;  Meda et al., 2014 ;  Ongur et al., 2010 ). Difference was also reported in whole-brain IN for SZ patients, BP patients and HC using a region of interest (ROI) based method ( Argyelan et al., 2014 ), indicating that BP patients had functional connectivity intermediate to SZ patients and HC. Whitfield-Gabrielli et al. ( Whitfield-Gabrieli et al., 2009 ) analyzed DMN using both resting-state and working-memory task fMRI for SZ, relatives of SZ patients, and HC, finding that SZ patients and their relatives exhibited significantly reduced task-related suppression in medial prefrontal cortex. In addition, others have shown fMRI network connectivity ( Arbabshirani et al., 2013 ) or network maps ( Du et al., 2012a ;  Fan et al., 2011 ) extracted via ICA provided promising disease markers for diagnosing SZ. 
+ However, most of previous studies merged SAD patients with SZ or BP patients probably due to the relatively low reliability of SAD ( Maj et al., 2000 ). A few works have explored SAD using fMRI ( Madre et al., 2013 ;  Madre et al., 2014 ;  Ongur et al., 2010 ), revealed aberrance in DMN. Since SAD has attracted serious concerns about its reliability and validity of the diagnosis, EEG ( Chun et al., 2013 ;  Mathalon et al., 2010 ) and MEG data ( Reite et al., 2010 ) were also employed to explore SAD. However, to the best of our knowledge, from the aspect of fMRI brain networks, no study has been done to differentiate these three disorders, or to investigate the distinction of SAD as an independent category as well as the relationship among SZ, BP and SAD. 
+ Two major types of approaches are used to extract brain INs from fMRI: model-based and data-driven analyses ( Li et al., 2009 ). Among model-based approaches, the widely used ROI (or seed) based methods ( Biswal et al., 1995 ) may be limited by the shapes, locations and inter-subject variability of ROI ( Du et al., 2012b ). On the other hand, data-driven approaches including the ICA ( Calhoun and Adali, 2012 ;  Calhoun et al., 2001 ), principle component analysis (PCA), and clustering methods ( Du et al., 2014b ;  van den Heuvel et al., 2008 ), have gained increasing popularity. In particular, ICA that offers an independence-based ( Calhoun et al., 2013 ) decomposition of the spatiotemporal fMRI has been widely applied due to its interpretability, reliability and reproducibility ( Zuo et al., 2010 ). 
+ Although ICA has been successful in brain INs extraction, the random order of resulting independent components (ICs) makes multiple-subject data analysis difficult. In multiple-subject studies, especially for clinic application, it is expected that corresponding meanings of INs can be assigned across subjects meanwhile the inter-subject variability in INs can be accurately captured. The traditional individual-subject ICA method struggles with effectively establishing the correspondence of INs across subjects ( Moritz et al., 2003 ;  Schopf et al., 2010 ). To overcome this problem, group ICA approaches ( Calhoun and Adali, 2012 ) have been proposed by reconstructing individual INs based on common group ICs using PCA-based back-reconstruction approaches ( Calhoun et al., 2001 ;  Erhardt et al., 2011 ) or regression-based method (e.g., dual regression) ( Beckmann et al., 2009 ;  Erhardt et al., 2011 ). However, the independence of subject-specific components derived from those group ICA methods cannot be guaranteed, since the independence is not explicitly optimized at the subject level. In this study, we apply an improved group ICA method, called group information guided independent component analysis (GIG-ICA) ( Du and Fan, 2013 ) to compute the subject-specific brain INs, while still preserving the correspondence of INs across subjects. GIG-ICA estimates the components using a multiple-objective optimization algorithm, which simultaneously optimizes the independence of subject-specific INs as well as the correspondence between group ICs and subject-specific INs. A previous study ( Du and Fan, 2013 ) has shown that GIG-ICA is able to obtain INs with higher accuracy compared to traditional group ICA methods. We believe that the optimization of independence of individual INs will provide a better measure of the similarity and the subtle differences in INs of SZ, BP, and SAD. 
+ The goal of the study is twofold. One is to explore resting-state fMRI INs based biomarkers using GIG-ICA for distinguishing HC, SZ patients, BP patients, and two symptom-defined subsets of SAD patients. The other is to employ fMRI INs to investigate the relationship among these groups, with an emphasis on SAD. Preliminary results of this study have been reported in ( Du et al., 2014a ). 
+ 
+ 
+ 2. Material and Methods 
+ 
+ 2.1 Material 
+ Resting-state fMRI data (see  Table 1 ) from 20 HC, 20 SZ patients, 20 psychotic BP patients, 20 patients suffering schizoaffective disorder with manic episodes (SADM), and 13 patients suffering schizoaffective disorder with depressive episodes exclusively (SADD) were analyzed. In this study, we treated two symptom-defined sub-groups of SAD patients separately because there is still a debate in the field about whether SAD or its subtypes should be regarded as SZ or BP. All subjects gave written informed consent approved by Hartford Hospital and Yale University. Patients were diagnosed according to DSM-IV-TR criteria, and were clinically stable with consistent medication doses for 4 weeks or longer. There is no significant group effect on age and gender. Scans were acquired on a 3T dedicated head scanner (Siemens Allegra) equipped with 40mT/m gradients and a standard quadrature head coil at the Olin Neuropsychiatry Research Center. The functional scans were acquired using gradient echo planar imaging (EPI) with the following parameters: repeat time (TR)=1.5s, echo time (TE)=27ms, field of view=24cm, acquisition matrix=64×64, flip angle= 70°, voxel size=3.75mm×3.75mm×4mm, slice thickness=4mm, number of slices=29, and ascending acquisition. Resting-state scans lasted just over 5 minutes, during which 210 functional images were acquired. During data acquisition, subjects were asked to remain alert with eyes open and instructed to think of nothing. Additionally, on the day of scanning, patients were assessed with the positive and negative syndrome scale (PANSS). 
+ 
+ 
+ 2.2 Methods 
+ GIG-ICA was first applied to extract subject-specific INs from preprocessed fMRI of 93 subjects, including HC, SZ patients, BP patients, and two sub-groups of SAD patients. Then, statistical analysis and machine learning method were employed to identify discriminative regions from the INs. Next, based on features extracted from the discriminative regions, projection and clustering methods were performed to investigate the relationship among groups as well as examine the discrimination ability. Finally, in order to examine the generalization ability, 16 new subjects were classified based on the found biomarkers and the trained model from original 93 subjects. The processing steps are described in details in the following sections, and the overall flowchart is shown in  Fig. 1 . 
+ 
+ 2.2.1 Data preprocessing 
+ SPM8 ( http://www.fil.ion.ucl.ac.uk/spm ) was adopted for fMRI preprocessing. For each subject, the first ten volumes were discarded to allow for T1 equilibration. The remaining images were slice-time corrected and realigned to the first volume for head-motion correction. The output of realignment shows that the head motion were slight in all subjects, the translation were less than 3mm, and rotation did not exceed 3° in all axis through the whole scanning process. The maximum head motion parameter during the scanning were averaged across subjects for each of those five groups, and reported in  supplementary Table S1 . Subsequently, the images were spatially normalized to the Montreal Neurological Institute (MNI) EPI template ( Friston et al., 1995 ), resliced to 3mm×3mm×3mm voxels, and smoothed with a Gaussian kernel with a full-width at half-maximum (FWHM) of 8 mm. 
+ 
+ 
+ 2.2.2 Intrinsic networks extraction using GIG-ICA 
+ The preprocessed fMRI of 93 subjects were subjected to GIG-ICA for extracting their subject-specific INs. GIG-ICA ( Du and Fan, 2013 ) included three steps: (1) performing group-level ICA on all subjects’ datasets to get group ICs, (2) identification and removal of artifact group ICs, (3) computation of individual INs using a multiple-objective optimization algorithm ( Du and Fan, 2013 ). At step 1, group-level ICA ( Calhoun et al., 2001 ;  Erhardt et al., 2011 ) included subject-level and group-level PCA applied to the temporally concatenated data and ICA applied to the dimensionality reduced data using Infomax algorithm ( Bell and Sejnowski, 1995 ). At step 2, the artifact group ICs in terms of head motion and physiological noises were identified manually by inspecting spatial maps of group ICs, mean of related individual time courses (TCs), and spectra of mean individual TCs ( Allen et al., 2014 ). At step 3, the remaining non-artifact group ICs were taken as references to compute the subject-specific INs using a multi-objective optimization solver ( Du and Fan, 2013 ). GIG-ICA automatically generates Z-scored ICs. In this paper, the number of ICs was set to a empirical value, 30 ( Abou-Elseoud et al., 2010 ), and the number of principle components used in the subject-level PCA was specified as a greater number, 60 ( Erhardt et al., 2011 ). The ICASSO technique ( Himberg et al., 2004 ) with 20 ICA runs was implemented to get reliable group ICs using a “best run” approach ( Ma et al., 2011 ). 
+ 
+ 
+ 2.2.3 Exploring discriminative regions from intrinsic networks 
+ To explore INs based measures for distinguishing different groups, we analyzed the subject-specific INs as follows. First, for each IN, a statistical map was created and thresholded by voxel-wise one-sample t-tests (p<0.01 with FDR correction) on IC Z-scores of 93 subjects, then IC Z-scores of subjects in each statistically significant voxel were entered into a voxel-wise five-level one-way analysis of covariance (ANCOVA) with age and gender as covariates. Next, based on the voxels extracted from all INs, which show a main effect of group difference using ANCOVA (p<0.05), multiclass support vector machine recursive feature elimination (MSVM-RFE) ( Zhou and Tuck, 2007 ) with 10-fold cross-validation was applied to further select voxels (features) in a backward elimination procedure. In ANCOVA, we chose a relatively loose threshold (p<0.05 uncorrected), considering that more features for selection could benefit the performance of MSVM-RFE. In MSVM-RFE, features corresponding to the ranking criterion in the bottom 10% of the remaining features were removed in each step, and the maximum number of iterations was set to 20. While repeating the feature selection algorithms 10 times on different data subsets (10-fold), 10 different feature subsets were obtained. By computing the frequency of each feature appearing in the 10 subsets, we identified the important features which had the highest frequency (frequency=1). Subsequently, the regions containing more than 20 voxels were identified as discriminative regions. After that, for each discriminative region from INs, IC Z-scores from corresponding network among voxels within the region were averaged for each subject, then the mean Z-scores from different subjects were compared between any pair of groups using two-sample t-tests (p<0.01 with FDR correction). Finally, for each discriminative region, Pearson correlation coefficients were computed between mean Z-scores and positive/negative PANSS scores for each of 4 patient groups, separately. The significance level was adjusted for p<0.05 for each region. 
+ 
+ 
+ 2.2.4 Investigating relationship among groups 
+ Based on all discriminative regions extracted from INs, we investigated relationship among different groups. First, for each subject, IC Z-scores within voxels in all discriminative regions of INs were concatenated as a feature vector, with Z-score from each voxel as one feature. Then, each feature from 93 subjects was normalized into zero mean and unit standard deviation. Next, based on the normalized feature vectors, the similarity and distance between any pair of subjects were computed using their feature vectors’ Pearson correlation coefficient C  and 1 –  C , respectively. Thus, similarity matrix and distance matrix (size: 93 × 93) reflecting relationship among 93 subjects can be calculated. Afterwards, we averaged the values in each inter-group or intra-group associated sub-block of the distance matrix in order to reflect the overall relationship among groups. Furthermore, to visualize the relationship among subjects, a projection method named t-distributed stochastic neighbor embedding ( t -SNE) ( Mwangi et al., 2014 ;  van der Maaten and Hinton, 2008 ) was applied to project 93 normalized feature vectors onto a 2D space. In addition, based on the identified features, a hierarchical clustering approach with agglomerative algorithm was also performed to investigate the relationship among those groups by identifying the hierarchy of clusters ( Bae et al., 2014 ;  Wao et al., 2015 ). The used linkage type in the hierarchical clustering approach is average-linkage, which applies the average of distances between all pairs of subjects to measure the distance between newly formed clusters to each other and to other subjects. 
+ 
+ 
+ 2.2.5 Investigating discrimination ability for new subjects 
+ One advantage of GIG-ICA is that the method can compute individual INs for new subjects based on the group ICs from original subjects, keeping the correspondence of INs across all subjects. Therefore, GIG-ICA enables us to classify (or diagnose) new subjects based on the found biomarkers and the trained model from original subjects. In this study, with the non-artifact group ICs obtained from the above mentioned 93 subjects as references, subject-specific INs were estimated for preprocessed fMRI of 16 new subjects. These subjects including 4 HC, 4 SZ patients, 4 BP patients, and 4 SADM patients (no data of additional SADD patients available) were scanned and preprocessed with the same standard. For each new subject, a feature vector was extracted from its INs based on the discriminative regions found from the original 93 subjects. So, the new subjects were classified using a support vector machine (SVM) classifier that was trained using the feature vectors from original 93 subjects. 
+ 
+ 
+ 
+ 
+ 3. Results 
+ 
+ 3.1 Intrinsic networks extracted using GIG-ICA 
+ From the preprocessed fMRI of 93 subjects, 30 group ICs were obtained from GIG-ICA. 18 group ICs were identified as artifacts, leaving 12 INs estimated for each subject. As shown in  Fig. 2 , these networks included fronto-parietal networks (IN 1 and IN 2), default mode networks (IN 3, IN 5, and IN 6), salience network (IN 4), parietal network (IN 7), auditory related network (IN 8), vision related network (IN 9), visuospatial network (IN 10), cerebellum (IN 11), and sensory-motor network (IN 12). 
+ 
+ 
+ 3.2 Discriminative regions from intrinsic networks 
+ From 12 INs, 53 discriminative regions involving about 2000 voxels were identified.  Fig. 3  shows the primary regions containing more than 50 voxels. As summarized in  Table 2 , those regions mainly involved frontal, parietal, precuneus, cingulate, supplementary motor, cerebellar, insula, and supramarginal cortices. The remaining regions are summarized in  supplementary materials (Table. S2) . For each primary region, the mean Z-scores within the region of different subjects were compared between any pair of groups using two-sample t-tests. As shown in  Fig. 4 , different brain regions represented different between-group relationship, reflecting the complexity of those disorders. Among those regions, the insula cortex was significantly different between HC and BP, and the supplementary motor area was highly discriminative for group pairs including HC and SADM, SZ and BP, BP and SADM, as well as BP and SADD. In the next section, we evaluated and reported the relationship among different groups using measures from all those discriminative regions. As described in the Methods section, we also computed the Pearson correlation coefficients between mean Z-scores and PANSS scores for each patient group. Results show that mean Z-scores in right medial frontal cortex (region (b)) were correlated negatively with PANSS negative scores in SADM group (r=−0.51, p=0.02); mean Z scores in right precuneus cortex (region (i)) were correlated positively with PANSS negative scores in BP group (r=0.53, p=0.02); mean Z scores in left cerebellum (region (j)) were correlated positively with PANSS positive scores in SZ group (r=0.52, p=0.03); and mean Z scores in left supplementary motor cortex (region (k)) were correlated positively with PANSS negative scores in SZ group (r=0.67, p=0.003, it can pass the Bonferroni correction for multiple comparison). 
+ 
+ 
+ 3.3 Relationship among groups 
+ The distance matrix ( Fig. 5(A) ) calculated using the feature vectors of subjects illustrates that subjects in the same group had greater similarity.  Fig. 5(B)  reflects the overall relationship among groups, indicating that SADM group and SADD group were the most similar to each other, while SADD group was the closest to SZ group compared to the other groups. Projection result ( Fig. 5(C) ) demonstrates that different groups were well separated, although some groups were close to one another. To be specific, the center of the projected points of each group shows that SADM group and SADD group were closer to each other than any other groups, while BP group was closer to HC group than other groups. The linkage result from the hierarchical clustering as shown in  Fig. 5(D)  reflects how subjects were clustered into groups, thus reflects the relationship among groups. We summarize the relationship among those 5 groups based on the majority of subjects that were correctly clustered.  Fig. 5(D)  shows that if we separate the subjects into four clusters, then SADM group and SADD group would combine into one cluster against SZ group, BP group, and HC group; if we separate the subjects into three clusters, then SADD group, SADM group and SZ group would become one cluster against BP group and HC group; if only two clusters are allowed, then HC group and BP group would belong to one cluster, and SZ group, SADD group, and SADM group would belong to the other cluster. These results suggest that evaluated using measures from INs, SADM group and SADD group were closest to each other; SADD group was more similar to SZ group compared to other groups; and BP group was closer to HC group than other patient groups. 
+ 
+ 
+ 3.4 Discrimination ability 
+ We tested the trained model using the features identified from the original 93 subjects on our independent testing dataset, which included 16 subjects. The classification accuracy for these new subjects was 68.75%, with one HC, two BP patients, and two SADM patients misclassified. The accuracy is remarkably higher than chance (chance=20%), although it is lower than usually reported classification accuracy for two groups (e.g., SZ and HC). Due to more obvious symptoms in SZ contrast to HC, 2-category classification of HC and SZ should be much easier than differentiating 5 groups including HC, SZ, BP, SADM, and SADD in this study. It is also worth noting that we did not use any information from new subjects to select features and train model, so the classification results for new subjects are not biased. 
+ 
+ 
+ 
+ 4. Discussion and conclusions 
+ There has been an increasing interest in determining whether neuroimaging-based measures can differentiate among the clinically-defined entities of SZ, BP and SAD. Moreover, whether SAD should be considered a separate category and what is the relationship among these disorders has been a specific and unresolved controversy ( Keshavan et al., 2011 ;  Tamminga et al., 2014 ). To the best of our knowledge, our work makes the first attempt to explore biomarkers for distinguishing those disorders as well as the relationship among those disorders by using resting-state fMRI networks. 
+ The result ( Fig. 3 ) demonstrates that the discriminating regions identified from INs mainly comprised of frontal, parietal, precuneus, cingulate, supplementary motor, cerebellar, insula, and supramarginal cortices, most of which are involved in cognitive, emotional, executive, sensory and motor function. Interestingly, most of those regions clearly fall within two well-characterized large-scale networks: the default mode network and the salience network, with the frontal, parietal, precuneus, cingulate, and cerebellar cortices belonging to the default mode network, and the anterior cingulate cortex and the insula involved in the salience network. The finding is consistent with previous research works, where these two functional networks have been repeatedly reported to be associated with a range of mental disorders including SZ, BP and SAD ( Calhoun et al., 2011 ;  Khadka et al., 2013 ;  Madre et al., 2013 ;  Palaniyappan et al., 2012 ;  Whitfield-Gabrieli and Ford, 2012 ;  Williamson and Allman, 2012 ). Among the identified regions, the posterior cingulate cortex (PCC) as a central node in default mode network has been shown to exhibit abnormal brain activity for psychiatric disorders ( Leech and Sharp, 2014 ) in both resting state ( Whitfield-Gabrieli et al., 2009 ;  Zhou et al., 2007 ) and task performance ( Whitfield-Gabrieli et al., 2009 ). In addition, since the insula along with anterior cingulate cortex (ACC) provides integrated salience processing ( Palaniyappan and Liddle, 2012 ;  Uddin, 2015 ), the disrupted circuit of insula and ACC may impair the switching ability between the default mode state and task-related states, which has been reported as a primary function of the salience network. Results also show that there is a significantly positive correlation between mean Z-scores in motor cortex and PANSS negative scores in SZ group, coinciding with the frequently reported motor abnormalities in schizophrenia patients ( Pascual-Leone et al., 2002 ). Furthermore, GIG-ICA enables us to classify (or diagnose) new subjects based on the found biomarkers from original subjects, and the measures from INs performed well in differentiating different groups. Therefore, our study shows the potential of resting-state INs extracted via GIG-ICA as a promising means for distinguishing disorders with similar symptoms. 
+ Another contribution of this study is that the relationship among the 5 groups is clearly illustrated based on measures from INs ( Fig. 5 ). Although different cortex regions show varied between-group relations ( Fig. 4 ), measures from all INs suggest that SADM and SADD resemble one another, in agreement with the traditional clinical distinction for SAD ( Malaspina et al., 2013 ). In this paper, we did not combine two symptom-defined sub-groups of SAD patients into one group for analysis because debate continues over whether SAD or its subtypes should be regarded as SZ or BP. Our finding supports that SAD exists as a unitary entity with different subtypes, in contrast to suggestions of regarding SAD (or subtype of SAD) as atypical form of SZ/BP ( Bogan et al., 2000 ;  Cascade et al., 2009 ;  Lake and Hurwitz, 2006 ) or even eliminating the diagnosis of SAD ( Heckers, 2009 ). In addition, our study shows that SADD shares high similarity to SZ ( Fig. 5(B) ), possibly due to their frequently overlapping depression symptoms ( Mulholland C, 2000 ). The finding is consistent with previous work, which reported that SADD patients could meet criteria for SZ ( Tsuang and Coryell, 1993 ). Thus, our results suggest SAD may be considered as an independent category, although its depressive subtype had high similarity to SZ. Our findings also show that BP patients are more similar to HC than patients with the other two disorders based on measures from INs, which accords with BP group in general showing fewer cognitive impairments than the other patient groups ( Hill et al., 2013 ) with some exceptions ( Keshavan et al., 2011 ). We also demonstrated that the SZ, SADM and SADD groups are relatively close to one another, while the BP and HC groups are close to one another ( Fig. 5(D) ), supporting the idea that SAD may be in the same diagnostic class as SZ, but not in the same class as mood disorders in the current DSM-5 ( Heckers et al., 2013 ;  Malaspina et al., 2013 ). It is worth noting that in this study the relationship among different groups were measured based on resting-state INs. So, it is reasonable that our conclusion could differ from some findings in clinical, genetic ( Cardno and Owen, 2014 ), neuropsychological and neurophysiological studies. However, one clinical based study ( Tamminga et al., 2013 ) reported that characteristics of SAD were more similar to SZ than to BP, consistent with our findings. 
+ Some aspects may limit the generalization ability of our findings. First, the sample size of each diagnostic group was relatively small. Considering the subtypes of SAD patients separately, it was difficult to recruit large number of patients over the years. Due to the small number of subjects used in both biomarker identification and classification for new subjects, the study should be taken as an exploratory analysis. In addition, we did not test the performance of the classifier using data from new SADD patients due to the limited sample size. However, we envision the classifier will have acceptable performance for new SADD patients as a result of the relatively high accuracy under training data. This will be directly tested in the future as additional data become available. In summary, the proposed technique for distinguishing different mental disorders is promising with remarkably higher accuracy than chance. Second, considering the subtle difference among the symptoms-related diseases, we used the features extracted by statistical analyses and the machine learning method (MSVM-RFE) to measure the relationship among those 5 groups. In our study, the relationship was investigated for the original 93 subjects, but not for the new 16 subjects due to the lack of SADD patients. Therefore, in future studies, the reliability of inter-group relationship needs be further examined based on more data. However, our work still provides a promising way to investigate a spectrum of similar disorders using neuroimaging-based measures. Third, we used clinical diagnosis as our label, but the diagnosis themselves could be a little biased due to the similar symptoms across those disorders. Further work is needed to develop new methods to explore biomarkers without the guidance of diagnosis label. Fourth, a full history of medication (which likely differs among the patient groups) was not available for each subject. So, potential effects of medication cannot be evaluated. Finally, a few parameters (e.g., the number of ICs, the maximum iteration time, and the number of voxels preserved in discriminative regions) in the framework are adjustable and may influence the identified biomarkers. In future work, with more data, we plan to evaluate how parameter-optimization could improve the fMRI network patterns and accordingly the biomarkers. 
+ 
+ 
+ Supplementary Material 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Acknowledgements 
+ This work was partially supported by National Institutes of Health grants R01EB006841, National Sciences Foundation grants 1016619, the Centers of Biomedical Research Excellence (COBRE) grant 5P20RR021938/P20GM103472 (VDC), and National Institute of Mental Health (NIMH) Grant R37MH43775 (GDP). 
+ 
+ 
+ 
+ This is a PDF file of an unedited manuscript that has been accepted for publication. As a service to our customers we are providing this early version of the manuscript. The manuscript will undergo copyediting, typesetting, and review of the resulting proof before it is published in its final citable form. Please note that during the production process errors may be discovered which could affect the content, and all legal disclaimers that apply to the journal pertain. 
+ 
+ 
+ 
+ References 
+ 
+ 
+ 
+ 
+ Abou-Elseoud 
+ A 
+ 
+ 
+ Starck 
+ T 
+ 
+ 
+ Remes 
+ J 
+ 
+ 
+ Nikkinen 
+ J 
+ 
+ 
+ Tervonen 
+ O 
+ 
+ 
+ Kiviniemi 
+ V 
+ 
+ 
+ The effect of model order selection in group PICA 
+ Hum Brain Mapp 
+ 2010 
+ 31 
+ 1207 
+ 1216 
+ 20063361 
+ 
+ 
+ 
+ 
+ 
+ 
+ Allen 
+ EA 
+ 
+ 
+ Damaraju 
+ E 
+ 
+ 
+ Plis 
+ SM 
+ 
+ 
+ Erhardt 
+ EB 
+ 
+ 
+ Eichele 
+ T 
+ 
+ 
+ Calhoun 
+ VD 
+ 
+ 
+ Tracking whole-brain connectivity dynamics in the resting state 
+ Cereb Cortex 
+ 2014 
+ 24 
+ 663 
+ 676 
+ 23146964 
+ 
+ 
+ 
+ 
+ 
+ 
+ Arbabshirani 
+ MR 
+ 
+ 
+ Kiehl 
+ KA 
+ 
+ 
+ Pearlson 
+ GD 
+ 
+ 
+ Calhoun 
+ VD 
+ 
+ 
+ Classification of schizophrenia patients based on resting-state functional network connectivity 
+ Front Neurosci 
+ 2013 
+ 7 
+ 133 
+ 23966903 
+ 
+ 
+ 
+ 
+ 
+ 
+ Argyelan 
+ M 
+ 
+ 
+ Ikuta 
+ T 
+ 
+ 
+ DeRosse 
+ P 
+ 
+ 
+ Braga 
+ RJ 
+ 
+ 
+ Burdick 
+ KE 
+ 
+ 
+ John 
+ M 
+ 
+ 
+ Kingsley 
+ PB 
+ 
+ 
+ Malhotra 
+ AK 
+ 
+ 
+ Szeszko 
+ PR 
+ 
+ 
+ Resting-state FMRI connectivity impairment in schizophrenia and bipolar disorder 
+ Schizophr Bull 
+ 2014 
+ 40 
+ 100 
+ 110 
+ 23851068 
+ 
+ 
+ 
+ 
+ 
+ 
+ Bae 
+ HW 
+ 
+ 
+ Rho 
+ S 
+ 
+ 
+ Lee 
+ HS 
+ 
+ 
+ Lee 
+ N 
+ 
+ 
+ Hong 
+ S 
+ 
+ 
+ Seong 
+ GJ 
+ 
+ 
+ Sung 
+ KR 
+ 
+ 
+ Kim 
+ CY 
+ 
+ 
+ Hierarchical cluster analysis of progression patterns in open-angle glaucoma patients with medical treatment 
+ Invest Ophthalmol Vis Sci 
+ 2014 
+ 55 
+ 3231 
+ 3236 
+ 24781944 
+ 
+ 
+ 
+ 
+ 
+ 
+ Beckmann 
+ C 
+ 
+ 
+ Mackay 
+ C 
+ 
+ 
+ Filippini 
+ N 
+ 
+ 
+ Smith 
+ S 
+ 
+ 
+ Group comparison of resting-state FMRI data using multi-subject ICA and dual regression 
+ Neuroimage 
+ 2009 
+ 47 
+ Supplement 1 
+ S148 
+ 
+ 
+ 
+ 
+ 
+ 
+ Bell 
+ AJ 
+ 
+ 
+ Sejnowski 
+ TJ 
+ 
+ 
+ An information-maximization approach to blind separation and blind deconvolution 
+ Neural Comput 
+ 1995 
+ 7 
+ 1129 
+ 1159 
+ 7584893 
+ 
+ 
+ 
+ 
+ 
+ 
+ Biswal 
+ B 
+ 
+ 
+ Yetkin 
+ FZ 
+ 
+ 
+ Haughton 
+ VM 
+ 
+ 
+ Hyde 
+ JS 
+ 
+ 
+ Functional Connectivity in the Motor Cortex of Resting Human Brain Using Echo-Planar Mri 
+ Magnetic Resonance in Medicine 
+ 1995 
+ 34 
+ 537 
+ 541 
+ 8524021 
+ 
+ 
+ 
+ 
+ 
+ 
+ Bogan 
+ AM 
+ 
+ 
+ Brown 
+ ES 
+ 
+ 
+ Suppes 
+ T 
+ 
+ 
+ Efficacy of divalproex therapy for schizoaffective disorder 
+ J Clin Psychopharmacol 
+ 2000 
+ 20 
+ 520 
+ 522 
+ 11001235 
+ 
+ 
+ 
+ 
+ 
+ 
+ Calhoun 
+ VD 
+ 
+ 
+ Adali 
+ T 
+ 
+ 
+ Multisubject independent component analysis of fMRI: a decade of intrinsic networks, default mode, and neurodiagnostic discovery 
+ IEEE Rev Biomed Eng 
+ 2012 
+ 5 
+ 60 
+ 73 
+ 23231989 
+ 
+ 
+ 
+ 
+ 
+ 
+ Calhoun 
+ VD 
+ 
+ 
+ Adali 
+ T 
+ 
+ 
+ Pearlson 
+ GD 
+ 
+ 
+ Pekar 
+ JJ 
+ 
+ 
+ A method for making group inferences from functional MRI data using independent component analysis 
+ Hum Brain Mapp 
+ 2001 
+ 14 
+ 140 
+ 151 
+ 11559959 
+ 
+ 
+ 
+ 
+ 
+ 
+ Calhoun 
+ VD 
+ 
+ 
+ Potluru 
+ VK 
+ 
+ 
+ Phlypo 
+ R 
+ 
+ 
+ Silva 
+ RF 
+ 
+ 
+ Pearlmutter 
+ BA 
+ 
+ 
+ Caprihan 
+ A 
+ 
+ 
+ Plis 
+ SM 
+ 
+ 
+ Adali 
+ T 
+ 
+ 
+ Independent Component Analysis for Brain fMRI Does Indeed Select for Maximal Independence 
+ PLoS One 
+ 2013 
+ 8 
+ 
+ 
+ 
+ 
+ 
+ 
+ Calhoun 
+ VD 
+ 
+ 
+ Sui 
+ J 
+ 
+ 
+ Kiehl 
+ K 
+ 
+ 
+ Turner 
+ J 
+ 
+ 
+ Allen 
+ E 
+ 
+ 
+ Pearlson 
+ G 
+ 
+ 
+ Exploring the psychosis functional connectome: aberrant intrinsic networks in schizophrenia and bipolar disorder 
+ Front Psychiatry 
+ 2011 
+ 2 
+ 75 
+ 22291663 
+ 
+ 
+ 
+ 
+ 
+ 
+ Cardno 
+ AG 
+ 
+ 
+ Owen 
+ MJ 
+ 
+ 
+ Genetic Relationships Between Schizophrenia, Bipolar Disorder, and Schizoaffective Disorder 
+ Schizophrenia Bulletin 
+ 2014 
+ 40 
+ 504 
+ 515 
+ 24567502 
+ 
+ 
+ 
+ 
+ 
+ 
+ Cascade 
+ E 
+ 
+ 
+ Kalali 
+ AH 
+ 
+ 
+ Buckley 
+ P 
+ 
+ 
+ Treatment of schizoaffective disorder 
+ Psychiatry (Edgmont) 
+ 2009 
+ 6 
+ 15 
+ 17 
+ 
+ 
+ 
+ 
+ 
+ 
+ Cheniaux 
+ E 
+ 
+ 
+ Landeira-Fernandez 
+ J 
+ 
+ 
+ Lessa Telles 
+ L 
+ 
+ 
+ Lessa 
+ JL 
+ 
+ 
+ Dias 
+ A 
+ 
+ 
+ Duncan 
+ T 
+ 
+ 
+ Versiani 
+ M 
+ 
+ 
+ Does schizoaffective disorder really exist? A systematic review of the studies that compared schizoaffective disorder with schizophrenia or mood disorders 
+ J Affect Disord 
+ 2008 
+ 106 
+ 209 
+ 217 
+ 17719092 
+ 
+ 
+ 
+ 
+ 
+ 
+ Chun 
+ J 
+ 
+ 
+ Karam 
+ ZN 
+ 
+ 
+ Marzinzik 
+ F 
+ 
+ 
+ Kamali 
+ M 
+ 
+ 
+ O'Donnell 
+ L 
+ 
+ 
+ Tso 
+ IF 
+ 
+ 
+ Manschreck 
+ TC 
+ 
+ 
+ McInnis 
+ M 
+ 
+ 
+ Deldin 
+ PJ 
+ 
+ 
+ Can P300 distinguish among schizophrenia, schizoaffective and bipolar I disorders? An ERP study of response inhibition 
+ Schizophr Res 
+ 2013 
+ 151 
+ 175 
+ 184 
+ 24210871 
+ 
+ 
+ 
+ 
+ 
+ 
+ Cosgrove 
+ VE 
+ 
+ 
+ Suppes 
+ T 
+ 
+ 
+ Informing DSM-5: biological boundaries between bipolar I disorder, schizoaffective disorder, and schizophrenia 
+ Bmc Medicine 
+ 2013 
+ 11 
+ 127 
+ 23672587 
+ 
+ 
+ 
+ 
+ 
+ 
+ Du 
+ W 
+ 
+ 
+ Calhoun 
+ VD 
+ 
+ 
+ Li 
+ H 
+ 
+ 
+ Ma 
+ S 
+ 
+ 
+ Eichele 
+ T 
+ 
+ 
+ Kiehl 
+ KA 
+ 
+ 
+ Pearlson 
+ GD 
+ 
+ 
+ Adali 
+ T 
+ 
+ 
+ High classification accuracy for schizophrenia with rest and task FMRI data 
+ Front Hum Neurosci 
+ 2012a 
+ 6 
+ 145 
+ 22675292 
+ 
+ 
+ 
+ 
+ 
+ 
+ Du 
+ YH 
+ 
+ 
+ Fan 
+ Y 
+ 
+ 
+ Group information guided ICA for fMRI data analysis 
+ Neuroimage 
+ 2013 
+ 69 
+ 157 
+ 197 
+ 23194820 
+ 
+ 
+ 
+ 
+ 
+ 
+ Du 
+ YH 
+ 
+ 
+ Li 
+ HM 
+ 
+ 
+ Wu 
+ H 
+ 
+ 
+ Fan 
+ Y 
+ 
+ 
+ Identification of subject specific and functional consistent ROIs using semi-supervised learning 
+ 2012b 
+ Proceedings of SPIE, Medical Imaging 2012: Image Processing 8314 
+ 
+ 
+ 
+ 
+ 
+ 
+ Du 
+ YH 
+ 
+ 
+ Liu 
+ JY 
+ 
+ 
+ Sui 
+ J 
+ 
+ 
+ He 
+ H 
+ 
+ 
+ Pearlson 
+ GD 
+ 
+ 
+ Calhoun 
+ VD 
+ 
+ 
+ Exploring difference and overlap between schizophrenia, schizoaffective and bipolar disorders using resting-state brain functional networks 
+ 2014a 
+ 1517 
+ 1520 
+ The 36th Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC) 
+ 
+ 
+ 
+ 
+ 
+ 
+ Du 
+ YH 
+ 
+ 
+ Sui 
+ J 
+ 
+ 
+ Yu 
+ QB 
+ 
+ 
+ H 
+ H 
+ 
+ 
+ Calhoun 
+ VD 
+ 
+ 
+ Semi-supervised learning of brain functional networks 
+ 2014b 
+ 1 
+ 4 
+ IEEE 11th International Symposium on Biomedical Imaging (ISBI) 
+ 
+ 
+ 
+ 
+ 
+ 
+ Erhardt 
+ EB 
+ 
+ 
+ Rachakonda 
+ S 
+ 
+ 
+ Bedrick 
+ EJ 
+ 
+ 
+ Allen 
+ EA 
+ 
+ 
+ Adali 
+ T 
+ 
+ 
+ Calhoun 
+ VD 
+ 
+ 
+ Comparison of multi-subject ICA methods for analysis of fMRI data 
+ Hum Brain Mapp 
+ 2011 
+ 32 
+ 2075 
+ 2095 
+ 21162045 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fan 
+ Y 
+ 
+ 
+ Liu 
+ Y 
+ 
+ 
+ Wu 
+ H 
+ 
+ 
+ Hao 
+ Y 
+ 
+ 
+ Liu 
+ H 
+ 
+ 
+ Liu 
+ Z 
+ 
+ 
+ Jiang 
+ T 
+ 
+ 
+ Discriminant analysis of functional connectivity patterns on Grassmann manifold 
+ Neuroimage 
+ 2011 
+ 56 
+ 2058 
+ 2067 
+ 21440643 
+ 
+ 
+ 
+ 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ Ashburner 
+ J 
+ 
+ 
+ Frith 
+ CD 
+ 
+ 
+ Poline 
+ JB 
+ 
+ 
+ Heather 
+ JD 
+ 
+ 
+ Frackowiak 
+ RSJ 
+ 
+ 
+ Spatial registration and normalization of images 
+ Hum Brain Mapp 
+ 1995 
+ 3 
+ 165 
+ 189 
+ 
+ 
+ 
+ 
+ 
+ 
+ Garrity 
+ AG 
+ 
+ 
+ Pearlson 
+ GD 
+ 
+ 
+ McKiernan 
+ K 
+ 
+ 
+ Lloyd 
+ D 
+ 
+ 
+ Kiehl 
+ KA 
+ 
+ 
+ Calhoun 
+ VD 
+ 
+ 
+ Aberrant "default mode" functional connectivity in schizophrenia 
+ Am J Psychiatry 
+ 2007 
+ 164 
+ 450 
+ 457 
+ 17329470 
+ 
+ 
+ 
+ 
+ 
+ 
+ Gupta 
+ S 
+ 
+ 
+ Steinmeyer 
+ CH 
+ 
+ 
+ Lockwood 
+ K 
+ 
+ 
+ Lentz 
+ B 
+ 
+ 
+ Schultz 
+ K 
+ 
+ 
+ Comparison of older patients with bipolar disorder and schizophrenia/schizoaffective disorder 
+ Am J Geriatr Psychiatry 
+ 2007 
+ 15 
+ 627 
+ 633 
+ 17586787 
+ 
+ 
+ 
+ 
+ 
+ 
+ Heckers 
+ S 
+ 
+ 
+ Is Schizoaffective Disorder a Useful Diagnosis? 
+ Current Psychiatry Reports 
+ 2009 
+ 11 
+ 332 
+ 337 
+ 19635243 
+ 
+ 
+ 
+ 
+ 
+ 
+ Heckers 
+ S 
+ 
+ 
+ Barch 
+ DM 
+ 
+ 
+ Bustillo 
+ J 
+ 
+ 
+ Gaebel 
+ W 
+ 
+ 
+ Gur 
+ R 
+ 
+ 
+ Malaspina 
+ D 
+ 
+ 
+ Owen 
+ MJ 
+ 
+ 
+ Schultz 
+ S 
+ 
+ 
+ Tandon 
+ R 
+ 
+ 
+ Tsuang 
+ M 
+ 
+ 
+ Van Os 
+ J 
+ 
+ 
+ Carpenter 
+ W 
+ 
+ 
+ Structure of the psychotic disorders classification in DSM-5 
+ Schizophr Res 
+ 2013 
+ 150 
+ 11 
+ 14 
+ 23707641 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hill 
+ SK 
+ 
+ 
+ Reilly 
+ JL 
+ 
+ 
+ Keefe 
+ RS 
+ 
+ 
+ Gold 
+ JM 
+ 
+ 
+ Bishop 
+ JR 
+ 
+ 
+ Gershon 
+ ES 
+ 
+ 
+ Tamminga 
+ CA 
+ 
+ 
+ Pearlson 
+ GD 
+ 
+ 
+ Keshavan 
+ MS 
+ 
+ 
+ Sweeney 
+ JA 
+ 
+ 
+ Neuropsychological impairments in schizophrenia and psychotic bipolar disorder: findings from the Bipolar-Schizophrenia Network on Intermediate Phenotypes (B-SNIP) study 
+ Am J Psychiatry 
+ 2013 
+ 170 
+ 1275 
+ 1284 
+ 23771174 
+ 
+ 
+ 
+ 
+ 
+ 
+ Himberg 
+ J 
+ 
+ 
+ Hyvarinen 
+ A 
+ 
+ 
+ Esposito 
+ F 
+ 
+ 
+ Validating the independent components of neuroimaging time series via clustering and visualization 
+ Neuroimage 
+ 2004 
+ 22 
+ 1214 
+ 1222 
+ 15219593 
+ 
+ 
+ 
+ 
+ 
+ 
+ Keshavan 
+ MS 
+ 
+ 
+ Morris 
+ DW 
+ 
+ 
+ Sweeney 
+ JA 
+ 
+ 
+ Pearlson 
+ G 
+ 
+ 
+ Thaker 
+ G 
+ 
+ 
+ Seidman 
+ LJ 
+ 
+ 
+ Eack 
+ SM 
+ 
+ 
+ Tamminga 
+ C 
+ 
+ 
+ A dimensional approach to the psychosis spectrum between bipolar disorder and schizophrenia: the Schizo-Bipolar Scale 
+ Schizophr Res 
+ 2011 
+ 133 
+ 250 
+ 254 
+ 21996268 
+ 
+ 
+ 
+ 
+ 
+ 
+ Khadka 
+ S 
+ 
+ 
+ Meda 
+ SA 
+ 
+ 
+ Stevens 
+ MC 
+ 
+ 
+ Glahn 
+ DC 
+ 
+ 
+ Calhoun 
+ VD 
+ 
+ 
+ Sweeney 
+ JA 
+ 
+ 
+ Tamminga 
+ CA 
+ 
+ 
+ Keshavan 
+ MS 
+ 
+ 
+ O'Neil 
+ K 
+ 
+ 
+ Schretlen 
+ D 
+ 
+ 
+ Pearlson 
+ GD 
+ 
+ 
+ Is aberrant functional connectivity a psychosis endophenotype? A resting state functional magnetic resonance imaging study 
+ Biol Psychiatry 
+ 2013 
+ 74 
+ 458 
+ 466 
+ 23746539 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lake 
+ CR 
+ 
+ 
+ Hurwitz 
+ N 
+ 
+ 
+ Schizoaffective disorders are psychotic mood disorders; there are no schizoaffective disorders 
+ Psychiatry Res 
+ 2006 
+ 143 
+ 255 
+ 287 
+ 16857267 
+ 
+ 
+ 
+ 
+ 
+ 
+ Laursen 
+ TM 
+ 
+ 
+ Agerbo 
+ E 
+ 
+ 
+ Pedersen 
+ CB 
+ 
+ 
+ Bipolar disorder, schizoaffective disorder, and schizophrenia overlap: a new comorbidity index 
+ J Clin Psychiatry 
+ 2009 
+ 70 
+ 1432 
+ 1438 
+ 19538905 
+ 
+ 
+ 
+ 
+ 
+ 
+ Leech 
+ R 
+ 
+ 
+ Sharp 
+ DJ 
+ 
+ 
+ The role of the posterior cingulate cortex in cognition and disease 
+ Brain 
+ 2014 
+ 137 
+ 12 
+ 32 
+ 23869106 
+ 
+ 
+ 
+ 
+ 
+ 
+ Levitt 
+ JJ 
+ 
+ 
+ Tsuang 
+ MT 
+ 
+ 
+ The heterogeneity of schizoaffective disorder: implications for treatment 
+ Am J Psychiatry 
+ 1988 
+ 145 
+ 926 
+ 936 
+ 3293474 
+ 
+ 
+ 
+ 
+ 
+ 
+ Li 
+ K 
+ 
+ 
+ Guo 
+ L 
+ 
+ 
+ Nie 
+ J 
+ 
+ 
+ Li 
+ G 
+ 
+ 
+ Liu 
+ T 
+ 
+ 
+ Review of methods for functional brain connectivity detection using fMRI 
+ Comput Med Imaging Graph 
+ 2009 
+ 33 
+ 131 
+ 139 
+ 19111443 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ma 
+ S 
+ 
+ 
+ Correa 
+ NM 
+ 
+ 
+ Li 
+ XL 
+ 
+ 
+ Eichele 
+ T 
+ 
+ 
+ Calhoun 
+ VD 
+ 
+ 
+ Adali 
+ T 
+ 
+ 
+ Automatic identification of functional clusters in FMRI data using spatial dependence 
+ IEEE Trans Biomed Eng 
+ 2011 
+ 58 
+ 3406 
+ 3417 
+ 21900068 
+ 
+ 
+ 
+ 
+ 
+ 
+ Madre 
+ M 
+ 
+ 
+ Pomarol-Clotet 
+ E 
+ 
+ 
+ McKenna 
+ P 
+ 
+ 
+ Radua 
+ J 
+ 
+ 
+ Ortiz-Gil 
+ J 
+ 
+ 
+ Panicali 
+ F 
+ 
+ 
+ Goikolea 
+ JM 
+ 
+ 
+ Vieta 
+ E 
+ 
+ 
+ Sarro 
+ S 
+ 
+ 
+ Salvador 
+ R 
+ 
+ 
+ Amann 
+ BL 
+ 
+ 
+ Brain functional abnormality in schizo-affective disorder: an fMRI study 
+ Psychol Med 
+ 2013 
+ 43 
+ 143 
+ 153 
+ 22583916 
+ 
+ 
+ 
+ 
+ 
+ 
+ Madre 
+ M 
+ 
+ 
+ Radua 
+ J 
+ 
+ 
+ Landin-Romero 
+ R 
+ 
+ 
+ Alonso-Lana 
+ S 
+ 
+ 
+ Salvador 
+ R 
+ 
+ 
+ Panicali 
+ F 
+ 
+ 
+ Pomarol-Clotet 
+ E 
+ 
+ 
+ Amann 
+ BL 
+ 
+ 
+ Trait or state? A longitudinal neuropsychological evaluation and fMRI study in schizoaffective disorder 
+ Schizophr Res 
+ 2014 
+ 
+ 
+ 
+ 
+ 
+ 
+ Maier 
+ W 
+ 
+ 
+ Do schizoaffective disorders exist at all? 
+ Acta Psychiatrica Scandinavica 
+ 2006 
+ 113 
+ 369 
+ 371 
+ 16603028 
+ 
+ 
+ 
+ 
+ 
+ 
+ Maj 
+ M 
+ 
+ 
+ Pirozzi 
+ R 
+ 
+ 
+ Formicola 
+ AM 
+ 
+ 
+ Bartoli 
+ L 
+ 
+ 
+ Bucci 
+ P 
+ 
+ 
+ Reliability and validity of the DSM-IV diagnostic category of schizoaffective disorder: preliminary data 
+ J Affect Disord 
+ 2000 
+ 57 
+ 95 
+ 98 
+ 10708820 
+ 
+ 
+ 
+ 
+ 
+ 
+ Malaspina 
+ D 
+ 
+ 
+ Owen 
+ MJ 
+ 
+ 
+ Heckers 
+ S 
+ 
+ 
+ Tandon 
+ R 
+ 
+ 
+ Bustillo 
+ J 
+ 
+ 
+ Schultz 
+ S 
+ 
+ 
+ Barch 
+ DM 
+ 
+ 
+ Gaebel 
+ W 
+ 
+ 
+ Gur 
+ RE 
+ 
+ 
+ Tsuang 
+ M 
+ 
+ 
+ Van Os 
+ J 
+ 
+ 
+ Carpenter 
+ W 
+ 
+ 
+ Schizoaffective Disorder in the DSM-5 
+ Schizophr Res 
+ 2013 
+ 150 
+ 21 
+ 25 
+ 23707642 
+ 
+ 
+ 
+ 
+ 
+ 
+ Mancuso 
+ SG 
+ 
+ 
+ Morgan 
+ VA 
+ 
+ 
+ Mitchell 
+ PB 
+ 
+ 
+ Berk 
+ M 
+ 
+ 
+ Young 
+ A 
+ 
+ 
+ Castel 
+ DJ 
+ 
+ 
+ A comparison of schizophrenia, schizoaffective disorder, and bipolar disorder: Results from the Second Australian national psychosis survey 
+ J Affect Disord 
+ 2015 
+ 172 
+ 30 
+ 37 
+ 
+ 
+ 
+ 
+ 
+ 
+ Mathalon 
+ DH 
+ 
+ 
+ Hoffman 
+ RE 
+ 
+ 
+ Watson 
+ TD 
+ 
+ 
+ Miller 
+ RM 
+ 
+ 
+ Roach 
+ BJ 
+ 
+ 
+ Ford 
+ JM 
+ 
+ 
+ Neurophysiological Distinction between Schizophrenia and Schizoaffective Disorder 
+ Front Hum Neurosci 
+ 2010 
+ 3 
+ 70 
+ 20140266 
+ 
+ 
+ 
+ 
+ 
+ 
+ Meda 
+ SA 
+ 
+ 
+ Ruano 
+ G 
+ 
+ 
+ Windemuth 
+ A 
+ 
+ 
+ O'Neil 
+ K 
+ 
+ 
+ Berwise 
+ C 
+ 
+ 
+ Dunn 
+ SM 
+ 
+ 
+ Boccaccio 
+ LE 
+ 
+ 
+ Narayanan 
+ B 
+ 
+ 
+ Kocherla 
+ M 
+ 
+ 
+ Sprooten 
+ E 
+ 
+ 
+ Keshavan 
+ MS 
+ 
+ 
+ Tamminga 
+ CA 
+ 
+ 
+ Sweeney 
+ JA 
+ 
+ 
+ Clementz 
+ BA 
+ 
+ 
+ Calhoun 
+ VD 
+ 
+ 
+ Pearlson 
+ GD 
+ 
+ 
+ Multivariate analysis reveals genetic associations of the resting default mode network in psychotic bipolar disorder and schizophrenia 
+ Proceedings of the National Academy of Sciences of the United States of America 
+ 2014 
+ 111 
+ 6864 
+ 6864 
+ 
+ 
+ 
+ 
+ 
+ 
+ Moritz 
+ CH 
+ 
+ 
+ Rogers 
+ BP 
+ 
+ 
+ Meyerand 
+ ME 
+ 
+ 
+ Power spectrum ranked independent component analysis of a periodic fMRI complex motor paradigm 
+ Hum Brain Mapp 
+ 2003 
+ 18 
+ 111 
+ 122 
+ 12518291 
+ 
+ 
+ 
+ 
+ 
+ 
+ Mulholland 
+ C 
+ 
+ 
+ The symptom of depression in schizophrenia and its management 
+ Adv Psychiatr Treat 
+ 2000 
+ 6 
+ 169 
+ 177 
+ C.S. 
+ 
+ 
+ 
+ 
+ 
+ 
+ Mwangi 
+ B 
+ 
+ 
+ Soares 
+ JC 
+ 
+ 
+ Hasan 
+ KM 
+ 
+ 
+ Visualization and unsupervised predictive clustering of high-dimensional multimodal neuroimaging data 
+ J Neurosci Methods 
+ 2014 
+ 236 
+ 19 
+ 25 
+ 25117552 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ongur 
+ D 
+ 
+ 
+ Lundy 
+ M 
+ 
+ 
+ Greenhouse 
+ I 
+ 
+ 
+ Shinn 
+ AK 
+ 
+ 
+ Menon 
+ V 
+ 
+ 
+ Cohen 
+ BM 
+ 
+ 
+ Renshaw 
+ PF 
+ 
+ 
+ Default mode network abnormalities in bipolar disorder and schizophrenia 
+ Psychiatry Res 
+ 2010 
+ 183 
+ 59 
+ 68 
+ 20553873 
+ 
+ 
+ 
+ 
+ 
+ 
+ Palaniyappan 
+ L 
+ 
+ 
+ Liddle 
+ PF 
+ 
+ 
+ Does the salience network play a cardinal role in psychosis? An emerging hypothesis of insular dysfunction 
+ Journal of Psychiatry & Neuroscience 
+ 2012 
+ 37 
+ 17 
+ 27 
+ 21693094 
+ 
+ 
+ 
+ 
+ 
+ 
+ Palaniyappan 
+ L 
+ 
+ 
+ White 
+ TP 
+ 
+ 
+ Liddle 
+ PF 
+ 
+ 
+ The concept of salience network dysfunction in schizophrenia: from neuroimaging observations to therapeutic opportunities 
+ Current Topics in Medicinal Chemistry 
+ 2012 
+ 12 
+ 2324 
+ 2338 
+ 23279173 
+ 
+ 
+ 
+ 
+ 
+ 
+ Pascual-Leone 
+ A 
+ 
+ 
+ Manoach 
+ DS 
+ 
+ 
+ Birnbaum 
+ R 
+ 
+ 
+ Goff 
+ DC 
+ 
+ 
+ Motor cortical excitability in schizophrenia 
+ Biol Psychiatry 
+ 2002 
+ 52 
+ 24 
+ 31 
+ 12079727 
+ 
+ 
+ 
+ 
+ 
+ 
+ Reite 
+ M 
+ 
+ 
+ Teale 
+ P 
+ 
+ 
+ Collins 
+ D 
+ 
+ 
+ Rojas 
+ DC 
+ 
+ 
+ Schizoaffective disorder - a possible MEG auditory evoked field biomarker 
+ Psychiatry Res 
+ 2010 
+ 182 
+ 284 
+ 286 
+ 20488676 
+ 
+ 
+ 
+ 
+ 
+ 
+ Schopf 
+ V 
+ 
+ 
+ Kasess 
+ CH 
+ 
+ 
+ Lanzenberger 
+ R 
+ 
+ 
+ Fischmeister 
+ F 
+ 
+ 
+ Windischberger 
+ C 
+ 
+ 
+ Moser 
+ E 
+ 
+ 
+ Fully exploratory network ICA (FENICA) on resting-state fMRI data 
+ J Neurosci Methods 
+ 2010 
+ 192 
+ 207 
+ 213 
+ 20688104 
+ 
+ 
+ 
+ 
+ 
+ 
+ Tamminga 
+ CA 
+ 
+ 
+ Ivleva 
+ EI 
+ 
+ 
+ Keshavan 
+ MS 
+ 
+ 
+ Pearlson 
+ GD 
+ 
+ 
+ Clementz 
+ BA 
+ 
+ 
+ Witte 
+ B 
+ 
+ 
+ Morris 
+ DW 
+ 
+ 
+ Bishop 
+ J 
+ 
+ 
+ Thaker 
+ GK 
+ 
+ 
+ Sweeney 
+ JA 
+ 
+ 
+ Clinical phenotypes of psychosis in the Bipolar-Schizophrenia Network on Intermediate Phenotypes (B-SNIP) 
+ Am J Psychiatry 
+ 2013 
+ 170 
+ 1263 
+ 1274 
+ 23846857 
+ 
+ 
+ 
+ 
+ 
+ 
+ Tamminga 
+ CA 
+ 
+ 
+ Pearlson 
+ G 
+ 
+ 
+ Keshavan 
+ M 
+ 
+ 
+ Sweeney 
+ J 
+ 
+ 
+ Clementz 
+ B 
+ 
+ 
+ Thaker 
+ G 
+ 
+ 
+ Bipolar and schizophrenia network for intermediate phenotypes: outcomes across the psychosis continuum 
+ Schizophr Bull 
+ 2014 
+ 40 
+ Suppl 2 
+ S131 
+ 137 
+ 24562492 
+ 
+ 
+ 
+ 
+ 
+ 
+ Tsuang 
+ D 
+ 
+ 
+ Coryell 
+ W 
+ 
+ 
+ An 8-year follow-up of patients with DSM-III-R psychotic depression, schizoaffective disorder, and schizophrenia 
+ Am J Psychiatry 
+ 1993 
+ 150 
+ 1182 
+ 1188 
+ 8328561 
+ 
+ 
+ 
+ 
+ 
+ 
+ Uddin 
+ LQ 
+ 
+ 
+ Salience processing and insular cortical function and dysfunction 
+ Nat Rev Neurosci 
+ 2015 
+ 16 
+ 55 
+ 61 
+ 25406711 
+ 
+ 
+ 
+ 
+ 
+ 
+ van den Heuvel 
+ M 
+ 
+ 
+ Mandl 
+ R 
+ 
+ 
+ Hulshoff Pol 
+ H 
+ 
+ 
+ Normalized cut group clustering of resting-state FMRI data 
+ PLoS One 
+ 2008 
+ 3 
+ e2001 
+ 18431486 
+ 
+ 
+ 
+ 
+ 
+ 
+ van den Heuvel 
+ MP 
+ 
+ 
+ Hulshoff Pol 
+ HE 
+ 
+ 
+ Exploring the brain network: a review on resting-state fMRI functional connectivity 
+ Eur Neuropsychopharmacol 
+ 2010 
+ 20 
+ 519 
+ 534 
+ 20471808 
+ 
+ 
+ 
+ 
+ 
+ 
+ van der Maaten 
+ L 
+ 
+ 
+ Hinton 
+ G 
+ 
+ 
+ Visualizing Data using t-SNE 
+ Journal of Machine Learning Research 
+ 2008 
+ 9 
+ 2579 
+ 2605 
+ 
+ 
+ 
+ 
+ 
+ 
+ Wao 
+ H 
+ 
+ 
+ Beckstead 
+ JW 
+ 
+ 
+ Beal 
+ J 
+ 
+ 
+ Aluoch 
+ M 
+ 
+ 
+ Skipper 
+ TC 
+ 
+ 
+ Orrick 
+ JJ 
+ 
+ 
+ Identifying subgroups of care providers participating in a telehealth educational intervention: hierarchical cluster analysis of evaluation data 
+ J Int Assoc Provid AIDS Care 
+ 2015 
+ 14 
+ 46 
+ 52 
+ 25679026 
+ 
+ 
+ 
+ 
+ 
+ 
+ Whitfield-Gabrieli 
+ S 
+ 
+ 
+ Ford 
+ JM 
+ 
+ 
+ Default mode network activity and connectivity in psychopathology 
+ Annu Rev Clin Psychol 
+ 2012 
+ 8 
+ 49 
+ 76 
+ 22224834 
+ 
+ 
+ 
+ 
+ 
+ 
+ Whitfield-Gabrieli 
+ S 
+ 
+ 
+ Thermenos 
+ HW 
+ 
+ 
+ Milanovic 
+ S 
+ 
+ 
+ Tsuang 
+ MT 
+ 
+ 
+ Faraone 
+ SV 
+ 
+ 
+ McCarley 
+ RW 
+ 
+ 
+ Shenton 
+ ME 
+ 
+ 
+ Green 
+ AI 
+ 
+ 
+ Nieto-Castanon 
+ A 
+ 
+ 
+ LaViolette 
+ P 
+ 
+ 
+ Wojcik 
+ J 
+ 
+ 
+ Gabrieli 
+ JD 
+ 
+ 
+ Seidman 
+ LJ 
+ 
+ 
+ Hyperactivity and hyperconnectivity of the default network in schizophrenia and in first-degree relatives of persons with schizophrenia 
+ Proc Natl Acad Sci U S A 
+ 2009 
+ 106 
+ 1279 
+ 1284 
+ 19164577 
+ 
+ 
+ 
+ 
+ 
+ 
+ Williamson 
+ PC 
+ 
+ 
+ Allman 
+ JM 
+ 
+ 
+ A framework for interpreting functional networks in schizophrenia 
+ Front Hum Neurosci 
+ 2012 
+ 6 
+ 184 
+ 22737116 
+ 
+ 
+ 
+ 
+ 
+ 
+ Zhang 
+ D 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ Disease and the brain's dark energy 
+ Nat Rev Neurol 
+ 2010 
+ 6 
+ 15 
+ 28 
+ 20057496 
+ 
+ 
+ 
+ 
+ 
+ 
+ Zhou 
+ X 
+ 
+ 
+ Tuck 
+ DP 
+ 
+ 
+ MSVM-RFE: extensions of SVM-RFE for multiclass gene selection on DNA microarray data 
+ Bioinformatics 
+ 2007 
+ 23 
+ 1106 
+ 1114 
+ 17494773 
+ 
+ 
+ 
+ 
+ 
+ 
+ Zhou 
+ Y 
+ 
+ 
+ Liang 
+ M 
+ 
+ 
+ Tian 
+ L 
+ 
+ 
+ Wang 
+ K 
+ 
+ 
+ Hao 
+ Y 
+ 
+ 
+ Liu 
+ H 
+ 
+ 
+ Liu 
+ Z 
+ 
+ 
+ Jiang 
+ T 
+ 
+ 
+ Functional disintegration in paranoid schizophrenia using resting-state fMRI 
+ Schizophr Res 
+ 2007 
+ 97 
+ 194 
+ 205 
+ 17628434 
+ 
+ 
+ 
+ 
+ 
+ 
+ Zuo 
+ XN 
+ 
+ 
+ Kelly 
+ C 
+ 
+ 
+ Adelstein 
+ JS 
+ 
+ 
+ Klein 
+ DF 
+ 
+ 
+ Castellanos 
+ FX 
+ 
+ 
+ Milham 
+ MP 
+ 
+ 
+ Reliable intrinsic connectivity networks: test-retest evaluation using ICA and dual regression approach 
+ Neuroimage 
+ 2010 
+ 49 
+ 2163 
+ 2177 
+ 19896537 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Research highlights 
+ 
+ 
+ 
+ (1) It is the first work to distinguish SZ, BP and SAD using resting fMRI networks. 
+ 
+ 
+ (2) novel method, GIG-ICA, was applied to extract networks for SZ, BP and SAD. 
+ 
+ 
+ (3) Classification shows fMRI networks performed well in distinguishing disorders. 
+ 
+ 
+ (4) It is the first study using fMRI measures to investigate the distinction of SAD. 
+ 
+ 
+ (5) rojection and clustering methods suggest SAD is an independent category. 
+ 
+ 
+ 
+ 
+ Fig. 1 
+ 
+ Overall processing flowchart. 
+ 
+ 
+ 
+ 
+ Fig. 2 
+ 
+ One-sample t-tests statistics (p<0.01 with FDR correction) of 12 brain intrinsic networks (INs) extracted from 93 subjects. 
+ 
+ 
+ 
+ 
+ Fig. 3 
+ 
+ Primary discriminative regions with more than 50 voxels extracted from brain intrinsic networks (INs). The detailed information of regions (a)-(k) are reported in  Table 2 . 
+ 
+ 
+ 
+ 
+ Fig. 4 
+ 
+ The mean and standard deviation of the averaged Z-scores across subjects in each primary discriminative region for healthy controls (HC), schizophrenia (SZ) patients, bipolar (BP) patients, patients suffering schizoaffective with manic episodes (SADM), and patients suffering schizoaffective with depressive episodes exclusively (SADD), separately. Any pair of groups with significant difference tested by two-sample t-tests (p<0.01 with FDR correction) on the averaged Z-scores are denoted using cyan lines. The regions (a)-(k) correspond to that reported in  Fig. 3  and  Table 2 . 
+ 
+ 
+ 
+ 
+ Fig. 5 
+ 
+ (A) Distance matrix computed using the feature vectors of 93 subjects. The x-axis and y-axis denote subject ID. Subjects with ID 1-20 are healthy controls (HC), subjects with ID 21-40 are schizophrenia (SZ) patients, subjects with ID 41-60 are bipolar (BP) patients, subjects with ID 61-80 are patients suffering schizoaffective disorder with manic episodes (SADM), and subjects with ID 81-93 are patients suffering schizoaffective disorder with depressive episodes exclusively (SADD). Each inter-group or intra-group related sub-block is denoted by white lines. (B) The mean distance matrix obtained by averaging the values in each inter-group and intra-group related sub-block of the distance matrix. (C) The projection results of 93 subjects using t-distributed stochastic neighbor embedding (t-SNE) method. Each point denotes one subject, and different colors denote different groups. Each ellipse reflects mean (center) and standard deviation for one group. (D) The linkage results from the hierarchical clustering method. The x-axis denotes the subject ID, which is as same as that in (A). In (D), “HC” denotes that most of the subjects clustered into the related group are healthy controls. “SZ”, “BP”, “SADM” and “SADD” have similar meanings. 
+ 
+ 
+ 
+ 
+ Table 1 
+ 
+ Demographic and clinical characteristics. 
+ 
+ 
+ 
+ 
+ 
+ HC (n=20) 
+ SZ patients (n=20) 
+ BP patients (n=20) 
+ SADM patients (n=20) 
+ SADD patients (n=13) 
+ 
+ 
+ 
+ 
+ 
+ Mean 
+ SD 
+ Mean 
+ SD 
+ Mean 
+ SD 
+ Mean 
+ SD 
+ Mean 
+ SD 
+ 
+ 
+ 
+ Age (Years) 
+ 
+ 33.9 
+ 10.3 
+ 28.8 
+ 11.2 
+ 31.2 
+ 9.5 
+ 35.2 
+ 12.3 
+ 39.9 
+ 11.9 
+ 
+ 
+ 
+ PANSS (Positive) 
+ 
+ -- 
+ -- 
+ 16.12 
+ 5.49 
+ 12.26 
+ 4.09 
+ 17.3 
+ 3.92 
+ 15.58 
+ 5.30 
+ 
+ 
+ 
+ PANSS (Negative) 
+ 
+ -- 
+ -- 
+ 16.18 
+ 8.21 
+ 10.68 
+ 2.81 
+ 14.85 
+ 5.09 
+ 16.08 
+ 5.73 
+ 
+ 
+ 
+ n 
+ % 
+ n 
+ % 
+ n 
+ % 
+ n 
+ % 
+ n 
+ % 
+ 
+ 
+ 
+ Male 
+ 
+ 10 
+ 50% 
+ 13 
+ 65% 
+ 8 
+ 40% 
+ 8 
+ 40% 
+ 4 
+ 31% 
+ 
+ 
+ 
+ Female 
+ 
+ 10 
+ 50% 
+ 7 
+ 35% 
+ 12 
+ 60% 
+ 12 
+ 60% 
+ 9 
+ 69% 
+ 
+ 
+ 
+ 
+ SD, standard deviation; n, number; HC, healthy controls; SZ, schizophrenia; BP, bipolar disorder; SADM, schizoaffective disorder with manic episodes; SADD, schizoaffective disorder with depressive episodes exclusively; PANSS, Positive and Negative Syndrome Scale. 
+ 
+ 
+ 
+ Table 2 
+ 
+ Discriminative regions containing more than 50 voxels extracted from brain intrinsic networks (INs), their voxel numbers, their volumes in cubic millimeters, and their corresponding Montreal Neurological Institute (MNI) coordinates. 
+ 
+ 
+ 
+ 
+ IC 
+ Region ID 
+ AAL Region (L/R) 
+ Voxel number 
+ Volume (mm 3 ) 
+ MNI coordinate (x, y, z) 
+ 
+ 
+ 
+ 
+ IN 2 
+ (a) 
+ SupraMarginal (L) 
+ 53 
+ 1431 
+ (−62,−40,34) 
+ 
+ 
+ IN 3 
+ (b) 
+ Frontal_Med_Orb (R) 
+ 76 
+ 2052 
+ (2,64,−8) 
+ 
+ 
+ IN 3 
+ (c) 
+ Cingulate_Ant (L) 
+ 92 
+ 2484 
+ (−1,42,23) 
+ 
+ 
+ IN 5 
+ (d) 
+ Cingulate_Post (L) 
+ 62 
+ 1674 
+ (−2,−43,22) 
+ 
+ 
+ IN 6 
+ (e) 
+ Frontal_Med_Orb (R) 
+ 53 
+ 1431 
+ (3,58,−4) 
+ 
+ 
+ IN 7 
+ (f) 
+ Parietal_Inf (L) 
+ 52 
+ 1404 
+ (−41,−49,41) 
+ 
+ 
+ IN 8 
+ (g) 
+ Insula (R) 
+ 62 
+ 1674 
+ (44,11,4) 
+ 
+ 
+ IN 10 
+ (h) 
+ Parietal_Inf (L) 
+ 52 
+ 1404 
+ (−54,−25,40) 
+ 
+ 
+ IN 10 
+ (i) 
+ Precuneus (R) 
+ 114 
+ 3078 
+ (8,−57,48) 
+ 
+ 
+ IN 11 
+ (j) 
+ Cerebellum_Crus2 (L) 
+ 62 
+ 1674 
+ (−28,−80,−35) 
+ 
+ 
+ IN 12 
+ (k) 
+ Supp_Motor_Area (L) 
+ 162 
+ 4374 
+ (−11,−5,74) 
+ 
+ 
+ 
+ 
+ IN, intrinsic network; AAL, automated anatomical labeling; L, left; R, right. 
+ 
+ 
+ 

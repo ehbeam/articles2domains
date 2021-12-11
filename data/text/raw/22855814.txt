@@ -1,0 +1,2350 @@
+
+ properties manuscript? 
+ 
+ 
+ 8102140 
+ 5035 
+ J Neurosci 
+ J. Neurosci. 
+ 
+ The Journal of neuroscience : the official journal of the Society for Neuroscience 
+ 
+ 0270-6474 
+ 1529-2401 
+ 
+ 
+ 22855814 
+ 3483645 
+ 10.1523/JNEUROSCI.0759-12.2012 
+ NIHMS399738 
+ 
+ 
+ Article 
+ 
+ 
+ 
+ Stepwise Connectivity of the Modal Cortex Reveals the Multimodal Organization of the Human Brain 
+ 
+ 
+ 
+ 
+ Sepulcre 
+ Jorge 
+ 
+ 1 
+ 2 
+ 
+ 
+ 
+ Sabuncu 
+ Mert R. 
+ 
+ 2 
+ 3 
+ 
+ 
+ 
+ Yeo 
+ Thomas B. 
+ 
+ 2 
+ 4 
+ 
+ 
+ 
+ Liu 
+ Hesheng 
+ 
+ 2 
+ 
+ 
+ 
+ Johnson 
+ Keith A. 
+ 
+ 1 
+ 5 
+ 6 
+ 
+ 
+ 1 Division of Nuclear Medicine and Molecular Imaging, Department of Radiology, Massachusetts General Hospital and Harvard Medical School, Boston, MA, USA 
+ 2 Athinioula A. Martinos Center for Biomedical Imaging, Charlestown, MA, USA 
+ 3 Computer Science and Artificial Intelligence Lab, Massachusetts Institute of Technology, Cambridge, MA, USA 
+ 4 Department of Neuroscience and Behavioral Disorders, Duke-NUS Graduate Medical School, Singapore 
+ 5 Centre for Alzheimer Research and Treatment, Department of Neurology, Brigham and Women’s Hospital and Harvard Medical School, Boston, MA, USA 
+ 6 Department of Neurology, Massachusetts General Hospital and Harvard Medical School, Boston, MA, USA 
+ 
+ Address correspondence to: Jorge Sepulcre, Harvard University, 52 Oxford Street, Northwest Building, 280.02, Cambridge, MA 02138,  sepulcre@nmr.mgh.harvard.edu 
+ 
+ 
+ 15 
+ 9 
+ 2012 
+ 
+ 
+ 1 
+ 8 
+ 2012 
+ 
+ 
+ 01 
+ 2 
+ 2013 
+ 
+ 32 
+ 31 
+ 10649 
+ 10661 
+ 
+ 
+ This file is available for text mining. It may also be used consistent with the principles of fair use under the copyright law. 
+ 
+ 
+ 
+ How human beings integrate information from external sources and internal cognition to produce a coherent experience is still not well understood. During the past decades, anatomical, neurophysiological and neuroimaging research in multimodal integration have stood out in the effort to understand the perceptual binding properties of the brain. Areas in the human lateral occipito-temporal, prefrontal and posterior parietal cortices have been associated with sensory multimodal processing. Even though this, rather patchy, organization of brain regions gives us a glimpse of the perceptual convergence, the articulation of the flow of information from modality-related to the more parallel cognitive processing systems remains elusive. Using a method called Stepwise Functional Connectivity analysis, the present study analyzes the functional connectome and transitions from primary sensory cortices to higher-order brain systems. We identify the large-scale multimodal integration network and essential connectivity axes for perceptual integration in the human brain. 
+ 
+ 
+ 
+ National Institute on Aging : NIA 
+ R01 AG037497 || AG 
+ 
+ 
+ National Institute of Neurological Disorders and Stroke : NINDS 
+ K25 NS069805 || NS 
+ 
+ 
+ National Institute of Biomedical Imaging and Bioengineering : NIBIB 
+ K25 EB013649 || EB 
+ 
+ 
+ 
+ 
+ 
+ Introduction 
+ Humans have the ability of processing physical and mental information to ultimately generate a sense of reality. The processes by which perceptual information is captured and integrated to create a holistic-unitary experience of the subject’ world are still under debate. The perceptual features integration problem in the brain, initially originated in vision research as the “binding problem” ( Treisman, 1996 ;  Reynolds and Desimone, 1999 ;  Wolfe and Cave, 1999 ), has been an intriguing issue for many decades. Brain anatomical and functional patterns suggest the existence of areas with high local modularity and hierarchical connections in sensory cortices ( Maunsell and van Essen, 1983 ;  Felleman and Van Essen, 1991 ;  Distler et al., 1993 ;  Ungerleider and Haxby, 1994 ;  Sepulcre et al., 2010 ), as well as, integrative association areas that receive widespread projections from distributed brain systems ( Pandya and Kuypers, 1969 ;  Jones and Powell, 1970 ;  Mesulam, 1990 ;  Salvador et al., 2005 ;  Eguíluz et al., 2005 ;  Mesulam, 2008 ;  Buckner et al., 2009 ). In this sense, a specific set of regions, now known as cortical hubs, merge the highest number of functional large distant connections in the human brain leading to interpretations of these regions as the top hierarchical areas for integration ( Buckner et al., 2009 ;  Sepulcre et al., 2010 ). Nevertheless, it is still not well understood how the brain manages to integrate these two archetypical extremes, or in other words, how the transitions from modular sensory regions to parallel-organized heteromodal and limbic processing systems take place. 
+ In recent years, anatomical, neurophysiological and neuroimaging research on multimodal integration have provided insights into the binding of three main perceptual modalities in the nervous system; vision, touch and audition. For instance, areas such as the posterior temporal lobe and the lateral occipitotemporal junction (LOTJ), as well as areas in the posterior parietal lobe have been consistently described as critical for bimodal or trimodal integration processing (Beauchamp, 2005; Beauchamp et al., 2004; Calvert, 2001;  Driver and Noesselt, 2008 ). A large region covering the entire superior temporal sulcus (STS) appears to be essential for trimodal integration in non-human primates ( Driver and Noesselt, 2008 ). Other brain regions at the subcortical level, such as the superior colliculus, have also been described as multimodal processors (see e.g. in the cat ( Wallace et al., 1998 )). Moreover, rather than integrating multimodal information in isolated or disconnected regions, functional MRI activation studies suggest that perceptual multimodal binding is likely to be achieved via mutual interaction of multiple regions ( Downar et al., 2000 ;  Corbetta and Shulman, 2002 ). 
+ In this study, we aim to identify the functional connectome of the modal brain (visual, auditory and somatosensory cortices) by using a novel method we call Stepwise Functional Connectivity (SFC;  Figure 1 ). We have specifically developed SFC as a network analysis technique to explore the convergence and interactions of sensory systems at the connectivity level. While most functional connectivity and resting state MRI studies emphasize the separation and isolation of networks in the brain (for instance ICA and K-means approaches), here we focus on a complementary question that represents a new challenge for network neuroscience: how are brain systems bound together? By using SFC analysis, we sought to not only elucidate the main areas of multimodal integration but also to untangle the complex connectivity transitions that take place from primary to higher-order cognitive distributed systems of the brain. 
+ 
+ 
+ Materials & Methods 
+ 
+ Overview 
+ We use resting-state fcMRI and SFC analyses to investigate the large-scale integration networks of the three main sensory –visual, somatosensory and auditory-cortices in the human brain. Core analyses were based on a dataset of 100 healthy young adults (dataset 1; mean age = 21.3 yr, 37% male). Another dataset of 100 subjects (dataset 2; mean age = 20.83 yr, 39% male) was used for replication and complementary analyses. 
+ As a general workflow, we performed the following steps: 1. We first explored the SFC patterns of primary cortices in order to describe the main convergence regions of multimodal integration (dataset 1). 2. Then, we focused our analyses on characterizing the discovered multimodal regions to describe the different cores and connectivity axes within the multimodal network (dataset 2). 3. Finally, we used an interconnector network analysis to explore specific connectivity profiles between pairs of sensory cortices (dataset 2). 
+ 
+ 
+ Participants 
+ All subjects participated in the MRI studies for payment. Subjects were recruited as part of the Brain Genomic Superstruct Project ( Buckner et al., 2011 ;  Yeo et al., 2011 ); a neuroimaging collaborative effort across multiple laboratories at Harvard University, the Massachusetts General Hospital and the greater Boston area. Inclusion criteria were: fMRI signal-to-noise ratio greater than 100, no artifacts detected in the MR data, no self-reported neurological and psychiatric disease and psychoactive medications history. All participants had normal or corrected-to-normal vision and were right-handed native English speakers. Participants provided written informed consent in accordance with Helsinki Declaration and guidelines set by institutional review boards of Harvard University or Partners Healthcare. 
+ 
+ 
+ MRI Acquisition Procedures 
+ Scanning was acquired on a 3 Tesla TimTrio system (Siemens, Erlangen, Germany) using the 12-channel phased-array head coil supplied by the vendor. High-resolution 3D T1-weighted magnetization multi-echo images for structural anatomic reference (multi-echo MPRAGE; ( van der Kouwe et al., 2008 )) and a gradient-echo echo-planar pulse sequence (EPI) sensitive to blood oxygenation level-dependent (BOLD) contrast for functional imaging data were obtained. Multi-echo MP-RAGE parameters were: TR = 2200 ms, TI = 1100 ms, TE=1.54 ms for image 1 to 7.01 ms for image 4, FA = 7°, 1.2 × 1.2 × 1.2 mm and FOV = 230. EPI parameters were: TR = 3000 ms, TE = 30 ms, flip angle = 85°, 3 × 3 × 3 mm voxels, FOV = 216 and 47 slices. Although one or two runs were acquired per each subject, we only used the first run (each run lasted 6.2 min, 124 time points) in order to keep data as homogeneous as possible across subjects. Functional images covered the whole brain including the entire cerebellum and all slices were aligned to the anterior-commissure posterior-commissure plane using an automated alignment procedure ( van der Kouwe et al., 2005 ). During the functional runs, the participants were instructed to remain still, stay awake and keep their eyes open. Head motion was restricted using a pillow and foam, and earplugs were used to attenuate scanner noise. 
+ 
+ 
+ fMRI and fcMRI Preprocessing 
+ MRI preprocessing steps were optimized for fcMRI analysis ( Fox et al., 2005 ;  Vincent et al., 2006 ;  Van Dijk et al., 2010 ) extending from the approach developed by Biswal et al. ( Biswal et al., 1995 ). First, we performed conventional preprocessing of functional MRI such as removal of first four volumes to allow for T1-equilibration effects, compensation of systematic, slice-dependent time shifts, motion correction and normalization to the MNI atlas space (SPM2, Wellcome Department of Cognitive Neurology, London, UK) to yield a volumetric time series re-sampled at 2 mm cubic voxels. It is essential to remark that all network connectivity analyses of subjects’ images were done preserving the index information of MNI coordinates. This approach allows us to obtain degree of SFC maps that are comparable within the sample. Next, we carried out more specific preprocessing for functional connectivity analysis. Temporal filtering was applied to the MRI data to remove constant offsets and linear trends over the data while retaining frequencies below 0.08 Hz. Moreover, several sources of spurious variance, along with their temporal derivatives, were removed through linear regression including: (1) six-parameters obtained from correction for rigid-body head motion, (2) the intensity signal averaged over the entire brain, (3) the intensity signal averaged over the body of the lateral ventricles, and (4) the signal averaged over white matter in the centrum semiovale. This regression procedure removes variance, such as physiological artifacts, that are unlikely to represent signal of neuronal origin ( Van Dijk et al., 2010 ). However, it is well known that removal of global signal also causes a shift in the distribution of correlation coefficients forcing negative correlations to increase, making the interpretation of the negative correlation ambiguous ( Chang and Glover, 2009 ;  Murphy et al., 2009 ;  Van Dijk et al., 2010 ). Therefore, in this study only correlations exceeding a positive and FDR corrected threshold (see  Stepwise Functional Connectivity Analysis  section) were used in order to avoid this concern. As a final step prior to the network analysis, we down-sampled the fcMRI data to 8 mm isotropic voxels for computational efficiency. 
+ It is important to remark that fcMRI measures intrinsic activity correlations between brain regions ( Biswal et al., 1995 ;  Fox and Raichle, 2007 ;  Lu et al., 2011 ) and can reflect mono- as well as polysynaptic signal relationship between regions. Direct but also indirect connectivity driven by common sources, such as physiological noise or overlapping spatial smooth, could generate significant correlations. The rationale as well as the caveats and limitations of fcMRI have been previously discussed in details ( Van Dijk et al., 2010 ). 
+ 
+ 
+ Stepwise Functional Connectivity Analysis 
+ While a great part of functional connectivity and resting state MRI studies focus on the separation or isolation of networks in the brain, here we focus on a complementary and substantially different question that represents a new challenge for network neuroscience: how are brain systems bound together? We used SFC analysis to map the connectivity patterns of brain seed regions at different step (or “link-step”) distances. In a sense, the field of tract tracing techniques that use transneuronal tracers to investigate multisynaptic/multistep circuits of brain targets allowing the visualization of entire functional neuronal networks ( Ugolini, 2010 ;  Nhan and Callaway, 2012 ) conceptually inspired us to develop the SFC analysis in the framework of functional connectivity. As an input to the SFC analysis, we first computed the individual association matrices from each participant’s whole brain network by computing the Pearson-R correlations of each voxel to every other voxel time course in the pre-processed BOLD images ( Figure 1-B ). In order to perform this analysis each individual BOLD images were previously converted to N-by-M matrices where N were the images voxels in MNI space and M the 124 acquisition time points. A mask of 4652 voxels covering the whole brain (cortex, subcortex, brain stem and cerebellum) was used to extract the time courses. As a result a 4652×4652 matrix of Pearson-R, or product-moment correlation coefficient, was obtained for each individual. After this point, only positive correlations of the association matrix were taken into account. Next, we applied a False Discovery Rate (FDR; (Benjamini and Hochberg)) correction at 0.001 level to control for the rate of false positives in the final network adjacency matrices. This method introduces in each individual a customized and high r threshold that allows the elimination of network links with low temporal correlation, which are likely to be attributable to noise signal. Finally, we binarized the resulting FDR thresholded matrices to obtain undirected and unweighted graphs for each individual that will serve as input data for the SFC analysis. All SFC analyses were performed at the individual level for each participant. 
+ SFC analysis aims to characterize regions that connect to specific seed brain areas at different levels of “link-step” distances ( Figure 1 ). In our framework, a step refers to the number of links (edges) that belongs to a path connecting a node to the seed (or target) area. In this sense, link-step and path length are analogous concepts. However, we prefer to use link-step to avoid confusion with the graph theory terms of average path length and shortest path used when analyzing pairs of nodes. 
+ In SFC analysis, the degree of stepwise connectivity of a voxel  j  for a given step distance  l  and a seed area  i  ( Dji l  in  Figure 1-C ) is computed from the count of  all  paths that: 
+ 
+ 
+ connect voxel  j  and any voxel in seed area  i  and 
+ 
+ 
+ have an  exact  length of  l . 
+ 
+ 
+ It is easy to see that SFC is also related to transition probabilities in an information flow analysis between the seed area and voxels across the rest of the brain. Given the lack of directionality information provided by fcMRI data, in SFC we did not include any restrictions about recurrent pathways crossing the seed regions multiple times. On the other hand, an important aspect of the SFC approach is that that the link-step concept has no obvious physiological meaning as it depends on, among other things, the resolution of the images. Therefore, we explored a wide range of link-step distances, from one to twenty, in order to characterize the progression of the derived maps. Although the amount of overlap between consecutive steps is expected to be high, we aimed to see meaningful relative changes between pairs of maps. As seen in  Figure 2 , the SFC patterns are topographically dissimilar between consecutive maps from steps one to six and become stable for link-step distances above seven. The cortical map of this final stable state collapses into regions that were previously described as cortical hubs ( Buckner et al., 2009 ;  Sepulcre et al., 2010 ). Based on this analysis, in our results we only show maps up to seven steps. 
+ SFC analysis uses a priori selected seed voxels of interest. In the first part of the study, we selected seed regions in the primary visual and auditory cortices based on probabilistic cytoarchitectonic maps. Briefly, we used the SPM Anatomy toolbox ( Amunts et al., 2000 ;  Eickhoff et al., 2006b ;  Eickhoff et al., 2006a ) to select the spatial coordinates of primary visual (BA17, V1) and primary auditory (BA22, A1) cortices for accurate determinations of histological-MRI corresponding to our sample resolution. For the primary somatosensory cortical seed, we focused our analysis on the hand area due to its central role in the sense of human touch. MNI coordinates of the hand somatosensory seed region were selected from a previous task activation study ( Buckner et al., 2011 ). For all three primary cortex seeds, we created a cube region of eight-voxels, where the reference MNI coordinates, as shown in  Table 1 , correspond to the more lateral, anterior and superior voxel. We used equal-size cube regions of eight-voxels rather than a single-voxel seeds in order to achieve 1) comparable degree of connectivity maps between modalities and 2) graded and not binary results in the one step distance condition. Importantly, our seed regions confined within the modular borders of primary sensory cortices ( Sepulcre et al., 2010 ). Therefore,  Dji l  of a brain voxel represents the sum of the number of pathways that connect to any one of the eight voxels in the seed region. The same eight-voxel cube region of interest strategy was used in the  Characterization of the Multimodal Integration Network  and  Interconnectors Between Modality Pairs  sections. To create the seeds of interest for the characterization of multimodal network in dataset 2, we used the local maxima intensity peaks from the five-step distance map of  Figure 6-A . Both left and right hemispheres were included in all the SFC analyses but only left or right seeds were considered wherever appropriate.  Figures 3 ,  4  and  5  show results for each left sensory modality seed. In order to get a combined SFC map of all modalities together,  Figure 6-A  and  Figure 7  use the same SFC strategy but with all three seeds – visual, auditory and somatosensory – simultaneously. In other words, for every voxel in the brain we calculated the number of paths to all the three seed regions for a given step distance. This analysis gave us the ability to reveal multimodal voxels of the brain in a more accurate manner than other conjunction analysis where problematic cutoffs and thresholds between modalities need to be used ( Driver and Noesselt, 2008 ). We call this analysis the combined SFC analysis. As a final step prior to surface projection, we computed one-sample t-tests across the entire sample of 100 subjects to obtain a statistical map for every seed and for every SFC map with a level of significance of uncorrected p-value p<0.0001. 
+ 
+ 
+ Interconnectors Between Modality Pairs 
+ Beside the a priori selected seed regions, no other prior constraints were introduced in the computation of SFC. However, it is possible that brain regions have meaningful connectivity routes that do not necessarily follow the main or massive connectivity patterns revealed by the SFC method. For instance, primary regions could have less numerous but more direct links with other primary regions that might be washed out with our stepwise approach. This is the main reason to use a complementary method that helps us to capture potentially interesting patterns of connectivity between pairs of cerebral areas. First, we detect the voxel-nodes that have direct and indirect connectivity to  both  seed regions,  a  and  b . A direct interconnector node is defined as a node that has connections to both seeds in one link-step distance (only one node between targets) and an indirect interconnector node is defined as a node that has direct one link-step connections to one of the targets and an indirect two link-steps connections to the other target. Later, we compute the degree connectivity of a given interconnector node, by summing the total number of paths to the target nodes. Other levels of connectivity such as indirect connections in three, four or five link-steps distances were analyzed but because indirect interconnectors that combined one and two link-steps connectivity already collapsed in the trimodal regions (see  Figure 12 ) we restricted our results to the bimodal findings. In summary, this interconnector analysis strategy provides information about interface regions that bond two sensory modalities ( Figure 10 ). 
+ 
+ 
+ Visualization 
+ As a final step, all resulting maps were projected onto the cerebral hemispheres of the PALS surface (PALS-B12) provided with Caret software ( Van Essen and Dierker, 2007 ) using the “enclosing voxel algorithm” and “multi-fiducial mapping” settings. To aid visualization, all surface SFC images were displayed using a normalized color scale from 0 to 1, where 0 is the intensity corresponding to the one-sample  t -test p-value of 0.0001 and 1 is the maximum intensity of the image corresponding to the smallest one-sample  t -test p-value. Using the stepwise results of  Figure 6-A  we created the overlap map of  Figure 6-B . The mask for early, intermediate and late steps were made using the average of the SFC maps for 1–2, 3–4 and 4–7 step distances, respectively. We used Pajek software ( De Nooy et al., 2005 ) and Kamada-Kawai energy layout ( Kamada and Kawai, 1989 ) for the network graphs displays in  Figure 6-B  and  Figure 9-B . Kamada-Kawai algorithm is a force layout method based on a network energy minimization procedure that takes into account the difference between geometric and pair-wise shortest path distances of nodes in the graph. Only nodes from the partition of the three components shown in  Figure 6-B  (initial, intermediate and terminal step cores) were included in the network graph. We used the same color partition for brain surface and network topological spaces in  Figure 6-B . In  Figure 9 , we performed an average-linkage hierarchical clustering analysis in order to study the partitions of the multimodal integration network. We included all nodes from the seed regions used in the  Characterization of the Multimodal Integration Network  section. 
+ 
+ 
+ 
+ Results 
+ 
+ Stepwise Functional Connectivity of the Primary Visual Cortex 
+ When exploring visual cortex with SFC, we find that the direct connections from the early visual seed in V1/BA17 are mostly limited to within the occipital lobe, especially to its medial and dorsal areas ( Figure 3a ). There is a gradient of a decreasing degree of connectivity from the seed region to the rest of the lobe that, interestingly, expands dorsally from V1 to V2, V3 and V7 (see  Figure 3b  and details in flat projections) and also laterally from V1 to V2 and MT+ (see  Figure 3c  and details in flat projections). A third branch of connectivity is following the ventromedial part of the occipital lobe, from V1 to V2v, V3v, V4 and V8, and posterior parahipocampus (see  Figure 3a  and details in flat projections). After the initial steps of connectivity, all visual pathways converge to a set of distinct regions in the frontal eye field, superior parietal cortex (SPC, BA1/2/5), parietal operculum (or operculum parietale, OP, BA40), anterior insula/ventral premotor cortex in frontal operculum (AI+) and dorsal anterior cingulated cortex/supplementary motor area (DACC+, BA6/24/32) cortices ( Figure 3e to 3h ). Finally, in the late steps, the connectivity of the visual cortex reaches distributed cortical regions, now known as the cortical hubs of the human functional brain ( Buckner et al., 2009 ;  Sepulcre et al., 2010 ). 
+ 
+ 
+ Stepwise Functional Connectivity of the Primary Somatosensory Cortex 
+ In the early step, somatosensory cortex displays a regional-local connectivity all along the somatomotor cortex ( Figure 4a ) and, to a lesser extent, also to the LOTJ ( Figure 4b ).  Figure 4a  shows that primary somatosensory cortex has a significant and direct connectivity to the secondary somatosensory area (OP4/BA43; ( Eickhoff et al., 2007 )) in the ventral and anterior part of the parietal operculum (see star symbol in inflated projection of  Figure 4a ). With increasing steps, somatosensory cortex connects to the same constellation of regions as the visual cortex, which includes the SPC, OP, AI+, and DACC+ ( Figure 4c to 4f ). Again similarly to the visual cortex, the high-order SFC maps of the somatosensory cortex show connectivity patterns reaching the cortical hubs network. 
+ 
+ 
+ Stepwise Functional Connectivity of the Primary Auditory Cortex 
+ In the first step, the primary auditory cortex exhibits a dense and predominant regional-local connectivity, specifically along auditory related areas such as the perisylvian secondary auditory areas ( Figure 5a ). Although to a lesser extent, auditory cortex also exhibits direct connections to somatomotor and LOTJ ( Figure 5b ). Similarly to somatosensory cortex, initial steps in the SFC analysis reveal a significant connectivity to a secondary representation area (OP4/BA43) in the parietal operculum (see star symbol in inflated projection of  Figure 5a ); an area slightly anterior to the one described in the somatosensory SFC analysis. In later steps, the auditory cortex connectivity reaches first other perisylvian areas such as a ventral premotor cortex and OP1 (see inflated projection of  Figure 5d and 5e ) and then the same set of regions described in the previous two sensory modalities, SPC, OP, AI+, and DACC+ ( Figure 5c to 5f ). In the final steps, the connectivity of the auditory cortex reaches the cortical hubs network. 
+ 
+ 
+ Multimodal Integration Network 
+ In  Figure 6  we used a combined approach to highlight the topological convergence of the stepwise connectivity patterns in the three major sensory modalities that were explored ( Figure 6-A ). In addition to the previously mentioned regions (SPC, OP, AI+, and DACC+), we find more clearly that one area in dorsolateral prefrontal (DLPFC, BA10/46) and another area in LOTJ -in the confluence region of BA19/22/37/39, and touching the superior temporal sulcus- provide also strong nexuses of convergence from all three sensory modalities ( Figure 6-A and 6-B ). In other words, concrete and consistent regions emerge as a common destiny for the sensory modalities and serve as transition bridges from perception to higher-order cognitive regions such as the cortical hubs (green areas and nodes in  Figure 6-B ). 
+ 
+ 
+ Multimodal Integration Network in the Left and Right Hemispheres 
+ We found left/right hemisphere asymmetries in the multimodal integration network, particularly in the vicinity of the temporo-parietal junction (TPJ). The OP multimodal integration region on the right side of the brain is more extensive than the one obtained in the left hemisphere ( Figure 7-a and 7-b ). In the right hemisphere, the OP region merges with the superior temporal gyrus while in the left hemisphere the OP is isolated. In addition, the maps of the late steps show important left-right differences in the ventrolateral prefrontal cortex, especially in the Broca’s language area ( Figure 7-c ). 
+ TPJ has been classically described as a region affected in the spatial neglect syndrome, especially in the right hemisphere ( Friedrich et al., 1998 ;  Ro et al., 1998 ;  Vallar, 1998 ). Neglect syndrome is an attention disturbance in which subjects are unaware of spatial stimuli in one hemi-field. The fact that the multimodal region in the right hemisphere is larger in that particular location may account for the higher rate of neglect patients with right TPJ lesions. The characterization of multimodal integration regions strongly supports a network theory of the neglect condition. Although frequently described after focal TPJ lesions, neglect syndrome seems to be a network disease ( Mesulam, 1981 ;  Downar et al., 2000 ;  He et al., 2007 ). For instance, other regions such as DACC or prefrontal cortex, particular in the vicinity of BA44, have been implicated in neglect patients ( Vallar, 1998 ). Therefore, it is not surprising that the regions that generate neglect are included in the multimodal network described in this study. Even newly characterized regions of the multimodal network such as SPC have been associated with neglect ( Mesulam, 1999 ). The network framework brings new insights to bear on neglect syndrome. The disruption of connectivity axes between multimodal regions may explain problematic points of previous “TPJ-centrist” interpretations. For instance, an appropriate integration of perceptual, attentional and motor planning information seems critical for a rapid access of motor actions ( Ikeda et al., 1999 ). It is well known that neglect patients have motor deficit, particularly initiating movements ( Corbetta and Shulman, 2002 ), and an interruption of connectivity from OP, AI+ or SPC to DACC+, which include the pre/supplementary motor area, can explain this aspect of the syndrome. 
+ 
+ 
+ Characterization of the Multimodal Integration Network 
+ After isolating the multimodal network in the first dataset, we aimed to confirm that these regions make up a robust coherent network using the second dataset. In this section, we used SFC analysis again, but this time to characterize the main connectivity axes of the previously obtained multimodal regions. 
+ OP ( Figure 8-A ) and AI+ ( Figure 8-B ) stepwise connectivity maps show that both regions form a strong axis of connectivity between them. For higher order steps, OP and AI+ also exhibit strong connectivity with the DACC+ and SPC regions. As expected for a SFC analysis at rest, the stepwise connectivity maps of OP and AI+ eventually reach the stable state in the cortical hubs regions, but in fewer steps than the primary sensory cortices. In summary, AI+ and OP stepwise connectivity maps show a dense core of connectivity between both regions, and in later steps reach other multimodal nodes but never significantly return to the primary cortices. 
+ When analyzing the SPC region, we find that this region has strong direct coupling with the OP and then a dense connectivity to the OP-AI+ axis ( Figure 9-A ). On the other hand, LOTJ’s direct connectivity spreads locally across a broad region of the temporal-parietal-occipital junction ( Figure 9-B ). LOTJ also has direct coupling with the SPC and OP regions, forming a posterior brain connectivity triangle. As in SPC, LOTJ connectivity converges to the OP-AI+ axis with further steps. 
+ The DACC+ ( Figure 10-A ) stepwise connectivity results show that this region is directly coupled with the OP-AI+ axis. In this sense, it seems that DACC+ is actually an important component of this connectivity core (compare with  Figure 8-A and 8-B ). On the other hand, DLPFC stepwise maps display a distinctive pattern of connectivity compared to other multimodal regions ( Figure 10-B ). With one step, DLPFC has connections to OP and AI+. However, the connectivity profile is more posterior in the OP region and more anterior in the AI+ region than the pattern displayed by the other multimodal regions (see star symbols in the insert of  Figure 10-B ). Although these differences are subtle, the more posterior part of the OP region and the more anterior part of the AI+ has been related with another functional network, namely the fronto-parietal control network ( Yeo et al., 2011 ). The intimacy by which both networks are interdigitated in the inferior parietal and insula regions suggests that some of these multimodal network nodes might be implicated in the interrelation of perceptual integration and cognitive control functions. 
+ Finally, in order to explicitly characterize the modular relationship between the multimodal regions, we performed an average-linkage hierarchical clustering analysis of the multimodal integration network ( Figure 11-A and 11-B ). Briefly, we first averaged the FDR-corrected whole-brain association matrices (positive correlation coefficients) from dataset 2. Then, we extracted a 48×48 matrix containing the seed voxels of OP, AI+, SPC, LOTJ DACC+ and DLPFC regions (eight voxels per region) and performed the average-linkage hierarchical clustering analysis. The hierarchical partition shows two main network modules (cutoff criteria r>0.2), one integrated by SPC and LOTJ ( Figure 11-Aa and 11-Ba ), and the other by OP, AI+, DACC+ and DLPFC ( Figure 11-Ab and 11-Bb ). We observe that the connectivity between the two modules,  a  and  b , is mostly through the connections of the SPC-OP axis ( Figure 11-B ). On the other hand, there is also a meaningful partition within the module  b  (cutoff criteria r>0.4); sub-module  b 1  formed by OP, AI+ and part of DACC+, and sub-module  b 2  formed by DLPFC and part of DACC+ ( Figure 11-B ).  Figure 11-C  illustrates the main connectivity axes described in this study, especially highlighting the SPC-OP and OP-AI+ axes. 
+ 
+ 
+ Interconnectors Between Modality Pairs 
+ To further characterize patterns of connectivity between pairs of sensory modalities, we used another novel network analytical strategy that detects bimodal brain regions. The analysis of bimodal interconnectors is significantly different from the previous SFC analysis; it specifically targets the connections between two primary regions rather than the unconstrained transitions of connectivity revealed by SFC. Yet, similar to the SFC analysis, it uses a stepwise approach to detect direct and indirect connections for all the possible pairs of sensory modalities: visual-auditory (V-A), visual-somatosensory (V-S) and auditory-somatosensory (A-S) ( Figure 12 ). 
+ The V-A results demonstrate that the posterior middle temporal gyrus, an area anterior to the LOTJ multimodal region, is engaged in the merging of direct connections between the visual and auditory cortex ( Figure 12-Aa ). An analogous area has been extensively reported as visual-auditory bimodal integrator using other neuroimaging techniques ( Driver and Noesselt, 2008 ). The V-S findings show a more distributed pattern, where SPC ( Figure 12-Ab ) and dorsal and lateral occipital ( Figure 12-Ac ) regions display strong visual and somatosensory bimodality. Additionally, a motor region known to be related in oculomotor processing shows interconnector properties between visual and somatosensory cortices (anterior part of  Figure 12-Ab ). Primary motor and somatosensory cortices are locally interlocked by mutual connections across the central sulcus ( Pandya and Kuypers, 1969 ;  Jones and Powell, 1970 ). Therefore, it is not surprising that oculomotor areas have a deep visual-somatosensory interconnectivity suggesting early integration of somatomotor and visual processing for oculomotor functions. Finally, OP connections, such as OP4 (BA43), are especially critical for the bimodal interconnectivity of auditory and somatosensory primary cortices ( Figure 12-Ad ). Four regions in the upper bank of the lateral sulcus can be distinguished in humans, OP 1 to 4, which correspond to S2, PV and VS areas in monkeys ( Disbrow et al., 2000 ;  Eickhoff et al., 2006b ;  Eickhoff et al., 2006a ). Our findings in the bimodal interconectors analysis suggest that OP4 is not only a somatosensory secondary representation but also a plausible early bimodal interconnector that may influence the strong modularity described previously between the somatomotor and auditory cortex ( Yeo et al., 2011 ). Indeed, PV in monkeys is connected to both primary somatosensory as well as medial auditory belt areas ( Disbrow et al., 2003 ). 
+ Finally, we find that indirect interconnectors are less specific for detecting bimodal integration. Maps of indirect interconnectors show trimodal rather than bimodal regions, although with some unique features depending on the pair of modalities. For instance, we find extensive occipital, including MT+, and FEF engagement when visual modality is being analyzed.  Figure 12-B  is a diagram summarizing key bimodal integrators in the human brain. 
+ 
+ 
+ 
+ Discussion 
+ Throughout the history of neuroscience, scientists have been studying where and how brain systems integrate perceptual modalities in order to be incorporated into the more complex texture of cognition ( Mesulam, 1998 ). A recent perspective that emphasizes functional connections of the brain promises to further our understanding of the underlying network structure of the human brain through the study of the connectome. If articulated networks occur as a whole in the brain to finally enable human cognition, then subdivisions of sensory, multimodal and cognitive processing should be studied in terms of interdigitated systems and network interactions rather than segregated parts ( Goldman-Rakic, 1988 ). In this study, we used a novel approach called SFC analysis to identify sensory cortex interactions and transitional connections between systems of the human brain. 
+ 
+ Multimodal Integration, Salience-Attention Processing and Other Overlapping Concepts 
+ The multimodal network integrates the primary cortices and connects them to the parallel systems at the top of the brain functional hierarchy. In the visual system, we found that stepwise connectivity patterns move along the dorsal and ventral visual streams. Furthermore, we uncovered some differences compared to various interpretations of these streams ( Kim et al., 1999 ;  Corbetta et al., 2008 ). First, the dorsal visual connectivity transitions move through different visual-related regions along two branches, one from V1 to V7 and other from V1 to MT+. On the other hand, the ventral connectivity stream in our findings is a medial pathway that connects V1 to other ventromedial visual regions to finally reach V8 and the posterior parahippocampus. In all cases, the multimodal network, especially SP and OP, are the common brain regions for the convergence of the three visual streams. Contrary to prior interpretations, we do not see major stepwise connectivity to anterior parts of the temporal lobe in the ventral stream or a dominant connectivity, for instance, in the SPC-FEF duplet in the dorsal stream. In summary, visual streams mostly merge in nodes of the multimodal network and not in other plausible regions such as intraparietal sulcus (IPS), FEF or middle prefrontal gyrus as previously postulated ( Corbetta et al., 2008 ). However, it is possible that these regions and other connectivity axes may gain importance during task-related activity. In this sense, IPS-FEF or SPC-FEF connections may be functionally more engaged, compared to what our results suggest, during visual and goal-directed stimulus-response tasks. 
+ When considering the results of visual, auditory and somatosensory modalities together, our findings are less exposed to the classic dorsal vs. ventral dichotomic interpretation of the perceptual or attention-related systems ( Corbetta and Shulman, 2002 ). Our interpretation is that by using the multimodal network, the three major primary sensory systems of the brain take advantage of both, ventral and dorsal connections to the same extent. Of particular interest is the integration of dorsal and ventral regions through the SPC-OP axis and the posterior triangle of connectivity between SPC, OP and LOTJ. In the past, connections between SPC-OP have been extensively reported, for instance, in non-human primate anatomical studies. Monkey Area 7b (analogous to our large OP region) is selectively connected with BA5 (analogous to our large SPC region) and also with insular cortex and the supplementary somatosensory area ( Cavada and Goldman-Rakic, 1989 ). Other findings have shown strong evidence of connectivity from BA5 to the upper bank of the lateral sulcus in the perisylvian region ( Jones and Powell, 1970 ) or from OP areas to BA5 in the superior parietal lobe ( Disbrow et al., 2003 ). 
+ Not surprisingly, several of the multimodal network regions characterized in this study have been previously described in the attention and stimuli salience processing literature. For instance, anterior components of the multimodal integration network, especially AI+ and DACC+, have been described as part of the so called salience network ( Seeley et al., 2007 ;  Bressler and Menon, 2010 ), and regions similar to OP and AI+ have been implicated in multimodal and ventral attentional processing ( Corbetta and Shulman, 2002 ;  Downar et al., 2002 ;  Seeley et al., 2007 ;  Burton et al., 2008 ;  Eckert et al., 2009 ;  Menon and Uddin, 2010 ). Although we cannot describe the network changes that presumably take place during task in this study, the tremendous overlap between our findings, especially in AI+ and DACC+, and prior studies using attentional paradigms (see for instance ( Dosenbach et al., 2006 )), suggest that concepts such as multimodal connectivity integration, salience or goal-directed attention all refer to a great extent to a common brain mechanism. Due to our connectivity approach, we focus on the multimodal interpretation of our findings. Yet it is obvious that many different cognitive processes bring into play, to some degree, multisensory integrated representations and presumably activate similar cortical regions. 
+ “From Sensation to Cognition” (subheading borrowed from  Mesulam 1998 ) 
+ SFC is able to provide a meaningful picture of the large-scale brain processing from sensory to cognitive-related cortices. After one decade of isolating and discovering brain functional connectivity networks, research focus has now shifted to understanding how networks interact and merge in the brain. In this study, we found that the cortex is structured in such a manner that uses the multimodal integration network to interface between external information and cognitive hubs. Cortical hubs, and particularly the DMN, is associated with autobiographical, self and social functions ( Buckner et al., 2008 ). Due to the connectivity properties of the cortical hubs, they are expected to be at the top of the hierarchical structure of the brain at rest ( Goldman-Rakic, 1988 ;  Buckner et al., 2009 ;  Bressler and Menon, 2010 ;  Sepulcre et al., 2010 ). In this sense, our data support the traditional view of sensory-specific information feeding forward into higher multimodal, heteromodal and transmodal convergence-zones ( Driver and Noesselt, 2008 ) and information flowing in the cortex in a hierarchical configuration ( Hubel and Wiesel, 1962 ;  Pandya and Kuypers, 1969 ;  Jones and Powell, 1970 ;  Ungerleider and Desimone, 1986 ;  Felleman and Van Essen, 1991 ;  Clavagnier et al., 2004 ). 
+ In their seminal monkey anatomical tracing study ( Jones and Powell, 1970 ), Jones and Powell utilized an approach conceptually analogous with SFC. Although the direct comparison between Jones and Powell results and ours would be in several ways anachronistic, we found striking similarities. The authors aimed to analyze the convergence of sensory pathways through the analysis of “ the sequence of association connections passing outwards from the primary sensory areas as though following the successive steps in a (supposed) sequence of cortical function…to identify regions of convergence within the cortex. ” Using that strategy, Jones and Powell found that somatosensory cortex (S1) send fibers to 1) secondary somatosensory regions (S2), then to 2) BA5, then to 3) a large portion of BA7 and finally to 4) frontal and temporal limbic and heteromodal regions – regions that are known today as the DMN–. In other words, from a local connectivity to somatomotor and S2 region, somatosensory connections progress to multimodal regions such as BA5 (analogous to our SPC region) and BA7 (analogous to our OP region) and from there, the connectivity spreads to DMN in the monkey (analogous to the human DMN). Interestingly, STS has been reported as an important region for sensory integration in monkeys ( Driver and Noesselt, 2008 ) and, as shown by Jones and Powell, pathways from the three major modalities converge along the entire STS ( Jones and Powell, 1970 ). In humans we only found a small portion of the STS involved in multimodal processing as part of the LOTJ findings. 
+ Finally, of special relevance are our findings in the DLPFC multimodal region. Although the cortical hubs represent the top of the brain network hierarchy other networks play important cognitive roles during specific tasks such as the fronto-parietal control network ( Vincent et al., 2008 ;  Spreng et al., 2010 ). The anatomical proximity between the regions of the multimodal network and the fronto-parietal control network is especially noticeable in the DLPFC stepwise connectivity maps. It has already been postulated that anterior insula and dorsal cingulate cortex may function as a dynamic switcher between the mutually exclusive fronto-parietal control and default mode networks ( Sridharan et al., 2008 ;  Bressler and Menon, 2010 ). In this sense, it may be possible that some regions of the multimodal network, especially the anterior sub-module – including DLPFC-, are involved in cognitive interactions or transitions between active and passive tasks. On the other hand, the sensory awareness seems to relay on specific yet flexible binding between sensory-related processing regions and frontal and parietal cognitive networks that are related to active control of information and working memory (Engel and Singer, 2001). In our work this is especially relevant for the DLPFC region. The DLPFC connectivity network directly merges the multimodal and fronto-parietal control networks and may contribute to the fine spatial-temporal integration of sensory information into highly distributed networks. 
+ 
+ 
+ Conclusions 
+ The findings of this study extend our knowledge of how the human brain network architecture transitions from perceptual cortex to multimodal regions, and ultimately to areas that support more conscious and high-order cognitive functions. A particularly interesting area for future exploration concerns the application of SFC analysis to neuropsychiatric disorders, such as neglect, autism, sensory integration dysfunction disorder or ADHD that are suspected to be a result of dysfunctional integration of perceptual or attentional brain systems. 
+ 
+ 
+ 
+ 
+ We thank Randy L. Buckner for generously providing the data and also for his valuable comments to the study. We thank Tom Brady for his valuable comments to the study. We also like to recognize the influence of Prof. Jon Driver’s legacy in the study. This work was supported by the Alzheimer’s Association (NIRG-11-205690 to JS, ZEN-10-174210 to KAJ) and the NIH (K25NS069805 to HL, K25EB013649-01 to MRS, R01AG037497 and R01AG036694 to KAJ). 
+ 
+ 
+ 
+ No conflict of Interest. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Amunts 
+ K 
+ 
+ 
+ Malikovic 
+ A 
+ 
+ 
+ Mohlberg 
+ H 
+ 
+ 
+ Schormann 
+ T 
+ 
+ 
+ Zilles 
+ K 
+ 
+ 
+ 2000 
+ Brodmann’s areas 17 and 18 brought into stereotaxic space-where and how variable? 
+ Neuroimage 
+ 11 
+ 66 
+ 84 
+ 10686118 
+ 
+ 
+ 
+ 
+ 
+ 
+ Benjamini 
+ Y 
+ 
+ 
+ Hochberg 
+ Y 
+ 
+ 
+ Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing 
+ 
+ 
+ 
+ 
+ 
+ 
+ Biswal 
+ B 
+ 
+ 
+ Yetkin 
+ FZ 
+ 
+ 
+ Haughton 
+ VM 
+ 
+ 
+ Hyde 
+ JS 
+ 
+ 
+ 1995 
+ Functional connectivity in the motor cortex of resting human brain using echo-planar MRI 
+ Magn Reson Med 
+ 34 
+ 537 
+ 541 
+ 8524021 
+ 
+ 
+ 
+ 
+ 
+ 
+ Bressler 
+ SL 
+ 
+ 
+ Menon 
+ V 
+ 
+ 
+ 2010 
+ Large-scale brain networks in cognition: emerging methods and principles 
+ Trends Cogn Sci 
+ 14 
+ 277 
+ 290 
+ 20493761 
+ 
+ 
+ 
+ 
+ 
+ 
+ Buckner 
+ RL 
+ 
+ 
+ Andrews-Hanna 
+ JR 
+ 
+ 
+ Schacter 
+ DL 
+ 
+ 
+ 2008 
+ The brain’s default network: anatomy, function, and relevance to disease 
+ Ann N Y Acad Sci 
+ 1124 
+ 1 
+ 38 
+ 18400922 
+ 
+ 
+ 
+ 
+ 
+ 
+ Buckner 
+ RL 
+ 
+ 
+ Krienen 
+ FM 
+ 
+ 
+ Castellanos 
+ A 
+ 
+ 
+ Diaz 
+ JC 
+ 
+ 
+ Yeo 
+ BT 
+ 
+ 
+ 2011 
+ The organization of the human cerebellum estimated by intrinsic functional connectivity 
+ J Neurophysiol 
+ 106 
+ 2322 
+ 2345 
+ 21795627 
+ 
+ 
+ 
+ 
+ 
+ 
+ Buckner 
+ RL 
+ 
+ 
+ Sepulcre 
+ J 
+ 
+ 
+ Talukdar 
+ T 
+ 
+ 
+ Krienen 
+ FM 
+ 
+ 
+ Liu 
+ H 
+ 
+ 
+ Hedden 
+ T 
+ 
+ 
+ Andrews-Hanna 
+ JR 
+ 
+ 
+ Sperling 
+ RA 
+ 
+ 
+ Johnson 
+ KA 
+ 
+ 
+ 2009 
+ Cortical hubs revealed by intrinsic functional connectivity: mapping, assessment of stability, and relation to Alzheimer’s disease 
+ J Neurosci 
+ 29 
+ 1860 
+ 1873 
+ 19211893 
+ 
+ 
+ 
+ 
+ 
+ 
+ Burton 
+ H 
+ 
+ 
+ Sinclair 
+ RJ 
+ 
+ 
+ McLaren 
+ DG 
+ 
+ 
+ 2008 
+ Cortical network for vibrotactile attention: a fMRI study 
+ Hum Brain Mapp 
+ 29 
+ 207 
+ 221 
+ 17390318 
+ 
+ 
+ 
+ 
+ 
+ 
+ Cavada 
+ C 
+ 
+ 
+ Goldman-Rakic 
+ PS 
+ 
+ 
+ 1989 
+ Posterior parietal cortex in rhesus monkey: I. Parcellation of areas based on distinctive limbic and sensory corticocortical connections 
+ J Comp Neurol 
+ 287 
+ 393 
+ 421 
+ 2477405 
+ 
+ 
+ 
+ 
+ 
+ 
+ Chang 
+ C 
+ 
+ 
+ Glover 
+ GH 
+ 
+ 
+ 2009 
+ Effects of model-based physiological noise correction on default mode network anti-correlations and correlations 
+ Neuroimage 
+ 47 
+ 1448 
+ 1459 
+ 19446646 
+ 
+ 
+ 
+ 
+ 
+ 
+ Clavagnier 
+ S 
+ 
+ 
+ Falchier 
+ A 
+ 
+ 
+ Kennedy 
+ H 
+ 
+ 
+ 2004 
+ Long-distance feedback projections to area V1: implications for multisensory integration, spatial awareness, and visual consciousness 
+ Cogn Affect Behav Neurosci 
+ 4 
+ 117 
+ 126 
+ 15460918 
+ 
+ 
+ 
+ 
+ 
+ 
+ Corbetta 
+ M 
+ 
+ 
+ Shulman 
+ GL 
+ 
+ 
+ 2002 
+ Control of goal-directed and stimulus-driven attention in the brain 
+ Nat Rev Neurosci 
+ 3 
+ 201 
+ 215 
+ 11994752 
+ 
+ 
+ 
+ 
+ 
+ 
+ Corbetta 
+ M 
+ 
+ 
+ Patel 
+ G 
+ 
+ 
+ Shulman 
+ GL 
+ 
+ 
+ 2008 
+ The reorienting system of the human brain: from environment to theory of mind 
+ Neuron 
+ 58 
+ 306 
+ 324 
+ 18466742 
+ 
+ 
+ 
+ 
+ 
+ 
+ De Nooy 
+ W 
+ 
+ 
+ Mrvar 
+ A 
+ 
+ 
+ Batageli 
+ V 
+ 
+ 
+ 2005 
+ Exploratory Network Analysis with Pajek 
+ Cambridge University Press 
+ 
+ 
+ 
+ 
+ 
+ 
+ Disbrow 
+ E 
+ 
+ 
+ Roberts 
+ T 
+ 
+ 
+ Krubitzer 
+ L 
+ 
+ 
+ 2000 
+ Somatotopic organization of cortical fields in the lateral sulcus of Homo sapiens: evidence for SII and PV 
+ J Comp Neurol 
+ 418 
+ 1 
+ 21 
+ 10701752 
+ 
+ 
+ 
+ 
+ 
+ 
+ Disbrow 
+ E 
+ 
+ 
+ Litinas 
+ E 
+ 
+ 
+ Recanzone 
+ GH 
+ 
+ 
+ Padberg 
+ J 
+ 
+ 
+ Krubitzer 
+ L 
+ 
+ 
+ 2003 
+ Cortical connections of the second somatosensory area and the parietal ventral area in macaque monkeys 
+ J Comp Neurol 
+ 462 
+ 382 
+ 399 
+ 12811808 
+ 
+ 
+ 
+ 
+ 
+ 
+ Distler 
+ CDB 
+ 
+ 
+ Desimone 
+ R 
+ 
+ 
+ Ungerleider 
+ LG 
+ 
+ 
+ 1993 
+ Cortical connections of inferior temporal area TEO in macaque monkeys 
+ J Comp Neurol 
+ 334 
+ 125 
+ 150 
+ 8408755 
+ 
+ 
+ 
+ 
+ 
+ 
+ Dosenbach 
+ NU 
+ 
+ 
+ Visscher 
+ KM 
+ 
+ 
+ Palmer 
+ ED 
+ 
+ 
+ Miezin 
+ FM 
+ 
+ 
+ Wenger 
+ KK 
+ 
+ 
+ Kang 
+ HC 
+ 
+ 
+ Burgund 
+ ED 
+ 
+ 
+ Grimes 
+ AL 
+ 
+ 
+ Schlaggar 
+ BL 
+ 
+ 
+ Petersen 
+ SE 
+ 
+ 
+ 2006 
+ A core system for the implementation of task sets 
+ Neuron 
+ 50 
+ 799 
+ 812 
+ 16731517 
+ 
+ 
+ 
+ 
+ 
+ 
+ Downar 
+ J 
+ 
+ 
+ Crawley 
+ AP 
+ 
+ 
+ Mikulis 
+ DJ 
+ 
+ 
+ Davis 
+ KD 
+ 
+ 
+ 2000 
+ A multimodal cortical network for the detection of changes in the sensory environment 
+ Nat Neurosci 
+ 3 
+ 277 
+ 283 
+ 10700261 
+ 
+ 
+ 
+ 
+ 
+ 
+ Downar 
+ J 
+ 
+ 
+ Crawley 
+ AP 
+ 
+ 
+ Mikulis 
+ DJ 
+ 
+ 
+ Davis 
+ KD 
+ 
+ 
+ 2002 
+ A cortical network sensitive to stimulus salience in a neutral behavioral context across multiple sensory modalities 
+ J Neurophysiol 
+ 87 
+ 615 
+ 620 
+ 11784775 
+ 
+ 
+ 
+ 
+ 
+ 
+ Driver 
+ J 
+ 
+ 
+ Noesselt 
+ T 
+ 
+ 
+ 2008 
+ Multisensory interplay reveals crossmodal influences on ‘sensory-specific’ brain regions, neural responses, and judgments 
+ Neuron 
+ 57 
+ 11 
+ 23 
+ 18184561 
+ 
+ 
+ 
+ 
+ 
+ 
+ Eckert 
+ MA 
+ 
+ 
+ Menon 
+ V 
+ 
+ 
+ Walczak 
+ A 
+ 
+ 
+ Ahlstrom 
+ J 
+ 
+ 
+ Denslow 
+ S 
+ 
+ 
+ Horwitz 
+ A 
+ 
+ 
+ Dubno 
+ JR 
+ 
+ 
+ 2009 
+ At the heart of the ventral attention system: the right anterior insula 
+ Hum Brain Mapp 
+ 30 
+ 2530 
+ 2541 
+ 19072895 
+ 
+ 
+ 
+ 
+ 
+ 
+ Eguíluz 
+ VM 
+ 
+ 
+ Chialvo 
+ DR 
+ 
+ 
+ Cecchi 
+ GA 
+ 
+ 
+ Baliki 
+ M 
+ 
+ 
+ Apkarian 
+ AV 
+ 
+ 
+ 2005 
+ Scale-free brain functional networks 
+ Phys Rev Lett 
+ 14 
+ 018102 
+ 
+ 
+ 
+ 
+ 
+ 
+ Eickhoff 
+ SB 
+ 
+ 
+ Schleicher 
+ A 
+ 
+ 
+ Zilles 
+ K 
+ 
+ 
+ Amunts 
+ K 
+ 
+ 
+ 2006a 
+ The human parietal operculum. I. Cytoarchitectonic mapping of subdivisions 
+ Cereb Cortex 
+ 16 
+ 254 
+ 267 
+ 15888607 
+ 
+ 
+ 
+ 
+ 
+ 
+ Eickhoff 
+ SB 
+ 
+ 
+ Amunts 
+ K 
+ 
+ 
+ Mohlberg 
+ H 
+ 
+ 
+ Zilles 
+ K 
+ 
+ 
+ 2006b 
+ The human parietal operculum. II. Stereotaxic maps and correlation with functional imaging results 
+ Cereb Cortex 
+ 16 
+ 268 
+ 279 
+ 15888606 
+ 
+ 
+ 
+ 
+ 
+ 
+ Eickhoff 
+ SB 
+ 
+ 
+ Grefkes 
+ C 
+ 
+ 
+ Zilles 
+ K 
+ 
+ 
+ Fink 
+ GR 
+ 
+ 
+ 2007 
+ The somatotopic organization of cytoarchitectonic areas on the human parietal operculum 
+ Cereb Cortex 
+ 17 
+ 1800 
+ 1811 
+ 17032710 
+ 
+ 
+ 
+ 
+ 
+ 
+ Felleman 
+ DJ 
+ 
+ 
+ Van Essen 
+ DC 
+ 
+ 
+ 1991 
+ Distributed hierarchical processing in the primate cerebral cortex 
+ Cereb Cortex 
+ 1 
+ 1 
+ 47 
+ 1822724 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fox 
+ MD 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ 2007 
+ Spontaneous fluctuations in brain activity observed with functional magnetic resonance imaging 
+ Nat Rev Neurosci 
+ 8 
+ 700 
+ 711 
+ 17704812 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fox 
+ MD 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Vincent 
+ JL 
+ 
+ 
+ Corbetta 
+ M 
+ 
+ 
+ Van Essen 
+ DC 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ 2005 
+ The human brain is intrinsically organized into dynamic, anticorrelated functional networks 
+ Proc Natl Acad Sci U S A 
+ 102 
+ 9673 
+ 9678 
+ 15976020 
+ 
+ 
+ 
+ 
+ 
+ 
+ Friedrich 
+ FJ 
+ 
+ 
+ Egly 
+ R 
+ 
+ 
+ Rafal 
+ RD 
+ 
+ 
+ Beck 
+ D 
+ 
+ 
+ 1998 
+ Spatial attention deficits in humans: a comparison of superior parietal and temporal-parietal junction lesions 
+ Neuropsychology 
+ 12 
+ 193 
+ 207 
+ 9556766 
+ 
+ 
+ 
+ 
+ 
+ 
+ Goldman-Rakic 
+ PS 
+ 
+ 
+ 1988 
+ Topography of cognition: parallel distributed networks in primate association cortex 
+ Annu Rev Neurosci 
+ 11 
+ 137 
+ 156 
+ 3284439 
+ 
+ 
+ 
+ 
+ 
+ 
+ He 
+ BJ 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Vincent 
+ JL 
+ 
+ 
+ Epstein 
+ A 
+ 
+ 
+ Shulman 
+ GL 
+ 
+ 
+ Corbetta 
+ M 
+ 
+ 
+ 2007 
+ Breakdown of functional connectivity in frontoparietal networks underlies behavioral deficits in spatial neglect 
+ Neuron 
+ 53 
+ 905 
+ 918 
+ 17359924 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hubel 
+ DH 
+ 
+ 
+ Wiesel 
+ TN 
+ 
+ 
+ 1962 
+ Receptive fields, binocular interaction and functional architecture in the cat’s visual cortex 
+ J Physiol 
+ 160 
+ 106 
+ 154 
+ 14449617 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ikeda 
+ A 
+ 
+ 
+ Yazawa 
+ S 
+ 
+ 
+ Kunieda 
+ T 
+ 
+ 
+ Ohara 
+ S 
+ 
+ 
+ Terada 
+ K 
+ 
+ 
+ Mikuni 
+ N 
+ 
+ 
+ Nagamine 
+ T 
+ 
+ 
+ Taki 
+ W 
+ 
+ 
+ Kimura 
+ J 
+ 
+ 
+ Shibasaki 
+ H 
+ 
+ 
+ 1999 
+ Cognitive motor control in human pre-supplementary motor area studied by subdural recording of discrimination/selection-related potentials 
+ Brain 
+ 122  
+ Pt 5 
+ 915 
+ 931 
+ 10355676 
+ 
+ 
+ 
+ 
+ 
+ 
+ Jones 
+ EG 
+ 
+ 
+ Powell 
+ TP 
+ 
+ 
+ 1970 
+ An anatomical study of converging sensory pathways within the cerebral cortex of the monkey 
+ Brain 
+ 93 
+ 793 
+ 820 
+ 4992433 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kamada 
+ T 
+ 
+ 
+ Kawai 
+ S 
+ 
+ 
+ 1989 
+ An Algorithm for Drawing General Undirected Graphs Information Processing Letters 
+ 31 
+ 7 
+ 15 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kim 
+ YH 
+ 
+ 
+ Gitelman 
+ DR 
+ 
+ 
+ Nobre 
+ AC 
+ 
+ 
+ Parrish 
+ TB 
+ 
+ 
+ LaBar 
+ KS 
+ 
+ 
+ Mesulam 
+ MM 
+ 
+ 
+ 1999 
+ The large-scale neural network for spatial attention displays multifunctional overlap but differential asymmetry 
+ Neuroimage 
+ 9 
+ 269 
+ 277 
+ 10075897 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lu 
+ J 
+ 
+ 
+ Liu 
+ H 
+ 
+ 
+ Zhang 
+ M 
+ 
+ 
+ Wang 
+ D 
+ 
+ 
+ Cao 
+ Y 
+ 
+ 
+ Ma 
+ Q 
+ 
+ 
+ Rong 
+ D 
+ 
+ 
+ Wang 
+ X 
+ 
+ 
+ Buckner 
+ RL 
+ 
+ 
+ Li 
+ K 
+ 
+ 
+ 2011 
+ Focal pontine lesions provide evidence that intrinsic functional connectivity reflects polysynaptic anatomical pathways 
+ J Neurosci 
+ 31 
+ 15065 
+ 15071 
+ 22016540 
+ 
+ 
+ 
+ 
+ 
+ 
+ Maunsell 
+ JH 
+ 
+ 
+ van Essen 
+ DC 
+ 
+ 
+ 1983 
+ The connections of the middle temporal visual area (MT) and their relationship to a cortical hierarchy in the macaque monkey 
+ J Neurosci 
+ 3 
+ 2563 
+ 2586 
+ 6655500 
+ 
+ 
+ 
+ 
+ 
+ 
+ Menon 
+ V 
+ 
+ 
+ Uddin 
+ LQ 
+ 
+ 
+ 2010 
+ Saliency, switching, attention and control: a network model of insula function 
+ Brain Struct Funct 
+ 214 
+ 655 
+ 667 
+ 20512370 
+ 
+ 
+ 
+ 
+ 
+ 
+ Mesulam 
+ M 
+ 
+ 
+ 2008 
+ Representation, inference, and transcendent encoding in neurocognitive networks of the human brain 
+ Ann Neurol 
+ 64 
+ 367 
+ 378 
+ 18991346 
+ 
+ 
+ 
+ 
+ 
+ 
+ Mesulam 
+ MM 
+ 
+ 
+ 1981 
+ A cortical network for directed attention and unilateral neglect 
+ Ann Neurol 
+ 10 
+ 309 
+ 325 
+ 7032417 
+ 
+ 
+ 
+ 
+ 
+ 
+ Mesulam 
+ MM 
+ 
+ 
+ 1990 
+ Large-scale neurocognitive networks and distributed processing for attention, language, and memory 
+ Ann Neurol 
+ 28 
+ 597 
+ 613 
+ 2260847 
+ 
+ 
+ 
+ 
+ 
+ 
+ Mesulam 
+ MM 
+ 
+ 
+ 1998 
+ From sensation to cognition 
+ Brain 
+ 121  
+ Pt 6 
+ 1013 
+ 1052 
+ 9648540 
+ 
+ 
+ 
+ 
+ 
+ 
+ Mesulam 
+ MM 
+ 
+ 
+ 1999 
+ Spatial attention and neglect: parietal, frontal and cingulate contributions to the mental representation and attentional targeting of salient extrapersonal events 
+ Philos Trans R Soc Lond B Biol Sci 
+ 354 
+ 1325 
+ 1346 
+ 10466154 
+ 
+ 
+ 
+ 
+ 
+ 
+ Murphy 
+ K 
+ 
+ 
+ Birn 
+ RM 
+ 
+ 
+ Handwerker 
+ DA 
+ 
+ 
+ Jones 
+ TB 
+ 
+ 
+ Bandettini 
+ PA 
+ 
+ 
+ 2009 
+ The impact of global signal regression on resting state correlations: are anti-correlated networks introduced? 
+ Neuroimage 
+ 44 
+ 893 
+ 905 
+ 18976716 
+ 
+ 
+ 
+ 
+ 
+ 
+ Nhan 
+ HL 
+ 
+ 
+ Callaway 
+ EM 
+ 
+ 
+ 2012 
+ Morphology of superior colliculus- and middle temporal area-projecting neurons in primate primary visual cortex 
+ J Comp Neurol 
+ 520 
+ 52 
+ 80 
+ 21674487 
+ 
+ 
+ 
+ 
+ 
+ 
+ Pandya 
+ DN 
+ 
+ 
+ Kuypers 
+ HG 
+ 
+ 
+ 1969 
+ Cortico-cortical connections in the rhesus monkey 
+ Brain Res 
+ 13 
+ 13 
+ 36 
+ 4185124 
+ 
+ 
+ 
+ 
+ 
+ 
+ Reynolds 
+ JH 
+ 
+ 
+ Desimone 
+ R 
+ 
+ 
+ 1999 
+ The role of neural mechanisms of attention in solving the binding problem 
+ Neuron 
+ 24 
+ 19 
+ 29 
+ 111 
+ 125 
+ 10677024 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ro 
+ T 
+ 
+ 
+ Cohen 
+ A 
+ 
+ 
+ Ivry 
+ RB 
+ 
+ 
+ Rafal 
+ RD 
+ 
+ 
+ 1998 
+ Response channel activation and the temporoparietal junction 
+ Brain Cogn 
+ 37 
+ 461 
+ 476 
+ 9733560 
+ 
+ 
+ 
+ 
+ 
+ 
+ Salvador 
+ R 
+ 
+ 
+ Suckling 
+ J 
+ 
+ 
+ Coleman 
+ MR 
+ 
+ 
+ Pickard 
+ JD 
+ 
+ 
+ Menon 
+ D 
+ 
+ 
+ Bullmore 
+ E 
+ 
+ 
+ 2005 
+ Neurophysiological architecture of functional magnetic resonance images of human brain 
+ Cereb Cortex 
+ 15 
+ 1332 
+ 1342 
+ 15635061 
+ 
+ 
+ 
+ 
+ 
+ 
+ Seeley 
+ WW 
+ 
+ 
+ Menon 
+ V 
+ 
+ 
+ Schatzberg 
+ AF 
+ 
+ 
+ Keller 
+ J 
+ 
+ 
+ Glover 
+ GH 
+ 
+ 
+ Kenna 
+ H 
+ 
+ 
+ Reiss 
+ AL 
+ 
+ 
+ Greicius 
+ MD 
+ 
+ 
+ 2007 
+ Dissociable intrinsic connectivity networks for salience processing and executive control 
+ J Neurosci 
+ 27 
+ 2349 
+ 2356 
+ 17329432 
+ 
+ 
+ 
+ 
+ 
+ 
+ Sepulcre 
+ J 
+ 
+ 
+ Liu 
+ H 
+ 
+ 
+ Talukdar 
+ T 
+ 
+ 
+ Martincorena 
+ I 
+ 
+ 
+ Yeo 
+ BT 
+ 
+ 
+ Buckner 
+ RL 
+ 
+ 
+ 2010 
+ The organization of local and distant functional connectivity in the human brain 
+ PLoS Comput Biol 
+ 6 
+ e1000808 
+ 20548945 
+ 
+ 
+ 
+ 
+ 
+ 
+ Spreng 
+ RN 
+ 
+ 
+ Stevens 
+ WD 
+ 
+ 
+ Chamberlain 
+ JP 
+ 
+ 
+ Gilmore 
+ AW 
+ 
+ 
+ Schacter 
+ DL 
+ 
+ 
+ 2010 
+ Default network activity, coupled with the frontoparietal control network, supports goal-directed cognition 
+ Neuroimage 
+ 53 
+ 303 
+ 317 
+ 20600998 
+ 
+ 
+ 
+ 
+ 
+ 
+ Sridharan 
+ D 
+ 
+ 
+ Levitin 
+ DJ 
+ 
+ 
+ Menon 
+ V 
+ 
+ 
+ 2008 
+ A critical role for the right fronto-insular cortex in switching between central-executive and default-mode networks 
+ Proc Natl Acad Sci U S A 
+ 105 
+ 12569 
+ 12574 
+ 18723676 
+ 
+ 
+ 
+ 
+ 
+ 
+ Treisman 
+ A 
+ 
+ 
+ 1996 
+ The binding problem 
+ Curr Opin Neurobiol 
+ 6 
+ 171 
+ 178 
+ 8725958 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ugolini 
+ G 
+ 
+ 
+ 2010 
+ Advances in viral transneuronal tracing 
+ J Neurosci Methods 
+ 194 
+ 2 
+ 20 
+ 20004688 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ungerleider 
+ LG 
+ 
+ 
+ Desimone 
+ R 
+ 
+ 
+ 1986 
+ Projections to the superior temporal sulcus from the central and peripheral field representations of V1 and V2 
+ J Comp Neurol 
+ 248 
+ 147 
+ 163 
+ 3722456 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ungerleider 
+ LG 
+ 
+ 
+ Haxby 
+ JV 
+ 
+ 
+ 1994 
+ ‘What’ and ‘where’ in the human brain 
+ Curr Opin Neurobiol 
+ 4 
+ 157 
+ 165 
+ 8038571 
+ 
+ 
+ 
+ 
+ 
+ 
+ Vallar 
+ G 
+ 
+ 
+ 1998 
+ Spatial hemineglect in humans 
+ Trends Cogn Sci 
+ 2 
+ 87 
+ 97 
+ 21227084 
+ 
+ 
+ 
+ 
+ 
+ 
+ van der Kouwe 
+ AJ 
+ 
+ 
+ Benner 
+ T 
+ 
+ 
+ Salat 
+ DH 
+ 
+ 
+ Fischl 
+ B 
+ 
+ 
+ 2008 
+ Brain morphometry with multiecho MPRAGE 
+ Neuroimage 
+ 40 
+ 559 
+ 569 
+ 18242102 
+ 
+ 
+ 
+ 
+ 
+ 
+ van der Kouwe 
+ AJ 
+ 
+ 
+ Benner 
+ T 
+ 
+ 
+ Fischl 
+ B 
+ 
+ 
+ Schmitt 
+ F 
+ 
+ 
+ Salat 
+ DH 
+ 
+ 
+ Harder 
+ M 
+ 
+ 
+ Sorensen 
+ AG 
+ 
+ 
+ Dale 
+ AM 
+ 
+ 
+ 2005 
+ On-line automatic slice positioning for brain MR imaging 
+ Neuroimage 
+ 27 
+ 222 
+ 230 
+ 15886023 
+ 
+ 
+ 
+ 
+ 
+ 
+ Van Dijk 
+ KR 
+ 
+ 
+ Hedden 
+ T 
+ 
+ 
+ Venkataraman 
+ A 
+ 
+ 
+ Evans 
+ KC 
+ 
+ 
+ Lazar 
+ SW 
+ 
+ 
+ Buckner 
+ RL 
+ 
+ 
+ 2010 
+ Intrinsic Functional Connectivity As a Tool For Human Connectomics: Theory, Properties, and Optimization 
+ J Neurophysiol 
+ 103 
+ 297 
+ 321 
+ 19889849 
+ 
+ 
+ 
+ 
+ 
+ 
+ Van Essen 
+ DC 
+ 
+ 
+ Dierker 
+ DL 
+ 
+ 
+ 2007 
+ Surface-based and probabilistic atlases of primate cerebral cortex 
+ Neuron 
+ 56 
+ 209 
+ 225 
+ 17964241 
+ 
+ 
+ 
+ 
+ 
+ 
+ Vincent 
+ JL 
+ 
+ 
+ Kahn 
+ I 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ Buckner 
+ RL 
+ 
+ 
+ 2008 
+ Evidence for a frontoparietal control system revealed by intrinsic functional connectivity 
+ J Neurophysiol 
+ 100 
+ 3328 
+ 3342 
+ 18799601 
+ 
+ 
+ 
+ 
+ 
+ 
+ Vincent 
+ JL 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Fox 
+ MD 
+ 
+ 
+ Shannon 
+ BJ 
+ 
+ 
+ Andrews 
+ JR 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ Buckner 
+ RL 
+ 
+ 
+ 2006 
+ Coherent spontaneous activity identifies a hippocampal-parietal memory network 
+ J Neurophysiol 
+ 96 
+ 3517 
+ 3531 
+ 16899645 
+ 
+ 
+ 
+ 
+ 
+ 
+ Wallace 
+ MT 
+ 
+ 
+ Meredith 
+ MA 
+ 
+ 
+ Stein 
+ BE 
+ 
+ 
+ 1998 
+ Multisensory integration in the superior colliculus of the alert cat 
+ J Neurophysiol 
+ 80 
+ 1006 
+ 1010 
+ 9705489 
+ 
+ 
+ 
+ 
+ 
+ 
+ Wolfe 
+ JM 
+ 
+ 
+ Cave 
+ KR 
+ 
+ 
+ 1999 
+ The psychophysical evidence for a binding problem in human vision 
+ Neuron 
+ 24 
+ 11 
+ 17 
+ 111 
+ 125 
+ 10677023 
+ 
+ 
+ 
+ 
+ 
+ 
+ Yeo 
+ BT 
+ 
+ 
+ Krienen 
+ FM 
+ 
+ 
+ Sepulcre 
+ J 
+ 
+ 
+ Sabuncu 
+ MR 
+ 
+ 
+ Lashkari 
+ D 
+ 
+ 
+ Hollinshead 
+ M 
+ 
+ 
+ Roffman 
+ JL 
+ 
+ 
+ Smoller 
+ JW 
+ 
+ 
+ Zollei 
+ L 
+ 
+ 
+ Polimeni 
+ JR 
+ 
+ 
+ Fischl 
+ B 
+ 
+ 
+ Liu 
+ H 
+ 
+ 
+ Buckner 
+ RL 
+ 
+ 
+ 2011 
+ The organization of the human cerebral cortex estimated by intrinsic functional connectivity 
+ J Neurophysiol 
+ 106 
+ 1125 
+ 1165 
+ 21653723 
+ 
+ 
+ 
+ 
+ 
+ 
+ Figure 1 
+ 
+ Stepwise Functional Connectivity analysis for identifying the brain connectome of modal cortex 
+ In  A  the functional connectivity map of the posterior cingulate cortex is computed using a conventional seed-based approach, which is displayed on a cortical surface and as a network graph (star-net topology). Only one link-step connections are computed in this approach. On the other hand, SFC analysis takes fully advantage of the whole connectivity association matrix of the individual brains ( B ) in order to analyze the connectome of seed regions using a wide range of link-step distances.  C  illustrates SFC analysis in detail. From any node ( j; red nodes ) in the brain, we compute the number of pathways ( Dji l ) that connect to a voxel in an a priori seed node ( i; blue node ) with a particular number of links  l  (where  l  is the specific link-step distance). Similar to the conventional seed-based approach, in the “One Link-Step Distance” case, only direct connections to the seed are considered (small arrows in  C-a ). In higher order step distances, we explore connectivity patterns beyond direct connections, subsequently expanding to the rest of the brain ( Cb  and  Cc ). Note that for schematic purposes only one seed voxel-node (blue color) is displayed in  Ca, Cb  and  Cc . 
+ 
+ 
+ 
+ 
+ Figure 2 
+ 
+ Spatial Correlation Across Steps 
+ Voxel-level spatial correlations between consecutive pairs of SFC maps were calculated for each sensory modality in order to check the topological stability of our results. The results showed stable correlation coefficients after six/seven link-step distance (arrows). Therefore, the range from one to seven steps was considered sufficient for the characterization of the connectivity patterns. 
+ 
+ 
+ 
+ 
+ Figure 3 
+ 
+ Visual Cortex Stepwise Functional Connectivity 
+ Visual cortex SFC analysis revealed that visual cortex’s direct connectivity follows three different pathways, two dorsal ( a ,  b  and  c ) and one ventromedial ( a  and star symbol in insert). In addition to the conventional cortical surface and in order to avoid a ceiling visualization effect in the degree of connectivity of early visual regions, two flat projections centered on the occipital lobe (green square) are presented using the same (upper image) and a relaxed color-scale threshold (lower image). In subsequent steps, the visual cortex connectivity reached the frontal eye field ( d) , the multimodal network ( e ,  f ,  g ,  h ) and, finally, the cortical hubs of the human brain. Visuotopic map provided by Caret software ( Van Essen and Dierker, 2007 ). Labels in cortical maps: visuotopic areas=V1, V2, V3, V7, V8, MT+; FEF= Frontal Eye Field; VPMC= Ventral Premotor Cortex; AI= Anterior Insula; OP= Operculum Parietale; SPC= Superior Parietal Cortex; PCS= Posterior Central Sulcus; DLPFC= Dorsolateral Prefrontal Cortex; SMA= Supplementary Motor Area; DACC= Dorsal Anterior Cingulate Cortex. 
+ 
+ 
+ 
+ 
+ Figure 4 
+ 
+ Somatosensory Cortex Stepwise Functional Connectivity 
+ Somatosensory cortex SFC analysis showed dense connections within the entire somatomotor cortex and a strong direct connectivity with the secondary somatosensory area SII in OP4 ( a  and star symbol in insert). In order to better visualize the degree of connectivity, conventional (lower image) and inflated projections (upper image) of the results using a relaxed color-scale threshold and centered on the insula region/postcentral gyrus (green square) are presented in the one step and three steps maps. Primary somatosensory cortex had later connectivity to the multimodal network ( c ,  d ,  e ,  f ) and to the cortical hubs. Labels in cortical maps: LOTJ= Lateral Occipitotemporal Junction; VPMC= Ventral Premotor Cortex; AI= Anterior Insula; OP= Operculum Parietale; OP1= Operculum Parietale 1; OP4= Operculum Parietale 4; SPC= Superior Parietal Cortex; PCS= Posterior Central Sulcus; DLPFC= Dorsolateral Prefrontal Cortex; SMA= Supplementary Motor Area; DACC= Dorsal Anterior Cingulate Cortex. 
+ 
+ 
+ 
+ 
+ Figure 5 
+ 
+ Auditory Cortex Stepwise Functional Connectivity 
+ Auditory cortex SFC analysis showed dense connections within the local auditory-related regions and a strong direct connectivity with OP4 ( a  and star symbol in insert). In order to better visualize the degree of connectivity, conventional (lower image) and inflated projections (upper image) of the results using a relaxed color-scale threshold and centered on the insula region (green square) are presented in the one step and three steps maps. In next steps, auditory connectivity reached the multimodal network ( c ,  d ,  e ,  f ), and the cortical hubs. Labels in cortical maps: LOTJ= Lateral Occipitotemporal Junction; VPMC= Ventral Premotor Cortex; AI= Anterior Insula; OP= Operculum Parietale; OP1= Operculum Parietale 1; OP4= Operculum Parietale 4; SPC= Superior Parietal Cortex; PCS= Posterior Central Sulcus; DLPFC= Dorsolateral Prefrontal Cortex; SMA= Supplementary Motor Area; DACC= Dorsal Anterior Cingulate Cortex. 
+ 
+ 
+ 
+ 
+ Figure 6 
+ 
+ Multimodal Integration Network 
+ A SFC analysis combining the three sensory seeds simultaneously showed the complete map of the multimodal integration network of the human brain. Figure 6-A presents the three and five steps maps of the combined SFC analysis. Figure 6-B presents the initial (binarized average of the one step and two steps maps), intermediate (binarized average of the three to five steps maps) and terminal (binarized average of the six and seven steps maps) cores. It is noteworthy that the multimodal integration network (green cortex and nodes in  B ) acts as a strong network interface between the unimodal-related systems (red cortex and nodes in  B ) and the cortical hubs core (blue cortex and nodes in  B ). Sulcal map provided by Caret software ( Van Essen and Dierker, 2007 ). Labels in cortical maps: LOTJ= Lateral Occipitotemporal Junction; VPMC= Ventral Premotor Cortex; AI= Anterior Insula; OP= Operculum Parietale; SPC= Superior Parietal Cortex; PCS= Posterior Central Sulcus; DLPFC= Dorsolateral Prefrontal Cortex; SMA= Supplementary Motor Area; DACC= Dorsal Anterior Cingulate Cortex; STS= Superior Temporal Sulcus, IPS= Intraparietal Sulcus. 
+ 
+ 
+ 
+ 
+ Figure 7 
+ 
+ Multimodal Integration Network in the Left and Right Hemispheres 
+ We compared the left and right hemisphere to check for brain asymmetries in the multimodal integration network. Sensory cortices of the right hemisphere have connectivity to a wider multimodal region in the temporo-parietal junction than the left hemisphere ( a  and  b ). On the other hand, only primary sensory cortices of the left hemisphere have connectivity to the Broca’s language area in late number of steps ( c ). Labels in cortical maps: OP= Operculum Parietale; STG= Superior Temporal Gyrus; VLPFC= Ventrolateral Prefrontal Cortex. 
+ 
+ 
+ 
+ 
+ Figure 8 
+ 
+ Characterization of the Multimodal Integration Network: Parietal Operculum and Anterior Insula 
+ Parietal operculum and anterior insula+ regions showed strong direct connectivity between them (one step maps in  A  and  B ). In both cases, the other region represented the highest degree of connectivity in their respective maps. In intermediate steps, they are connected to the rest of the multimodal network (three steps maps in  A  and  B ). Labels in cortical maps: VPMC= Ventral Premotor Cortex; AI= Anterior Insula; OP= Operculum Parietale; SMA= Supplementary Motor Area; DACC= Dorsal Anterior Cingulate Cortex. 
+ 
+ 
+ 
+ 
+ Figure 9 
+ 
+ Characterization of the Multimodal Integration Network: Superior Parietal Cortex and Lateral Occipitotemporal Junction 
+ The superior parietal region of the multimodal network displayed direct connections, mostly, to parietal operculum, but also to frontal eye field, lateral occipitotemporal junction, dorsal anterior cingulate+ and anterior insula+ (one step map in  C ). In later stepwise conditions, superior parietal connectivity pattern was concentrated in the parietal operculum and anterior insula+ core (three steps map in  C ). The connectivity of the lateral occipitotemporal junction of the multimodal network diffused locally in a wide area at the temporal-parietal-occipital lobes confluence and also had dense connectivity to superior parietal cortex and parietal operculum multimodal regions (one step map in  D ). Later, the connectivity converged within the parietal operculum and anterior insula+ core (three steps map in  D ). Labels in cortical maps: OP= Operculum Parietale; SPC= Superior Parietal Cortex; PCS= Posterior Central Sulcus; LOTJ= Lateral Occipitotemporal Junction. 
+ 
+ 
+ 
+ 
+ Figure 10 
+ 
+ Characterization of the Multimodal Integration Network: Dorsal anterior Cingulate Cortex and Dorsolateral Prefrontal Cortex 
+ The dorsal anterior cingulate+ multimodal region was densely connected to the parietal operculum and anterior insula+ in both direct and indirect manners (one step map and three steps map in  E ). The multimodal dorsolateral prefrontal cortex region is connected in one-step distance to the anterior part of the anterior insula+ region and to the posterior part of the parietal operculum ( a  and  b ; one step map in  F ). Subsequently, dorsolateral prefrontal cortex showed connectivity to the rest of multimodal network regions (three steps map in  F ). Labels in cortical maps: VPMC= Ventral Premotor Cortex; AI= Anterior Insula; OP= Operculum Parietale; DLPFC= Dorsolateral Prefrontal Cortex; SMA= Supplementary Motor Area; DACC= Dorsal Anterior Cingulate Cortex 
+ 
+ 
+ 
+ 
+ Figure 11 
+ 
+ Modules and Connectivity Axes of the Multimodal Integration Network 
+ The average-linkage hierarchical clustering analysis of the multimodal integration network ( A ) confirmed two main set of regions: 1) module  a  formed by superior parietal cortex (dark-yellow) and lateral occipitotemporal junction (light-yellow) and 2) module  b  formed by the parietal operculum (dark-blue), anterior insula+ (violet-blue), dorsal anterior cingulate+ (blue) and dorsolateral prefrontal cortex (light-blue) ( B ). The dendrogram shows, at cutoff criteria of r>0.2, the main partition in  a  and  b  modules but also a meaningful subdivision within module  b  at cutoff criteria of r>0.4. Sub-module  b1  is formed by parietal operculum (dark-blue), anterior insula+ (violet-blue) and part of dorsal anterior cingulate+ (blue), and sub-module  b2  is formed by dorsolateral prefrontal cortex (light-blue) and part of dorsal anterior cingulate+ (blue). These results pointed out the existence of major cores and connectivity axes within the multimodal integration network ( C ). For instance, the superior parietal cortex-parietal operculum connectivity axis was important for the communication between module  a  and  b . Parietal operculum, anterior insula+ and part of the dorsal anterior cingulate nodes conformed a central core in the overall organization of the multimodal network. Labels in the graph: SPC= Superior Parietal Cortex; LOTJ= Lateral Occipitotemporal Junction; DACC= Dorsal Anterior Cingulate Cortex, OP= Operculum Parietale; DLPFC= Dorsolateral Prefrontal Cortex; AI= Anterior Insula. 
+ 
+ 
+ 
+ 
+ Figure 12 
+ 
+ Bimodal Interconnectors Between Visual, Somatosensory and Auditory Cortices 
+ Bimodal integration regions in the human brain were described between visual and auditory ( A-a  and  B ), visual and somatosensory ( A-b, A-c  and  B ) and auditory and somatosensory ( A-d  and  B ) modalities. PMTG= Posterior Middle Temporal Gyrus; SPC= Superior Parietal Cortex; M1= Motor Area 1; DMT+= dorsal MT+; OP4= Operculum Parietale 4. 
+ 
+ 
+ 
+ 
+ Table 1 
+ 
+ Locations of Seed Regions Utilized in the Stepwise Functional Connectivity Analysis. 
+ 
+ 
+ 
+ 
+ Name 
+ Coordinates 
+ 
+ 
+ 
+ 
+ L Visual 
+ −14, −78, 8 
+ 
+ 
+ L Auditory 
+ −54, −14, 8 
+ 
+ 
+ L Somatosensory 
+ −42, −29, 65 
+ 
+ 
+ R Visual 
+ 10, −78, 8 
+ 
+ 
+ R Auditory 
+ 58, −14, 8 
+ 
+ 
+ R Somatosensory 
+ 38, −29, 65 
+ 
+ 
+ L Parietal Operculum 
+ −58, −21, 25 
+ 
+ 
+ L Anterior Insula+ 
+ −50, 3, −7 
+ 
+ 
+ L Superior Parietal 
+ −18, −45, 57 
+ 
+ 
+ L Lateral Occipitotemporal 
+ −50, −61, 1 
+ 
+ 
+ L Dorsal Anterior Cingulate+ 
+ −6, 2, 48 
+ 
+ 
+ L Dorsolateral Prefrontal 
+ −34, 43, 25 
+ 
+ 
+ 
+ 
+ 

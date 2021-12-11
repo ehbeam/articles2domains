@@ -1,0 +1,3820 @@
+
+ properties manuscript? 
+ 
+ 
+ 9215515 
+ 20498 
+ Neuroimage 
+ Neuroimage 
+ 
+ NeuroImage 
+ 
+ 1053-8119 
+ 1095-9572 
+ 
+ 
+ 24662574 
+ 4074548 
+ 10.1016/j.neuroimage.2014.03.042 
+ NIHMS590134 
+ 
+ 
+ Article 
+ 
+ 
+ 
+ Characterizing Individual Differences in Functional Connectivity Using Dual-Regression and Seed-Based Approaches 
+ 
+ 
+ 
+ 
+ Smith 
+ David V. 
+ 
+ 1 
+ 2 
+ 
+ 
+ 
+ Utevsky 
+ Amanda V. 
+ 
+ 1 
+ 
+ 
+ 
+ Bland 
+ Amy R. 
+ 
+ 3 
+ 
+ 
+ 
+ Clement 
+ Nathan 
+ 
+ 1 
+ 
+ 
+ 
+ Clithero 
+ John A. 
+ 
+ 4 
+ 
+ 
+ 
+ Harsch 
+ Anne E. W. 
+ 
+ 1 
+ 
+ 
+ 
+ Carter 
+ R. McKell 
+ 
+ 1 
+ 
+ 
+ 
+ Huettel 
+ Scott A. 
+ 
+ 1 
+ 2 
+ * 
+ 
+ 
+ 1 Center for Cognitive Neuroscience, Duke University, Durham, NC 27708, USA 
+ 2 Department of Psychology and Neuroscience, Duke University, Durham, NC 27708, USA 
+ 3 Neuroscience and Psychiatry Unit, University of Manchester, Manchester, M13 9PT, UK 
+ 4 Division of the Humanities and Social Sciences, California Institute of Technology, Pasadena, CA 91125, USA 
+ 
+ * Address for correspondence: Scott A. Huettel, PhD, Box 90999, Duke University, Durham, NC 27708 USA,  scott.huettel@duke.edu , (919) 681-9527 
+ 
+ 
+ 23 
+ 5 
+ 2014 
+ 
+ 
+ 21 
+ 3 
+ 2014 
+ 
+ 
+ 15 
+ 7 
+ 2014 
+ 
+ 
+ 15 
+ 7 
+ 2015 
+ 
+ 95 
+ 1 
+ 12 
+ 
+ 
+ This file is available for text mining. It may also be used consistent with the principles of fair use under the copyright law. 
+ 
+ 
+ 
+ A central challenge for neuroscience lies in relating inter-individual variability to the functional properties of specific brain regions. Yet, considerable variability exists in the connectivity patterns between different brain areas, potentially producing reliable group differences. Using sex differences as a motivating example, we examined two separate resting-state datasets comprising a total of 188 human participants. Both datasets were decomposed into resting-state networks (RSNs) using a probabilistic spatial independent components analysis (ICA). We estimated voxelwise functional connectivity with these networks using a dual-regression analysis, which characterizes the participant-level spatiotemporal dynamics of each network while controlling for (via multiple regression) the influence of other networks and sources of variability. We found that males and females exhibit distinct patterns of connectivity with multiple RSNs, including both visual and auditory networks and the right frontal-parietal network. These results replicated across both datasets and were not explained by differences in head motion, data quality, brain volume, cortisol levels, or testosterone levels. Importantly, we also demonstrate that dual-regression functional connectivity is better at detecting inter-individual variability than traditional seed-based functional connectivity approaches. Our findings characterize robust—yet frequently ignored—neural differences between males and females, pointing to the necessity of controlling for sex in neuroscience studies of individual differences. Moreover, our results highlight the importance of employing network-based models to study variability in functional connectivity. 
+ 
+ 
+ individual differences 
+ functional connectivity 
+ seed-based analysis 
+ dual-regression analysis 
+ split-sample validation 
+ independent components analysis 
+ 
+ 
+ 
+ 
+ 1. Introduction 
+ Individuals are remarkably diverse, exhibiting variation across a host of behaviors and phenotypes. Psychologists have long recognized the importance of including individual variability in cognitive models ( Underwood, 1975 ), and neuroscientists have begun to identify underlying structural and functional variability in specific brain regions ( Hariri, 2009 ;  Braver et al., 2010 ) and how that variability relates to individual differences in a range of domains: motivation ( Mobbs et al., 2009 ;  Clithero et al., 2011 ;  Strauman et al., 2013 ), reward sensitivity ( Beaver et al., 2006 ;  Carter et al., 2009 ), trait anxiety ( Etkin et al., 2004 ;  Bishop, 2009 ), and working memory capacity ( Osaka et al., 2003 ;  Todd and Marois, 2005 ). 
+ Yet, many computations are distributed across networks of regions rather than being restricted to a specific region ( Friston, 2009 ). Accordingly, studies of functional connectivity of the brain at rest have converged on the idea that the brain is organized into multiple, overlapping resting-state networks (RSNs) ( Beckmann et al., 2005 ;  Smith et al., 2009 ). Some of these networks, including the default-mode network ( Raichle et al., 2001 ;  Buckner et al., 2008 ), are observed in multiple species ( Vincent et al., 2007 ;  Hayden et al., 2009 ;  Lu et al., 2012 ), which highlights the fundamental nature of their role in neural organization. Although RSNs represent a primary target of recent work on individual differences, even relatively straightforward questions regarding sex differences have led to equivocal results ( Biswal et al., 2010 ;  Weissman-Fogel et al., 2010 ;  Filippi et al., 2012 ;  Wang et al., 2012a ). The lack of consensus across these studies could be due to a number of factors, including small sample sizes ( Yarkoni, 2009 ) and the inability of traditional analysis approaches to accurately represent the distributed computations that occur across RSNs ( Cole et al., 2010 ). 
+ Characterizing the neural bases of sex differences could provide a crucial first step toward understanding the mechanisms of psychopathologies that are linked to sex ( Rutter et al., 2003 ). We therefore investigated whether sex differences are expressed in patterns of functional connectivity during the resting state. We recruited a large sample of participants (N = 188), which we partitioned into split samples for an internal replication. For each dataset, we computed a spatial independent components analysis (ICA) that parceled the functional data into a set of independent spatial maps ( Figure 1 ), some reflecting artifactual spatial structures and others reflecting well-characterized RSNs ( Smith et al., 2009 ). We then employed a dual-regression functional connectivity analysis, which quantifies connectivity with an entire RSN—rather than a representative node of the RSN, a limitation of traditional seed-based approaches ( Cole et al., 2010 )—while controlling for the influence of other RSNs ( Filippini et al., 2009 ;  Leech et al., 2011 ;  Leech et al., 2012 ). Our analyses revealed two key results. First, functional connectivity patterns between distinct brain regions and multiple RSNs reliably predicted sex differences. Second, functional connectivity estimates derived from dual-regression analysis were better at classifying males and females than similar estimates obtained from a seed-based analysis, suggesting that dual-regression analysis provides a superior representation of the distributed computations that occur within RSNs. 
+ 
+ 
+ 2. Materials and Methods 
+ 
+ 2.1 Participants 
+ A total of 209 participants completed a resting-state scan that was included as the last scan of a larger study containing three decision-making tasks. Although the results from those tasks are not described here, we note that we did not observe sex differences in response times on any task ( Table 1 ). Furthermore, all participants completed the same tasks, in the same order, prior to the resting-state scan. These observations are important in light of recent work highlighting the plastic nature of RSNs, where prior tasks can influence resting-state results ( Lewis et al., 2009 ;  Wang et al., 2012b ). 
+ During the resting-state scan, participants were told that they should maintain visual fixation on a central cross, with no other explicit instructions. All participants reported no prior psychiatric or neurological illness, via pre-screening for the study. Twenty-one participants were excluded prior to statistical analysis because their data failed to meet quality criteria for inclusion (see Preprocessing), leaving a final sample of 188 participants. We split the sample into two randomly-determined datasets so that we could explicitly test all findings for replication, internally [Dataset 1: N 1  = 94 (57 females), mean age = 21.8 years; Dataset 2: N 2  = 94 (46 females), mean age = 21.9 years]. The relative proportion of males and females in each sample was not significantly different from chance (binomial test for Dataset 1:  p  = 0.15; binomial test for Dataset 2:  p  = 0.15), and we additionally account for numerical imbalances between males and females with nonparametric permutation-based testing ( Nichols and Holmes, 2002 ). All participants gave written informed consent as part of a protocol approved by the Institutional Review Board of Duke University Medical Center. 
+ 
+ 
+ 2.2 Image Acquisition 
+ Neuroimaging data were collected using a General Electric MR750 3.0 Tesla scanner equipped with an 8-channel parallel imaging system. Images sensitive to blood-oxygenation-level-dependent (BOLD) contrast were acquired using a T 2 *-weighted spiral-in sensitivity encoding sequence (acceleration factor = 2), with slices parallel to the axial plane connecting the anterior and posterior commissures [repetition time (TR): 1580 ms; echo time (TE): 30 ms; matrix: 64 × 64; field of view (FOV): 243 mm; voxel size: 3.8 × 3.8 × 3.8 mm; 37 axial slices; flip angle: 70 degrees]. We chose this sequence to ameliorate susceptibility artifacts ( Pruessmann et al., 2001 ;  Truong and Song, 2008 ), particularly in ventral frontal regions that characterize a hub of the default mode network ( Raichle et al., 2001 ;  Fox et al., 2005 ;  Fox and Raichle, 2007 ). Prior to preprocessing these functional data, we discarded the first eight volumes of each run to allow for magnetic stabilization. To facilitate coregistration and normalization of these functional data, we also acquired whole-brain high-resolution anatomical scans (T 1 -weighted FSPGR sequence; TR: 7.58 ms; TE: 2.93 ms; matrix: 256 × 256; FOV: 256 mm; voxel size: 1 × 1× 1 mm; 206 axial slices; flip angle: 12 degrees). 
+ 
+ 
+ 2.3 FMRI Preprocessing 
+ Our preprocessing routines employed tools from the FMRIB Software Library (FSL Version 4.1.8;  http://www.fmrib.ox.ac.uk/fsl/ ) package ( Smith et al., 2004 ;  Woolrich et al., 2009 ). We first corrected for head motion by realigning the time series to the middle volume ( Jenkinson et al., 2002 ). We then removed non-brain material using the brain extraction tool ( Smith, 2002 ). Next, intravolume slice-timing differences were corrected using Fourier-space phase shifting, aligning to the middle slice ( Sladky et al., 2011 ). Images were then spatially smoothed with a 6-mm full-width-half-maximum isotropic Gaussian kernel. We adopted a liberal high-pass temporal filter with a 150-second cutoff (Gaussianweighted least-squares straight line fitting, with sigma = 75 s). We note that other studies of resting-state functional connectivity (e.g.,  Power et al., 2012 ) commonly employ band-pass temporal filters, but using these filters has the potential to mischaracterize the broadband spectral characteristics observed in resting-state fluctuations ( Niazy et al., 2011 ). Finally, each 4-dimensional dataset was grand-mean intensity normalized using a single multiplicative factor. Prior to group analyses, functional data were spatially normalized to the Montreal Neurological Template (MNI) avg152 T 1 -weighted template (3 mm isotropic resolution) using a 12-parameter affine transformation implemented in FLIRT ( Jenkinson and Smith, 2001 ). 
+ As part of our preprocessing steps, we examined three partially correlated metrics of data quality and excluded subjects with extreme values on these metrics. First, we estimated the average signal-to-fluctuation-noise ratio (SFNR) for each subject, defined as the mean of the signal across time divided by the standard deviation of the signal across time ( Friedman and Glover, 2006 ). Second, we computed the mean volume-to-volume head motion (i.e., displacements relative to the preceding time point in units of mm) for each subject. Third, using an FSL tool called  fsl_motion_outliers , we identified outlier volumes (“spikes”) in our functional data by evaluating the root-mean-square error (RMSE) of each volume relative to the reference volume (the middle time point). We considered a volume an outlier if its RMSE amplitude exceeded the 75 th  percentile plus the value of 150% of the interquartile range of RMSE for all volumes in a run (i.e., a standard boxplot threshold); this threshold is thus dynamic to account for scaling differences between subjects. We excluded subjects where any measure was extreme relative to other subjects (i.e., beyond the upper or lower 5 th  percentile in the distribution of values for that specific measure). This procedure created the following exclusion thresholds for both datasets: SFNR < 49.86; proportion of outlier volumes > 0.11; mean volume-to-volume head motion > 0.096 mm. Exclusion of participants who have poor data quality minimizes the influence of artifacts unassociated with brain function (e.g., motion) on reported results ( Jansen et al., 2012 ;  Power et al., 2012 ;  Satterthwaite et al., 2012 ). 
+ To address data quality in the subjects included in our sample, we also regressed out variance tied to 6 parameters describing motion (rotations and translations along the three principal axes) and volumes identified as outliers. Removing outlier volumes via linear regression accomplishes the same goal of accounting for nonlinear effects of motion (e.g., signal spikes, spin history effects, etc.) that cannot be described by motion parameters alone ( Lemieux et al., 2007 ;  Satterthwaite et al., 2013 ). As a final check, we directly compared males and females on each quality assurance measure—SFNR, proportion of outlier volumes, and mean volume-to-volume head motion—and found no differences in either dataset ( Table 1 ). As an additional control, individual differences in these data quality metrics were included as covariates in our group-level model (see Dual-Regression Analysis section). Finally, in a post-hoc analysis, we examined whether males and females differed as a function of maximum volume-to-volume head movements. This analysis suggested that males and females were indistinguishable in terms of maximum volume-to-volume head movements [Dataset 1:  M females  = .30 mm (range = 0.04:1.58 mm),  M males  = .27 mm (range = 0.05:0.99 mm), ( t (92)  = −0.42,  p  = 0.67); Dataset 2:  M females  = .22 mm (range = 0.04:1.39 mm),  M males  = .22 mm (range = 0.04:0.88 mm), ( t (92)  = −0.02,  p  = 0.98)]. Taken together, we believe our quality assurance controls mitigate concerns that artifacts or differences in data quality could be driving differences between males and females in our analyses. 
+ 
+ 
+ 2.4 Independent Components Analyses 
+ Independent components analysis (ICA) identifies coherent spatial patterns in fMRI data, including both resting-state networks and spatially structured artifacts ( Beckmann et al., 2005 ;  Smith et al., 2009 ;  Beckmann, 2012 ), while avoiding analytical pitfalls (e.g., seed selection, global mean regression ( Murphy et al., 2009 )) that are common in traditional seed-based methods for examining functional connectivity ( Cole et al., 2010 ). Thus, we utilized a probabilistic group ICA ( Beckmann and Smith, 2004 ), as implemented in MELODIC (Multivariate Exploratory Linear Decomposition into Independent Components) Version 3.10 within FSL. 
+ We conducted separate group ICAs on datasets derived from two independent samples. Prior to estimating the group ICAs, we submitted each participant’s functional data to voxel-wise de-meaning and normalization of the voxel-wise variance. The resulting datasets were then whitened and projected into a 45-dimensional subspace (Dataset 1) and a 51-dimensional subspace (Dataset 2) using probabilistic principal component analysis, for which the number of dimensions was estimated using the Laplace approximation to the Bayesian evidence of the model order ( Beckmann and Smith, 2004 ). The whitened observations were decomposed into sets of vectors that describe signal variation across the temporal domain (time-courses), the subject domain, and across the spatial domain (maps) by optimizing for non-Gaussian spatial source distributions using a fixed-point iteration technique ( Hyvarinen, 1999 ). We thresholded the estimated component maps by dividing the maps by standard deviation of the residual noise and then fitting a Gaussian-Gamma mixture model to the histogram of normalized intensity values ( Beckmann and Smith, 2004 ). 
+ 
+ 
+ 2.5 Dual-Regression Analyses 
+ To evaluate individual differences in connectivity with spatial maps identified by the ICA, we employed a dual-regression analytical approach ( Filippini et al., 2009 ;  Leech et al., 2011 ;  Leech et al., 2012 ). Dual-regression analysis proceeds in two independent stages ( Figure 1 ). In a first  spatial-regression  step, spatial maps are regressed onto each participant’s functional data, resulting in a T (time points) × C (components) set of beta coefficients that characterize, in each subject, the temporal dynamics for each spatial network. Then, in the second  temporal-regression  step, the resulting temporal dynamics that describe each network, in each subject, are regressed onto each subject’s functional data. This produces a set of spatial maps that quantify, within each subject, each voxel’s connectivity with each network identified with the group ICA. Thus, individual differences in connectivity with a given network may manifest in any brain region – irrespective of whether that brain region falls within the set of regions typically associated with that network. Importantly, the temporal-regression step estimates each voxel’s connectivity with each spatial network while controlling for the influence of other networks—some of which may reflect artifacts, such as head motion and physiological noise. 
+ Our core analyses were conducted on 10 well-characterized RSNs postulated to reflect cognitive and sensory functions ( Smith et al., 2009 ). To identify RSNs from our ICA that correspond to the 10 RSNs reported in  Smith et al. (2009) , we conducted a spatial correlation analysis. Within both datasets, we selected the 10 components that best matched the 10 RSNs in  Smith et al. (2009)  (Dataset 1: mean  r  = 0.577, range = 0.395:0.725; Dataset 2: mean  r  = 0.556, range = 0.37:0.724). Using subject- and network-specific connectivity maps corresponding to these 10 RSNs, we constructed a group-level general linear model to estimate whether sex differences modulate connectivity with resting-state networks. To ensure that estimated sex differences were not due to differences in data quality, we included our three metrics for data quality (and subject exclusion) as covariates in our group-level analysis. Specifically, as an additional control for motion confounds, we included two covariates that summarized individual differences in motion (mean volume-to-volume motion and the proportion of outlier volumes identified). In addition, we also included a covariate that accounted for individual variation in SFNR, which could be impacted by a combination of head motion and data acquisition problems. Accounting for differences in SFNR is especially important in group-based resting-state studies, given that differences in noise levels (e.g., between groups) can lead to differences in functional connectivity between regions. This counterintuitive explanation is due to the fact that the observed measurements comprise a mixture of signal (i.e., variance related to the network of interest) and noise (i.e., variance unrelated to network of interest), and thus changes in either signal or noise can affect the estimated effect size of the functional connectivity between two regions ( Friston, 2011 ). Finally, we included a covariate to account for a change in scanning parameters that occurred about midway through data collection (i.e., the utilization of a fat saturation pulse). Although this change in scanning parameters was distributed across males and females in both samples [Dataset 1: 29 with fat saturation pulse (15 male); Dataset 2: 43 with fat saturation pulse (23 male)], we note that inclusion of the covariate accounts for variance that could be attributed to this subtle change. 
+ Statistical significance was assessed in a nonparametric fashion, using Monte Carlo permutation-based statistical testing with 10,000 permutations with alpha = 0.05 corrected for multiple voxel-wise comparisons across the whole brain ( Nichols and Holmes, 2002 ). To estimate clusters of activation, we used threshold-free cluster enhancement ( Smith and Nichols, 2009 ), thus retaining a fundamentally voxel-wise inference. Brain activations are displayed using MRIcroGL ( http://www.mccauslandcenter.sc.edu/mricrogl/ ). Probabilistic anatomical labels for local maxima were obtained using the Harvard-Oxford Cortical and Subcortical atlases ( Zilles and Amunts, 2010 ); all coordinates are reported in MNI space. 
+ Although our analyses did not additionally correct for the additional comparisons incurred by examining all 10 networks, we emphasize that all key results reported in the manuscript are subjected to replication in independent data, which ameliorates concerns about Type 1 errors. To assess whether imaging results replicate in independent data, we created 5mm spheres around the peak of each cluster maximum identified from our primary sample (e.g., Dataset 2). These spheres were then used as ROIs to test for equivalent effects (using a  t -test) in our replication sample (e.g., Dataset 1). We believe our split-sample replication approach—while conservative and potentially biased toward Type 2 errors—provides an optimal balance between Type 1 and Type 2 errors ( Lieberman and Cunningham, 2009 ). (We note that, for the results presented in  Figure 2  and  Table 2 , our initial whole-brain correction did not reveal clusters of activation in Dataset 2; however, we did find whole-brain corrected results in Dataset 1, and these clusters replicated in Dataset 2.) 
+ 
+ 
+ 2.6 Seed-Based General Linear Model 
+ For comparison against ICA and dual-regression, we also conducted a seed-based functional connectivity analysis ( Biswal et al., 1995 ) using a general linear model (GLM) with local autocorrelation correction ( Woolrich et al., 2001 ) applied separately to each participant. Crucially, each GLM utilized the same input data as the ICA, thus facilitating comparisons across both analyses, as both techniques use data that has motion-related variance (both outlier volumes and the conventional motion parameters for rotations and translations) regressed out prior to analyses. Each GLM consisted of three regressors corresponding to the average time series within each of three regions of interest (5mm radius) intended to represent each network of interest derived from the dual regression analysis (see  Table 7  for further details). These three networks were chosen because they exhibited sex differences in functional connectivity. Like many seed-based approaches ( Cole et al., 2010 ), selection of representative seeds within a given network was guided by the hypothesized topography of the network; thus, in our analysis, seed placement was chosen based on the peaks within the networks identified by ICA (see  Table 7  for coordinates). In addition, we note that these seed regions did not overlap with the target regions identified in the dual regression analysis. Critically, each GLM in the seed-based analysis (SBA) included the same subject-specific nuisance regressors (derived from the ICA) that were included in the dual-regression analysis (DRA). This consideration is crucial, as DRA benefits from the inclusion of additional regressors that represent spatial artifacts related to head motion, physiological signal fluctuations (e.g., respiration and cardiac pulsation), and machine-driven signal fluctuations (e.g., gradient instabilities and radiofrequency spikes). Thus, the linear models for DRA and SBA only differed in the choice of three regressors representing the key networks of interests. After controlling for all known sources variability and equalizing comparisons between SBA and DRA, our key tests evaluated whether connectivity between seed and target differed as a function of sex. 
+ 
+ 
+ 
+ 3. Results 
+ 
+ 3.1 Connectivity with RSNs Predict Sex Differences 
+ Our analyses examined ten spatial networks matching the RSNs identified in previous work ( Smith et al., 2009 ). Three of these networks demonstrated replicable sex differences in functional connectivity. 
+ First, connectivity with the visual RSN ( Figure 2A ) was significantly higher in males relative to females in intracalcarine cortex, cuneus, supracalcarine, and lingual gyrus ( Figure 2B ;  Table 2 ). Of these regions, only the intracalcarine cortex replicated in an independent sample ( Figure 2C ;  t (92)  = 2.49,  p  = 0.014). No brain regions showed higher connectivity with the visual RSN in females relative to males with at our statistical threshold ( p  < 0.05, whole-brain corrected). In a  post hoc  analysis, we reduced our statistical threshold ( p  < 0.01, cluster extent = 27 voxels) and found regions within temporal cortex whose connectivity with the visual RSN increased in females relative to males ( Figure 2D ;  Table 2 ). Only anterior superior temporal gyrus (aSTG) exhibited an effect that replicated in independent data ( Figure 2E ;  Table 2 ). 
+ Second, sex differences were also observed in the connectivity patterns with the auditory RSN ( Figure 3A ). Specifically, our analysis revealed several regions, including bilateral Heschl's gyri, the planum temporal, insula, and temporal pole ( Figure 3B ;  Table 3 ), whose connectivity with the auditory RSN was significantly higher in males relative to females. We evaluated the robustness of these sex differences using independent data and found similar results in the insula ( t (92)  = 5.68,  p  < 0.001) as well as left ( t (92)  = 4.66,  p  < 0.001) and right Heschl's gyrus ( t (92)  = 4.65,  p  < 0.001;  Figure 3C ). No brain regions showed higher connectivity with the auditory RSN in females relative to males with our statistical threshold. In a  post hoc  analysis, we reduced our statistical threshold ( p  < 0.01, cluster extent = 27 voxels) and found increased connectivity with paracingulate cortex in females relative to males ( Figure 3D ;  Table 3 ), an effect that replicated in independent data ( t (92)  = 2.58,  p  < 0.05). 
+ Finally, we evaluated sex differences in functional connectivity with the right frontal-parietal RSN. This analysis revealed several regions, including middle frontal gyrus (MFG), inferior frontal gyrus, and superior frontal gyrus, whose connectivity with the frontal-parietal RSN was significantly higher in males relative to females ( Figure 4 ;  Table 4 ). Among these regions, only MFG exhibited an effect that replicated in an independent sample ( t (92)  = 3.32,  p  < 0.001). No brain regions reliably showed higher connectivity with the right frontal-parietal RSN in females relative to males, even at a reduced statistical threshold. 
+ 
+ 
+ 3.2 Sex Differences are Robust to Potential Confounds 
+ To rule out several potential confounding explanations that could differentiate males and females, we evaluated whether functional connectivity estimates from the regions identified in our primary analyses were correlated with measurements of brain volume, gray matter density within each network, gray matter density within each target region, age, or hormone levels (including cortisol and testosterone). None of these measures were correlated with our effects (see  Table 5 ). 
+ In another set of control analyses, we evaluated whether our results were dependent on the number of spatial maps estimated during the ICA. We restricted the ICA to 25 components and performed the dual regression on the resulting set of spatial maps. We identified, in each dataset, the spatial maps corresponding to the networks identified in our previous analysis; this was done by correlating the spatial maps with the canonical RSNs ( Smith et al., 2009 ) and selecting those that best matched the frontal-parietal network, the auditory network, and the visual network. Using the regions identified in our previous analyses, we confirmed that networks showing greater connectivity in males compared to females held when employing an ICA with lower dimensionality (see  Table 6 ). We did not observe similar robustness for our results suggesting greater connectivity in females relative to males. 
+ It is also possible that the precise decomposition of the ICA could potentially bias our results. For example, if the ICA output were driven, in part, by differences between males and females, then we might expect to find sex differences in regions with highest loading on each component—an observation that appears to be true for our key results. To eschew this type of bias, we conducted dual-regression analyses, in each dataset, using the 10 well-characterized RSN identified in a previous study ( Smith et al., 2009 ). Importantly, all of our results suggesting greater connectivity in males compared to females held when using dual regressions estimated on spatial maps derived from a separate sample (see  Table 6 ). However, we note that we again failed to observe similar robustness for our results suggesting greater connectivity in females relative to males. 
+ Finally, we assessed whether spatially non-specific sex differences, such as differential engagement of the RSNs, contributed to our results. For each of the results reported in  Figures 2 – 4 , we first evaluated the magnitude of the global absolute functional connectivity estimates for each RSN. We found that the global absolute functional connectivity was, on average, approximately 25% higher in males, an effect that was significant in all RSNs (all ps < .01), indicating that the RSNs were engaged more in males relative to females. Next, we examined the spatial correlation between the ICA component maps and the sex difference contrast maps (male > female); for the latter, we used the raw t-statistic maps (i.e., not following permutation testing). We found modest correlations between the ICA component maps and their corresponding contrast maps (mean r = 0.31), indicating that about 10% of the variance in sex differences in functional connectivity might be explained by some spatially non-specific effect of sex (e.g., increased network modulation in males). 
+ 
+ 
+ 3.3 Dual-Regression Analysis Outperforms Seed-Based Analysis 
+ We also tested whether dual-regression functional connectivity analysis outperformed traditional seed-based functional connectivity analysis. To do this, we extracted a representative seed region from each of the three networks exhibiting sex differences in their functional connectivity patterns (see  Table 7  for MNI coordinates). Strikingly, functional connectivity with each of these seeds did not differ across sexes, even when examining the target regions that exhibited replicable sex differences in the dual regression analysis ( Table 7 ). For each target region, we also examined the receiver operating characteristic (ROC) curves, comparing the area under the curve (AUC) for dual regression against seed based measures. Across several target regions, connectivity estimates derived from dual-regression analysis were significantly better at discriminating males and females ( Figure 5 ). 
+ 
+ 
+ 
+ 4. Discussion 
+ Neuroscience has made progress in linking levels of brain activation with individual differences in behavior ( Braver et al., 2010 ). Yet, the level of activation in a specific region tells an incomplete story, because many processes are distributed across networks of regions ( Friston, 2009 ), for which individual nodes are unlikely to represent the computations performed by a distributed network ( Cole et al., 2010 ). Here, we overcome this challenge by using ICA and dual-regression analysis ( Filippini et al., 2009 ;  Leech et al., 2011 ). Using this approach coupled with a large sample and split-sample validation, our study extends previous resting-state studies that have produced equivocal results on the neural bases of sex differences ( Biswal et al., 2010 ;  Weissman-Fogel et al., 2010 ;  Filippi et al., 2012 ;  Wang et al., 2012a ). We show that individual differences in functional connectivity with RSNs reliably distinguish males and females and, importantly, that these network measures outperform traditional seed-based functional connectivity approaches. 
+ Consistent with prior work, we show that sex differences are observed in restingstate functional connectivity ( Biswal et al., 2010 ;  Filippi et al., 2012 ). Specifically, we found reliable sex differences in connectivity with the right frontal-parietal RSN, the visual RSN, and the auditory RSN—all of which passed split-sample validation. We emphasize that our split-sample validation procedure is intrinsically conservative, in that it will miss other sex differences that did not pass stringent standards in both samples. We adopted this approach, even though it may have limited our findings, because of prior inconsistent results, with evidence for ( Biswal et al., 2010 ;  Filippi et al., 2012 ) and against ( Weissman-Fogel et al., 2010 ) sex differences in resting-state functional connectivity. Inconsistencies in prior work could be due to several factors, including small sample sizes that are prone to Type 1 errors and spurious results ( Button et al., 2013 ) and inability to accurately represent the distributed computations that occur across many regions within an RSN ( Cole et al., 2010 ). In contrast, our study utilizes split-sample validation (for maximal statistical power) and novel methods that characterize the distributed computations within an RSN. These advances allowed us to characterize robust and consistent functional connectivity differences between males and females, findings that emphasize the importance for controlling for sex in neuroscience studies ( McCarthy et al., 2012 ). 
+ Our analysis framework—ICA combined with dual-regression analysis—allowed us to quantify connectivity with entire networks rather than with a representative node from a network (cf. seed-based analyses). This distinction is crucial for two reasons. First, distinct networks may partially overlap ( Leech et al., 2012 ), confounding seed-based analyses. Second, a single node within a network cannot accurately represent the computations performed by that network ( Friston, 2009 ). Although these factors likely contributed to our observation of improved performance of dual-regression analysis compared to seed-based analysis, we emphasize that seed-based analyses will likely remain important for studies that focus on connectivity with specific brain regions. 
+ As a caveat, we note that the unconstrained nature of resting-state fMRI necessarily limits our interpretations ( Morcom and Fletcher, 2007 ;  Friston, 2011 ;  O'Reilly et al., 2012 ). For example, although we controlled for differences in head motion, SFNR, brain structure, age, and hormone levels, other between-subject differences could exist. We note, for example, that males exhibited greater absolute functional connectivity across the brain, which could lead to non-specific sex effects across entire functional networks. That possibility is consistent with the presence of sex differences in regions that exhibit the greatest loading on some components and the relative paucity of regions exhibiting increased functional connectivity for females compared to males. Concerns about nonspecific sex differences are partially ameliorated, however, by our use of permutation testing throughout the analyses, the control analyses using ICA maps generated from an independent dataset, and the relatively weak correlations between the group ICA maps and the sex-difference contrasts. Thus, we conclude that spatially non-specific sex differences in functional connectivity partially, but not completely, contribute to our observed results. 
+ Overall differences in connectivity could be related to multiple factors. For example, although ICA would account for physiological signals that have consistent spatial effects on the fMRI data (e.g., increased ventricular signal due to respiration), we note that other physiological signals, such as increased heart rate variability in males ( Stein et al., 1997 ;  Saleem et al., 2012 ), may partially contribute to our results. Such generalized physiological effects are unlikely to fully explain our results, however, as only three out of ten networks exhibited consistent sex differences. Alternatively, overall differences in connectivity could be driven by the way in which males and females treated the resting-state scan. Indeed, unconstrained cognition in resting-state fMRI may lead to activation differences of a given network, which would manifest as connectivity differences ( Friston, 2011 ;  O'Reilly et al., 2012 ). Thus, given the observation that males exhibited increased global modulation of each network, we speculate that our results could be partially explained by increased attention to visual stimuli (i.e., fixation cross) and auditory stimuli (i.e., background scanner noise) during the resting state. Although this caveat is endemic in resting-state fMRI studies, future work could attempt to measure varying levels of sympathetic arousal using galvanic skin conductance responses ( Schiller and Delgado, 2010 ), as these metrics may reflect changes in attentional processing ( Frith and Allen, 1983 ). In addition, unobserved cognitive differences during the resting-state scan could arise due to tasks completed prior to the resting-state scan ( Lewis et al., 2009 ;  Wang et al., 2012b ). Notably, however, we did not observe sex differences in behavior on the tasks that preceded the resting-state scan, thus mitigating concerns that our results are due to the tasks completed before the resting-state scan. Although we did not observe behavioral differences in the tasks completed prior to the resting-state scan, it is possible that these tasks elicited sex differences in activation and connectivity, which could be echoed into the resting-state scan ( Lewis et al., 2009 ;  Wang et al., 2012b ). Notably, however, these caveats should not affect our core comparisons between SBA and DRA, which demonstrated that DRA is significantly better at characterizing the distributed computations within large-scale networks. 
+ Our results may indirectly hint at the circuitry underlying sex differences, which have been found in a range of cognitive abilities: visuospatial navigation ( Sandstrom et al., 1998 ), verbal production ( Lewin et al., 2001 ), autobiographical memory ( Seidlitz and Diener, 1998 ;  Canli et al., 2002 ), and many others. These behavioral observations can be far more dramatic, as sex differences are often key predictors in psychiatric disorders— including autism ( Yeargin-Allsopp et al., 2003 ), psychopathy (for review, see  Cale and Lilienfeld, 2002 ), and depression ( Weissman and Klerman, 1977 ;  Nolen-Hoeksema and Girgus, 1994 ). Indeed, some researchers have argued that the underlying mechanisms of psychiatric disorders may be revealed through investigations into the neural basis of sex differences ( Rutter et al., 2003 ). Although our work provides important progress toward identifying robust sex differences in resting-state connectivity, it remains challenging to interpret the implications of our results, as neural sex differences may manifest in the absence of behavioral sex differences, potentially reflecting compensatory mechanisms (for review,  Cahill, 2006 ). Distinguishing between these disparate possibilities will require additional research examining how connectivity with the RSNs identified in our study— auditory, visual, and right frontal-parietal—and others are modulated by different tasks ( Leech et al., 2011 ). 
+ 
+ 
+ 5. Conclusions 
+ In summary, our study demonstrates two key findings: first, sex differences are reliably expressed in the functional connectivity patterns with large-scale networks; second, dual-regression approaches are better than seed-based approaches at characterizing the distributed computations that occur within large-scale networks. Improved quantifications of these distributed computations could have important applications. For example, recent work has suggested that analysis of brain structure that assume functions are represented in distributed networks can advance our understanding of clinical syndromes ( Smith et al., 2013 ). Although resting-state seed-based methods are advancing our understanding of psychopathology (e.g.,  Fox and Greicius, 2010 ;  Whitfield-Gabrieli and Ford, 2012 ), our results suggest that approaches that rely on network-level inferences will provide deeper insight into the distributed neural computations that contribute to a range of individual differences, from normal to pathological. 
+ 
+ 
+ 
+ 
+ This is a PDF file of an unedited manuscript that has been accepted for publication. As a service to our customers we are providing this early version of the manuscript. The manuscript will undergo copyediting, typesetting, and review of the resulting proof before it is published in its final citable form. Please note that during the production process errors may be discovered which could affect the content, and all legal disclaimers that apply to the journal pertain. 
+ 
+ 
+ 
+ Acknowledgments 
+ This study was funded by a grant from the National Institutes of Health (NIMH RC1-88680), an Incubator Award from the Duke Institute for Brain Sciences (SAH), and by a NIMH National Research Service Award F31-086248 (DVS). We thank Steve Stanton for hormone analyses and Edward McLaurin for assistance with data collection. We also thank Timothy Strauman and Jacob Young for feedback on previous drafts of the manuscript. DVS is now at Rutgers University. 
+ 
+ 
+ References 
+ 
+ 
+ 
+ 
+ Beaver 
+ JD 
+ 
+ 
+ Lawrence 
+ AD 
+ 
+ 
+ van Ditzhuijzen 
+ J 
+ 
+ 
+ Davis 
+ MH 
+ 
+ 
+ Woods 
+ A 
+ 
+ 
+ Calder 
+ AJ 
+ 
+ 
+ Individual differences in reward drive predict neural responses to images of food 
+ J Neurosci 
+ 2006 
+ 26 
+ 5160 
+ 5166 
+ 16687507 
+ 
+ 
+ 
+ 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ Modelling with independent components 
+ Neuroimage 
+ 2012 
+ 62 
+ 891 
+ 901 
+ 22369997 
+ 
+ 
+ 
+ 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Probabilistic independent component analysis for functional magnetic resonance imaging 
+ IEEE Trans Med Imaging 
+ 2004 
+ 23 
+ 137 
+ 152 
+ 14964560 
+ 
+ 
+ 
+ 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ DeLuca 
+ M 
+ 
+ 
+ Devlin 
+ JT 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Investigations into resting-state connectivity using independent component analysis 
+ Philos Trans R Soc Lond B Biol Sci 
+ 2005 
+ 360 
+ 1001 
+ 1013 
+ 16087444 
+ 
+ 
+ 
+ 
+ 
+ 
+ Bishop 
+ SJ 
+ 
+ 
+ Trait anxiety and impoverished prefrontal control of attention 
+ Nat Neurosci 
+ 2009 
+ 12 
+ 92 
+ 98 
+ 19079249 
+ 
+ 
+ 
+ 
+ 
+ 
+ Biswal 
+ B 
+ 
+ 
+ Yetkin 
+ FZ 
+ 
+ 
+ Haughton 
+ VM 
+ 
+ 
+ Hyde 
+ JS 
+ 
+ 
+ Functional connectivity in the motor cortex of resting human brain using echo-planar MRI 
+ Magn Reson Med 
+ 1995 
+ 34 
+ 537 
+ 541 
+ 8524021 
+ 
+ 
+ 
+ 
+ 
+ 
+ Biswal 
+ BB 
+ 
+ 
+ 
+ Toward discovery science of human brain function 
+ Proceedings of the National Academy of Sciences 
+ 2010 
+ 107 
+ 4734 
+ 4739 
+ 
+ 
+ 
+ 
+ 
+ 
+ Braver 
+ TS 
+ 
+ 
+ Cole 
+ MW 
+ 
+ 
+ Yarkoni 
+ T 
+ 
+ 
+ Vive les differences! Individual variation in neural mechanisms of executive control 
+ Curr Opin Neurobiol 
+ 2010 
+ 20 
+ 242 
+ 250 
+ 20381337 
+ 
+ 
+ 
+ 
+ 
+ 
+ Buckner 
+ RL 
+ 
+ 
+ Andrews-Hanna 
+ JR 
+ 
+ 
+ Schacter 
+ DL 
+ 
+ 
+ The brain's default network: anatomy, function, and relevance to disease 
+ Ann N Y Acad Sci 
+ 2008 
+ 1124 
+ 1 
+ 38 
+ 18400922 
+ 
+ 
+ 
+ 
+ 
+ 
+ Button 
+ KS 
+ 
+ 
+ Ioannidis 
+ JP 
+ 
+ 
+ Mokrysz 
+ C 
+ 
+ 
+ Nosek 
+ BA 
+ 
+ 
+ Flint 
+ J 
+ 
+ 
+ Robinson 
+ ES 
+ 
+ 
+ Munafo 
+ MR 
+ 
+ 
+ Power failure: why small sample size undermines the reliability of neuroscience 
+ Nat Rev Neurosci 
+ 2013 
+ 14 
+ 365 
+ 376 
+ 23571845 
+ 
+ 
+ 
+ 
+ 
+ 
+ Cahill 
+ L 
+ 
+ 
+ Why sex matters for neuroscience 
+ Nat Rev Neurosci 
+ 2006 
+ 7 
+ 477 
+ 484 
+ 16688123 
+ 
+ 
+ 
+ 
+ 
+ 
+ Cale 
+ EM 
+ 
+ 
+ Lilienfeld 
+ SO 
+ 
+ 
+ Sex differences in psychopathy and antisocial personality disorder. A review and integration 
+ Clin Psychol Rev 
+ 2002 
+ 22 
+ 1179 
+ 1207 
+ 12436810 
+ 
+ 
+ 
+ 
+ 
+ 
+ Canli 
+ T 
+ 
+ 
+ Desmond 
+ JE 
+ 
+ 
+ Zhao 
+ Z 
+ 
+ 
+ Gabrieli 
+ JD 
+ 
+ 
+ Sex differences in the neural basis of emotional memories 
+ Proc Natl Acad Sci U S A 
+ 2002 
+ 99 
+ 10789 
+ 10794 
+ 12145327 
+ 
+ 
+ 
+ 
+ 
+ 
+ Carter 
+ RM 
+ 
+ 
+ Macinnes 
+ JJ 
+ 
+ 
+ Huettel 
+ SA 
+ 
+ 
+ Adcock 
+ RA 
+ 
+ 
+ Activation in the VTA and nucleus accumbens increases in anticipation of both gains and losses 
+ Front Behav Neurosci 
+ 2009 
+ 3 
+ 21 
+ 19753142 
+ 
+ 
+ 
+ 
+ 
+ 
+ Clithero 
+ JA 
+ 
+ 
+ Reeck 
+ C 
+ 
+ 
+ Carter 
+ RM 
+ 
+ 
+ Smith 
+ DV 
+ 
+ 
+ Huettel 
+ SA 
+ 
+ 
+ Nucleus accumbens mediates relative motivation for rewards in the absence of choice 
+ Front Hum Neurosci 
+ 2011 
+ 5 
+ 
+ 
+ 
+ 
+ 
+ 
+ Cole 
+ DM 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ Advances and pitfalls in the analysis and interpretation of resting-state FMRI data 
+ Front Syst Neurosci 
+ 2010 
+ 4 
+ 8 
+ 20407579 
+ 
+ 
+ 
+ 
+ 
+ 
+ Etkin 
+ A 
+ 
+ 
+ Klemenhagen 
+ KC 
+ 
+ 
+ Dudman 
+ JT 
+ 
+ 
+ Rogan 
+ MT 
+ 
+ 
+ Hen 
+ R 
+ 
+ 
+ Kandel 
+ ER 
+ 
+ 
+ Hirsch 
+ J 
+ 
+ 
+ Individual differences in trait anxiety predict the response of the basolateral amygdala to unconsciously processed fearful faces 
+ Neuron 
+ 2004 
+ 44 
+ 1043 
+ 1055 
+ 15603746 
+ 
+ 
+ 
+ 
+ 
+ 
+ Filippi 
+ M 
+ 
+ 
+ Valsasina 
+ P 
+ 
+ 
+ Misci 
+ P 
+ 
+ 
+ Falini 
+ A 
+ 
+ 
+ Comi 
+ G 
+ 
+ 
+ Rocca 
+ MA 
+ 
+ 
+ The organization of intrinsic brain activity differs between genders: A resting-state fMRI study in a large cohort of young healthy subjects 
+ Hum Brain Mapp 
+ 2012 
+ 
+ 
+ 
+ 
+ 
+ 
+ Filippini 
+ N 
+ 
+ 
+ MacIntosh 
+ BJ 
+ 
+ 
+ Hough 
+ MG 
+ 
+ 
+ Goodwin 
+ GM 
+ 
+ 
+ Frisoni 
+ GB 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Matthews 
+ PM 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ Mackay 
+ CE 
+ 
+ 
+ Distinct patterns of brain activity in young carriers of the APOE-epsilon4 allele 
+ Proc Natl Acad Sci U S A 
+ 2009 
+ 106 
+ 7209 
+ 7214 
+ 19357304 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fox 
+ MD 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ Spontaneous fluctuations in brain activity observed with functional magnetic resonance imaging 
+ Nat Rev Neurosci 
+ 2007 
+ 8 
+ 700 
+ 711 
+ 17704812 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fox 
+ MD 
+ 
+ 
+ Greicius 
+ M 
+ 
+ 
+ Clinical applications of resting state functional connectivity 
+ Front Syst Neurosci 
+ 2010 
+ 4 
+ 19 
+ 20592951 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fox 
+ MD 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Vincent 
+ JL 
+ 
+ 
+ Corbetta 
+ M 
+ 
+ 
+ Van Essen 
+ DC 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ The human brain is intrinsically organized into dynamic, anticorrelated functional networks 
+ Proceedings of the National Academy of Sciences 
+ 2005 
+ 102 
+ 9673 
+ 
+ 
+ 
+ 
+ 
+ 
+ Friedman 
+ L 
+ 
+ 
+ Glover 
+ GH 
+ 
+ 
+ Reducing interscanner variability of activation in a multicenter fMRI study: controlling for signal-to-fluctuation-noise-ratio (SFNR) differences 
+ Neuroimage 
+ 2006 
+ 33 
+ 471 
+ 481 
+ 16952468 
+ 
+ 
+ 
+ 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ Modalities, modes, and models in functional neuroimaging 
+ Science 
+ 2009 
+ 326 
+ 399 
+ 403 
+ 19833961 
+ 
+ 
+ 
+ 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ Functional and effective connectivity: a review 
+ Brain Connect 
+ 2011 
+ 1 
+ 13 
+ 36 
+ 22432952 
+ 
+ 
+ 
+ 
+ 
+ 
+ Frith 
+ CD 
+ 
+ 
+ Allen 
+ HA 
+ 
+ 
+ The skin conductance orienting response as an index of attention 
+ Biol Psychol 
+ 1983 
+ 17 
+ 27 
+ 39 
+ 6626635 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hariri 
+ AR 
+ 
+ 
+ The Neurobiology of Individual Differences in Complex Behavioral Traits 
+ Annu Rev Neurosci 
+ 2009 
+ 32 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hayden 
+ BY 
+ 
+ 
+ Smith 
+ DV 
+ 
+ 
+ Platt 
+ ML 
+ 
+ 
+ Electrophysiological correlates of default-mode processing in macaque posterior cingulate cortex 
+ Proceedings of the National Academy of Sciences 
+ 2009 
+ 106 
+ 5948 
+ 5953 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hyvarinen 
+ A 
+ 
+ 
+ Fast and robust fixed-point algorithms for independent component analysis 
+ IEEE Trans Neural Netw 
+ 1999 
+ 10 
+ 626 
+ 634 
+ 18252563 
+ 
+ 
+ 
+ 
+ 
+ 
+ Jansen 
+ M 
+ 
+ 
+ White 
+ TP 
+ 
+ 
+ Mullinger 
+ KJ 
+ 
+ 
+ Liddle 
+ EB 
+ 
+ 
+ Gowland 
+ PA 
+ 
+ 
+ Francis 
+ ST 
+ 
+ 
+ Bowtell 
+ R 
+ 
+ 
+ Liddle 
+ PF 
+ 
+ 
+ Motion-related artefacts in EEG predict neuronally plausible patterns of activation in fMRI data 
+ Neuroimage 
+ 2012 
+ 59 
+ 261 
+ 270 
+ 21763774 
+ 
+ 
+ 
+ 
+ 
+ 
+ Jenkinson 
+ M 
+ 
+ 
+ Smith 
+ S 
+ 
+ 
+ A global optimisation method for robust affine registration of brain images 
+ Med Image Anal 
+ 2001 
+ 5 
+ 143 
+ 156 
+ 11516708 
+ 
+ 
+ 
+ 
+ 
+ 
+ Jenkinson 
+ M 
+ 
+ 
+ Bannister 
+ P 
+ 
+ 
+ Brady 
+ M 
+ 
+ 
+ Smith 
+ S 
+ 
+ 
+ Improved optimization for the robust and accurate linear registration and motion correction of brain images 
+ Neuroimage 
+ 2002 
+ 17 
+ 825 
+ 841 
+ 12377157 
+ 
+ 
+ 
+ 
+ 
+ 
+ Leech 
+ R 
+ 
+ 
+ Braga 
+ R 
+ 
+ 
+ Sharp 
+ DJ 
+ 
+ 
+ Echoes of the brain within the posterior cingulate cortex 
+ J Neurosci 
+ 2012 
+ 32 
+ 215 
+ 222 
+ 22219283 
+ 
+ 
+ 
+ 
+ 
+ 
+ Leech 
+ R 
+ 
+ 
+ Kamourieh 
+ S 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ Sharp 
+ DJ 
+ 
+ 
+ Fractionating the default mode network: distinct contributions of the ventral and dorsal posterior cingulate cortex to cognitive control 
+ J Neurosci 
+ 2011 
+ 31 
+ 3217 
+ 3224 
+ 21368033 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lemieux 
+ L 
+ 
+ 
+ Salek-Haddadi 
+ A 
+ 
+ 
+ Lund 
+ TE 
+ 
+ 
+ Laufs 
+ H 
+ 
+ 
+ Carmichael 
+ D 
+ 
+ 
+ Modelling large motion events in fMRI studies of patients with epilepsy 
+ Magn Reson Imaging 
+ 2007 
+ 25 
+ 894 
+ 901 
+ 17490845 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lewin 
+ C 
+ 
+ 
+ Wolgers 
+ G 
+ 
+ 
+ Herlitz 
+ A 
+ 
+ 
+ Sex differences favoring women in verbal but not in visuospatial episodic memory 
+ Neuropsychology 
+ 2001 
+ 15 
+ 165 
+ 173 
+ 11324860 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lewis 
+ CM 
+ 
+ 
+ Baldassarre 
+ A 
+ 
+ 
+ Committeri 
+ G 
+ 
+ 
+ Romani 
+ GL 
+ 
+ 
+ Corbetta 
+ M 
+ 
+ 
+ Learning sculpts the spontaneous activity of the resting human brain 
+ Proc Natl Acad Sci U S A 
+ 2009 
+ 106 
+ 17558 
+ 17563 
+ 19805061 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lieberman 
+ MD 
+ 
+ 
+ Cunningham 
+ WA 
+ 
+ 
+ Type I and Type II error concerns in fMRI research: re-balancing the scale 
+ Soc Cogn Affect Neurosci 
+ 2009 
+ 4 
+ 423 
+ 428 
+ 20035017 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lu 
+ H 
+ 
+ 
+ Zou 
+ Q 
+ 
+ 
+ Gu 
+ H 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ Stein 
+ EA 
+ 
+ 
+ Yang 
+ Y 
+ 
+ 
+ Rat brains also have a default mode network 
+ Proceedings of the National Academy of Sciences 
+ 2012 
+ 109 
+ 3979 
+ 3984 
+ 
+ 
+ 
+ 
+ 
+ 
+ McCarthy 
+ MM 
+ 
+ 
+ Arnold 
+ AP 
+ 
+ 
+ Ball 
+ GF 
+ 
+ 
+ Blaustein 
+ JD 
+ 
+ 
+ De Vries 
+ GJ 
+ 
+ 
+ Sex differences in the brain: the not so inconvenient truth 
+ J Neurosci 
+ 2012 
+ 32 
+ 2241 
+ 2247 
+ 22396398 
+ 
+ 
+ 
+ 
+ 
+ 
+ Mobbs 
+ D 
+ 
+ 
+ Hassabis 
+ D 
+ 
+ 
+ Seymour 
+ B 
+ 
+ 
+ Marchant 
+ JL 
+ 
+ 
+ Weiskopf 
+ N 
+ 
+ 
+ Dolan 
+ RJ 
+ 
+ 
+ Frith 
+ CD 
+ 
+ 
+ Choking on the Money: Reward-Based Performance Decrements Are Associated With Midbrain Activity 
+ Psychol Sci 
+ 2009 
+ 20 
+ 955 
+ 962 
+ 19594859 
+ 
+ 
+ 
+ 
+ 
+ 
+ Morcom 
+ AM 
+ 
+ 
+ Fletcher 
+ PC 
+ 
+ 
+ Does the brain have a baseline? Why we should be resisting a rest 
+ Neuroimage 
+ 2007 
+ 37 
+ 1073 
+ 1082 
+ 
+ 
+ 
+ 
+ 
+ 
+ Murphy 
+ K 
+ 
+ 
+ Birn 
+ RM 
+ 
+ 
+ Handwerker 
+ DA 
+ 
+ 
+ Jones 
+ TB 
+ 
+ 
+ Bandettini 
+ PA 
+ 
+ 
+ The impact of global signal regression on resting state correlations: are anti-correlated networks introduced? 
+ Neuroimage 
+ 2009 
+ 44 
+ 893 
+ 905 
+ 18976716 
+ 
+ 
+ 
+ 
+ 
+ 
+ Niazy 
+ RK 
+ 
+ 
+ Xie 
+ J 
+ 
+ 
+ Miller 
+ K 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Spectral characteristics of resting state networks 
+ Prog Brain Res 
+ 2011 
+ 193 
+ 259 
+ 276 
+ 21854968 
+ 
+ 
+ 
+ 
+ 
+ 
+ Nichols 
+ TE 
+ 
+ 
+ Holmes 
+ AP 
+ 
+ 
+ Nonparametric permutation tests for functional neuroimaging: a primer with examples 
+ Hum Brain Mapp 
+ 2002 
+ 15 
+ 1 
+ 25 
+ 11747097 
+ 
+ 
+ 
+ 
+ 
+ 
+ Nolen-Hoeksema 
+ S 
+ 
+ 
+ Girgus 
+ JS 
+ 
+ 
+ The emergence of gender differences in depression during adolescence 
+ Psychol Bull 
+ 1994 
+ 115 
+ 424 
+ 443 
+ 8016286 
+ 
+ 
+ 
+ 
+ 
+ 
+ O'Reilly 
+ JX 
+ 
+ 
+ Woolrich 
+ MW 
+ 
+ 
+ Behrens 
+ TE 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Johansen-Berg 
+ H 
+ 
+ 
+ Tools of the trade: psychophysiological interactions and functional connectivity 
+ Soc Cogn Affect Neurosci 
+ 2012 
+ 7 
+ 604 
+ 609 
+ 22569188 
+ 
+ 
+ 
+ 
+ 
+ 
+ Osaka 
+ M 
+ 
+ 
+ Osaka 
+ N 
+ 
+ 
+ Kondo 
+ H 
+ 
+ 
+ Morishita 
+ M 
+ 
+ 
+ Fukuyama 
+ H 
+ 
+ 
+ Aso 
+ T 
+ 
+ 
+ Shibasaki 
+ H 
+ 
+ 
+ The neural basis of individual differences in working memory capacity: an fMRI study 
+ Neuroimage 
+ 2003 
+ 18 
+ 789 
+ 797 
+ 12667855 
+ 
+ 
+ 
+ 
+ 
+ 
+ Power 
+ JD 
+ 
+ 
+ Barnes 
+ KA 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Schlaggar 
+ BL 
+ 
+ 
+ Petersen 
+ SE 
+ 
+ 
+ Spurious but systematic correlations in functional connectivity MRI networks arise from subject motion 
+ Neuroimage 
+ 2012 
+ 59 
+ 2142 
+ 2154 
+ 22019881 
+ 
+ 
+ 
+ 
+ 
+ 
+ Pruessmann 
+ KP 
+ 
+ 
+ Weiger 
+ M 
+ 
+ 
+ Bornert 
+ P 
+ 
+ 
+ Boesiger 
+ P 
+ 
+ 
+ Advances in sensitivity encoding with arbitrary k-space trajectories 
+ Magn Reson Med 
+ 2001 
+ 46 
+ 638 
+ 651 
+ 11590639 
+ 
+ 
+ 
+ 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ MacLeod 
+ AM 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Powers 
+ WJ 
+ 
+ 
+ Gusnard 
+ DA 
+ 
+ 
+ Shulman 
+ GL 
+ 
+ 
+ A default mode of brain function 
+ Proc Natl Acad Sci U S A 
+ 2001 
+ 98 
+ 676 
+ 682 
+ 11209064 
+ 
+ 
+ 
+ 
+ 
+ 
+ Rutter 
+ M 
+ 
+ 
+ Caspi 
+ A 
+ 
+ 
+ Moffitt 
+ TE 
+ 
+ 
+ Using sex differences in psychopathology to study causal mechanisms: unifying issues and research strategies 
+ J Child Psychol Psychiatry 
+ 2003 
+ 44 
+ 1092 
+ 1115 
+ 14626453 
+ 
+ 
+ 
+ 
+ 
+ 
+ Saleem 
+ S 
+ 
+ 
+ Hussain 
+ MM 
+ 
+ 
+ Majeed 
+ SM 
+ 
+ 
+ Khan 
+ MA 
+ 
+ 
+ Gender differences of heart rate variability in healthy volunteers 
+ J Pak Med Assoc 
+ 2012 
+ 62 
+ 422 
+ 425 
+ 22755301 
+ 
+ 
+ 
+ 
+ 
+ 
+ Sandstrom 
+ NJ 
+ 
+ 
+ Kaufman J 
+ A 
+ 
+ 
+ Huettel 
+ S 
+ 
+ 
+ Males and females use different distal cues in a virtual environment navigation task 
+ Cognitive Brain Research 
+ 1998 
+ 6 
+ 351 
+ 360 
+ 9593991 
+ 
+ 
+ 
+ 
+ 
+ 
+ Satterthwaite 
+ TD 
+ 
+ 
+ Wolf 
+ DH 
+ 
+ 
+ Loughead 
+ J 
+ 
+ 
+ Ruparel 
+ K 
+ 
+ 
+ Elliott 
+ MA 
+ 
+ 
+ Hakonarson 
+ H 
+ 
+ 
+ Gur 
+ RC 
+ 
+ 
+ Gur 
+ RE 
+ 
+ 
+ Impact of in-scanner head motion on multiple measures of functional connectivity: Relevance for studies of neurodevelopment in youth 
+ Neuroimage 
+ 2012 
+ 60 
+ 623 
+ 632 
+ 22233733 
+ 
+ 
+ 
+ 
+ 
+ 
+ Satterthwaite 
+ TD 
+ 
+ 
+ Elliott 
+ MA 
+ 
+ 
+ Gerraty 
+ RT 
+ 
+ 
+ Ruparel 
+ K 
+ 
+ 
+ Loughead 
+ J 
+ 
+ 
+ Calkins 
+ ME 
+ 
+ 
+ Eickhoff 
+ SB 
+ 
+ 
+ Hakonarson 
+ H 
+ 
+ 
+ Gur 
+ RC 
+ 
+ 
+ Gur 
+ RE 
+ 
+ 
+ Wolf 
+ DH 
+ 
+ 
+ An improved framework for confound regression and filtering for control of motion artifact in the preprocessing of resting-state functional connectivity data 
+ Neuroimage 
+ 2013 
+ 64 
+ 240 
+ 256 
+ 22926292 
+ 
+ 
+ 
+ 
+ 
+ 
+ Schiller 
+ D 
+ 
+ 
+ Delgado 
+ MR 
+ 
+ 
+ Overlapping neural systems mediating extinction, reversal and regulation of fear 
+ Trends in cognitive sciences 
+ 2010 
+ 14 
+ 268 
+ 276 
+ 20493762 
+ 
+ 
+ 
+ 
+ 
+ 
+ Seidlitz 
+ L 
+ 
+ 
+ Diener 
+ E 
+ 
+ 
+ Sex differences in the recall of affective experiences 
+ J Pers Soc Psychol 
+ 1998 
+ 74 
+ 262 
+ 271 
+ 9457787 
+ 
+ 
+ 
+ 
+ 
+ 
+ Sladky 
+ R 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ Tröstl 
+ J 
+ 
+ 
+ Cunnington 
+ R 
+ 
+ 
+ Moser 
+ E 
+ 
+ 
+ Windischberger 
+ C 
+ 
+ 
+ Slice-timing effects and their correction in functional MRI 
+ Neuroimage 
+ 2011 
+ 58 
+ 588 
+ 594 
+ 21757015 
+ 
+ 
+ 
+ 
+ 
+ 
+ Smith 
+ DV 
+ 
+ 
+ Clithero 
+ JA 
+ 
+ 
+ Rorden 
+ C 
+ 
+ 
+ Karnath 
+ HO 
+ 
+ 
+ Decoding the anatomical network of spatial attention 
+ Proc Natl Acad Sci U S A 
+ 2013 
+ 110 
+ 1518 
+ 1523 
+ 23300283 
+ 
+ 
+ 
+ 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Fast robust automated brain extraction 
+ Hum Brain Mapp 
+ 2002 
+ 17 
+ 143 
+ 155 
+ 12391568 
+ 
+ 
+ 
+ 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Nichols 
+ TE 
+ 
+ 
+ Threshold-free cluster enhancement: addressing problems of smoothing, threshold dependence and localisation in cluster inference 
+ Neuroimage 
+ 2009 
+ 44 
+ 83 
+ 98 
+ 18501637 
+ 
+ 
+ 
+ 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Fox 
+ PT 
+ 
+ 
+ Miller 
+ KL 
+ 
+ 
+ Glahn 
+ DC 
+ 
+ 
+ Fox 
+ PM 
+ 
+ 
+ Mackay 
+ CE 
+ 
+ 
+ Filippini 
+ N 
+ 
+ 
+ Watkins 
+ KE 
+ 
+ 
+ Toro 
+ R 
+ 
+ 
+ Laird 
+ AR 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ Correspondence of the brain's functional architecture during activation and rest 
+ Proceedings of the National Academy of Sciences 
+ 2009 
+ 106 
+ 13040 
+ 13045 
+ 
+ 
+ 
+ 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Jenkinson 
+ M 
+ 
+ 
+ Woolrich 
+ MW 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ Behrens 
+ TE 
+ 
+ 
+ Johansen-Berg 
+ H 
+ 
+ 
+ Bannister 
+ PR 
+ 
+ 
+ De Luca 
+ M 
+ 
+ 
+ Drobnjak 
+ I 
+ 
+ 
+ Flitney 
+ DE 
+ 
+ 
+ Niazy 
+ RK 
+ 
+ 
+ Saunders 
+ J 
+ 
+ 
+ Vickers 
+ J 
+ 
+ 
+ Zhang 
+ Y 
+ 
+ 
+ De Stefano 
+ N 
+ 
+ 
+ Brady 
+ JM 
+ 
+ 
+ Matthews 
+ PM 
+ 
+ 
+ Advances in functional and structural MR image analysis and implementation as FSL 
+ Neuroimage 
+ 2004 
+ 23 
+ Suppl 1 
+ S208 
+ S219 
+ 15501092 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stein 
+ PK 
+ 
+ 
+ Kleiger 
+ RE 
+ 
+ 
+ Rottman 
+ JN 
+ 
+ 
+ Differing effects of age on heart rate variability in men and women 
+ Am J Cardiol 
+ 1997 
+ 80 
+ 302 
+ 305 
+ 9264423 
+ 
+ 
+ 
+ 
+ 
+ 
+ Strauman 
+ TJ 
+ 
+ 
+ Detloff 
+ AM 
+ 
+ 
+ Sestokas 
+ R 
+ 
+ 
+ Smith 
+ DV 
+ 
+ 
+ Goetz 
+ EL 
+ 
+ 
+ Rivera 
+ C 
+ 
+ 
+ Kwapil 
+ L 
+ 
+ 
+ What shall I be, what must I be: neural correlates of personal goal activation 
+ Front Integr Neurosci 
+ 2013 
+ 6 
+ 123 
+ 23316145 
+ 
+ 
+ 
+ 
+ 
+ 
+ Todd 
+ JJ 
+ 
+ 
+ Marois 
+ R 
+ 
+ 
+ Posterior parietal cortex activity predicts individual differences in visual short-term memory capacity 
+ Cogn Affect Behav Neurosci 
+ 2005 
+ 5 
+ 144 
+ 155 
+ 16180621 
+ 
+ 
+ 
+ 
+ 
+ 
+ Truong 
+ TK 
+ 
+ 
+ Song 
+ AW 
+ 
+ 
+ Single-shot dual-z-shimmed sensitivity-encoded spiral-in/out imaging for functional MRI with reduced susceptibility artifacts 
+ Magn Reson Med 
+ 2008 
+ 59 
+ 221 
+ 227 
+ 18050341 
+ 
+ 
+ 
+ 
+ 
+ 
+ Underwood 
+ BJ 
+ 
+ 
+ Individual differences as a crucible in theory construction 
+ Am Psychol 
+ 1975 
+ 30 
+ 128 
+ 134 
+ 
+ 
+ 
+ 
+ 
+ 
+ Vincent 
+ JL 
+ 
+ 
+ Patel 
+ GH 
+ 
+ 
+ Fox 
+ MD 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Baker 
+ JT 
+ 
+ 
+ Van Essen 
+ DC 
+ 
+ 
+ Zempel 
+ JM 
+ 
+ 
+ Snyder 
+ LH 
+ 
+ 
+ Corbetta 
+ M 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ Intrinsic functional architecture in the anaesthetized monkey brain 
+ Nature 
+ 2007 
+ 447 
+ 83 
+ 86 
+ 17476267 
+ 
+ 
+ 
+ 
+ 
+ 
+ Wang 
+ L 
+ 
+ 
+ Shen 
+ H 
+ 
+ 
+ Tang 
+ F 
+ 
+ 
+ Zang 
+ Y 
+ 
+ 
+ Hu 
+ D 
+ 
+ 
+ Combined structural and resting-state functional MRI analysis of sexual dimorphism in the young adult human brain: An MVPA approach 
+ Neuroimage 
+ 2012a 
+ 61 
+ 931 
+ 940 
+ 22498657 
+ 
+ 
+ 
+ 
+ 
+ 
+ Wang 
+ Z 
+ 
+ 
+ Liu 
+ J 
+ 
+ 
+ Zhong 
+ N 
+ 
+ 
+ Qin 
+ Y 
+ 
+ 
+ Zhou 
+ H 
+ 
+ 
+ Li 
+ K 
+ 
+ 
+ Changes in the brain intrinsic organization in both on-task state and post-task resting state 
+ Neuroimage 
+ 2012b 
+ 62 
+ 394 
+ 407 
+ 22569542 
+ 
+ 
+ 
+ 
+ 
+ 
+ Weissman 
+ MM 
+ 
+ 
+ Klerman 
+ GL 
+ 
+ 
+ Sex differences and the epidemiology of depression 
+ Arch Gen Psychiatry 
+ 1977 
+ 34 
+ 98 
+ 111 
+ 319772 
+ 
+ 
+ 
+ 
+ 
+ 
+ Weissman-Fogel 
+ I 
+ 
+ 
+ Moayedi 
+ M 
+ 
+ 
+ Taylor 
+ KS 
+ 
+ 
+ Pope 
+ G 
+ 
+ 
+ Davis 
+ KD 
+ 
+ 
+ Cognitive and defaultmode resting state networks: do male and female brains "rest" differently? 
+ Hum Brain Mapp 
+ 2010 
+ 31 
+ 1713 
+ 1726 
+ 20725910 
+ 
+ 
+ 
+ 
+ 
+ 
+ Whitfield-Gabrieli 
+ S 
+ 
+ 
+ Ford 
+ JM 
+ 
+ 
+ Default mode network activity and connectivity in psychopathology 
+ Annu Rev Clin Psychol 
+ 2012 
+ 8 
+ 49 
+ 76 
+ 22224834 
+ 
+ 
+ 
+ 
+ 
+ 
+ Woolrich 
+ MW 
+ 
+ 
+ Ripley 
+ BD 
+ 
+ 
+ Brady 
+ M 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Temporal autocorrelation in univariate linear modeling of FMRI data 
+ Neuroimage 
+ 2001 
+ 14 
+ 1370 
+ 1386 
+ 11707093 
+ 
+ 
+ 
+ 
+ 
+ 
+ Woolrich 
+ MW 
+ 
+ 
+ Jbabdi 
+ S 
+ 
+ 
+ Patenaude 
+ B 
+ 
+ 
+ Chappell 
+ M 
+ 
+ 
+ Makni 
+ S 
+ 
+ 
+ Behrens 
+ T 
+ 
+ 
+ Beckmann 
+ C 
+ 
+ 
+ Jenkinson 
+ M 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Bayesian analysis of neuroimaging data in FSL 
+ Neuroimage 
+ 2009 
+ 45 
+ S173 
+ S186 
+ 19059349 
+ 
+ 
+ 
+ 
+ 
+ 
+ Yarkoni 
+ T 
+ 
+ 
+ Big Correlations in Little Studies: Inflated fMRI Correlations Reflect Low Statistical Power--Commentary on Vul et al. (2009) 
+ Perspect Psychol Sci 
+ 2009 
+ 4 
+ 294 
+ 298 
+ 
+ 
+ 
+ 
+ 
+ 
+ Yeargin-Allsopp 
+ M 
+ 
+ 
+ Rice 
+ C 
+ 
+ 
+ Karapurkar 
+ T 
+ 
+ 
+ Doernberg 
+ N 
+ 
+ 
+ Boyle 
+ C 
+ 
+ 
+ Murphy 
+ C 
+ 
+ 
+ Prevalence of autism in a US metropolitan area 
+ JAMA 
+ 2003 
+ 289 
+ 49 
+ 55 
+ 12503976 
+ 
+ 
+ 
+ 
+ 
+ 
+ Zilles 
+ K 
+ 
+ 
+ Amunts 
+ K 
+ 
+ 
+ Centenary of Brodmann's map--conception and fate 
+ Nat Rev Neurosci 
+ 2010 
+ 11 
+ 139 
+ 145 
+ 20046193 
+ 
+ 
+ 
+ 
+ 
+ 
+ Figure 1 
+ 
+ High-level Schematic of Analytical Approach 
+ Our analyses proceeded in several steps. After splitting our sample into two independent datasets (n 1  = 94; n 2  = 94), the data were preprocessed and motion-related variance was removed from the time series via multiple regression. Group independent component analyses were performed on each dataset, with resulting spatial maps being entered into separate dual regression analyses. Importantly, the dual regression analysis allowed us to quantify, within each subject, each voxel’s functional connectivity with each spatial map while controlling for the influence of other, potentially confounding, maps. The resulting functional connectivity measures were then subjected to permutation-based statistical testing to test for sex differences. Finally, we supplemented all of our results by testing for replication in the independent sample of data. 
+ 
+ 
+ 
+ 
+ Figure 2 
+ 
+ Bidirectional Sex Differences in Connectivity with Primary Visual RSN 
+ ( A ) We identified a resting-state network exhibiting considerable anatomical overlap with areas involved in the processing of visual stimuli. Coordinates of axial slice numbers are display in terms of MNI space. ( B ) We found several regions whose coactivation with the visual network was significantly higher in males relative to females. These regions included intracalcarine cortex, cuneus, supracalcarine, and lingual gyrus. Of these regions, only the intralcarine cortex [blue; MNI(x,y,z) = 12, −69, 6] replicated in an independent sample. ( C ) Parameter estimates quantifying subject-specific functional connectivity between intracalcarine cortex and the visual RSN. ( D ) The inverse contrast revealed that anterior superior temporal gyrus (aSTG) connectivity with the visual RSN was higher in females than males. ( E ) Parameter estimates quantifying subject-specific functional connectivity between aSTG and the visual RSN. Error bars (in C and E) reflect standard error of the mean across subjects. 
+ 
+ 
+ 
+ 
+ Figure 3 
+ 
+ Bidirectional Sex Differences in Connectivity with Auditory RSN 
+ ( A ) We identified a resting-state network exhibiting considerable anatomical overlap with areas involved in the processing of auditory stimuli. Coordinates of axial slice numbers are display in terms of MNI space. ( B ) We found several regions whose connectivity with the auditory network was significantly higher in males relative to females. These regions included Heschl's Gyrus, the planum temporal, insula, and temporal pole. Of these regions, only the right Heschl's Gyrus [blue; MNI(x,y,z) = 39, 18, 9] replicated in an independent sample. ( C ) Parameter estimates quantifying subject-specific functional connectivity between right Heschl's gyrus and the auditory RSN. ( D ) The inverse contrast revealed that paracingulate gyrus connectivity with the auditory RSN was higher in females than males. ( E ) Parameter estimates quantifying subject-specific functional connectivity between paracingulate gyrus and the auditory RSN. Error bars (in C and E) reflect standard error of the mean across subjects. 
+ 
+ 
+ 
+ 
+ Figure 4 
+ 
+ Unidirectional Sex Differences in Connectivity with Right Frontal-Parietal RSN 
+ ( A ) We identified a resting-state network primarily comprised of right lateralized frontal-parietal regions. Coordinates of axial slice numbers are display in terms of MNI space. ( B ) We found several regions whose coactivation with the frontal-parietal network was significantly higher in males relative to females. These regions included middle frontal gyrus (MFG), inferior frontal gyrus, and superior frontal gyrus. Of these regions, only the MFG [blue; MNI(x,y,z) = 48, 27, 30] replicated in an independent sample. ( C ) Parameter estimates quantifying subject-specific functional connectivity between MFG and the frontal-parietal network. Error bars reflect standard error of the mean across subjects. 
+ 
+ 
+ 
+ 
+ Figure 5 
+ 
+ Dual-Regression Analysis Outperforms Traditional Seed-Based Analysis 
+ Receiver-operating characteristics were computed for each target region and its associated network. Across multiple target regions, we found that connectivity estimates with an entire network [as computed with dual-regression analysis (DRA)] were significantly better at distinguishing males and females compared than connectivity estimates with a representative node of a network [as computed with seed-based analysis (SBA)]. ( A ) Heschl's Gyrus and the auditory network. ( B ) Paracingulate Cortex and the auditory network. ( C ) Middle Frontal Gyrus (MFG) and the right frontal-parietal network. ( D ) Anterior Superior Temporal Gyrus (aSTG) and the primary visual network. ( E ) Intracalcarine cortex and the primary visual network. Statistics for primary sample are shown in black text (corresponding to the solid curves in the figure); replication statistics are shown in gray text (corresponding to the dashed curves in the figure). 
+ 
+ 
+ 
+ 
+ Table 1 
+ 
+ Sex Differences Do Not Manifest in Behavior or Data Quality 
+ Prior to our analyses, we compared males and females on two orthogonal dimensions. First, we examined whether task behavior prior to the resting-state scan exhibited sex differences. Second, we examined whether multiple data quality assurance metrics exhibited sex differences. We found no sex differences on either dimension, indicating that our results cannot be explained by differences in behavior preceding the resting-state scan or differences in data quality. We note that behavioral data was not available for all subjects in the resting-state analyses. 
+ 
+ 
+ 
+ 
+ 
+ 
+ Response Times in Tasks Preceding Resting-State Scan 
+ 
+ 
+ 
+ 
+ 
+ Dataset 
+ 
+ 
+ Task 
+ 
+ 
+ Males: mean (s.e.m.) 
+ 
+ 
+ Females: mean (s.e.m.) 
+ 
+ 
+ t -stat 
+ 
+ 
+ p -value 
+ 
+ 
+ 
+ 1 
+ Task1 (n=87) 
+ 0.29 (.004) 
+ 0.29 (.003) 
+ −0.105 
+ 0.917 
+ 
+ 
+ 2 
+ Task1 (n=91) 
+ 0.284(.005) 
+ 0.295(.004) 
+ −1.55 
+ 0.125 
+ 
+ 
+ 1 
+ Task2 (n=87) 
+ 1.72 (.076) 
+ 1.594 (.071) 
+ 1.251 
+ 0.214 
+ 
+ 
+ 2 
+ Task2 (n=91) 
+ 1.76 (.069) 
+ 1.651 (.069) 
+ 1.133 
+ 0.26 
+ 
+ 
+ 1 
+ Task3 (n=92) 
+ 1.62 (.03) 
+ 1.632 (.03) 
+ −0.339 
+ 0.736 
+ 
+ 
+ 2 
+ Task3 (n=93) 
+ 1.634 (0.03) 
+ 1.633 (0.02) 
+ 0.009 
+ 0.993 
+ 
+ 
+ 
+ 
+ Quality Assurance Metrics in Resting-State Data 
+ 
+ 
+ 
+ 
+ 
+ Dataset 
+ 
+ 
+ Quality Assurance Metric 
+ 
+ 
+ Males: Mean (s.e.m.) 
+ 
+ 
+ Females: Mean (s.e.m.) 
+ 
+ 
+ t-stat 
+ 
+ 
+ p-value 
+ 
+ 
+ 
+ 1 
+ SFNR 
+ 86.714 (3.053) 
+ 92.326 (2.504) 
+ −1.42 
+ 0.16 
+ 
+ 
+ 2 
+ SFNR 
+ 88.03 (2.15) 
+ 91.384 (2.411) 
+ −1.04 
+ 0.301 
+ 
+ 
+ 1 
+ Mean volume-to-volume motion 
+ 0.046 (0.002) 
+ 0.044 (.002) 
+ 0.515 
+ 0.608 
+ 
+ 
+ 2 
+ Mean volume-to-volume motion 
+ 0.04 (.002) 
+ 0.046 (.003) 
+ 0.052 
+ 0.959 
+ 
+ 
+ 1 
+ Mean % outlier volumes 
+ 0.05 (.004) 
+ 0.051 (.002) 
+ −0.167 
+ 0.867 
+ 
+ 
+ 2 
+ Mean % outlier volumes 
+ 0.047 (.004) 
+ 0.039 (.004) 
+ 1.42 
+ 0.159 
+ 
+ 
+ 
+ 
+ 
+ Table 2 
+ 
+ Bidirectional Sex Differences in Connectivity with Primary Visual RSN 
+ Regions whose connectivity with the primary visual RSN differed according to self-reported sexual identity. Coordinates of local maxima within the clusters of activation are in MNI space. For each cluster maximum, we constructed a 5mm sphere around its peak and tested for replication in independent data; replicating clusters are denoted in boldface. Probabilistic labels reflect the probability (or likelihood) that a coordinate belongs to a given region. For clarity, in cases where multiple labels are ascribed to a single coordinate, we only show labels whose likelihood exceeds 5%. Blank rows separate noncontiguous clusters. Cluster extent is defined here as the number of 3mm 3  voxels in each cluster. Abbreviations: TFC (Temporal Fusiform Cortex); TOFC (Temporal Occipital Fusiform Cortex); aSTG (Anterior Superior Temporal Gyrus); STG (Superior Temporal Gyrus); MTG (middle temporal gyrus); PHG (Parahippocampal Gyrus). 
+ 
+ 
+ 
+ 
+ 
+ Males > Females (p < 0.05, whole-brain corrected) 
+ 
+ 
+ 
+ 
+ 
+ Probabilistic Anatomical Label 
+ 
+ 
+ 
+ 
+ x 
+ 
+ 
+ 
+ 
+ y 
+ 
+ 
+ 
+ 
+ z 
+ 
+ 
+ 
+ 
+ p -value 
+ 
+ 
+ 
+ 
+ Cluster Extent 
+ 
+ 
+ 
+ 
+ 
+ Intracalcarine (43%), Lingual Gyrus (12%) 
+ 
+ 
+ 12 
+ 
+ 
+ −69 
+ 
+ 
+ 6 
+ 
+ 
+ 0.013 
+ 
+ 
+ 173 
+ 
+ 
+ 
+ Cuneus (59%), Precuneus (20%), Supracalcarine (5%) 
+ 3 
+ −75 
+ 30 
+ 0.014 
+ 
+ 
+ 
+ Supracalcarine (31%), Cuneus (21%), Precuneus (7%) 
+ 21 
+ −66 
+ 18 
+ 0.024 
+ 
+ 
+ 
+ Intracalcarine (41%), Lingual Gyrus (5%) 
+ 24 
+ −63 
+ 6 
+ 0.024 
+ 
+ 
+ 
+ Lingual Gyrus (79%) 
+ 6 
+ −69 
+ −3 
+ 0.025 
+ 
+ 
+ 
+ Lingual Gyrus (1%) 
+ −15 
+ −57 
+ −15 
+ 0.002 
+ 69 
+ 
+ 
+ Lingual Gyrus (18%) 
+ −24 
+ −60 
+ 0 
+ 0.025 
+ 
+ 
+ 
+ Lingual Gyrus (60%) 
+ −9 
+ −75 
+ −3 
+ 0.033 
+ 16 
+ 
+ 
+ 
+ Females > Males (p < 0.01, uncorrected, minimum cluster extent = 27 voxels) 
+ 
+ 
+ 
+ 
+ 
+ Probabilistic Anatomical Label 
+ 
+ 
+ 
+ 
+ x 
+ 
+ 
+ 
+ 
+ y 
+ 
+ 
+ 
+ 
+ z 
+ 
+ 
+ 
+ 
+ Cluster Extent 
+ 
+ 
+ 
+ 
+ Replication Statistics 
+ 
+ 
+ 
+ 
+ PHG (27%) 
+ 18 
+ −36 
+ −18 
+ 59 
+ t = 1.23, p = 0.223 
+ 
+ 
+ TFC (40%), PHG (32%), TOFC (13%), Lingual Gyrus (7%) 
+ 24 
+ −36 
+ −18 
+ 
+ 
+ 
+ 
+ TOFC (65%), TFC (18%) 
+ 27 
+ −42 
+ −18 
+ 
+ 
+ 
+ 
+ Planum Polare (1%) 
+ 39 
+ −15 
+ −12 
+ 38 
+ t = −0.24, p = 0.807 
+ 
+ 
+ Posterior TFC (60%), Posterior Inferior Temporal Gyrus (10%) 
+ 39 
+ −30 
+ −21 
+ 
+ 
+ 
+ 
+ PHG, posterior division (2%) 
+ −12 
+ −33 
+ −18 
+ 31 
+ t = 0.14, p = 0.887 
+ 
+ 
+ 
+ aSTG (43%), STG (18%), MTG (10%) 
+ 
+ 
+ 57 
+ 
+ 
+ −3 
+ 
+ 
+ −9 
+ 
+ 
+ 29 
+ 
+ 
+ t = 2.01, p = 0.047 
+ 
+ 
+ 
+ 
+ 
+ 
+ Table 3 
+ 
+ Bidirectional Sex Differences in Connectivity with Auditory RSN 
+ Regions whose connectivity with the auditory RSN differed according to self-reported sexual identity. Coordinates of local maxima within clusters of activation are in MNI space. For each cluster maximum, we constructed a 5mm sphere around its peak and tested for replication in independent data; replicating clusters are denoted in boldface. Probabilistic labels reflect the probability (or likelihood) that a coordinate belongs to a given region. For clarity, in cases where multiple labels are ascribed to a single coordinate, we only show labels whose likelihood exceeds 5%. Blank rows separate noncontiguous clusters of coactivation. Cluster extent is defined here as the number of 3mm 3  voxels in each cluster. Abbreviations: C Operculum (Central Operculum Cortex); OFC (Frontal Orbital Cortex); SFG (Superior Frontal Gyrus). 
+ 
+ 
+ 
+ 
+ 
+ Males > Females (p < 0.05, whole-brain corrected) 
+ 
+ 
+ 
+ 
+ 
+ Probabilistic Anatomical Label 
+ 
+ 
+ 
+ 
+ x 
+ 
+ 
+ 
+ 
+ y 
+ 
+ 
+ 
+ 
+ z 
+ 
+ 
+ 
+ 
+ p -value 
+ 
+ 
+ 
+ 
+ Cluster Extent 
+ 
+ 
+ 
+ 
+ 
+ Heschl's Gyrus (46%), Insula (21%) 
+ 
+ 
+ 39 
+ 
+ 
+ −18 
+ 
+ 
+ 9 
+ 
+ 
+ 0.002 
+ 
+ 
+ 153 
+ 
+ 
+ 
+ Planum Temporale (36%), Heschl's Gyrus (19%), C Operculum (15%) 
+ 57 
+ −15 
+ 9 
+ 0.004 
+ 
+ 
+ 
+ Heschl's Gyrus (22%), Insula (19%), Planum Polare (7%) 
+ 45 
+ −6 
+ 0 
+ 0.004 
+ 
+ 
+ 
+ Insula (51%), OFC (19%) 
+ 39 
+ 21 
+ −3 
+ 0.008 
+ 
+ 
+ 
+ Temporal Pole (21%), C Operculum (11%), Planum Polare (10%), Insula (8%) 
+ 48 
+ 9 
+ −6 
+ 0.01 
+ 
+ 
+ 
+ Temporal Pole (30%), Insula (9%) 
+ 45 
+ 15 
+ −9 
+ 0.01 
+ 
+ 
+ 
+ 
+ Heschl's Gyrus (43%), Insula (20%) 
+ 
+ 
+ −36 
+ 
+ 
+ −24 
+ 
+ 
+ 12 
+ 
+ 
+ 0.023 
+ 
+ 
+ 10 
+ 
+ 
+ 
+ 
+ Insula (44%), Heschl's Gyrus (8%), Planum Polare (7%) 
+ 
+ 
+ −42 
+ 
+ 
+ −12 
+ 
+ 
+ 0 
+ 
+ 
+ 0.032 
+ 
+ 
+ 8 
+ 
+ 
+ 
+ 
+ Females > Males (p < 0.01, uncorrected, minimum cluster extent = 27 voxels) 
+ 
+ 
+ 
+ 
+ 
+ Probabilistic Anatomical Label 
+ 
+ 
+ 
+ 
+ x 
+ 
+ 
+ 
+ 
+ y 
+ 
+ 
+ 
+ 
+ z 
+ 
+ 
+ 
+ 
+ Cluster Extent 
+ 
+ 
+ 
+ 
+ Replication Statistics 
+ 
+ 
+ 
+ 
+ 
+ Paracingulate gyrus (55%), Frontal Pole (12%), SFG (9%) 
+ 
+ 
+ −3 
+ 
+ 
+ 54 
+ 
+ 
+ 12 
+ 
+ 
+ 47 
+ 
+ 
+ t = 2.58, p = 0.012 
+ 
+ 
+ 
+ Paracingulate gyrus (66%), Cingulate gyrus (23%) 
+ −3 
+ 48 
+ 12 
+ 
+ 
+ 
+ 
+ Frontal Pole (75%), Paracingulate Gyrus (6%) 
+ −6 
+ 60 
+ 9 
+ 
+ 
+ 
+ 
+ Frontal Pole (15%), Paracingulate Gyrus (11%), Frontal medial cortex (8%) 
+ −12 
+ 57 
+ 3 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Table 4 
+ 
+ Unidirectional Sex Differences in Connectivity with Right Frontal-Parietal RSN 
+ Regions whose connectivity with the right frontal-parietal RSN was higher in males compared to females. Coordinates of local maxima within the three clusters of activation are in MNI space. For each cluster maximum, we constructed a 5mm sphere around its peak and tested for replication in independent data; replicating clusters are denoted in boldface. Probabilistic labels reflect the probability (or likelihood) that a coordinate belongs to a given region. For clarity, in cases where multiple labels are ascribed to a single coordinate, we only show labels whose likelihood exceeds 5%. Blank rows separate noncontiguous clusters of coactivation. Cluster extent is defined here as the number of 3mm 3  voxels in each cluster. Abbreviations: MFG (Middle Frontal Gyrus); IFG (Inferior Frontal Gyrus); SFG (Superior Frontal Gyrus). 
+ 
+ 
+ 
+ 
+ 
+ Males > Females (p < 0.05, whole-brain corrected) 
+ 
+ 
+ 
+ 
+ 
+ Probabilistic Anatomical Label 
+ 
+ 
+ 
+ 
+ x 
+ 
+ 
+ 
+ 
+ y 
+ 
+ 
+ 
+ 
+ z 
+ 
+ 
+ 
+ 
+ p-value 
+ 
+ 
+ 
+ 
+ Cluster Extent 
+ 
+ 
+ 
+ 
+ 
+ MFG (39%), IFG pars triangularis (6%) 
+ 
+ 
+ 48 
+ 
+ 
+ 27 
+ 
+ 
+ 30 
+ 
+ 
+ 0.01 
+ 
+ 
+ 41 
+ 
+ 
+ 
+ IFG pars opercularis (38%), IFG pars triangularis (12%), MFG (5%) 
+ 54 
+ 21 
+ 27 
+ 0.035 
+ 
+ 
+ 
+ IFG pars opercularis (54%) 
+ 54 
+ 18 
+ 21 
+ 0.039 
+ 
+ 
+ 
+ MFG (40%), Precentral Gyrus (22%) 
+ 48 
+ 9 
+ 45 
+ 0.044 
+ 6 
+ 
+ 
+ SFG (54%) 
+ 21 
+ 30 
+ 54 
+ 0.041 
+ 4 
+ 
+ 
+ 
+ 
+ 
+ Table 5 
+ 
+ Sex Differences in Resting-State Networks is Robust to Multiple Alternative Explanations 
+ We examined whether sex differences in resting-state networks are explained by other confounding variables, including total brain volume, gray matter (GM) density within the network, GM density within the specific target region that was identified in the analyses, cortisol levels, testosterone levels, and age. Brain volume and testosterone was gender normalized by computing the within-gender  z -scores. For increased power, we collapsed across our entire sample to produce dataset comprised of 188 individuals. Across all of these measures, we failed to find significant correlations with our functional estimates ( r  values displayed in each cell; all  p -values > 0.09). 
+ 
+ 
+ 
+ 
+ 
+ Intracalcarine with Visual Network (M>F) 
+ aSTG with Visual Network (F>M) 
+ Heschl with Auditory Network (M>F) 
+ Paracingulate with Auditory Network(F>M) 
+ MFG with R Frontal- Parietal Network (M>F) 
+ 
+ 
+ 
+ 
+ Brain Volume (normalized) 
+ 0.01 
+ 0.05 
+ 0.03 
+ −0.07 
+ −0.07 
+ 
+ 
+ Network GM density 
+ 0.02 
+ −0.07 
+ 0.04 
+ −0.01 
+ 0.09 
+ 
+ 
+ Target GM density 
+ −0.08 
+ −0.03 
+ 0.01 
+ 0 
+ 0.02 
+ 
+ 
+ Cortisol 
+ 0.04 
+ −0.06 
+ −0.02 
+ −0.02 
+ 0.06 
+ 
+ 
+ Testosterone (normalized) 
+ 0.02 
+ −0.13 
+ 0.09 
+ −0.12 
+ 0.12 
+ 
+ 
+ Age 
+ −0.1 
+ −0.002 
+ −0.04 
+ 0.09 
+ 0 
+ 
+ 
+ 
+ 
+ 
+ Table 6 
+ 
+ Robustness to Alternative Network Definitions 
+ We corroborated our primary findings by evaluating whether our results held with two alternative network definitions. First, we conducted dual-regression analyses using networks defined from a lower dimensionality (N = 25). After identifying spatial maps matching the auditory, visual, and right frontal-parietal networks, we extracted the mean functional connectivity (FC) estimates for each subject within the respective target regions exhibiting sex differences in our primary analysis. Second, we performed dual-regression analyses using the canonical RSNs defined in an independent dataset ( Smith et al., 2009 ). Using our target regions, we then extracted the mean FC for each subject. Although we replicated all of our results suggesting greater connectivity in males relative to females, many of our results suggesting greater connectivity in females compared to males were not robust to alternative network definitions. 
+ 
+ 
+ 
+ 
+ 
+ Lower dimensionality (N = 25) decomposition 
+ 
+ 
+ 
+ 
+ Dataset 
+ 
+ 
+ Network 
+ 
+ 
+ Target Region 
+ 
+ 
+ Males: Mean FC (s.e.m.) 
+ 
+ 
+ Females: Mean FC (s.e.m.) 
+ 
+ 
+ t-stat 
+ 
+ 
+ p-value 
+ 
+ 
+ 
+ Primary 
+ Auditory 
+ Heschl's Gyrus 
+ 41.31 (3.04) 
+ 28.15 (1.36) 
+ 4.42 
+ < 0.001 
+ 
+ 
+ Replication 
+ Auditory 
+ Heschl's Gyrus 
+ 38.05 (2.45) 
+ 26.19 (1.55) 
+ 4.05 
+ < 0.001 
+ 
+ 
+ Primary 
+ Visual 
+ Intracalcarine Cortex 
+ 52.88 (4.05) 
+ 39.66 (1.73) 
+ 3.38 
+ < 0.001 
+ 
+ 
+ Replication 
+ Visual 
+ Intracalcarine Cortex 
+ 51.75 (3.65) 
+ 43.79 (2.26) 
+ 1.83 
+ < 0.05 
+ 
+ 
+ Primary 
+ R Frontal-Parietal 
+ Middle Frontal Gyrus 
+ 34.69 (2.41) 
+ 24.75 (1.38) 
+ 3.84 
+ < 0.001 
+ 
+ 
+ Replication 
+ R Frontal-Parietal 
+ Middle Frontal Gyrus 
+ 37.16 (2.06) 
+ 27.84 (1.60) 
+ 3.55 
+ < 0.001 
+ 
+ 
+ Primary 
+ Auditory 
+ Paracingulate Cortex 
+ −8.87 (1.88) 
+ −3.85 (1.16) 
+ 2.32 * 
+ < 0.05 
+ 
+ 
+ Replication 
+ Auditory 
+ Paracingulate Cortex 
+ −0.65 (1.63) 
+ −0.28 (1.08) 
+ 0.18 * 
+ 0.42 
+ 
+ 
+ Primary 
+ Visual 
+ aSTG 
+ 0.55 (1.19) 
+ 2.53 (0.82) 
+ 1.41 * 
+ 0.08 
+ 
+ 
+ Replication 
+ Visual 
+ aSTG 
+ 2.87 (0.84) 
+ 1.79 (0.86) 
+ −0.89 * 
+ 0.81 
+ 
+ 
+ 
+ Independent spatial maps (N = 10) from  Smith et al. (2009) 
+ 
+ 
+ 
+ 
+ Dataset 
+ 
+ 
+ Network 
+ 
+ 
+ Target Region 
+ 
+ 
+ Males: Mean FC (s.e.m.) 
+ 
+ 
+ Females: Mean FC (s.e.m.) 
+ 
+ 
+ t-stat 
+ 
+ 
+ p-value 
+ 
+ 
+ 
+ Primary 
+ Auditory 
+ Heschl's Gyrus 
+ 33.28 (2.05) 
+ 26.31 (1.64) 
+ 2.66 
+ < 0.01 
+ 
+ 
+ Replication 
+ Auditory 
+ Heschl's Gyrus 
+ 35.27 (2.18) 
+ 25.22 (1.53) 
+ 3.74 
+ < 0.001 
+ 
+ 
+ Primary 
+ Visual 
+ Intracalcarine Cortex 
+ 53.02 (4.72) 
+ 41.35 (1.68) 
+ 1.99 
+ < 0.05 
+ 
+ 
+ Replication 
+ Visual 
+ Intracalcarine Cortex 
+ 51.79 (3.37) 
+ 43.31 (2.56) 
+ 2.69 
+ < 0.01 
+ 
+ 
+ Primary 
+ R Frontal-Parietal 
+ Middle Frontal Gyrus 
+ 30.64 (2.72) 
+ 23.04 (1.47) 
+ 2.55 
+ < 0.01 
+ 
+ 
+ Replication 
+ R Frontal-Parietal 
+ Middle Frontal Gyrus 
+ 30.82 (2.38) 
+ 23.64 (1.47) 
+ 2.66 
+ < 0.01 
+ 
+ 
+ Primary 
+ Auditory 
+ Paracingulate Cortex 
+ 15.15 (2.03) 
+ 11.69 (1.24) 
+ −1.53 * 
+ 0.93 
+ 
+ 
+ Replication 
+ Auditory 
+ Paracingulate Cortex 
+ 11.53 (1.55) 
+ 10.76 (1.35) 
+ 0.29 * 
+ 0.38 
+ 
+ 
+ Primary 
+ Visual 
+ aSTG 
+ 4.75 (1.45) 
+ 5.19 (0.80) 
+ −0.37 * 
+ 0.64 
+ 
+ 
+ Replication 
+ Visual 
+ aSTG 
+ 5.67 (1.19) 
+ 5.56 (0.98) 
+ −0.07 * 
+ 0.52 
+ 
+ 
+ 
+ 
+ 
+ * 
+ Denotes one-tailed tests evaluating connectivity in females greater than connectivity in males. aSTG, anterior superior temporal gyrus. 
+ 
+ 
+ 
+ 
+ Table 7 
+ 
+ Seed-Based Analyses Fail to Reveal Sex Differences 
+ We examined whether our observed sex differences were a product of our nuanced analytical approach, which focuses on networks as opposed to single voxels (or regions). To do this, we used the five regions identified with the dual-regression analysis (i.e., “targets”) and conducted a seed-based analysis using non-overlapping coordinates (“seeds”). No seed region exhibited (in both samples) sex-dependent connectivity with the target regions identified by the dual regression analysis. 
+ 
+ 
+ 
+ 
+ 
+ Males > Females 
+ 
+ 
+ 
+ 
+ Dataset 
+ 
+ 
+ Network 
+ 
+ 
+ Seed coordinates [MNI(x,y,z)] 
+ 
+ 
+ Target Region 
+ 
+ 
+ Males: Mean FC (s.e.m) 
+ 
+ 
+ Females: Mean FC (s.e.m) 
+ 
+ 
+ t-stat 
+ 
+ 
+ p-value 
+ 
+ 
+ 
+ Primary 
+ Auditory 
+ −48, −21, 3 
+ Heschl's Gyrus 
+ .369 (.03) 
+ .318 (.03) 
+ 1.216 
+ .227 
+ 
+ 
+ Replication 
+ Auditory 
+ −48, −21, 3 
+ Heschl's Gyrus 
+ .381 (.03) 
+ .347 (.02) 
+ .88 
+ .381 
+ 
+ 
+ Primary 
+ Visual 
+ −3, −78, 9 
+ Intracalcarine Cortex 
+ .378 (.03) 
+ .32 (.02) 
+ 1.596 
+ .114 
+ 
+ 
+ Replication 
+ Visual 
+ −3, −78, 9 
+ Intracalcarine Cortex 
+ .349 (.025) 
+ .294 (.021) 
+ 1.67 
+ .099 
+ 
+ 
+ Primary 
+ R Frontal-Parietal 
+ 48, −57, 42 
+ MFG 
+ .046 (.02) 
+ .038 (.02) 
+ .277 
+ .782 
+ 
+ 
+ Replication 
+ R Frontal-Parietal 
+ 48, −57, 42 
+ MFG 
+ .031 (.06) 
+ .063 (.02) 
+ −.589 
+ .557 
+ 
+ 
+ 
+ Females > Males 
+ 
+ 
+ 
+ Primary 
+ Auditory 
+ −48, −21, 3 
+ Paracingulate Gyrus 
+ < .001 (.01) 
+ .015 (.02) 
+ .622 
+ .536 
+ 
+ 
+ Replication 
+ Auditory 
+ −48, −21, 3 
+ Paracingulate Gyrus 
+ −.031 (.02) 
+ −.006 (.02) 
+ .905 
+ .368 
+ 
+ 
+ Primary 
+ Visual 
+ −3, −78, 9 
+ aSTG 
+ .006 (.01) 
+ .026 (.01) 
+ 1.25 
+ .215 
+ 
+ 
+ Replication 
+ Visual 
+ −3, −78, 9 
+ aSTG 
+ .037 (.014) 
+ .027 (.012) 
+ −.522 
+ .603 
+ 
+ 
+ 
+ 
+ 
+ 
+ Highlights 
+ 
+ 
+ 
+ Sex differences are expressed in connectivity patterns with multiple networks 
+ 
+ 
+ Seed-based analysis (SBA) does not accurately represent connectivity with networks 
+ 
+ 
+ Dual-regression analysis (DRA) accurately represents connectivity with networks 
+ 
+ 
+ Individual differences in functional connectivity are characterized better with DRA 
+ 
+ 
+ 
+ 

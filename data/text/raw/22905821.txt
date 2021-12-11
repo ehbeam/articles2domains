@@ -1,0 +1,2695 @@
+
+ properties manuscript? 
+ 
+ 
+ 8910747 
+ 20835 
+ J Cogn Neurosci 
+ J Cogn Neurosci 
+ 
+ Journal of cognitive neuroscience 
+ 
+ 0898-929X 
+ 1530-8898 
+ 
+ 
+ 22905821 
+ 3816715 
+ 10.1162/jocn_a_00281 
+ NIHMS522907 
+ 
+ 
+ Article 
+ 
+ 
+ 
+ Intrinsic architecture underlying the relations among the default, dorsal attention, and frontoparietal control networks of the human brain 
+ 
+ 
+ 
+ 
+ Spreng 
+ R. Nathan 
+ 
+ 1 
+ 
+ 
+ 
+ Sepulcre 
+ Jorge 
+ 
+ 2 
+ 
+ 
+ 
+ Turner 
+ Gary R. 
+ 
+ 3 
+ 
+ 
+ 
+ Stevens 
+ W. Dale 
+ 
+ 4 
+ 
+ 
+ 
+ Schacter 
+ Daniel L. 
+ 
+ 5 
+ 
+ 
+ 1 Laboratory of Brain and Cognition, Department of Human Development, Cornell University, Ithaca, NY, USA 
+ 2 Division of Nuclear Medicine and Molecular Imaging, Department of Radiology, Massachusetts General Hospital and Harvard University Medical School, Boston, MA, USA 
+ 3 Department of Psychology, York University, Toronto, ON, Canada 
+ 4 Laboratory of Brain and Cognition, National Institute of Mental Health, Bethesda, MD, USA 
+ 5 Department of Psychology, Harvard University, Cambridge MA, USA 
+ 
+ Corresponding Author: R. Nathan Spreng, Cornell University, Department of Human Development, Ithaca, NY, 14853,  nathan.spreng@gmail.com 
+ 
+ 
+ 28 
+ 10 
+ 2013 
+ 
+ 
+ 20 
+ 8 
+ 2012 
+ 
+ 
+ 1 
+ 2013 
+ 
+ 
+ 04 
+ 11 
+ 2013 
+ 
+ 25 
+ 1 
+ 10.1162/jocn_a_00281 
+ 
+ 
+ This file is available for text mining. It may also be used consistent with the principles of fair use under the copyright law. 
+ 
+ 
+ 
+ Human cognition is increasingly characterized as an emergent property of interactions among distributed, functionally specialized brain networks. We recently demonstrated that the antagonistic “default” and “dorsal attention” networks – subserving internally and externally directed cognition, respectively – are modulated by a third “frontoparietal control” network that flexibly couples with either network depending on task domain. However, little is known about the intrinsic functional architecture underlying this relationship. We used graph theory to analyze network properties of intrinsic functional connectivity within and between these three large-scale networks, and used task-based activation from three independent studies to identify reliable brain regions (“nodes”) of each network. We then examined pairwise connections (“edges”) between nodes, as defined by resting-state functional connectivity MRI. Importantly, we used a novel bootstrap resampling procedure to determine the reliability of graph edges. Further, we examined both full and partial correlations. As predicted, there was a higher degree of integration within each network than between networks. Critically, whereas the default and dorsal attention networks shared little positive connectivity with one another, the frontoparietal control network showed a high degree of between-network interconnectivity with each of these networks. Further, we identified nodes within the frontoparietal control network of three different types –  default-aligned ,  dorsal attention-aligned , and  dual-aligned  – that we propose play dissociable roles in mediating internetwork communication. The results provide evidence consistent with the idea that the frontoparietal control network plays a pivotal gate-keeping role in goal-directed cognition, mediating the dynamic balance between default and dorsal attention networks. 
+ 
+ 
+ Bootstrap resampling 
+ default mode 
+ graph theory 
+ partial correlation 
+ resting-state functional connectivity MRI 
+ 
+ 
+ 
+ National Institute on Aging : NIA 
+ R01 AG008441 || AG 
+ 
+ 
+ 
+ 
+ A growing number of studies have shown that examining spontaneous low-frequency blood oxygenation level-dependent (BOLD) signal fluctuations across the human brain using fMRI reveals dissociable functional-anatomic networks ( Biswal, Yetkin, Haughton, & Hyde, 1995 ;  Fox & Raichle, 2007 ). These findings, in turn, have lead to significant advances in identifying the brain’s intrinsic functional architecture (e.g.  Power et al., 2011 ;  Sepulcre et al., 2010 ;  Yeo et al., 2011 ). Spatially distributed task-driven activity coheres to these intrinsic connectivity patterns ( Laird et al., 2011 ;  Smith et al., 2009 ), suggesting that intrinsic connectivity networks form meaningful neurocognitive networks ( Bressler & Tognoli, 2006 ). Differentiation of intrinsic networks has revealed specialized information processing modules, but dynamic patterns of regional co-activation and internetwork coupling are nonetheless necessary to support complex cognition ( McIntosh, 2000 ). As increasing numbers of dissociable and functionally specialized intrinsic networks are identified, characterizing connectivity among them is increasingly important. 
+ Spatially distinct and functionally competitive, the “default” and “dorsal attention” networks subserve internally- and externally-directed cognition, respectively ( Andrews-Hanna, 2012 ;  Corbetta & Shulman, 2002 ;  Fox et al., 2005 ). The default network includes medial prefrontal cortex, posterior cingulate cortex (pCC), superior and inferior frontal gyri, medial and lateral temporal lobes and the posterior extent of the inferior parietal lobule (pIPL) ( Buckner, Andrews-Hanna, & Schacter, 2008 ). The dorsal attention network consists of dorsolateral prefrontal cortex (dlPFC), frontal eye fields, inferior precentral sulcus, superior occipital gyrus, middle temporal motion complex and superior parietal lobule ( Corbetta & Shulman, 2002 ;  Fox et al., 2005 ). We have demonstrated that a third, spatially interposed, “frontoparietal control” network ( Niendam et al., 2012 ;  Vincent, Kahn, Snyder, Raichle, & Buckner, 2008 ) plays a role in goal-directed cognition by flexibly coupling with either the default or dorsal attention network ( Spreng & Schacter, 2011 ;  Spreng, Stevens, Chamberlain, Gilmore, & Schacter, 2010 ). The frontoparietal control network includes lateral prefrontal cortex, precuneus (PCu), the anterior extent of the inferior parietal lobule (aIPL), medial superior prefrontal cortex (msPFC) and the anterior insula (aINS) ( Niendam et al., 2012 ;  Spreng et al., 2010 ;  Vincent et al., 2008 ). Characterization of the frontoparietal control network is generally consistent with the “executive control” network (e.g.,  Seeley et al., 2007 ) and includes connectivity with the aINS and msPFC, regions associated with the salience network that have been implicated in modulating default network activity ( Menon & Uddin, 2010 ;  Seeley et al., 2007 ). Although frontoparietal control regions are anatomically well situated to couple with each of the other networks because they are spatially interposed between default and dorsal attention regions, little is known about the intrinsic functional architecture that facilitates this interaction. Here, we use network graph theory to characterize and quantify connectivity both within and between these three large-scale brain networks. 
+ Graph theory provides powerful tools to characterize properties of functional brain networks ( Rubinov & Sporns, 2010 ). This method examines pairwise connections (“edges”) between regions of interest (ROIs: “nodes”), elucidating both between- and within-network connectivity patterns. However, the validity of networks emerging from graph analysis is sensitive to node selection: functionally defined ROIs provide better estimates than structural atlases or arbitrarily defined sampling grids ( Power et al., 2011 ;  Smith et al., 2011 ;  Wig, Schlaggar, & Petersen, 2011 ; see also  Sepulcre, Sabuncu & Johnson, 2012 ). We used reliable task-based activity from three independent samples ( Spreng & Schacter, 2011 ;  Spreng et al., 2010 , R. N. Spreng, A. W. Gilmore,. & D. L. Schacter, unpublished observations) to identify default, dorsal attention and frontoparietal control network nodes. Importantly, reliable task-based activation in these studies was identified using the multivariate technique known as spatiotemporal partial least squares (PLS:  Krishnan, Williams, McIntosh, & Abdi, 2011 ;  McIntosh, Chau, & Protzner, 2004 ). Unlike other techniques that quantify activation in terms of task-related amplitude differences of the BOLD signal response on an independent voxel-wise basis (e.g.  Dosenbach et al., 2007 ;  Power et al., 2011 ), PLS identifies reliable whole-brain patterns of covariance related to different tasks. Thus, we defined the default, dorsal attention, and frontoparietal control network nodes as spatially distributed regions showing reliable, dissociable task-related patterns of covariance. We have previously demonstrated that, topographically, these task-defined networks are strikingly similar to corresponding intrinsic connectivity networks as identified by independent resting-state functional connectivity MRI (rsfcMRI) analyses ( Spreng et al., 2010 ). 
+ We then used rsfcMRI and graph theory analyses to identify specific pairwise intrinsic connectivity patterns within and between these large-scale networks. Here we identified edges using both full and partial correlation methods. Partial correlations – i.e., correlations between given pairs of nodes adjusted by regressing out the timeseries of other nodes – are more robust to common sources of noise in resting datasets and are more sensitive than full correlation methods ( Smith et al., 2011 ). Partial correlations can also be used to distinguish direct from indirect functional connections, allowing us to characterize patterns of effective connectivity within and among intrinsic networks. 
+ Despite the increased sensitivity of partial correlation methods, discriminating reliable from spurious edges remains a significant challenge. Many published rsfcMRI studies have set arbitrary thresholds to remove potentially spurious edges (e.g. r > .20; 10% connectivity). While this is an expedient and ubiquitous practice, such methods may remove weak, yet highly reliable, connections that may play a significant role in network interactivity. Here we used a bootstrap resampling procedure ( Efron & Tibshirani, 1986 ), applied to our knowledge for the first time to rsfcMRI data, to determine reliable functional connections. This approach takes advantage of variability in our data to empirically determine reliable edges across a wider range of connectivity strengths than has been done with traditional thresholding methods. While we predicted little positive connectivity between dorsal attention and default networks, consistent with previous reports (e.g.  Fox et al., 2005 ), we predicted that frontoparietal control network regions would show extensive functional coupling with both default and dorsal attention networks. If confirmed, this pattern would add critical evidence, supporting and extending our previous findings using task-related functional connectivity ( Spreng & Schacter, 2011 ;  Spreng et al., 2010 ), that the frontoparietal control network mediates goal-directed cognition by modulating the dynamic balance between default and dorsal attention networks. 
+ 
+ Methods 
+ 
+ Defining Network Nodes 
+ Network nodes were defined by significant and reliable task-based regional activation within the default, dorsal attention and frontoparietal control networks across three independent samples totaling 63 young healthy adults (Sample 1: n = 20,  M age  = 21.3 ± 3.2y,  Spreng et al., 2010 ; Sample 2: n = 18,  M age  = 22.8 ± 2.4y,  Spreng & Schacter, 2011 ; Sample 3: n = 25,  M age  = 23.2 ± 2.3y, Spreng, R.N., Gilmore, A.W., & Schacter, D.L., unpublished observations). Scanning parameters and study details can be found in published reports ( Spreng & Schacter, 2011 ;  Spreng et al., 2010 ) or are available from the authors (Spreng et al., unpublished observations. Scanning parameters from for Sample 2 and 3 were identical). In brief, each of the networks comprised peak regions that were isolated in a multivariate spatio-temporal PLS ( Krishnan et al., 2011 ) analysis of three tasks: autobiographical planning, visuospatial planning, and counting. The autobiographical planning task involved primarily internally directed cognition, with participants making personal plans in response to cued goals (e.g. freedom from debt). The visuospatial planning task was the Tower of London, which involves primarily externally directed cognition, as participants determine the minimum number of moves to solve a visual puzzle. The counting task involved the sequential counting of vowels in random letter sequences, a low-demand externally directed task. All stimuli were visually matched (see  Spreng et al., 2010  for task details and stimuli figure). The autobiographical planning task engaged the default network while the visuospatial planning task engaged the dorsal attention network. The frontoparietal control network was engaged by both planning tasks, relative to counting. Spatially distributed task-based activity was topographically consistent with the default, dorsal attention and frontoparietal control intrinsic connectivity networks ( Spreng et al., 2010 ). The composite network maps used here were derived from the statistically significant activation maps for each network from a group analysis of each of the three independent samples ( p  < .005, no correction for multiple comparisons was required because the multivariate analysis was performed in a single analytic step;  Krishnan et al., 2011 ). The composite network maps (default, dorsal attention, and frontoparietal control) represent the spatial overlap of significant activity within these networks from all three independent samples. Only significant voxels observed from all three studies were retained to functionally define the networks (right posterior inferior parietal lobule and right superior frontal gyrus (SFG) were significant in two out of three samples and were included here to maintain the bilateral composition of each network).  Figure 1(A–C)  displays mean activity across the study samples. The composite networks are displayed on the fiducial surface map (population average landmark surface: PALS-B12) using CARET software ( Van Essen, 2005 ). Each network node comprised a 5mm radius sphere centered on the mean peak maxima from the composite network map, depicted in  Figure 1D . In the left hemisphere, the dorsal attention network ROI in dlPFC and the frontoparietal control network ROI in MFG (BA9) overlapped by a single voxel. This voxel was removed from both ROIs in all subsequent analysis. All other ROIs were spatially distinct. The integrity of the anatomical boundaries of the globus pallidus, thalamus and caudate was not preserved within our 5mm radius ROI spheres and were excluded from the analysis. However, in a preliminary graph analysis of 70 subjects using unequally sized ROIs, these subcortical structures formed their own module and did not impact the current pattern of results. All nodes, anatomical labels and their abbreviations, peak coordinates in Montréal Neurological Institute (MNI) space, and task- and rest-based network affiliations are listed in  Table 1 . 
+ 
+ 
+ Defining Network Edges 
+ The network edges were defined by reliable resting-state full and partial correlations between the nodes. Resting-state BOLD data from 105 young healthy adult participants (54 women;  M age  = 23.3 ± 2.2y; 43 participants were also used to identify task-based nodes ( Spreng & Schacter, 2011 ; Spreng et al., unpublished observations)) were acquired with a 3.0T Siemens TimTrio MRI scanner with a 32-channel phased-array whole-head coil. Anatomical scans were acquired using a T1-weighted multi-echo volumetric MRI sequence (TR = 2200ms; TE’s = 1.54, 3.36, 5.18, 7.01ms; 7° flip angle; 1.2mm isotropic voxels). The BOLD functional scan was acquired with a T2*-weighted EPI pulse sequence (TR = 3000ms; TE = 30ms; 85° flip angle; 47 axial slices parallel to the plane of the anterior commissure–posterior commissure; 3.0mm isotropic voxels). Six minutes and 12 seconds of BOLD data (124 time-points) were acquired in a darkened room with participants’ eyes open. Thirty participants’ data were acquired prior to performing any task. A plurality of study paradigms (object recognition, prospective memory, planning) were performed prior to resting-state data acquisition. The fMRI data were preprocessed using SPM2. The first 4 volumes were excluded from analyses to allow for T1-equilibration effects. Data were corrected for slice-dependent time shifts and for head motion within and across runs using a rigid body correction. Images were then spatially normalized to the standard space of the MNI atlas, yielding a volumetric time series resampled at 2mm cubic voxels. After standard preprocessing, resting-state data were subjected to additional preprocessing steps described previously ( Van Dijk et al., 2010 ). First, a temporal low-pass filter was applied to the atlas-aligned BOLD data, retaining signal with frequency less than 0.08Hz. Data were then spatially smoothed with a Gaussian kernel, full-width half-maximum of 6mm. Next, sources of variance of non-interest were removed from the data by regressing the following nuisance variables (in addition to first temporal derivative of each): the six motion parameters obtained during the motion correction procedure, the mean signal from the lateral ventricles, the mean signal from a region within the deep cerebral white matter, and the mean whole-brain signal. Global signal regression is a powerful technique utilized to eliminate a large proportion of the noise in resting-state data from numerous sources, both physiological and environmental ( Fox et al., 2009 ;  Van Dijk et al., 2010 ). In order to minimize any potentially confounding effects of global signal regression (i.e. introducing negative correlations;  Murphy et al., 2009 ), only positive correlations among network nodes were included in our graph analysis. Finally, the BOLD signal time-course for each participant was extracted from each of the 43 ROIs (defined above,  Table 1 ). 
+ The correlation coefficient for each ROI’s time-course with the time-course for every other ROI was first computed using Pearson’s product-moment formula. We then determined reliable positive full correlations, based on variability in our own data sample by implementing a bootstrapping procedure. We used the bias corrected-accelerated percentile method (Mathworks, 2011) to determine the 99.99% confidence interval for each correlation. A resampling rate of 10,000 was selected to ensure the reliability and stability of each confidence interval estimate ( Carpenter & Bithell, 2000 ;  Davidson & MacKinnon, 2000 ;  Efron & Tibshirani, 1986 ). All reliable positive full correlations (i.e. lower-bound confidence intervals greater than zero) were retained. 
+ As partial correlation methods have demonstrated enhanced sensitivity for edge detection in rsfcMRI data and allow for estimation of direct connections between nodes ( Marrelec et al., 2006 ;  Smith et al., 2011 ), we also constructed a partial correlation matrix in which all correlations were orthogonalized with regard to all other reliable positive full correlations. Specifically, we did not partial out the time-courses of all other 41 nodes. Partialling out variance from a large number of variables can result in mathematical irregularities that can distort the underlying patterns in the data. Instead, we partialled out only the time-courses of other nodes with reliable (i.e. > 99.99% confidence) positive full correlations with either of the two nodes of interest for each pairwise comparison. This process reduced the possibility of distortion to the partial correlation matrix due to Berkson’s paradox ( Berkson, 1946 ), which could occur if we were to partial out negative correlations introduced when regressing out global mean signal ( Murphy, Birn, Handwerker, Jones, & Bandettini, 2009 ). Although controlling for 41 variables across 120 time-points would not have rendered the matrix rank deficient, reducing the number of covariates permits a more stable estimate of direct connectivity due to the gain in degrees of freedom. The partial correlations were then bootstrapped following the same procedure as for the full correlations. 
+ 
+ 
+ Network Analysis 
+ Connectional modularity of the graph was determined using a hierarchical-clustering algorithm applied to the full correlation matrix (average linkage method; Cluster v3.0, 1988, Stanford University). In  Figure 2 , the upper triangle of the correlation matrix contains the full correlations; the lower triangle contains the partial correlations. We then represented the network topology of the full and partial correlations in graphs generated using the  Kamada-Kawai energy algorithm (1989) , implemented in Pajek software ( Figure 3  and  4 ;  De Nooy et al., 2005 ). The Kamada-Kawai algorithm produces spring-embedded layouts based on minimizing the difference between geometric and pair-wise shortest path distances of nodes in the graph. The line-weight of the edges represents the magnitude of the correlation between nodes; node-size represents the magnitude of betweenness-centrality ( Freeman 1977 ), a quantitative network metric that identifies the main “bottlenecks”. Betweenness-centrality was selected rather than other network centrality measures because of its ability to explicitly detect main interconnector nodes between network and network modules (see  Rubinov & Sporns, 2010 ). 
+ 
+ 
+ 
+ Results 
+ Reliable task-based recruitment of the three networks across the three independent samples is depicted in  Figure 1  and the peak coordinates are listed in  Table 1 . Intrinsic connectivity among functionally defined ROIs from our previous study was high. Of all possible full correlations among these 43 nodes, 36.4% were determined to be reliable based on bootstrap-estimation of confidence intervals derived from our sample. Mean connectivity was r = .27 (SD = .12; range: .08–.64). For the partial correlations, the graph was sparser, with 12.1% of all possible connections determined to be reliable. Mean connectivity was r = .18 (SD = .09; range: .08–.54). The majority of the task-defined regions retained their network affiliation at rest, as determined by the clustering algorithm of the full correlations ( Figure 2 ,  Table 1 ). Some regions did shift in their network affiliation. The right SFG, engaged during task with regions of the default network, showed a greater intrinsic functional association with the frontoparietal control network. The dlPFC and dorsal anterior cingulate cortex, engaged during task with regions of the dorsal attention network, also showed a greater intrinsic functional association with the frontoparietal control network. The temporoparietal junction, engaged during task with regions of the frontoparietal control network, showed a greater intrinsic functional association with the default network. The PCu, engaged during task with regions of the frontoparietal control network, showed a greater intrinsic functional association with the default network. Notably, no regions shifted affiliation between the default and dorsal attention networks (See  Table 1  for all regions’ network associations). 
+ Next, we sought to assess the magnitude of the within- versus between- network correlations identified by the hierarchical clustering algorithm. While not independent from the original threshold connectivity matrix, this analysis provides additional information regarding the product of the hierarchical clustering algorithm. When we assessed Fisher’s r-to-z transformed magnitude of correlations within and between networks, the magnitude of within network connectivity was significantly greater than between network connectivity. This observation was true for both the full correlations (t(268) = 9.34,  p  < .001, equal variances not assumed; mean within network connectivity:  r  = .30, SD = .13, range = .08–.64, n = 247; mean between network connectivity:  r  = .19, SD = .07, range = .09–.48, n = 82) and the partial correlations (t(61) = 3.74,  p  < .001, equal variances not assumed; mean within network connectivity:  pr  = .19, SD = .09, range = .09–.54, n = 88; mean between network connectivity:  pr  = .14, SD = .05, range = .08–.27, n = 21). 
+ A central goal of the current study was to examine patterns of intrinsic functional interactions among brain networks subserving the direction of goal-oriented cognition. Three distinct patterns emerged ( Figure 3  and  4 ). First, within each network, there was a high degree of integration ( Figures 2  and  3 ). Connections were sparser, however, when estimated by partial correlations ( Figures 2  and  4 ). Second, the frontoparietal control network was functionally interposed between the dorsal attention and default networks, with extensive connectivity observed between frontoparietal control and both default and dorsal attention networks ( Figures 3  and  4 ). The two nodes with the highest betweenness-centrality in the graph of the full correlations were within the frontoparietal control network – bilateral middle frontal gyrus (MFG) Brodmann area (BA) 6. When examining the partial correlations, the region with the greatest betweenness centrality was medial superior prefrontal cortex (msPFC), another region of the frontoparietal control network. The functional roles of both of these frontoparietal control network regions – MFG (BA6) and msPFC – are discussed below. 
+ Third, analysis of both full and partial correlations revealed three dissociable types of nodes within the frontoparietal control network:  dual-aligned ,  default-aligned , and  dorsal attention-aligned  nodes.  Dual-aligned nodes  showed connectivity with both the default and dorsal attention networks and included both MFG(BA6) regions, left MFG(BA9), left anterior insula (aINS), dorsal anterior cingulate cortex and msPFC. Regions directly connected to both the default and dorsal attention networks, as defined by partial correlations, were bilateral MFG(BA6) regions and the msPFC.  Default-aligned nodes  of the frontoparietal control network included left aIPL and left rostrolateral prefrontal cortex, with direct connectivity of the left aIPL.  Dorsal attention-aligned nodes  of the frontoparietal control network were bilateral dlPFC and right lateralized MFG(BA9), rostrolateral prefrontal cortex, aINS and aIPL. Direct connectivity with the dorsal attention-aligned nodes was specific to bilateral dlPFC, bilateral aINS and right aIPL. Although we highlight specific frontoparietal control network nodes here, all frontoparietal control nodes showing connectivity to default and dorsal attention network nodes are visible in  Figure 2  (e.g. the msPFC frontoparietal control network region is directly connected, estimated by partial correlation, with the left frontal eye fields and left inferior precentral sulcus of the dorsal attention network and the left inferior frontal gyrus and left SFG of the default network). 
+ 
+ 
+ Discussion 
+ Complex cognition can be characterized as an emergent property of interactions among spatially distributed functional brain networks. Yet efforts to map network interactivity are just beginning and methodological challenges remain. Here we examined intrinsic connectivity within an established three-network model of goal-directed cognition ( Spreng et al., 2010 ;  Vincent et al., 2006 ). Intrinsic connectivity networks largely overlapped with the task-driven network identification, consistent with previous suggestions that intrinsic connectivity provides a latent functional architecture that may be readily engaged in the service of cognition ( Laird et al., 2011 ;  Raichle, 2010 ;  Smith et al., 2009 ). Within-network connectivity was consistent with prior characterizations of the spatial extent of the default, dorsal attention, and frontoparietal control networks (e.g.  Vincent et al., 2008 ) and with partial correlations within the default network ( Fransson & Marrelec, 2008 ). Graph analyses of functional connections across the three networks demonstrated that the frontoparietal control network is functionally interposed between the dorsal attention and default networks. This feature is consistent with both its interposed regional neuroanatomy ( Vincent et al., 2008 ) and its ability to flexibly couple with either the default or dorsal attention network depending on task domain ( Spreng et al., 2010 ). Further examination of network connectivity, using full and partial correlations, revealed a differentiated structure among the frontoparietal control network nodes, with different nodes demonstrating preferred connectivity with either default, dorsal attention, or both networks. This connectivity pattern is consistent with the hypothesized roles of the frontoparietal control network in mediating internally- and externally-oriented, goal-directed cognition ( Smallwood, Brown, Baird, & Schooler, 2012 ;  Spreng et al., 2010 ;  Spreng, 2012 ), and maintaining the dynamic balance between default and dorsal attention networks ( Doucet et al., 2011 ;  Gao & Lin, 2012 ; see also  Menon & Uddin, 2010 ). 
+ Evidence suggests that patterns of intrinsic connectivity are sculpted by a history of repeated task-driven co-activation of brain regions, which in turn facilitates efficient coupling within task-relevant networks during future task performance. First, several studies have demonstrated that spontaneous resting-state BOLD fluctuations are subtly modulated by previous experience in task-relevant brain regions, and that the extent of modulation predicts future performance ( Lewis, Baldassarre, Committeri, Romani, & Corbetta, 2009 ;  Stevens, Buckner, & Schacter, 2010 ;  Tambini, Ketz, & Davachi, 2010 ). Second, individual differences in intrinsic connectivity strength within task-relevant networks predict differences in performance ( Baldassarre et al., 2012 ;  Koyama et al., 2011 ;  Mennes et al., 2010 ;  Zhu et al., 2012 ). Taken together, these findings suggest that the identification, characterization, and quantification of intrinsic neurocognitive networks can elucidate the link between experience, intrinsic functional architecture, and cognitive performance. 
+ All regions included in the rsfcMRI analysis were identified by reliable task-based engagement across three independent samples. While a majority of regions retained their network affiliation from task to rest, there was some realignment of nodes among the three networks. This change in network affiliation suggests that these particular regions may have a more flexible connectivity profile, dynamically altering connections and network allegiance based on task demands. Indeed, all such regions were on the boundary between networks in our intrinsic connectivity graph (ie, color transition zones;  Figures 3  and  4 ), consistent with a flexible coupling hypothesis. One such connector region between default and dorsal attention networks was the PCu. Recent neuroimaging evidence suggests a functional dissociation between PCu and posterior cingulate regions of medial parietal cortex ( Leech, Kamourieh, Beckmann, & Sharp, 2011 ;  Margulies et al., 2009 ;  Spreng et al., 2010 ). The PCu may be more flexibly engaged in executive control and is observed here to act as a cross-network connector. Among default network nodes, the PCu also demonstrated a relatively high degree of betweenness-centrality, further supporting its role as a network connector ( Figure 3 ). By contrast, the posterior cingulate region, ventral and specific to perisplenial cortex, showed a relatively lower degree of betweenness-centrality, with dense functional connectivity primarily restricted to the default network. This dissociation of regions is likely due to our more sensitive task-based definition of the default network as regions activated by an autobiographical task rather than relying on externally driven patterns of task-induced deactivation, which frequently include the PCu region as part of the default network. 
+ A region that was aligned with the default network in both our task-based and resting sate analyses, but has been consistently overlooked in the literature, is the left SFG. This region is functionally connected to most of the default network and shows direct connectivity with regions in medial prefrontal cortex and left inferior frontal gyrus. This region is also connected to a number of distributed frontoparietal control network structures, with direct connections to left MFG(BA6) and msPFC in our partial correlation analyses. We hypothesize that the left SFG may be a key region of the default network, critical for interacting with frontoparietal control regions in the lateral prefrontal cortex in support of internally focused, goal-directed cognition. The main connectivity route of the dorsal attention network to the frontoparietal control network might be via the bilateral dlPFC regions. Identified in task data as part of the dorsal attention network, these regions showed a greater intrinsic association with the frontoparietal control network. Conversely, bilateral dlPFC regions showed no connectivity with the default network. These results suggest that the dlPFC may provide a lateral prefrontal extension of the dorsal attention network. Indeed, these specific dlPFC regions are the most antagonistic with the default network ( Chai, Castanon, Ongur, & Whitfield-Gabrieli, 2012 ;  Hampson, Driesen, Roth, Gore, & Constable, 2010 ), while other regions of lateral prefrontal cortex show positive connectivity with the default network. 
+ Greater connectivity within than between networks is a necessary product of the hierarchical clustering algorithm. It has broad implications, however, for retaining connectivity between networks in the analysis of graphs. Between-network connections will be omitted from the analysis of graphs disproportionately more than within-network connections as a threshold is raised arbitrarily. The bootstrap procedure, applied here for the first time to threshold edges in a rsfcMRI graph analysis, is an optimal procedure to identify weak yet highly reliable connections. Weak and reliable connections may be critical for understanding network level interactivity by providing a mechanism for the “fine tuning” of neuronal signals. Low yet reliable connectivity could provide a means for information to enter or leave a modular system without dominating the information processing. 
+ Partial correlations also provide a more specific estimate of connectivity in rsfcMRI analysis than full correlations by removing spurious correlations and providing an estimate of direct functional connectivity among network nodes ( Smith et al., 2011 ). Our full correlation analyses provided broad evidence for an interacting network model of goal-directed cognition with the frontoparietal control network mediating a dynamic balance between default and attention networks. Partial correlation results provide a much more sparse network structure, and a further refinement of this model, identifying a differentiated architecture of direct connectivity with frontoparietal regions that is consistent with the network’s purported role in goal-directed cognition. Specifically, partial correlations identified dual-aligned frontoparietal control regions that showed reliable functional interactions with both default and dorsal attention networks. These included bilateral posterior-lateral MFG(BA6) regions and msPFC. The interactivity of posterior MFG with both dorsal attention and default networks is consistent with the characterization of this region as a global hub using an anatomical automatic labeling atlas ( He et al., 2009 ). However, the functional relevance of this connectivity is not well understood. Domain specific information from either the default or dorsal attention network may enter lateral prefrontal cortex through posterior MFG, and traverse the hierarchically organized caudal-rostral axis as contingent processing demands increase ( Badre & D’Esposito, 2009 ;  Christoff & Gabrieli, 2000 ). 
+ In addition to bilateral posterior MFG regions, the msPFC also showed dual network connectivity. This region overlaps with the pre-supplementary motor area, a region involved in motor planning based on internally generated thought; the most anterior aspect, closest to the msPFC ROI, is engaged in motor planning based on the contents of working memory ( Chung, Han, Jeong, & Jack, 2005 ). Similarly, the posterior lateral MFG regions lie within premotor cortex. Lateral premotor cortex is involved in motor planning based on externally generated information ( Grafton, Fagg, & Arbib, 1998 ;  Pesaran, Nelson, & Andersen, 2006 ). These regions, which are critical for implementation of goal-directed action, are directly (based on partial correlations) connected to both default and dorsal attention networks and may provide a flexible control system for translating goal-directed cognitive processing into action. 
+ These partial correlation results suggest that the frontoparietal control network is well-positioned to modulate internally- and externally-focused cognitive processes and to interact with both dorsal attention and default networks to guide goal-directed behavior. Moreover, direct connectivity within the default and frontoparietal control networks, estimated here by partial correlations, aligns well with white matter tracts estimated by diffusion tractography ( Greicius, Supekar, Menon, & Dougherty, 2009 ;  Uddin, Supekar, Ryali, & Menon, 2011 ;  van den Heuvel, Mandl, Kahn, & Hulshoff Pol, 2009 ). Thus partial rsfcMRI correlations may also provide a plausible neuroanatomical model of brain connectivity, which could in turn be utilized in a directed analysis of effective connectivity. 
+ Characterization of brain regions in terms of between versus within network connectedness may also have important implications for understanding functional deficits following brain injury. Early reports described the application of neuroimaging methods to mapping localized changes in brain structure and function to behavioural deficits in neurological populations (e.g.  Corkin, 1998 ,  2002 ;  Price and colleagues, 2001 ). Emergent methods allow us to look beyond localized changes to investigate changes in large-scale brain networks. For example,  Gratton and colleagues (2012)  demonstrated that localized damage to brain regions having high ‘connectedness’ disrupt activity within distributed networks and may underlie the extensive neuropsychological deficits often reported after localized brain damage.  Bonnelle and colleagues (2012)  recently reported that inhibitory behavioral deficits following brain injury were associated with white matter connectivity between the aINS and msPFC and the functional suppression of default network activity. Thus, better characterization of network connectivity may be an important step towards improving diagnostic and prognostic capabilities in the treatment of brain injury and disease. 
+ Similar task-based ROI definition approaches have been reported ( Dosenbach et al., 2007 ;  Power et al., 2011 ) that provide more valid and precise delineation of network topology than anatomical atlases ( Smith et al., 2011 ). While our approach to node definition differs markedly from that of others in some respects (cf., nodes associated with nine different behaviors and/or “signal types”;  Power et al., 2011 ), our findings are novel and complement previous work. For example, while the frontoparietal control network we have defined here is broadly consistent with the “fronto-parietal system” as defined by  Power et al. (2011) , our characterization clearly encompasses a set of regions in lateral frontal, parietal, and temporal cortices that constitute an “unidentified subgraph” implicated in memory retrieval ( Nelson et al., 2010 ;  Power et al., 2011 ). Our results suggest that these regions are more likely involved in cognitive control operations, and specifically, in orienting the focus of attention to the external or internal environment, than memory retrieval per se. Our data are generally consistent with recent literature demonstrating extensive connectivity among subnetworks of putative ‘task-positive’ brain regions, including the dorsal attention and frontoparietal control networks ( Power et al., 2011 ). Dorsal attention-aligned nodes of the frontoparietal control network included the aINS, right aIPL and dlPFC. The right aINS has previously been identified as a critical node for suppressing default activity and re-allocating attentional resources to salient events ( Sridharan, Levitin, & Menon, 2008 ). The default-aligned node, left aIPL, has been observed to facilitate modulation (i.e. suppression) of the default network ( Menon & Uddin, 2010 ). These processes likely work in tandem with dual-node frontoparietal control operations to transform goal-directed cognition into action. An important focus of future work will be to identify the relationship between various putative cognitive control systems, as defined by different researchers using complementary approaches, and to further improve and validate methods of identifying a comprehensive set of nodes representing functional areas of the brain ( Wig et al., 2011 ). 
+ In conclusion, based on our analyses employing a graph theoretical approach combined with a novel method of evaluating reliability of network connectivity, the results we report here add new pieces to the puzzle of how large-scale brain networks interact with one another in service of higher-level cognition. First, we utilized a robust task based approach to identify functional regions of the brain. Second, our bootstrap resampling procedure allowed us to identify and retain weak yet highly reliable connections among network nodes in our graph analyses, which we argue may be critical for characterizing flexible between-network interactivity. Third, in addition to full correlations, we analyzed partial correlations among nodes in our network analyses, which provided additional and complimentary information about the specificity (i.e., direct vs. indirect connections) of connectivity among particular network nodes. This novel combination of techniques allowed us to identify highly interconnected nodes of three different types within the frontoparietal control network: default network-aligned, dorsal attention network-aligned, and dual network-aligned nodes. We propose that this differentiated intrinsic organization may be a fundamental property that underlies the frontoparietal control network’s pivotal role as a gate-keeper, transiently mediating goal-directed cognition by flexibly coupling with either the default or dorsal attention network, driving internally or externally directed cognition. 
+ 
+ 
+ 
+ We thank Adrian Gilmore, Scott Guerin, and Cliff Robbins for assistance with data collection, Kelly Ann Barnes for assistance with Caret, and the Harvard Center for Brain Science Neuroimaging Core and the Harvard Neuroinformatics Research Group for imaging support. This work was supported by NIMH grant MH060941 to DLS. 
+ 
+ 
+ 
+ 
+ 
+ 
+ Andrews-Hanna 
+ JR 
+ 
+ 
+ 2012 
+ The Brain’s Default Network and Its Adaptive Role in Internal Mentation 
+ Neuroscientist 
+ 18 
+ 251 
+ 270 
+ 21677128 
+ 
+ 
+ 
+ 
+ 
+ 
+ Badre 
+ D 
+ 
+ 
+ D’Esposito 
+ M 
+ 
+ 
+ 2009 
+ Is the rostro-caudal axis of the frontal lobe hierarchical? 
+ Nature Reviews Neuroscience 
+ 10 
+ 9 
+ 659 
+ 669 
+ 
+ 
+ 
+ 
+ 
+ 
+ Baldassarre 
+ A 
+ 
+ 
+ Lewis 
+ CM 
+ 
+ 
+ Committeri 
+ G 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Romani 
+ GL 
+ 
+ 
+ Corbetta 
+ M 
+ 
+ 
+ 2012 
+ Individual variability in functional connectivity predicts performance of a perceptual task 
+ Proceedings of the National Academy of Sciences, United States of America 
+ 109 
+ 9 
+ 3516 
+ 3521 
+ 
+ 
+ 
+ 
+ 
+ 
+ Berkson 
+ J 
+ 
+ 
+ 1946 
+ Limitations of the application of fourfold table analysis to hospital data 
+ Biometrics 
+ 2 
+ 3 
+ 47 
+ 53 
+ 21001024 
+ 
+ 
+ 
+ 
+ 
+ 
+ Biswal 
+ B 
+ 
+ 
+ Yetkin 
+ FZ 
+ 
+ 
+ Haughton 
+ VM 
+ 
+ 
+ Hyde 
+ JS 
+ 
+ 
+ 1995 
+ Functional connectivity in the motor cortex of resting human brain using echo-planar MRI 
+ Magnetic Resonance in Medicine 
+ 34 
+ 4 
+ 537 
+ 541 
+ 8524021 
+ 
+ 
+ 
+ 
+ 
+ 
+ Bonnelle 
+ V 
+ 
+ 
+ Ham 
+ TE 
+ 
+ 
+ Leech 
+ R 
+ 
+ 
+ Kinnunen 
+ KM 
+ 
+ 
+ Mehta 
+ MA 
+ 
+ 
+ Greenwood 
+ RJ 
+ 
+ 
+ Sharp 
+ DJ 
+ 
+ 
+ 2012 
+ Salience network integrity predicts default mode network function after traumatic brain injury 
+ Proceedings of the National Academy of Sciences, United States of America 
+ 109 
+ 12 
+ 4690 
+ 4695 
+ 
+ 
+ 
+ 
+ 
+ 
+ Bressler 
+ SL 
+ 
+ 
+ Tognoli 
+ E 
+ 
+ 
+ 2006 
+ Operational principles of neurocognitive networks 
+ International Journal of Psychophysiology 
+ 60 
+ 2 
+ 139 
+ 148 
+ 16490271 
+ 
+ 
+ 
+ 
+ 
+ 
+ Buckner 
+ RL 
+ 
+ 
+ Andrews-Hanna 
+ JR 
+ 
+ 
+ Schacter 
+ DL 
+ 
+ 
+ 2008 
+ The brain’s default network: anatomy, function, and relevance to disease 
+ Annals of the New York Academy of Sciences 
+ 1124 
+ 1 
+ 38 
+ 18400922 
+ 
+ 
+ 
+ 
+ 
+ 
+ Carpenter 
+ J 
+ 
+ 
+ Bithell 
+ J 
+ 
+ 
+ 2000 
+ Bootstrp intervals: when, which, what? A practical guide for medical statisticians 
+ Statistics in Medicine 
+ 19 
+ 1141 
+ 1164 
+ 10797513 
+ 
+ 
+ 
+ 
+ 
+ 
+ Chai 
+ XJ 
+ 
+ 
+ Castanon 
+ AN 
+ 
+ 
+ Ongur 
+ D 
+ 
+ 
+ Whitfield-Gabrieli 
+ S 
+ 
+ 
+ 2012 
+ Anticorrelations in resting state networks without global signal regression 
+ Neuroimage 
+ 59 
+ 2 
+ 1420 
+ 1428 
+ 21889994 
+ 
+ 
+ 
+ 
+ 
+ 
+ Christoff 
+ K 
+ 
+ 
+ Gabrieli 
+ JDE 
+ 
+ 
+ 2000 
+ Frontopolar cortex and human cognition: Evidence for a rostrocaudal hierarchical organization within the human prefrontal cortex 
+ Psychobiology 
+ 28 
+ 168 
+ 186 
+ 
+ 
+ 
+ 
+ 
+ 
+ Chung 
+ GH 
+ 
+ 
+ Han 
+ YM 
+ 
+ 
+ Jeong 
+ SH 
+ 
+ 
+ Jack 
+ CR 
+ Jr 
+ 
+ 
+ 2005 
+ Functional heterogeneity of the supplementary motor area 
+ Amercian Journal of Neuroradiology 
+ 26 
+ 7 
+ 1819 
+ 1823 
+ 
+ 
+ 
+ 
+ 
+ 
+ Corbetta 
+ M 
+ 
+ 
+ Shulman 
+ GL 
+ 
+ 
+ 2002 
+ Control of goal-directed and stimulus-driven attention in the brain 
+ Nature Reviews Neuroscience 
+ 3 
+ 3 
+ 201 
+ 215 
+ 
+ 
+ 
+ 
+ 
+ 
+ Corkin 
+ S 
+ 
+ 
+ 1998 
+ Functional MRI for studying episodic memory in aging and Alzheimer’s disease 
+ Geriatrics, 53, Supplement 
+ 1 
+ S13 
+ S15 
+ 
+ 
+ 
+ 
+ 
+ 
+ Corkin 
+ S 
+ 
+ 
+ 2002 
+ What’s new with the amnesic patient H.M.? 
+ Nature Reviews Neuroscience 
+ 3 
+ 153 
+ 160 
+ 
+ 
+ 
+ 
+ 
+ 
+ Davidson 
+ R 
+ 
+ 
+ MacKinnon 
+ JG 
+ 
+ 
+ 2000 
+ Bootstrap tests: how many bootstraps? 
+ Econometric Reviews 
+ 19 
+ 1 
+ 55 
+ 68 
+ 
+ 
+ 
+ 
+ 
+ 
+ De Nooy 
+ W 
+ 
+ 
+ Mrvar 
+ A 
+ 
+ 
+ Batagelji 
+ V 
+ 
+ 
+ 2005 
+ Exploratory social network analysis with Pajek 
+ New York, NY 
+ Cambridge University Press 
+ 
+ 
+ 
+ 
+ 
+ 
+ Dosenbach 
+ NU 
+ 
+ 
+ Fair 
+ DA 
+ 
+ 
+ Miezin 
+ FM 
+ 
+ 
+ Cohen 
+ AL 
+ 
+ 
+ Wenger 
+ KK 
+ 
+ 
+ Dosenbach 
+ RA 
+ 
+ 
+ 
+ 2007 
+ Distinct brain networks for adaptive and stable task control in humans 
+ Proceedings of the National Academy of Sciences, United States of America 
+ 104 
+ 26 
+ 11073 
+ 11078 
+ 
+ 
+ 
+ 
+ 
+ 
+ Doucet 
+ G 
+ 
+ 
+ Naveau 
+ M 
+ 
+ 
+ Petit 
+ L 
+ 
+ 
+ Delcroix 
+ N 
+ 
+ 
+ Zago 
+ L 
+ 
+ 
+ Crivello 
+ F 
+ 
+ 
+ 
+ 2011 
+ Brain activity at rest: a multiscale hierarchical functional organization 
+ Journal of Neurophysiology 
+ 105 
+ 2753 
+ 2763 
+ 21430278 
+ 
+ 
+ 
+ 
+ 
+ 
+ Efron 
+ B 
+ 
+ 
+ Tibshirani 
+ R 
+ 
+ 
+ 1986 
+ Bootstrap Methods for Standard Errors, Confidence Intervals, and Other Measures of Statistical Accuracy 
+ Statistical Science 
+ 1 
+ 1 
+ 54 
+ 75 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fox 
+ MD 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ 2007 
+ Spontaneous fluctuations in brain activity observed with functional magnetic resonance imaging 
+ Nature Reviews Neuroscience 
+ 8 
+ 9 
+ 700 
+ 711 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fox 
+ MD 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Vincent 
+ JL 
+ 
+ 
+ Corbetta 
+ M 
+ 
+ 
+ Van Essen 
+ DC 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ 2005 
+ The human brain is intrinsically organized into dynamic, anticorrelated functional networks 
+ Proceedings of the National Academy of Sciences, United States of America 
+ 102 
+ 27 
+ 9673 
+ 9678 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fox 
+ MD 
+ 
+ 
+ Zhang 
+ DY 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ 2009 
+ The global signal and observed anticorrelated resting state brain networks 
+ Journal of Neurophysiology 
+ 101 
+ 3270 
+ 3283 
+ 19339462 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fransson 
+ P 
+ 
+ 
+ Marrelec 
+ G 
+ 
+ 
+ 2008 
+ The precuneus/posterior cingulate cortex plays a pivotal role in the default mode network: Evidence from a partial correlation network analysis 
+ Neuroimage 
+ 42 
+ 3 
+ 1178 
+ 1184 
+ 18598773 
+ 
+ 
+ 
+ 
+ 
+ 
+ Freeman 
+ LC 
+ 
+ 
+ 1977 
+ A set of measures of centrality based on betweeness 
+ Sociometry 
+ 40 
+ 1 
+ 35 
+ 41 
+ 
+ 
+ 
+ 
+ 
+ 
+ Gao 
+ W 
+ 
+ 
+ Lin 
+ W 
+ 
+ 
+ 2012 
+ Frontal parietal control network regulates the anti-correlated default and dorsal attention networks 
+ Human Brain Mapping 
+ 33 
+ 1 
+ 192 
+ 202 
+ 21391263 
+ 
+ 
+ 
+ 
+ 
+ 
+ Grafton 
+ ST 
+ 
+ 
+ Fagg 
+ AH 
+ 
+ 
+ Arbib 
+ MA 
+ 
+ 
+ 1998 
+ Dorsal premotor cortex and conditional movement selection: A PET functional mapping study 
+ Journal of Neurophysiology 
+ 79 
+ 2 
+ 1092 
+ 1097 
+ 9463464 
+ 
+ 
+ 
+ 
+ 
+ 
+ Gratton 
+ C 
+ 
+ 
+ Nomura 
+ EM 
+ 
+ 
+ Pérez 
+ F 
+ 
+ 
+ D’Esposito 
+ M 
+ 
+ 
+ 2012 
+ Focal Brain Lesions to Critical Locations Cause Widespread Disruption of the Modular Organization of the Brain 
+ Journal of Cognitive Neuroscience 
+ 24 
+ 1275 
+ 1285 
+ 22401285 
+ 
+ 
+ 
+ 
+ 
+ 
+ Greicius 
+ MD 
+ 
+ 
+ Supekar 
+ K 
+ 
+ 
+ Menon 
+ V 
+ 
+ 
+ Dougherty 
+ RF 
+ 
+ 
+ 2009 
+ Resting-state functional connectivity reflects structural connectivity in the default mode network 
+ Cerebral Cortex 
+ 19 
+ 1 
+ 72 
+ 78 
+ 18403396 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hampson 
+ M 
+ 
+ 
+ Driesen 
+ N 
+ 
+ 
+ Roth 
+ JK 
+ 
+ 
+ Gore 
+ JC 
+ 
+ 
+ Constable 
+ RT 
+ 
+ 
+ 2010 
+ Functional connectivity between task-positive and task-negative brain areas and its relation to working memory performance 
+ Magnetic Resonance Imaging 
+ 28 
+ 8 
+ 1051 
+ 1057 
+ 20409665 
+ 
+ 
+ 
+ 
+ 
+ 
+ He 
+ Y 
+ 
+ 
+ Wang 
+ J 
+ 
+ 
+ Wang 
+ L 
+ 
+ 
+ Chen 
+ ZJ 
+ 
+ 
+ Yan 
+ C 
+ 
+ 
+ Yang 
+ H 
+ 
+ 
+ 
+ 2009 
+ Uncovering intrinsic modular organization of spontaneous brain activity in humans 
+ PLoS One 
+ 4 
+ 4 
+ e5226 
+ 19381298 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kamada 
+ T 
+ 
+ 
+ Kawai 
+ S 
+ 
+ 
+ 1989 
+ An Algorithm for Drawing General Undirected Graphs 
+ Information Processing Letters 
+ 31 
+ 7 
+ 15 
+ 
+ 
+ 
+ 
+ 
+ 
+ Koyama 
+ MS 
+ 
+ 
+ Di Martino 
+ A 
+ 
+ 
+ Zuo 
+ X 
+ 
+ 
+ Kely 
+ C 
+ 
+ 
+ Mennes 
+ M 
+ 
+ 
+ Jutagir 
+ DR 
+ 
+ 
+ 
+ 2011 
+ Resting-State Functional Connectivity Indexes Reading Competence in Children and Adults 
+ Journal of Neuroscience 
+ 31 
+ 23 
+ 86178624 
+ 
+ 
+ 
+ 
+ 
+ 
+ Krishnan 
+ A 
+ 
+ 
+ Williams 
+ LJ 
+ 
+ 
+ McIntosh 
+ AR 
+ 
+ 
+ Abdi 
+ H 
+ 
+ 
+ 2011 
+ Partial Least Squares (PLS) methods for neuroimaging: a tutorial and review 
+ Neuroimage 
+ 56 
+ 2 
+ 455 
+ 475 
+ 20656037 
+ 
+ 
+ 
+ 
+ 
+ 
+ Laird 
+ AR 
+ 
+ 
+ Fox 
+ PM 
+ 
+ 
+ Eickhoff 
+ SB 
+ 
+ 
+ Turner 
+ JA 
+ 
+ 
+ Ray 
+ KL 
+ 
+ 
+ McKay 
+ DR 
+ 
+ 
+ 
+ 2011 
+ Behavioral interpretations of intrinsic connectivity networks 
+ Journal of Cognitive Neuroscience 
+ 23 
+ 12 
+ 4022 
+ 4037 
+ 21671731 
+ 
+ 
+ 
+ 
+ 
+ 
+ Leech 
+ R 
+ 
+ 
+ Kamourieh 
+ S 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ Sharp 
+ DJ 
+ 
+ 
+ 2011 
+ Fractionating the default mode network: distinct contributions of the ventral and dorsal posterior cingulate cortex to cognitive control 
+ Journal of Neuroscience 
+ 31 
+ 9 
+ 3217 
+ 3224 
+ 21368033 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lewis 
+ CM 
+ 
+ 
+ Baldassarre 
+ A 
+ 
+ 
+ Committeri 
+ G 
+ 
+ 
+ Romani 
+ GL 
+ 
+ 
+ Corbetta 
+ M 
+ 
+ 
+ 2009 
+ Learning sculpts the spontaneous activity of the resting human brain 
+ Proceedings of the National Academy of Sciences, United States of America 
+ 106 
+ 41 
+ 17558 
+ 17563 
+ 
+ 
+ 
+ 
+ 
+ 
+ Margulies 
+ DS 
+ 
+ 
+ Vincent 
+ JL 
+ 
+ 
+ Kelly 
+ C 
+ 
+ 
+ Lohmann 
+ G 
+ 
+ 
+ Uddin 
+ LQ 
+ 
+ 
+ Biswal 
+ BB 
+ 
+ 
+ 
+ 2009 
+ Precuneus shares intrinsic functional architecture in humans and monkeys 
+ Proceedings of the National Academy of Sciences, United States of America 
+ 106 
+ 47 
+ 20069 
+ 20074 
+ 
+ 
+ 
+ 
+ 
+ 
+ Marrelec 
+ G 
+ 
+ 
+ Krainik 
+ A 
+ 
+ 
+ Duffau 
+ H 
+ 
+ 
+ Pelegrini-Issac 
+ M 
+ 
+ 
+ Lehericy 
+ S 
+ 
+ 
+ Doyon 
+ J 
+ 
+ 
+ 
+ 2006 
+ Partial correlation for functional brain interactivity investigation in functional MRI 
+ Neuroimage 
+ 32 
+ 1 
+ 228 
+ 237 
+ 16777436 
+ 
+ 
+ 
+ 
+ 
+ 
+ McIntosh 
+ AR 
+ 
+ 
+ 2000 
+ Towards a network theory of cognition 
+ Neural Networks 
+ 13 
+ 8–9 
+ 861 
+ 870 
+ 11156197 
+ 
+ 
+ 
+ 
+ 
+ 
+ McIntosh 
+ AR 
+ 
+ 
+ Chau 
+ WK 
+ 
+ 
+ Protzner 
+ AB 
+ 
+ 
+ 2004 
+ Spatiotemporal analysis of event-related fMRI data using partial least squares 
+ Neuroimage 
+ 23 
+ 2 
+ 764 
+ 775 
+ 15488426 
+ 
+ 
+ 
+ 
+ 
+ 
+ Mennes 
+ M 
+ 
+ 
+ Kelly 
+ C 
+ 
+ 
+ Zuo 
+ XN 
+ 
+ 
+ Di Martino 
+ A 
+ 
+ 
+ Biswal 
+ BB 
+ 
+ 
+ Castellanos 
+ FX 
+ 
+ 
+ 
+ 2010 
+ Inter-individual differences in resting-state functional connectivity predict task-induced BOLD activity 
+ Neuroimage 
+ 50 
+ 4 
+ 1690 
+ 1701 
+ 20079856 
+ 
+ 
+ 
+ 
+ 
+ 
+ Menon 
+ V 
+ 
+ 
+ Uddin 
+ LQ 
+ 
+ 
+ 2010 
+ Saliency, switching, attention and control: a network model of insula function 
+ Brain Structure and Function 
+ 214 
+ 5–6 
+ 655 
+ 667 
+ 20512370 
+ 
+ 
+ 
+ 
+ 
+ 
+ Murphy 
+ K 
+ 
+ 
+ Birn 
+ RM 
+ 
+ 
+ Handwerker 
+ DA 
+ 
+ 
+ Jones 
+ TB 
+ 
+ 
+ Bandettini 
+ PA 
+ 
+ 
+ 2009 
+ The impact of global signal regression on resting state correlations: are anti-correlated networks introduced? 
+ Neuroimage 
+ 44 
+ 3 
+ 893 
+ 905 
+ 18976716 
+ 
+ 
+ 
+ 
+ 
+ 
+ Nelson 
+ SM 
+ 
+ 
+ Cohen 
+ AL 
+ 
+ 
+ Power 
+ JD 
+ 
+ 
+ Wig 
+ GS 
+ 
+ 
+ Miezin 
+ FM 
+ 
+ 
+ Wheeler 
+ ME 
+ 
+ 
+ 
+ 2010 
+ A parcellation scheme for human left lateral parietal cortex 
+ Neuron 
+ 67 
+ 1 
+ 156 
+ 170 
+ 20624599 
+ 
+ 
+ 
+ 
+ 
+ 
+ Niendam 
+ TA 
+ 
+ 
+ Laird 
+ AR 
+ 
+ 
+ Ray 
+ KL 
+ 
+ 
+ Dean 
+ YM 
+ 
+ 
+ Glahn 
+ DC 
+ 
+ 
+ Carter 
+ CS 
+ 
+ 
+ 2012 
+ Meta-analytic evidence for a superordinate cognitive control network subserving diverse executive functions 
+ Cognitive Affective Behavioral Neuroscience 
+ 12 
+ 2 
+ 241 
+ 268 
+ 
+ 
+ 
+ 
+ 
+ 
+ Pesaran 
+ B 
+ 
+ 
+ Nelson 
+ MJ 
+ 
+ 
+ Andersen 
+ RA 
+ 
+ 
+ 2006 
+ Dorsal premotor neurons encode the relative position of the hand, eye, and goal during reach planning 
+ Neuron 
+ 51 
+ 1 
+ 125 
+ 134 
+ 16815337 
+ 
+ 
+ 
+ 
+ 
+ 
+ Power 
+ JD 
+ 
+ 
+ Cohen 
+ AL 
+ 
+ 
+ Nelson 
+ SM 
+ 
+ 
+ Wig 
+ GS 
+ 
+ 
+ Barnes 
+ KA 
+ 
+ 
+ Church 
+ JA 
+ 
+ 
+ 
+ 2011 
+ Functional network organization of the human brain 
+ Neuron 
+ 72 
+ 4 
+ 665 
+ 678 
+ 22099467 
+ 
+ 
+ 
+ 
+ 
+ 
+ Price 
+ CJ 
+ 
+ 
+ Warburton 
+ EA 
+ 
+ 
+ Moore 
+ CJ 
+ 
+ 
+ Frackowiak 
+ RS 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ 2001 
+ Dynamic diaschisis: Anatomically remote and context-sensitive human brain lesions 
+ Journal of Cognitive Neuroscience 
+ 13 
+ 419 
+ 429 
+ 11388916 
+ 
+ 
+ 
+ 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ 2010 
+ Two views of brain function 
+ Trends in Cognitive Science 
+ 14 
+ 4 
+ 180 
+ 190 
+ 
+ 
+ 
+ 
+ 
+ 
+ Rubinov 
+ M 
+ 
+ 
+ Sporns 
+ O 
+ 
+ 
+ 2010 
+ Complex network measures of brain connectivity: uses and interpretations 
+ Neuroimage 
+ 52 
+ 3 
+ 1059 
+ 1069 
+ 19819337 
+ 
+ 
+ 
+ 
+ 
+ 
+ Seeley 
+ WW 
+ 
+ 
+ Menon 
+ V 
+ 
+ 
+ Schatzberg 
+ AF 
+ 
+ 
+ Keller 
+ J 
+ 
+ 
+ Glover 
+ GH 
+ 
+ 
+ Kenna 
+ H 
+ 
+ 
+ 
+ 2007 
+ Dissociable intrinsic connectivity networks for salience processing and executive control 
+ Journal of Neuroscience 
+ 27 
+ 9 
+ 2349 
+ 2356 
+ 17329432 
+ 
+ 
+ 
+ 
+ 
+ 
+ Sepulcre 
+ J 
+ 
+ 
+ Liu 
+ H 
+ 
+ 
+ Talukdar 
+ T 
+ 
+ 
+ Martincorena 
+ I 
+ 
+ 
+ Yeo 
+ BT 
+ 
+ 
+ Buckner 
+ RL 
+ 
+ 
+ 2010 
+ The organization of local and distant functional connectivity in the human brain 
+ PLoS Computational Biology 
+ 6 
+ 6 
+ e1000808 
+ 20548945 
+ 
+ 
+ 
+ 
+ 
+ 
+ Sepulcre 
+ J 
+ 
+ 
+ Sabuncu 
+ MR 
+ 
+ 
+ Johnson 
+ KA 
+ 
+ 
+ 2012 
+ Network assemblies in the functional brain 
+ Current Opinion in Neurology 
+ 25 
+ 384 
+ 391 
+ 22766721 
+ 
+ 
+ 
+ 
+ 
+ 
+ Smallwood 
+ J 
+ 
+ 
+ Brown 
+ K 
+ 
+ 
+ Baird 
+ B 
+ 
+ 
+ Schooler 
+ JW 
+ 
+ 
+ 2012 
+ Cooperation between the default mode network and the frontal-parietal network in the production of an internal train of thought 
+ Brain Research 
+ 1428 
+ 60 
+ 70 
+ 21466793 
+ 
+ 
+ 
+ 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Fox 
+ PT 
+ 
+ 
+ Miller 
+ KL 
+ 
+ 
+ Glahn 
+ DC 
+ 
+ 
+ Fox 
+ PM 
+ 
+ 
+ Mackay 
+ CE 
+ 
+ 
+ 
+ 2009 
+ Correspondence of the brain’s functional architecture during activation and rest 
+ Proceedings of the National Academy of Sciences, United States of America 
+ 106 
+ 31 
+ 13040 
+ 13045 
+ 
+ 
+ 
+ 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Miller 
+ KL 
+ 
+ 
+ Salimi-Khorshidi 
+ G 
+ 
+ 
+ Webster 
+ M 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ Nichols 
+ TE 
+ 
+ 
+ 
+ 2011 
+ Network modelling methods for FMRI 
+ Neuroimage 
+ 54 
+ 2 
+ 875 
+ 891 
+ 20817103 
+ 
+ 
+ 
+ 
+ 
+ 
+ Spreng 
+ RN 
+ 
+ 
+ 2012 
+ The fallacy of a “task-negative” network 
+ Frontiers in Psychology 
+ 3 
+ 145 
+ 10.3389/fpsyg.2012.00145 
+ 22593750 
+ 
+ 
+ 
+ 
+ 
+ 
+ Spreng 
+ RN 
+ 
+ 
+ Schacter 
+ DL 
+ 
+ 
+ 2011 
+ Default network modulation and large-scale network interactivity in healthy young and old adults 
+ Cerebral Cortex 
+ 
+ 
+ 
+ 
+ 
+ 
+ Spreng 
+ RN 
+ 
+ 
+ Stevens 
+ WD 
+ 
+ 
+ Chamberlain 
+ JP 
+ 
+ 
+ Gilmore 
+ AW 
+ 
+ 
+ Schacter 
+ DL 
+ 
+ 
+ 2010 
+ Default network activity, coupled with the frontoparietal control network, supports goal-directed cognition 
+ Neuroimage 
+ 53 
+ 1 
+ 303 
+ 317 
+ 20600998 
+ 
+ 
+ 
+ 
+ 
+ 
+ Sridharan 
+ D 
+ 
+ 
+ Levitin 
+ DJ 
+ 
+ 
+ Menon 
+ V 
+ 
+ 
+ 2008 
+ A critical role for the right fronto-insular cortex in switching between central-executive and default-mode networks 
+ Proceedings of the National Academy of Sciences, United States of America 
+ 105 
+ 34 
+ 12569 
+ 12574 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stevens 
+ WD 
+ 
+ 
+ Buckner 
+ RL 
+ 
+ 
+ Schacter 
+ DL 
+ 
+ 
+ 2010 
+ Correlated low-frequency BOLD fluctuations in the resting human brain are modulated by recent experience in category-preferential visual regions 
+ Cerebral Cortex 
+ 20 
+ 8 
+ 1997 
+ 2006 
+ 20026486 
+ 
+ 
+ 
+ 
+ 
+ 
+ Tambini 
+ A 
+ 
+ 
+ Ketz 
+ N 
+ 
+ 
+ Davachi 
+ L 
+ 
+ 
+ 2010 
+ Enhanced brain correlations during rest are related to memory for recent experiences 
+ Neuron 
+ 65 
+ 2 
+ 280 
+ 290 
+ 20152133 
+ 
+ 
+ 
+ 
+ 
+ 
+ Uddin 
+ LQ 
+ 
+ 
+ Supekar 
+ KS 
+ 
+ 
+ Ryali 
+ S 
+ 
+ 
+ Menon 
+ V 
+ 
+ 
+ 2011 
+ Dynamic reconfiguration of structural and functional connectivity across core neurocognitive brain networks with development 
+ Journal of Neuroscience 
+ 31 
+ 50 
+ 18578 
+ 18589 
+ 22171056 
+ 
+ 
+ 
+ 
+ 
+ 
+ van den Heuvel 
+ MP 
+ 
+ 
+ Mandl 
+ RC 
+ 
+ 
+ Kahn 
+ RS 
+ 
+ 
+ Hulshoff Pol 
+ HE 
+ 
+ 
+ 2009 
+ Functionally linked resting-state networks reflect the underlying structural connectivity architecture of the human brain 
+ Human Brain Mapping 
+ 30 
+ 10 
+ 3127 
+ 3141 
+ 19235882 
+ 
+ 
+ 
+ 
+ 
+ 
+ Van Dijk 
+ KR 
+ 
+ 
+ Hedden 
+ T 
+ 
+ 
+ Venkataraman 
+ A 
+ 
+ 
+ Evans 
+ KC 
+ 
+ 
+ Lazar 
+ SW 
+ 
+ 
+ Buckner 
+ RL 
+ 
+ 
+ 2010 
+ Intrinsic functional connectivity as a tool for human connectomics: theory, properties, and optimization 
+ Journal of Neurophysiology 
+ 103 
+ 1 
+ 297 
+ 321 
+ 19889849 
+ 
+ 
+ 
+ 
+ 
+ 
+ Van Essen 
+ DC 
+ 
+ 
+ 2005 
+ A Population-Average, Landmark- and Surface-based (PALS) atlas of human cerebral cortex 
+ Neuroimage 
+ 28 
+ 3 
+ 635 
+ 662 
+ 16172003 
+ 
+ 
+ 
+ 
+ 
+ 
+ Vincent 
+ JL 
+ 
+ 
+ Kahn 
+ I 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ Buckner 
+ RL 
+ 
+ 
+ 2008 
+ Evidence for a frontoparietal control system revealed by intrinsic functional connectivity 
+ Journal of Neurophysiology 
+ 100 
+ 6 
+ 3328 
+ 3342 
+ 18799601 
+ 
+ 
+ 
+ 
+ 
+ 
+ Vincent 
+ JL 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Fox 
+ MD 
+ 
+ 
+ Shannon 
+ BJ 
+ 
+ 
+ Andrews 
+ JR 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ 
+ 2006 
+ Coherent spontaneous activity identifies a hippocampal-parietal memory network 
+ Journal of Neurophysiology 
+ 96 
+ 6 
+ 3517 
+ 3531 
+ 16899645 
+ 
+ 
+ 
+ 
+ 
+ 
+ Wig 
+ GS 
+ 
+ 
+ Schlaggar 
+ BL 
+ 
+ 
+ Petersen 
+ SE 
+ 
+ 
+ 2011 
+ Concepts and principles in the analysis of brain networks 
+ Annals of the New York Academy of Sciences 
+ 1224 
+ 126 
+ 146 
+ 21486299 
+ 
+ 
+ 
+ 
+ 
+ 
+ Yeo 
+ BT 
+ 
+ 
+ Krienen 
+ FM 
+ 
+ 
+ Sepulcre 
+ J 
+ 
+ 
+ Sabuncu 
+ MR 
+ 
+ 
+ Lashkari 
+ D 
+ 
+ 
+ Hollinshead 
+ M 
+ 
+ 
+ 
+ 2011 
+ The organization of the human cerebral cortex estimated by intrinsic functional connectivity 
+ Journal of Neurophysiology 
+ 106 
+ 3 
+ 1125 
+ 1165 
+ 21653723 
+ 
+ 
+ 
+ 
+ 
+ 
+ Zhu 
+ W 
+ 
+ 
+ Wen 
+ W 
+ 
+ 
+ He 
+ Y 
+ 
+ 
+ Xia 
+ A 
+ 
+ 
+ Anstey 
+ KJ 
+ 
+ 
+ Sachdev 
+ P 
+ 
+ 
+ 2012 
+ Changing topological patterns in normal aging using large-scale structural networks 
+ Neurobiology of Aging 
+ 33 
+ 5 
+ 899 
+ 913 
+ 20724031 
+ 
+ 
+ 
+ 
+ 
+ 
+ Figure 1 
+ 
+ Left hemisphere lateral and medial surfaces for the task-based localization of regions comprising the (A) default, (B) dorsal attention and (C) frontoparietal control networks. (D) Regions of interest utilized in the resting state functional connectivity MRI analysis for the default (blue) dorsal attention (red) and frontoparietal control (green) networks. Colors designate task-based network affiliation. See  Table 1  for abbreviations. 
+ 
+ 
+ 
+ 
+ Figure 2 
+ 
+ Dendogram of the hierarchical cluster analysis of the full correlations and corresponding color-coded correlation matrix. The upper triangle of the matrix shows full correlations, the lower triangle shows partial correlations. Colors indicate magnitude of correlation. Prefixes l- = left hemisphere, r- = right hemisphere. See  Table 1  for abbreviations. 
+ 
+ 
+ 
+ 
+ Figure 3 
+ 
+ Intrinsic connectivity graph within and between the default (blue), dorsal attention (red) and frontoparietal control (green) networks. Line-weights represent the magnitude of the correlation between nodes. Node size represents the magnitude of betweenness-centrality. Node color designates network membership determined by the cluster analysis of the full correlations. Prefixes l- = left hemisphere, r- = right hemisphere See  Table 1  for abbreviations. 
+ 
+ 
+ 
+ 
+ Figure 4 
+ 
+ Intrinsic  direct  connectivity graph within and between the default (blue), dorsal attention (red) and frontoparietal control (green) networks. Line-weights represent the magnitude of the partial correlation between nodes. Node size represents the magnitude of betweenness-centrality. Node color designates network membership determined by the cluster analysis of the full correlations. Prefixes l- = left hemisphere, r- = right hemisphere See  Table 1  for abbreviations. 
+ 
+ 
+ 
+ 
+ Table 1 
+ 
+ Anatomical Regions Comprising the Default, Dorsal Attention, and Frontoparietal Control Networks of the Brain 
+ 
+ 
+ 
+ 
+ 
+ Region 
+ 
+ 
+ Abbrev. 
+ 
+ 
+ Left Hemis. Coordinate 
+ 
+ 
+ Network Affiliation 
+ 
+ 
+ Right Hemis. Coordinate 
+ 
+ 
+ Network Affiliation 
+ 
+ 
+ 
+ 
+ x 
+ 
+ 
+ y 
+ 
+ 
+ z 
+ 
+ 
+ Task 
+ 
+ 
+ Rest 
+ 
+ 
+ x 
+ 
+ 
+ y 
+ 
+ 
+ z 
+ 
+ 
+ Task 
+ 
+ 
+ Rest 
+ 
+ 
+ 
+ 
+ 
+ Anterior medial prefrontal cortex 
+ amPFC 
+ −8 
+ 56 
+ 14 
+ D 
+ D 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Anterior temporal lobe 
+ aTL 
+ −52 
+ −10 
+ −20 
+ D 
+ D 
+ 52 
+ −4 
+ −16 
+ D 
+ D 
+ 
+ 
+ Dorsal medial prefrontal cortex 
+ dmPFC 
+ −8 
+ 50 
+ 34 
+ D 
+ D 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Hippocampal formation 
+ HF 
+ −26 
+ −8 
+ −24 
+ D 
+ D 
+ 24 
+ −14 
+ −22 
+ D 
+ D 
+ 
+ 
+ Inferior frontal gyrus 
+ IFG 
+ −42 
+ 26 
+ −14 
+ D 
+ D 
+ 50 
+ 32 
+ −6 
+ D 
+ D 
+ 
+ 
+ Posterior cingulate cortex 
+ pCC 
+ −2 
+ −48 
+ 28 
+ D 
+ D 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Posterior inferior parietal lobule 
+ pIPL 
+ −50 
+ −60 
+ 28 
+ D 
+ D 
+ 58 
+ −60 
+ 28 
+ D 
+ D 
+ 
+ 
+ Precuneus 
+ PCu 
+ −2 
+ −60 
+ 50 
+ C 
+ D 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Superior frontal gyrus 
+ SFG 
+ −8 
+ 20 
+ 62 
+ D 
+ D 
+ 12 
+ 18 
+ 62 
+ D 
+ C 
+ 
+ 
+ Superior temporal sulcus 
+ STS 
+ −60 
+ −28 
+ −4 
+ D 
+ D 
+ 50 
+ −36 
+ 4 
+ D 
+ D 
+ 
+ 
+ Temporal parietal junction 
+ TPJ 
+ −44 
+ −52 
+ 22 
+ C 
+ D 
+ 44 
+ −58 
+ 18 
+ C 
+ D 
+ 
+ 
+ Ventral medial prefrontal cortex 
+ vmPFC 
+ −2 
+ 44 
+ −12 
+ D 
+ D 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Frontal eye fields 
+ FEF 
+ −24 
+ 2 
+ 62 
+ A 
+ A 
+ 24 
+ −2 
+ 56 
+ A 
+ A 
+ 
+ 
+ Inferior precentral sulcus 
+ iPCS 
+ −36 
+ 0 
+ 28 
+ A 
+ A 
+ 42 
+ 6 
+ 26 
+ A 
+ A 
+ 
+ 
+ Middle temporal motion complex 
+ MT 
+ −44 
+ −66 
+ 0 
+ A 
+ A 
+ 54 
+ −54 
+ −6 
+ A 
+ A 
+ 
+ 
+ Superior occipital gyrus 
+ SOG 
+ −18 
+ −66 
+ 50 
+ A 
+ A 
+ 26 
+ −64 
+ 54 
+ A 
+ A 
+ 
+ 
+ Superior parietal lobule 
+ SPL 
+ −30 
+ −48 
+ 52 
+ A 
+ A 
+ 38 
+ −46 
+ 54 
+ A 
+ A 
+ 
+ 
+ 
+ 
+ 
+ 
+ Anterior inferior parietal lobule 
+ aIPL 
+ −54 
+ −48 
+ 48 
+ C 
+ C 
+ 50 
+ −44 
+ 46 
+ C 
+ C 
+ 
+ 
+ Anterior insula 
+ aINS 
+ −30 
+ 20 
+ −2 
+ C 
+ C 
+ 32 
+ 20 
+ −4 
+ C 
+ C 
+ 
+ 
+ Dorsal anterior cingulate cortex 
+ daCC 
+ 
+ 
+ 
+ 
+ 
+ 6 
+ 30 
+ 40 
+ A 
+ C 
+ 
+ 
+ Dorsolateral prefrontal cortex 
+ dlPFC 
+ −38 
+ 32 
+ 30 
+ A 
+ C 
+ 44 
+ 42 
+ 26 
+ A 
+ C 
+ 
+ 
+ Medial superior prefrontal cortex 
+ msPFC 
+ −2 
+ 20 
+ 50 
+ C 
+ C 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Middle frontal gyrus BA6 
+ MFG(BA6) 
+ −28 
+ 14 
+ 58 
+ C 
+ C 
+ 26 
+ 16 
+ 48 
+ C 
+ C 
+ 
+ 
+ Middle frontal gyrus BA9 
+ MFG(BA9) 
+ −40 
+ 24 
+ 34 
+ C 
+ C 
+ 44 
+ 26 
+ 42 
+ C 
+ C 
+ 
+ 
+ Rostrolateral prefrontal cortex 
+ rlPFC 
+ −32 
+ 58 
+ 2 
+ C 
+ C 
+ 32 
+ 58 
+ 8 
+ C 
+ C 
+ 
+ 
+ 
+ 
+ 
+ Note: Network affiliation abbreviations are D = default, A = dorsal attention, C = frontoparietal control, Hemis. = hemisphere, BA = Brodmann’s area. Coordinates (x, y, z) are in MNI stereotaxic space. 
+ 
+ 
+ 
+ 

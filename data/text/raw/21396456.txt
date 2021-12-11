@@ -1,0 +1,2668 @@
+
+ properties manuscript? 
+ 
+ 
+ 9215515 
+ 20498 
+ Neuroimage 
+ Neuroimage 
+ 
+ Neuroimage 
+ 
+ 1053-8119 
+ 1095-9572 
+ 
+ 
+ 21396456 
+ 3319766 
+ 10.1016/j.neuroimage.2011.03.010 
+ NIHMS281293 
+ 
+ 
+ Article 
+ 
+ 
+ 
+ Large-scale directional connections among multi resting-state neural networks in human brain: A functional MRI and Bayesian network modeling study 
+ 
+ 
+ 
+ 
+ Li 
+ Rui 
+ 
+ a 
+ 
+ 
+ 
+ Chen 
+ Kewei 
+ 
+ c 
+ 
+ 
+ 
+ Fleisher 
+ Adam S. 
+ 
+ c 
+ d 
+ 
+ 
+ 
+ Reiman 
+ Eric M. 
+ 
+ c 
+ 
+ 
+ 
+ Yao 
+ Li 
+ 
+ a 
+ b 
+ 
+ 
+ 
+ Wu 
+ Xia 
+ 
+ b 
+ * 
+ 
+ 
+ a State Key Laboratory of Cognitive Neuroscience and Learning, Beijing Normal University, Beijing 100875, China 
+ b School of Information Science and Technology, Beijing Normal University, Beijing 100875, China 
+ c Banner Alzheimer’s Institute (BAI) & Banner Good Samaritan PET Center, Phoenix, AZ 85006, USA 
+ d Department of Neuroscience, University of California, San Diego, San Diego, CA 92103, USA 
+ 
+ 
+ * Correspond to: Dr. Xia Wu, Address: School of Information Science and Technology, Beijing Normal University, Beijing, 100875, China, Telephone number: 86-10-58804026, Facsimile number: 86-10-58804026,  wuxia@bnu.edu.cn 
+ 
+ 
+ 28 
+ 3 
+ 2012 
+ 
+ 
+ 17 
+ 3 
+ 2011 
+ 
+ 
+ 1 
+ 6 
+ 2011 
+ 
+ 
+ 4 
+ 4 
+ 2012 
+ 
+ 56 
+ 3 
+ 1035 
+ 1042 
+ 
+ 
+ This file is available for text mining. It may also be used consistent with the principles of fair use under the copyright law. 
+ 
+ 
+ 
+ This study examined the large-scale connectivity among multiple resting-state networks (RSNs) in the human brain. Independent component analysis was first applied to the resting-state functional MRI (fMRI) data acquired from 12 healthy young subjects for the separation of RSNs. Four sensory (lateral and medial visual, auditory, sensory-motor) RSNs and four cognitive (default-mode, self-referential, dorsal and ventral attention) RSNs were identified. Gaussian Bayesian network (BN) learning approach was then used for the examination of the conditional dependencies among these RSNs and the construction of the network-to-network directional connectivity patterns. The BN based results demonstrated that sensory networks and cognitive networks were hierarchically organized. Specially, we found the sensory networks were highly intra-dependent and the cognitive networks were strongly intra-influenced. In addition, the results depicted dominant bottom-up connectivity from sensory networks to cognitive networks in which the self-referential and the default-mode networks might play respectively important roles in the process of resting-state information transfer and integration. The present study characterized the global connectivity relations among RSNs and delineated more characteristics of spontaneous activity dynamics. 
+ 
+ 
+ Bayesian network 
+ fMRI 
+ connectivity 
+ resting-state network 
+ spontaneous activity 
+ 
+ 
+ 
+ National Institute of Mental Health : NIMH 
+ R01 MH057899-08 || MH 
+ 
+ 
+ National Institute on Aging : NIA 
+ R01 AG031581-13 || AG 
+ 
+ 
+ National Institute on Aging : NIA 
+ P30 AG019610-10 || AG 
+ 
+ 
+ National Institute on Aging : NIA 
+ K23 AG024062-05 || AG 
+ 
+ 
+ 
+ 
+ 
+ Introduction 
+ Spontaneous neuronal activity, as observed in the blood oxygenation level-dependent (BOLD) signal and as measured by the functional magnetic resonance imaging (fMRI) technique, has provided new insights into the intrinsic functional architecture of the brain. Large-scale coherent spatial patterns, namely resting-state networks (RSNs), identified from spontaneous BOLD fluctuation were found extensively overlapped with task-induced activated patterns related to visual, auditory, motor, attention and other cognitive processing ( Damoiseaux et al., 2006 ;  Fox et al., 2006 ;  Jann et al., 2010 ;  Mantini et al., 2007 ;  Zuo et al., 2010b ). The functional connectivity of these RSNs was suggested to represent inherent patterns for expected usages or potential future re-organizations ( Fox et al., 2006 ;  Pouget et al., 2003 ). Numerous studies reported its relation with brain development ( Fair et al., 2008 ;  Fransson et al., 2007 ;  Stevens et al., 2009 ), normal aging ( Andrews-Hanna et al., 2007 ), various neuropsychiatric disorders ( Greicius et al., 2004 ;  Rotarska-Jagiela et al., 2010 ;  Seeley et al., 2009 ;  Sorg et al., 2007 ), and individual’s behavioral or task performance ( De Luca et al., 2005 ;  Fox et al., 2007 ;  Kelly et al., 2008 ;  Northoff et al., 2010 ). 
+ Following investigations that have been mostly for each of the RSNs separately for its intrinsic, task-independent, functional organization of brain activity, this study considers the large-scale cross multi-network relations to reveal more global properties of the RSNs altogether. In fact, in addition to these studies, on the functional connectivity of individual RSNs separately, there were reports such as the graph theory based studies which analyzed the profile of overall cortex connectivity patterns and provided topological reconfigurations of spontaneous activity ( Wang et al., 2010 ). They demonstrated that the brain’s functional topology exhibited characteristics of complex networks, such as small-world ( Bassett and Bullmore, 2006 ;  Bullmore and Sporns, 2009 ;  He et al., 2007 ;  Sporns and Honey, 2006 ), highly connected hubs ( Buckner et al., 2009 ;  Sporns et al., 2007 ), modularity ( Newman, 2006 ) and hierarchy ( Ferrarini et al., 2009 ;  Meunier et al., 2009 ). Evidences from these studies may imply the spontaneous activity was not only organized into separated patterns, but engaged in a larger scale functional cooperation and communications. This promoted us to address the network-to-network connectivity among different RSNs for our better understanding of the cross-network resting-state information exchange. 
+ Given the recognition that neuronal systems in the brain functionally fall under the lower-level sensation (e.g. visual, auditory, motor) and higher-order cognition (e.g. attention, emotion, memory, language, executive, etc.) as evidenced primarily from activation studies ( Mesulam 1998 ), and some of these systems present themselves in the same or similar organization during the resting-state ( Jann et al., 2010 ), the study on the interactions between RSNs, therefore, should note the natures of each network and with the assumptions of their presence under the resting condition. Recent studies found that regions from the default-mode network (DMN) served as cortical hubs for higher-order cognitive processing ( Buckner et al., 2009 ), and this network together with the self-referential network (SRN) were with the highest causal flow among the RSNs ( Liao et al., 2010 ). Another recent work on the RSNs topological electrophysiological signatures reported networks for lower sensory (somato-motor, auditory, visual) and higher cognitive (default-mode, control, attention, working memory) processing showed inverted association with electroencephalography (EEG) frequencies ( Jann et al., 2010 ). These studies demonstrated that the lower sensation/higher cognition systems established from task-related studies were also presented during the resting-state with their own characteristics of intrinsic activity. The current study is our efforts to investigate the cooperation and interaction properties of these sensation/cognition RSNs under the resting condition. 
+ Specific to this study, we focus on the large-scale network-to-network connectivity modeling, and are interested in investigating: 1) whether RSNs for sensory processing or cognitive function would be strongly interconnected and thus respectively integrated and globally connected in a hierarchal manner, 2) how information exchange occur among the sensory and cognitive RSNs during the resting-state and 3) whether there is one or more critical networks for the transfer or integration of resting-state information between these two layers. 
+ Methodology-wise, we used a combination of Group independent component analysis (ICA) and Bayesian network (BN) learning approach to evaluate the directional connectivity patterns of RSNs based on data from 12 healthy young college students. Group ICA is one of the methods mostly employed to identify RSNs from spontaneous BOLD activity. A recent study conducted by  Daubechies et al. (2009)  argued the use of ‘independency’ to characterize the relationship among the unearthed networks by ICA approach. The authors of that study suggested Group ICA estimated components were actually sparse rather than independent ( Daubechies et al., 2009 ). It is with this rational that we believe the interconnectivities/interactions among the ICA identified RSNs can be mathematically investigated further and subsequently by BN. 
+ BN is recently introduced to fMRI studies to investigate the effective connectivity patterns among brain regions ( Kim et al., 2008 ;  Li et al., 2008 ;  Li et al., 2009 ;  Rajapakse and Zhou, 2007 ;  Zheng and Rajapakse, 2006 ). It can characterize the relation of conditional dependencies/independencies between a set of variables, and identify the directionality of connections (but see the cautionary note in the Discussion section and the work by  Smith et al. (2010 )). The BN-based effective connectivity pattern of the brain regions from the DMN has been constructed in one of our recent works ( Wu et al., in press ). Here it is extended to the study of network-to-network relations, through which we intend to capture the conditional dependencies among these RSNs and find the large-scale cooperation and interaction mechanism among these networks during the resting-state condition. 
+ 
+ 
+ Methods 
+ 
+ Subjects and tasks 
+ Twelve healthy right-handed college students (five males, Mean ± SD: 21 ± 3.4 years old) participated in this study. For the resting-state scan, all the subjects were instructed simply to keep their eyes closed and not to think of anything in particular. The purpose of the study was explained to the participants and each of them gave written informed consent approved by the Research Ethics Committee of the State Key Laboratory of Cognitive Neuroscience and Learning, Beijing Normal University (BNU), prior to the experiment. 
+ 
+ 
+ Data acquisition 
+ A 3-T Siemens scanner equipped for echo planar imaging (EPI) at the BNU Imaging Center for Brain Research was used for image acquisition. For each participant, we collected 300 EPI functional volumes. The following parameters were used: repeat time (TR) 2000 ms; 33 slices; matrix size 64 × 64; acquisition voxel size 3.13 mm × 3.13 mm × 3.60 mm. A high-resolution, three-dimensional T1-weighted structural image was also acquired for each subject with the following parameters: 128 slices; matrix size 256 × 256; resolution 1 mm × 1.33 mm × 1 mm. 
+ 
+ 
+ Data preprocessing 
+ For each participant, the first 5 scans of the fMRI time series were discarded to allow for equilibration of the magnetic field. Data pre-processing steps included within-subject spatial realignment, slice timing correction, between-subject spatial normalization to a standard brain template in the Montreal neurological institute (MNI) coordinate space and smoothing by a Gaussian filter with a full width at half maximum of 8 mm using SPM2 ( http://www.fil.ion.ucl.ac.uk/spm ). Following this, the liner trend of the fMRI data was removed. As discussed in a number of previous studies ( Biswal et al., 1995 ;  Seeley et al., 2009 ;  Van Dijk et al., 2010 ;  Zuo et al., 2010a ), functionally relevant, resting spontaneous BOLD fluctuations within the RSNs occurred at low frequencies (0.01 – 0.08 Hz). The fMRI data therefore was temporally band-pass filtered (0.01 Hz – 0.08 Hz) to remove low-frequency drifts and physiological high-frequency noise, a procedure used in a number of reports. The final detrending and filtering steps were performed using resting-state fMRI data analysis toolkit (REST,  http://restfmri.net ). 
+ 
+ 
+ Group ICA 
+ The preprocessed data of all participants were entered into the Group ICA program, the fMRI Toolbox GIFT ( http://icatb.sourceforge.net/ ), which included the data reduction by two rounds principle component analysis (PCA), ICA separation and back-reconstruction ( Calhoun et al., 2001 ). The optimal number of independent components was estimated as 37 based on the minimum description length (MDL). In the first round of PCA, the data for each individual subject were dimension-reduced temporally. After concatenation across subjects within groups, the dimensions were again reduced to the optimal numbers via the second round of PCA. Then the data were separated by ICA using the Extended Infomax algorithm ( Lee et al., 1999 ). After ICA separation, the mean independent components (ICs) and the corresponding mean time courses over all the subjects were used for the back-reconstruction of the ICs and the time courses for each individual subject ( Calhoun et al., 2001 ). 
+ Various RSNs have been reported but not always as consistently. Take the visual network for example, there were the whole visual network ( Mantini et al., 2007 ), lateral and medial visual networks ( Damoiseaux et al., 2006 ), as well as the occipital, ventral and dorsal visual networks ( Jann et al., 2010 ). In this study, we developed a set of RSNs templates according to previously described RSNs including visual, auditory, sensory-motor, default-mode, attention, memory, executive-control, self-referential, language processing ( Damoiseaux et al., 2006 ;  Fox et al., 2006 ;  Jann et al., 2010 ;  Liao et al., 2010 ;  Mantini et al., 2007 ;  Zuo et al., 2010b ) for the identification of RSNs from all the ICs. Upon visual inspection and examination of goodness-of-fit for all the ICs to RSNs templates for each of the 12 subjects included in this study, the IC patterns that were located in the cortex and best correlated with the RSNs spatial templates were identified as functionally relevant RSNs. These identified RSNs were used for the subsequent RSNs interconnectivity analysis via BN. 
+ For the set of 12 individual ICs associated with each of the identified RSNs, a voxelwise one sample  t -test (False Discovery Rate, FDR,  p  = 0.05) was carried out. Thus, each of the group RSNs finally generated was a statistically thresholded  t -value map for the entire group ( Calhoun et al., 2001 ;  Greicius et al., 2004 ;  Sorg et al., 2007 ;  Stevens et al., 2009 ). 
+ 
+ 
+ BN modelling for the RSNs interconnectivity 
+ BN can learn the global connectivity patterns for complex systems in a data-driven manner. A BN model is a directed acyclic graph (DAG) that encodes a joint probability distribution over a set of random variables, represented as nodes of the acyclic graph. Arcs between nodes signify the directional dependence relations among these random variables and the absence of arcs refer to conditional independencies. The dependencies are qualified by the conditional probability of each node given its parent nodes in the network. 
+ We employed the Gaussian BN method to characterize the large-scale network-to-network connectivity patterns across these RSNs. Each network was a corresponding node in the BN model with its time series assumed to be Gaussian distributed. 
+ For better representation of RSNs, we further refined the spatial extent of each RSN prior to the extraction of its time series for each subject. Some studies have suggested that, in practice, the ICA procedure could generate misclassification and/or spatial overlap between ‘true’ neural RSNs components and artefactual (non-gray matter, respiratory and cardiovascular signal fluctuation) components ( Birn et al., 2008 ;  Cole et al., 2010 ;  Tohka et al., 2008 ). Therefore, the regions of interest (ROIs) mask for extracting RSNs time series was defined by the intersection of each one sample  t -test RSN (at  p  = 0.05 FDR) map with a global gray matter mask from WFU_PickAtlas ( http://www.nitrc.org/projects/wfu_pickatlas/ ) in SPM2. Time series of all the voxels in the gray matter of each RSN were extracted, averaged and entered the subsequent BN analysis. 
+ Bayesian information criterion (BIC) ( Schwarz, 1978 ) based BN learning approach was adopted to identify the optimal BN model by selecting the one optimizing the BIC score among the space of possible candidate networks. L1-Regularization Paths algorithm ( Schmidt et al., 2007 ) and maximum likelihood (ML) estimate, which were implemented in the collections of Matlab functions L1DAGLearn ( http://www.cs.ubc.ca/~murphyk/Software/DAGlearn/ ) and Bayesian Net Toolbox (BNT,  http://code.google.com/p/bnt/ ), were respectively used for learning the structure and parameters of the BN model. 
+ A step-wise regression procedure was then performed to test the significance of connections in the learned BN on the RSNs. This significance test approach was based on the fact that the identified Gaussian BN was equivalent to a set of multivariate linear regression equations. That is, each node in the BN model is the dependent variable in a linear regression of its parent nodes with connection weights as the regression coefficients ( Shachter and Kenley, 1989 ). Thus the statistical significance of the regression coefficients can be tested ( p  < 0.05). Finally the set of regression equations with significant weights were in turn expressed in the form of BN graph ( Li et al., 2009 ;  Wu et al., in press ), which was the determined BN-based RSNs interconnectivity pattern. 
+ For a better interpretation of the BN-based RSNs connectivity patterns, all the direct connections were classified into sensory network to sensory network, cognitive network to cognitive network connectivity as well as the connectivity between the two. If the resting activity of sensory (cognitive) networks was mainly dependent on activity of sensory (cognitive) networks, i.e., mainly receive direct ingoing connections from sensory (cognitive) networks, we then refer the sensory (cognitive) RSNs as strongly intra-dependent. On the other, if activity of the sensory (cognitive) networks mainly influence activity of sensory (cognitive) networks, i.e., generate direct outgoing connections mainly to sensory (cognitive) networks, the sensory (cognitive) RSNs are then referred to as strongly intra-influential. Both the strong intra-dependence and intra-influence within sensory/cognitive RSNs could represent a close interconnectivity or integration within each of these two sensory/cognitive networks. In addition to the dependence/influence relations revealed by the BN model, the direct/indirect connections in the BN pattern could also characterize the information propagation mode across these sensory and cognitive networks. We also examined our finding in terms of the top-down (cognitive network to sensory network), bottom-up (sensory network to cognitive network) processing, or both simultaneously within the framework of BN-based RSNs interconnectivity pattern. 
+ 
+ 
+ 
+ Results 
+ 
+ RSNs maps for the young subjects 
+ Fig. 1  demonstrates the spatial maps of the RSNs derived from 12 young subjects by Group ICA. Eight RSNs from the 37 ICs were located in the cortex and maximally overlapped each with the previously reported lateral/medial visual, auditory, sensory-motor, self-referential, dorsal/ventral attention, and default-mode networks. The foci for each RSN were given in  Table 1 . These RSNs are consistent with what reported previously ( Damoiseaux et al., 2006 ;  Fox et al., 2006 ;  Jann et al., 2010 ;  Mantini et al., 2007 ). 
+ Fig. 1 A  and  B  show two networks respectively for the lateral (VN1) and medial (VN2) parts of visual cortex. Identical with  Damoiseaux’s (2006)  finding, the networks associated with visual processing were distributed in two separate networks. VN1 consists of the peristriate area, and lateral and superior occipital gyri [Brodmann area (BA) 19]. VN2 covers part of the striate and parastriate area (BA 17/18). 
+ Fig. 1 C  shows the auditory processing (AN) network including mainly the bilateral superior temporal cortex (BA 22/42). 
+ Fig. 1 D  is the sensory-motor network (SMN), which covers primary sensory-motor cortex and supplementary motor cortex including medial frontal gyrus, paracentral lobule, postcentral gyrus, and superior parietal lobule (BA 3/4/5/6). 
+ Fig. 1 E  displays the SRN which is suggested as part of the DMN ( Mantini et al., 2007 ) and specifically related to self-referential mental activity. It mainly consists of the medial-ventral prefrontal cortex (BA 9/10) and anterior cingulate (BA 24/32). 
+ Fig. 1 F  and  G  are two networks associated with attentional processing, dorsal attention network (DAN) ( Fig. 1 F ) and ventral attention network (VAN) ( Fig. 1 G ). The DAN is bilaterally centered on the intraparietal sulcus (BA 7/39/40) and the frontal eye field (BA 6/8/9), and the VAN, is largely right lateralized to the temporal-parietal junction (BA 20/21/40) and the ventral frontal cortex (BA 6/8/9/10). It’s been suggested the DAN is involved in the endogenous goal-driven attention orienting process and the VAN is concerned with the exogenous stimuli-driven attention re-orienting process ( Fox et al., 2006 ). 
+ Fig. 1 H  is known as the DMN, which includes the posterior cingulate cortex (BA 23/31), medial prefrontal cortex (BA 10), bilateral inferior parietal cortex (BA 39) and medial temporal lobe (BA 20/21/28/35) structures. DMN shows more increased neural activity during resting-state as compared to most goal-oriented tasks. It might be functionally relevant to episodic memory processing, mind wandering, consolidating the past knowledge, stabilizing brain ensembles and preparing for the future actions ( Buckner and Vincent, 2007 ;  Greicius et al., 2003 ;  Mason et al., 2007 ;  Morcom and Fletcher, 2007 ;  Raichle and Snyder, 2007 ). 
+ In summary, four of the eight RSNs including VN1, VN2, AN, SMN were related to the lower-level sensory processing, and the remaining DMN, SRN, DAN and VAN were associated with higher-order cognitive functions ( Buckner et al., 2009 ;  Jann et al., 2010 ;  Liao et al., 2010 ). 
+ 
+ 
+ BN model on the RSNs 
+ Fig. 2  shows the BN-based connectivity pattern among the 8 networks. All the direct connections in the BN model and the associated connection weights as well as the corresponding statistical significance were listed in  Table 2 , in which all the connections were also classified according to their functions. 
+ For the lower-level sensory-specific RSNs, we found except the dependence of VN2 on DAN, the others converge on the sensation network to sensation network intra-dependencies: VN2 was dependent on VN1; AN on VN1; and SMN on VN1 and AN. On the other, half of the ten connections extended from these networks directly point to the other sensory networks. They were connections from VN1 to VN2, AN and SMN; from AN to VN2, SMN. The remaining five connections directly pointed to other cognitive networks (VN1 to VAN, AN to SRN; SMN to SRN; VN2 to DMN, and AN to DMN). Only one direct connection from cognitive networks to sensory networks was found, the connection from DAN to VN2. 
+ For the higher-order cognitive RSNs, we found they were dependent on both the sensory and the higher cognitive networks: DMN was dependent on VN2, AN, SRN and DAN; DAN on SRN; VAN on VN1 and DAN; and SRN on SMN and AN. Connections generating from these networks, however, were particularly for the cognitive network processing except “DAN→VN2”. They were connections from SRN to DAN and DMN; from DAN to VAN and DMN. 
+ In addition, the SRN and DMN were unique among them. Connections pointing to SRN were all from sensory-specific networks while initiating from SRN were all directed towards higher cognitive networks. The DMN was only with ingoing connections from other networks, and specifically all the networks except VAN had direct or indirect connections finally pointing to the DMN ( Fig. 2  and  Table 2 ). 
+ To sum up, the sensory networks tended to be intra-dependent, and out-going connections to cognitive networks (bottom-up connections) with the remaining to the sensory networks themselves, while the cognitive networks tended to be intra-influenced, and were dependent on both the internal cognitive and external sensory networks. The powerful intra-dependence between sensory RSNs and the strong intra-influential relations between cognitive RSNs together rendered the BN-based RSN connectivity model as a hierarchal architecture with dominant bottom-up connections from sensory networks to cognition ones in the resting brain. 
+ 
+ 
+ 
+ Discussion 
+ In this study, we presented our investigational results on how functional interactions and information exchanges arose across a set of RSNs in the resting-state of the human brain. The procedure of BN learning approach allowed us to explore the conditional dependencies and construct the large-scale connectivity patterns among these networks. With the acknowledgement of the limitation of the BN approach as detailed below, the use of BN in the current study allowed us to characterize the degree to which resting activity in one network can directly modulate or depend on activity in another. In this context, we found the RSNs were hierarchically connected and organized. Networks at similar function level were strongly interconnected and united in the equivalent hierarchy level in the BN model. We also found the information flow from the lower-level sensory networks to the higher-order cognitive networks (i.e., a bottom-up processing mechanism) was clearly manifested. Among the information exchanges, the SRN may play an intermediary role between lower-level sensory and higher-order cognitive processing for the self-related information, and the DMN may be pivotal in integrating the information from all the other systems as virtually all the other RSNs having direct or indirect connections finally pointing to the DMN. 
+ 
+ Hierarchal arrangement property of RSNs 
+ The RSNs clustered in spontaneous fluctuations were involved in a variety of processes, and fallen under the systems for lower-level sensory processing (VN1, VN2, AN, and SMN) or the higher-order cognitive ones (DAN, VAN, SRN and DMN). BN-based RSNs connectivity model shows, except the connection “DAN→VN2”, all the sensory networks receive “sensory network to sensory network” ingoing connections, suggesting that intrinsic activity of sensory networks is strongly intra-dependent, but relatively independent of other higher-order cognitive networks under the resting condition (note our discussion here is with the implicit resting condition assumption). The sensory networks also all have outgoing connections towards the higher-order cognitive networks, implying that activity of sensory networks has some impacts on the cognitive ones. For the cognitive networks, however, the outgoing connections are all virtually “cognitive network to cognitive network” relations, and the ingoing connections are from both sensory and cognitive networks. This suggested that intrinsic activity of cognitive networks was not only highly intra-influential and intra-dependent, but also dependent on the sensory networks. The concentrative “sensory network to sensory network” ingoing connections for sensory RSNs together with the “cognitive network to cognitive network” outgoing connections for cognitive RSNs demonstrated by the BN-based statistical evaluation suggested that networks at similar function level could strongly connected, and thus allowed the RSNs to be organized in a hierarchal manner. 
+ Although our study is probably among the first reporting such system level organizations among multiple RSNs, we are definitely not the first recognizing the hierarchy property of the brain organization ( Ferrarini et al., 2009 ;  Meunier et al., 2009 ). The preferential intra-dependencies within lower sensory RSNs could reconfirm or explain the findings from graph-based connectivity mapping which demonstrated regions for sensory processing constituted a cortical subdivision with preferential local connectivity ( Sepulcre et al., 2010 ;  Supekar et al., 2009 ). This preferential intra-dependencies and local connectivity found respectively from system and region levels might consistently suggested a stronger integration for lower-level sensory networks, which would benefit the cooperation of sensory systems and promote the efficient communication or information processing across sensory RSNs. Consistently, the stronger intra-influential relations between higher-order cognitive networks would also be important for the efficient higher cognitive activity. On the other, as there’re ingoing connections from sensory networks to cognitive networks, this integration would also benefit the efficient processing of information from sensory networks. 
+ 
+ 
+ Information exchanges across the RSNs 
+ The direct/indirect connections in the BN model signified the nature of relations between RSNs. The direct connection between two nodes in a BN represents a direct dependence (influence) relation among them, while the indirect association could represent how one node generates its connectivity with the other nodes through the intervening variables. Therefore, as a global mapping method, BN can be used for making probabilistic inferences and characterizing the “neural information flow” among these RSNs. We can understand the information transmission path across these RSNs under the framework of BN model. Here, the hierarchy organization of the RSNs and the directionality of connections in the BN model ( Fig. 2 ) together illustrated apparently an information flow from the lower-level sensory networks to the higher-order cognitive networks, i.e., a bottom-up processing mechanism across the hierarchically organized RSNs in the BN pattern. Except the connection “DAN→VN2” which might illustrate a direct top-down (cognitive-sensory) processing, all the other connections were located in the bottom-up pathway in a direct or indirect manner. The bottom-up and the top-down processing, which respectively view the brain as a passive, stimulus-driven and an active, adaptive device, were two concepts used for characterizing the information processing mechanism of large-scale dynamics ( Engel et al., 2001 ;  Varela et al., 2001 ). As revealed by the BN pattern, the bottom-up processing across the RSNs might be dominant, probably because the low-demand cognition during the resting condition. Considering the top-down processing can act in the absence of specific stimulus, or during states of anticipation ( Engel et al., 2001 ), as well as the methodological limitations of BN which was discussed in the next section, we cannot exclude the existence of the top-down information pathway across the RSNs. Actually, the intrinsic network hierarchies have endowed the brain with the ability to exert the reciprocal interaction between the bottom-up and the top-down processing. Anyhow, the predominant bottom-up connection flow across the RSNs demonstrated by BN suggested the brain was not functionally inactive at rest; constant cross-network large-scale information exchanges were intrinsically engaged in the spontaneous neural activity. 
+ In our study, some connections with negative weights were observed in the BN connectivity pattern. The connections with negative weights included DAN→VN2, AN→DMN and AN→SRN. These negative connections were all particularly for the direct connectivity between sensory networks and cognitive networks. A negative connection was of inhibitory in that an increase in the activity of the “parent” network would lead to the decrease in the one that was directed to. The negative relations may embody a brain resource competition ( Kelly et al., 2008 ) or dynamic reallocation between lower sensory and higher cognitive processing ( Jann et al., 2010 ). This competitive relation has been also reported as the inverse electrophysiological signatures for sensory and cognitive RSNs in a combined EEG and RSNs relation study ( Jann et al., 2010 ). 
+ Among the connections between these RSNs, we intriguingly found connections pointing to SRN were all from sensory-specific networks while those initiated from SRN were all directed towards higher-order cognitive networks. The SRN may transfer information from sensory networks for the higher cognitive processing. This statistical modeling based finding was consistent with a previous study on the self-reference processing in human brain ( Northoff et al., 2006 ), which suggested that the self-reference processing acted as an intermediary role for the reciprocal modulation between sensory and cognitive information processing. The self-referential processing referrers to the process of distinguishing stimuli related to one’s own concerns from the ones that are irrelevant, but it does not imply that only self-related information could be transmitted to the higher cognitive networks for processing. In fact, non-self-referential stimuli can also be processed by higher-order systems ( Northoff et al., 2006 ), as reflected by the direct interactions between sensory-specific and higher-order networks, such as the connections VN1→VAN, VN2→DMN, DAN→VN2 and AN→DMN. We hence propose the SRN might be the intermediary for the self-relevant information, but not be the imperative or the only way for information exchanges between sensory and cognitive processing. 
+ Another network that might be crucial for the resting-state information processing is the DMN. It plays as a confluent node in the BN-based connectivity pattern ( Fig. 2 ), as we found the DMN was only with ingoing direct connections from other networks, and particularly the predominant bottom-up flow which originated from sensory networks all converged on the DMN. Two sensory networks VN2 and AN on one hand, generated direct connections pointing to DMN, on the other, worked as the intervening for transferring information from VN1 to the DMN. The remaining sensory network SMN generated its connectivity to DMN through SRN. Two cognitive networks SRN and VAN also directed towards the DMN. We speculate the DMN may be important in receiving information from other networks and in integrating the bottom-up information within the resting brain. Intriguingly, previous work demonstrated the DMN, in contrast to other RSNs, was the only network showing greater activity at resting state than the task-performing conditions ( Greicius et al., 2003 ). Graph-theory based analysis of overall cortical connectivity showed regions with high degree of both local and distant connectivity converged on regions within the DMN ( Sepulcre et al., 2010 ), and regions from this network constituted the hubs of the cortex ( Buckner et al., 2009 ). The resting activity and connectivity characteristics of DMN found in previous region-based and the present network-based studies may consistently indicate an important integration function supported by this network. It might enable the information from distributed systems to be associated together, and maintained stably in the brain. We presume that an incisive exploration on the relationship between DMN integration ability and human cognitive performance, such as intellectual performance would be interesting for further understanding the function of DMN in the brain. 
+ 
+ 
+ Methodological considerations and limitations 
+ In this study, we used a combined data-driven approach (“ICA + BN”) to identify the RSNs and construct the network-to-network connectivity patterns. Although the primary BN procedure as well as the ICA helped us to address the primary questions on modeling large-scale cross-network connectivity, they were with several limitations we need to acknowledge. 
+ First, an important issue challenging the Group ICA is the evaluation of RSNs consistency. There’re studies quantifying the consistency and reproducibility of RSNs ( Chen et al., 2008 ;  Damoiseaux et al., 2006 ;  Zuo et al., 2010b ), and the number and patterns of networks are not consistent across these studies. As demonstrated in the current study, we were not able to identify ICs which can well target the language, memory, and executive-control network templates. Only eight RSNs that were more consistent with reports in ( Damoiseaux et al., 2006 ;  Fox et al., 2006 ;  Mantini et al., 2007 ) were identified. To validate our findings, additional studies are needed and important for the possible extension from the eight RSNs to possibly more. 
+ BN learning approach is one of several methods to infer effective connectivity patterns among brain regions for fMRI studies ( Kim et al., 2008 ;  Li et al., 2008 ;  Rajapakse and Zhou, 2007 ;  Zheng and Rajapakse, 2006 ). More in a global scale, BN is capable of characterizing connectivity and providing a contextual picture of information processing across nodes within the entire network ( Rajapakse and Zhou, 2007 ). In these capacities, BN is in sharp contrast with other pairwise leaning approach such as Granger causality analysis (GCA) ( Goebel et al., 2003 ), and it is more appropriate for the resting-state fMRI studies comparing with other model-driven methods, such as structural equation modeling (SEM) ( McIntosh and Gonzalez-Lima, 1994 ) and dynamic causal modeling (DCM) ( Friston et al., 2003 ) approaches.  Smith et al. (2010)  recently used simulated fMRI datasets to evaluate the performance of network modeling methods. Their studies found the BN methods together with the partial correlation and inverse covariance methods were the top 3 in detecting network connections, and better than the “lag-based” GCA. A previous work of our own used the BN algorithm to characterize the directional connectivity among DMN regions and evaluated the connectivity alterations in Alzheimer’s disease ( Wu et al., in press ). Based on these studies and as a continuation of our previous BN based single network (DMN) investigation, this current work is to use BN to examine the network-to-network interconnectivity. Of note, limitations of the BN approach should be acknowledged. First, as a DAG, BN can not model reciprocal connections. This together with the lack of BN capacity to adequately estimate connection directionality ( Smith et al, 2010 , see below) put cautionary marks on our observation of the dominant bottom-up connectivity across these RSNs in the present work and our discussions on our observation. Second, the connectivity given by BN is a single snapshot of the dynamic process, and it cannot explicitly disclose temporal causal relations between nodes. Third, as simulations from  Smith et al. (2010)  show although BN, partial correlation, and the inverse covariance methods could well find the connectivity relations, all could not provide accurate connection directionality estimations. Again, we note the connection directionality identified from BN should be cautiously interpreted. Further validations or reconfirmation would be required through the improvement of analytic method in the future. For example, an extension of BN, the dynamic BN (DBN) ( Rajapakse and Zhou, 2007 ), which can learn the bi-directional interactions and capture the temporal characteristics of connectivity, would be promising, but similar to BN and GCA, its robustness needs further explorations as well. 
+ In summary, the current study characterized the global organizational properties of the resting-state neural networks and delineated the cross-network information processing patterns of the resting brain. It was found networks at different cognitive function levels were hierarchically interconnected and organized, and constant bottom-up cross-network information exchanges might be intrinsically engaged in the spontaneous activity. Among the information exchanges, the SRN may play an intermediary role between lower-level sensory and higher-order cognitive processing for the self-related information, and the DMN may be pivotal in integrating the resting-state information. It is of great interest to investigate whether the interactions among these RSNs are present to the same pattern under different conditions at developmental stages, during normal aging process or with neurodegenerative disorders in the future studies. 
+ 
+ 
+ 
+ 
+ We thank two anonymous reviewers for providing constructive comments and helpful suggestions. This work was supported by the Key Program of National Natural Science Foundation of China (grant number 60931003) and National Natural Science Foundation of China (grant numbers 60905063, 60805040, and 90820019). It was also supported by the National Institute of Mental Health, US (RO1 MH57899), the National Institute on Aging, US (9R01AG031581-10 and P30 AG19610, k23 AG24062) and the state of Arizona. 
+ 
+ 
+ 
+ 
+ 
+ 
+ Andrews-Hanna 
+ JR 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Vincent 
+ JL 
+ 
+ 
+ Lustig 
+ C 
+ 
+ 
+ Head 
+ D 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ Buckner 
+ RL 
+ 
+ 
+ 2007 
+ Disruption of large-scale brain systems in advanced aging 
+ Neuron 
+ 56 
+ 924 
+ 935 
+ 18054866 
+ 
+ 
+ 
+ 
+ 
+ 
+ Bassett 
+ DS 
+ 
+ 
+ Bullmore 
+ E 
+ 
+ 
+ 2006 
+ Small-world brain networks 
+ Neuroscientist 
+ 12 
+ 512 
+ 523 
+ 17079517 
+ 
+ 
+ 
+ 
+ 
+ 
+ Birn 
+ RM 
+ 
+ 
+ Murphy 
+ K 
+ 
+ 
+ Bandettini 
+ PA 
+ 
+ 
+ 2008 
+ The effect of respiration variations on independent component analysis results of resting state functional connectivity 
+ Hum Brain Mapp 
+ 29 
+ 740 
+ 750 
+ 18438886 
+ 
+ 
+ 
+ 
+ 
+ 
+ Biswal 
+ B 
+ 
+ 
+ Yetkin 
+ FZ 
+ 
+ 
+ Haughton 
+ VM 
+ 
+ 
+ Hyde 
+ JS 
+ 
+ 
+ 1995 
+ Functional connectivity in the motor cortex of resting human using echo-planar MRI 
+ Magn Reson Med 
+ 34 
+ 537 
+ 541 
+ 8524021 
+ 
+ 
+ 
+ 
+ 
+ 
+ Buckner 
+ RL 
+ 
+ 
+ Sepulcre 
+ J 
+ 
+ 
+ Talukdar 
+ T 
+ 
+ 
+ Krienen 
+ FM 
+ 
+ 
+ Liu 
+ HS 
+ 
+ 
+ Hedden 
+ T 
+ 
+ 
+ Andrews-Hanna 
+ JR 
+ 
+ 
+ Sperling 
+ RA 
+ 
+ 
+ Johnson 
+ KA 
+ 
+ 
+ 2009 
+ Cortical hubs revealed by intrinsic functional connectivity: Mapping, assessment of stability, and relation to Alzheimer’s disease 
+ J Neurosci 
+ 29 
+ 1860 
+ 1873 
+ 19211893 
+ 
+ 
+ 
+ 
+ 
+ 
+ Bullmore 
+ E 
+ 
+ 
+ Sporns 
+ O 
+ 
+ 
+ 2009 
+ Complex brain networks: Graph theoretical analysis of structural and functional systems 
+ Nat Rev Neurosci 
+ 10 
+ 186 
+ 198 
+ 19190637 
+ 
+ 
+ 
+ 
+ 
+ 
+ Buckner 
+ RL 
+ 
+ 
+ Vincent 
+ JL 
+ 
+ 
+ 2007 
+ Unrest at rest: Default activity and spontaneous network correlations 
+ Neuroimage 
+ 37 
+ 1091 
+ 1096 
+ 17368915 
+ 
+ 
+ 
+ 
+ 
+ 
+ Calhoun 
+ VD 
+ 
+ 
+ Adali 
+ T 
+ 
+ 
+ Pearlson 
+ GD 
+ 
+ 
+ Pekar 
+ JJ 
+ 
+ 
+ 2001 
+ A method for making group inferences from functional MRI data using independent component analysis 
+ Hum Brain Mapp 
+ 14 
+ 140 
+ 151 
+ 11559959 
+ 
+ 
+ 
+ 
+ 
+ 
+ Chen 
+ S 
+ 
+ 
+ Ross 
+ T 
+ 
+ 
+ Zhan 
+ W 
+ 
+ 
+ Myers 
+ C 
+ 
+ 
+ Chuang 
+ K 
+ 
+ 
+ Heishman 
+ S 
+ 
+ 
+ Stein 
+ E 
+ 
+ 
+ Yang 
+ Y 
+ 
+ 
+ 2008 
+ Group independent component analysis reveals consistent resting-state networks across multiple sessions 
+ Brain Res 
+ 1239 
+ 141 
+ 151 
+ 18789314 
+ 
+ 
+ 
+ 
+ 
+ 
+ Cole 
+ DM 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ 2010 
+ Advances and pitfalls in the analysis and interpretation of resting-state FMRI data 
+ Front Syst Neurosci 
+ 4 
+ 8 
+ 20407579 
+ 
+ 
+ 
+ 
+ 
+ 
+ Damoiseaux 
+ JS 
+ 
+ 
+ Rombouts 
+ SARB 
+ 
+ 
+ Barkhof 
+ F 
+ 
+ 
+ Scheltens 
+ P 
+ 
+ 
+ Stam 
+ CJ 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ 2006 
+ Consistent resting-state networks across healthy subjects 
+ Proc Natl Acad Sci 
+ 103 
+ 13848 
+ 13853 
+ 16945915 
+ 
+ 
+ 
+ 
+ 
+ 
+ Daubechies 
+ I 
+ 
+ 
+ Roussos 
+ E 
+ 
+ 
+ Takerkart 
+ S 
+ 
+ 
+ Benharrosh 
+ M 
+ 
+ 
+ Golden 
+ C 
+ 
+ 
+ D’Ardenne 
+ K 
+ 
+ 
+ Richter 
+ W 
+ 
+ 
+ Cohen 
+ JD 
+ 
+ 
+ Haxby 
+ J 
+ 
+ 
+ 2009 
+ Independent component analysis for brain fMRI does not select for independence 
+ Proc Natl Acad Sci 
+ 106 
+ 10415 
+ 10422 
+ 19556548 
+ 
+ 
+ 
+ 
+ 
+ 
+ De Luca 
+ M 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ De Stefano 
+ N 
+ 
+ 
+ Federico 
+ A 
+ 
+ 
+ Matthews 
+ PM 
+ 
+ 
+ 2005 
+ Blood oxygenation level dependent contrast resting state networks are relevant to functional activity in the neocortical sensorimotor system 
+ Exp Brain Res 
+ 167 
+ 587 
+ 594 
+ 16284751 
+ 
+ 
+ 
+ 
+ 
+ 
+ Engel 
+ AK 
+ 
+ 
+ Fries 
+ P 
+ 
+ 
+ Singer 
+ W 
+ 
+ 
+ 2001 
+ Dynamic predictions: Oscillations and synchrony in top-down processing 
+ Nat Rev Neurosci 
+ 2 
+ 704 
+ 716 
+ 11584308 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fair 
+ DA 
+ 
+ 
+ Cohen 
+ AL 
+ 
+ 
+ Dosenbach 
+ NUF 
+ 
+ 
+ Church 
+ JA 
+ 
+ 
+ Miezin 
+ FM 
+ 
+ 
+ Barch 
+ DM 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ Petersen 
+ SE 
+ 
+ 
+ Schlaggar 
+ BL 
+ 
+ 
+ 2008 
+ The maturing architecture of the brain’s default network 
+ Proc Natl Acad Sci 
+ 105 
+ 4028 
+ 4032 
+ 18322013 
+ 
+ 
+ 
+ 
+ 
+ 
+ Ferrarini 
+ L 
+ 
+ 
+ Veer 
+ IM 
+ 
+ 
+ Baerends 
+ E 
+ 
+ 
+ van Tol 
+ MJ 
+ 
+ 
+ Renken 
+ RJ 
+ 
+ 
+ van der Wee 
+ NJ 
+ 
+ 
+ Veltman 
+ DJ 
+ 
+ 
+ Aleman 
+ A 
+ 
+ 
+ Zitman 
+ FG 
+ 
+ 
+ Penninx 
+ BW 
+ 
+ 
+ van Buchem 
+ MA 
+ 
+ 
+ Reiber 
+ JH 
+ 
+ 
+ Rombouts 
+ SA 
+ 
+ 
+ Milles 
+ J 
+ 
+ 
+ 2009 
+ Hierarchical functional modularity in the resting-state human brain 
+ Hum Brain Mapp 
+ 30 
+ 2220 
+ 2231 
+ 18830955 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fox 
+ MD 
+ 
+ 
+ Corbetta 
+ M 
+ 
+ 
+ Snyde 
+ AZ 
+ 
+ 
+ Vincent 
+ JL 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ 2006 
+ Spontaneous neuronal activity distinguishes human dorsal and ventral attention systems 
+ Proc Natl Acad Sci 
+ 103 
+ 10046 
+ 10051 
+ 16788060 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fox 
+ MD 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Vincent 
+ JL 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ 2007 
+ Intrinsic fluctuations within cortical systems account for intertribal variability in human behavior 
+ Neuron 
+ 56 
+ 171 
+ 184 
+ 17920023 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fransson 
+ P 
+ 
+ 
+ Skiold 
+ B 
+ 
+ 
+ Horsch 
+ S 
+ 
+ 
+ Nordell 
+ A 
+ 
+ 
+ Blennow 
+ M 
+ 
+ 
+ Lagercrantz 
+ H 
+ 
+ 
+ Aden 
+ U 
+ 
+ 
+ 2007 
+ Resting-state networks in the infant brain 
+ Proc Natl Acad Sci 
+ 104 
+ 15531 
+ 15536 
+ 17878310 
+ 
+ 
+ 
+ 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ Harrison 
+ L 
+ 
+ 
+ Penny 
+ W 
+ 
+ 
+ 2003 
+ Dynamic causal modelling 
+ NeuroImage 
+ 19 
+ 1273 
+ 1302 
+ 12948688 
+ 
+ 
+ 
+ 
+ 
+ 
+ Goebel 
+ R 
+ 
+ 
+ Roebroeck 
+ A 
+ 
+ 
+ Kim 
+ D 
+ 
+ 
+ Formisano 
+ E 
+ 
+ 
+ 2003 
+ Investigating directed cortical interactions in time-resolved fMRI data using vector autoregressive modeling and Granger causality mapping 
+ Magn Reson Imaging 
+ 21 
+ 1251 
+ 1261 
+ 14725933 
+ 
+ 
+ 
+ 
+ 
+ 
+ Greicius 
+ MD 
+ 
+ 
+ Krasnow 
+ B 
+ 
+ 
+ Reiss 
+ AL 
+ 
+ 
+ Menon 
+ V 
+ 
+ 
+ 2003 
+ Functional connectivity in the resting brain: A network analysis of the default mode hypothesis 
+ Proc Natl Acad Sci 
+ 100 
+ 253 
+ 258 
+ 12506194 
+ 
+ 
+ 
+ 
+ 
+ 
+ Greicius 
+ MD 
+ 
+ 
+ Srivastava 
+ G 
+ 
+ 
+ Reiss 
+ AL 
+ 
+ 
+ Menon 
+ V 
+ 
+ 
+ 2004 
+ Default-mode network activity distinguishes Alzheimer’s disease from healthy aging: Evidence from functional MRI 
+ Proc Natl Acad Sci 
+ 101 
+ 4637 
+ 4642 
+ 15070770 
+ 
+ 
+ 
+ 
+ 
+ 
+ He 
+ Y 
+ 
+ 
+ Chen 
+ ZJ 
+ 
+ 
+ Evans 
+ AC 
+ 
+ 
+ 2007 
+ Small-world anatomical networks in the human brain revealed by cortical thickness from MRI 
+ Cerebral Cortex 
+ 17 
+ 2407 
+ 2419 
+ 17204824 
+ 
+ 
+ 
+ 
+ 
+ 
+ Jann 
+ K 
+ 
+ 
+ Kottlow 
+ M 
+ 
+ 
+ Dierks 
+ T 
+ 
+ 
+ Boesch 
+ C 
+ 
+ 
+ Koenig 
+ T 
+ 
+ 
+ 2010 
+ Topographic electrophysiological signatures of fMRI resting state networks 
+ PLoS One 
+ 5 
+ e12945 
+ 20877577 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kelly 
+ AMC 
+ 
+ 
+ Uddin 
+ LQ 
+ 
+ 
+ Biswal 
+ BB 
+ 
+ 
+ Castellanos 
+ FX 
+ 
+ 
+ Milham 
+ MP 
+ 
+ 
+ 2008 
+ Competition between functional brain networks mediates behavioral variability 
+ Neuroimage 
+ 39 
+ 527 
+ 537 
+ 17919929 
+ 
+ 
+ 
+ 
+ 
+ 
+ Kim 
+ D 
+ 
+ 
+ Burge 
+ J 
+ 
+ 
+ Lane 
+ T 
+ 
+ 
+ Pearlson 
+ GD 
+ 
+ 
+ Kiehl 
+ KA 
+ 
+ 
+ Calhoun 
+ VD 
+ 
+ 
+ 2008 
+ Hybrid ICA-Bayesian network approach reveals distinct effective connectivity differences in schizophrenia 
+ Neuroimage 
+ 42 
+ 1560 
+ 1568 
+ 18602482 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lee 
+ TW 
+ 
+ 
+ Girolami 
+ M 
+ 
+ 
+ Sejnowski 
+ TJ 
+ 
+ 
+ 1999 
+ Independent component analysis using an extended infomax algorithm for mixed subgaussian and supergaussian sources 
+ Neural Comput 
+ 11 
+ 417 
+ 441 
+ 9950738 
+ 
+ 
+ 
+ 
+ 
+ 
+ Li 
+ J 
+ 
+ 
+ Wang 
+ ZJ 
+ 
+ 
+ Palmer 
+ SJ 
+ 
+ 
+ Mckeown 
+ MJ 
+ 
+ 
+ 2008 
+ Dynamic Bayesian network modeling of fMRI: A comparison of group-analysis methods 
+ Neuroimage 
+ 41 
+ 398 
+ 407 
+ 18406629 
+ 
+ 
+ 
+ 
+ 
+ 
+ Li 
+ R 
+ 
+ 
+ Chen 
+ K 
+ 
+ 
+ Zhang 
+ N 
+ 
+ 
+ Fleisher 
+ AS 
+ 
+ 
+ Yao 
+ L 
+ 
+ 
+ Wu 
+ X 
+ 
+ 
+ 2009 
+ Effective connectivity analysis of default mode network based on the Bayesian network learning approach 
+ Progr Biomed Opt Imaging Proc SPIE 
+ 7262 
+ 72621W 
+ 
+ 
+ 
+ 
+ 
+ 
+ Liao 
+ W 
+ 
+ 
+ Mantini 
+ D 
+ 
+ 
+ Zhang 
+ ZQ 
+ 
+ 
+ Pan 
+ ZY 
+ 
+ 
+ Ding 
+ JR 
+ 
+ 
+ Gong 
+ QY 
+ 
+ 
+ Yang 
+ YH 
+ 
+ 
+ Chen 
+ HF 
+ 
+ 
+ 2010 
+ Evaluating the effective connectivity of resting state networks using conditional Granger causality 
+ Biol Cybern 
+ 102 
+ 57 
+ 69 
+ 19937337 
+ 
+ 
+ 
+ 
+ 
+ 
+ Mantini 
+ D 
+ 
+ 
+ Perrucci 
+ MG 
+ 
+ 
+ Del Gratta 
+ C 
+ 
+ 
+ Romani 
+ GL 
+ 
+ 
+ Corbetta 
+ M 
+ 
+ 
+ 2007 
+ Electrophysiological signatures of resting state networks in the human brain 
+ Proc Natl Acad Sci 
+ 104 
+ 13170 
+ 13175 
+ 17670949 
+ 
+ 
+ 
+ 
+ 
+ 
+ Mason 
+ MF 
+ 
+ 
+ Norton 
+ MI 
+ 
+ 
+ Van Horn 
+ JD 
+ 
+ 
+ Wegner 
+ DM 
+ 
+ 
+ Grafton 
+ ST 
+ 
+ 
+ Macrae 
+ CN 
+ 
+ 
+ 2007 
+ Wandering minds: The default network and stimulus-independent thought 
+ Science 
+ 315 
+ 393 
+ 395 
+ 17234951 
+ 
+ 
+ 
+ 
+ 
+ 
+ McIntosh 
+ AR 
+ 
+ 
+ Gonzalez-Lima 
+ F 
+ 
+ 
+ 1994 
+ Structural equation modeling and its application to network analysis in functional brain imaging 
+ Hum Brain Mapp 
+ 2 
+ 2 
+ 22 
+ 
+ 
+ 
+ 
+ 
+ 
+ Mesulam 
+ M 
+ 
+ 
+ 1998 
+ From sensation to cognition 
+ Brain 
+ 121 
+ 1013 
+ 1052 
+ 9648540 
+ 
+ 
+ 
+ 
+ 
+ 
+ Meunier 
+ D 
+ 
+ 
+ Lambiotte 
+ R 
+ 
+ 
+ Fornito 
+ A 
+ 
+ 
+ Ersche 
+ KD 
+ 
+ 
+ Bullmore 
+ ET 
+ 
+ 
+ 2009 
+ Hierarchical modularity in human brain functional networks 
+ Front Neuroinform 
+ 3 
+ 37 
+ 19949480 
+ 
+ 
+ 
+ 
+ 
+ 
+ Morcom 
+ AM 
+ 
+ 
+ Fletcher 
+ PC 
+ 
+ 
+ 2007 
+ Does the brain have a baseline? Why we should be resisting a rest 
+ Neuroimage 
+ 37 
+ 1073 
+ 1082 
+ 
+ 
+ 
+ 
+ 
+ 
+ Newman 
+ ME 
+ 
+ 
+ 2006 
+ Modularity and community structure in networks 
+ Proc Natl Acad Sci 
+ 6 
+ 8577 
+ 8582 
+ 16723398 
+ 
+ 
+ 
+ 
+ 
+ 
+ Northoff 
+ G 
+ 
+ 
+ Heinzel 
+ A 
+ 
+ 
+ Greck 
+ M 
+ 
+ 
+ Bennpohl 
+ F 
+ 
+ 
+ Dobrowolny 
+ H 
+ 
+ 
+ Panksepp 
+ J 
+ 
+ 
+ 2006 
+ Self-referential processing in our brain - A meta-analysis of imaging studies on the self 
+ Neuroimage 
+ 31 
+ 440 
+ 457 
+ 16466680 
+ 
+ 
+ 
+ 
+ 
+ 
+ Northoff 
+ G 
+ 
+ 
+ Qin 
+ P 
+ 
+ 
+ Nakao 
+ T 
+ 
+ 
+ 2010 
+ Rest-stimulus interaction in the brain: a review 
+ Trends Neurosci 
+ 33 
+ 277 
+ 284 
+ 20226543 
+ 
+ 
+ 
+ 
+ 
+ 
+ Pouget 
+ A 
+ 
+ 
+ Dayan 
+ P 
+ 
+ 
+ Zemel 
+ RS 
+ 
+ 
+ 2003 
+ Inference and computation with population codes 
+ Annu Rev Neurosci 
+ 26 
+ 381 
+ 410 
+ 12704222 
+ 
+ 
+ 
+ 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ 2007 
+ A default mode of brain function: A brief history of an evolving idea 
+ Neuroimage 
+ 37 
+ 1083 
+ 1090 
+ 17719799 
+ 
+ 
+ 
+ 
+ 
+ 
+ Rajapakse 
+ JC 
+ 
+ 
+ Zhou 
+ J 
+ 
+ 
+ 2007 
+ Learning effective brain connectivity with dynamic Bayesian networks 
+ Neuroimage 
+ 37 
+ 749 
+ 760 
+ 17644415 
+ 
+ 
+ 
+ 
+ 
+ 
+ Rotarska-Jagiela 
+ A 
+ 
+ 
+ van de Ven 
+ V 
+ 
+ 
+ Oertel-Knöchel 
+ V 
+ 
+ 
+ Uhlhaas 
+ PJ 
+ 
+ 
+ Vogeley 
+ K 
+ 
+ 
+ Linden 
+ DEJ 
+ 
+ 
+ 2010 
+ Resting-state functional network correlates of psychotic symptoms in schizophrenia 
+ Schizophr Res 
+ 117 
+ 21 
+ 30 
+ 20097544 
+ 
+ 
+ 
+ 
+ 
+ 
+ Schmidt 
+ M 
+ 
+ 
+ Niculescu-Mizil 
+ A 
+ 
+ 
+ Murphy 
+ K 
+ 
+ 
+ 2007 
+ Learning graphical model structure using L1-regularization paths 
+ Proceedings of the 22nd Conference on Artificial Intelligence 
+ 1278 
+ 1283 
+ 
+ 
+ 
+ 
+ 
+ 
+ Schwarz 
+ G 
+ 
+ 
+ 1978 
+ Estimating the dimension of a model 
+ Annals Statist 
+ 6 
+ 461 
+ 464 
+ 
+ 
+ 
+ 
+ 
+ 
+ Seeley 
+ WW 
+ 
+ 
+ Crawford 
+ RK 
+ 
+ 
+ Zhou 
+ J 
+ 
+ 
+ Miller 
+ BL 
+ 
+ 
+ Greicius 
+ MD 
+ 
+ 
+ 2009 
+ Neurodegenerative diseases target large-scale human brain networks 
+ Neuron 
+ 62 
+ 42 
+ 52 
+ 19376066 
+ 
+ 
+ 
+ 
+ 
+ 
+ Sepulcre 
+ J 
+ 
+ 
+ Liu 
+ H 
+ 
+ 
+ Talukdar 
+ T 
+ 
+ 
+ Martincorena 
+ I 
+ 
+ 
+ Yeo 
+ BT 
+ 
+ 
+ Buckner 
+ RL 
+ 
+ 
+ 2010 
+ The organization of local and distant functional connectivity in the human brain 
+ PLoS Comput Biol 
+ 6 
+ e1000808 
+ 20548945 
+ 
+ 
+ 
+ 
+ 
+ 
+ Shachter 
+ RD 
+ 
+ 
+ Kenley 
+ CR 
+ 
+ 
+ 1989 
+ Gaussian influence diagrams 
+ Management Science 
+ 35 
+ 527 
+ 550 
+ 
+ 
+ 
+ 
+ 
+ 
+ Smith 
+ SM 
+ 
+ 
+ Miller 
+ KL 
+ 
+ 
+ Salimi-Khorshidi 
+ G 
+ 
+ 
+ Webster 
+ M 
+ 
+ 
+ Beckmann 
+ CF 
+ 
+ 
+ Nichols 
+ TE 
+ 
+ 
+ Ramsey 
+ JD 
+ 
+ 
+ Woolrich 
+ MW 
+ 
+ 
+ 2010 
+ Network modelling methods for FMRI 
+ Neuroimage 
+ 10.1016/j.neuroimage.2010.08.063 
+ 
+ 
+ 
+ 
+ 
+ 
+ Sorg 
+ C 
+ 
+ 
+ Riedl 
+ V 
+ 
+ 
+ Mühlau 
+ M 
+ 
+ 
+ Calhoun 
+ VD 
+ 
+ 
+ Eichele 
+ T 
+ 
+ 
+ Läer 
+ L 
+ 
+ 
+ Drzezga 
+ A 
+ 
+ 
+ Förstl 
+ H 
+ 
+ 
+ Kurz 
+ A 
+ 
+ 
+ Zimmer 
+ C 
+ 
+ 
+ Wohlschläger 
+ AM 
+ 
+ 
+ 2007 
+ Selective changes of resting-state networks in individuals at risk for Alzheimer’s disease 
+ Proc Natl Acad Sci 
+ 104 
+ 18760 
+ 18765 
+ 18003904 
+ 
+ 
+ 
+ 
+ 
+ 
+ Sporns 
+ O 
+ 
+ 
+ Honey 
+ CJ 
+ 
+ 
+ 2006 
+ Small worlds inside big brains 
+ Proc Natl Acad Sci 
+ 103 
+ 19219 
+ 19220 
+ 17159140 
+ 
+ 
+ 
+ 
+ 
+ 
+ Sporns 
+ O 
+ 
+ 
+ Honey 
+ CJ 
+ 
+ 
+ Kotter 
+ R 
+ 
+ 
+ 2007 
+ Identification and classification of hubs in brain networks 
+ PLoS One 
+ 2 
+ e1049 
+ 17940613 
+ 
+ 
+ 
+ 
+ 
+ 
+ Stevens 
+ MC 
+ 
+ 
+ Pearlson 
+ GD 
+ 
+ 
+ Calhoun 
+ VD 
+ 
+ 
+ 2009 
+ Changes in the interaction of resting-state neural networks from adolescence to adulthood 
+ Hum Brain Mapp 
+ 30 
+ 2356 
+ 2366 
+ 19172655 
+ 
+ 
+ 
+ 
+ 
+ 
+ Supekar 
+ K 
+ 
+ 
+ Musen 
+ M 
+ 
+ 
+ Menon 
+ V 
+ 
+ 
+ 2009 
+ Development of large-scale functional brain networks in children 
+ PLoS Biol 
+ 7 
+ e1000157 
+ 19621066 
+ 
+ 
+ 
+ 
+ 
+ 
+ Tohka 
+ J 
+ 
+ 
+ Foerde 
+ K 
+ 
+ 
+ Aron 
+ AR 
+ 
+ 
+ Tom 
+ SM 
+ 
+ 
+ Toga 
+ AW 
+ 
+ 
+ Poldrack 
+ RA 
+ 
+ 
+ 2008 
+ Automatic independent component labeling for artifact removal in fMRI 
+ Neuroimage 
+ 39 
+ 1227 
+ 1245 
+ 18042495 
+ 
+ 
+ 
+ 
+ 
+ 
+ Van Dijk 
+ KRA 
+ 
+ 
+ Hedden 
+ T 
+ 
+ 
+ Venkatarnman 
+ A 
+ 
+ 
+ Evans 
+ KC 
+ 
+ 
+ Lazar 
+ SW 
+ 
+ 
+ Bucker 
+ RL 
+ 
+ 
+ 2010 
+ Intrinsic functional connectivity as a tool for human connectomics: Theory, properties, and optimization 
+ J Neurophysiol 
+ 103 
+ 297 
+ 321 
+ 19889849 
+ 
+ 
+ 
+ 
+ 
+ 
+ Varela 
+ F 
+ 
+ 
+ Lachaux 
+ JP 
+ 
+ 
+ Rodriguez 
+ E 
+ 
+ 
+ Martinerie 
+ J 
+ 
+ 
+ 2001 
+ The brainweb: Phase synchronization and large-scale integration 
+ Nat Rev Neurosci 
+ 2 
+ 229 
+ 239 
+ 11283746 
+ 
+ 
+ 
+ 
+ 
+ 
+ Wang 
+ J 
+ 
+ 
+ Zuo 
+ X 
+ 
+ 
+ He 
+ Y 
+ 
+ 
+ 2010 
+ Graph-based network analysis of resting-state functional MRI 
+ Front Syst Neurosci 
+ 4 
+ 16 
+ 20589099 
+ 
+ 
+ 
+ 
+ 
+ 
+ Wu 
+ X 
+ 
+ 
+ Li 
+ R 
+ 
+ 
+ Fleisher 
+ AS 
+ 
+ 
+ Reiman 
+ EM 
+ 
+ 
+ Guan 
+ X 
+ 
+ 
+ Zhang 
+ Y 
+ 
+ 
+ Chen 
+ K 
+ 
+ 
+ Yao 
+ L 
+ 
+ 
+ 2011 
+ Altered default mode network connectivity in Alzheimer’s disease— a resting functional MRI and Bayesian network study 
+ Hum Brain Mapp 
+ In press 
+ 
+ 
+ 
+ 
+ 
+ 
+ Zheng 
+ XB 
+ 
+ 
+ Rajapakse 
+ JC 
+ 
+ 
+ 2006 
+ Learning functional structure from fMR images 
+ Neuroimage 
+ 31 
+ 1601 
+ 1613 
+ 16540348 
+ 
+ 
+ 
+ 
+ 
+ 
+ Zuo 
+ X 
+ 
+ 
+ Di Martino 
+ A 
+ 
+ 
+ Kelly 
+ C 
+ 
+ 
+ Shehzad 
+ ZE 
+ 
+ 
+ Gee 
+ DG 
+ 
+ 
+ Klein 
+ DF 
+ 
+ 
+ Castellanos 
+ FX 
+ 
+ 
+ Biswal 
+ BB 
+ 
+ 
+ Milham 
+ MP 
+ 
+ 
+ 2010a 
+ The oscillating brain: complex and reliable 
+ Neuroimage 
+ 49 
+ 1432 
+ 1445 
+ 19782143 
+ 
+ 
+ 
+ 
+ 
+ 
+ Zuo 
+ X 
+ 
+ 
+ Kelly 
+ C 
+ 
+ 
+ Adelstein 
+ JS 
+ 
+ 
+ Klein 
+ DF 
+ 
+ 
+ Castellanos 
+ FX 
+ 
+ 
+ Milham 
+ MP 
+ 
+ 
+ 2010b 
+ Reliable intrinsic connectivity networks: Test-retest evaluation using ICA and dual regression approach 
+ Neuroimage 
+ 49 
+ 2163 
+ 2177 
+ 19896537 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fig. 1 
+ 
+ Coronal, sagittal, and axial view of spatial map for each RSN.  A – H  are respectively networks for VN1, VN2, AN, SMN, SRN, DAN, VAN and DMN. Each RSN map was the result of one-sample  t  test on the individual IC patterns ( p  < 0.05, FDR corrected).  T -value bar is shown at right. 
+ 
+ 
+ 
+ 
+ Fig. 2 
+ 
+ BN connectivity patterns on the RSNs. The RSNs are graphically represented with connections depicting conditional dependencies. Networks responsible for the lower-level sensory and higher-order cognitive processing are respectively located in the upper and lower boxes. The SRN, which is suggested as an import intermediary for modulation between sensory and higher-order cognitive processing, is individually marked in the graph. Only connections survived the significance testing ( p  < 0.05) are shown. Solid and dashed arcs are respectively for positive and negative connections. Line width is proportional to the connection weights. 
+ 
+ 
+ 
+ 
+ Table 1 
+ 
+ RSNs and the involved brain regions. BA, Brodmann Area. 
+ 
+ 
+ 
+ 
+ RSNs 
+ Peak MNI location 
+ Involved brain regions 
+ BA 
+ 
+ 
+ 
+ x 
+ y 
+ z 
+ 
+ 
+ 
+ 
+ VN1 
+ 36 
+ −75 
+ −16 
+ Right occipital lobe, Fusiform gyrus 
+ 19 
+ Associative visual cortex 
+ 
+ 
+ −42 
+ −72 
+ 0 
+ Left occipital lobe, Fusiform gyrus 
+ 19 
+ 
+ 
+ 
+ 
+ 
+ 
+ VN2 
+ −3 
+ −75 
+ 16 
+ Occipital lobe 
+ 17/18 
+ Primary/secondary visual cortex 
+ 
+ 
+ 
+ 
+ 
+ 
+ AN 
+ −51 
+ 0 
+ 0 
+ Left superior temporal gyrus 
+ 22/42 
+ Auditory association cortex. primary and secondary auditory cortex 
+ 
+ 
+ 45 
+ 3 
+ −16 
+ Right superior temporal gyrus 
+ 22/42 
+ 
+ 
+ 
+ 
+ 
+ 
+ SMN 
+ −9 
+ −21 
+ 52 
+ Left medial frontal gyrus 
+ 6 
+ Premotor cortex 
+ 
+ 
+ −15 
+ −36 
+ 64 
+ Left postcentral gyrus 
+ 3 
+ Primary somatosensory cortex 
+ 
+ 
+ 4 
+ −32 
+ 50 
+ Right paracentral lobule 
+ 5 
+ Somatosensory association cortex 
+ 
+ 
+ −29 
+ −24 
+ 51 
+ Left precentral gyrus 
+ 4 
+ Primary motor cortex 
+ 
+ 
+ 
+ 
+ 
+ 
+ SRN 
+ 9 
+ 42 
+ 0 
+ Anterior cingulate 
+ 24/32 
+ Ventral/dorsal anterior cingulate 
+ 
+ 
+ 0 
+ 36 
+ 28 
+ Medial frontal gyrus 
+ 32 
+ 
+ 
+ −2 
+ 42 
+ 15 
+ Left medial frontal gyrus 
+ 9/10 
+ Dorsolateral/anterior prefrontal cortex 
+ 
+ 
+ 6 
+ −42 
+ 36 
+ Right limbic lobe, cingulate gyrus 
+ 31 
+ Dorsal posterior cingulate cortex 
+ 
+ 
+ −9 
+ −18 
+ 28 
+ Left limbic lobe, cingulate gyrus 
+ 23 
+ Ventral posterior cingulate cortex 
+ 
+ 
+ 
+ 
+ 
+ 
+ DAN 
+ −42 
+ −63 
+ 44 
+ Left inferior parietal lobule 
+ 7/39/40 
+ Intraparietal sulcus 
+ 
+ 
+ 54 
+ −60 
+ 52 
+ Right inferior parietal lobule 
+ 40 
+ 
+ 
+ −28 
+ 24 
+ 44 
+ Left middle frontal gyrus 
+ 8 
+ 
+ 
+ 
+ −27 
+ 21 
+ 52 
+ Left middle/superior frontal gyrus 
+ 6/8 
+ Frontal eye field, middle/superior frontal gyrus 
+ 
+ 
+ 39 
+ 51 
+ −8 
+ Right middle frontal gyrus 
+ 10/11 
+ 
+ 
+ 42 
+ 27 
+ 40 
+ Right middle frontal gyrus 
+ 8/9 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ VAN 
+ 60 
+ −30 
+ −16 
+ Right inferior/middle temporal gyrus 
+ 20/21 
+ Temporal-parietal junction area 
+ 
+ 
+ 30 
+ −69 
+ 40 
+ Right superior parietal lobule, 
+ 7/19 
+ 
+ 
+ 51 
+ −39 
+ 48 
+ Right inferior parietal lobule 
+ 40 
+ 
+ 
+ 
+ 36 
+ 15 
+ 52 
+ Right middle/superior frontal gyrus 
+ 6/8 
+ Ventral frontal cortex 
+ 
+ 
+ 45 
+ 9 
+ 40 
+ Right middle frontal gyrus 
+ 8/9 
+ 
+ 
+ 
+ 
+ 
+ 
+ DMN 
+ 6 
+ −49 
+ 25 
+ Posterior cingulate cortex 
+ 23/31 
+ Ventral/dorsal posterior cingulate cortex 
+ 
+ 
+ −12 
+ 62 
+ 8 
+ Medial prefrontal cortex 
+ 10 
+ Anterior prefrontal cortex 
+ 
+ 
+ −43 
+ −67 
+ 33 
+ Left inferior parietal cortex 
+ 39 
+ Angular gyrus 
+ 
+ 
+ 45 
+ −60 
+ 29 
+ Right inferior parietal cortex 
+ 39 
+ 
+ 
+ −59 
+ −15 
+ −16 
+ Left inferolateral temporal cortex 
+ 20/21 
+ Inferior/middle temporal gyrus 
+ 
+ 
+ 59 
+ −12 
+ −20 
+ Right inferolateral temporal cortex 
+ 20/21 
+ 
+ 
+ −22 
+ −15 
+ −22 
+ Left (para)hippocampus 
+ 28/35 
+ Hippocampal region 
+ 
+ 
+ 25 
+ −14 
+ −23 
+ Right (para)hippocampus 
+ 28/35 
+ 
+ 
+ 
+ 
+ 
+ Table 2 
+ 
+ Direct connections in the BN model and the associated connection weights as well as the statistical significance. 
+ 
+ 
+ 
+ 
+ Function 
+ Direct Connections 
+ Weights 
+ T  values 
+ P  values 
+ 
+ 
+ 
+ 
+ Lower-level Sensory processing (sensory RSN to sensory RSN) 
+ VN1 → VN2 
+ 1.25 
+ 14.21 
+ <0.0001 
+ 
+ 
+ VN1 → AN 
+ 0.72 
+ 6.46 
+ <0.0001 
+ 
+ 
+ VN1 → SMN 
+ 0.20 
+ 2.46 
+ 0.0145 
+ 
+ 
+ AN → VN2 
+ 0.18 
+ 2.61 
+ 0.0095 
+ 
+ 
+ AN → SMN 
+ 0.42 
+ 6.74 
+ <0.0001 
+ 
+ 
+ 
+ 
+ 
+ 
+ Higher-order cognitive processing (cognitive RSN to cognitive RSN) 
+ SRN → DMN 
+ 0.50 
+ 4.72 
+ <0.0001 
+ 
+ 
+ SRN → DAN 
+ 1.01 
+ 11.72 
+ <0.0001 
+ 
+ 
+ DAN → VAN 
+ 0.89 
+ 11.44 
+ <0.0001 
+ 
+ 
+ DAN → DMN 
+ 0.51 
+ 4.00 
+ <0.0001 
+ 
+ 
+ 
+ 
+ 
+ 
+ Interactions between sensory and cognitive networks 
+ VN1 → VAN 
+ 0.14 
+ 2.69 
+ 0.0076 
+ 
+ 
+ VN2 → DMN 
+ 0.40 
+ 6.67 
+ <0.0001 
+ 
+ 
+ AN → DMN 
+ −0.55 
+ −8.60 
+ <0.0001 
+ 
+ 
+ AN → SRN 
+ −0.20 
+ −3.33 
+ 0.0010 
+ 
+ 
+ SMN → SRN 
+ 0.58 
+ 8.87 
+ <0.0001 
+ 
+ 
+ DAN → VN2 
+ −0.50 
+ −3.69 
+ <0.0001 
+ 
+ 
+ 
+ 
+ 

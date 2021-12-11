@@ -1,0 +1,2868 @@
+
+ properties manuscript? 
+ 
+ 
+ 0213264 
+ 1117 
+ Biol Psychiatry 
+ 
+ Biological psychiatry 
+ 
+ 0006-3223 
+ 1873-2402 
+ 
+ 
+ 21890111 
+ 3191298 
+ 10.1016/j.biopsych.2011.07.014 
+ NIHMS315596 
+ 
+ 
+ Article 
+ 
+ 
+ 
+ Multivariate searchlight classification of structural MRI in children and adolescents with autism 
+ 
+ 
+ 
+ 
+ Uddin 
+ Lucina Q. 
+ 
+ 1 
+ 
+ 
+ 
+ Menon 
+ Vinod 
+ 
+ 1 
+ 2 
+ 3 
+ 5 
+ * 
+ 
+ 
+ 
+ Young 
+ Christina B. 
+ 
+ 1 
+ 
+ 
+ 
+ Ryali 
+ Srikanth 
+ 
+ 1 
+ 
+ 
+ 
+ Chen 
+ Tianwen 
+ 
+ 1 
+ 
+ 
+ 
+ Khouzam 
+ Amirah 
+ 
+ 1 
+ 
+ 
+ 
+ Minshew 
+ Nancy J. 
+ 
+ 4 
+ 
+ 
+ 
+ Hardan 
+ Antonio Y. 
+ 
+ 1 
+ 
+ 
+ 1 Department of Psychiatry and Behavioral Sciences, Stanford University School of Medicine, Stanford, CA 94304, USA
+ 
+ 2 Department of Neurology and Neurological Sciences, Stanford University School of Medicine, Stanford, CA 94304, USA
+ 
+ 3 Program in Neuroscience, Stanford University School of Medicine, Stanford, CA 94304, USA
+ 
+ 4 Departments of Psychiatry and Neurology, Western Psychiatric Institute and Clinic, University of Pittsburgh School of Medicine, Pittsburgh, Pennsylvania
+ 
+ 5 Stanford Institute for Neuro-Innovation & Translational Neurosciences
+ 
+ 
+ * Correspondence should be addressed to: Vinod Menon, Ph.D., 401 Quarry Road, Stanford, CA 94305,  menon@stanford.edu , Phone: (650) 498-6737, Fax: (650) 736-7200 
+ 
+ 
+ 3 
+ 8 
+ 2011 
+ 
+ 
+ 3 
+ 9 
+ 2011 
+ 
+ 
+ 1 
+ 11 
+ 2011 
+ 
+ 
+ 1 
+ 11 
+ 2012 
+ 
+ 70 
+ 9 
+ 833 
+ 841 
+ 
+ 
+ This file is available for text mining. It may also be used consistent with the principles of fair use under the copyright law. 
+ 
+ 
+ 
+ 
+ Background 
+ Autism spectrum disorders (ASD) are neurodevelopmental disorders with a prevalence of nearly 1:100. Structural imaging studies point to disruptions in multiple brain areas, yet the precise neuroanatomical nature of these disruptions remains unclear. Characterization of brain structural differences in children with ASD is critical for development of biomarkers that may eventually be used to improve diagnosis and monitor response to treatment. 
+ 
+ 
+ Methods 
+ We use voxel-based morphometry (VBM) along with a novel multivariate pattern analysis (MPA) approach and searchlight algorithm to classify structural magnetic resonance imaging data acquired from 24 children and adolescents with autism and 24 age-, gender-, and IQ-matched neurotypical participants. 
+ 
+ 
+ Results 
+ Despite modest VBM differences, MPA revealed that the groups could be distinguished with accuracies of around 90% based on gray matter in the posterior cingulate cortex (PCC), medial prefrontal cortex, and bilateral medial temporal lobes, all regions within the default mode network (DMN). Abnormalities in the PCC were associated with impaired ADI-R communication scores. Gray matter in additional prefrontal, lateral temporal, and subcortical structures also discriminated between the two groups with accuracies between 81-90%. White matter in the inferior fronto-occipital and superior longitudinal fasciculi, and the genu and splenium of the corpus callosum, achieved up to 85% classification accuracy. 
+ 
+ 
+ Conclusions 
+ Multiple brain regions, including those belonging to the DMN, exhibit aberrant structural organization in children with autism. Brain-based biomarkers derived from structural MRI data may eventually contribute to identification of the neuroanatomical basis of symptom heterogeneity and to the development of more targeted early intervention. 
+ 
+ 
+ 
+ voxel-based morphometry 
+ autism spectrum disorders 
+ default mode network 
+ multivariate pattern analysis 
+ support vector machine 
+ biomarker 
+ 
+ 
+ 
+ National Institute of Mental Health  : NIMH 
+ K01 MH092288-02 || MH 
+ 
+ 
+ 
+ 
+ 
+ Introduction 
+ Recent reports of the prevalence of autism spectrum disorders (ASD) in the population show that the disorder affects nearly 1:100 children ( 1 ,  2 ). Diagnosis of the disorder is optimally established at a young age on the basis DSM-IV criteria and research instruments that involve both direct observation and parent interview ( 1 ,  2 ). However, optimal resources and procedures are often not available, and many children with ASD are missed or mis-diagnosed by professionals ( 3 - 5 ). Defining reliable brain abnormalities in children with autism has the potential for advancing the understanding of the neural basis of manifestations and their heterogeneity, and is also a critical first step towards developing brain-based biomarkers that can be of potential use in improving diagnosis, individualizing treatment, and monitoring response to treatments. 
+ While ASD is known to be a neurodevelopmental disorder affecting social development, verbal and nonverbal communication, and motor and sensory behaviors, brain-based biomarkers reliably distinguishing children with ASD from typically developing (TD) children have not yet been defined. This may in part be due to the etiologic heterogeneity of the disorder ( 6 ,  7 ) and the fact that its effect on the development of multiple brain systems and cognitive processes is highly complex ( 8 ). As important, the methods of structural MRI data analysis have not been sufficiently sophisticated to capture these multi-faceted differences. 
+ Structural imaging studies in individuals with ASD using voxel-based morphometry (VBM) approaches have implicated a number of brain regions (see ( 9 ) and ( 10 ) for reviews). These studies have variably described abnormalities in the superior temporal sulcus ( 11 ) and other temporal lobe regions ( 12 ), prefrontal cortices ( 13 ,  14 ), and subcortical areas including the basal ganglia ( 15 ), amygdala ( 16 ) and cerebellum ( 17 ) in individuals with ASD. The findings from these studies are not, however, well-replicated at this time ( 18 ), likely due to the small sample sizes and the wide age and severity range of ASD within these samples. The most recent meta-analysis of gray matter alterations in ASD highlights decreases in gray matter in medial temporal lobe (hippocampus/amygdala) and medial parietal cortical regions (precuneus) as distinguishing features of autism ( 19 ). Many of these studies were conducted in adults with autism rather than children, which is problematic for a disorder with early life onset and variable developmental trajectory ( 20 ). Furthermore, the focus on differences in single brain regions does not recognize the emerging view that autism is a disorder of multiple brain systems and that the disturbance lies in the interactions among these systems ( 21 - 29 ). 
+ Traditional univariate VBM analyses quantify changes in gray or white matter density or volume between groups in a voxel-wise manner such that each voxel is individually compared. Multivariate pattern analysis (MPA), on the other hand, is a machine-learning-based pattern recognition technique that can be used to classify data by discriminating between two or more classes (or groups). MPA, or classification methods, are increasingly being applied to brain imaging data in an attempt to overcome the limitations inherent to univariate VBM approaches ( 30 ). Briefly, a classifier is a function that takes the values of various features (e.g., brain density or volume) in a sample and predicts which class (e.g., participant group) that sample belongs to ( 31 ). Multivariate approaches to analysis of MRI data can provide unique information that is overlooked by univariate approaches. While univariate analyses can reveal which particular brain regions differ on a relevant dimension (e.g. gray matter volume) between participant groups, multivariate analyses can show which set of brain voxels, in combination, can be used to discriminate between two participant groups. Multivariate analyses thus allow for making inferences about patterns of difference ( 32 ). Only two published studies to date have applied classification methods to structural brain imaging data collected from adults with ASD. The first study employed a support vector machine (SVM) whole-brain classification approach to discriminate adults with ASD from neurotypical adults. They found that greater classification accuracies were achieved when SVM was applied to gray matter (up to 86%) compared to white matter (up to 68%), and that SVM could more readily detect differences than traditional VBM approaches ( 33 ). Their study aimed to evaluate the performance of a classifier designed to discriminate two participant groups, rather than to identify precisely which brain regions contribute to such discrimination. A second study from this group using a multiparameter SVM classification approach combining volumetric measurements with geometric features of the cortical surface found that the best discrimination was obtained from cortical thickness measures ( 34 ). 
+ No classification studies using structural imaging data have been published to date on children with ASD. Such studies are particularly important for ASD, since it is a neurodevelopmental disorder with early onset and variable course, and a clinical emphasis on early treatment. Thus, characterization of useful biomarkers will necessitate investigations of children from the youngest ages to early adulthood. There have been no published studies attempting to identify precisely which brain regions can be used to discriminate groups of individuals with autism from typically developing individuals. Here we use VBM in combination with a novel searchlight classification approach applied to structural MRI data collected from a well-characterized group of children and adolescents with autism and age-matched neurotypical participants to define the pattern of structural brain differences between the two groups and to identify brain regions providing the greatest information regarding group membership. Based on previous work, we hypothesized that multivoxel patterns in children with autism would differ in multiple frontal, temporal, and parietal regions. Several recent studies have implicated the default mode network (DMN, anchored in the ventromedial prefrontal cortex, posterior cingulate cortex/precuneus, lateral parietal cortices, and hippocampus ( 35 ,  36 )), in the pathophysiology of autism ( 37 - 40 ). A subset of these regions (hippocampus and precuneus) have recently been shown to display robust decreases of gray matter volume in individuals with ASD ( 41 ). We therefore predicted that key nodes of the DMN would show significant differences in multivariate patterns between the two groups. 
+ 
+ 
+ Methods and Materials 
+ 
+ Participants 
+ Structural imaging data for the current study were collected from children and adolescents with autistic disorder (AD) ranging from age 8 to 18 years and a matched group of typical control participants. All participants had Full-Scale, Performance, and Verbal IQ scores greater than or equal to 75. All participants were administered the age-appropriate version of the Wechsler Intelligence Scale for Children–Revised or the Wechsler Adult Intelligence Scale–Revised to measure Full-Scale, Performance, and Verbal IQ. Details regarding participant recruitment are available in previous publications reporting results from this dataset ( 42 - 44 ). The study was approved by the institutional review board at the University of Pittsburgh, where the data were collected. 
+ The diagnosis of autism was established through expert clinical evaluation and scores in the autism range on the Autism Diagnostic Interview-Revised (ADI-R) and the Autism Diagnostic Observation Schedule (ADOS). Specific ADOS scores were unavailable for three participants due to accidental loss of primary data following confirmation of eligibility for the study. Participants meeting diagnostic criteria for autism but without abnormal language development were considered to have Asperger’s syndrome, and were not included in this study. 
+ Control participants were recruited from the community through advertisements in areas socioeconomically comparable to those from which the parents of participants with autism were recruited. The participant groups did not differ significantly in age, full scale, performance, or verbal IQ, or gender; and each group was comprised of twenty-two males and two females ( Table 1 ). 
+ 
+ 
+ Data Acquisition 
+ Neuroimaging data were collected using a General Electric (Milwaukee, Wisconsin) 1.5-T Signa scanner. A 1.5-mm SPGR (spoiled gradient recalled echo in steady state) coronal series (TR = 35; TE = 5; number of excitations [NEX] = 1; flip angle = 45 degrees) was collected, which was used for all the measurements reported in this study. 
+ 
+ 
+ Data Processing 
+ 
+ Voxel-based morphometry (VBM) 
+ Voxel-based differences in brain anatomy between participant groups were assessed using optimized voxel-based morphometry (VBM) ( 45 ) implemented in the VBM5 toolbox in SPM5 (Wellcome Department of Imaging Neuroscience, London, UK). Details of the VBM analysis steps are provided in the Supplement. Between-group comparisons for gray matter (GM) and white matter (WM) volumes were performed in SPM5 using two-sample  t -tests on smoothed images. A voxelwise significance threshold was used (GM: height < 0.01 with family-wise error (FWE) corrections for multiple comparisons, extent 133 voxels (< 0.01), WM: height < 0.01, with FWE corrections for multiple comparisons, extent 133 voxels (< 0.01). These extent thresholds were determined using Monte-Carlo simulations, implemented in Matlab using methods similar to the AlphaSim procedure in AFNI ( 46 ,  47 ). 
+ 
+ 
+ Multivariate pattern analysis (MPA) 
+ A multivariate statistical pattern recognition-based method ( 30 ,  48 ) was used to find brain regions that discriminated between structural MRIs collected from children and adolescents with autism and TD individuals. A detailed description of this technique and the means by which it can provide improved sensitivity to group differences over traditional univariate measures is provided in the Supplement. Inputs into the MPA were the smoothed GM and WM maps computed from the VBM analyses. The MPA method utilizes a nonlinear classifier based on support-vector machine algorithms with radial basis function (RBF) kernels ( 49 ). Briefly, at each voxel (v i ), a 3 × 3 × 3 neighborhood centered at v i  was defined. The spatial pattern of voxels in this block was defined by a 27-dimensional vector. Support vector machine (SVM) classification was performed using LIBSVM software ( www.csie.ntu.edu.tw/~cjlin/libsvm ). For the nonlinear SVM classifier, two parameters were specified, C (regularization) and α (parameter for RBF kernel), at each searchlight position. We estimated optimal values of C and α and the generalizability of the classifier at each searchlight position by using a combination of grid search and cross-validation procedures. In earlier approaches ( 50 ), linear SVM was used and the free parameter, C, was arbitrarily set. In the current work, however, we optimized the free parameters (C and α) based on the data, thereby designing an optimal classifier. In the M-fold (here we used M = 10) cross-validation procedure, the data are randomly divided into M-folds. M-1 folds were used for training the classifier and the remaining fold was used for testing. This procedure is repeated M times wherein a different fold was left out for testing each time. We estimated class labels of the test data at each fold and computed the average classification accuracy obtained at each fold, termed here as the cross validation accuracy (CA). The optimal parameters were found by grid searching the parameter space and selecting the pair of values (C,α) at which the M-fold cross-validation accuracy is maximum. In order to search for a wide range of values, we varied the values of C and α from 0.125 to 32 in steps of 2 (0.125, 0.25, 0.5,…16, 32). The resulting 3-D map of cross-validation accuracy at every voxel was used to detect brain regions that discriminated between the two participant groups. Under the null hypothesis that there is no difference between the two groups, the CAs were assumed to follow the binomial distribution Bi(N,p) with parameters N equal to the total number of participants in two groups and p equal to 0.5 (under the null hypothesis, the probability of each group is equal; ( 31 )). The CAs were then converted to p-values using the binomial distribution. The statistical maps were thresholded as follows: Classification GM: height < .001, FWE corrected, extent 40 voxels (<0 .01); classification WM: height < .001, FWE corrected, extent 29 voxels (< 0.01). These extent thresholds were determined using Monte-Carlo simulations on the respective gray and white matter masks using procedures similar to those noted in the previous section. 
+ 
+ 
+ Support Vector Machine (SVM) Relationship With Symptom Severity 
+ After using MPA to identify the GM and WM regions producing the highest classification accuracies, we looked for relationships between symptom severity based on diagnostic criteria (ADI-R and ADOS subscale scores) and the brain regions considered key nodes of the default mode network (DMN) ( 35 ). This was accomplished by computing correlation coefficients between the diagnostic criteria and distance from the optimal hyperplane separating the two groups for each key region of the DMN (posterior cingulate cortex and medial prefrontal cortex) ( 33 ). We first identified peak voxels of the areas of interest with high classification accuracies. At each of these voxels, we built a nonlinear hyper plane classification with 3×3×3 neighboring voxels as features. We then computed the distance of each subject from this hyper plane for each ROI. 
+ 
+ 
+ 
+ 
+ Results 
+ 
+ Multivariate Pattern Analysis 
+ Several key cortical and subcortical regions showed GM differences between groups. Notably, very high classification accuracies (near 90%) were detected in areas of the DMN (posterior cingulate cortex, medial prefrontal cortex, and parahippocampal gyrus). High classification accuracies (CA > 80%) were also observed in prefrontal regions (bilateral middle frontal gyri, right inferior frontal gyrus, left superior frontal gyrus), posterior parietal cortex (right angular, left supramarginal), and lateral temporal lobe (left superior temporal sulcus and anterior temporal). Subcortical regions including the left thalamus, left caudate, and cerebellum showed classification accuracies of 85% ( Fig. 1A ,  Table 2 ). 
+ When examining WM differences, we found that high CAs (> 80%) were obtained using data from the inferior fronto-occipital fasciculus, superior longitudinal fasciculus, and the genu and splenium of the corpus callosum ( Fig. 1B ,  Table 2 ). 
+ Analyses excluding the two female participants from each group are presented in the Supplement. The brain areas producing the highest CAs remained unchanged when examining only the male participants. 
+ 
+ 
+ Multivariate Pattern Analysis Overlap With Voxel-based Morphometry 
+ Additional analyses were conducted to examine whether brain regions that showed significant classification rates differed in overall volume. Differences in GM were compared using univariate analysis of VBM.  Figure 2  highlights the regions where MPA results overlapped with VBM results for GM between-group differences. Areas in red (PCC, supramarginal gyrus) showed VBM differences where children with autistic disorder showed greater volume than typically developing children. Areas in yellow (thalamus, superior frontal gyrus, precuneus, and lateral occipital cortex) showed VBM differences where TD children showed greater volume than children with AD. Blue areas are those that showed classification differences (eg. areas where GM could discriminate between groups, as discussed above). Areas in purple (PCC) are where the VBM AD > TD differences overlapped with the classification results, and areas in green (thalamus) are where the VBM TD > AD overlapped with the classification results. As is evident, classification analyses revealed more information regarding discriminating GM regions between groups than did the univariate VBM analysis. Adding age as a covariate to the VBM analysis did not change the results. 
+ 
+ 
+ Relationship Between SVM and Symptom Severity 
+ We were interested in testing for relationships between gray matter in the DMN and autism symptom severity.  Table 3  shows the relation between the scores on the diagnostic instruments (ADI-R and ADOS subscale scores) and gray matter in key DMN regions. This analysis revealed that subjects with the most severe autism as indexed by ADI-R communication subscale are better discriminators between groups on the basis of GM in the PCC region than subjects with less severe symptomatology (r = .536, p < .01). In other words, the most severely affected subjects are located furthest away from the hyperplane separating the two groups in the multivariate classification analysis. This relationship was still present after Bonferroni corrections for multiple comparisons (for each ROI individually). In addition, those with the most severe autism as indexed by the social (r = .413, p < .05) and repetitive behavior (r = .413, p < .05) subscales of the ADI-R are better discriminators between groups on the basis of GM in the PCC region than subjects with less severe symptomatology. However, Bonferroni correction renders these correlations insignificant. 
+ 
+ 
+ 
+ Discussion 
+ Most current theories of brain abnormalities underlying autism emphasize wide spread structural and functional changes ( 27 ,  51 ,  52 ) and disturbances in cortical connectivity among brain regions ( 8 ,  29 ,  53 ). With growing evidence that the brain disturbance underlying autism involves multiple brain regions came the need for increasingly sophisticated methods for analyzing these complex alterations. Multivariate pattern analysis is a powerful tool for investigating the pattern of these differences, and has several advantages over traditional univariate VBM approaches. In particular, such analyses are more sensitive to subtle changes in multiple brain areas that may accompany complex neuropsychiatric disorders such as autism (see ( 54 ) for review). The interpretation of a result from an MPA analysis is that the brain regions identified are those in which there is information which can be gleaned from a pattern of voxels that can be used to assign a particular individual dataset to a group - in our case, autism or control. 
+ Using a support vector machine (SVM) searchlight classification procedure, we found that gray matter in several cortical and subcortical regions discriminated between autism and TD groups with high classification accuracies. Some of the highest classification accuracies (near 90%) were achieved with GM in the posterior cingulate cortex, medial prefrontal cortex, and medial temporal lobes, all regions that comprise the default mode network ( 35 ). This finding is in line with the most recent meta-analysis of structural neuroimaging studies of autism, which points to decreases in gray matter in the hippocampus and precuneus ( 41 ). Several recent studies have supported a role for the DMN in the pathophysiology of autism. In adults with ASD, deactivation of the DMN during task performance appears abnormal ( 37 ), and the network shows reduced functional connectivity at rest ( 37 - 39 ,  55 - 57 ). Adolescents with ASD likewise show weaker connectivity within the DMN ( 58 ). Autism is associated with altered socioemotional responses, which have been linked to DMN function ( 59 ,  60 ). Furthermore, an activation likelihood estimation meta-analysis of twenty-four neuroimaging studies examining social processing in ASD found that medial prefrontal cortex and posterior cingulate cortex, two main nodes of the DMN, are hypoactive relative to neurotypical adults ( 61 ). Our current results support the notion that there might be morphological differences within DMN nodes that contribute to the observed functional differences at the network level. 
+ The present study found that the PCC not only produced the highest classification accuracy, but an individual subject’s distance from the hyperplane separating the two groups in the classification analysis were also significantly correlated with ADI-R scores. Specifically, children with the most elevated communication symptom score on the ADI-R (indicating the most severe deficits) were located furthest away from the hyperplane separating the autism and TD groups. These data indicate that our classification analyses are sensitive not only in distinguishing between autism and TD groups, but also in relating symptom severity with multi-voxel brain measures. Previous studies as well as the current study collectively suggest that atypical engagement of and connectivity within the DMN and associated networks is one possible signature of brain dysfunction in ASD ( 22 ,  55 ,  62 ,  63 ). Of note, both our VBM and MPA analyses showed group differences localized to the PCC, demonstrating the robustness of this result across methods. 
+ In addition to GM differences within the DMN, we found high classification accuracies in several prefrontal, lateral temporal, and subcortical regions. The frontal and temporal lobes are also notable for showing abnormal increases in gray and white matter between 2 and 4 years of age (See ( 64 ) for review). The posterior STS, involved with social and speech perception, has been identified in fMRI studies as a key region involved in the pathophysiology that may be compromised in adults with autism ( 65 ,  66 ). The cerebellum and caudate, which produced 85% classification accuracies in our analyses, have previously been shown to have structural abnormalities in ASD, and reportedly also discriminates between adults with ASD and neurotypical adults ( 33 ). Caudate volume has been reported to associate with repetitive behaviors in individuals with autism ( 15 ). 
+ We found that white matter in the genu and splenium of the corpus callosum also allowed for high classification accuracies. Previous studies have shown corpus callosum abnormalities in ASD ( 67 - 70 ), a finding that has been interpreted as resulting from alterations in interhemispheric cortical connectivity. The novel finding of the current study is that white matter along the inferior fronto-occipital fasciculus and superior longitudinal fasciculus could also distinguish children with autism from TD children. A recent meta-analysis of VBM studies of autism reports that patients with ASD showed increases of white matter volume in the left inferior fronto-occipital fasciculus ( 71 ). Our current findings suggest that these white matter differences are also reflected in multivariate patterns after normalizing for overall volume differences. 
+ The only published studies of classification of structural MRI data have been conducted in either adults or toddlers with autism. The current study is the first such study in children and adolescents. Some common features of these findings have emerged across age groups that may highlight key features of autism. Ecker and colleagues reported that GM data more accurately classified individuals than did white matter data, and that multivariate methods were more sensitive to group differences than were univariate VBM methods ( 33 ), which is what we also found in the current study. The current work, however, is the first to identify the specific loci of GM and WM differences in children and adolescents with autism. The previous study used a whole-brain classification method that was not optimized for finding discriminating brain regions, rather than searchlight classification. Ecker and colleagues recently used a multiparameter classification approach (including data from both volumetric and geometric cortical features) to reveal distributed patterns of discriminating regions from structural gray matter measurements collected from adults with autism ( 33 ). Another recent study used multivariate pattern classification to examine male toddlers with autism and found that in the age range examined (1-4 years), the classification method used could not discriminate between toddlers with autism and controls, though univariate methods did show that toddlers with autism had greater brain volume in several areas ( 72 ). Whether this was due to heterogeneity within the autism group, choice of classification algorithm, choice of control participants, power issues, or represents a true null finding remains an open question. 
+ The current study has several limitations. We examined the age range of 8-18 years, which spans a period of rapid and non-linear brain development. Unfortunately, there is at present no straightforward way to incorporate age covariates into the MPA analysis, which is a shortcoming of the method. Future studies can address this issue by substantially increasing the numbers of participants and dividing the samples into two smaller age ranges to more closely model maturational changes in brain morphology as they relate to autism. Also, the searchlight classification algorithm that we adopt is well suited for using local information to uncover precisely which brain regions provide the most information about group membership (autism or control). However, a limitation of this method is that it cannot identify two or more distant brain regions that together discriminate the two population groups. Methodological advances in this area will be necessary to apply this technique at the whole-brain level so as to consider these potential relationships. Lastly, while our method allows for the identification of structural brain signatures of autism, multimodal studies incorporating functional neuroimaging are needed to address the question of whether measures of functional connectivity, in conjunction with morphology, can better discriminate autism from typical development. 
+ The elucidation of the brain basis of autism is critical for defining neurobiologic mechanisms responsible for the disorder, accounting for heterogeneity across cases, monitoring its evolution, and its response to intervention. One of the major impediments to progress in understanding ASD results from the fact that it is currently diagnosed solely on the basis of behavioral characteristics ( 73 ). Findings from the current study and similar efforts integrating other types of neuroimaging data may eventually lead to the identification of robust brain-based biomarkers with the potential to aid in early detection and intervention in children with ASD. Discovery of such biomarkers may ultimately also be of potential use in identifying toddlers or siblings at risk for developing autism. While the initial results presented here are promising, future studies with larger samples enabling smaller age subgroups within the child population, as well as a wider range of cognitive functioning, will be important in addressing issues of heterogeneity within the population and further investigating relationships between symptomatology and brain structure. 
+ 
+ 
+ Supplementary Material 
+ 
+ 01 
+ 
+ 
+ 
+ 
+ 
+ Acknowledgments 
+ This work was supported by grants from the Singer Foundation, Stanford Institute for Neuro-Innovation & Translational Neurosciences, National Institute of Child Health & Human Development (HD047520 and HD059205), National Institute of Deafness & Other Communication Disorders (DC0111095), National Institute of Mental Health (MH084164) and National Science Foundation (BCS/DRL 0750340) to VM; a Mosbacher Postdoctoral Fellowship and National Institute of Mental Health (K01MH092288) to LQU; National Institute of Mental Health (MH64027) to AH; and National Institute of Child Health & Human Development (HD 35469) and National Institute of Neurological Disorders and Stroke (NS33355) to NM. The authors gratefully acknowledge Dr. Elena Rykhlevskaia for assistance with data processing and Maria Barth and J.J. Markiewicz III for assistance with data organization. The authors also acknowledge and appreciate the contributions of the participants without which this work would not be possible. This data was published in abstract form at the annual meeting of the Organization for Human Brain Mapping in 2011. 
+ 
+ 
+ 
+ This is a PDF file of an unedited manuscript that has been accepted for publication. As a service to our customers we are providing this early version of the manuscript. The manuscript will undergo copyediting, typesetting, and review of the resulting proof before it is published in its final citable form. Please note that during the production process errors may be discovered which could affect the content, and all legal disclaimers that apply to the journal pertain. 
+ 
+ 
+ 
+ Financial Disclosures 
+ 
+ Dr. Hardan has received grants from Bristol-Myers Squibb. He also has received honoraria for speaking fees from Forest, Pfizer, and AstraZeneca. The other authors reported no biomedical financial interests or potential conflicts of interest. 
+ 
+ 
+ 
+ References 
+ 
+ 1 
+ 
+ 
+ 
+ Lord 
+ C 
+ 
+ 
+ Risi 
+ S 
+ 
+ 
+ Lambrecht 
+ L 
+ 
+ 
+ Cook 
+ EH 
+ Jr. 
+ 
+ 
+ Leventhal 
+ BL 
+ 
+ 
+ DiLavore 
+ PC 
+ 
+ 
+ 
+ The autism diagnostic observation schedule-generic: a standard measure of social and communication deficits associated with the spectrum of autism 
+ J Autism Dev Disord 
+ 2000 
+ 30 
+ 205 
+ 223 
+ 11055457 
+ 
+ 
+ 
+ 2 
+ 
+ 
+ 
+ Lord 
+ C 
+ 
+ 
+ Rutter 
+ M 
+ 
+ 
+ Le Couteur 
+ A 
+ 
+ 
+ Autism Diagnostic Interview-Revised: a revised version of a diagnostic interview for caregivers of individuals with possible pervasive developmental disorders 
+ J Autism Dev Disord 
+ 1994 
+ 24 
+ 659 
+ 685 
+ 7814313 
+ 
+ 
+ 
+ 3 
+ 
+ 
+ 
+ Shattuck 
+ PT 
+ 
+ 
+ Durkin 
+ M 
+ 
+ 
+ Maenner 
+ M 
+ 
+ 
+ Newschaffer 
+ C 
+ 
+ 
+ Mandell 
+ DS 
+ 
+ 
+ Wiggins 
+ L 
+ 
+ 
+ 
+ Timing of identification among children with an autism spectrum disorder: findings from a population-based surveillance study 
+ J Am Acad Child Adolesc Psychiatry 
+ 2009 
+ 48 
+ 474 
+ 483 
+ 19318992 
+ 
+ 
+ 
+ 4 
+ 
+ 
+ 
+ Mandell 
+ DS 
+ 
+ 
+ Ittenbach 
+ RF 
+ 
+ 
+ Levey 
+ SE 
+ 
+ 
+ Pinto-Martin 
+ JA 
+ 
+ 
+ Disparities in diagnoses received prior to a diagnosis of autism spectrum disorder 
+ Journal of Autism and Developmental Disorders 
+ 2007 
+ 37 
+ 1795 
+ 1802 
+ 17160456 
+ 
+ 
+ 
+ 5 
+ 
+ 
+ 
+ Mazefsky 
+ CA 
+ 
+ 
+ Kao 
+ J 
+ 
+ 
+ Oswald 
+ DP 
+ 
+ 
+ Preliminary caution regarding the use of psychiatric self-report measures with adolescents with high-functioning autism spectrum disorders 
+ Research in Autism Spectrum Disorders 
+ 2011 
+ 5 
+ 164 
+ 174 
+ 
+ 
+ 
+ 6 
+ 
+ 
+ 
+ Betancur 
+ C 
+ 
+ 
+ Etiological heterogeneity in autism spectrum disorders: More than 100 genetic and genomic disorders and still counting 
+ Brain Res 
+ 2010 
+ 
+ 
+ 
+ 7 
+ 
+ 
+ 
+ Amaral 
+ DG 
+ 
+ 
+ The promise and the pitfalls of autism research: An introductory note for new autism researchers 
+ Brain Res 
+ 2010 
+ 
+ 
+ 
+ 8 
+ 
+ 
+ 
+ Minshew 
+ NJ 
+ 
+ 
+ Williams 
+ DL 
+ 
+ 
+ The new neurobiology of autism: cortex, connectivity, and neuronal organization 
+ Arch Neurol 
+ 2007 
+ 64 
+ 945 
+ 950 
+ 17620483 
+ 
+ 
+ 
+ 9 
+ 
+ 
+ 
+ Amaral 
+ DG 
+ 
+ 
+ Schumann 
+ CM 
+ 
+ 
+ Nordahl 
+ CW 
+ 
+ 
+ Neuroanatomy of autism 
+ Trends Neurosci 
+ 2008 
+ 31 
+ 137 
+ 145 
+ 18258309 
+ 
+ 
+ 
+ 10 
+ 
+ 
+ 
+ Verhoeven 
+ JS 
+ 
+ 
+ De Cock 
+ P 
+ 
+ 
+ Lagae 
+ L 
+ 
+ 
+ Sunaert 
+ S 
+ 
+ 
+ Neuroimaging of autism 
+ Neuroradiology 
+ 2009 
+ 52 
+ 3 
+ 14 
+ 20033797 
+ 
+ 
+ 
+ 11 
+ 
+ 
+ 
+ Boddaert 
+ N 
+ 
+ 
+ Chabane 
+ N 
+ 
+ 
+ Gervais 
+ H 
+ 
+ 
+ Good 
+ CD 
+ 
+ 
+ Bourgeois 
+ M 
+ 
+ 
+ Plumet 
+ MH 
+ 
+ 
+ 
+ Superior temporal sulcus anatomical abnormalities in childhood autism: a voxel-based morphometry MRI study 
+ Neuroimage 
+ 2004 
+ 23 
+ 364 
+ 369 
+ 15325384 
+ 
+ 
+ 
+ 12 
+ 
+ 
+ 
+ Kwon 
+ H 
+ 
+ 
+ Ow 
+ AW 
+ 
+ 
+ Pedatella 
+ KE 
+ 
+ 
+ Lotspeich 
+ LJ 
+ 
+ 
+ Reiss 
+ AL 
+ 
+ 
+ Voxel-based morphometry elucidates structural neuroanatomy of high-functioning autism and Asperger syndrome 
+ Dev Med Child Neurol 
+ 2004 
+ 46 
+ 760 
+ 764 
+ 15540637 
+ 
+ 
+ 
+ 13 
+ 
+ 
+ 
+ Hyde 
+ KL 
+ 
+ 
+ Samson 
+ F 
+ 
+ 
+ Evans 
+ AC 
+ 
+ 
+ Mottron 
+ L 
+ 
+ 
+ Neuroanatomical differences in brain areas implicated in perceptual and other core features of autism revealed by cortical thickness analysis and voxel-based morphometry 
+ Hum Brain Mapp 
+ 2010 
+ 31 
+ 556 
+ 566 
+ 19790171 
+ 
+ 
+ 
+ 14 
+ 
+ 
+ 
+ Rojas 
+ DC 
+ 
+ 
+ Peterson 
+ E 
+ 
+ 
+ Winterrowd 
+ E 
+ 
+ 
+ Reite 
+ ML 
+ 
+ 
+ Rogers 
+ SJ 
+ 
+ 
+ Tregellas 
+ JR 
+ 
+ 
+ Regional gray matter volumetric changes in autism associated with social and repetitive behavior symptoms 
+ BMC Psychiatry 
+ 2006 
+ 6 
+ 56 
+ 17166273 
+ 
+ 
+ 
+ 15 
+ 
+ 
+ 
+ Langen 
+ M 
+ 
+ 
+ Schnack 
+ HG 
+ 
+ 
+ Nederveen 
+ H 
+ 
+ 
+ Bos 
+ D 
+ 
+ 
+ Lahuis 
+ BE 
+ 
+ 
+ de Jonge 
+ MV 
+ 
+ 
+ 
+ Changes in the developmental trajectories of striatum in autism 
+ Biol Psychiatry 
+ 2009 
+ 66 
+ 327 
+ 333 
+ 19423078 
+ 
+ 
+ 
+ 16 
+ 
+ 
+ 
+ Munson 
+ J 
+ 
+ 
+ Dawson 
+ G 
+ 
+ 
+ Abbott 
+ R 
+ 
+ 
+ Faja 
+ S 
+ 
+ 
+ Webb 
+ SJ 
+ 
+ 
+ Friedman 
+ SD 
+ 
+ 
+ 
+ Amygdalar volume and behavioral development in autism 
+ Arch Gen Psychiatry 
+ 2006 
+ 63 
+ 686 
+ 693 
+ 16754842 
+ 
+ 
+ 
+ 17 
+ 
+ 
+ 
+ Scott 
+ JA 
+ 
+ 
+ Schumann 
+ CM 
+ 
+ 
+ Goodlin-Jones 
+ BL 
+ 
+ 
+ Amaral 
+ DG 
+ 
+ 
+ A comprehensive volumetric analysis of the cerebellum in children and adolescents with autism spectrum disorder 
+ Autism Res 
+ 2009 
+ 2 
+ 246 
+ 257 
+ 19885834 
+ 
+ 
+ 
+ 18 
+ 
+ 
+ 
+ Sokol 
+ DK 
+ 
+ 
+ Edwards-Brown 
+ M 
+ 
+ 
+ Neuroimaging in autistic spectrum disorder (ASD) 
+ J Neuroimaging 
+ 2004 
+ 14 
+ 8 
+ 15 
+ 14748203 
+ 
+ 
+ 
+ 19 
+ 
+ 
+ 
+ Radua 
+ J 
+ 
+ 
+ Via 
+ E 
+ 
+ 
+ Catani 
+ M 
+ 
+ 
+ Mataix-Cols 
+ D 
+ 
+ 
+ Voxel-based meta-analysis of regional white-matter volume differences in autism spectrum disorder versus healthy controls 
+ Psychol Med 
+ 2011 
+ 1 
+ 12 
+ 
+ 
+ 
+ 20 
+ 
+ 
+ 
+ Stefanatos 
+ GA 
+ 
+ 
+ Regression in autistic spectrum disorders 
+ Neuropsychol Rev 
+ 2008 
+ 18 
+ 305 
+ 319 
+ 18956241 
+ 
+ 
+ 
+ 21 
+ 
+ 
+ 
+ Muller 
+ RA 
+ 
+ 
+ The study of autism as a distributed disorder 
+ Ment Retard Dev Disabil Res Rev 
+ 2007 
+ 13 
+ 85 
+ 95 
+ 17326118 
+ 
+ 
+ 
+ 22 
+ 
+ 
+ 
+ Uddin 
+ LQ 
+ 
+ 
+ Menon 
+ V 
+ 
+ 
+ The anterior insula in autism: under-connected and under-examined 
+ Neurosci Biobehav Rev 
+ 2009 
+ 33 
+ 1198 
+ 1203 
+ 19538989 
+ 
+ 
+ 
+ 23 
+ 
+ 
+ 
+ Minshew 
+ NJ 
+ 
+ 
+ Goldstein 
+ G 
+ 
+ 
+ Autism: A distributed neural network defect? 
+ Journal of the American Academy of Child and Adolescent Psychiatry 
+ 1992 
+ 
+ 
+ 
+ 24 
+ 
+ 
+ 
+ Minshew 
+ NJ 
+ 
+ 
+ Goldstein 
+ G 
+ 
+ 
+ Is Autism an Amnesic Disorder? Evidence From the California Verbal Learning Test 
+ Neuropsychology 
+ 1993 
+ 7 
+ 209 
+ 216 
+ 
+ 
+ 
+ 25 
+ 
+ 
+ 
+ Belmonte 
+ MK 
+ 
+ 
+ Allen 
+ G 
+ 
+ 
+ Beckel-Mitchener 
+ A 
+ 
+ 
+ Boulanger 
+ LM 
+ 
+ 
+ Carper 
+ RA 
+ 
+ 
+ Webb 
+ SJ 
+ 
+ 
+ Autism and abnormal development of brain connectivity 
+ J Neurosci 
+ 2004 
+ 24 
+ 9228 
+ 9231 
+ 15496656 
+ 
+ 
+ 
+ 26 
+ 
+ 
+ 
+ Frith 
+ C 
+ 
+ 
+ Is autism a disconnection disorder? 
+ Lancet Neurol 
+ 2004 
+ 3 
+ 577 
+ 15380151 
+ 
+ 
+ 
+ 27 
+ 
+ 
+ 
+ Courchesne 
+ E 
+ 
+ 
+ Pierce 
+ K 
+ 
+ 
+ Schumann 
+ CM 
+ 
+ 
+ Redcay 
+ E 
+ 
+ 
+ Buckwalter 
+ JA 
+ 
+ 
+ Kennedy 
+ DP 
+ 
+ 
+ 
+ Mapping early brain development in autism 
+ Neuron 
+ 2007 
+ 56 
+ 399 
+ 413 
+ 17964254 
+ 
+ 
+ 
+ 28 
+ 
+ 
+ 
+ Mundy 
+ P 
+ 
+ 
+ Sullivan 
+ L 
+ 
+ 
+ Mastergeorge 
+ AM 
+ 
+ 
+ A parallel and distributed-processing model of joint attention, social cognition and autism 
+ Autism Res 
+ 2009 
+ 2 
+ 2 
+ 21 
+ 19358304 
+ 
+ 
+ 
+ 29 
+ 
+ 
+ 
+ Just 
+ MA 
+ 
+ 
+ Cherkassky 
+ VL 
+ 
+ 
+ Keller 
+ TA 
+ 
+ 
+ Minshew 
+ NJ 
+ 
+ 
+ Cortical activation and synchronization during sentence comprehension in high-functioning autism: evidence of underconnectivity 
+ Brain 
+ 2004 
+ 127 
+ 1811 
+ 1821 
+ 15215213 
+ 
+ 
+ 
+ 30 
+ 
+ 
+ 
+ Haynes 
+ JD 
+ 
+ 
+ Rees 
+ G 
+ 
+ 
+ Decoding mental states from brain activity in humans 
+ Nat Rev Neurosci 
+ 2006 
+ 7 
+ 523 
+ 534 
+ 16791142 
+ 
+ 
+ 
+ 31 
+ 
+ 
+ 
+ Pereira 
+ F 
+ 
+ 
+ Mitchell 
+ T 
+ 
+ 
+ Botvinick 
+ M 
+ 
+ 
+ Machine learning classifiers and fMRI: a tutorial overview 
+ Neuroimage 
+ 2009 
+ 45 
+ S199 
+ 209 
+ 19070668 
+ 
+ 
+ 
+ 32 
+ 
+ 
+ 
+ Ashburner 
+ J 
+ 
+ 
+ Computational anatomy with the SPM software 
+ Magn Reson Imaging 
+ 2009 
+ 27 
+ 1163 
+ 1174 
+ 19249168 
+ 
+ 
+ 
+ 33 
+ 
+ 
+ 
+ Ecker 
+ C 
+ 
+ 
+ Rocha-Rego 
+ V 
+ 
+ 
+ Johnston 
+ P 
+ 
+ 
+ Mourao-Miranda 
+ J 
+ 
+ 
+ Marquand 
+ A 
+ 
+ 
+ Daly 
+ EM 
+ 
+ 
+ 
+ Investigating the predictive value of whole-brain structural MR scans in autism: a pattern classification approach 
+ Neuroimage 
+ 2010 
+ 49 
+ 44 
+ 56 
+ 19683584 
+ 
+ 
+ 
+ 34 
+ 
+ 
+ 
+ Ecker 
+ C 
+ 
+ 
+ Marquand 
+ A 
+ 
+ 
+ Mourao-Miranda 
+ J 
+ 
+ 
+ Johnston 
+ P 
+ 
+ 
+ Daly 
+ EM 
+ 
+ 
+ Brammer 
+ MJ 
+ 
+ 
+ 
+ Describing the brain in autism in five dimensions--magnetic resonance imaging-assisted diagnosis of autism spectrum disorder using a multiparameter lassification approach 
+ J Neurosci 
+ 2010 
+ 30 
+ 10612 
+ 10623 
+ 20702694 
+ 
+ 
+ 
+ 35 
+ 
+ 
+ 
+ Raichle 
+ ME 
+ 
+ 
+ MacLeod 
+ AM 
+ 
+ 
+ Snyder 
+ AZ 
+ 
+ 
+ Powers 
+ WJ 
+ 
+ 
+ Gusnard 
+ DA 
+ 
+ 
+ Shulman 
+ GL 
+ 
+ 
+ A default mode of brain function 
+ Proc Natl Acad Sci U S A 
+ 2001 
+ 98 
+ 676 
+ 682 
+ 11209064 
+ 
+ 
+ 
+ 36 
+ 
+ 
+ 
+ Greicius 
+ MD 
+ 
+ 
+ Krasnow 
+ B 
+ 
+ 
+ Reiss 
+ AL 
+ 
+ 
+ Menon 
+ V 
+ 
+ 
+ Functional connectivity in the resting brain: a network analysis of the default mode hypothesis 
+ Proc Natl Acad Sci U S A 
+ 2003 
+ 100 
+ 253 
+ 258 
+ 12506194 
+ 
+ 
+ 
+ 37 
+ 
+ 
+ 
+ Kennedy 
+ DP 
+ 
+ 
+ Redcay 
+ E 
+ 
+ 
+ Courchesne 
+ E 
+ 
+ 
+ Failing to deactivate: resting functional abnormalities in autism 
+ Proc Natl Acad Sci U S A 
+ 2006 
+ 103 
+ 8275 
+ 8280 
+ 16702548 
+ 
+ 
+ 
+ 38 
+ 
+ 
+ 
+ Cherkassky 
+ VL 
+ 
+ 
+ Kana 
+ RK 
+ 
+ 
+ Keller 
+ TA 
+ 
+ 
+ Just 
+ MA 
+ 
+ 
+ Functional connectivity in a baseline resting-state network in autism 
+ Neuroreport 
+ 2006 
+ 17 
+ 1687 
+ 1690 
+ 17047454 
+ 
+ 
+ 
+ 39 
+ 
+ 
+ 
+ Monk 
+ CS 
+ 
+ 
+ Peltier 
+ SJ 
+ 
+ 
+ Wiggins 
+ JL 
+ 
+ 
+ Weng 
+ SJ 
+ 
+ 
+ Carrasco 
+ M 
+ 
+ 
+ Risi 
+ S 
+ 
+ 
+ 
+ Abnormalities of intrinsic functional connectivity in autism spectrum disorders 
+ Neuroimage 
+ 2009 
+ 47 
+ 764 
+ 772 
+ 19409498 
+ 
+ 
+ 
+ 40 
+ 
+ 
+ 
+ Assaf 
+ M 
+ 
+ 
+ Jagannathan 
+ K 
+ 
+ 
+ Calhoun 
+ VD 
+ 
+ 
+ Miller 
+ L 
+ 
+ 
+ Stevens 
+ MC 
+ 
+ 
+ Sahl 
+ R 
+ 
+ 
+ 
+ Abnormal functional connectivity of default mode sub-networks in autism spectrum disorder patients 
+ Neuroimage 
+ 2011 
+ 53 
+ 247 
+ 256 
+ 20621638 
+ 
+ 
+ 
+ 41 
+ 
+ 
+ 
+ Via 
+ E 
+ 
+ 
+ Radua 
+ J 
+ 
+ 
+ Cardoner 
+ N 
+ 
+ 
+ Happe 
+ F 
+ 
+ 
+ Mataix-Cols 
+ D 
+ 
+ 
+ Meta-analysis of Gray Matter Abnormalities in Autism Spectrum Disorder: Should Asperger Disorder Be Subsumed Under a Broader Umbrella of Autistic Spectrum Disorder? 
+ Arch Gen Psychiatry 
+ 2011 
+ 68 
+ 409 
+ 418 
+ 21464365 
+ 
+ 
+ 
+ 42 
+ 
+ 
+ 
+ Hardan 
+ AY 
+ 
+ 
+ Kilpatrick 
+ M 
+ 
+ 
+ Keshavan 
+ MS 
+ 
+ 
+ Minshew 
+ NJ 
+ 
+ 
+ Motor performance and anatomic magnetic resonance imaging (MRI) of the basal ganglia in autism 
+ J Child Neurol 
+ 2003 
+ 18 
+ 317 
+ 324 
+ 12822815 
+ 
+ 
+ 
+ 43 
+ 
+ 
+ 
+ Brambilla 
+ P 
+ 
+ 
+ Hardan 
+ A 
+ 
+ 
+ di Nemi 
+ SU 
+ 
+ 
+ Perez 
+ J 
+ 
+ 
+ Soares 
+ JC 
+ 
+ 
+ Barale 
+ F 
+ 
+ 
+ Brain anatomy and development in autism: review of structural MRI studies 
+ Brain Res Bull 
+ 2003 
+ 61 
+ 557 
+ 569 
+ 14519452 
+ 
+ 
+ 
+ 44 
+ 
+ 
+ 
+ Griebling 
+ J 
+ 
+ 
+ Minshew 
+ NJ 
+ 
+ 
+ Bodner 
+ K 
+ 
+ 
+ Libove 
+ R 
+ 
+ 
+ Bansal 
+ R 
+ 
+ 
+ Konasale 
+ P 
+ 
+ 
+ 
+ Dorsolateral prefrontal cortex magnetic resonance imaging measurements and cognitive performance in autism 
+ J Child Neurol 
+ 2010 
+ 25 
+ 856 
+ 863 
+ 20097663 
+ 
+ 
+ 
+ 45 
+ 
+ 
+ 
+ Good 
+ CD 
+ 
+ 
+ Johnsrude 
+ IS 
+ 
+ 
+ Ashburner 
+ J 
+ 
+ 
+ Henson 
+ RN 
+ 
+ 
+ Friston 
+ KJ 
+ 
+ 
+ Frackowiak 
+ RS 
+ 
+ 
+ A voxel-based morphometric study of ageing in 465 normal adult human brains 
+ Neuroimage 
+ 2001 
+ 14 
+ 21 
+ 36 
+ 11525331 
+ 
+ 
+ 
+ 46 
+ 
+ 
+ 
+ Forman 
+ SD 
+ 
+ 
+ Cohen 
+ JD 
+ 
+ 
+ Fitzgerald 
+ M 
+ 
+ 
+ Eddy 
+ WF 
+ 
+ 
+ Mintun 
+ MA 
+ 
+ 
+ Noll 
+ DC 
+ 
+ 
+ Improved assessment of significant activation in functional magnetic resonance imaging (fMRI): use of a cluster-size threshold 
+ Magn Reson Med 
+ 1995 
+ 33 
+ 636 
+ 647 
+ 7596267 
+ 
+ 
+ 
+ 47 
+ 
+ 
+ 
+ Ward 
+ BD 
+ 
+ 
+ Simultaneous Inference for FMRI Data 
+ 2000 
+ AFNI 3dDeconvolve 
+ 
+ 
+ 
+ 48 
+ 
+ 
+ 
+ Kriegeskorte 
+ N 
+ 
+ 
+ Goebel 
+ R 
+ 
+ 
+ Bandettini 
+ P 
+ 
+ 
+ Information-based functional brain mapping 
+ Proc Natl Acad Sci U S A 
+ 2006 
+ 103 
+ 3863 
+ 3868 
+ 16537458 
+ 
+ 
+ 
+ 49 
+ 
+ 
+ 
+ Muller 
+ KR 
+ 
+ 
+ Mika 
+ S 
+ 
+ 
+ Ratsch 
+ G 
+ 
+ 
+ Tsuda 
+ K 
+ 
+ 
+ Scholkopf 
+ B 
+ 
+ 
+ An introduction to kernel-based learning algorithms 
+ IEEE Trans Neural Netw 
+ 2001 
+ 12 
+ 181 
+ 201 
+ 18244377 
+ 
+ 
+ 
+ 50 
+ 
+ 
+ 
+ Haynes 
+ JD 
+ 
+ 
+ Sakai 
+ K 
+ 
+ 
+ Rees 
+ G 
+ 
+ 
+ Gilbert 
+ S 
+ 
+ 
+ Frith 
+ C 
+ 
+ 
+ Passingham 
+ RE 
+ 
+ 
+ Reading hidden intentions in the human brain 
+ Curr Biol 
+ 2007 
+ 17 
+ 323 
+ 328 
+ 17291759 
+ 
+ 
+ 
+ 51 
+ 
+ 
+ 
+ Muller 
+ RA 
+ 
+ 
+ From loci to networks and back again: anomalies in the study of autism 
+ Ann N Y Acad Sci 
+ 2008 
+ 1145 
+ 300 
+ 315 
+ 19076405 
+ 
+ 
+ 
+ 52 
+ 
+ 
+ 
+ Minshew 
+ NJ 
+ 
+ 
+ Goldstein 
+ G 
+ 
+ 
+ Siegel 
+ DJ 
+ 
+ 
+ Neuropsychologic functioning in autism: profile of a complex information processing disorder 
+ J Int Neuropsychol Soc 
+ 1997 
+ 3 
+ 303 
+ 316 
+ 9260440 
+ 
+ 
+ 
+ 53 
+ 
+ 
+ 
+ Courchesne 
+ E 
+ 
+ 
+ Pierce 
+ K 
+ 
+ 
+ Why the frontal cortex in autism might be talking only to itself: local over-connectivity but long-distance disconnection 
+ Curr Opin Neurobiol 
+ 2005 
+ 15 
+ 225 
+ 230 
+ 15831407 
+ 
+ 
+ 
+ 54 
+ 
+ 
+ 
+ Bray 
+ S 
+ 
+ 
+ Chang 
+ C 
+ 
+ 
+ Hoeft 
+ F 
+ 
+ 
+ Applications of multivariate pattern classification analyses in developmental neuroimaging of healthy and clinical populations 
+ Front Hum Neurosci 
+ 2009 
+ 3 
+ 32 
+ 19893761 
+ 
+ 
+ 
+ 55 
+ 
+ 
+ 
+ Kennedy 
+ DP 
+ 
+ 
+ Courchesne 
+ E 
+ 
+ 
+ The intrinsic functional organization of the brain is altered in autism 
+ Neuroimage 
+ 2008 
+ 39 
+ 1877 
+ 1885 
+ 18083565 
+ 
+ 
+ 
+ 56 
+ 
+ 
+ 
+ Assaf 
+ M 
+ 
+ 
+ Jagannathan 
+ K 
+ 
+ 
+ Calhoun 
+ VD 
+ 
+ 
+ Miller 
+ L 
+ 
+ 
+ Stevens 
+ MC 
+ 
+ 
+ Sahl 
+ R 
+ 
+ 
+ 
+ Abnormal functional connectivity of default mode sub-networks in autism spectrum disorder patients 
+ Neuroimage 
+ 53 
+ 247 
+ 256 
+ 20621638 
+ 
+ 
+ 
+ 57 
+ 
+ 
+ 
+ Weng 
+ SJ 
+ 
+ 
+ Wiggins 
+ JL 
+ 
+ 
+ Peltier 
+ SJ 
+ 
+ 
+ Carrasco 
+ M 
+ 
+ 
+ Risi 
+ S 
+ 
+ 
+ Lord 
+ C 
+ 
+ 
+ 
+ Alterations of resting state functional connectivity in the default network in adolescents with autism spectrum disorders 
+ Brain Res 
+ 1313 
+ 202 
+ 214 
+ 20004180 
+ 
+ 
+ 
+ 58 
+ 
+ 
+ 
+ Weng 
+ SJ 
+ 
+ 
+ Wiggins 
+ JL 
+ 
+ 
+ Peltier 
+ SJ 
+ 
+ 
+ Carrasco 
+ M 
+ 
+ 
+ Risi 
+ S 
+ 
+ 
+ Lord 
+ C 
+ 
+ 
+ 
+ Alterations of resting state functional connectivity in the default network in adolescents with autism spectrum disorders 
+ Brain Res 
+ 2009 
+ 
+ 
+ 
+ 59 
+ 
+ 
+ 
+ Buckner 
+ RL 
+ 
+ 
+ Andrews-Hanna 
+ JR 
+ 
+ 
+ Schacter 
+ DL 
+ 
+ 
+ The brain’s default network: anatomy, function, and relevance to disease 
+ Ann N Y Acad Sci 
+ 2008 
+ 1124 
+ 1 
+ 38 
+ 18400922 
+ 
+ 
+ 
+ 60 
+ 
+ 
+ 
+ Uddin 
+ LQ 
+ 
+ 
+ Iacoboni 
+ M 
+ 
+ 
+ Lange 
+ C 
+ 
+ 
+ Keenan 
+ JP 
+ 
+ 
+ The self and social cognition: the role of cortical midline structures and mirror neurons 
+ Trends Cogn Sci 
+ 2007 
+ 11 
+ 153 
+ 157 
+ 17300981 
+ 
+ 
+ 
+ 61 
+ 
+ 
+ 
+ Di Martino 
+ A 
+ 
+ 
+ Ross 
+ K 
+ 
+ 
+ Uddin 
+ LQ 
+ 
+ 
+ Sklar 
+ AB 
+ 
+ 
+ Castellanos 
+ FX 
+ 
+ 
+ Milham 
+ MP 
+ 
+ 
+ Functional Brain Correlates of Social and Nonsocial Processes in Autism Spectrum Disorders: An Activation Likelihood Estimation Meta-Analysis 
+ Biol Psychiatry 
+ 2009 
+ 65 
+ 63 
+ 74 
+ 18996505 
+ 
+ 
+ 
+ 62 
+ 
+ 
+ 
+ Uddin 
+ LQ 
+ 
+ 
+ The self in autism: An emerging view from neuroimaging 
+ Neurocase 
+ 2011 
+ 
+ 
+ 
+ 63 
+ 
+ 
+ 
+ Minshew 
+ NJ 
+ 
+ 
+ Keller 
+ TA 
+ 
+ 
+ The nature of brain dysfunction in autism: functional brain imaging studies 
+ Curr Opin Neurol 
+ 2010 
+ 23 
+ 124 
+ 130 
+ 20154614 
+ 
+ 
+ 
+ 64 
+ 
+ 
+ 
+ Courchesne 
+ E 
+ 
+ 
+ Redcay 
+ E 
+ 
+ 
+ Kennedy 
+ DP 
+ 
+ 
+ The autistic brain: birth through adulthood 
+ Curr Opin Neurol 
+ 2004 
+ 17 
+ 489 
+ 496 
+ 15247547 
+ 
+ 
+ 
+ 65 
+ 
+ 
+ 
+ Pelphrey 
+ KA 
+ 
+ 
+ Carter 
+ EJ 
+ 
+ 
+ Brain mechanisms for social perception: lessons from autism and typical development 
+ Ann N Y Acad Sci 
+ 2008 
+ 1145 
+ 283 
+ 299 
+ 19076404 
+ 
+ 
+ 
+ 66 
+ 
+ 
+ 
+ Redcay 
+ E 
+ 
+ 
+ The superior temporal sulcus performs a common function for social and speech perception: implications for the emergence of autism 
+ Neurosci Biobehav Rev 
+ 2008 
+ 32 
+ 123 
+ 142 
+ 17706781 
+ 
+ 
+ 
+ 67 
+ 
+ 
+ 
+ Hardan 
+ AY 
+ 
+ 
+ Pabalan 
+ M 
+ 
+ 
+ Gupta 
+ N 
+ 
+ 
+ Bansal 
+ R 
+ 
+ 
+ Melhem 
+ NM 
+ 
+ 
+ Fedorov 
+ S 
+ 
+ 
+ 
+ Corpus callosum volume in children with autism 
+ Psychiatry Res 
+ 2009 
+ 174 
+ 57 
+ 61 
+ 19781917 
+ 
+ 
+ 
+ 68 
+ 
+ 
+ 
+ Frazier 
+ TW 
+ 
+ 
+ Hardan 
+ AY 
+ 
+ 
+ A meta-analysis of the corpus callosum in autism 
+ Biol Psychiatry 
+ 2009 
+ 66 
+ 935 
+ 941 
+ 19748080 
+ 
+ 
+ 
+ 69 
+ 
+ 
+ 
+ Freitag 
+ CM 
+ 
+ 
+ Luders 
+ E 
+ 
+ 
+ Hulst 
+ HE 
+ 
+ 
+ Narr 
+ KL 
+ 
+ 
+ Thompson 
+ PM 
+ 
+ 
+ Toga 
+ AW 
+ 
+ 
+ 
+ Total brain volume and corpus callosum size in medication-naive adolescents and young adults with autism spectrum disorder 
+ Biol Psychiatry 
+ 2009 
+ 66 
+ 316 
+ 319 
+ 19409535 
+ 
+ 
+ 
+ 70 
+ 
+ 
+ 
+ Keary 
+ CJ 
+ 
+ 
+ Minshew 
+ NJ 
+ 
+ 
+ Bansal 
+ R 
+ 
+ 
+ Goradia 
+ D 
+ 
+ 
+ Fedorov 
+ S 
+ 
+ 
+ Keshavan 
+ MS 
+ 
+ 
+ 
+ Corpus callosum volume and neurocognition in autism 
+ J Autism Dev Disord 
+ 2009 
+ 39 
+ 834 
+ 841 
+ 19165587 
+ 
+ 
+ 
+ 71 
+ 
+ 
+ 
+ Radua 
+ J 
+ 
+ 
+ Via 
+ E 
+ 
+ 
+ Catani 
+ M 
+ 
+ 
+ Mataix-Cols 
+ D 
+ 
+ 
+ Voxel-based meta-analysis of regional white-matter volume differences in autism spectrum disorder versus healthy controls 
+ Psychol Med 
+ 1 
+ 12 
+ 
+ 
+ 
+ 72 
+ 
+ 
+ 
+ Hoeft 
+ F 
+ 
+ 
+ Walter 
+ E 
+ 
+ 
+ Lightbody 
+ AA 
+ 
+ 
+ Hazlett 
+ HC 
+ 
+ 
+ Chang 
+ C 
+ 
+ 
+ Piven 
+ J 
+ 
+ 
+ 
+ Neuroanatomical Differences in Toddler Boys With Fragile X Syndrome and Idiopathic Autism 
+ Arch Gen Psychiatry 
+ 2010 
+ 
+ 
+ 
+ 73 
+ 
+ 
+ 
+ Mazefsky 
+ CA 
+ 
+ 
+ Oswald 
+ DP 
+ 
+ 
+ The discriminative ability and diagnostic utility of the ADOS-G, ADI-R, and GARS for children in a clinical setting 
+ Autism 
+ 2006 
+ 10 
+ 533 
+ 549 
+ 17088271 
+ 
+ 
+ 
+ 
+ 
+ 
+ Figure 1 
+ 
+ A.  Results from searchlight classification of gray matter. Regions discriminating between participants groups include prefrontal, posterior parietal, temporal, default mode network, medial temporal, and subcortical areas. The highest classification accuracies were obtained from gray matter in the posterior cingulate cortex and parahippocampal gyrus (92%), medial prefrontal cortex (88%) and posterior parietal cortices (85%), all regions within the default mode network.  B.  Results from searchlight classification of white matter. Regions discriminating between participant groups include inferior fronto-occipital fasciculus, superior longitudinal fasciculus, and the genu and splenium of the corpus callosum. 
+ 
+ 
+ 
+ 
+ Figure 2 
+ 
+ Results from searchlight classification of gray matter (blue) and group differences in gray matter revealed by univariate VBM analyses (red and yellow). Areas where VBM of gray matter showed AD > TD are in red, areas where VBM of gray matter showed TD > AD are in yellow. 
+ 
+ 
+ 
+ 
+ Figure 3 
+ 
+ Relationship between SVM and symptom severity. Children with the most severe autism as indexed by ADI-R communication (r = .536, p < .01) subscale are better discriminators between groups on the basis of gray matter (GM) in the posterior cingulate cortex than those with less severe symptomatology. 
+ 
+ 
+ 
+ 
+ Table 1 
+ 
+ Participant Demographics 
+ 
+ 
+ 
+ 
+ Measure 
+ ASD 
+ TD 
+ F -test 
+ p -value 
+ 
+ 
+ 
+ 
+  Age 
+ 13.23 ± 0.66 
+ 13.25 ± 0.55 
+ F  = .001 
+ .973 
+ 
+ 
+  VIQ 
+ 109.08 ± 3.29 
+ 106.63 ± 1.86 
+ F  = .422 
+ .519 
+ 
+ 
+  PIQ 
+ 100.88 ± 3.19 
+ 104.63 ± 1.95 
+ F  = 1.00 
+ .322 
+ 
+ 
+  FSIQ 
+ 105.67 ± 3.28 
+ 106.00 ± 1.95 
+ F  = .008 
+ .931 
+ 
+ 
+ ADI 
+ 
+ 
+  Social 
+ 29.81 ± 1.63 
+ 
+ 
+ 
+ 
+ 
+  Communication 
+ 20.71 ± 1.06 
+ 
+ 
+ 
+ 
+ 
+  Repetitive Behaviors 
+ 10.38 ± 0.85 
+ 
+ 
+ 
+ 
+ 
+ ADOS 
+ 
+ 
+  Social 
+ 9.62 ± 0.57 
+ 
+ 
+ 
+ 
+ 
+  Communication 
+ 5.10 ± 0.38 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ df = (1, 46) for all analyses 
+ 
+ 
+ 
+ Table 2 
+ 
+ Gray and white matter classification peaks 
+ 
+ 
+ 
+ 
+ Region 
+ Size of Cluster (voxels) 
+ Classification Accuracy (%) 
+ MNI Coordinates 
+ 
+ 
+ X 
+ Y 
+ Z 
+ 
+ 
+ 
+ 
+ 
+ Gray Matter 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Prefrontal 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  Middle Frontal Gyrus 
+ 104 
+ 83 
+ 34 
+ 34 
+ 32 
+ 
+ 
+  Inferior Frontal Gyrus 
+ 509 
+ 88 
+ 42 
+ 28 
+ 18 
+ 
+ 
+  Superior Frontal Gyrus 
+ 370 
+ 88 
+ −24 
+ 22 
+ 62 
+ 
+ 
+ Posterior Parietal 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  Supramarginal Gyrus 
+ 187 
+ 85 
+ −52 
+ −24 
+ 34 
+ 
+ 
+  Angular Gyrus 
+ 262 
+ 85 
+ 56 
+ −46 
+ 18 
+ 
+ 
+ Temporal 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  Superior Temporal Sulcus 
+ 224 
+ 79 
+ −48 
+ −52 
+ 10 
+ 
+ 
+  Anterior Temporal Lobe 
+ 107 
+ 90 
+ −36 
+ 2 
+ −38 
+ 
+ 
+ Default Mode Network 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  PCC 
+ 1120 
+ 92 
+ 4 
+ −32 
+ 26 
+ 
+ 
+  MPFC 
+ 112 
+ 88 
+ 2 
+ 36 
+ −12 
+ 
+ 
+ Medial Temporal 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  Hippocampus 
+ 117 
+ 81 
+ 36 
+ −22 
+ −24 
+ 
+ 
+  Parahippocampal Gyrus 
+ 528 
+ 92 
+ −26 
+ −26 
+ −26 
+ 
+ 
+ Subcortical 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  Cerebellum 
+ 77 
+ 85 
+ −12 
+ −78 
+ −36 
+ 
+ 
+  L Thalamus 
+ 1120 
+ 85 
+ −4 
+ −4 
+ 16 
+ 
+ 
+  L Caudate 
+ 1120 
+ 85 
+ −14 
+ 4 
+ 20 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ White Matter 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  Inf. Fronto-Occipital Fasc. 
+ 58 
+ 83 
+ −26 
+ 22 
+ 10 
+ 
+ 
+  Sup. Longitudinal Fasc. 
+ 388 
+ 85 
+ 36 
+ −24 
+ 40 
+ 
+ 
+  Splenium, Corpus Callosum 
+ 259 
+ 79 
+ −20 
+ −50 
+ 18 
+ 
+ 
+  Genu, Corpus Callosum 
+ 199 
+ 85 
+ 12 
+ 20 
+ 22 
+ 
+ 
+ 
+ 
+ 
+ Table 3 
+ 
+ Correlations coefficients between diagnostic criteria and distance from hyperplane 
+ 
+ 
+ 
+ 
+ Region 
+ ADOS Social 
+ ADOS Communication 
+ ADI-R Social 
+ ADI-R Communication 
+ ADI-R Repetitive Behavior 
+ 
+ 
+ 
+ r 
+ 
+ 
+ p 
+ 
+ 
+ r 
+ 
+ 
+ p 
+ 
+ 
+ r 
+ 
+ 
+ p 
+ 
+ 
+ r 
+ 
+ 
+ p 
+ 
+ 
+ r 
+ 
+ 
+ p 
+ 
+ 
+ 
+ 
+ 
+ 
+ Gray matter 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Default Mode Network 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  PCC 
+ −.173 
+ .452 
+ −.021 
+ .927 
+ .413 
+ 
+ .045 
+ * 
+ 
+ .536 
+ 
+ .007 
+ ** 
+ 
+ .413 
+ 
+ .045 
+ * 
+ 
+ 
+ 
+  MPFC 
+ −.006 
+ .980 
+ −.050 
+ .830 
+ .272 
+ .198 
+ .116 
+ .590 
+ .272 
+ .198 
+ 
+ 
+ 
+ 
+ 
+ * 
+ Significant correlations at  p  < .05 
+ 
+ 
+ ** 
+ significant correlations at  p  < .01 (two-tailed) 
+ 
+ 
+ 
+ 
